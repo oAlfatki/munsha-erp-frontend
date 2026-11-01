@@ -1,5 +1,5 @@
 import { it, expect } from "vitest";
-import { validateControl } from "@/core/components/shared/forms/control-validation";
+import { validateControl } from "@/shared/ui/forms/control-validation";
 it('rejects whitespace in required controls',()=>expect(validateControl(' ',{required:true},'الاسم')).toBe('الاسم إجباري'));
 it('allows empty optional numeric controls',()=>expect(validateControl('',{type:'number',min:0},'المبلغ')).toBe(true));
 it('rejects negative amounts at a numeric minimum',()=>expect(validateControl('-1',{type:'number',min:0},'المبلغ')).not.toBe(true));

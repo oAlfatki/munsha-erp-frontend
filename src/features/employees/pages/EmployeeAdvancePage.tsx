@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { EmployeeAdvanceScreen } from '@/features/employees/components/screens/EmployeeAdvanceScreen';
 import { useEmployeesData } from '@/features/employees/hooks/useEmployeesData';
 /** صرف سلفة موظف — feature-owned route content. */

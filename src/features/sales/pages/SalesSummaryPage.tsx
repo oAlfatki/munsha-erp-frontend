@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { SalesSummaryReport } from '@/features/sales/components/reports/SalesSummaryReport';
 import { useSalesData } from '@/features/sales/hooks/useSalesData';
 /** تقرير المبيعات — feature-owned route content. */

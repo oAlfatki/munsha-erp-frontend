@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { EmployeeAdvancesReport } from '@/features/employees/components/reports/EmployeeAdvancesReport';
 import { useEmployeesData } from '@/features/employees/hooks/useEmployeesData';
 /** تقرير مسحوبات الموظفين — feature-owned route content. */

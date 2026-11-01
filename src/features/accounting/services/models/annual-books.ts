@@ -1,3 +1,8 @@
+import type {BookCatalogContext} from '@/features/accounting/types/read-models/BookCatalogContext';
+import type {IsArchivedContext} from '@/features/accounting/types/read-models/IsArchivedContext';
+import type {StockClosingContext} from '@/features/accounting/types/read-models/StockClosingContext';
+import type {AccountClosingContext} from '@/features/accounting/types/read-models/AccountClosingContext';
+import type {ClosingChecksContext} from '@/features/accounting/types/read-models/ClosingChecksContext';
 import type { AnnualBooks } from '@/features/accounting/types/models/AnnualBooks';
 
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
@@ -6,7 +11,7 @@ import { money } from '@/core/utils/money';
 import { cashOptions, defaultCashId } from '@/features/accounting/services/models/cash';
 import { allAccounts, extras } from '@/features/accounting/services/models/extensions';
 export function bookCatalog(
-  workspace: Pick<ErpReadModel, 'organization' | 'annualBooks'>,
+  workspace: BookCatalogContext,
 ): AnnualBooks {
   return (
     workspace.annualBooks || {
@@ -22,11 +27,11 @@ export function bookCatalog(
     }
   );
 }
-export const isArchived = (workspace: Pick<ErpReadModel, 'organization' | 'annualBooks'>) =>
+export const isArchived = (workspace: IsArchivedContext) =>
   bookCatalog(workspace).books.find((b) => b.id === bookCatalog(workspace).activeId)?.status ===
   'closed';
 export function stockClosing(
-  workspace: ErpReadModel,
+  workspace: StockClosingContext,
   date: string,
   branchId = '',
   warehouseId = '',
@@ -63,7 +68,7 @@ export function stockClosing(
       }),
   );
 }
-export function accountClosing(workspace: ErpReadModel, date: string, branchId = '') {
+export function accountClosing(workspace: AccountClosingContext, date: string, branchId = '') {
   const chart = allAccounts(workspace),
     groups = new Map<
       string,
@@ -123,7 +128,7 @@ export function accountClosing(workspace: ErpReadModel, date: string, branchId =
     }))
     .filter((v) => v.amount !== 0);
 }
-export function closingChecks(workspace: ErpReadModel): string[] {
+export function closingChecks(workspace: ClosingChecksContext): string[] {
   const errors: string[] = [],
     end = workspace.organization.year + '-12-31',
     chart = allAccounts(workspace);

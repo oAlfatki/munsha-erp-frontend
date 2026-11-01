@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { OpeningAccounts } from '@/features/accounting/components/OpeningAccounts';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** إضافة الأرصدة الافتتاحية — feature-owned route content. */

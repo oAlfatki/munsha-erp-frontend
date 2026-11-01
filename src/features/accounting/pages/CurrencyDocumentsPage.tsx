@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { CurrencyDocumentsReport } from '@/features/accounting/components/reports/CurrencyDocumentsReport';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** مراجعة أرصدة العملات — feature-owned route content. */

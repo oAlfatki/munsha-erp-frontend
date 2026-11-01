@@ -1,9 +1,9 @@
 import baseline from '../fixtures/baseline-screen-text.json';
 import previous from '../fixtures/pre-separation-routes.json';
-import {APP_ROUTES} from '@/core/router/Routes';
-import {COMPANY_RESOURCES} from '@/core/services/company-resources';
+import {APP_ROUTES} from '@/app/router/routes';
+import {COMPANY_RESOURCES} from '@/app/bootstrap/company-resources';
 import {resourceQueryKey} from '@/core/query/resource-queries';
-import {apiClient} from '@/core/services/http/api-client';
+import {axiosInstance as apiClient} from '@/core/api/apiClient';
 import type {ApplicationState} from '@/core/types/ApplicationState';
 import type {CompanyData} from '@/core/types/CompanyData';
 import type {DataResource} from '@/core/types/DataResource';
@@ -15,8 +15,8 @@ import {QueryClient,QueryClientProvider} from '@tanstack/react-query';
 import {createSeed} from '../reference/domain/engine';
 import {readResponse} from '../support/read-responses';
 const fixture=vi.hoisted(()=>({ui:null as unknown as ApplicationState,company:null as unknown as CompanyData}));
-vi.mock('@/core/providers/ApplicationProvider',()=>({useApplication:()=>fixture.ui}));
-vi.mock('@/core/providers/CompanyProvider',()=>({useCompanyData:()=>fixture.company}));
+vi.mock('@/app/providers/ApplicationProvider',()=>({useApplication:()=>fixture.ui}));
+vi.mock('@/app/providers/CompanyProvider',()=>({useCompanyData:()=>fixture.company}));
 vi.mock('@/core/auth/AuthProvider',()=>({useAuth:()=>({user:fixture.ui.user,setUser:()=>{}})}));
 const modules=import.meta.glob('../../src/features/*/hooks/use*Data.ts',{eager:true}) as Record<string,{DATA_RESOURCES:DataResource[]}>;
 interface TestMenuEntry {target?:string;children?:TestMenuEntry[];}

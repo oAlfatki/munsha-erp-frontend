@@ -1,11 +1,11 @@
-import { Modal } from '@/core/components/shared/dialogs/Modal';
-import { Field } from '@/core/components/shared/forms/Field';
-import { Select } from '@/core/components/shared/forms/Select';
-import { Form as ValidatedForm } from '@/core/components/shared/forms/ValidatedForm';
-import { PageHead } from '@/core/components/shared/layout/PageHead';
-import { DataTable } from '@/core/components/shared/tables/DataTable';
-import { Button } from '@/core/components/ui/button';
-import { Input } from '@/core/components/ui/input';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { Field } from '@/shared/ui/forms/Field';
+import { Select } from '@/shared/ui/forms/Select';
+import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
 import { AccountPanel } from '@/features/auth/components/AccountPanel';
 import { useAccessController } from '@/features/users/hooks/useAccessController';
 export const ACCESS_MODULES = [

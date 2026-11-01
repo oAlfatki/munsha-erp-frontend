@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { ContactsLedger } from '@/features/accounting/components/ContactsLedger';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** حركة الأطراف المتنوعة وكشف الحساب — feature-owned route content. */

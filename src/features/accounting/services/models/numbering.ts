@@ -1,3 +1,6 @@
+import type {ReferencesContext} from '@/features/accounting/types/read-models/ReferencesContext';
+import type {NextDocumentNumberContext} from '@/features/accounting/types/read-models/NextDocumentNumberContext';
+import type {CarryCountersContext} from '@/features/accounting/types/read-models/CarryCountersContext';
 import type { DocumentKind } from '@/features/accounting/types/models/DocumentKind';
 
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
@@ -15,14 +18,14 @@ export const PREFIXES: Record<DocumentKind, string> = {
   transfer: 'TRF-D',
   adjustment: 'ADJ-D',
 };
-const references = (workspace: ErpReadModel) => [
+const references = (workspace: ReferencesContext) => [
   ...workspace.invoices.map((invoice) => invoice.number),
   ...workspace.entries.map((entry) => entry.reference),
   ...(workspace.stockDocuments || []).map((d) => d.reference),
   ...workspace.audit.map((a) => a.reference),
 ];
 export function nextDocumentNumber(
-  workspace: ErpReadModel,
+  workspace: NextDocumentNumberContext,
   kind: DocumentKind,
   branchId: string,
   isAllocate = false,
@@ -58,7 +61,7 @@ export function nextDocumentNumber(
   }
   return value;
 }
-export function carryCounters(workspace: ErpReadModel): Record<string, number> {
+export function carryCounters(workspace: CarryCountersContext): Record<string, number> {
   const result = { ...workspace.documentCounters };
   for (const k of Object.keys(PREFIXES) as DocumentKind[]) {
     const all = [

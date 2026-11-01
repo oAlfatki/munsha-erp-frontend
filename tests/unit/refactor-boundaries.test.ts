@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { join } from "node:path";
-import {APP_ROUTES} from '@/core/router/Routes';
+import {APP_ROUTES} from '@/app/router/routes';
 import {MENU_ITEMS,menuLeaves} from '@/core/config/menu';
 
 import provenance from "../fixtures/reference-domain-provenance.json";

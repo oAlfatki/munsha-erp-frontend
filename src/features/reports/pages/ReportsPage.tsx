@@ -1,4 +1,4 @@
-import { PageHead } from '@/core/components/shared/layout/PageHead';
+import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Link } from 'react-router-dom';
 const REPORT_LINKS = [
   { title: 'تقرير تكلفة المخزون', path: '/inventory/cost' },

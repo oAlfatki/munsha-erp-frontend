@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { Expenses } from '@/features/expenses/components/Expenses';
 import { useExpensesData } from '@/features/expenses/hooks/useExpensesData';
 /** إضافة مصروف — feature-owned route content. */

@@ -1,9 +1,10 @@
+import type {BuildExpenseDocumentsReportContext} from '@/features/expenses/types/read-models/BuildExpenseDocumentsReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { extras } from '@/features/accounting/services/models/extensions';
 export function buildExpenseDocumentsReport(
-  workspace: ErpReadModel,
+  workspace: BuildExpenseDocumentsReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

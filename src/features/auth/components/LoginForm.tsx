@@ -1,7 +1,7 @@
 import { useAuth } from '@/core/auth/AuthProvider';
-import { Field } from '@/core/components/shared/forms/Field';
-import { Button } from '@/core/components/ui/button';
-import { Input } from '@/core/components/ui/input';
+import { Field } from '@/shared/ui/forms/Field';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
 import { useLogin } from '@/features/auth/hooks/useLogin';
 import { getAccount } from '@/features/auth/services/auth-service';
 import { ArrowLeft } from 'lucide-react';

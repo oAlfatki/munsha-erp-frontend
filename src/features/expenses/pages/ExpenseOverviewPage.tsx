@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { Expenses } from '@/features/expenses/components/Expenses';
 import { useExpensesData } from '@/features/expenses/hooks/useExpensesData';
 export default function ExpenseOverviewPage() {

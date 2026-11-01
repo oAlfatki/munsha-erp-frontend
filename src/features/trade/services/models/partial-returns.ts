@@ -1,3 +1,5 @@
+import type {ReturnRemainingContext} from '@/features/trade/types/read-models/ReturnRemainingContext';
+import type {QuoteReturnContext} from '@/features/trade/types/read-models/QuoteReturnContext';
 import type { ReturnPick } from '@/features/trade/types/models/ReturnPick';
 
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
@@ -10,7 +12,7 @@ import { lineTotal } from '@/features/trade/utils/line-total';
 const check = (ok: unknown, message: string) => {
   if (!ok) throw Error(message);
 };
-export function returnRemaining(workspace: ErpReadModel, invoice: Invoice, index: number) {
+export function returnRemaining(workspace: ReturnRemainingContext, invoice: Invoice, index: number) {
   const old = (workspace.invoiceReturns || [])
     .flatMap((r) =>
       r.sourceId === invoice.id
@@ -33,7 +35,7 @@ export function returnRemaining(workspace: ErpReadModel, invoice: Invoice, index
   };
 }
 export function quoteReturn(
-  workspace: ErpReadModel,
+  workspace: QuoteReturnContext,
   source: Invoice,
   picks: ReturnPick[],
   discountInput?: number,

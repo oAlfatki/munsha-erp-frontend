@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { Accounting } from '@/features/accounting/components/Accounting';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 export default function AccountingOverviewPage() {

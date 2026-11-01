@@ -1,10 +1,11 @@
+import type {InvoiceItemMatchesContext} from '@/features/trade/types/read-models/InvoiceItemMatchesContext';
 import type { ItemMatch } from '@/features/trade/types/models/ItemMatch';
 
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { InvoiceLine } from '@/features/trade/types/models/InvoiceLine';
 export function invoiceItemMatches(
-  workspace: ErpReadModel,
+  workspace: InvoiceItemMatchesContext,
   query: string,
   kind: 'sale' | 'purchase',
 ): ItemMatch[] {

@@ -1,4 +1,4 @@
-import { DynamicField } from '@/core/components/shared/forms/DynamicField';
+import { DynamicField } from '@/shared/ui/forms/DynamicField';
 import { useErpContext } from '@/core/hooks/useErpContext';
 import { allAccounts } from '@/features/accounting/services/models/extensions';
 import type { DynamicFieldProps } from '@/features/settings/types/DynamicFieldProps';

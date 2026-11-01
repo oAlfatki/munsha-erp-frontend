@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { SalesChartReport } from '@/features/sales/components/reports/SalesChartReport';
 import { useSalesData } from '@/features/sales/hooks/useSalesData';
 /** الرسم البياني لحركة المبيعات — feature-owned route content. */

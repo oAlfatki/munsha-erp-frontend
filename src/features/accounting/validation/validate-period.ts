@@ -1,6 +1,7 @@
+import type {ValidatePeriodContext} from '@/features/accounting/types/read-models/ValidatePeriodContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { isArchived } from '@/features/accounting/services/models/annual-books';
-export function validatePeriod(data: ErpReadModel, type: string, input: unknown) {
+export function validatePeriod(data: ValidatePeriodContext, type: string, input: unknown) {
   if (!type.startsWith('period') && isArchived(data))
     throw Error('الفترة مؤرشفة للعرض فقط؛ افتح الفترة الحالية من الإعدادات');
   if (!input || typeof input !== 'object') return;

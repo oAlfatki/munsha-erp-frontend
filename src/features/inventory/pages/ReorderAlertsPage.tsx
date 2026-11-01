@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { ReorderReport } from '@/features/inventory/components/reports/ReorderReport';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** أصناف بلغت حد الطلب — feature-owned route content. */

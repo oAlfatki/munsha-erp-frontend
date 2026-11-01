@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { PayrollScreen } from '@/features/employees/components/screens/PayrollScreen';
 import { useEmployeesData } from '@/features/employees/hooks/useEmployeesData';
 /** احتساب وإثبات رواتب فترة — feature-owned route content. */

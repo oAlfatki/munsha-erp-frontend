@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { StockDocuments } from '@/features/inventory/components/StockDocuments';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** إضافة فاتورة تحويل مخزني — feature-owned route content. */

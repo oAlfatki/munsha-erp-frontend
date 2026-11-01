@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { AnnualSettings } from '@/features/settings/components/AnnualSettings';
 import { useSettingsData } from '@/features/settings/hooks/useSettingsData';
 /** إنشاء الفترة المالية وترحيل الأرصدة — feature-owned route content. */

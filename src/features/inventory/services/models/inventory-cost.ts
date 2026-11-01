@@ -1,10 +1,11 @@
+import type {InventoryCostContext} from '@/features/inventory/types/read-models/InventoryCostContext';
 import type { CostFilters } from '@/features/inventory/types/models/CostFilters';
 
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { money } from '@/core/utils/money';
 import { quantityByUnits } from '@/features/inventory/services/models/inventory-display';
-export function inventoryCost(workspace: ErpReadModel, branch: string, f: CostFilters) {
+export function inventoryCost(workspace: InventoryCostContext, branch: string, f: CostFilters) {
   const warehouses = workspace.warehouses.filter(
     (w) => w.branchId === branch && (!f.warehouse || w.id === f.warehouse),
   );

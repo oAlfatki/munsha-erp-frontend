@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { CashMovementReport } from '@/features/accounting/components/reports/CashMovementReport';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** حركة الصندوق — feature-owned route content. */

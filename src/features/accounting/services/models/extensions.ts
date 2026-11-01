@@ -1,10 +1,12 @@
+import type {ExtrasContext} from '@/features/accounting/types/read-models/ExtrasContext';
+import type {AllAccountsContext} from '@/features/accounting/types/read-models/AllAccountsContext';
 import type { ExtensionData } from '@/features/accounting/types/models/ExtensionData';
 import type { MasterRecord } from '@/features/accounting/types/models/MasterRecord';
 
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { ACCOUNTS } from '@/features/accounting/utils/account-balances';
-export function extras(workspace: ErpReadModel): ExtensionData {
+export function extras(workspace: ExtrasContext): ExtensionData {
   const defaults: Record<string, MasterRecord[]> = {
     units: [
       ...new Set(workspace.products.flatMap((product) => product.units.map((u) => u.name))),
@@ -27,7 +29,7 @@ export function extras(workspace: ErpReadModel): ExtensionData {
     preferences: workspace.extras?.preferences || {},
   };
 }
-export function allAccounts(workspace: ErpReadModel) {
+export function allAccounts(workspace: AllAccountsContext) {
   const result: Record<
     string,
     {

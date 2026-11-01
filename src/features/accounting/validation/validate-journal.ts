@@ -1,8 +1,9 @@
+import type {ValidateJournalContext} from '@/features/accounting/types/read-models/ValidateJournalContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { money } from '@/core/utils/money';
 import { allAccounts, extras } from '@/features/accounting/services/models/extensions';
 import { manualJournalSchema } from './accounting-schema';
-export function validateJournal(data: ErpReadModel, input: unknown) {
+export function validateJournal(data: ValidateJournalContext, input: unknown) {
   const p = manualJournalSchema.parse(input),
     chart = allAccounts(data),
     records = extras(data).records;

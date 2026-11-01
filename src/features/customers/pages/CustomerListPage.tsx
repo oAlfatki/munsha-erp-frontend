@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { CustomerDirectory } from '@/features/customers/components/CustomerDirectory';
 import { useCustomersData } from '@/features/customers/hooks/useCustomersData';
 export default function CustomerListPage() {

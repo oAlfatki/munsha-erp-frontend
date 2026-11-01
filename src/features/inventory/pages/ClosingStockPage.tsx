@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { ClosingStockScreen } from '@/features/inventory/components/screens/ClosingStockScreen';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** تقرير مخزون آخر المدة — feature-owned route content. */

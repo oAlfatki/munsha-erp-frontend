@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { ClosingAccountBalancesScreen } from '@/features/accounting/components/screens/ClosingAccountBalancesScreen';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** الحسابات في الفترة المنتهية — feature-owned route content. */

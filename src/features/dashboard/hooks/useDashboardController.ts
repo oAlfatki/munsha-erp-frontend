@@ -1,5 +1,5 @@
-import { useApplication } from '@/core/providers/ApplicationProvider';
-import { useCompanyData } from '@/core/providers/CompanyProvider';
+import { useApplication } from '@/app/providers/ApplicationProvider';
+import { useCompanyData } from '@/app/providers/CompanyProvider';
 import { fetchDashboard } from '@/features/dashboard/api/read-api';
 import { useQuery } from '@tanstack/react-query';
 export function useDashboardController() {

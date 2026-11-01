@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { IncomeStatement } from '@/features/financial/components/screens/IncomeStatement';
 import { useFinancialData } from '@/features/financial/hooks/useFinancialData';
 /** قائمة الدخل — feature-owned route content. */

@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { Backups } from '@/features/settings/components/Backups';
 import { useSettingsData } from '@/features/settings/hooks/useSettingsData';
 /** استرجاع نسخة احتياطية — feature-owned route content. */

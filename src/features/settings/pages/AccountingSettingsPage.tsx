@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { SystemSettings } from '@/features/settings/components/SystemSettings';
 import { useSettingsData } from '@/features/settings/hooks/useSettingsData';
 /** إعدادات المحاسبة والضرائب — feature-owned route content. */

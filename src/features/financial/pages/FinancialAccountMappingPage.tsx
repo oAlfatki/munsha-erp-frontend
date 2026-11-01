@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { AccountMappingReport } from '@/features/financial/components/reports/AccountMappingReport';
 import { useFinancialData } from '@/features/financial/hooks/useFinancialData';
 /** ربط الحسابات بالقوائم المالية — feature-owned route content. */

@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { UserAuditReport } from '@/features/users/components/reports/UserAuditReport';
 import { useUsersData } from '@/features/users/hooks/useUsersData';
 /** حركات المستخدمين — feature-owned route content. */

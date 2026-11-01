@@ -1,5 +1,5 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
-import type { PageDefinition } from '@/core/types/PageDefinition';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
+import type { PageDefinition } from '@/app/types/PageDefinition';
 import { JournalScreen } from '@/features/accounting/components/JournalEntryScreen';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 const DEFINITION: PageDefinition = {

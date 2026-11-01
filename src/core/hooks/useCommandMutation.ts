@@ -1,4 +1,4 @@
-import { useApplication } from '@/core/providers/ApplicationProvider';
+import { useApplication } from '@/app/providers/ApplicationProvider';
 import type { CommandContext } from '@/core/types/CommandContext';
 import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { useCallback } from 'react';

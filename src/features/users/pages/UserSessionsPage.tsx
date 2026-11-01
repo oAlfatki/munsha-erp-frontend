@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { Access } from '@/features/users/components/Access';
 import { useUsersData } from '@/features/users/hooks/useUsersData';
 /** الجلسات النشطة وقفل الجلسة — feature-owned route content. */

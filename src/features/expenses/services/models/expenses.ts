@@ -1,3 +1,4 @@
+import type {ExpenseViewsContext} from '@/features/expenses/types/read-models/ExpenseViewsContext';
 import type { ExpenseDocument } from '@/features/expenses/types/models/ExpenseDocument';
 import type { ExpenseView } from '@/features/expenses/types/models/ExpenseView';
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
@@ -10,7 +11,7 @@ export const TREATMENT_LABELS = {
   accrued: 'مصروف مستحق',
   prepaid: 'مصروف مدفوع مقدمًا',
 };
-export function expenseViews(workspace: ErpReadModel): ExpenseView[] {
+export function expenseViews(workspace: ExpenseViewsContext): ExpenseView[] {
   const x = extras(workspace);
   const docs: ExpenseDocument[] = [...(workspace.expenseDocuments || [])];
   const result = docs.map((d) => ({

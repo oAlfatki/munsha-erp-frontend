@@ -1,4 +1,4 @@
-import { LoadingState } from '@/core/components/shared/feedback/LoadingState';
+import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { fmt } from '@/core/utils/formatters';
 import { useDashboardController } from '@/features/dashboard/hooks/useDashboardController';
 import {

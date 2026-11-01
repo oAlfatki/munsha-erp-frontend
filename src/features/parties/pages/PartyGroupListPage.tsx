@@ -1,5 +1,5 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
-import type { PageDefinition } from '@/core/types/PageDefinition';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
+import type { PageDefinition } from '@/app/types/PageDefinition';
 import { MasterScreen } from '@/features/accounting/components/MasterDataScreen';
 import { usePartiesData } from '@/features/parties/hooks/usePartiesData';
 const DEFINITION: PageDefinition = {

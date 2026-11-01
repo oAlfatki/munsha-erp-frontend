@@ -1,41 +1,26 @@
 import { ENDPOINTS } from '@/core/config/endpoints';
 import { CONFIG } from '@/core/config/env';
-import { apiRequest } from '@/core/services/http/api-client';
+import { apiClient } from '@/core/api/apiClient';
 import type { SaveAuthActionRequest } from '@/features/auth/types/requests/SaveAuthActionRequest';
 import type { AuthActionResponse } from '@/features/auth/types/responses/AuthActionResponse';
 import type { AuthResponse } from '@/features/auth/types/responses/AuthResponse';
 export const fetchAccount = async (): Promise<AuthResponse> =>
-  apiRequest<AuthResponse>({
-    url: ENDPOINTS.fetchAccount,
-    method: 'GET',
-  });
-export const submitStatus = async (): Promise<Awaited<ReturnType<typeof apiRequest>>> =>
-  apiRequest({ url: ENDPOINTS.submitStatus, method: 'GET' });
+  apiClient.get<AuthResponse>(ENDPOINTS.fetchAccount);
+export const submitStatus = async (): Promise<unknown> =>
+  apiClient.get(ENDPOINTS.submitStatus);
 export function authAction(data: SaveAuthActionRequest): Promise<AuthActionResponse> {
   if (CONFIG.apiMode === 'site')
-    return apiRequest({ url: ENDPOINTS.authAction, method: 'POST', data });
-  const routes: Record<
-    string,
-    {
-      url: string;
-      method: string;
-    }
-  > = {
-    login: { url: ENDPOINTS.authLogin, method: 'POST' },
-    logout: { url: ENDPOINTS.authLogout, method: 'POST' },
-    heartbeat: { url: ENDPOINTS.authHeartbeat, method: 'POST' },
-    changePassword: { url: ENDPOINTS.authChangePassword, method: 'POST' },
-    revoke: { url: ENDPOINTS.authRevokeSession(data.id), method: 'DELETE' },
-    revokeOthers: { url: ENDPOINTS.authRevokeOtherSessions, method: 'DELETE' },
-    create: { url: ENDPOINTS.createUser, method: 'POST' },
-    update: { url: ENDPOINTS.updateUser(data.id), method: 'PUT' },
-    resetPassword: {
-      url: ENDPOINTS.resetUserPassword(data.id),
-      method: 'PUT',
-    },
-  };
-  const route = routes[data.action];
-  if (!route) throw new Error('Unsupported authentication action');
-  const { ...payload } = data;
-  return apiRequest({ ...route, ...(route.method === 'DELETE' ? {} : { data: payload }) });
+    return apiClient.post<AuthActionResponse>(ENDPOINTS.authAction,data);
+  switch(data.action){
+ case 'login':return apiClient.post(ENDPOINTS.authLogin,data);
+ case 'logout':return apiClient.post(ENDPOINTS.authLogout,data);
+ case 'heartbeat':return apiClient.post(ENDPOINTS.authHeartbeat,data);
+ case 'changePassword':return apiClient.post(ENDPOINTS.authChangePassword,data);
+ case 'revoke':return apiClient.delete(ENDPOINTS.authRevokeSession(data.id));
+ case 'revokeOthers':return apiClient.delete(ENDPOINTS.authRevokeOtherSessions);
+ case 'create':return apiClient.post(ENDPOINTS.createUser,data);
+ case 'update':return apiClient.put(ENDPOINTS.updateUser(data.id),data);
+ case 'resetPassword':return apiClient.put(ENDPOINTS.resetUserPassword(data.id),data);
+ default:throw new Error('Unsupported authentication action');
+ }
 }

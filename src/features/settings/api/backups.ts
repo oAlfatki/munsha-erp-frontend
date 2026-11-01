@@ -1,19 +1,15 @@
 import { ENDPOINTS } from '@/core/config/endpoints';
 import { CONFIG } from '@/core/config/env';
-import { apiRequest } from '@/core/services/http/api-client';
+import { apiClient } from '@/core/api/apiClient';
 import type { BackupRow } from '@/features/settings/types/models/BackupRow';
 import type { BackupReply } from '@/features/settings/types/responses/BackupReply';
 
 export const fetchBackups = () =>
-  apiRequest<{
+  apiClient.get<{
     rows: BackupRow[];
-  }>({ url: ENDPOINTS.fetchBackups, method: 'GET' });
+  }>(ENDPOINTS.fetchBackups);
 export const submitBackupAction = (data: { action: string; [key: string]: unknown }) =>
-  apiRequest<BackupReply>({
-    url: ENDPOINTS.submitBackupAction(data.action),
-    method: 'POST',
-    data,
-  });
+  apiClient.post<BackupReply>(ENDPOINTS.submitBackupAction(data.action), data);
 export function requestExitBackup() {
   const payload = { action: 'auto', event: 'exit', requestId: crypto.randomUUID() };
   const url = CONFIG.apiBaseUrl + ENDPOINTS.submitBackupAction('auto');

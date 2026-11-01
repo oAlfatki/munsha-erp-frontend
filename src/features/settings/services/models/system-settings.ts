@@ -1,3 +1,6 @@
+import type {SystemSettingsContext} from '@/features/settings/types/read-models/SystemSettingsContext';
+import type {BranchDefaultsContext} from '@/features/settings/types/read-models/BranchDefaultsContext';
+import type {OperationCashIdContext} from '@/features/settings/types/read-models/OperationCashIdContext';
 import type { BranchDefaults } from '@/features/settings/types/models/BranchDefaults';
 import type { SystemSettings } from '@/features/settings/types/models/SystemSettings';
 
@@ -5,7 +8,7 @@ import type { SystemSettings } from '@/features/settings/types/models/SystemSett
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { cashOptions, defaultCashId } from '@/features/accounting/services/models/cash';
 import { extras } from '@/features/accounting/services/models/extensions';
-export function systemSettings(workspace: ErpReadModel): SystemSettings {
+export function systemSettings(workspace: SystemSettingsContext): SystemSettings {
   const p = extras(workspace).preferences,
     v = workspace.systemSettings;
   return {
@@ -60,7 +63,7 @@ export function systemSettings(workspace: ErpReadModel): SystemSettings {
     branches: v?.branches || {},
   };
 }
-export function branchDefaults(workspace: ErpReadModel, id: string): BranchDefaults {
+export function branchDefaults(workspace: BranchDefaultsContext, id: string): BranchDefaults {
   const v: Partial<BranchDefaults> = systemSettings(workspace).branches[id] || {};
   return {
     warehouseId:
@@ -80,7 +83,7 @@ export function branchDefaults(workspace: ErpReadModel, id: string): BranchDefau
   };
 }
 export function operationCashId(
-  workspace: ErpReadModel,
+  workspace: OperationCashIdContext,
   id: string,
   kind: 'sale' | 'purchase' | 'expense' | 'receipt' | 'payment',
   currency = workspace.organization.currency,

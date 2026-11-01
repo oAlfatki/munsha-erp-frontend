@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { StockAdjustmentsReport } from '@/features/inventory/components/reports/StockAdjustmentsReport';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** قائمة تسويات المخزون — feature-owned route content. */

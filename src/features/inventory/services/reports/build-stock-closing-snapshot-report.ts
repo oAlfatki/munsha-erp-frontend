@@ -1,9 +1,10 @@
+import type {BuildStockClosingSnapshotReportContext} from '@/features/inventory/types/read-models/BuildStockClosingSnapshotReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 export function buildStockClosingSnapshotReport(
-  workspace: ErpReadModel,
+  workspace: BuildStockClosingSnapshotReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

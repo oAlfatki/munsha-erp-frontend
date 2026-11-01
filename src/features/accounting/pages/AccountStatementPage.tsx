@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { AccountStatement } from '@/features/accounting/components/Statement';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** كشف حساب — feature-owned route content. */

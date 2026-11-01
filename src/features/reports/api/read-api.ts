@@ -1,5 +1,5 @@
 import { ENDPOINTS } from '@/core/config/endpoints';
-import { apiRequest } from '@/core/services/http/api-client';
+import { apiClient } from '@/core/api/apiClient';
 import type { SearchReportsAccountingAccountStatementRequest } from '@/features/reports/types/requests/SearchReportsAccountingAccountStatementRequest';
 import type { SearchReportsAccountingAssetsRequest } from '@/features/reports/types/requests/SearchReportsAccountingAssetsRequest';
 import type { SearchReportsAccountingCashMovementsRequest } from '@/features/reports/types/requests/SearchReportsAccountingCashMovementsRequest';
@@ -57,10 +57,7 @@ import type { TrialBalanceReport } from '@/features/reports/types/responses/Tria
 export async function fetchReportsInventoryValuation(
   params: SearchReportsInventoryValuationRequest,
 ): Promise<InventoryValuationReport> {
-  return await apiRequest<InventoryValuationReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsInventoryValuation,
-    params: {
+  return await apiClient.get<InventoryValuationReport>(ENDPOINTS.fetchReportsInventoryValuation,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -69,17 +66,13 @@ export async function fetchReportsInventoryValuation(
       asOf: params.asOf,
       warehouseId: params.warehouseId,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get opening stock report. Existing HTTP contract. */
 export async function fetchReportsInventoryOpeningStock(
   params: SearchReportsInventoryOpeningStockRequest,
 ): Promise<OpeningStockReport> {
-  return await apiRequest<OpeningStockReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsInventoryOpeningStock,
-    params: {
+  return await apiClient.get<OpeningStockReport>(ENDPOINTS.fetchReportsInventoryOpeningStock,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -88,17 +81,13 @@ export async function fetchReportsInventoryOpeningStock(
       asOf: params.asOf,
       warehouseId: params.warehouseId,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get reorder report. Existing HTTP contract. */
 export async function fetchReportsInventoryReorder(
   params: SearchReportsInventoryReorderRequest,
 ): Promise<ReorderReport> {
-  return await apiRequest<ReorderReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsInventoryReorder,
-    params: {
+  return await apiClient.get<ReorderReport>(ENDPOINTS.fetchReportsInventoryReorder,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -107,17 +96,13 @@ export async function fetchReportsInventoryReorder(
       asOf: params.asOf,
       warehouseId: params.warehouseId,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get stagnant report. Existing HTTP contract. */
 export async function fetchReportsInventoryStagnant(
   params: SearchReportsInventoryStagnantRequest,
 ): Promise<StagnantReport> {
-  return await apiRequest<StagnantReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsInventoryStagnant,
-    params: {
+  return await apiClient.get<StagnantReport>(ENDPOINTS.fetchReportsInventoryStagnant,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -127,17 +112,13 @@ export async function fetchReportsInventoryStagnant(
       q: params.q,
       warehouseId: params.warehouseId,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get historical cost report. Existing HTTP contract. */
 export async function fetchReportsInventoryHistoricalCost(
   params: SearchReportsInventoryHistoricalCostRequest,
 ): Promise<HistoricalCostReport> {
-  return await apiRequest<HistoricalCostReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsInventoryHistoricalCost,
-    params: {
+  return await apiClient.get<HistoricalCostReport>(ENDPOINTS.fetchReportsInventoryHistoricalCost,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -147,17 +128,13 @@ export async function fetchReportsInventoryHistoricalCost(
       q: params.q,
       warehouseId: params.warehouseId,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get transfers report. Existing HTTP contract. */
 export async function fetchReportsInventoryTransfers(
   params: SearchReportsInventoryTransfersRequest,
 ): Promise<TransfersReport> {
-  return await apiRequest<TransfersReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsInventoryTransfers,
-    params: {
+  return await apiClient.get<TransfersReport>(ENDPOINTS.fetchReportsInventoryTransfers,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -167,17 +144,13 @@ export async function fetchReportsInventoryTransfers(
       q: params.q,
       warehouseId: params.warehouseId,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get adjustments report. Existing HTTP contract. */
 export async function fetchReportsInventoryAdjustments(
   params: SearchReportsInventoryAdjustmentsRequest,
 ): Promise<AdjustmentsReport> {
-  return await apiRequest<AdjustmentsReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsInventoryAdjustments,
-    params: {
+  return await apiClient.get<AdjustmentsReport>(ENDPOINTS.fetchReportsInventoryAdjustments,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -187,17 +160,13 @@ export async function fetchReportsInventoryAdjustments(
       q: params.q,
       warehouseId: params.warehouseId,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get prices report. Existing HTTP contract. */
 export async function fetchReportsInventoryPrices(
   params: SearchReportsInventoryPricesRequest,
 ): Promise<PricesReport> {
-  return await apiRequest<PricesReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsInventoryPrices,
-    params: {
+  return await apiClient.get<PricesReport>(ENDPOINTS.fetchReportsInventoryPrices,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -208,17 +177,13 @@ export async function fetchReportsInventoryPrices(
       productId: params.productId,
       category: params.category,
       priceType: params.priceType,
-    },
-  });
+    }});
 }
 /** Get customer balances report. Existing HTTP contract. */
 export async function fetchReportsCustomersBalances(
   params: SearchReportsCustomersBalancesRequest,
 ): Promise<CustomerBalancesReport> {
-  return await apiRequest<CustomerBalancesReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsCustomersBalances,
-    params: {
+  return await apiClient.get<CustomerBalancesReport>(ENDPOINTS.fetchReportsCustomersBalances,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -226,17 +191,13 @@ export async function fetchReportsCustomersBalances(
       q: params.q,
       asOf: params.asOf,
       partyId: params.partyId,
-    },
-  });
+    }});
 }
 /** Get supplier balances report. Existing HTTP contract. */
 export async function fetchReportsSuppliersBalances(
   params: SearchReportsSuppliersBalancesRequest,
 ): Promise<SupplierBalancesReport> {
-  return await apiRequest<SupplierBalancesReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsSuppliersBalances,
-    params: {
+  return await apiClient.get<SupplierBalancesReport>(ENDPOINTS.fetchReportsSuppliersBalances,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -244,17 +205,13 @@ export async function fetchReportsSuppliersBalances(
       q: params.q,
       asOf: params.asOf,
       partyId: params.partyId,
-    },
-  });
+    }});
 }
 /** Get payroll report. Existing HTTP contract. */
 export async function fetchReportsEmployeesPayroll(
   params: SearchReportsEmployeesPayrollRequest,
 ): Promise<PayrollReport> {
-  return await apiRequest<PayrollReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsEmployeesPayroll,
-    params: {
+  return await apiClient.get<PayrollReport>(ENDPOINTS.fetchReportsEmployeesPayroll,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -264,17 +221,13 @@ export async function fetchReportsEmployeesPayroll(
       q: params.q,
       employeeId: params.employeeId,
       period: params.period,
-    },
-  });
+    }});
 }
 /** Get advances report. Existing HTTP contract. */
 export async function fetchReportsEmployeesAdvances(
   params: SearchReportsEmployeesAdvancesRequest,
 ): Promise<AdvancesReport> {
-  return await apiRequest<AdvancesReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsEmployeesAdvances,
-    params: {
+  return await apiClient.get<AdvancesReport>(ENDPOINTS.fetchReportsEmployeesAdvances,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -283,17 +236,13 @@ export async function fetchReportsEmployeesAdvances(
       to: params.to,
       q: params.q,
       employeeId: params.employeeId,
-    },
-  });
+    }});
 }
 /** Get recognized expenses report. Existing HTTP contract. */
 export async function fetchReportsExpensesRecognized(
   params: SearchReportsExpensesRecognizedRequest,
 ): Promise<RecognizedExpensesReport> {
-  return await apiRequest<RecognizedExpensesReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsExpensesRecognized,
-    params: {
+  return await apiClient.get<RecognizedExpensesReport>(ENDPOINTS.fetchReportsExpensesRecognized,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -301,17 +250,13 @@ export async function fetchReportsExpensesRecognized(
       from: params.from,
       to: params.to,
       q: params.q,
-    },
-  });
+    }});
 }
 /** Get sales summary report. Existing HTTP contract. */
 export async function fetchReportsSalesSummary(
   params: SearchReportsSalesSummaryRequest,
 ): Promise<SalesSummaryReport> {
-  return await apiRequest<SalesSummaryReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsSalesSummary,
-    params: {
+  return await apiClient.get<SalesSummaryReport>(ENDPOINTS.fetchReportsSalesSummary,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -322,17 +267,13 @@ export async function fetchReportsSalesSummary(
       partyId: params.partyId,
       currency: params.currency,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get purchases summary report. Existing HTTP contract. */
 export async function fetchReportsPurchasesSummary(
   params: SearchReportsPurchasesSummaryRequest,
 ): Promise<PurchasesSummaryReport> {
-  return await apiRequest<PurchasesSummaryReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsPurchasesSummary,
-    params: {
+  return await apiClient.get<PurchasesSummaryReport>(ENDPOINTS.fetchReportsPurchasesSummary,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -343,17 +284,13 @@ export async function fetchReportsPurchasesSummary(
       partyId: params.partyId,
       currency: params.currency,
       productId: params.productId,
-    },
-  });
+    }});
 }
 /** Get sales returns report. Existing HTTP contract. */
 export async function fetchReportsSalesReturns(
   params: SearchReportsSalesReturnsRequest,
 ): Promise<SalesReturnsReport> {
-  return await apiRequest<SalesReturnsReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsSalesReturns,
-    params: {
+  return await apiClient.get<SalesReturnsReport>(ENDPOINTS.fetchReportsSalesReturns,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -363,17 +300,13 @@ export async function fetchReportsSalesReturns(
       q: params.q,
       partyId: params.partyId,
       currency: params.currency,
-    },
-  });
+    }});
 }
 /** Get purchase returns report. Existing HTTP contract. */
 export async function fetchReportsPurchasesReturns(
   params: SearchReportsPurchasesReturnsRequest,
 ): Promise<PurchaseReturnsReport> {
-  return await apiRequest<PurchaseReturnsReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsPurchasesReturns,
-    params: {
+  return await apiClient.get<PurchaseReturnsReport>(ENDPOINTS.fetchReportsPurchasesReturns,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -383,17 +316,13 @@ export async function fetchReportsPurchasesReturns(
       q: params.q,
       partyId: params.partyId,
       currency: params.currency,
-    },
-  });
+    }});
 }
 /** Get sales chart report. Existing HTTP contract. */
 export async function fetchReportsSalesChart(
   params: SearchReportsSalesChartRequest,
 ): Promise<SalesChartReport> {
-  return await apiRequest<SalesChartReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsSalesChart,
-    params: {
+  return await apiClient.get<SalesChartReport>(ENDPOINTS.fetchReportsSalesChart,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -401,17 +330,13 @@ export async function fetchReportsSalesChart(
       from: params.from,
       to: params.to,
       q: params.q,
-    },
-  });
+    }});
 }
 /** Get cash movements report. Existing HTTP contract. */
 export async function fetchReportsAccountingCashMovements(
   params: SearchReportsAccountingCashMovementsRequest,
 ): Promise<CashMovementsReport> {
-  return await apiRequest<CashMovementsReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsAccountingCashMovements,
-    params: {
+  return await apiClient.get<CashMovementsReport>(ENDPOINTS.fetchReportsAccountingCashMovements,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -421,17 +346,13 @@ export async function fetchReportsAccountingCashMovements(
       q: params.q,
       cashId: params.cashId,
       currency: params.currency,
-    },
-  });
+    }});
 }
 /** Get opening balances report. Existing HTTP contract. */
 export async function fetchReportsAccountingOpeningBalances(
   params: SearchReportsAccountingOpeningBalancesRequest,
 ): Promise<OpeningBalancesReport> {
-  return await apiRequest<OpeningBalancesReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsAccountingOpeningBalances,
-    params: {
+  return await apiClient.get<OpeningBalancesReport>(ENDPOINTS.fetchReportsAccountingOpeningBalances,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -440,17 +361,13 @@ export async function fetchReportsAccountingOpeningBalances(
       asOf: params.asOf,
       accountCode: params.accountCode,
       partyId: params.partyId,
-    },
-  });
+    }});
 }
 /** Get trial balance report. Existing HTTP contract. */
 export async function fetchReportsAccountingTrialBalance(
   params: SearchReportsAccountingTrialBalanceRequest,
 ): Promise<TrialBalanceReport> {
-  return await apiRequest<TrialBalanceReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsAccountingTrialBalance,
-    params: {
+  return await apiClient.get<TrialBalanceReport>(ENDPOINTS.fetchReportsAccountingTrialBalance,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -458,17 +375,13 @@ export async function fetchReportsAccountingTrialBalance(
       q: params.q,
       asOf: params.asOf,
       accountCode: params.accountCode,
-    },
-  });
+    }});
 }
 /** Get tax report. Existing HTTP contract. */
 export async function fetchReportsAccountingTax(
   params: SearchReportsAccountingTaxRequest,
 ): Promise<TaxReport> {
-  return await apiRequest<TaxReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsAccountingTax,
-    params: {
+  return await apiClient.get<TaxReport>(ENDPOINTS.fetchReportsAccountingTax,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -476,17 +389,13 @@ export async function fetchReportsAccountingTax(
       from: params.from,
       to: params.to,
       q: params.q,
-    },
-  });
+    }});
 }
 /** Get foreign currency report. Existing HTTP contract. */
 export async function fetchReportsAccountingForeignCurrency(
   params: SearchReportsAccountingForeignCurrencyRequest,
 ): Promise<ForeignCurrencyReport> {
-  return await apiRequest<ForeignCurrencyReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsAccountingForeignCurrency,
-    params: {
+  return await apiClient.get<ForeignCurrencyReport>(ENDPOINTS.fetchReportsAccountingForeignCurrency,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -495,34 +404,26 @@ export async function fetchReportsAccountingForeignCurrency(
       to: params.to,
       q: params.q,
       currency: params.currency,
-    },
-  });
+    }});
 }
 /** Get assets report. Existing HTTP contract. */
 export async function fetchReportsAccountingAssets(
   params: SearchReportsAccountingAssetsRequest,
 ): Promise<AssetsReport> {
-  return await apiRequest<AssetsReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsAccountingAssets,
-    params: {
+  return await apiClient.get<AssetsReport>(ENDPOINTS.fetchReportsAccountingAssets,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
       branchId: params.branchId,
       q: params.q,
       asOf: params.asOf,
-    },
-  });
+    }});
 }
 /** Get target achievement report. Existing HTTP contract. */
 export async function fetchReportsSalesTargetAchievement(
   params: SearchReportsSalesTargetAchievementRequest,
 ): Promise<TargetAchievementReport> {
-  return await apiRequest<TargetAchievementReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsSalesTargetAchievement,
-    params: {
+  return await apiClient.get<TargetAchievementReport>(ENDPOINTS.fetchReportsSalesTargetAchievement,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -532,17 +433,13 @@ export async function fetchReportsSalesTargetAchievement(
       q: params.q,
       employeeId: params.employeeId,
       period: params.period,
-    },
-  });
+    }});
 }
 /** Get an account or subsidiary statement. Existing HTTP contract. */
 export async function fetchReportsAccountingAccountStatement(
   params: SearchReportsAccountingAccountStatementRequest,
 ): Promise<AccountStatementResponse> {
-  return await apiRequest<AccountStatementResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsAccountingAccountStatement,
-    params: {
+  return await apiClient.get<AccountStatementResponse>(ENDPOINTS.fetchReportsAccountingAccountStatement,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -552,17 +449,13 @@ export async function fetchReportsAccountingAccountStatement(
       q: params.q,
       accountCode: params.accountCode,
       partyId: params.partyId,
-    },
-  });
+    }});
 }
 /** Get a miscellaneous debtor or creditor ledger. Existing HTTP contract. */
 export async function fetchReportsAccountingContactLedger(
   params: SearchReportsAccountingContactLedgerRequest,
 ): Promise<AccountStatementResponse> {
-  return await apiRequest<AccountStatementResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchReportsAccountingContactLedger,
-    params: {
+  return await apiClient.get<AccountStatementResponse>(ENDPOINTS.fetchReportsAccountingContactLedger,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -572,6 +465,5 @@ export async function fetchReportsAccountingContactLedger(
       q: params.q,
       accountCode: params.accountCode,
       contactId: params.contactId,
-    },
-  });
+    }});
 }

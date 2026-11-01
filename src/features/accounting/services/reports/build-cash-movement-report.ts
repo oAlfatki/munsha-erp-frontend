@@ -1,10 +1,11 @@
+import type {BuildCashMovementReportContext} from '@/features/accounting/types/read-models/BuildCashMovementReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 import { isCashLine } from '@/features/accounting/services/models/cash';
 export function buildCashMovementReport(
-  workspace: ErpReadModel,
+  workspace: BuildCashMovementReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

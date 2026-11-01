@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 import { AnnualSettings } from '@/features/settings/components/AnnualSettings';
 /** مراجعة إقفال السنة والفترة — feature-owned route content. */

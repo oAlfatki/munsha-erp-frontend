@@ -1,5 +1,5 @@
 import { ENDPOINTS } from '@/core/config/endpoints';
-import { apiRequest } from '@/core/services/http/api-client';
+import { apiClient } from '@/core/api/apiClient';
 import type { GetSalesInvoicesByIdRequest } from '@/features/sales/types/requests/GetSalesInvoicesByIdRequest';
 import type { GetSalesInvoicesByIdReturnAvailabilityRequest } from '@/features/sales/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest';
 import type { GetSalesReturnsByIdRequest } from '@/features/sales/types/requests/GetSalesReturnsByIdRequest';
@@ -18,10 +18,7 @@ import type { SalesTargetResponse } from '@/features/sales/types/responses/Sales
 export async function fetchSalesTargets(
   params: SearchSalesTargetsRequest = {},
 ): Promise<SalesTargetListResponse> {
-  return await apiRequest<SalesTargetListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSalesTargets,
-    params: {
+  return await apiClient.get<SalesTargetListResponse>(ENDPOINTS.fetchSalesTargets,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
@@ -30,27 +27,19 @@ export async function fetchSalesTargets(
       branchId: params.branchId,
       employeeId: params.employeeId,
       period: params.period,
-    },
-  });
+    }});
 }
 /** Get monthly sales targets detail. Existing HTTP contract. */
 export async function fetchSalesTargetsById(
   params: GetSalesTargetsByIdRequest,
 ): Promise<SalesTargetResponse> {
-  return await apiRequest<SalesTargetResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSalesTargetsById(params.id),
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SalesTargetResponse>(ENDPOINTS.fetchSalesTargetsById(params.id),{params: { bookId: params.bookId }});
 }
 /** List sales invoices. Existing HTTP contract. */
 export async function fetchSalesInvoices(
   params: SearchSalesInvoicesRequest = {},
 ): Promise<InvoiceListResponse> {
-  return await apiRequest<InvoiceListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSalesInvoices,
-    params: {
+  return await apiClient.get<InvoiceListResponse>(ENDPOINTS.fetchSalesInvoices,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
@@ -63,27 +52,19 @@ export async function fetchSalesInvoices(
       partyId: params.partyId,
       currency: params.currency,
       payment: params.payment,
-    },
-  });
+    }});
 }
 /** Get sales invoices detail. Existing HTTP contract. */
 export async function fetchSalesInvoicesById(
   params: GetSalesInvoicesByIdRequest,
 ): Promise<InvoiceResponse> {
-  return await apiRequest<InvoiceResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSalesInvoicesById(params.id),
-    params: { bookId: params.bookId, branchId: params.branchId },
-  });
+  return await apiClient.get<InvoiceResponse>(ENDPOINTS.fetchSalesInvoicesById(params.id),{params: { bookId: params.bookId, branchId: params.branchId }});
 }
 /** List sales returns. Existing HTTP contract. */
 export async function fetchSalesReturns(
   params: SearchSalesReturnsRequest = {},
 ): Promise<InvoiceReturnListResponse> {
-  return await apiRequest<InvoiceReturnListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSalesReturns,
-    params: {
+  return await apiClient.get<InvoiceReturnListResponse>(ENDPOINTS.fetchSalesReturns,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
@@ -96,26 +77,17 @@ export async function fetchSalesReturns(
       partyId: params.partyId,
       currency: params.currency,
       payment: params.payment,
-    },
-  });
+    }});
 }
 /** Get sales returns detail. Existing HTTP contract. */
 export async function fetchSalesReturnsById(
   params: GetSalesReturnsByIdRequest,
 ): Promise<InvoiceReturnResponse> {
-  return await apiRequest<InvoiceReturnResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSalesReturnsById(params.id),
-    params: { bookId: params.bookId, branchId: params.branchId },
-  });
+  return await apiClient.get<InvoiceReturnResponse>(ENDPOINTS.fetchSalesReturnsById(params.id),{params: { bookId: params.bookId, branchId: params.branchId }});
 }
 /** Get remaining sales return quantities. Existing HTTP contract. */
 export async function fetchSalesInvoicesByIdReturnAvailability(
   params: GetSalesInvoicesByIdReturnAvailabilityRequest,
 ): Promise<ReturnAvailabilityResponse> {
-  return await apiRequest<ReturnAvailabilityResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSalesInvoicesByIdReturnAvailability(params.id),
-    params: { bookId: params.bookId, branchId: params.branchId },
-  });
+  return await apiClient.get<ReturnAvailabilityResponse>(ENDPOINTS.fetchSalesInvoicesByIdReturnAvailability(params.id),{params: { bookId: params.bookId, branchId: params.branchId }});
 }

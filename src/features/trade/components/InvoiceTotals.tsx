@@ -1,4 +1,4 @@
-import { TotalsFooter } from '@/core/components/shared/documents/TotalsFooter';
+import { TotalsFooter } from '@/shared/ui/documents/TotalsFooter';
 import { invoiceSummary } from '@/features/trade/services/models/presentation';
 import type { InvoiceTotalsProps } from '@/features/trade/types/InvoiceTotalsProps';
 

@@ -1,3 +1,6 @@
+import type {InvoiceReportContext} from '@/features/reports/types/read-models/InvoiceReportContext';
+import type {StockDocumentReportContext} from '@/features/reports/types/read-models/StockDocumentReportContext';
+import type {VoucherReportContext} from '@/features/reports/types/read-models/VoucherReportContext';
 import type { VoucherDocument } from '@/features/accounting/types/models/VoucherDocument';
 import type { StockDocument } from '@/features/inventory/types/models/StockDocument';
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
@@ -9,7 +12,7 @@ import { cashOptions } from '@/features/accounting/services/models/cash';
 import { allAccounts } from '@/features/accounting/services/models/extensions';
 import { invoiceSummary } from '@/features/trade/services/models/presentation';
 import type { Invoice } from '@/features/trade/types/models/Invoice';
-export function invoiceReport(workspace: ErpReadModel, invoice: Invoice): ReportDocument {
+export function invoiceReport(workspace: InvoiceReportContext, invoice: Invoice): ReportDocument {
   const isReturning = invoice.number.startsWith('RET-'),
     savedReturn = workspace.invoiceReturns?.find((r) => r.number === invoice.number),
     source =
@@ -139,7 +142,7 @@ export function invoiceReport(workspace: ErpReadModel, invoice: Invoice): Report
     ],
   };
 }
-export function stockDocumentReport(workspace: ErpReadModel, d: StockDocument): ReportDocument {
+export function stockDocumentReport(workspace: StockDocumentReportContext, d: StockDocument): ReportDocument {
   const chart = allAccounts(workspace),
     stock = d.lines.map((l, index) => {
       const p = workspace.products.find((product) => product.id === l.productId);
@@ -242,7 +245,7 @@ export function stockDocumentReport(workspace: ErpReadModel, d: StockDocument): 
     notes: d.note ? [d.note] : [],
   };
 }
-export function voucherReport(workspace: ErpReadModel, d: VoucherDocument): ReportDocument {
+export function voucherReport(workspace: VoucherReportContext, d: VoucherDocument): ReportDocument {
   const totals = new Map<string, number>();
   for (const l of d.lines) totals.set(l.currency, money((totals.get(l.currency) || 0) + l.amount));
   return {

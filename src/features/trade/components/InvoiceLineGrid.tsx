@@ -1,7 +1,7 @@
-import { Field } from '@/core/components/shared/forms/Field';
-import { Select } from '@/core/components/shared/forms/Select';
-import { Button } from '@/core/components/ui/button';
-import { Input } from '@/core/components/ui/input';
+import { Field } from '@/shared/ui/forms/Field';
+import { Select } from '@/shared/ui/forms/Select';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
 import { fmt } from '@/core/utils/formatters';
 import { systemSettings } from '@/features/settings/services/models/system-settings';
 import {

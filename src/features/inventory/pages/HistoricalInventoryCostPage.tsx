@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { HistoricalCostReport } from '@/features/inventory/components/reports/HistoricalCostReport';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** مراجعة تكلفة الصنف التاريخية — feature-owned route content. */

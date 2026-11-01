@@ -1,6 +1,7 @@
+import type {ValidateImportPreviewContext} from '@/features/settings/types/read-models/ValidateImportPreviewContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { importMastersSchema } from '@/features/settings/validation/settings-schema';
-export function validateImportPreview(state: ErpReadModel, input: unknown) {
+export function validateImportPreview(state: ValidateImportPreviewContext, input: unknown) {
   const valueSchema = importMastersSchema.parse(input);
   const names = new Set<string>();
   for (const row of valueSchema.rows) {

@@ -1,7 +1,7 @@
-import { Modal } from '@/core/components/shared/dialogs/Modal';
-import { Button } from '@/core/components/ui/button';
-import { useApplication } from '@/core/providers/ApplicationProvider';
-import { useCompanyData } from '@/core/providers/CompanyProvider';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { Button } from '@/shared/ui/primitives/button';
+import { useApplication } from '@/app/providers/ApplicationProvider';
+import { useCompanyData } from '@/app/providers/CompanyProvider';
 import { authRequest } from '@/features/auth/api/auth-client';
 import type { SessionProps } from '@/features/auth/types/SessionProps';
 import { automaticBackup } from '@/features/settings/services/backup-files';

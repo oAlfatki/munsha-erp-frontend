@@ -1,3 +1,4 @@
+import type {BuildProfitByCustomerReportContext} from '@/features/financial/types/read-models/BuildProfitByCustomerReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
@@ -5,7 +6,7 @@ import { money } from '@/core/utils/money';
 import { extras } from '@/features/accounting/services/models/extensions';
 import { lineTotal } from '@/features/trade/utils/line-total';
 export function buildProfitByCustomerReport(
-  workspace: ErpReadModel,
+  workspace: BuildProfitByCustomerReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

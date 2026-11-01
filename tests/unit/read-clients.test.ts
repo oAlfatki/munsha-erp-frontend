@@ -1,5 +1,5 @@
 import { afterEach, it, expect, vi } from "vitest";
-import { apiClient } from "@/core/services/http/api-client";
+import { axiosInstance as apiClient } from "@/core/api/apiClient";
 import {fetchCustomers as readCustomers,fetchCustomersById as readCustomersById} from '@/features/customers/api/read-api';
 const original=apiClient.defaults.adapter;
 afterEach(()=>{apiClient.defaults.adapter=original;vi.unstubAllGlobals();});

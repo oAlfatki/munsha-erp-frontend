@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { PriceList } from '@/features/sales/components/pricing/ItemPricing';
 import { useSalesData } from '@/features/sales/hooks/useSalesData';
 /** تسعيرة الأصناف — feature-owned route content. */

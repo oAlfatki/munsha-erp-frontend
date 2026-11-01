@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { BranchDirectory } from '@/features/settings/components/screens/BranchDirectory';
 import { useSettingsData } from '@/features/settings/hooks/useSettingsData';
 /** بطاقات الفروع ومواقع التشغيل — feature-owned route content. */

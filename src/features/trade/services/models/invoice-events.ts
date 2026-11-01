@@ -1,8 +1,9 @@
+import type {InvoiceEventsContext} from '@/features/trade/types/read-models/InvoiceEventsContext';
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Invoice } from '@/features/trade/types/models/Invoice';
 export function invoiceEvents(
-  workspace: ErpReadModel,
+  workspace: InvoiceEventsContext,
   kind: Invoice['kind'],
   branchId: string,
   filter = 'all',

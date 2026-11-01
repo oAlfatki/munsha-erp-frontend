@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { TaxReport } from '@/features/accounting/components/reports/TaxReport';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** تقرير الضرائب — feature-owned route content. */

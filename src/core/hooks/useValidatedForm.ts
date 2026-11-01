@@ -12,8 +12,8 @@ export function useValidatedForm<TInput>(
     form.reset(input as Record<string, unknown>);
     let isSuccess = false;
     await form.handleSubmit(
-      async () => {
-        isSuccess = await save(input);
+      async (values) => {
+        isSuccess = await save(values as TInput);
       },
       (errors) => {
         const messages: string[] = [];

@@ -1,9 +1,10 @@
+import type {BuildOpeningAccountBalancesReportContext} from '@/features/accounting/types/read-models/BuildOpeningAccountBalancesReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 export function buildOpeningAccountBalancesReport(
-  workspace: ErpReadModel,
+  workspace: BuildOpeningAccountBalancesReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

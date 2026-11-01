@@ -1,7 +1,8 @@
+import type {ValidateInventoryCommandContext} from '@/features/inventory/types/read-models/ValidateInventoryCommandContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { productSchema, transferSchema, warehouseSchema } from './inventory-schema';
 /** Read-only checks, matching the original product/transfer/warehouse business rules. */
-export function validateInventoryCommand(data: ErpReadModel, type: string, input: unknown) {
+export function validateInventoryCommand(data: ValidateInventoryCommandContext, type: string, input: unknown) {
   if (type === 'product') {
     const p = productSchema.parse(input);
     if (p.units.length !== p.category || p.units.at(-1)!.factor !== 1)

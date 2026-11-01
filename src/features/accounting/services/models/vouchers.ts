@@ -1,8 +1,9 @@
+import type {VoucherDueContext} from '@/features/accounting/types/read-models/VoucherDueContext';
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { money } from '@/core/utils/money';
 export function voucherDue(
-  workspace: ErpReadModel,
+  workspace: VoucherDueContext,
   kind: 'receipt' | 'payment',
   branchId: string,
   partyId: string,

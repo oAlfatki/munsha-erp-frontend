@@ -1,7 +1,7 @@
-import { Modal } from '@/core/components/shared/dialogs/Modal';
-import { DocumentNavigator } from '@/core/components/shared/documents/DocumentNavigator';
-import { DataTable } from '@/core/components/shared/tables/DataTable';
-import { Button } from '@/core/components/ui/button';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Button } from '@/shared/ui/primitives/button';
 import { useErpContext } from '@/core/hooks/useErpContext';
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { printReport } from '@/core/reporting/service';

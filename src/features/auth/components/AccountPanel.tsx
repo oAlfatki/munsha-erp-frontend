@@ -1,9 +1,9 @@
-import { Field } from '@/core/components/shared/forms/Field';
-import { Form as ValidatedForm } from '@/core/components/shared/forms/ValidatedForm';
-import { PageHead } from '@/core/components/shared/layout/PageHead';
-import { DataTable } from '@/core/components/shared/tables/DataTable';
-import { Button } from '@/core/components/ui/button';
-import { Input } from '@/core/components/ui/input';
+import { Field } from '@/shared/ui/forms/Field';
+import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
 import { useAccountQuery } from '@/features/auth/hooks/useAccountQuery';
 import { useAuthAction } from '@/features/auth/hooks/useAuthAction';
 import { useChangePasswordForm } from '@/features/auth/hooks/useChangePasswordForm';

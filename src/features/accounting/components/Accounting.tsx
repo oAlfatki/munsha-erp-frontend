@@ -1,9 +1,9 @@
-import { Field } from '@/core/components/shared/forms/Field';
-import { PageHead } from '@/core/components/shared/layout/PageHead';
-import { ReportActions } from '@/core/components/shared/reports/ReportActions';
-import { DataTable } from '@/core/components/shared/tables/DataTable';
-import { Button } from '@/core/components/ui/button';
-import { Input } from '@/core/components/ui/input';
+import { Field } from '@/shared/ui/forms/Field';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
 import { useErpContext } from '@/core/hooks/useErpContext';
 import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';

@@ -1,10 +1,14 @@
+import type {CashOptionsContext} from '@/features/accounting/types/read-models/CashOptionsContext';
+import type {RequireCashContext} from '@/features/accounting/types/read-models/RequireCashContext';
+import type {IsCashLineContext} from '@/features/accounting/types/read-models/IsCashLineContext';
+import type {CashLedgerBalanceContext} from '@/features/accounting/types/read-models/CashLedgerBalanceContext';
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { money } from '@/core/utils/money';
 import { allAccounts, extras } from '@/features/accounting/services/models/extensions';
 import type { JournalLine } from '@/features/accounting/types/models/JournalLine';
 export const defaultCashId = (branch: string) => 'default-' + branch;
-export function cashOptions(workspace: ErpReadModel, branchId: string) {
+export function cashOptions(workspace: CashOptionsContext, branchId: string) {
   return [
     {
       id: defaultCashId(branchId),
@@ -27,7 +31,7 @@ export function cashOptions(workspace: ErpReadModel, branchId: string) {
   ];
 }
 export function requireCash(
-  workspace: ErpReadModel,
+  workspace: RequireCashContext,
   branchId: string,
   id: string,
   currency: string,
@@ -45,11 +49,11 @@ export function requireCash(
     throw Error('اختر صندوقًا نشطًا في الفرع وبعملة البند، مرتبطًا بحساب نقدي قابل للقيد');
   return c;
 }
-export const isCashLine = (workspace: ErpReadModel, branchId: string, journalLine: JournalLine) =>
+export const isCashLine = (workspace: IsCashLineContext, branchId: string, journalLine: JournalLine) =>
   journalLine.account === '101' ||
   !!journalLine.cashId ||
   cashOptions(workspace, branchId).some((c) => c.account === journalLine.account);
-export const cashLedgerBalance = (workspace: ErpReadModel, branchId: string) =>
+export const cashLedgerBalance = (workspace: CashLedgerBalanceContext, branchId: string) =>
   money(
     workspace.entries
       .filter((entry) => entry.branchId === branchId)

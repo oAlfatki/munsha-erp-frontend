@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { CustomerBalancesReport } from '@/features/customers/components/reports/CustomerBalancesReport';
 import { useCustomersData } from '@/features/customers/hooks/useCustomersData';
 /** تقرير حسابات العملاء — feature-owned route content. */

@@ -1,4 +1,4 @@
-import { useCompanyData } from '@/core/providers/CompanyProvider';
+import { useCompanyData } from '@/app/providers/CompanyProvider';
 import { requestExitBackup } from '@/features/settings/api/backups';
 import { automaticBackup } from '@/features/settings/services/backup-files';
 import { backupPolicy } from '@/features/settings/services/models/backup-policy';

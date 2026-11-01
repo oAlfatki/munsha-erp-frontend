@@ -1,10 +1,11 @@
+import type {BuildWarehouseTransfersReportContext} from '@/features/inventory/types/read-models/BuildWarehouseTransfersReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 import { extras } from '@/features/accounting/services/models/extensions';
 export function buildWarehouseTransfersReport(
-  workspace: ErpReadModel,
+  workspace: BuildWarehouseTransfersReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { SalesReturnInvoice } from '@/features/sales/components/returns/SalesReturnInvoice';
 import { useSalesData } from '@/features/sales/hooks/useSalesData';
 /** فاتورة مرتجع مبيعات — feature-owned route content. */

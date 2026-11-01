@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { AssetAcquisitionScreen } from '@/features/accounting/components/screens/AssetAcquisitionScreen';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** إثبات اقتناء أصل — feature-owned route content. */

@@ -1,7 +1,8 @@
+import type {ValidatePolicyContext} from '@/features/settings/types/read-models/ValidatePolicyContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { systemSettings } from '@/features/settings/services/models/system-settings';
 /** Pure existing policy checks extracted from the original rule reference. No writes occur here. */
-export function validatePolicy(workspace: ErpReadModel, type: string, raw: unknown) {
+export function validatePolicy(workspace: ValidatePolicyContext, type: string, raw: unknown) {
   if (!raw || typeof raw !== 'object') throw Error('طلب غير صحيح');
   const p = raw as Record<string, unknown>,
     v = systemSettings(workspace);

@@ -1,3 +1,4 @@
+import type {TradeSummaryContext} from '@/features/trade/types/read-models/TradeSummaryContext';
 import type { TradeFilters } from '@/features/trade/types/models/TradeFilters';
 
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
@@ -5,7 +6,7 @@ import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { money } from '@/core/utils/money';
 import { lineTotal } from '@/features/trade/utils/line-total';
 export function tradeSummary(
-  workspace: ErpReadModel,
+  workspace: TradeSummaryContext,
   kind: 'sale' | 'purchase',
   branchId: string,
   f: TradeFilters,

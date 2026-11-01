@@ -1,10 +1,10 @@
-import { ViewButton } from '@/core/components/shared/actions/ViewButton';
-import { Pill } from '@/core/components/shared/display/Pill';
-import { SearchBox } from '@/core/components/shared/filters/SearchBox';
-import { Select } from '@/core/components/shared/forms/Select';
-import { PageHead } from '@/core/components/shared/layout/PageHead';
-import { ReportActions } from '@/core/components/shared/reports/ReportActions';
-import { DataTable } from '@/core/components/shared/tables/DataTable';
+import { ViewButton } from '@/shared/ui/actions/ViewButton';
+import { Pill } from '@/shared/ui/display/Pill';
+import { SearchBox } from '@/shared/ui/filters/SearchBox';
+import { Select } from '@/shared/ui/forms/Select';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { extras } from '@/features/accounting/services/models/extensions';

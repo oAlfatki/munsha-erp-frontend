@@ -1,5 +1,5 @@
-import { useApplication } from '@/core/providers/ApplicationProvider';
-import { useCompanyData } from '@/core/providers/CompanyProvider';
+import { useApplication } from '@/app/providers/ApplicationProvider';
+import { useCompanyData } from '@/app/providers/CompanyProvider';
 import { combineResourceQueries, resourceQueryOptions } from '@/core/query/resource-queries';
 import { mergeResources } from '@/core/query/resources';
 import type { DataResource } from '@/core/types/DataResource';

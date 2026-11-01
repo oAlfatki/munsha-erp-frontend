@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { FiscalYearReopening } from '@/features/accounting/components/FiscalYearReopening';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 export default function FiscalYearReopeningPage() {

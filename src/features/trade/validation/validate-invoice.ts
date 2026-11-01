@@ -1,10 +1,11 @@
+import type {ValidateInvoiceContext} from '@/features/trade/types/read-models/ValidateInvoiceContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { money } from '@/core/utils/money';
 import { balance } from '@/features/accounting/utils/account-balances';
 import { systemSettings } from '@/features/settings/services/models/system-settings';
 import { invoiceSummary } from '@/features/trade/services/models/presentation';
 import { invoiceSchema } from './trade-schema';
-export function validateInvoice(data: ErpReadModel, input: unknown) {
+export function validateInvoice(data: ValidateInvoiceContext, input: unknown) {
   const p = invoiceSchema.parse(input),
     settings = systemSettings(data);
   if (

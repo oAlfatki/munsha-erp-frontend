@@ -1,5 +1,5 @@
-import { useApplication } from '@/core/providers/ApplicationProvider';
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { useApplication } from '@/app/providers/ApplicationProvider';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { PurchaseInvoices } from '@/features/purchases/components/PurchaseInvoices';
 import { SalesInvoices } from '@/features/sales/components/SalesInvoices';
 import { useTradeData } from '@/features/trade/hooks/useTradeData';

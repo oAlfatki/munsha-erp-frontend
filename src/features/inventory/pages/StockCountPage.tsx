@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { StockCountScreen } from '@/features/inventory/components/screens/StockCountScreen';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** الجرد الفعلي — feature-owned route content. */

@@ -1,7 +1,8 @@
+import type {ValidatePartyContext} from '@/features/parties/types/read-models/ValidatePartyContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { extras } from '@/features/accounting/services/models/extensions';
 import { partySchema } from './parties-schema';
-export function validateParty(data: ErpReadModel, input: unknown) {
+export function validateParty(data: ValidatePartyContext, input: unknown) {
   const p = partySchema.parse(input);
   if (!data.currencies.some((currency) => currency.code === p.currency))
     throw Error('عملة غير معرفة');

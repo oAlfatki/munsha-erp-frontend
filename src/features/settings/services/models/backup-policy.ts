@@ -1,3 +1,4 @@
+import type {BackupPolicyContext} from '@/features/settings/types/read-models/BackupPolicyContext';
 import type { BackupPolicy } from '@/features/settings/types/models/BackupPolicy';
 
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
@@ -9,7 +10,7 @@ export const DEFAULT_BACKUP_POLICY: BackupPolicy = {
   folder: 'نسخ المنشأة',
   retention: 20,
 };
-export function backupPolicy(workspace: Pick<ErpReadModel, 'backupSettings'>): BackupPolicy {
+export function backupPolicy(workspace: BackupPolicyContext): BackupPolicy {
   return { ...DEFAULT_BACKUP_POLICY, ...workspace.backupSettings };
 }
 export function backupSlot(p: BackupPolicy, now: Date, event: 'timer' | 'exit') {

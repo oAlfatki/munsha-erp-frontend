@@ -1,10 +1,11 @@
+import type {BuildAccountMappingReportContext} from '@/features/financial/types/read-models/BuildAccountMappingReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 import { allAccounts } from '@/features/accounting/services/models/extensions';
 export function buildAccountMappingReport(
-  workspace: ErpReadModel,
+  workspace: BuildAccountMappingReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

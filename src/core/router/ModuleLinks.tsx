@@ -1,7 +1,7 @@
-import { Select } from '@/core/components/shared/forms/Select';
-import { Button } from '@/core/components/ui/button';
+import { Select } from '@/shared/ui/forms/Select';
+import { Button } from '@/shared/ui/primitives/button';
 import { MENU_ITEMS } from '@/core/config/menu';
-import { useApplication } from '@/core/providers/ApplicationProvider';
+import { useApplication } from '@/app/providers/ApplicationProvider';
 import type { ModuleLinksProps } from '@/core/types/ModuleLinksProps';
 
 export function ModuleLinks({ module }: ModuleLinksProps) {

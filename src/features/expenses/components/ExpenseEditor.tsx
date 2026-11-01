@@ -1,9 +1,9 @@
-import { Field } from '@/core/components/shared/forms/Field';
-import { Select } from '@/core/components/shared/forms/Select';
-import { Form as ValidatedForm } from '@/core/components/shared/forms/ValidatedForm';
-import { PageHead } from '@/core/components/shared/layout/PageHead';
-import { Button } from '@/core/components/ui/button';
-import { Input } from '@/core/components/ui/input';
+import { Field } from '@/shared/ui/forms/Field';
+import { Select } from '@/shared/ui/forms/Select';
+import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { cashOptions } from '@/features/accounting/services/models/cash';

@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest';
-import {APP_ROUTES} from '@/core/router/Routes';
+import {APP_ROUTES} from '@/app/router/routes';
 import {MENU_ITEMS,menuLeaves} from '@/core/config/menu';
 import previous from '../fixtures/pre-separation-routes.json';
 describe('central routes preserve original destinations',()=>{

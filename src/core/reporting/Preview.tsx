@@ -1,5 +1,5 @@
-import { Modal } from '@/core/components/shared/dialogs/Modal';
-import { Button } from '@/core/components/ui/button';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { Button } from '@/shared/ui/primitives/button';
 import { exportDocument } from '@/core/reporting/service';
 import { readDeviceSettings } from '@/core/services/device-settings';
 import type { DeviceSettings } from '@/core/types/DeviceSettings';

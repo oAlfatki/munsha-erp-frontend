@@ -1,3 +1,4 @@
+import type {BalanceContext} from '@/features/accounting/types/read-models/BalanceContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { money } from '@/core/utils/money';
 export const ACCOUNTS: Record<
@@ -17,7 +18,7 @@ export const ACCOUNTS: Record<
   '500': { name: 'تكلفة البضاعة المباعة', type: 'expense' },
   '510': { name: 'المصروفات التشغيلية', type: 'expense' },
 };
-export const balance = (workspace: ErpReadModel, account: string, partyId?: string) =>
+export const balance = (workspace: BalanceContext, account: string, partyId?: string) =>
   money(
     workspace.entries
       .flatMap((entry) => entry.lines)

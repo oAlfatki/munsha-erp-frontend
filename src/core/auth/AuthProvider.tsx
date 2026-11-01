@@ -1,6 +1,5 @@
 import type { AuthProviderProps } from '@/core/types/AuthProviderProps';
 import type { Identity } from '@/core/types/Identity';
-import { getAccount } from '@/features/auth/services/auth-service';
 import { useQuery } from '@tanstack/react-query';
 import { createContext, useContext, useEffect, useState } from 'react';
 const Context = createContext<{
@@ -11,11 +10,11 @@ const Context = createContext<{
   retry: () => void;
 }>(null!);
 
-export function AuthProvider({ children, initialUser }: AuthProviderProps) {
+export function AuthProvider({ children, initialUser, readSession }: AuthProviderProps) {
   const [user, setUser] = useState<Identity | null | undefined>(() => initialUser ?? undefined);
   const query = useQuery({
     queryKey: ['session'],
-    queryFn: getAccount,
+    queryFn: readSession,
     enabled: user === undefined,
     retry: false,
   });

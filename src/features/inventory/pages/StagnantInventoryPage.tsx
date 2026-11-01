@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { StagnantStockReport } from '@/features/inventory/components/reports/StagnantStockReport';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** الأصناف الراكدة — feature-owned route content. */

@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { DepreciationScreen } from '@/features/accounting/components/screens/DepreciationScreen';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** إثبات إهلاك فترة — feature-owned route content. */

@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { ImportMasters } from '@/features/settings/components/ImportMasters';
 import { useSettingsData } from '@/features/settings/hooks/useSettingsData';
 /** استيراد البطاقات من CSV — feature-owned route content. */

@@ -1,5 +1,5 @@
-import { PageHead } from '@/core/components/shared/layout/PageHead';
-import { Button } from '@/core/components/ui/button';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Button } from '@/shared/ui/primitives/button';
 import { useErpContext } from '@/core/hooks/useErpContext';
 export function FiscalYearReopening() {
   const { navigate } = useErpContext();

@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { Assets } from '@/features/accounting/components/Assets';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** إضافة أصل ثابت — feature-owned route content. */

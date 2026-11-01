@@ -1,9 +1,10 @@
+import type {BuildTaxReportContext} from '@/features/accounting/types/read-models/BuildTaxReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 export function buildTaxReport(
-  workspace: ErpReadModel,
+  workspace: BuildTaxReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

@@ -2,7 +2,7 @@ import {submitParty} from '@/features/parties/api/parties-api';
 import {mapPartyInput} from '@/features/parties/mapper/parties-mapper';
 import { it, vi, expect, afterEach } from "vitest";
 import expected from "../fixtures/baseline-transport.json";
-import { apiClient } from "@/core/services/http/api-client";
+import { axiosInstance as apiClient } from "@/core/api/apiClient";
 import examples from "../fixtures/command-examples.json";
 import owners from "../fixtures/command-service-map.json";
 const modules=import.meta.glob('../../src/features/*/services/*-service.ts',{eager:true}) as Record<string,Record<string,Function>>;

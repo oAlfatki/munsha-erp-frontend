@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { WarehouseDirectory } from '@/features/inventory/components/screens/WarehouseDirectory';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** إضافة مخزن — feature-owned route content. */

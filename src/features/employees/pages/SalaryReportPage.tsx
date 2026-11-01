@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { PayrollReport } from '@/features/employees/components/reports/PayrollReport';
 import { useEmployeesData } from '@/features/employees/hooks/useEmployeesData';
 /** تقرير رواتب الموظفين — feature-owned route content. */

@@ -1,8 +1,8 @@
-import { Modal } from '@/core/components/shared/dialogs/Modal';
-import { Field } from '@/core/components/shared/forms/Field';
-import { Select } from '@/core/components/shared/forms/Select';
-import { Button } from '@/core/components/ui/button';
-import { Input } from '@/core/components/ui/input';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { Field } from '@/shared/ui/forms/Field';
+import { Select } from '@/shared/ui/forms/Select';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
 import { extras } from '@/features/accounting/services/models/extensions';
 import { useSupplierEditorController } from '@/features/suppliers/hooks/useSupplierEditorController';
 import type { SupplierEditorProps } from '@/features/suppliers/types/SupplierEditorProps';

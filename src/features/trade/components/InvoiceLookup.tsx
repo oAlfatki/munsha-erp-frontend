@@ -1,7 +1,7 @@
-import { Modal } from '@/core/components/shared/dialogs/Modal';
-import { SearchBox } from '@/core/components/shared/filters/SearchBox';
-import { DataTable } from '@/core/components/shared/tables/DataTable';
-import { Button } from '@/core/components/ui/button';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { SearchBox } from '@/shared/ui/filters/SearchBox';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Button } from '@/shared/ui/primitives/button';
 import { useErpContext } from '@/core/hooks/useErpContext';
 import { fmt } from '@/core/utils/formatters';
 import type { InvoiceLookupProps } from '@/features/trade/types/InvoiceLookupProps';

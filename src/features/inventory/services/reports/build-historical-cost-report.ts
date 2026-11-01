@@ -1,10 +1,11 @@
+import type {BuildHistoricalCostReportContext} from '@/features/inventory/types/read-models/BuildHistoricalCostReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 import { extras } from '@/features/accounting/services/models/extensions';
 export function buildHistoricalCostReport(
-  workspace: ErpReadModel,
+  workspace: BuildHistoricalCostReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

@@ -1,10 +1,11 @@
+import type {BuildTrialBalanceReportContext} from '@/features/accounting/types/read-models/BuildTrialBalanceReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 import { allAccounts } from '@/features/accounting/services/models/extensions';
 export function buildTrialBalanceReport(
-  workspace: ErpReadModel,
+  workspace: BuildTrialBalanceReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

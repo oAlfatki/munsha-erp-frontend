@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { AssetDepreciationReport } from '@/features/accounting/components/reports/AssetDepreciationReport';
 import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
 /** تقرير الأصول والإهلاك — feature-owned route content. */

@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { OpeningStockReport } from '@/features/inventory/components/reports/OpeningStockReport';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** تقرير أصناف بداية المدة — feature-owned route content. */

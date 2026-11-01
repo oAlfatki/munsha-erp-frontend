@@ -1,9 +1,10 @@
+import type {BuildStagnantStockReportContext} from '@/features/inventory/types/read-models/BuildStagnantStockReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 export function buildStagnantStockReport(
-  workspace: ErpReadModel,
+  workspace: BuildStagnantStockReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

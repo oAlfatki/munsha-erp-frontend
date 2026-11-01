@@ -1,9 +1,10 @@
+import type {BuildCustomerBalancesReportContext} from '@/features/customers/types/read-models/BuildCustomerBalancesReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 export function buildCustomerBalancesReport(
-  workspace: ErpReadModel,
+  workspace: BuildCustomerBalancesReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

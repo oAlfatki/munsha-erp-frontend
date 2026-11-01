@@ -1,5 +1,5 @@
 import { ENDPOINTS } from '@/core/config/endpoints';
-import { apiRequest } from '@/core/services/http/api-client';
+import { apiClient } from '@/core/api/apiClient';
 import type { GetBranchesByIdRequest } from '@/features/settings/types/requests/GetBranchesByIdRequest';
 import type { GetSettingsBackupPolicyRequest } from '@/features/settings/types/requests/GetSettingsBackupPolicyRequest';
 import type { GetSettingsBrandingRequest } from '@/features/settings/types/requests/GetSettingsBrandingRequest';
@@ -40,188 +40,116 @@ import type { SystemSettingsSalesResponse } from '@/features/settings/types/resp
 export async function fetchBranches(
   params: SearchBranchesRequest = {},
 ): Promise<BranchListResponse> {
-  return await apiRequest<BranchListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchBranches,
-    params: {
+  return await apiClient.get<BranchListResponse>(ENDPOINTS.fetchBranches,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
       active: params.active,
       bookId: params.bookId,
-    },
-  });
+    }});
 }
 /** Get branches detail. Existing HTTP contract. */
 export async function fetchBranchesById(params: GetBranchesByIdRequest): Promise<BranchResponse> {
-  return await apiRequest<BranchResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchBranchesById(params.id),
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<BranchResponse>(ENDPOINTS.fetchBranchesById(params.id),{params: { bookId: params.bookId }});
 }
 /** Get company settings. Existing HTTP contract. */
 export async function fetchSettingsCompany(
   params: GetSettingsCompanyRequest = {},
 ): Promise<OrganizationResponse> {
-  return await apiRequest<OrganizationResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsCompany,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<OrganizationResponse>(ENDPOINTS.fetchSettingsCompany,{params: { bookId: params.bookId }});
 }
 /** Get white-label branding. Existing HTTP contract. */
 export async function fetchSettingsBranding(
   params: GetSettingsBrandingRequest = {},
 ): Promise<BrandingResponse> {
-  return await apiRequest<BrandingResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsBranding,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<BrandingResponse>(ENDPOINTS.fetchSettingsBranding,{params: { bookId: params.bookId }});
 }
 /** Get all persisted system settings. Existing HTTP contract. */
 export async function fetchSettingsSystem(
   params: GetSettingsSystemRequest = {},
 ): Promise<SystemSettingsResponse> {
-  return await apiRequest<SystemSettingsResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystem,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsResponse>(ENDPOINTS.fetchSettingsSystem,{params: { bookId: params.bookId }});
 }
 /** Get automatic backup policy. Existing HTTP contract. */
 export async function fetchSettingsBackupPolicy(
   params: GetSettingsBackupPolicyRequest = {},
 ): Promise<BackupPolicyResponse> {
-  return await apiRequest<BackupPolicyResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsBackupPolicy,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<BackupPolicyResponse>(ENDPOINTS.fetchSettingsBackupPolicy,{params: { bookId: params.bookId }});
 }
 /** Get accounting settings. Existing HTTP contract. */
 export async function fetchSettingsSystemAccounting(
   params: GetSettingsSystemAccountingRequest = {},
 ): Promise<SystemSettingsAccountingResponse> {
-  return await apiRequest<SystemSettingsAccountingResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystemAccounting,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsAccountingResponse>(ENDPOINTS.fetchSettingsSystemAccounting,{params: { bookId: params.bookId }});
 }
 /** Get sales settings. Existing HTTP contract. */
 export async function fetchSettingsSystemSales(
   params: GetSettingsSystemSalesRequest = {},
 ): Promise<SystemSettingsSalesResponse> {
-  return await apiRequest<SystemSettingsSalesResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystemSales,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsSalesResponse>(ENDPOINTS.fetchSettingsSystemSales,{params: { bookId: params.bookId }});
 }
 /** Get purchases settings. Existing HTTP contract. */
 export async function fetchSettingsSystemPurchases(
   params: GetSettingsSystemPurchasesRequest = {},
 ): Promise<SystemSettingsPurchasesResponse> {
-  return await apiRequest<SystemSettingsPurchasesResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystemPurchases,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsPurchasesResponse>(ENDPOINTS.fetchSettingsSystemPurchases,{params: { bookId: params.bookId }});
 }
 /** Get inventory settings. Existing HTTP contract. */
 export async function fetchSettingsSystemInventory(
   params: GetSettingsSystemInventoryRequest = {},
 ): Promise<SystemSettingsInventoryResponse> {
-  return await apiRequest<SystemSettingsInventoryResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystemInventory,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsInventoryResponse>(ENDPOINTS.fetchSettingsSystemInventory,{params: { bookId: params.bookId }});
 }
 /** Get expenses settings. Existing HTTP contract. */
 export async function fetchSettingsSystemExpenses(
   params: GetSettingsSystemExpensesRequest = {},
 ): Promise<SystemSettingsExpensesResponse> {
-  return await apiRequest<SystemSettingsExpensesResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystemExpenses,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsExpensesResponse>(ENDPOINTS.fetchSettingsSystemExpenses,{params: { bookId: params.bookId }});
 }
 /** Get documents settings. Existing HTTP contract. */
 export async function fetchSettingsSystemDocuments(
   params: GetSettingsSystemDocumentsRequest = {},
 ): Promise<SystemSettingsDocumentsResponse> {
-  return await apiRequest<SystemSettingsDocumentsResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystemDocuments,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsDocumentsResponse>(ENDPOINTS.fetchSettingsSystemDocuments,{params: { bookId: params.bookId }});
 }
 /** Get branches settings. Existing HTTP contract. */
 export async function fetchSettingsSystemBranches(
   params: GetSettingsSystemBranchesRequest = {},
 ): Promise<SystemSettingsBranchesResponse> {
-  return await apiRequest<SystemSettingsBranchesResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystemBranches,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsBranchesResponse>(ENDPOINTS.fetchSettingsSystemBranches,{params: { bookId: params.bookId }});
 }
 /** Get company settings. Existing HTTP contract. */
 export async function fetchSettingsSystemCompany(
   params: GetSettingsSystemCompanyRequest = {},
 ): Promise<SystemSettingsCompanyResponse> {
-  return await apiRequest<SystemSettingsCompanyResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsSystemCompany,
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<SystemSettingsCompanyResponse>(ENDPOINTS.fetchSettingsSystemCompany,{params: { bookId: params.bookId }});
 }
 /** Get API and database connection status. Existing HTTP contract. */
 export async function fetchSettingsServiceStatus(
   _params: GetSettingsServiceStatusRequest = {},
 ): Promise<ServiceStatusResponse> {
-  return await apiRequest<ServiceStatusResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsServiceStatus,
-    params: {},
-  });
+  return await apiClient.get<ServiceStatusResponse>(ENDPOINTS.fetchSettingsServiceStatus,{params: {}});
 }
 /** Get a master-data CSV template. Existing HTTP contract. */
 export async function fetchSettingsImportTemplatesByKind(
   params: GetSettingsImportTemplatesByKindRequest,
 ): Promise<ImportTemplateResponse> {
-  return await apiRequest<ImportTemplateResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchSettingsImportTemplatesByKind(params.kind),
-    params: {},
-  });
+  return await apiClient.get<ImportTemplateResponse>(ENDPOINTS.fetchSettingsImportTemplatesByKind(params.kind),{params: {}});
 }
 /** Get a saved screen draft. Existing HTTP contract. */
 export async function fetchUiDraftsByKey(params: GetUiDraftsByKeyRequest): Promise<DraftResponse> {
-  return await apiRequest<DraftResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchUiDraftsByKey(params.key),
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<DraftResponse>(ENDPOINTS.fetchUiDraftsByKey(params.key),{params: { bookId: params.bookId }});
 }
 /** Search selectable form options. Existing HTTP contract. */
 export async function fetchLookupsByResource(
   params: SearchLookupsByResourceRequest,
 ): Promise<LookupOptionPage> {
-  return await apiRequest<LookupOptionPage>({
-    method: 'GET',
-    url: ENDPOINTS.fetchLookupsByResource(params.resource),
-    params: {
+  return await apiClient.get<LookupOptionPage>(ENDPOINTS.fetchLookupsByResource(params.resource),{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
       bookId: params.bookId,
       branchId: params.branchId,
       currency: params.currency,
-    },
-  });
+    }});
 }

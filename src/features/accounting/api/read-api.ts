@@ -1,5 +1,5 @@
 import { ENDPOINTS } from '@/core/config/endpoints';
-import { apiRequest } from '@/core/services/http/api-client';
+import { apiClient } from '@/core/api/apiClient';
 import type { GetAccountingAccountsByCodeRequest } from '@/features/accounting/types/requests/GetAccountingAccountsByCodeRequest';
 import type { GetAccountingAssetAcquisitionsByIdRequest } from '@/features/accounting/types/requests/GetAccountingAssetAcquisitionsByIdRequest';
 import type { GetAccountingAssetsByIdRequest } from '@/features/accounting/types/requests/GetAccountingAssetsByIdRequest';
@@ -50,36 +50,25 @@ import type { TrialBalanceReport } from '@/features/reports/types/responses/Tria
 export async function fetchAccountingAccounts(
   params: SearchAccountingAccountsRequest = {},
 ): Promise<AccountListResponse> {
-  return await apiRequest<AccountListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingAccounts,
-    params: {
+  return await apiClient.get<AccountListResponse>(ENDPOINTS.fetchAccountingAccounts,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
       active: params.active,
       bookId: params.bookId,
-    },
-  });
+    }});
 }
 /** Get chart-of-account cards detail. Existing HTTP contract. */
 export async function fetchAccountingAccountsByCode(
   params: GetAccountingAccountsByCodeRequest,
 ): Promise<AccountResponse> {
-  return await apiRequest<AccountResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingAccountsByCode(params.code),
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<AccountResponse>(ENDPOINTS.fetchAccountingAccountsByCode(params.code),{params: { bookId: params.bookId }});
 }
 /** List cash and bank cards. Existing HTTP contract. */
 export async function fetchAccountingCashAccounts(
   params: SearchAccountingCashAccountsRequest = {},
 ): Promise<CashAccountListResponse> {
-  return await apiRequest<CashAccountListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingCashAccounts,
-    params: {
+  return await apiClient.get<CashAccountListResponse>(ENDPOINTS.fetchAccountingCashAccounts,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
@@ -87,130 +76,86 @@ export async function fetchAccountingCashAccounts(
       bookId: params.bookId,
       branchId: params.branchId,
       currency: params.currency,
-    },
-  });
+    }});
 }
 /** Get cash and bank cards detail. Existing HTTP contract. */
 export async function fetchAccountingCashAccountsById(
   params: GetAccountingCashAccountsByIdRequest,
 ): Promise<CashAccountResponse> {
-  return await apiRequest<CashAccountResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingCashAccountsById(params.id),
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<CashAccountResponse>(ENDPOINTS.fetchAccountingCashAccountsById(params.id),{params: { bookId: params.bookId }});
 }
 /** List fixed-asset cards. Existing HTTP contract. */
 export async function fetchAccountingAssets(
   params: SearchAccountingAssetsRequest = {},
 ): Promise<AssetListResponse> {
-  return await apiRequest<AssetListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingAssets,
-    params: {
+  return await apiClient.get<AssetListResponse>(ENDPOINTS.fetchAccountingAssets,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
       active: params.active,
       bookId: params.bookId,
       branchId: params.branchId,
-    },
-  });
+    }});
 }
 /** Get fixed-asset cards detail. Existing HTTP contract. */
 export async function fetchAccountingAssetsById(
   params: GetAccountingAssetsByIdRequest,
 ): Promise<AssetResponse> {
-  return await apiRequest<AssetResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingAssetsById(params.id),
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<AssetResponse>(ENDPOINTS.fetchAccountingAssetsById(params.id),{params: { bookId: params.bookId }});
 }
 /** List miscellaneous debtor and creditor cards. Existing HTTP contract. */
 export async function fetchAccountingContacts(
   params: SearchAccountingContactsRequest = {},
 ): Promise<ContactListResponse> {
-  return await apiRequest<ContactListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingContacts,
-    params: {
+  return await apiClient.get<ContactListResponse>(ENDPOINTS.fetchAccountingContacts,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
       active: params.active,
       bookId: params.bookId,
-    },
-  });
+    }});
 }
 /** Get miscellaneous debtor and creditor cards detail. Existing HTTP contract. */
 export async function fetchAccountingContactsById(
   params: GetAccountingContactsByIdRequest,
 ): Promise<ContactResponse> {
-  return await apiRequest<ContactResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingContactsById(params.id),
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<ContactResponse>(ENDPOINTS.fetchAccountingContactsById(params.id),{params: { bookId: params.bookId }});
 }
 /** List currencies. Existing HTTP contract. */
 export async function fetchAccountingCurrencies(
   params: SearchAccountingCurrenciesRequest = {},
 ): Promise<CurrencyListResponse> {
-  return await apiRequest<CurrencyListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingCurrencies,
-    params: { page: params.page, pageSize: params.pageSize, q: params.q, bookId: params.bookId },
-  });
+  return await apiClient.get<CurrencyListResponse>(ENDPOINTS.fetchAccountingCurrencies,{params: { page: params.page, pageSize: params.pageSize, q: params.q, bookId: params.bookId }});
 }
 /** Get currencies detail. Existing HTTP contract. */
 export async function fetchAccountingCurrenciesByCode(
   params: GetAccountingCurrenciesByCodeRequest,
 ): Promise<CurrencyResponse> {
-  return await apiRequest<CurrencyResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingCurrenciesByCode(params.code),
-    params: { bookId: params.bookId },
-  });
+  return await apiClient.get<CurrencyResponse>(ENDPOINTS.fetchAccountingCurrenciesByCode(params.code),{params: { bookId: params.bookId }});
 }
 /** List financial books. Existing HTTP contract. */
 export async function fetchAccountingFinancialBooks(
   params: SearchAccountingFinancialBooksRequest = {},
 ): Promise<FinancialBookListResponse> {
-  return await apiRequest<FinancialBookListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingFinancialBooks,
-    params: { page: params.page, pageSize: params.pageSize, q: params.q },
-  });
+  return await apiClient.get<FinancialBookListResponse>(ENDPOINTS.fetchAccountingFinancialBooks,{params: { page: params.page, pageSize: params.pageSize, q: params.q }});
 }
 /** Get financial books detail. Existing HTTP contract. */
 export async function fetchAccountingFinancialBooksById(
   params: GetAccountingFinancialBooksByIdRequest,
 ): Promise<FinancialBookResponse> {
-  return await apiRequest<FinancialBookResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingFinancialBooksById(params.id),
-    params: {},
-  });
+  return await apiClient.get<FinancialBookResponse>(ENDPOINTS.fetchAccountingFinancialBooksById(params.id),{params: {}});
 }
 /** Get year-end activation readiness. Existing HTTP contract. */
 export async function fetchAccountingFinancialBooksByIdReadiness(
   params: GetAccountingFinancialBooksByIdReadinessRequest,
 ): Promise<BookReadinessResponse> {
-  return await apiRequest<BookReadinessResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingFinancialBooksByIdReadiness(params.id),
-    params: {},
-  });
+  return await apiClient.get<BookReadinessResponse>(ENDPOINTS.fetchAccountingFinancialBooksByIdReadiness(params.id),{params: {}});
 }
 /** List receipt and payment vouchers. Existing HTTP contract. */
 export async function fetchAccountingVouchers(
   params: SearchAccountingVouchersRequest = {},
 ): Promise<VoucherListResponse> {
-  return await apiRequest<VoucherListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingVouchers,
-    params: {
+  return await apiClient.get<VoucherListResponse>(ENDPOINTS.fetchAccountingVouchers,{params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
@@ -223,27 +168,19 @@ export async function fetchAccountingVouchers(
       partyId: params.partyId,
       cashId: params.cashId,
       currency: params.currency,
-    },
-  });
+    }});
 }
 /** Get a voucher with currency lines. Existing HTTP contract. */
 export async function fetchAccountingVouchersById(
   params: GetAccountingVouchersByIdRequest,
 ): Promise<VoucherResponse> {
-  return await apiRequest<VoucherResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingVouchersById(params.id),
-    params: { bookId: params.bookId, branchId: params.branchId },
-  });
+  return await apiClient.get<VoucherResponse>(ENDPOINTS.fetchAccountingVouchersById(params.id),{params: { bookId: params.bookId, branchId: params.branchId }});
 }
 /** List posted journal entries. Existing HTTP contract. */
 export async function fetchAccountingJournals(
   params: SearchAccountingJournalsRequest = {},
 ): Promise<JournalEntryListResponse> {
-  return await apiRequest<JournalEntryListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingJournals,
-    params: {
+  return await apiClient.get<JournalEntryListResponse>(ENDPOINTS.fetchAccountingJournals,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -254,44 +191,32 @@ export async function fetchAccountingJournals(
       accountCode: params.accountCode,
       partyId: params.partyId,
       reference: params.reference,
-    },
-  });
+    }});
 }
 /** Get a journal entry. Existing HTTP contract. */
 export async function fetchAccountingJournalsById(
   params: GetAccountingJournalsByIdRequest,
 ): Promise<JournalEntryResponse> {
-  return await apiRequest<JournalEntryResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingJournalsById(params.id),
-    params: { bookId: params.bookId, branchId: params.branchId },
-  });
+  return await apiClient.get<JournalEntryResponse>(ENDPOINTS.fetchAccountingJournalsById(params.id),{params: { bookId: params.bookId, branchId: params.branchId }});
 }
 /** List dated currency reference rates. Existing HTTP contract. */
 export async function fetchAccountingExchangeRates(
   params: SearchAccountingExchangeRatesRequest = {},
 ): Promise<FxRateListResponse> {
-  return await apiRequest<FxRateListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingExchangeRates,
-    params: {
+  return await apiClient.get<FxRateListResponse>(ENDPOINTS.fetchAccountingExchangeRates,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
       currency: params.currency,
       from: params.from,
       to: params.to,
-    },
-  });
+    }});
 }
 /** List asset acquisitions. Existing HTTP contract. */
 export async function fetchAccountingAssetAcquisitions(
   params: SearchAccountingAssetAcquisitionsRequest = {},
 ): Promise<OperationListResponse> {
-  return await apiRequest<OperationListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingAssetAcquisitions,
-    params: {
+  return await apiClient.get<OperationListResponse>(ENDPOINTS.fetchAccountingAssetAcquisitions,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -301,27 +226,19 @@ export async function fetchAccountingAssetAcquisitions(
       period: params.period,
       q: params.q,
       sourceId: params.sourceId,
-    },
-  });
+    }});
 }
 /** Get asset acquisitions detail. Existing HTTP contract. */
 export async function fetchAccountingAssetAcquisitionsById(
   params: GetAccountingAssetAcquisitionsByIdRequest,
 ): Promise<OperationResponse> {
-  return await apiRequest<OperationResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingAssetAcquisitionsById(params.id),
-    params: { bookId: params.bookId, branchId: params.branchId },
-  });
+  return await apiClient.get<OperationResponse>(ENDPOINTS.fetchAccountingAssetAcquisitionsById(params.id),{params: { bookId: params.bookId, branchId: params.branchId }});
 }
 /** List depreciation. Existing HTTP contract. */
 export async function fetchAccountingDepreciation(
   params: SearchAccountingDepreciationRequest = {},
 ): Promise<OperationListResponse> {
-  return await apiRequest<OperationListResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingDepreciation,
-    params: {
+  return await apiClient.get<OperationListResponse>(ENDPOINTS.fetchAccountingDepreciation,{params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -331,46 +248,33 @@ export async function fetchAccountingDepreciation(
       period: params.period,
       q: params.q,
       sourceId: params.sourceId,
-    },
-  });
+    }});
 }
 /** Get depreciation detail. Existing HTTP contract. */
 export async function fetchAccountingDepreciationById(
   params: GetAccountingDepreciationByIdRequest,
 ): Promise<OperationResponse> {
-  return await apiRequest<OperationResponse>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingDepreciationById(params.id),
-    params: { bookId: params.bookId, branchId: params.branchId },
-  });
+  return await apiClient.get<OperationResponse>(ENDPOINTS.fetchAccountingDepreciationById(params.id),{params: { bookId: params.bookId, branchId: params.branchId }});
 }
 /** Preview closing stock for carry-forward. Existing HTTP contract. */
 export async function fetchAccountingFinancialBooksByIdClosingStock(
   params: SearchAccountingFinancialBooksByIdClosingStockRequest,
 ): Promise<InventoryValuationReport> {
-  return await apiRequest<InventoryValuationReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingFinancialBooksByIdClosingStock(params.id),
-    params: {
+  return await apiClient.get<InventoryValuationReport>(ENDPOINTS.fetchAccountingFinancialBooksByIdClosingStock(params.id),{params: {
       page: params.page,
       pageSize: params.pageSize,
       branchId: params.branchId,
       asOf: params.asOf,
-    },
-  });
+    }});
 }
 /** Preview closing accounts for carry-forward. Existing HTTP contract. */
 export async function fetchAccountingFinancialBooksByIdClosingAccounts(
   params: SearchAccountingFinancialBooksByIdClosingAccountsRequest,
 ): Promise<TrialBalanceReport> {
-  return await apiRequest<TrialBalanceReport>({
-    method: 'GET',
-    url: ENDPOINTS.fetchAccountingFinancialBooksByIdClosingAccounts(params.id),
-    params: {
+  return await apiClient.get<TrialBalanceReport>(ENDPOINTS.fetchAccountingFinancialBooksByIdClosingAccounts(params.id),{params: {
       page: params.page,
       pageSize: params.pageSize,
       branchId: params.branchId,
       asOf: params.asOf,
-    },
-  });
+    }});
 }

@@ -1,8 +1,9 @@
+import type {BuildUserAuditReportContext} from '@/features/users/types/read-models/BuildUserAuditReportContext';
 import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 export function buildUserAuditReport(
-  workspace: ErpReadModel,
+  workspace: BuildUserAuditReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {

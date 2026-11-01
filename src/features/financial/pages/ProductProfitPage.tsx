@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { ProfitByItemReport } from '@/features/financial/components/reports/ProfitByItemReport';
 import { useFinancialData } from '@/features/financial/hooks/useFinancialData';
 /** الأرباح من الأصناف — feature-owned route content. */

@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { PurchaseSummaryReport } from '@/features/purchases/components/reports/PurchaseSummaryReport';
 import { usePurchasesData } from '@/features/purchases/hooks/usePurchasesData';
 /** تقرير المشتريات — feature-owned route content. */

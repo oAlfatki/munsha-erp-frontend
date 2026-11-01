@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { CashFlowReport } from '@/features/financial/components/reports/CashFlowReport';
 import { useFinancialData } from '@/features/financial/hooks/useFinancialData';
 /** قائمة التدفقات النقدية — feature-owned route content. */

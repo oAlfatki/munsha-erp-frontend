@@ -1,4 +1,4 @@
-import { FeatureDataScope } from '@/core/providers/FeatureDataScope';
+import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
 import { InventoryCost } from '@/features/inventory/components/InventoryCost';
 import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
 /** تقرير تكلفة المخزون — feature-owned route content. */
