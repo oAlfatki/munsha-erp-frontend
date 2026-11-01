@@ -1,0 +1,105 @@
+import { useErpContext } from '@/core/hooks/useErpContext';
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { useProduct } from '@/features/inventory/hooks/useProduct';
+import type { Unit } from '@/features/inventory/types/models/Unit';
+import type { ProductEditorProps } from '@/features/inventory/types/ProductEditorProps';
+import { productSchema } from '@/features/inventory/validation/inventory-schema';
+import { generalSettings } from '@/features/settings/services/models/completion';
+import { systemSettings } from '@/features/settings/services/models/system-settings';
+import { useState } from 'react';
+
+const BLANK: Unit = { name: 'حبة', factor: 1, purchase: 0, retail: 0, wholesale: 0, barcode: '' };
+
+export function useProductEditorController({ product, onClose: close }: ProductEditorProps) {
+  const { busy: isBusy, state: workspace } = useErpContext();
+  const productMutationRequest = useProduct(),
+    productForm = useValidatedForm(productSchema, productMutationRequest.execute),
+    productMutation = { ...productMutationRequest, execute: productForm.submit };
+  const [name, setName] = useState(product?.name || ''),
+    [groupId, setGroupId] = useState(product?.groupId || ''),
+    [category, setCategory] = useState<1 | 2 | 3>(product?.category || 1),
+    [units, setUnits] = useState<Unit[]>(product?.units || [{ ...BLANK }]),
+    [ratios, setRatios] = useState<number[]>(
+      product?.units.map((u, i, a) => (i < a.length - 1 ? u.factor / a[i + 1].factor : 1)) || [1],
+    ),
+    [isActive, setActive] = useState(product?.active ?? true),
+    [min, setMin] = useState(
+      product?.min ?? (workspace ? systemSettings(workspace).inventory.reorder : 0),
+    ),
+    [isAlert, setAlert] = useState(
+      product?.alert ?? (workspace ? systemSettings(workspace).inventory.alert : true),
+    ),
+    [discount, setDiscount] = useState(
+      product?.maxDiscount ?? (workspace ? generalSettings(workspace).discount : 0),
+    ),
+    [profit, setProfit] = useState(workspace ? generalSettings(workspace).profit : 10),
+    [isAuto, setAuto] = useState(true);
+  function changeCategory(n: 1 | 2 | 3) {
+    setCategory(n);
+    setUnits(
+      Array.from({ length: n }, (unusedValue, i) => ({
+        ...BLANK,
+        name: n === 1 ? 'حبة' : i === 0 ? 'كرتون' : i === n - 1 ? 'حبة' : 'درزن',
+      })),
+    );
+    setRatios(Array.from({ length: n }, (unusedValue, i) => (i === n - 1 ? 1 : 12)));
+  }
+  const factors = units.map((unusedValue, i) =>
+    ratios.slice(i, -1).reduce((a, b) => a * (b || 1), 1),
+  );
+  function price(i: number, key: 'purchase' | 'retail' | 'wholesale', value: number) {
+    const next = units.map((u) => ({ ...u }));
+    next[i][key] = value;
+    if (isAuto) {
+      for (let j = i + 1; j < next.length; j++)
+        next[j][key] = +(next[j - 1][key] / (ratios[j - 1] || 1)).toFixed(4);
+    }
+    setUnits(next);
+  }
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (
+      await productMutation.execute({
+        id: product?.id,
+        name,
+        groupId,
+        category,
+        units: units.map((u, i) => ({ ...u, factor: factors[i] })),
+        active: isActive,
+        min,
+        alert: isAlert,
+        maxDiscount: discount,
+      })
+    )
+      close();
+  }
+  return {
+    isBusy,
+    workspace,
+    name,
+    setName,
+    groupId,
+    setGroupId,
+    category,
+    units,
+    setUnits,
+    ratios,
+    setRatios,
+    isActive,
+    setActive,
+    min,
+    setMin,
+    isAlert,
+    setAlert,
+    discount,
+    setDiscount,
+    profit,
+    setProfit,
+    isAuto,
+    setAuto,
+    changeCategory,
+    factors,
+    price,
+    handleSubmit,
+  };
+}

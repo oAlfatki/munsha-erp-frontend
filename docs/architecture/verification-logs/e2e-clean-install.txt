@@ -1,0 +1,21 @@
+
+> munsha-erp-frontend@1.0.0 test:e2e
+> playwright test --grep restores a server|creates a customer|creates a supplier|phone viewport --output=/tmp/munsha-clean/e2e-clean-release-artifacts --reporter=line
+
+
+Running 4 tests using 1 worker
+
+(node:22813) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] [chromium] › tests/e2e/erp.spec.ts:15:1 › restores a server session on a direct protected URL and reload
+[2/4] [chromium] › tests/e2e/erp.spec.ts:24:1 › creates a customer through feature services and HTTP and keeps it after reload
+[3/4] [chromium] › tests/e2e/erp.spec.ts:36:1 › creates a supplier through the same HTTP boundary with supplier rules
+[4/4] [chromium] › tests/e2e/erp.spec.ts:65:1 › opens the RTL print preview and downloads a real customer PDF on a phone viewport
+  4 passed (10.9s)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice

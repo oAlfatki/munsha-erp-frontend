@@ -1,0 +1,137 @@
+[
+  {
+    "file": "tests/reference/domain/annual-books.ts",
+    "sha256": "765ecd6bbeec3578e9c5b2a2fc1c1d0820115fa7553f549984ae7711395c99d2",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/asset-values.ts",
+    "sha256": "d8ab6bc024713040c264035e4052e46697d199497c8f69d253162d25d849545c",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/backup-policy.ts",
+    "sha256": "ed90609dc1a4a57c286e66108ee953dec64164afc2f1f8aee1fecaca9bb3abcc",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/backup-validation.ts",
+    "sha256": "eea9737410c67f525a3007e228f28fffe01f950dd3e5a610dcb86a22fc0d21f8",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/cash.ts",
+    "sha256": "3eb1916b7aee66155c1b289b4393214db6267e26bd82ac0eaab562564da30208",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/completion.ts",
+    "sha256": "4a95dccf2788f54444b9ef16f69ff9518a5842c0bc54a9f700f9367b8ac9d312",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/csv.ts",
+    "sha256": "2ffed5ba5aed2221bbd88673fc3beb2489cf83521ce98c8c22c90c25f2b1aa3e",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/engine.ts",
+    "sha256": "780dbea94009e67e6941df9a606a82b51c0b6f103a6de3615518fd40b019a33d",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/expenses.ts",
+    "sha256": "d9dc98bcc7717cefb6a18d2d22efc91a3b198005e3262ad04c9a8169f8ac9f29",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/extensions.ts",
+    "sha256": "246477956c15b60634ddb18f1fe4500008b4cca42d97584e4daef5f2fac44bb6",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/fiscal-range.ts",
+    "sha256": "3c710f2b424f3b047858c61c0fabdaf8f6302f1b8afd120d67f9ff3d7fbd5add",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/id.ts",
+    "sha256": "189ce2c35bb7ad84f9dd298fd1cf22acb5a1abd4c2927622a214074ebf9fad58",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/inventory-cost.ts",
+    "sha256": "bc00ff9924b6b0509aed48ec983c5a451fb5584474f38295a5815d4677f15244",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/inventory-display.ts",
+    "sha256": "c07f9791cfc914dd5d83d5b8f1d0bf8ba1627384f487eb5cf8f1fc2f7ff31dee",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/invoice-discounts.ts",
+    "sha256": "c70b8d4da2f36f16a7d6de5f996251fda85234e4f7664b58e46d3fd934a6fce9",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/invoice-entry.ts",
+    "sha256": "84852f435d745f6d530690ff5742e12f82b9348e443ffaba2568812d314742fa",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/invoice-events.ts",
+    "sha256": "08bdd2ca3b8ae6060a5d217387f610de7530d947d8d024d910db36512642742f",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/numbering.ts",
+    "sha256": "f05aed87214ed68dc01dd638c54048218d3ca4c2e02aeb70b6b18692561fd43b",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/partial-returns.ts",
+    "sha256": "1e992f274561c6a26aad16a8f7f06e94b37fb5dac41374aaea2e7d86660b9b7e",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/presentation.ts",
+    "sha256": "66c45e84cc85e882b3364f5c4eb19f59205c4d276a16826bcbe6ae10cfef6eed",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/price-list.ts",
+    "sha256": "1a6b4f51b9a801c1583e5b643a2b6d3decb55dd19d632ffa437d4f2b254451cc",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/report-documents.ts",
+    "sha256": "673eb40d6f05074b41d06be17abed8128325e56a734cb2eb132f1e2b16e643d7",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/stock-documents.ts",
+    "sha256": "6257f26f5d681de85b5338edb3d56f7c970457f167f79a5df0ca0b5defe696cb",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/system-settings.ts",
+    "sha256": "78389f57523f900c168756e8996fdb2ae7a5016e5061def6f08a5e7ef08b003e",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/trade-summary.ts",
+    "sha256": "9f85cb9393013a7c3f56161550c9013e79b81d4c21f60bb74c917abe778f091e",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/types.ts",
+    "sha256": "2e28fad06130e172f130500f6a8a7b4d3f01aab78447bef24db84768fc0595e0",
+    "unchanged": true
+  },
+  {
+    "file": "tests/reference/domain/vouchers.ts",
+    "sha256": "b55bf9f2f1a3b32ee1eadc80ea477e3630970c1966ec48d2e526422e4231507a",
+    "unchanged": true
+  }
+]

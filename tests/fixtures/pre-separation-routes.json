@@ -1,0 +1,3699 @@
+{
+  "screens": [
+    {
+      "id": "groups-add",
+      "module": "inventory",
+      "title": "إضافة مجموعة",
+      "page": 83,
+      "mode": "master",
+      "collection": "productGroups",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم المجموعة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "note",
+          "label": "ملاحظات",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "مجموعات لتصنيف الأصناف وإدارة البحث والتقارير."
+    },
+    {
+      "id": "groups",
+      "module": "inventory",
+      "title": "قائمة المجموعات",
+      "page": 83,
+      "mode": "master",
+      "collection": "productGroups",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم المجموعة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "note",
+          "label": "ملاحظات",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "مجموعات لتصنيف الأصناف وإدارة البحث والتقارير."
+    },
+    {
+      "id": "warehouses-add",
+      "module": "inventory",
+      "title": "إضافة مخزن",
+      "page": 84,
+      "mode": "locations",
+      "collection": "warehouse"
+    },
+    {
+      "id": "transfer-document",
+      "module": "inventory",
+      "title": "إضافة فاتورة تحويل مخزني",
+      "page": 91,
+      "mode": "stockDoc",
+      "documentKind": "transfer"
+    },
+    {
+      "id": "units-add",
+      "module": "inventory",
+      "title": "إضافة وحدة",
+      "page": 82,
+      "mode": "master",
+      "collection": "units",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم الوحدة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "category",
+          "label": "فئة الاستخدام",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "1",
+              "أحادية"
+            ],
+            [
+              "2",
+              "ثنائية"
+            ],
+            [
+              "3",
+              "ثلاثية"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warehouses",
+      "module": "inventory",
+      "title": "قائمة المخازن",
+      "page": 84,
+      "mode": "locations",
+      "collection": "warehouse"
+    },
+    {
+      "id": "units",
+      "module": "inventory",
+      "title": "قائمة الوحدات",
+      "page": 82,
+      "mode": "master",
+      "collection": "units",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم الوحدة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "category",
+          "label": "فئة الاستخدام",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "1",
+              "أحادية"
+            ],
+            [
+              "2",
+              "ثنائية"
+            ],
+            [
+              "3",
+              "ثلاثية"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cost",
+      "module": "inventory",
+      "title": "تقرير تكلفة المخزون",
+      "page": 87,
+      "mode": "inventoryCost",
+      "report": "stockCost"
+    },
+    {
+      "id": "reorder",
+      "module": "inventory",
+      "title": "أصناف بلغت حد الطلب",
+      "page": 89,
+      "mode": "report",
+      "report": "reorder"
+    },
+    {
+      "id": "stagnant",
+      "module": "inventory",
+      "title": "الأصناف الراكدة",
+      "page": 90,
+      "mode": "report",
+      "report": "stagnant"
+    },
+    {
+      "id": "transfers",
+      "module": "inventory",
+      "title": "فواتير التحويل بين المخازن",
+      "page": 92,
+      "mode": "report",
+      "report": "transfers"
+    },
+    {
+      "id": "opening-stock",
+      "module": "inventory",
+      "title": "إضافة أصناف بداية المدة",
+      "page": 93,
+      "mode": "stockDoc",
+      "documentKind": "opening",
+      "fields": [
+        {
+          "key": "date",
+          "label": "تاريخ الافتتاح",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "warehouse",
+          "label": "المخزن",
+          "type": "warehouse",
+          "required": true
+        },
+        {
+          "key": "product",
+          "label": "الصنف",
+          "type": "product",
+          "required": true
+        },
+        {
+          "key": "qty",
+          "label": "الكمية بالوحدة الأساسية",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "cost",
+          "label": "تكلفة الوحدة بالأساسية",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "source",
+          "label": "مصدر توثيق الرصيد",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "note": "إدخال مستقل لكميات وتكاليف أصناف بداية المدة حسب المخزن."
+    },
+    {
+      "id": "opening-stock-report",
+      "module": "inventory",
+      "title": "تقرير أصناف بداية المدة",
+      "page": 94,
+      "mode": "report",
+      "report": "openingStock"
+    },
+    {
+      "id": "count",
+      "module": "inventory",
+      "title": "الجرد الفعلي",
+      "page": 98,
+      "mode": "operation",
+      "operation": "count",
+      "note": "حفظ العدد لا يغير المخزون. حدّث الجرد إذا حدثت أي حركة في يوم العد أو بعده."
+    },
+    {
+      "id": "adjustment",
+      "module": "inventory",
+      "title": "فاتورة تسوية المخزون",
+      "page": 95,
+      "mode": "stockDoc",
+      "documentKind": "adjustment",
+      "note": "تسوية متعددة البنود بالوحدات المختارة والتكلفة الدفترية، مع مراجعة الرصيد قبل الاعتماد ومنع أثر مكرر."
+    },
+    {
+      "id": "adjustments",
+      "module": "inventory",
+      "title": "قائمة تسويات المخزون",
+      "page": 107,
+      "mode": "report",
+      "report": "adjustments"
+    },
+    {
+      "id": "historical-cost",
+      "module": "inventory",
+      "title": "مراجعة تكلفة الصنف التاريخية",
+      "page": 99,
+      "mode": "report",
+      "report": "historicalCost"
+    },
+    {
+      "id": "end-stock",
+      "module": "inventory",
+      "title": "تقرير مخزون آخر المدة",
+      "page": 87,
+      "mode": "closingBalances",
+      "report": "endStock"
+    },
+    {
+      "id": "statement",
+      "module": "accounts",
+      "title": "كشف حساب",
+      "page": 143,
+      "mode": "statement"
+    },
+    {
+      "id": "accounts",
+      "module": "accounts",
+      "title": "إضافة حساب ودليل الحسابات",
+      "page": 138,
+      "mode": "master",
+      "collection": "accounts",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم الحساب",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "parent",
+          "label": "حساب الأب",
+          "type": "account",
+          "required": false
+        },
+        {
+          "key": "code",
+          "label": "رمز الحساب",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "type",
+          "label": "التصنيف",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "asset",
+              "أصول"
+            ],
+            [
+              "liability",
+              "التزامات"
+            ],
+            [
+              "equity",
+              "حقوق ملكية"
+            ],
+            [
+              "revenue",
+              "إيرادات"
+            ],
+            [
+              "expense",
+              "مصروفات"
+            ]
+          ]
+        },
+        {
+          "key": "nature",
+          "label": "الطبيعة",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "debit",
+              "مدين"
+            ],
+            [
+              "credit",
+              "دائن"
+            ]
+          ]
+        },
+        {
+          "key": "postable",
+          "label": "قابل للقيد",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "yes",
+              "نعم"
+            ],
+            [
+              "no",
+              "حساب تجميعي فقط"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vouchers",
+      "module": "accounts",
+      "title": "بحث سندات الصرف والقبض",
+      "page": 142,
+      "mode": "report",
+      "report": "vouchers"
+    },
+    {
+      "id": "cash-movement",
+      "module": "accounts",
+      "title": "حركة الصندوق",
+      "page": 144,
+      "mode": "report",
+      "report": "cash"
+    },
+    {
+      "id": "opening",
+      "module": "accounts",
+      "title": "إضافة الأرصدة الافتتاحية",
+      "page": 149,
+      "mode": "stockDoc",
+      "documentKind": "opening",
+      "fields": [
+        {
+          "key": "date",
+          "label": "تاريخ مستند الافتتاح",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "cut",
+          "label": "آخر يوم بالنظام السابق",
+          "type": "date",
+          "required": false
+        },
+        {
+          "key": "account",
+          "label": "اسم الحساب",
+          "type": "account",
+          "required": true
+        },
+        {
+          "key": "debit",
+          "label": "مدين بالأساسية",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "credit",
+          "label": "دائن بالأساسية",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "source",
+          "label": "مرجع ميزان النظام السابق",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "حفظ مسودة بلا أثر، أو اعتماد افتتاح متزن في فرع جديد فقط، دون ملء فرق رأس المال تلقائيًا."
+    },
+    {
+      "id": "opening-report",
+      "module": "accounts",
+      "title": "تقرير الأرصدة الافتتاحية",
+      "page": 150,
+      "mode": "report",
+      "report": "opening"
+    },
+    {
+      "id": "journal-new",
+      "module": "accounts",
+      "title": "إضافة قيد يومي يدوي",
+      "page": 151,
+      "mode": "journal",
+      "note": "قيد متزن بالعملة الأساسية. الحسابات الرقابية للمخزون والذمم والرواتب والأصول تتغير من مستنداتها فقط."
+    },
+    {
+      "id": "currencies",
+      "module": "accounts",
+      "title": "قائمة العملات",
+      "page": 153,
+      "mode": "currency",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم العملة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "code",
+          "label": "رمز العملة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "date",
+          "label": "تاريخ السريان",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "rate",
+          "label": "عدد وحدات YER لكل وحدة أجنبية",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "source",
+          "label": "مصدر السعر",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "note": "إضافة عملة وسعر مرجعي مؤرخ. سعر الصرف في المستند يظل نسخة تاريخية مستقلة، ولا تتغير قيود قديمة عند تحديث المرجع."
+    },
+    {
+      "id": "cash-bank",
+      "module": "accounts",
+      "title": "إضافة الصناديق والبنوك",
+      "page": 155,
+      "mode": "master",
+      "collection": "cash",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم الصندوق أو البنك",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "branchId",
+          "label": "الفرع",
+          "type": "branch",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "نوع الحساب",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "cash",
+              "صندوق"
+            ],
+            [
+              "bank",
+              "حساب بنكي"
+            ]
+          ]
+        },
+        {
+          "key": "currency",
+          "label": "العملة",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "YER",
+              "ريال يمني"
+            ],
+            [
+              "SAR",
+              "ريال سعودي"
+            ],
+            [
+              "USD",
+              "دولار أمريكي"
+            ]
+          ]
+        },
+        {
+          "key": "bank",
+          "label": "اسم البنك",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "iban",
+          "label": "رقم الحساب / IBAN",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "account",
+          "label": "الحساب المحاسبي",
+          "type": "account",
+          "required": false
+        }
+      ],
+      "note": "الصناديق مرتبطة بالفرع والعملة والحساب؛ سند صرف المصروف يستخدم الصندوق المحدد. الفواتير والسندات العامة تستخدم الصندوق الرئيسي في هذه النسخة."
+    },
+    {
+      "id": "assets",
+      "module": "accounts",
+      "title": "قائمة الأصول الثابتة",
+      "page": 156,
+      "mode": "assets",
+      "collection": "assets",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم الأصل",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "branchId",
+          "label": "الفرع",
+          "type": "branch",
+          "required": true
+        },
+        {
+          "key": "ready",
+          "label": "تاريخ الجاهزية",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "cost",
+          "label": "تكلفة الاقتناء — YER",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "residual",
+          "label": "القيمة التخريدية",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "life",
+          "label": "العمر الإنتاجي بالسنوات",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "serial",
+          "label": "الرقم التسلسلي",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "حفظ البطاقة لا يثبت أصلًا ماليًا؛ استخدم إثبات الاقتناء ثم إهلاك الفترة."
+    },
+    {
+      "id": "asset-purchase",
+      "module": "accounts",
+      "title": "إثبات اقتناء أصل",
+      "page": 156,
+      "mode": "operation",
+      "operation": "assetPurchase",
+      "note": "اقتناء نقدي للأصل بتكلفة البطاقة مرة واحدة؛ يبدأ الإهلاك من الجاهزية."
+    },
+    {
+      "id": "depreciation",
+      "module": "accounts",
+      "title": "إثبات إهلاك فترة",
+      "page": 158,
+      "mode": "operation",
+      "operation": "depreciation",
+      "note": "قسط ثابت شهري أو مبلغ متغير معتمد للفترة، دون تجاوز التكلفة ناقص التخريدية. يمنع تكرار الأصل والفترة."
+    },
+    {
+      "id": "asset-report",
+      "module": "accounts",
+      "title": "تقرير الأصول والإهلاك",
+      "page": 157,
+      "mode": "report",
+      "report": "assets"
+    },
+    {
+      "id": "contacts",
+      "module": "accounts",
+      "title": "حسابات الدائنين والمدينين المتنوعين",
+      "page": 159,
+      "mode": "master",
+      "collection": "contacts",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم الحساب / الطرف",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "address",
+          "label": "العنوان",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "phone",
+          "label": "رقم الهاتف",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "kind",
+          "label": "نوع العلاقة",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "debtor",
+              "مدين متنوع"
+            ],
+            [
+              "creditor",
+              "دائن متنوع"
+            ]
+          ]
+        },
+        {
+          "key": "account",
+          "label": "الحساب المرتبط من دليل الحسابات",
+          "type": "account",
+          "required": true
+        },
+        {
+          "key": "limit",
+          "label": "سقف الحساب",
+          "type": "number",
+          "required": false
+        }
+      ],
+      "note": "بطاقة طرف متنوع مرتبطة بحساب فرعي للأصول أو الالتزامات. إثبات الذمة والسداد من شاشة حركة الأطراف."
+    },
+    {
+      "id": "periods",
+      "module": "accounts",
+      "title": "السنة والفترات المالية",
+      "page": 161,
+      "mode": "annualSettings",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم السنة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "start",
+          "label": "بداية السنة",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "end",
+          "label": "نهاية السنة",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "first",
+          "label": "أول فترة تشغيل",
+          "type": "month",
+          "required": true
+        },
+        {
+          "key": "cut",
+          "label": "آخر يوم بالنظام السابق",
+          "type": "date",
+          "required": false
+        }
+      ],
+      "note": "إعداد خطة السنة؛ سنة التشغيل الفعلية الحالية 2026 ولا يغيّر حفظ الخطة السنة المحاسبية."
+    },
+    {
+      "id": "close",
+      "module": "accounts",
+      "title": "مراجعة إقفال السنة والفترة",
+      "page": 163,
+      "mode": "annualSettings",
+      "fields": [
+        {
+          "key": "asOf",
+          "label": "نهاية الفترة",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "next",
+          "label": "اسم قاعدة السنة الجديدة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "note",
+          "label": "ملاحظات المراجعة",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "قائمة تحقق ومعاينة فقط. إنشاء قاعدة سنوية وترحيل الأرصدة وإقفال النتيجة غير مفعّل؛ لا يحذف حفظ النموذج حركات ولا ينقل أرصدة."
+    },
+    {
+      "id": "reopen",
+      "module": "accounts",
+      "title": "طلب إعادة فتح فترة",
+      "page": 164,
+      "mode": "serviceStatus",
+      "fields": [
+        {
+          "key": "period",
+          "label": "الفترة",
+          "type": "month",
+          "required": true
+        },
+        {
+          "key": "reason",
+          "label": "سبب إعادة الفتح",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "approver",
+          "label": "المراجع المسؤول",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "note": "السنة المؤرشفة محفوظة للعرض؛ إعادة فتحها للتعديل غير مفعلة."
+    },
+    {
+      "id": "fx",
+      "module": "accounts",
+      "title": "مراجعة أرصدة العملات",
+      "page": 169,
+      "mode": "report",
+      "report": "fx"
+    },
+    {
+      "id": "end-balances",
+      "module": "accounts",
+      "title": "الحسابات في الفترة المنتهية",
+      "page": 150,
+      "mode": "closingBalances",
+      "report": "trial"
+    },
+    {
+      "id": "cash-bank-list",
+      "module": "accounts",
+      "title": "قائمة الصناديق والبنوك",
+      "page": 155,
+      "mode": "master",
+      "collection": "cash",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم الصندوق أو البنك",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "branchId",
+          "label": "الفرع",
+          "type": "branch",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "نوع الحساب",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "cash",
+              "صندوق"
+            ],
+            [
+              "bank",
+              "حساب بنكي"
+            ]
+          ]
+        },
+        {
+          "key": "currency",
+          "label": "العملة",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "YER",
+              "ريال يمني"
+            ],
+            [
+              "SAR",
+              "ريال سعودي"
+            ],
+            [
+              "USD",
+              "دولار أمريكي"
+            ]
+          ]
+        },
+        {
+          "key": "bank",
+          "label": "اسم البنك",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "iban",
+          "label": "رقم الحساب / IBAN",
+          "type": "text",
+          "required": false
+        },
+        {
+          "key": "account",
+          "label": "الحساب المحاسبي",
+          "type": "account",
+          "required": false
+        }
+      ],
+      "note": "الصناديق مرتبطة بالفرع والعملة والحساب؛ سند صرف المصروف يستخدم الصندوق المحدد. الفواتير والسندات العامة تستخدم الصندوق الرئيسي في هذه النسخة."
+    },
+    {
+      "id": "assets-add",
+      "module": "accounts",
+      "title": "إضافة أصل ثابت",
+      "page": 156,
+      "mode": "assets"
+    },
+    {
+      "id": "currencies-add",
+      "module": "accounts",
+      "title": "إضافة عملة وسعر صرف",
+      "page": 153,
+      "mode": "currency",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم العملة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "code",
+          "label": "رمز العملة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "date",
+          "label": "تاريخ السريان",
+          "type": "date",
+          "required": true
+        },
+        {
+          "key": "rate",
+          "label": "عدد وحدات YER لكل وحدة أجنبية",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "source",
+          "label": "مصدر السعر",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "note": "إضافة عملة وسعر مرجعي مؤرخ. سعر الصرف في المستند يظل نسخة تاريخية مستقلة، ولا تتغير قيود قديمة عند تحديث المرجع."
+    },
+    {
+      "id": "contacts-ledger",
+      "module": "accounts",
+      "title": "حركة الأطراف المتنوعة وكشف الحساب",
+      "page": 159,
+      "mode": "contactsLedger"
+    },
+    {
+      "id": "tax-report",
+      "module": "accounts",
+      "title": "تقرير الضرائب",
+      "page": 0,
+      "mode": "report",
+      "report": "tax"
+    },
+    {
+      "id": "branches",
+      "module": "settings",
+      "title": "بطاقات الفروع ومواقع التشغيل",
+      "page": 53,
+      "mode": "locations",
+      "collection": "branch"
+    },
+    {
+      "id": "backup",
+      "module": "settings",
+      "title": "النسخ الاحتياطي",
+      "page": 46,
+      "mode": "backups",
+      "note": "تنزيل لقطة JSON فعلية لبيانات مساحة العمل؛ ليست نسخة SQL ولا خدمة نسخ مجدولة."
+    },
+    {
+      "id": "restore",
+      "module": "settings",
+      "title": "استرجاع نسخة احتياطية",
+      "page": 47,
+      "mode": "backups",
+      "note": "فحص ومعاينة فقط. استبدال قاعدة البيانات الحالية غير مفعّل في النسخة التجريبية."
+    },
+    {
+      "id": "backup-policy",
+      "module": "settings",
+      "title": "إعدادات النسخ الاحتياطي",
+      "page": 48,
+      "mode": "backups",
+      "fields": [
+        {
+          "key": "frequency",
+          "label": "التكرار المقترح",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "daily",
+              "يومي"
+            ],
+            [
+              "weekly",
+              "أسبوعي"
+            ]
+          ]
+        },
+        {
+          "key": "time",
+          "label": "وقت التنفيذ",
+          "type": "time",
+          "required": false
+        },
+        {
+          "key": "retention",
+          "label": "مدة الاحتفاظ بالأيام",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "destination",
+          "label": "وجهة التخزين",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "إعداد الوجهة والتكرار والوقت والاحتفاظ ضمن شاشة النسخ الموحدة."
+    },
+    {
+      "id": "database",
+      "module": "settings",
+      "title": "حالة الاتصال بقاعدة البيانات",
+      "page": 51,
+      "mode": "annualSettings",
+      "fields": [
+        {
+          "key": "environment",
+          "label": "اسم بيئة العمل",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "التخزين الحالي Cloudflare D1 مرتبط بالخادم. لا نطلب عنوان SQL أو كلمة مرور قاعدة بيانات داخل المتصفح."
+    },
+    {
+      "id": "annual-books",
+      "module": "settings",
+      "title": "إنشاء الفترة المالية وترحيل الأرصدة",
+      "page": 51,
+      "mode": "annualSettings"
+    },
+    {
+      "id": "system-company",
+      "module": "settings",
+      "title": "إعدادات المنشأة",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "company"
+    },
+    {
+      "id": "system-accounting",
+      "module": "settings",
+      "title": "إعدادات المحاسبة والضرائب",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "accounting"
+    },
+    {
+      "id": "system-branches",
+      "module": "settings",
+      "title": "إعدادات الفروع",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "branches"
+    },
+    {
+      "id": "system-sales",
+      "module": "settings",
+      "title": "إعدادات المبيعات",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "sales"
+    },
+    {
+      "id": "system-purchases",
+      "module": "settings",
+      "title": "إعدادات المشتريات",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "purchases"
+    },
+    {
+      "id": "system-inventory",
+      "module": "settings",
+      "title": "إعدادات المخزون",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "inventory"
+    },
+    {
+      "id": "system-expenses",
+      "module": "settings",
+      "title": "إعدادات المصروفات والسندات",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "expenses"
+    },
+    {
+      "id": "system-documents",
+      "module": "settings",
+      "title": "إعدادات المستندات والترقيم",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "documents"
+    },
+    {
+      "id": "system-printing",
+      "module": "settings",
+      "title": "إعدادات الطباعة",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "printing"
+    },
+    {
+      "id": "system-general",
+      "module": "settings",
+      "title": "الإعدادات العامة",
+      "page": 50,
+      "mode": "systemSettings",
+      "settingsTab": "general"
+    },
+    {
+      "id": "migration",
+      "module": "settings",
+      "title": "استيراد البطاقات من CSV",
+      "mode": "masterImport",
+      "page": 0,
+      "note": "فحص واعتماد بطاقات العملاء والموردين والأصناف دون فواتير أو أرصدة."
+    },
+    {
+      "id": "users",
+      "module": "access",
+      "title": "قائمة المستخدمين وبطاقة المستخدم",
+      "page": 38,
+      "mode": "master",
+      "collection": "users",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم المستخدم",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "email",
+          "label": "البريد الإلكتروني",
+          "type": "email",
+          "required": false
+        },
+        {
+          "key": "role",
+          "label": "الدور المقترح",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "cashier",
+              "موظف مبيعات"
+            ],
+            [
+              "warehouse",
+              "أمين مخزن"
+            ],
+            [
+              "accountant",
+              "محاسب"
+            ]
+          ]
+        },
+        {
+          "key": "branchId",
+          "label": "نطاق الفرع",
+          "type": "branch",
+          "required": false
+        }
+      ],
+      "note": "سجل تخطيط للمستخدمين فقط. لا ينشئ حساب دخول أو يمنح وصولًا للموقع."
+    },
+    {
+      "id": "password",
+      "module": "access",
+      "title": "تغيير كلمة مرور مستخدم",
+      "page": 40,
+      "mode": "serviceStatus",
+      "fields": [
+        {
+          "key": "user",
+          "label": "المستخدم المقصود",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "reason",
+          "label": "سبب طلب إعادة التعيين",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "note": "لا تجمع هذه الشاشة كلمات مرور. إعادة التعيين الفعلية تتطلب ربط مزود هوية؛ المحفوظ طلب إعداد فقط."
+    },
+    {
+      "id": "matrix",
+      "module": "access",
+      "title": "صلاحيات العمليات والنطاقات",
+      "page": 41,
+      "mode": "permissions"
+    },
+    {
+      "id": "audit",
+      "module": "access",
+      "title": "حركات المستخدمين",
+      "page": 42,
+      "mode": "report",
+      "report": "audit"
+    },
+    {
+      "id": "sessions",
+      "module": "access",
+      "title": "الجلسات النشطة وقفل الجلسة",
+      "page": 43,
+      "mode": "serviceStatus",
+      "fields": [
+        {
+          "key": "idle",
+          "label": "مهلة الخمول المقترحة بالدقائق",
+          "type": "number",
+          "required": false
+        },
+        {
+          "key": "policy",
+          "label": "سياسة إعادة التوثيق",
+          "type": "select",
+          "required": false,
+          "options": [
+            [
+              "reauth",
+              "إعادة التوثيق بعد القفل"
+            ],
+            [
+              "manual",
+              "قفل يدوي"
+            ]
+          ]
+        }
+      ],
+      "note": "نموذج سياسة فقط؛ لا تعرض قائمة جلسات وهمية ولا تلغي جلسة فعلية."
+    },
+    {
+      "id": "users-add",
+      "module": "access",
+      "title": "إضافة مستخدم",
+      "page": 38,
+      "mode": "master",
+      "collection": "users",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم المستخدم",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "email",
+          "label": "البريد الإلكتروني",
+          "type": "email",
+          "required": false
+        },
+        {
+          "key": "role",
+          "label": "الدور المقترح",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "cashier",
+              "موظف مبيعات"
+            ],
+            [
+              "warehouse",
+              "أمين مخزن"
+            ],
+            [
+              "accountant",
+              "محاسب"
+            ]
+          ]
+        },
+        {
+          "key": "branchId",
+          "label": "نطاق الفرع",
+          "type": "branch",
+          "required": false
+        }
+      ],
+      "note": "سجل تخطيط للمستخدمين فقط. لا ينشئ حساب دخول أو يمنح وصولًا للموقع."
+    },
+    {
+      "id": "payroll",
+      "module": "employees",
+      "title": "احتساب وإثبات رواتب فترة",
+      "page": 66,
+      "mode": "operation",
+      "operation": "payroll",
+      "note": "إثبات راتب واحد للموظف والفترة بالعملة الأساسية؛ المبلغ الصافي معتمد يدويًا. يمنع الإثبات مرتين."
+    },
+    {
+      "id": "salary-payment",
+      "module": "employees",
+      "title": "صرف رواتب الموظفين",
+      "page": 67,
+      "mode": "operation",
+      "operation": "salaryPayment",
+      "note": "صرف كامل لمستحق راتب مثبت، دون تسجيل المصروف مرة ثانية."
+    },
+    {
+      "id": "salary-report",
+      "module": "employees",
+      "title": "تقرير رواتب الموظفين",
+      "page": 68,
+      "mode": "report",
+      "report": "payroll"
+    },
+    {
+      "id": "advance",
+      "module": "employees",
+      "title": "صرف سلفة موظف",
+      "page": 148,
+      "mode": "operation",
+      "operation": "advance",
+      "note": "يثبت مبلغًا على حساب سلف الموظفين مقابل الصندوق؛ لا يُعد مصروف راتب."
+    },
+    {
+      "id": "withdrawals",
+      "module": "employees",
+      "title": "تقرير مسحوبات الموظفين",
+      "page": 148,
+      "mode": "report",
+      "report": "advances",
+      "navModule": "accounts"
+    },
+    {
+      "id": "groups",
+      "module": "customers",
+      "title": "مجموعات العملاء والموردين",
+      "page": 72,
+      "mode": "master",
+      "collection": "groups",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم المجموعة",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "kind",
+          "label": "نوع المجموعة",
+          "type": "select",
+          "required": true,
+          "options": [
+            [
+              "customer",
+              "عملاء"
+            ],
+            [
+              "supplier",
+              "موردون"
+            ]
+          ]
+        },
+        {
+          "key": "note",
+          "label": "ملاحظات",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "تعريف مجموعات وربطها ببطاقات العملاء والموردين، مع تصفية القوائم حسب المجموعة."
+    },
+    {
+      "id": "customer-balances",
+      "module": "customers",
+      "title": "تقرير حسابات العملاء",
+      "page": 145,
+      "mode": "report",
+      "report": "customers",
+      "navModule": "accounts"
+    },
+    {
+      "id": "supplier-balances",
+      "module": "suppliers",
+      "title": "تقرير حسابات الموردين",
+      "page": 146,
+      "mode": "report",
+      "report": "suppliers",
+      "navModule": "accounts"
+    },
+    {
+      "id": "prices",
+      "module": "inventory",
+      "title": "تسعيرة الأصناف",
+      "page": 96,
+      "mode": "prices",
+      "report": "prices",
+      "navModule": "sales"
+    },
+    {
+      "id": "sales-report",
+      "module": "sales",
+      "title": "تقرير المبيعات",
+      "page": 129,
+      "mode": "report",
+      "report": "sales"
+    },
+    {
+      "id": "sales-returns",
+      "module": "sales",
+      "title": "فاتورة مرتجع مبيعات",
+      "page": 127,
+      "mode": "returnInvoice",
+      "report": "saleReturns"
+    },
+    {
+      "id": "sales-chart",
+      "module": "sales",
+      "title": "الرسم البياني لحركة المبيعات",
+      "page": 130,
+      "mode": "report",
+      "report": "salesChart"
+    },
+    {
+      "id": "targets",
+      "module": "sales",
+      "title": "أهداف المبيعات ومتابعة الإنجاز",
+      "page": 131,
+      "mode": "salesTargets",
+      "fields": [
+        {
+          "key": "period",
+          "label": "الفترة",
+          "type": "month",
+          "required": true
+        },
+        {
+          "key": "employee",
+          "label": "الموظف المسؤول",
+          "type": "employee",
+          "required": true
+        },
+        {
+          "key": "target",
+          "label": "الهدف بالعملة الأساسية",
+          "type": "number",
+          "required": true
+        },
+        {
+          "key": "note",
+          "label": "ملاحظات",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "note": "حفظ هدف للتخطيط والمراجعة؛ لا يرتبط تلقائيًا بعمولة الموظف أو قيد مالي."
+    },
+    {
+      "id": "expense-types",
+      "module": "expenses",
+      "title": "أنواع المصروفات",
+      "page": 114,
+      "mode": "master",
+      "collection": "expenseTypes",
+      "fields": [
+        {
+          "key": "name",
+          "label": "اسم نوع المصروف",
+          "type": "text",
+          "required": true
+        },
+        {
+          "key": "account",
+          "label": "الحساب المحاسبي",
+          "type": "account",
+          "required": true
+        },
+        {
+          "key": "note",
+          "label": "وصف الاستخدام",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "add",
+      "module": "expenses",
+      "title": "إضافة مصروف",
+      "page": 110,
+      "mode": "expenseUnified"
+    },
+    {
+      "id": "expense-list",
+      "module": "expenses",
+      "title": "قائمة المصروفات",
+      "page": 112,
+      "mode": "expenseUnified"
+    },
+    {
+      "id": "expense-report",
+      "module": "expenses",
+      "title": "تقارير المصروفات",
+      "page": 147,
+      "mode": "expenseUnified",
+      "navModule": "accounts"
+    },
+    {
+      "id": "purchase-report",
+      "module": "purchases",
+      "title": "تقرير المشتريات",
+      "page": 121,
+      "mode": "report",
+      "report": "purchases"
+    },
+    {
+      "id": "purchase-returns",
+      "module": "purchases",
+      "title": "فاتورة مرتجع شراء",
+      "page": 119,
+      "mode": "returnInvoice",
+      "report": "purchaseReturns"
+    },
+    {
+      "id": "profit-customers",
+      "module": "financial",
+      "title": "الأرباح من العملاء",
+      "page": 174,
+      "mode": "report",
+      "report": "profitCustomers"
+    },
+    {
+      "id": "profit-items",
+      "module": "financial",
+      "title": "الأرباح من الأصناف",
+      "page": 175,
+      "mode": "report",
+      "report": "profitItems"
+    },
+    {
+      "id": "mapping",
+      "module": "financial",
+      "title": "ربط الحسابات بالقوائم المالية",
+      "page": 178,
+      "mode": "report",
+      "report": "mapping"
+    },
+    {
+      "id": "income",
+      "module": "financial",
+      "title": "قائمة الدخل",
+      "page": 176,
+      "mode": "financial"
+    },
+    {
+      "id": "balance-sheet",
+      "module": "financial",
+      "title": "قائمة المركز المالي",
+      "page": 177,
+      "mode": "financial"
+    },
+    {
+      "id": "cash-flow",
+      "module": "financial",
+      "title": "قائمة التدفقات النقدية",
+      "page": 0,
+      "mode": "report",
+      "report": "cashFlow"
+    }
+  ],
+  "menus": {
+    "dashboard": [],
+    "access": [
+      {
+        "id": "access~users-add",
+        "label": "إضافة مستخدم",
+        "target": "access~users-add"
+      },
+      {
+        "id": "access~users",
+        "label": "قائمة المستخدمين",
+        "target": "access~users"
+      },
+      {
+        "id": "access~password",
+        "label": "تغيير كلمة مرور مستخدم",
+        "target": "access~password"
+      },
+      {
+        "id": "access~matrix",
+        "label": "صلاحيات العمليات والنطاقات",
+        "target": "access~matrix"
+      },
+      {
+        "id": "access~audit",
+        "label": "حركات المستخدمين",
+        "target": "access~audit"
+      },
+      {
+        "id": "access~sessions",
+        "label": "الجلسات النشطة وقفل الجلسة",
+        "target": "access~sessions"
+      }
+    ],
+    "settings": [
+      {
+        "id": "settings",
+        "label": "مركز الإعدادات",
+        "target": "settings"
+      },
+      {
+        "id": "settings~migration",
+        "label": "استيراد بطاقات من CSV",
+        "target": "settings~migration"
+      },
+      {
+        "id": "backup",
+        "label": "النسخ الاحتياطي والاسترجاع",
+        "children": [
+          {
+            "id": "settings~backup",
+            "label": "النسخ الاحتياطي",
+            "target": "settings~backup"
+          },
+          {
+            "id": "settings~restore",
+            "label": "استرجاع نسخة احتياطية",
+            "target": "settings~restore"
+          },
+          {
+            "id": "settings~backup-policy",
+            "label": "إعدادات النسخ الاحتياطي",
+            "target": "settings~backup-policy"
+          }
+        ]
+      },
+      {
+        "id": "behavior",
+        "label": "إعدادات سلوك النظام",
+        "children": [
+          {
+            "id": "settings~system-company",
+            "label": "إعدادات المنشأة",
+            "target": "settings~system-company"
+          },
+          {
+            "id": "settings~system-accounting",
+            "label": "إعدادات المحاسبة والضرائب",
+            "target": "settings~system-accounting"
+          },
+          {
+            "id": "settings~system-branches",
+            "label": "إعدادات الفروع",
+            "target": "settings~system-branches"
+          },
+          {
+            "id": "settings~system-sales",
+            "label": "إعدادات المبيعات",
+            "target": "settings~system-sales"
+          },
+          {
+            "id": "settings~system-purchases",
+            "label": "إعدادات المشتريات",
+            "target": "settings~system-purchases"
+          },
+          {
+            "id": "settings~system-inventory",
+            "label": "إعدادات المخزون",
+            "target": "settings~system-inventory"
+          },
+          {
+            "id": "settings~system-expenses",
+            "label": "إعدادات المصروفات والسندات",
+            "target": "settings~system-expenses"
+          },
+          {
+            "id": "settings~system-documents",
+            "label": "إعدادات المستندات والترقيم",
+            "target": "settings~system-documents"
+          },
+          {
+            "id": "settings~system-printing",
+            "label": "إعدادات الطباعة",
+            "target": "settings~system-printing"
+          },
+          {
+            "id": "settings~system-general",
+            "label": "الإعدادات العامة",
+            "target": "settings~system-general"
+          }
+        ]
+      },
+      {
+        "id": "settings~branches",
+        "label": "إدارة الفروع",
+        "target": "settings~branches"
+      },
+      {
+        "id": "settings~database",
+        "label": "الاتصال بقاعدة البيانات والفترات",
+        "target": "settings~database"
+      },
+      {
+        "id": "database-creation",
+        "label": "إنشاء الفترة وترحيل الأرصدة",
+        "children": [
+          {
+            "id": "settings~annual-books",
+            "label": "إنشاء الفترة المالية وترحيل الأرصدة",
+            "target": "settings~annual-books"
+          },
+          {
+            "id": "inventory~end-stock",
+            "label": "أرصدة مخزون آخر المدة",
+            "target": "inventory~end-stock"
+          },
+          {
+            "id": "accounts~end-balances",
+            "label": "أرصدة جميع الحسابات",
+            "target": "accounts~end-balances"
+          }
+        ]
+      }
+    ],
+    "employees": [
+      {
+        "id": "employees-new",
+        "label": "إضافة موظف",
+        "target": "employees-new"
+      },
+      {
+        "id": "employees",
+        "label": "قائمة الموظفين",
+        "target": "employees"
+      },
+      {
+        "id": "employees~payroll",
+        "label": "احتساب وإثبات رواتب فترة",
+        "target": "employees~payroll"
+      },
+      {
+        "id": "employees~salary-payment",
+        "label": "صرف رواتب الموظفين",
+        "target": "employees~salary-payment"
+      },
+      {
+        "id": "employees~salary-report",
+        "label": "تقرير رواتب الموظفين",
+        "target": "employees~salary-report"
+      },
+      {
+        "id": "employees~advance",
+        "label": "صرف سلفة موظف",
+        "target": "employees~advance"
+      }
+    ],
+    "customers": [
+      {
+        "id": "customers-new",
+        "label": "إضافة عميل",
+        "target": "customers-new"
+      },
+      {
+        "id": "customers",
+        "label": "قائمة العملاء",
+        "target": "customers"
+      },
+      {
+        "id": "customers~groups",
+        "label": "مجموعات العملاء والموردين",
+        "target": "customers~groups"
+      }
+    ],
+    "suppliers": [
+      {
+        "id": "suppliers-new",
+        "label": "إضافة مورد",
+        "target": "suppliers-new"
+      },
+      {
+        "id": "suppliers",
+        "label": "قائمة الموردين",
+        "target": "suppliers"
+      }
+    ],
+    "inventory": [
+      {
+        "id": "products-new",
+        "label": "إضافة صنف",
+        "target": "products-new"
+      },
+      {
+        "id": "products",
+        "label": "قائمة الأصناف",
+        "target": "products"
+      },
+      {
+        "id": "units",
+        "label": "الوحدات",
+        "children": [
+          {
+            "id": "inventory~units-add",
+            "label": "إضافة وحدة",
+            "target": "inventory~units-add"
+          },
+          {
+            "id": "inventory~units",
+            "label": "قائمة الوحدات",
+            "target": "inventory~units"
+          }
+        ]
+      },
+      {
+        "id": "groups",
+        "label": "المجموعات",
+        "children": [
+          {
+            "id": "inventory~groups-add",
+            "label": "إضافة مجموعة",
+            "target": "inventory~groups-add"
+          },
+          {
+            "id": "inventory~groups",
+            "label": "قائمة المجموعات",
+            "target": "inventory~groups"
+          }
+        ]
+      },
+      {
+        "id": "inventory~warehouses-add",
+        "label": "إضافة مخزن",
+        "target": "inventory~warehouses-add"
+      },
+      {
+        "id": "inventory~warehouses",
+        "label": "قائمة المخازن",
+        "target": "inventory~warehouses"
+      },
+      {
+        "id": "inventory",
+        "label": "تقرير أرصدة المخازن",
+        "target": "inventory"
+      },
+      {
+        "id": "inventory~cost",
+        "label": "تقرير تكلفة المخزون",
+        "target": "inventory~cost"
+      },
+      {
+        "id": "inventory~transfer-document",
+        "label": "التحويل بين المخازن",
+        "target": "inventory~transfer-document"
+      },
+      {
+        "id": "inventory~transfers",
+        "label": "فواتير التحويل بين المخازن",
+        "target": "inventory~transfers"
+      },
+      {
+        "id": "inventory~opening-stock",
+        "label": "إضافة أصناف بداية المدة",
+        "target": "inventory~opening-stock"
+      },
+      {
+        "id": "inventory~opening-stock-report",
+        "label": "تقرير أصناف بداية المدة",
+        "target": "inventory~opening-stock-report"
+      },
+      {
+        "id": "inventory~adjustment",
+        "label": "تسوية المخزون",
+        "target": "inventory~adjustment"
+      },
+      {
+        "id": "inventory:movements",
+        "label": "حركة الأصناف",
+        "target": "inventory:movements"
+      },
+      {
+        "id": "inventory~reorder",
+        "label": "أصناف وصلت حد الطلب",
+        "target": "inventory~reorder"
+      },
+      {
+        "id": "inventory~stagnant",
+        "label": "الأصناف الراكدة",
+        "target": "inventory~stagnant"
+      },
+      {
+        "id": "inventory-extra",
+        "label": "تقارير وإجراءات إضافية",
+        "children": [
+          {
+            "id": "inventory~count",
+            "label": "الجرد الفعلي",
+            "target": "inventory~count"
+          },
+          {
+            "id": "inventory~adjustments",
+            "label": "قائمة تسويات المخزون",
+            "target": "inventory~adjustments"
+          },
+          {
+            "id": "inventory~historical-cost",
+            "label": "مراجعة تكلفة الصنف التاريخية",
+            "target": "inventory~historical-cost"
+          },
+          {
+            "id": "inventory~end-stock",
+            "label": "تقرير مخزون آخر المدة",
+            "target": "inventory~end-stock"
+          }
+        ]
+      }
+    ],
+    "expenses": [
+      {
+        "id": "expenses~expense-types",
+        "label": "أنواع المصروفات",
+        "target": "expenses~expense-types"
+      },
+      {
+        "id": "expenses~add",
+        "label": "إضافة مصروف",
+        "target": "expenses~add"
+      },
+      {
+        "id": "expenses~expense-list",
+        "label": "قائمة المصروفات",
+        "target": "expenses~expense-list"
+      },
+      {
+        "id": "expenses~expense-report",
+        "label": "تقارير المصروفات",
+        "target": "expenses~expense-report"
+      }
+    ],
+    "purchases": [
+      {
+        "id": "purchases-new",
+        "label": "فاتورة شراء",
+        "target": "purchases-new"
+      },
+      {
+        "id": "purchases",
+        "label": "فواتير المرتجعات والمشتريات",
+        "target": "purchases"
+      },
+      {
+        "id": "purchases~purchase-returns",
+        "label": "فاتورة مرتجع شراء",
+        "target": "purchases~purchase-returns"
+      },
+      {
+        "id": "purchases~purchase-report",
+        "label": "تقرير المشتريات",
+        "target": "purchases~purchase-report"
+      }
+    ],
+    "sales": [
+      {
+        "id": "sales-new",
+        "label": "فاتورة مبيعات",
+        "target": "sales-new"
+      },
+      {
+        "id": "sales",
+        "label": "قائمة فواتير المبيعات",
+        "target": "sales"
+      },
+      {
+        "id": "sales~sales-returns",
+        "label": "فاتورة مرتجع مبيعات",
+        "target": "sales~sales-returns"
+      },
+      {
+        "id": "sales~sales-report",
+        "label": "تقرير المبيعات",
+        "target": "sales~sales-report"
+      },
+      {
+        "id": "inventory~prices",
+        "label": "تسعيرة الأصناف",
+        "target": "inventory~prices"
+      },
+      {
+        "id": "sales~sales-chart",
+        "label": "الرسم البياني لحركة المبيعات",
+        "target": "sales~sales-chart"
+      },
+      {
+        "id": "sales~targets",
+        "label": "أهداف المبيعات ومتابعة الإنجاز",
+        "target": "sales~targets"
+      }
+    ],
+    "accounts": [
+      {
+        "id": "accounts:payment",
+        "label": "سند صرف",
+        "target": "accounts:payment"
+      },
+      {
+        "id": "accounts:receipt",
+        "label": "سند قبض",
+        "target": "accounts:receipt"
+      },
+      {
+        "id": "accounts~vouchers",
+        "label": "بحث سندات الصرف والقبض",
+        "target": "accounts~vouchers"
+      },
+      {
+        "id": "accounts~statement",
+        "label": "كشف حساب",
+        "target": "accounts~statement"
+      },
+      {
+        "id": "accounts~cash-movement",
+        "label": "حركة الصندوق",
+        "target": "accounts~cash-movement"
+      },
+      {
+        "id": "customers~customer-balances",
+        "label": "تقرير حسابات العملاء",
+        "target": "customers~customer-balances"
+      },
+      {
+        "id": "suppliers~supplier-balances",
+        "label": "تقرير حسابات الموردين",
+        "target": "suppliers~supplier-balances"
+      },
+      {
+        "id": "expenses~expense-report",
+        "label": "تقرير المصروفات",
+        "target": "expenses~expense-report"
+      },
+      {
+        "id": "employees~withdrawals",
+        "label": "تقرير مسحوبات الموظفين",
+        "target": "employees~withdrawals"
+      },
+      {
+        "id": "accounts~opening",
+        "label": "إضافة الأرصدة الافتتاحية",
+        "target": "accounts~opening"
+      },
+      {
+        "id": "accounts~opening-report",
+        "label": "تقرير الأرصدة الافتتاحية",
+        "target": "accounts~opening-report"
+      },
+      {
+        "id": "accounts~tax-report",
+        "label": "تقرير الضرائب",
+        "target": "accounts~tax-report"
+      },
+      {
+        "id": "accounts",
+        "label": "القيود اليومية",
+        "target": "accounts"
+      },
+      {
+        "id": "currency",
+        "label": "العملات",
+        "children": [
+          {
+            "id": "accounts~currencies-add",
+            "label": "إضافة عملة وسعر صرف",
+            "target": "accounts~currencies-add"
+          },
+          {
+            "id": "accounts~currencies",
+            "label": "قائمة العملات",
+            "target": "accounts~currencies"
+          },
+          {
+            "id": "accounts~fx",
+            "label": "مراجعة أرصدة العملات",
+            "target": "accounts~fx"
+          }
+        ]
+      },
+      {
+        "id": "cash-bank",
+        "label": "الصناديق والبنوك",
+        "children": [
+          {
+            "id": "accounts~cash-bank",
+            "label": "إضافة الصناديق والبنوك",
+            "target": "accounts~cash-bank"
+          },
+          {
+            "id": "accounts~cash-bank-list",
+            "label": "قائمة الصناديق والبنوك",
+            "target": "accounts~cash-bank-list"
+          }
+        ]
+      },
+      {
+        "id": "assets",
+        "label": "الأصول الثابتة",
+        "children": [
+          {
+            "id": "accounts~assets-add",
+            "label": "إضافة أصل ثابت",
+            "target": "accounts~assets-add"
+          },
+          {
+            "id": "accounts~assets",
+            "label": "قائمة الأصول الثابتة",
+            "target": "accounts~assets"
+          },
+          {
+            "id": "accounts~asset-purchase",
+            "label": "إثبات اقتناء أصل",
+            "target": "accounts~asset-purchase"
+          },
+          {
+            "id": "accounts~depreciation",
+            "label": "إثبات إهلاك فترة",
+            "target": "accounts~depreciation"
+          },
+          {
+            "id": "accounts~asset-report",
+            "label": "تقرير الأصول والإهلاك",
+            "target": "accounts~asset-report"
+          }
+        ]
+      },
+      {
+        "id": "contacts",
+        "label": "الدائنون والمدينون",
+        "children": [
+          {
+            "id": "accounts~contacts",
+            "label": "إضافة حساب دائن أو مدين",
+            "target": "accounts~contacts"
+          },
+          {
+            "id": "accounts~contacts-ledger",
+            "label": "قائمة حسابات الدائنين والمدينين وحركتها",
+            "target": "accounts~contacts-ledger"
+          }
+        ]
+      },
+      {
+        "id": "journals",
+        "label": "دليل الحسابات والقيود",
+        "children": [
+          {
+            "id": "accounts~accounts",
+            "label": "إضافة حساب ودليل الحسابات",
+            "target": "accounts~accounts"
+          },
+          {
+            "id": "accounts~journal-new",
+            "label": "إضافة قيد يومي يدوي",
+            "target": "accounts~journal-new"
+          }
+        ]
+      },
+      {
+        "id": "periods",
+        "label": "السنة والفترات والإقفال",
+        "children": [
+          {
+            "id": "accounts~periods",
+            "label": "السنة والفترات المالية",
+            "target": "accounts~periods"
+          },
+          {
+            "id": "accounts~end-balances",
+            "label": "الحسابات في الفترة المنتهية",
+            "target": "accounts~end-balances"
+          },
+          {
+            "id": "accounts~close",
+            "label": "مراجعة إقفال السنة والفترة",
+            "target": "accounts~close"
+          },
+          {
+            "id": "accounts~reopen",
+            "label": "طلب إعادة فتح فترة",
+            "target": "accounts~reopen"
+          }
+        ]
+      }
+    ],
+    "financial": [
+      {
+        "id": "financial~profit-items",
+        "label": "الأرباح من الأصناف",
+        "target": "financial~profit-items"
+      },
+      {
+        "id": "financial~profit-customers",
+        "label": "الأرباح من العملاء",
+        "target": "financial~profit-customers"
+      },
+      {
+        "id": "financial~income",
+        "label": "قائمة الدخل",
+        "target": "financial~income"
+      },
+      {
+        "id": "financial~balance-sheet",
+        "label": "قائمة المركز المالي",
+        "target": "financial~balance-sheet"
+      },
+      {
+        "id": "financial~cash-flow",
+        "label": "قائمة التدفقات النقدية",
+        "target": "financial~cash-flow"
+      },
+      {
+        "id": "financial~mapping",
+        "label": "ربط الحسابات بالقوائم المالية",
+        "target": "financial~mapping"
+      }
+    ]
+  },
+  "groups": {
+    "access": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "access~users-add",
+            "label": "إضافة مستخدم",
+            "target": "access~users-add"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "access~users",
+            "label": "قائمة المستخدمين",
+            "target": "access~users"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "access~password",
+            "label": "تغيير كلمة مرور مستخدم",
+            "target": "access~password"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "access~matrix",
+            "label": "صلاحيات العمليات والنطاقات",
+            "target": "access~matrix"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "access~audit",
+            "label": "حركات المستخدمين",
+            "target": "access~audit"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "access~sessions",
+            "label": "الجلسات النشطة وقفل الجلسة",
+            "target": "access~sessions"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "settings",
+            "label": "مركز الإعدادات",
+            "target": "settings"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "settings~migration",
+            "label": "استيراد بطاقات من CSV",
+            "target": "settings~migration"
+          }
+        ]
+      },
+      {
+        "label": "النسخ الاحتياطي والاسترجاع",
+        "entries": [
+          {
+            "id": "settings~backup",
+            "label": "النسخ الاحتياطي",
+            "target": "settings~backup"
+          },
+          {
+            "id": "settings~restore",
+            "label": "استرجاع نسخة احتياطية",
+            "target": "settings~restore"
+          },
+          {
+            "id": "settings~backup-policy",
+            "label": "إعدادات النسخ الاحتياطي",
+            "target": "settings~backup-policy"
+          }
+        ]
+      },
+      {
+        "label": "إعدادات سلوك النظام",
+        "entries": [
+          {
+            "id": "settings~system-company",
+            "label": "إعدادات المنشأة",
+            "target": "settings~system-company"
+          },
+          {
+            "id": "settings~system-accounting",
+            "label": "إعدادات المحاسبة والضرائب",
+            "target": "settings~system-accounting"
+          },
+          {
+            "id": "settings~system-branches",
+            "label": "إعدادات الفروع",
+            "target": "settings~system-branches"
+          },
+          {
+            "id": "settings~system-sales",
+            "label": "إعدادات المبيعات",
+            "target": "settings~system-sales"
+          },
+          {
+            "id": "settings~system-purchases",
+            "label": "إعدادات المشتريات",
+            "target": "settings~system-purchases"
+          },
+          {
+            "id": "settings~system-inventory",
+            "label": "إعدادات المخزون",
+            "target": "settings~system-inventory"
+          },
+          {
+            "id": "settings~system-expenses",
+            "label": "إعدادات المصروفات والسندات",
+            "target": "settings~system-expenses"
+          },
+          {
+            "id": "settings~system-documents",
+            "label": "إعدادات المستندات والترقيم",
+            "target": "settings~system-documents"
+          },
+          {
+            "id": "settings~system-printing",
+            "label": "إعدادات الطباعة",
+            "target": "settings~system-printing"
+          },
+          {
+            "id": "settings~system-general",
+            "label": "الإعدادات العامة",
+            "target": "settings~system-general"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "settings~branches",
+            "label": "إدارة الفروع",
+            "target": "settings~branches"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "settings~database",
+            "label": "الاتصال بقاعدة البيانات والفترات",
+            "target": "settings~database"
+          }
+        ]
+      },
+      {
+        "label": "إنشاء الفترة وترحيل الأرصدة",
+        "entries": [
+          {
+            "id": "settings~annual-books",
+            "label": "إنشاء الفترة المالية وترحيل الأرصدة",
+            "target": "settings~annual-books"
+          },
+          {
+            "id": "inventory~end-stock",
+            "label": "أرصدة مخزون آخر المدة",
+            "target": "inventory~end-stock"
+          },
+          {
+            "id": "accounts~end-balances",
+            "label": "أرصدة جميع الحسابات",
+            "target": "accounts~end-balances"
+          }
+        ]
+      }
+    ],
+    "employees": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "employees-new",
+            "label": "إضافة موظف",
+            "target": "employees-new"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "employees",
+            "label": "قائمة الموظفين",
+            "target": "employees"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "employees~payroll",
+            "label": "احتساب وإثبات رواتب فترة",
+            "target": "employees~payroll"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "employees~salary-payment",
+            "label": "صرف رواتب الموظفين",
+            "target": "employees~salary-payment"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "employees~salary-report",
+            "label": "تقرير رواتب الموظفين",
+            "target": "employees~salary-report"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "employees~advance",
+            "label": "صرف سلفة موظف",
+            "target": "employees~advance"
+          }
+        ]
+      }
+    ],
+    "customers": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "customers-new",
+            "label": "إضافة عميل",
+            "target": "customers-new"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "customers",
+            "label": "قائمة العملاء",
+            "target": "customers"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "customers~groups",
+            "label": "مجموعات العملاء والموردين",
+            "target": "customers~groups"
+          }
+        ]
+      }
+    ],
+    "suppliers": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "suppliers-new",
+            "label": "إضافة مورد",
+            "target": "suppliers-new"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "suppliers",
+            "label": "قائمة الموردين",
+            "target": "suppliers"
+          }
+        ]
+      }
+    ],
+    "inventory": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "products-new",
+            "label": "إضافة صنف",
+            "target": "products-new"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "products",
+            "label": "قائمة الأصناف",
+            "target": "products"
+          }
+        ]
+      },
+      {
+        "label": "الوحدات",
+        "entries": [
+          {
+            "id": "inventory~units-add",
+            "label": "إضافة وحدة",
+            "target": "inventory~units-add"
+          },
+          {
+            "id": "inventory~units",
+            "label": "قائمة الوحدات",
+            "target": "inventory~units"
+          }
+        ]
+      },
+      {
+        "label": "المجموعات",
+        "entries": [
+          {
+            "id": "inventory~groups-add",
+            "label": "إضافة مجموعة",
+            "target": "inventory~groups-add"
+          },
+          {
+            "id": "inventory~groups",
+            "label": "قائمة المجموعات",
+            "target": "inventory~groups"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~warehouses-add",
+            "label": "إضافة مخزن",
+            "target": "inventory~warehouses-add"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~warehouses",
+            "label": "قائمة المخازن",
+            "target": "inventory~warehouses"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory",
+            "label": "تقرير أرصدة المخازن",
+            "target": "inventory"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~cost",
+            "label": "تقرير تكلفة المخزون",
+            "target": "inventory~cost"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~transfer-document",
+            "label": "التحويل بين المخازن",
+            "target": "inventory~transfer-document"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~transfers",
+            "label": "فواتير التحويل بين المخازن",
+            "target": "inventory~transfers"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~opening-stock",
+            "label": "إضافة أصناف بداية المدة",
+            "target": "inventory~opening-stock"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~opening-stock-report",
+            "label": "تقرير أصناف بداية المدة",
+            "target": "inventory~opening-stock-report"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~adjustment",
+            "label": "تسوية المخزون",
+            "target": "inventory~adjustment"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory:movements",
+            "label": "حركة الأصناف",
+            "target": "inventory:movements"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~reorder",
+            "label": "أصناف وصلت حد الطلب",
+            "target": "inventory~reorder"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~stagnant",
+            "label": "الأصناف الراكدة",
+            "target": "inventory~stagnant"
+          }
+        ]
+      },
+      {
+        "label": "تقارير وإجراءات إضافية",
+        "entries": [
+          {
+            "id": "inventory~count",
+            "label": "الجرد الفعلي",
+            "target": "inventory~count"
+          },
+          {
+            "id": "inventory~adjustments",
+            "label": "قائمة تسويات المخزون",
+            "target": "inventory~adjustments"
+          },
+          {
+            "id": "inventory~historical-cost",
+            "label": "مراجعة تكلفة الصنف التاريخية",
+            "target": "inventory~historical-cost"
+          },
+          {
+            "id": "inventory~end-stock",
+            "label": "تقرير مخزون آخر المدة",
+            "target": "inventory~end-stock"
+          }
+        ]
+      }
+    ],
+    "expenses": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "expenses~expense-types",
+            "label": "أنواع المصروفات",
+            "target": "expenses~expense-types"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "expenses~add",
+            "label": "إضافة مصروف",
+            "target": "expenses~add"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "expenses~expense-list",
+            "label": "قائمة المصروفات",
+            "target": "expenses~expense-list"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "expenses~expense-report",
+            "label": "تقارير المصروفات",
+            "target": "expenses~expense-report"
+          }
+        ]
+      }
+    ],
+    "purchases": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "purchases-new",
+            "label": "فاتورة شراء",
+            "target": "purchases-new"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "purchases",
+            "label": "فواتير المرتجعات والمشتريات",
+            "target": "purchases"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "purchases~purchase-returns",
+            "label": "فاتورة مرتجع شراء",
+            "target": "purchases~purchase-returns"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "purchases~purchase-report",
+            "label": "تقرير المشتريات",
+            "target": "purchases~purchase-report"
+          }
+        ]
+      }
+    ],
+    "sales": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "sales-new",
+            "label": "فاتورة مبيعات",
+            "target": "sales-new"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "sales",
+            "label": "قائمة فواتير المبيعات",
+            "target": "sales"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "sales~sales-returns",
+            "label": "فاتورة مرتجع مبيعات",
+            "target": "sales~sales-returns"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "sales~sales-report",
+            "label": "تقرير المبيعات",
+            "target": "sales~sales-report"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "inventory~prices",
+            "label": "تسعيرة الأصناف",
+            "target": "inventory~prices"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "sales~sales-chart",
+            "label": "الرسم البياني لحركة المبيعات",
+            "target": "sales~sales-chart"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "sales~targets",
+            "label": "أهداف المبيعات ومتابعة الإنجاز",
+            "target": "sales~targets"
+          }
+        ]
+      }
+    ],
+    "accounts": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts:payment",
+            "label": "سند صرف",
+            "target": "accounts:payment"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts:receipt",
+            "label": "سند قبض",
+            "target": "accounts:receipt"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts~vouchers",
+            "label": "بحث سندات الصرف والقبض",
+            "target": "accounts~vouchers"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts~statement",
+            "label": "كشف حساب",
+            "target": "accounts~statement"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts~cash-movement",
+            "label": "حركة الصندوق",
+            "target": "accounts~cash-movement"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "customers~customer-balances",
+            "label": "تقرير حسابات العملاء",
+            "target": "customers~customer-balances"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "suppliers~supplier-balances",
+            "label": "تقرير حسابات الموردين",
+            "target": "suppliers~supplier-balances"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "expenses~expense-report",
+            "label": "تقرير المصروفات",
+            "target": "expenses~expense-report"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "employees~withdrawals",
+            "label": "تقرير مسحوبات الموظفين",
+            "target": "employees~withdrawals"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts~opening",
+            "label": "إضافة الأرصدة الافتتاحية",
+            "target": "accounts~opening"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts~opening-report",
+            "label": "تقرير الأرصدة الافتتاحية",
+            "target": "accounts~opening-report"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts~tax-report",
+            "label": "تقرير الضرائب",
+            "target": "accounts~tax-report"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "accounts",
+            "label": "القيود اليومية",
+            "target": "accounts"
+          }
+        ]
+      },
+      {
+        "label": "العملات",
+        "entries": [
+          {
+            "id": "accounts~currencies-add",
+            "label": "إضافة عملة وسعر صرف",
+            "target": "accounts~currencies-add"
+          },
+          {
+            "id": "accounts~currencies",
+            "label": "قائمة العملات",
+            "target": "accounts~currencies"
+          },
+          {
+            "id": "accounts~fx",
+            "label": "مراجعة أرصدة العملات",
+            "target": "accounts~fx"
+          }
+        ]
+      },
+      {
+        "label": "الصناديق والبنوك",
+        "entries": [
+          {
+            "id": "accounts~cash-bank",
+            "label": "إضافة الصناديق والبنوك",
+            "target": "accounts~cash-bank"
+          },
+          {
+            "id": "accounts~cash-bank-list",
+            "label": "قائمة الصناديق والبنوك",
+            "target": "accounts~cash-bank-list"
+          }
+        ]
+      },
+      {
+        "label": "الأصول الثابتة",
+        "entries": [
+          {
+            "id": "accounts~assets-add",
+            "label": "إضافة أصل ثابت",
+            "target": "accounts~assets-add"
+          },
+          {
+            "id": "accounts~assets",
+            "label": "قائمة الأصول الثابتة",
+            "target": "accounts~assets"
+          },
+          {
+            "id": "accounts~asset-purchase",
+            "label": "إثبات اقتناء أصل",
+            "target": "accounts~asset-purchase"
+          },
+          {
+            "id": "accounts~depreciation",
+            "label": "إثبات إهلاك فترة",
+            "target": "accounts~depreciation"
+          },
+          {
+            "id": "accounts~asset-report",
+            "label": "تقرير الأصول والإهلاك",
+            "target": "accounts~asset-report"
+          }
+        ]
+      },
+      {
+        "label": "الدائنون والمدينون",
+        "entries": [
+          {
+            "id": "accounts~contacts",
+            "label": "إضافة حساب دائن أو مدين",
+            "target": "accounts~contacts"
+          },
+          {
+            "id": "accounts~contacts-ledger",
+            "label": "قائمة حسابات الدائنين والمدينين وحركتها",
+            "target": "accounts~contacts-ledger"
+          }
+        ]
+      },
+      {
+        "label": "دليل الحسابات والقيود",
+        "entries": [
+          {
+            "id": "accounts~accounts",
+            "label": "إضافة حساب ودليل الحسابات",
+            "target": "accounts~accounts"
+          },
+          {
+            "id": "accounts~journal-new",
+            "label": "إضافة قيد يومي يدوي",
+            "target": "accounts~journal-new"
+          }
+        ]
+      },
+      {
+        "label": "السنة والفترات والإقفال",
+        "entries": [
+          {
+            "id": "accounts~periods",
+            "label": "السنة والفترات المالية",
+            "target": "accounts~periods"
+          },
+          {
+            "id": "accounts~end-balances",
+            "label": "الحسابات في الفترة المنتهية",
+            "target": "accounts~end-balances"
+          },
+          {
+            "id": "accounts~close",
+            "label": "مراجعة إقفال السنة والفترة",
+            "target": "accounts~close"
+          },
+          {
+            "id": "accounts~reopen",
+            "label": "طلب إعادة فتح فترة",
+            "target": "accounts~reopen"
+          }
+        ]
+      }
+    ],
+    "financial": [
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "financial~profit-items",
+            "label": "الأرباح من الأصناف",
+            "target": "financial~profit-items"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "financial~profit-customers",
+            "label": "الأرباح من العملاء",
+            "target": "financial~profit-customers"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "financial~income",
+            "label": "قائمة الدخل",
+            "target": "financial~income"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "financial~balance-sheet",
+            "label": "قائمة المركز المالي",
+            "target": "financial~balance-sheet"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "financial~cash-flow",
+            "label": "قائمة التدفقات النقدية",
+            "target": "financial~cash-flow"
+          }
+        ]
+      },
+      {
+        "label": "العمليات والتقارير",
+        "entries": [
+          {
+            "id": "financial~mapping",
+            "label": "ربط الحسابات بالقوائم المالية",
+            "target": "financial~mapping"
+          }
+        ]
+      }
+    ]
+  },
+  "routes": [
+    {
+      "path": "/suppliers",
+      "view": "suppliers"
+    },
+    {
+      "path": "/suppliers/new",
+      "view": "suppliers-new"
+    },
+    {
+      "path": "/suppliers/supplier-balances",
+      "view": "suppliers~supplier-balances"
+    },
+    {
+      "path": "/documents/:documentId",
+      "view": "doc:",
+      "param": "documentId"
+    },
+    {
+      "path": "/accounting",
+      "view": "accounts"
+    },
+    {
+      "path": "/accounting/action/payment",
+      "view": "accounts:payment"
+    },
+    {
+      "path": "/accounting/action/receipt",
+      "view": "accounts:receipt"
+    },
+    {
+      "path": "/accounting/accounts",
+      "view": "accounts~accounts"
+    },
+    {
+      "path": "/accounting/asset-purchase",
+      "view": "accounts~asset-purchase"
+    },
+    {
+      "path": "/accounting/asset-report",
+      "view": "accounts~asset-report"
+    },
+    {
+      "path": "/accounting/assets",
+      "view": "accounts~assets"
+    },
+    {
+      "path": "/accounting/assets-add",
+      "view": "accounts~assets-add"
+    },
+    {
+      "path": "/accounting/cash-bank",
+      "view": "accounts~cash-bank"
+    },
+    {
+      "path": "/accounting/cash-bank-list",
+      "view": "accounts~cash-bank-list"
+    },
+    {
+      "path": "/accounting/cash-movement",
+      "view": "accounts~cash-movement"
+    },
+    {
+      "path": "/accounting/close",
+      "view": "accounts~close"
+    },
+    {
+      "path": "/accounting/contacts",
+      "view": "accounts~contacts"
+    },
+    {
+      "path": "/accounting/contacts-ledger",
+      "view": "accounts~contacts-ledger"
+    },
+    {
+      "path": "/accounting/currencies",
+      "view": "accounts~currencies"
+    },
+    {
+      "path": "/accounting/currencies-add",
+      "view": "accounts~currencies-add"
+    },
+    {
+      "path": "/accounting/depreciation",
+      "view": "accounts~depreciation"
+    },
+    {
+      "path": "/accounting/end-balances",
+      "view": "accounts~end-balances"
+    },
+    {
+      "path": "/accounting/fx",
+      "view": "accounts~fx"
+    },
+    {
+      "path": "/accounts~journal/new",
+      "view": "accounts~journal-new"
+    },
+    {
+      "path": "/accounting/opening",
+      "view": "accounts~opening"
+    },
+    {
+      "path": "/accounting/opening-report",
+      "view": "accounts~opening-report"
+    },
+    {
+      "path": "/accounting/periods",
+      "view": "accounts~periods"
+    },
+    {
+      "path": "/accounting/reopen",
+      "view": "accounts~reopen"
+    },
+    {
+      "path": "/accounting/statement",
+      "view": "accounts~statement"
+    },
+    {
+      "path": "/accounting/tax-report",
+      "view": "accounts~tax-report"
+    },
+    {
+      "path": "/accounting/vouchers",
+      "view": "accounts~vouchers"
+    },
+    {
+      "path": "/accounting/action/:actionId",
+      "view": "accounts:",
+      "param": "actionId"
+    },
+    {
+      "path": "/dashboard",
+      "view": "dashboard"
+    },
+    {
+      "path": "/settings",
+      "view": "settings"
+    },
+    {
+      "path": "/settings/annual-books",
+      "view": "settings~annual-books"
+    },
+    {
+      "path": "/settings/backup",
+      "view": "settings~backup"
+    },
+    {
+      "path": "/settings/backup-policy",
+      "view": "settings~backup-policy"
+    },
+    {
+      "path": "/settings/branches",
+      "view": "settings~branches"
+    },
+    {
+      "path": "/settings/branding",
+      "view": "settings~branding"
+    },
+    {
+      "path": "/settings/business",
+      "view": "settings~business"
+    },
+    {
+      "path": "/settings/database",
+      "view": "settings~database"
+    },
+    {
+      "path": "/settings/general",
+      "view": "settings~general"
+    },
+    {
+      "path": "/settings/migration",
+      "view": "settings~migration"
+    },
+    {
+      "path": "/settings/restore",
+      "view": "settings~restore"
+    },
+    {
+      "path": "/settings/sync",
+      "view": "settings~sync"
+    },
+    {
+      "path": "/settings/system-accounting",
+      "view": "settings~system-accounting"
+    },
+    {
+      "path": "/settings/system-branches",
+      "view": "settings~system-branches"
+    },
+    {
+      "path": "/settings/system-company",
+      "view": "settings~system-company"
+    },
+    {
+      "path": "/settings/system-documents",
+      "view": "settings~system-documents"
+    },
+    {
+      "path": "/settings/system-expenses",
+      "view": "settings~system-expenses"
+    },
+    {
+      "path": "/settings/system-general",
+      "view": "settings~system-general"
+    },
+    {
+      "path": "/settings/system-inventory",
+      "view": "settings~system-inventory"
+    },
+    {
+      "path": "/settings/system-printing",
+      "view": "settings~system-printing"
+    },
+    {
+      "path": "/settings/system-purchases",
+      "view": "settings~system-purchases"
+    },
+    {
+      "path": "/settings/system-sales",
+      "view": "settings~system-sales"
+    },
+    {
+      "path": "/financial-statements",
+      "view": "financial"
+    },
+    {
+      "path": "/financial-statements/balance-sheet",
+      "view": "financial~balance-sheet"
+    },
+    {
+      "path": "/financial-statements/cash-flow",
+      "view": "financial~cash-flow"
+    },
+    {
+      "path": "/financial-statements/income",
+      "view": "financial~income"
+    },
+    {
+      "path": "/financial-statements/mapping",
+      "view": "financial~mapping"
+    },
+    {
+      "path": "/financial-statements/profit-customers",
+      "view": "financial~profit-customers"
+    },
+    {
+      "path": "/financial-statements/profit-items",
+      "view": "financial~profit-items"
+    },
+    {
+      "path": "/expenses",
+      "view": "expenses"
+    },
+    {
+      "path": "/expenses/add",
+      "view": "expenses~add"
+    },
+    {
+      "path": "/expenses/expense-list",
+      "view": "expenses~expense-list"
+    },
+    {
+      "path": "/expenses/expense-report",
+      "view": "expenses~expense-report"
+    },
+    {
+      "path": "/expenses/expense-types",
+      "view": "expenses~expense-types"
+    },
+    {
+      "path": "/users",
+      "view": "access"
+    },
+    {
+      "path": "/users/audit",
+      "view": "access~audit"
+    },
+    {
+      "path": "/users/matrix",
+      "view": "access~matrix"
+    },
+    {
+      "path": "/users/password",
+      "view": "access~password"
+    },
+    {
+      "path": "/users/sessions",
+      "view": "access~sessions"
+    },
+    {
+      "path": "/users/users",
+      "view": "access~users"
+    },
+    {
+      "path": "/users/users-add",
+      "view": "access~users-add"
+    },
+    {
+      "path": "/sales",
+      "view": "sales"
+    },
+    {
+      "path": "/sales/new",
+      "view": "sales-new"
+    },
+    {
+      "path": "/sales/sales-chart",
+      "view": "sales~sales-chart"
+    },
+    {
+      "path": "/sales/sales-report",
+      "view": "sales~sales-report"
+    },
+    {
+      "path": "/sales/sales-returns",
+      "view": "sales~sales-returns"
+    },
+    {
+      "path": "/sales/targets",
+      "view": "sales~targets"
+    },
+    {
+      "path": "/inventory/prices",
+      "view": "inventory~prices"
+    },
+    {
+      "path": "/login",
+      "view": "login"
+    },
+    {
+      "path": "/employees",
+      "view": "employees"
+    },
+    {
+      "path": "/employees/new",
+      "view": "employees-new"
+    },
+    {
+      "path": "/employees/advance",
+      "view": "employees~advance"
+    },
+    {
+      "path": "/employees/payroll",
+      "view": "employees~payroll"
+    },
+    {
+      "path": "/employees/salary-payment",
+      "view": "employees~salary-payment"
+    },
+    {
+      "path": "/employees/salary-report",
+      "view": "employees~salary-report"
+    },
+    {
+      "path": "/employees/withdrawals",
+      "view": "employees~withdrawals"
+    },
+    {
+      "path": "/customers",
+      "view": "customers"
+    },
+    {
+      "path": "/customers/new",
+      "view": "customers-new"
+    },
+    {
+      "path": "/customers/customer-balances",
+      "view": "customers~customer-balances"
+    },
+    {
+      "path": "/customers/groups",
+      "view": "customers~groups"
+    },
+    {
+      "path": "/inventory",
+      "view": "inventory"
+    },
+    {
+      "path": "/inventory/movements",
+      "view": "inventory:movements"
+    },
+    {
+      "path": "/inventory/adjustment",
+      "view": "inventory~adjustment"
+    },
+    {
+      "path": "/inventory/adjustments",
+      "view": "inventory~adjustments"
+    },
+    {
+      "path": "/inventory/cost",
+      "view": "inventory~cost"
+    },
+    {
+      "path": "/inventory/count",
+      "view": "inventory~count"
+    },
+    {
+      "path": "/inventory/end-stock",
+      "view": "inventory~end-stock"
+    },
+    {
+      "path": "/inventory/groups",
+      "view": "inventory~groups"
+    },
+    {
+      "path": "/inventory/groups-add",
+      "view": "inventory~groups-add"
+    },
+    {
+      "path": "/inventory/historical-cost",
+      "view": "inventory~historical-cost"
+    },
+    {
+      "path": "/inventory/opening-stock",
+      "view": "inventory~opening-stock"
+    },
+    {
+      "path": "/inventory/opening-stock-report",
+      "view": "inventory~opening-stock-report"
+    },
+    {
+      "path": "/inventory/reorder",
+      "view": "inventory~reorder"
+    },
+    {
+      "path": "/inventory/stagnant",
+      "view": "inventory~stagnant"
+    },
+    {
+      "path": "/inventory/transfer-document",
+      "view": "inventory~transfer-document"
+    },
+    {
+      "path": "/inventory/transfers",
+      "view": "inventory~transfers"
+    },
+    {
+      "path": "/inventory/units",
+      "view": "inventory~units"
+    },
+    {
+      "path": "/inventory/units-add",
+      "view": "inventory~units-add"
+    },
+    {
+      "path": "/inventory/warehouses",
+      "view": "inventory~warehouses"
+    },
+    {
+      "path": "/inventory/warehouses-add",
+      "view": "inventory~warehouses-add"
+    },
+    {
+      "path": "/inventory/items",
+      "view": "products"
+    },
+    {
+      "path": "/inventory/items/new",
+      "view": "products-new"
+    },
+    {
+      "path": "/purchases",
+      "view": "purchases"
+    },
+    {
+      "path": "/purchases/new",
+      "view": "purchases-new"
+    },
+    {
+      "path": "/purchases/purchase-report",
+      "view": "purchases~purchase-report"
+    },
+    {
+      "path": "/purchases/purchase-returns",
+      "view": "purchases~purchase-returns"
+    },
+    {
+      "path": "/reports",
+      "view": "reports"
+    }
+  ]
+}

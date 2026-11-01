@@ -1,0 +1,3392 @@
+[
+  {
+    "name": "UserRole",
+    "file": "src/core/types/UserRole.ts",
+    "oldFile": "src/core/auth/auth.types.ts",
+    "oldName": "UserRole"
+  },
+  {
+    "name": "Identity",
+    "file": "src/core/types/Identity.ts",
+    "oldFile": "src/core/auth/auth.types.ts",
+    "oldName": "Identity"
+  },
+  {
+    "name": "ApiMode",
+    "file": "src/core/types/ApiMode.ts",
+    "oldFile": "src/core/config/env.ts",
+    "oldName": "ApiMode"
+  },
+  {
+    "name": "Result",
+    "file": "src/core/types/Result.ts",
+    "oldFile": "src/core/types/api.types.ts",
+    "oldName": "Result"
+  },
+  {
+    "name": "FieldError",
+    "file": "src/core/types/FieldError.ts",
+    "oldFile": "src/core/types/api.types.ts",
+    "oldName": "FieldError"
+  },
+  {
+    "name": "ProblemDetails",
+    "file": "src/core/types/ProblemDetails.ts",
+    "oldFile": "src/core/types/api.types.ts",
+    "oldName": "ProblemDetails"
+  },
+  {
+    "name": "Pagination",
+    "file": "src/core/types/Pagination.ts",
+    "oldFile": "src/core/types/api.types.ts",
+    "oldName": "Pagination"
+  },
+  {
+    "name": "FormInput",
+    "file": "src/core/types/FormInput.ts",
+    "oldFile": "src/core/types/api.types.ts",
+    "oldName": "FormInput"
+  },
+  {
+    "name": "CommandContext",
+    "file": "src/core/types/CommandContext.ts",
+    "oldFile": "src/core/types/api.types.ts",
+    "oldName": "CommandContext"
+  },
+  {
+    "name": "CommandReceipt",
+    "file": "src/core/types/CommandReceipt.ts",
+    "oldFile": "src/core/types/api.types.ts",
+    "oldName": "CommandReceipt"
+  },
+  {
+    "name": "ILoginInput",
+    "file": "src/features/auth/types/ILoginInput.ts",
+    "oldFile": "src/features/auth/types/input/auth-input.types.ts",
+    "oldName": "LoginInput"
+  },
+  {
+    "name": "LoginRequest",
+    "file": "src/features/auth/types/requests/LoginRequest.ts",
+    "oldFile": "src/features/auth/types/request/auth-request.types.ts",
+    "oldName": "LoginRequest"
+  },
+  {
+    "name": "SaveAuthActionRequest",
+    "file": "src/features/auth/types/requests/SaveAuthActionRequest.ts",
+    "oldFile": "src/features/auth/types/request/auth-request.types.ts",
+    "oldName": "SaveAuthActionRequest"
+  },
+  {
+    "name": "AuthResponse",
+    "file": "src/features/auth/types/responses/AuthResponse.ts",
+    "oldFile": "src/features/auth/types/response/auth-response.types.ts",
+    "oldName": "AuthResponse"
+  },
+  {
+    "name": "AuthUser",
+    "file": "src/features/auth/types/responses/AuthUser.ts",
+    "oldFile": "src/features/auth/types/response/auth-response.types.ts",
+    "oldName": "AuthUser"
+  },
+  {
+    "name": "AuthSession",
+    "file": "src/features/auth/types/responses/AuthSession.ts",
+    "oldFile": "src/features/auth/types/response/auth-response.types.ts",
+    "oldName": "AuthSession"
+  },
+  {
+    "name": "AuthActionResponse",
+    "file": "src/features/auth/types/responses/AuthActionResponse.ts",
+    "oldFile": "src/features/auth/types/response/auth-response.types.ts",
+    "oldName": "AuthActionResponse"
+  },
+  {
+    "name": "AuthProviderProps",
+    "file": "src/core/types/AuthProviderProps.ts",
+    "oldFile": "src/core/auth/AuthProvider.tsx",
+    "oldName": "AuthProviderProps"
+  },
+  {
+    "name": "Theme",
+    "file": "src/core/types/Theme.ts",
+    "oldFile": "src/core/theme/theme.types.ts",
+    "oldName": "Theme"
+  },
+  {
+    "name": "ThemeProviderProps",
+    "file": "src/core/types/ThemeProviderProps.ts",
+    "oldFile": "src/core/theme/ThemeProvider.tsx",
+    "oldName": "ThemeProviderProps"
+  },
+  {
+    "name": "AppProvidersProps",
+    "file": "src/core/types/AppProvidersProps.ts",
+    "oldFile": "src/core/providers/AppProviders.tsx",
+    "oldName": "AppProvidersProps"
+  },
+  {
+    "name": "ModalProps",
+    "file": "src/core/types/ModalProps.ts",
+    "oldFile": "src/core/components/shared/dialogs/Modal.tsx",
+    "oldName": "ModalProps"
+  },
+  {
+    "name": "ReportCell",
+    "file": "src/core/types/ReportCell.ts",
+    "oldFile": "src/core/types/reporting.types.ts",
+    "oldName": "ReportCell"
+  },
+  {
+    "name": "ReportTable",
+    "file": "src/core/types/ReportTable.ts",
+    "oldFile": "src/core/types/reporting.types.ts",
+    "oldName": "ReportTable"
+  },
+  {
+    "name": "ReportDocument",
+    "file": "src/core/types/ReportDocument.ts",
+    "oldFile": "src/core/types/reporting.types.ts",
+    "oldName": "ReportDocument"
+  },
+  {
+    "name": "ReportIdentity",
+    "file": "src/core/types/ReportIdentity.ts",
+    "oldFile": "src/core/types/reporting.types.ts",
+    "oldName": "ReportIdentity"
+  },
+  {
+    "name": "DeviceSettings",
+    "file": "src/core/types/DeviceSettings.ts",
+    "oldFile": "src/core/services/device-settings.ts",
+    "oldName": "DeviceSettings"
+  },
+  {
+    "name": "MenuItem",
+    "file": "src/core/types/MenuItem.ts",
+    "oldFile": "src/core/types/MenuItem.ts",
+    "oldName": "MenuItem"
+  },
+  {
+    "name": "PermissionsUserRole",
+    "file": "src/core/types/PermissionsUserRole.ts",
+    "oldFile": "src/core/auth/permissions.ts",
+    "oldName": "UserRole"
+  },
+  {
+    "name": "ApplicationState",
+    "file": "src/core/types/ApplicationState.ts",
+    "oldFile": "src/core/providers/ApplicationProvider.tsx",
+    "oldName": "ApplicationState"
+  },
+  {
+    "name": "ApplicationProviderProps",
+    "file": "src/core/types/ApplicationProviderProps.ts",
+    "oldFile": "src/core/providers/ApplicationProvider.tsx",
+    "oldName": "ApplicationProviderProps"
+  },
+  {
+    "name": "BookState",
+    "file": "src/features/accounting/types/models/BookState.ts",
+    "oldFile": "src/features/accounting/types/entity/annual-books.types.ts",
+    "oldName": "BookState"
+  },
+  {
+    "name": "AnnualBook",
+    "file": "src/features/accounting/types/models/AnnualBook.ts",
+    "oldFile": "src/features/accounting/types/entity/annual-books.types.ts",
+    "oldName": "AnnualBook"
+  },
+  {
+    "name": "AnnualBooks",
+    "file": "src/features/accounting/types/models/AnnualBooks.ts",
+    "oldFile": "src/features/accounting/types/entity/annual-books.types.ts",
+    "oldName": "AnnualBooks"
+  },
+  {
+    "name": "MasterRecord",
+    "file": "src/features/accounting/types/models/MasterRecord.ts",
+    "oldFile": "src/features/accounting/types/entity/extensions.types.ts",
+    "oldName": "MasterRecord"
+  },
+  {
+    "name": "OperationRecord",
+    "file": "src/features/accounting/types/models/OperationRecord.ts",
+    "oldFile": "src/features/accounting/types/entity/extensions.types.ts",
+    "oldName": "OperationRecord"
+  },
+  {
+    "name": "ExtensionData",
+    "file": "src/features/accounting/types/models/ExtensionData.ts",
+    "oldFile": "src/features/accounting/types/entity/extensions.types.ts",
+    "oldName": "ExtensionData"
+  },
+  {
+    "name": "DocumentKind",
+    "file": "src/features/accounting/types/models/DocumentKind.ts",
+    "oldFile": "src/features/accounting/types/entity/numbering.types.ts",
+    "oldName": "DocumentKind"
+  },
+  {
+    "name": "VoucherLine",
+    "file": "src/features/accounting/types/models/VoucherLine.ts",
+    "oldFile": "src/features/accounting/types/entity/vouchers.types.ts",
+    "oldName": "VoucherLine"
+  },
+  {
+    "name": "VoucherDocument",
+    "file": "src/features/accounting/types/models/VoucherDocument.ts",
+    "oldFile": "src/features/accounting/types/entity/vouchers.types.ts",
+    "oldName": "VoucherDocument"
+  },
+  {
+    "name": "JournalLine",
+    "file": "src/features/accounting/types/models/JournalLine.ts",
+    "oldFile": "src/features/accounting/types/entity/accounting-entity.types.ts",
+    "oldName": "JournalLine"
+  },
+  {
+    "name": "Entry",
+    "file": "src/features/accounting/types/models/Entry.ts",
+    "oldFile": "src/features/accounting/types/entity/accounting-entity.types.ts",
+    "oldName": "Entry"
+  },
+  {
+    "name": "GeneralSettings",
+    "file": "src/features/settings/types/models/GeneralSettings.ts",
+    "oldFile": "src/features/settings/types/entity/completion.types.ts",
+    "oldName": "GeneralSettings"
+  },
+  {
+    "name": "EmployeeFile",
+    "file": "src/features/settings/types/models/EmployeeFile.ts",
+    "oldFile": "src/features/settings/types/entity/completion.types.ts",
+    "oldName": "EmployeeFile"
+  },
+  {
+    "name": "Employee",
+    "file": "src/features/employees/types/models/Employee.ts",
+    "oldFile": "src/features/employees/types/entity/employees-entity.types.ts",
+    "oldName": "Employee"
+  },
+  {
+    "name": "ExpenseTreatment",
+    "file": "src/features/expenses/types/models/ExpenseTreatment.ts",
+    "oldFile": "src/features/expenses/types/entity/expenses.types.ts",
+    "oldName": "ExpenseTreatment"
+  },
+  {
+    "name": "ExpenseDocument",
+    "file": "src/features/expenses/types/models/ExpenseDocument.ts",
+    "oldFile": "src/features/expenses/types/entity/expenses.types.ts",
+    "oldName": "ExpenseDocument"
+  },
+  {
+    "name": "ExpenseView",
+    "file": "src/features/expenses/types/models/ExpenseView.ts",
+    "oldFile": "src/features/expenses/types/entity/expenses.types.ts",
+    "oldName": "ExpenseView"
+  },
+  {
+    "name": "Expense",
+    "file": "src/features/expenses/types/models/Expense.ts",
+    "oldFile": "src/features/expenses/types/entity/expenses-entity.types.ts",
+    "oldName": "Expense"
+  },
+  {
+    "name": "CostFilters",
+    "file": "src/features/inventory/types/models/CostFilters.ts",
+    "oldFile": "src/features/inventory/types/entity/inventory-cost.types.ts",
+    "oldName": "CostFilters"
+  },
+  {
+    "name": "PriceFilters",
+    "file": "src/features/inventory/types/models/PriceFilters.ts",
+    "oldFile": "src/features/inventory/types/entity/price-list.types.ts",
+    "oldName": "PriceFilters"
+  },
+  {
+    "name": "StockDocumentLine",
+    "file": "src/features/inventory/types/models/StockDocumentLine.ts",
+    "oldFile": "src/features/inventory/types/entity/stock-documents.types.ts",
+    "oldName": "StockDocumentLine"
+  },
+  {
+    "name": "OpeningAccountLine",
+    "file": "src/features/inventory/types/models/OpeningAccountLine.ts",
+    "oldFile": "src/features/inventory/types/entity/stock-documents.types.ts",
+    "oldName": "OpeningAccountLine"
+  },
+  {
+    "name": "StockDocument",
+    "file": "src/features/inventory/types/models/StockDocument.ts",
+    "oldFile": "src/features/inventory/types/entity/stock-documents.types.ts",
+    "oldName": "StockDocument"
+  },
+  {
+    "name": "Unit",
+    "file": "src/features/inventory/types/models/Unit.ts",
+    "oldFile": "src/features/inventory/types/entity/inventory-entity.types.ts",
+    "oldName": "Unit"
+  },
+  {
+    "name": "Product",
+    "file": "src/features/inventory/types/models/Product.ts",
+    "oldFile": "src/features/inventory/types/entity/inventory-entity.types.ts",
+    "oldName": "Product"
+  },
+  {
+    "name": "Warehouse",
+    "file": "src/features/inventory/types/models/Warehouse.ts",
+    "oldFile": "src/features/inventory/types/entity/inventory-entity.types.ts",
+    "oldName": "Warehouse"
+  },
+  {
+    "name": "Stock",
+    "file": "src/features/inventory/types/models/Stock.ts",
+    "oldFile": "src/features/inventory/types/entity/inventory-entity.types.ts",
+    "oldName": "Stock"
+  },
+  {
+    "name": "Movement",
+    "file": "src/features/inventory/types/models/Movement.ts",
+    "oldFile": "src/features/inventory/types/entity/inventory-entity.types.ts",
+    "oldName": "Movement"
+  },
+  {
+    "name": "Party",
+    "file": "src/features/parties/types/models/Party.ts",
+    "oldFile": "src/features/parties/types/entity/parties-entity.types.ts",
+    "oldName": "Party"
+  },
+  {
+    "name": "BackupPolicy",
+    "file": "src/features/settings/types/models/BackupPolicy.ts",
+    "oldFile": "src/features/settings/types/entity/backup-policy.types.ts",
+    "oldName": "BackupPolicy"
+  },
+  {
+    "name": "SettingsTab",
+    "file": "src/features/settings/types/models/SettingsTab.ts",
+    "oldFile": "src/features/settings/types/entity/system-settings.types.ts",
+    "oldName": "SettingsTab"
+  },
+  {
+    "name": "SystemSettings",
+    "file": "src/features/settings/types/models/SystemSettings.ts",
+    "oldFile": "src/features/settings/types/entity/system-settings.types.ts",
+    "oldName": "SystemSettings"
+  },
+  {
+    "name": "BranchDefaults",
+    "file": "src/features/settings/types/models/BranchDefaults.ts",
+    "oldFile": "src/features/settings/types/entity/system-settings.types.ts",
+    "oldName": "BranchDefaults"
+  },
+  {
+    "name": "Branch",
+    "file": "src/features/settings/types/models/Branch.ts",
+    "oldFile": "src/features/settings/types/entity/settings-entity.types.ts",
+    "oldName": "Branch"
+  },
+  {
+    "name": "ItemMatch",
+    "file": "src/features/trade/types/models/ItemMatch.ts",
+    "oldFile": "src/features/trade/types/entity/invoice-entry.types.ts",
+    "oldName": "ItemMatch"
+  },
+  {
+    "name": "ReturnPick",
+    "file": "src/features/trade/types/models/ReturnPick.ts",
+    "oldFile": "src/features/trade/types/entity/partial-returns.types.ts",
+    "oldName": "ReturnPick"
+  },
+  {
+    "name": "TradeFilters",
+    "file": "src/features/trade/types/models/TradeFilters.ts",
+    "oldFile": "src/features/trade/types/entity/trade-summary.types.ts",
+    "oldName": "TradeFilters"
+  },
+  {
+    "name": "InvoiceLine",
+    "file": "src/features/trade/types/models/InvoiceLine.ts",
+    "oldFile": "src/features/trade/types/entity/trade-entity.types.ts",
+    "oldName": "InvoiceLine"
+  },
+  {
+    "name": "Invoice",
+    "file": "src/features/trade/types/models/Invoice.ts",
+    "oldFile": "src/features/trade/types/entity/trade-entity.types.ts",
+    "oldName": "Invoice"
+  },
+  {
+    "name": "Audit",
+    "file": "src/features/users/types/models/Audit.ts",
+    "oldFile": "src/features/users/types/entity/users-entity.types.ts",
+    "oldName": "Audit"
+  },
+  {
+    "name": "UsersEntity",
+    "file": "src/features/users/types/models/UsersEntity.ts",
+    "oldFile": "src/features/users/types/entity/users-entity.types.ts",
+    "oldName": "UsersEntity"
+  },
+  {
+    "name": "ErpReadModel",
+    "file": "src/core/types/ErpReadModel.ts",
+    "oldFile": "src/core/types/workspace.types.ts",
+    "oldName": "ErpReadModel"
+  },
+  {
+    "name": "ReadPagination",
+    "file": "src/core/types/ReadPagination.ts",
+    "oldFile": "src/core/types/read-contracts.types.ts",
+    "oldName": "ReadPagination"
+  },
+  {
+    "name": "ResultMetadata",
+    "file": "src/core/types/ResultMetadata.ts",
+    "oldFile": "src/core/types/read-contracts.types.ts",
+    "oldName": "ResultMetadata"
+  },
+  {
+    "name": "ReadScope",
+    "file": "src/core/types/ReadScope.ts",
+    "oldFile": "src/core/types/read-contracts.types.ts",
+    "oldName": "ReadScope"
+  },
+  {
+    "name": "ReadParams",
+    "file": "src/core/types/ReadParams.ts",
+    "oldFile": "src/core/query/resources.ts",
+    "oldName": "ReadParams"
+  },
+  {
+    "name": "ReadPage",
+    "file": "src/core/types/ReadPage.ts",
+    "oldFile": "src/core/query/resources.ts",
+    "oldName": "ReadPage"
+  },
+  {
+    "name": "ResourceResult",
+    "file": "src/core/types/ResourceResult.ts",
+    "oldFile": "src/core/query/resources.ts",
+    "oldName": "ResourceResult"
+  },
+  {
+    "name": "DataResource",
+    "file": "src/core/types/DataResource.ts",
+    "oldFile": "src/core/query/resources.ts",
+    "oldName": "DataResource"
+  },
+  {
+    "name": "BranchListResponse",
+    "file": "src/features/settings/types/responses/BranchListResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "BranchListResponse"
+  },
+  {
+    "name": "BranchResponse",
+    "file": "src/features/settings/types/responses/BranchResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "BranchResponse"
+  },
+  {
+    "name": "OrganizationResponse",
+    "file": "src/features/settings/types/responses/OrganizationResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "OrganizationResponse"
+  },
+  {
+    "name": "BrandingResponse",
+    "file": "src/features/settings/types/responses/BrandingResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "BrandingResponse"
+  },
+  {
+    "name": "SystemSettingsResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsResponse"
+  },
+  {
+    "name": "BackupPolicyResponse",
+    "file": "src/features/settings/types/responses/BackupPolicyResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "BackupPolicyResponse"
+  },
+  {
+    "name": "SystemSettingsAccountingResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsAccountingResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsAccountingResponse"
+  },
+  {
+    "name": "SystemSettingsSalesResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsSalesResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsSalesResponse"
+  },
+  {
+    "name": "SystemSettingsPurchasesResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsPurchasesResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsPurchasesResponse"
+  },
+  {
+    "name": "SystemSettingsInventoryResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsInventoryResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsInventoryResponse"
+  },
+  {
+    "name": "SystemSettingsExpensesResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsExpensesResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsExpensesResponse"
+  },
+  {
+    "name": "SystemSettingsDocumentsResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsDocumentsResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsDocumentsResponse"
+  },
+  {
+    "name": "SystemSettingsBranchesResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsBranchesResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsBranchesResponse"
+  },
+  {
+    "name": "SystemSettingsCompanyResponse",
+    "file": "src/features/settings/types/responses/SystemSettingsCompanyResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "SystemSettingsCompanyResponse"
+  },
+  {
+    "name": "ServiceStatusResponse",
+    "file": "src/features/settings/types/responses/ServiceStatusResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "ServiceStatusResponse"
+  },
+  {
+    "name": "ImportTemplateResponse",
+    "file": "src/features/settings/types/responses/ImportTemplateResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "ImportTemplateResponse"
+  },
+  {
+    "name": "DraftResponse",
+    "file": "src/features/settings/types/responses/DraftResponse.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "DraftResponse"
+  },
+  {
+    "name": "LookupOptionPage",
+    "file": "src/features/settings/types/responses/LookupOptionPage.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "LookupOptionPage"
+  },
+  {
+    "name": "LookupOption",
+    "file": "src/features/settings/types/responses/LookupOption.ts",
+    "oldFile": "src/features/settings/types/response/read-contracts.types.ts",
+    "oldName": "LookupOption"
+  },
+  {
+    "name": "SearchBranchesRequest",
+    "file": "src/features/settings/types/requests/SearchBranchesRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "SearchBranchesRequest"
+  },
+  {
+    "name": "GetBranchesByIdRequest",
+    "file": "src/features/settings/types/requests/GetBranchesByIdRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetBranchesByIdRequest"
+  },
+  {
+    "name": "GetSettingsCompanyRequest",
+    "file": "src/features/settings/types/requests/GetSettingsCompanyRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsCompanyRequest"
+  },
+  {
+    "name": "GetSettingsBrandingRequest",
+    "file": "src/features/settings/types/requests/GetSettingsBrandingRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsBrandingRequest"
+  },
+  {
+    "name": "GetSettingsSystemRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemRequest"
+  },
+  {
+    "name": "GetSettingsBackupPolicyRequest",
+    "file": "src/features/settings/types/requests/GetSettingsBackupPolicyRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsBackupPolicyRequest"
+  },
+  {
+    "name": "GetSettingsSystemAccountingRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemAccountingRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemAccountingRequest"
+  },
+  {
+    "name": "GetSettingsSystemSalesRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemSalesRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemSalesRequest"
+  },
+  {
+    "name": "GetSettingsSystemPurchasesRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemPurchasesRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemPurchasesRequest"
+  },
+  {
+    "name": "GetSettingsSystemInventoryRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemInventoryRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemInventoryRequest"
+  },
+  {
+    "name": "GetSettingsSystemExpensesRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemExpensesRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemExpensesRequest"
+  },
+  {
+    "name": "GetSettingsSystemDocumentsRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemDocumentsRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemDocumentsRequest"
+  },
+  {
+    "name": "GetSettingsSystemBranchesRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemBranchesRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemBranchesRequest"
+  },
+  {
+    "name": "GetSettingsSystemCompanyRequest",
+    "file": "src/features/settings/types/requests/GetSettingsSystemCompanyRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsSystemCompanyRequest"
+  },
+  {
+    "name": "GetSettingsServiceStatusRequest",
+    "file": "src/features/settings/types/requests/GetSettingsServiceStatusRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsServiceStatusRequest"
+  },
+  {
+    "name": "GetSettingsImportTemplatesByKindRequest",
+    "file": "src/features/settings/types/requests/GetSettingsImportTemplatesByKindRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetSettingsImportTemplatesByKindRequest"
+  },
+  {
+    "name": "GetUiDraftsByKeyRequest",
+    "file": "src/features/settings/types/requests/GetUiDraftsByKeyRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "GetUiDraftsByKeyRequest"
+  },
+  {
+    "name": "SearchLookupsByResourceRequest",
+    "file": "src/features/settings/types/requests/SearchLookupsByResourceRequest.ts",
+    "oldFile": "src/features/settings/types/request/read-queries.types.ts",
+    "oldName": "SearchLookupsByResourceRequest"
+  },
+  {
+    "name": "AccountListResponse",
+    "file": "src/features/accounting/types/responses/AccountListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "AccountListResponse"
+  },
+  {
+    "name": "AccountResponse",
+    "file": "src/features/accounting/types/responses/AccountResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "AccountResponse"
+  },
+  {
+    "name": "CashAccountListResponse",
+    "file": "src/features/accounting/types/responses/CashAccountListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "CashAccountListResponse"
+  },
+  {
+    "name": "CashAccountResponse",
+    "file": "src/features/accounting/types/responses/CashAccountResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "CashAccountResponse"
+  },
+  {
+    "name": "AssetListResponse",
+    "file": "src/features/accounting/types/responses/AssetListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "AssetListResponse"
+  },
+  {
+    "name": "AssetResponse",
+    "file": "src/features/accounting/types/responses/AssetResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "AssetResponse"
+  },
+  {
+    "name": "ContactListResponse",
+    "file": "src/features/accounting/types/responses/ContactListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "ContactListResponse"
+  },
+  {
+    "name": "ContactResponse",
+    "file": "src/features/accounting/types/responses/ContactResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "ContactResponse"
+  },
+  {
+    "name": "CurrencyListResponse",
+    "file": "src/features/accounting/types/responses/CurrencyListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "CurrencyListResponse"
+  },
+  {
+    "name": "CurrencyResponse",
+    "file": "src/features/accounting/types/responses/CurrencyResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "CurrencyResponse"
+  },
+  {
+    "name": "FinancialBookListResponse",
+    "file": "src/features/accounting/types/responses/FinancialBookListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "FinancialBookListResponse"
+  },
+  {
+    "name": "FinancialBookResponse",
+    "file": "src/features/accounting/types/responses/FinancialBookResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "FinancialBookResponse"
+  },
+  {
+    "name": "BookReadinessResponse",
+    "file": "src/features/accounting/types/responses/BookReadinessResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "BookReadinessResponse"
+  },
+  {
+    "name": "VoucherListResponse",
+    "file": "src/features/accounting/types/responses/VoucherListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "VoucherListResponse"
+  },
+  {
+    "name": "VoucherResponse",
+    "file": "src/features/accounting/types/responses/VoucherResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "VoucherResponse"
+  },
+  {
+    "name": "JournalEntryListResponse",
+    "file": "src/features/accounting/types/responses/JournalEntryListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "JournalEntryListResponse"
+  },
+  {
+    "name": "JournalEntryResponse",
+    "file": "src/features/accounting/types/responses/JournalEntryResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "JournalEntryResponse"
+  },
+  {
+    "name": "FxRateListResponse",
+    "file": "src/features/accounting/types/responses/FxRateListResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "FxRateListResponse"
+  },
+  {
+    "name": "FxRateResponse",
+    "file": "src/features/accounting/types/responses/FxRateResponse.ts",
+    "oldFile": "src/features/accounting/types/response/read-contracts.types.ts",
+    "oldName": "FxRateResponse"
+  },
+  {
+    "name": "EmployeeListResponse",
+    "file": "src/features/employees/types/responses/EmployeeListResponse.ts",
+    "oldFile": "src/features/employees/types/response/read-contracts.types.ts",
+    "oldName": "EmployeeListResponse"
+  },
+  {
+    "name": "EmployeeResponse",
+    "file": "src/features/employees/types/responses/EmployeeResponse.ts",
+    "oldFile": "src/features/employees/types/response/read-contracts.types.ts",
+    "oldName": "EmployeeResponse"
+  },
+  {
+    "name": "OperationListResponse",
+    "file": "src/features/employees/types/responses/OperationListResponse.ts",
+    "oldFile": "src/features/employees/types/response/read-contracts.types.ts",
+    "oldName": "OperationListResponse"
+  },
+  {
+    "name": "OperationResponse",
+    "file": "src/features/employees/types/responses/OperationResponse.ts",
+    "oldFile": "src/features/employees/types/response/read-contracts.types.ts",
+    "oldName": "OperationResponse"
+  },
+  {
+    "name": "InventoryValuationReport",
+    "file": "src/features/reports/types/responses/InventoryValuationReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "InventoryValuationReport"
+  },
+  {
+    "name": "InventoryValuationReportRow",
+    "file": "src/features/reports/types/responses/InventoryValuationReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "InventoryValuationReportRow"
+  },
+  {
+    "name": "OpeningStockReport",
+    "file": "src/features/reports/types/responses/OpeningStockReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "OpeningStockReport"
+  },
+  {
+    "name": "OpeningStockReportRow",
+    "file": "src/features/reports/types/responses/OpeningStockReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "OpeningStockReportRow"
+  },
+  {
+    "name": "ReorderReport",
+    "file": "src/features/reports/types/responses/ReorderReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "ReorderReport"
+  },
+  {
+    "name": "ReorderReportRow",
+    "file": "src/features/reports/types/responses/ReorderReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "ReorderReportRow"
+  },
+  {
+    "name": "StagnantReport",
+    "file": "src/features/reports/types/responses/StagnantReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "StagnantReport"
+  },
+  {
+    "name": "StagnantReportRow",
+    "file": "src/features/reports/types/responses/StagnantReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "StagnantReportRow"
+  },
+  {
+    "name": "HistoricalCostReport",
+    "file": "src/features/reports/types/responses/HistoricalCostReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "HistoricalCostReport"
+  },
+  {
+    "name": "HistoricalCostReportRow",
+    "file": "src/features/reports/types/responses/HistoricalCostReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "HistoricalCostReportRow"
+  },
+  {
+    "name": "TransfersReport",
+    "file": "src/features/reports/types/responses/TransfersReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "TransfersReport"
+  },
+  {
+    "name": "TransfersReportRow",
+    "file": "src/features/reports/types/responses/TransfersReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "TransfersReportRow"
+  },
+  {
+    "name": "AdjustmentsReport",
+    "file": "src/features/reports/types/responses/AdjustmentsReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "AdjustmentsReport"
+  },
+  {
+    "name": "AdjustmentsReportRow",
+    "file": "src/features/reports/types/responses/AdjustmentsReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "AdjustmentsReportRow"
+  },
+  {
+    "name": "PricesReport",
+    "file": "src/features/reports/types/responses/PricesReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "PricesReport"
+  },
+  {
+    "name": "PricesReportRow",
+    "file": "src/features/reports/types/responses/PricesReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "PricesReportRow"
+  },
+  {
+    "name": "CustomerBalancesReport",
+    "file": "src/features/reports/types/responses/CustomerBalancesReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "CustomerBalancesReport"
+  },
+  {
+    "name": "CustomerBalancesReportRow",
+    "file": "src/features/reports/types/responses/CustomerBalancesReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "CustomerBalancesReportRow"
+  },
+  {
+    "name": "SupplierBalancesReport",
+    "file": "src/features/reports/types/responses/SupplierBalancesReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "SupplierBalancesReport"
+  },
+  {
+    "name": "SupplierBalancesReportRow",
+    "file": "src/features/reports/types/responses/SupplierBalancesReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "SupplierBalancesReportRow"
+  },
+  {
+    "name": "PayrollReport",
+    "file": "src/features/reports/types/responses/PayrollReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "PayrollReport"
+  },
+  {
+    "name": "PayrollReportRow",
+    "file": "src/features/reports/types/responses/PayrollReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "PayrollReportRow"
+  },
+  {
+    "name": "AdvancesReport",
+    "file": "src/features/reports/types/responses/AdvancesReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "AdvancesReport"
+  },
+  {
+    "name": "AdvancesReportRow",
+    "file": "src/features/reports/types/responses/AdvancesReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "AdvancesReportRow"
+  },
+  {
+    "name": "RecognizedExpensesReport",
+    "file": "src/features/reports/types/responses/RecognizedExpensesReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "RecognizedExpensesReport"
+  },
+  {
+    "name": "RecognizedExpensesReportRow",
+    "file": "src/features/reports/types/responses/RecognizedExpensesReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "RecognizedExpensesReportRow"
+  },
+  {
+    "name": "SalesSummaryReport",
+    "file": "src/features/reports/types/responses/SalesSummaryReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "SalesSummaryReport"
+  },
+  {
+    "name": "SalesSummaryReportRow",
+    "file": "src/features/reports/types/responses/SalesSummaryReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "SalesSummaryReportRow"
+  },
+  {
+    "name": "PurchasesSummaryReport",
+    "file": "src/features/reports/types/responses/PurchasesSummaryReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "PurchasesSummaryReport"
+  },
+  {
+    "name": "PurchasesSummaryReportRow",
+    "file": "src/features/reports/types/responses/PurchasesSummaryReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "PurchasesSummaryReportRow"
+  },
+  {
+    "name": "SalesReturnsReport",
+    "file": "src/features/reports/types/responses/SalesReturnsReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "SalesReturnsReport"
+  },
+  {
+    "name": "SalesReturnsReportRow",
+    "file": "src/features/reports/types/responses/SalesReturnsReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "SalesReturnsReportRow"
+  },
+  {
+    "name": "PurchaseReturnsReport",
+    "file": "src/features/reports/types/responses/PurchaseReturnsReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "PurchaseReturnsReport"
+  },
+  {
+    "name": "PurchaseReturnsReportRow",
+    "file": "src/features/reports/types/responses/PurchaseReturnsReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "PurchaseReturnsReportRow"
+  },
+  {
+    "name": "SalesChartReport",
+    "file": "src/features/reports/types/responses/SalesChartReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "SalesChartReport"
+  },
+  {
+    "name": "SalesChartReportRow",
+    "file": "src/features/reports/types/responses/SalesChartReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "SalesChartReportRow"
+  },
+  {
+    "name": "CashMovementsReport",
+    "file": "src/features/reports/types/responses/CashMovementsReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "CashMovementsReport"
+  },
+  {
+    "name": "CashMovementsReportRow",
+    "file": "src/features/reports/types/responses/CashMovementsReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "CashMovementsReportRow"
+  },
+  {
+    "name": "OpeningBalancesReport",
+    "file": "src/features/reports/types/responses/OpeningBalancesReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "OpeningBalancesReport"
+  },
+  {
+    "name": "OpeningBalancesReportRow",
+    "file": "src/features/reports/types/responses/OpeningBalancesReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "OpeningBalancesReportRow"
+  },
+  {
+    "name": "TrialBalanceReport",
+    "file": "src/features/reports/types/responses/TrialBalanceReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "TrialBalanceReport"
+  },
+  {
+    "name": "TrialBalanceReportRow",
+    "file": "src/features/reports/types/responses/TrialBalanceReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "TrialBalanceReportRow"
+  },
+  {
+    "name": "TaxReport",
+    "file": "src/features/reports/types/responses/TaxReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "TaxReport"
+  },
+  {
+    "name": "TaxReportRow",
+    "file": "src/features/reports/types/responses/TaxReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "TaxReportRow"
+  },
+  {
+    "name": "ForeignCurrencyReport",
+    "file": "src/features/reports/types/responses/ForeignCurrencyReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "ForeignCurrencyReport"
+  },
+  {
+    "name": "ForeignCurrencyReportRow",
+    "file": "src/features/reports/types/responses/ForeignCurrencyReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "ForeignCurrencyReportRow"
+  },
+  {
+    "name": "AssetsReport",
+    "file": "src/features/reports/types/responses/AssetsReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "AssetsReport"
+  },
+  {
+    "name": "AssetsReportRow",
+    "file": "src/features/reports/types/responses/AssetsReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "AssetsReportRow"
+  },
+  {
+    "name": "TargetAchievementReport",
+    "file": "src/features/reports/types/responses/TargetAchievementReport.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "TargetAchievementReport"
+  },
+  {
+    "name": "TargetAchievementReportRow",
+    "file": "src/features/reports/types/responses/TargetAchievementReportRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "TargetAchievementReportRow"
+  },
+  {
+    "name": "AccountStatementResponse",
+    "file": "src/features/reports/types/responses/AccountStatementResponse.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "AccountStatementResponse"
+  },
+  {
+    "name": "StatementRow",
+    "file": "src/features/reports/types/responses/StatementRow.ts",
+    "oldFile": "src/features/reports/types/response/read-contracts.types.ts",
+    "oldName": "StatementRow"
+  },
+  {
+    "name": "SearchAccountingAccountsRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingAccountsRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingAccountsRequest"
+  },
+  {
+    "name": "GetAccountingAccountsByCodeRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingAccountsByCodeRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingAccountsByCodeRequest"
+  },
+  {
+    "name": "SearchAccountingCashAccountsRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingCashAccountsRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingCashAccountsRequest"
+  },
+  {
+    "name": "GetAccountingCashAccountsByIdRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingCashAccountsByIdRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingCashAccountsByIdRequest"
+  },
+  {
+    "name": "SearchAccountingAssetsRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingAssetsRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingAssetsRequest"
+  },
+  {
+    "name": "GetAccountingAssetsByIdRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingAssetsByIdRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingAssetsByIdRequest"
+  },
+  {
+    "name": "SearchAccountingContactsRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingContactsRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingContactsRequest"
+  },
+  {
+    "name": "GetAccountingContactsByIdRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingContactsByIdRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingContactsByIdRequest"
+  },
+  {
+    "name": "SearchAccountingCurrenciesRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingCurrenciesRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingCurrenciesRequest"
+  },
+  {
+    "name": "GetAccountingCurrenciesByCodeRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingCurrenciesByCodeRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingCurrenciesByCodeRequest"
+  },
+  {
+    "name": "SearchAccountingFinancialBooksRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingFinancialBooksRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingFinancialBooksRequest"
+  },
+  {
+    "name": "GetAccountingFinancialBooksByIdRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingFinancialBooksByIdRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingFinancialBooksByIdRequest"
+  },
+  {
+    "name": "GetAccountingFinancialBooksByIdReadinessRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingFinancialBooksByIdReadinessRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingFinancialBooksByIdReadinessRequest"
+  },
+  {
+    "name": "SearchAccountingVouchersRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingVouchersRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingVouchersRequest"
+  },
+  {
+    "name": "GetAccountingVouchersByIdRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingVouchersByIdRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingVouchersByIdRequest"
+  },
+  {
+    "name": "SearchAccountingJournalsRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingJournalsRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingJournalsRequest"
+  },
+  {
+    "name": "GetAccountingJournalsByIdRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingJournalsByIdRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingJournalsByIdRequest"
+  },
+  {
+    "name": "SearchAccountingExchangeRatesRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingExchangeRatesRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingExchangeRatesRequest"
+  },
+  {
+    "name": "SearchAccountingAssetAcquisitionsRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingAssetAcquisitionsRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingAssetAcquisitionsRequest"
+  },
+  {
+    "name": "GetAccountingAssetAcquisitionsByIdRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingAssetAcquisitionsByIdRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingAssetAcquisitionsByIdRequest"
+  },
+  {
+    "name": "SearchAccountingDepreciationRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingDepreciationRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingDepreciationRequest"
+  },
+  {
+    "name": "GetAccountingDepreciationByIdRequest",
+    "file": "src/features/accounting/types/requests/GetAccountingDepreciationByIdRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "GetAccountingDepreciationByIdRequest"
+  },
+  {
+    "name": "SearchAccountingFinancialBooksByIdClosingStockRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingFinancialBooksByIdClosingStockRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingFinancialBooksByIdClosingStockRequest"
+  },
+  {
+    "name": "SearchAccountingFinancialBooksByIdClosingAccountsRequest",
+    "file": "src/features/accounting/types/requests/SearchAccountingFinancialBooksByIdClosingAccountsRequest.ts",
+    "oldFile": "src/features/accounting/types/request/read-queries.types.ts",
+    "oldName": "SearchAccountingFinancialBooksByIdClosingAccountsRequest"
+  },
+  {
+    "name": "PartyListResponse",
+    "file": "src/features/customers/types/responses/PartyListResponse.ts",
+    "oldFile": "src/features/customers/types/response/read-contracts.types.ts",
+    "oldName": "PartyListResponse"
+  },
+  {
+    "name": "PartyResponse",
+    "file": "src/features/customers/types/responses/PartyResponse.ts",
+    "oldFile": "src/features/customers/types/response/read-contracts.types.ts",
+    "oldName": "PartyResponse"
+  },
+  {
+    "name": "PartyGroupListResponse",
+    "file": "src/features/customers/types/responses/PartyGroupListResponse.ts",
+    "oldFile": "src/features/customers/types/response/read-contracts.types.ts",
+    "oldName": "PartyGroupListResponse"
+  },
+  {
+    "name": "PartyGroupResponse",
+    "file": "src/features/customers/types/responses/PartyGroupResponse.ts",
+    "oldFile": "src/features/customers/types/response/read-contracts.types.ts",
+    "oldName": "PartyGroupResponse"
+  },
+  {
+    "name": "SearchCustomersRequest",
+    "file": "src/features/customers/types/requests/SearchCustomersRequest.ts",
+    "oldFile": "src/features/customers/types/request/read-queries.types.ts",
+    "oldName": "SearchCustomersRequest"
+  },
+  {
+    "name": "GetCustomersByIdRequest",
+    "file": "src/features/customers/types/requests/GetCustomersByIdRequest.ts",
+    "oldFile": "src/features/customers/types/request/read-queries.types.ts",
+    "oldName": "GetCustomersByIdRequest"
+  },
+  {
+    "name": "SearchPartiesGroupsRequest",
+    "file": "src/features/customers/types/requests/SearchPartiesGroupsRequest.ts",
+    "oldFile": "src/features/customers/types/request/read-queries.types.ts",
+    "oldName": "SearchPartiesGroupsRequest"
+  },
+  {
+    "name": "GetPartiesGroupsByIdRequest",
+    "file": "src/features/customers/types/requests/GetPartiesGroupsByIdRequest.ts",
+    "oldFile": "src/features/customers/types/request/read-queries.types.ts",
+    "oldName": "GetPartiesGroupsByIdRequest"
+  },
+  {
+    "name": "SearchSuppliersRequest",
+    "file": "src/features/suppliers/types/requests/SearchSuppliersRequest.ts",
+    "oldFile": "src/features/suppliers/types/request/read-queries.types.ts",
+    "oldName": "SearchSuppliersRequest"
+  },
+  {
+    "name": "GetSuppliersByIdRequest",
+    "file": "src/features/suppliers/types/requests/GetSuppliersByIdRequest.ts",
+    "oldFile": "src/features/suppliers/types/request/read-queries.types.ts",
+    "oldName": "GetSuppliersByIdRequest"
+  },
+  {
+    "name": "ItemListResponse",
+    "file": "src/features/inventory/types/responses/ItemListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "ItemListResponse"
+  },
+  {
+    "name": "ItemResponse",
+    "file": "src/features/inventory/types/responses/ItemResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "ItemResponse"
+  },
+  {
+    "name": "WarehouseListResponse",
+    "file": "src/features/inventory/types/responses/WarehouseListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "WarehouseListResponse"
+  },
+  {
+    "name": "WarehouseResponse",
+    "file": "src/features/inventory/types/responses/WarehouseResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "WarehouseResponse"
+  },
+  {
+    "name": "UnitListResponse",
+    "file": "src/features/inventory/types/responses/UnitListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "UnitListResponse"
+  },
+  {
+    "name": "UnitResponse",
+    "file": "src/features/inventory/types/responses/UnitResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "UnitResponse"
+  },
+  {
+    "name": "UnitCategoryListResponse",
+    "file": "src/features/inventory/types/responses/UnitCategoryListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "UnitCategoryListResponse"
+  },
+  {
+    "name": "UnitCategoryResponse",
+    "file": "src/features/inventory/types/responses/UnitCategoryResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "UnitCategoryResponse"
+  },
+  {
+    "name": "ItemGroupListResponse",
+    "file": "src/features/inventory/types/responses/ItemGroupListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "ItemGroupListResponse"
+  },
+  {
+    "name": "ItemGroupResponse",
+    "file": "src/features/inventory/types/responses/ItemGroupResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "ItemGroupResponse"
+  },
+  {
+    "name": "StockDocumentListResponse",
+    "file": "src/features/inventory/types/responses/StockDocumentListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "StockDocumentListResponse"
+  },
+  {
+    "name": "StockDocumentResponse",
+    "file": "src/features/inventory/types/responses/StockDocumentResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "StockDocumentResponse"
+  },
+  {
+    "name": "StockBalanceListResponse",
+    "file": "src/features/inventory/types/responses/StockBalanceListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "StockBalanceListResponse"
+  },
+  {
+    "name": "StockBalanceResponse",
+    "file": "src/features/inventory/types/responses/StockBalanceResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "StockBalanceResponse"
+  },
+  {
+    "name": "InventoryMovementListResponse",
+    "file": "src/features/inventory/types/responses/InventoryMovementListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "InventoryMovementListResponse"
+  },
+  {
+    "name": "InventoryMovementResponse",
+    "file": "src/features/inventory/types/responses/InventoryMovementResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "InventoryMovementResponse"
+  },
+  {
+    "name": "SearchHitListResponse",
+    "file": "src/features/inventory/types/responses/SearchHitListResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "SearchHitListResponse"
+  },
+  {
+    "name": "SearchHitResponse",
+    "file": "src/features/inventory/types/responses/SearchHitResponse.ts",
+    "oldFile": "src/features/inventory/types/response/read-contracts.types.ts",
+    "oldName": "SearchHitResponse"
+  },
+  {
+    "name": "SearchInventoryItemsRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryItemsRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryItemsRequest"
+  },
+  {
+    "name": "GetInventoryItemsByIdRequest",
+    "file": "src/features/inventory/types/requests/GetInventoryItemsByIdRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "GetInventoryItemsByIdRequest"
+  },
+  {
+    "name": "SearchInventoryWarehousesRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryWarehousesRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryWarehousesRequest"
+  },
+  {
+    "name": "GetInventoryWarehousesByIdRequest",
+    "file": "src/features/inventory/types/requests/GetInventoryWarehousesByIdRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "GetInventoryWarehousesByIdRequest"
+  },
+  {
+    "name": "SearchInventoryUnitsRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryUnitsRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryUnitsRequest"
+  },
+  {
+    "name": "GetInventoryUnitsByIdRequest",
+    "file": "src/features/inventory/types/requests/GetInventoryUnitsByIdRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "GetInventoryUnitsByIdRequest"
+  },
+  {
+    "name": "SearchInventoryUnitCategoriesRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryUnitCategoriesRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryUnitCategoriesRequest"
+  },
+  {
+    "name": "GetInventoryUnitCategoriesByIdRequest",
+    "file": "src/features/inventory/types/requests/GetInventoryUnitCategoriesByIdRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "GetInventoryUnitCategoriesByIdRequest"
+  },
+  {
+    "name": "SearchInventoryItemGroupsRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryItemGroupsRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryItemGroupsRequest"
+  },
+  {
+    "name": "GetInventoryItemGroupsByIdRequest",
+    "file": "src/features/inventory/types/requests/GetInventoryItemGroupsByIdRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "GetInventoryItemGroupsByIdRequest"
+  },
+  {
+    "name": "SearchInventoryStockDocumentsRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryStockDocumentsRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryStockDocumentsRequest"
+  },
+  {
+    "name": "GetInventoryStockDocumentsByIdRequest",
+    "file": "src/features/inventory/types/requests/GetInventoryStockDocumentsByIdRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "GetInventoryStockDocumentsByIdRequest"
+  },
+  {
+    "name": "SearchInventoryBalancesRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryBalancesRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryBalancesRequest"
+  },
+  {
+    "name": "SearchInventoryMovementsRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryMovementsRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryMovementsRequest"
+  },
+  {
+    "name": "GetInventoryItemsByIdUnitsRequest",
+    "file": "src/features/inventory/types/requests/GetInventoryItemsByIdUnitsRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "GetInventoryItemsByIdUnitsRequest"
+  },
+  {
+    "name": "SearchInventoryStockCountsRequest",
+    "file": "src/features/inventory/types/requests/SearchInventoryStockCountsRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchInventoryStockCountsRequest"
+  },
+  {
+    "name": "GetInventoryStockCountsByIdRequest",
+    "file": "src/features/inventory/types/requests/GetInventoryStockCountsByIdRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "GetInventoryStockCountsByIdRequest"
+  },
+  {
+    "name": "SearchSearchItemsRequest",
+    "file": "src/features/inventory/types/requests/SearchSearchItemsRequest.ts",
+    "oldFile": "src/features/inventory/types/request/read-queries.types.ts",
+    "oldName": "SearchSearchItemsRequest"
+  },
+  {
+    "name": "SearchEmployeesRequest",
+    "file": "src/features/employees/types/requests/SearchEmployeesRequest.ts",
+    "oldFile": "src/features/employees/types/request/read-queries.types.ts",
+    "oldName": "SearchEmployeesRequest"
+  },
+  {
+    "name": "GetEmployeesByIdRequest",
+    "file": "src/features/employees/types/requests/GetEmployeesByIdRequest.ts",
+    "oldFile": "src/features/employees/types/request/read-queries.types.ts",
+    "oldName": "GetEmployeesByIdRequest"
+  },
+  {
+    "name": "SearchEmployeesPayrollAccrualsRequest",
+    "file": "src/features/employees/types/requests/SearchEmployeesPayrollAccrualsRequest.ts",
+    "oldFile": "src/features/employees/types/request/read-queries.types.ts",
+    "oldName": "SearchEmployeesPayrollAccrualsRequest"
+  },
+  {
+    "name": "GetEmployeesPayrollAccrualsByIdRequest",
+    "file": "src/features/employees/types/requests/GetEmployeesPayrollAccrualsByIdRequest.ts",
+    "oldFile": "src/features/employees/types/request/read-queries.types.ts",
+    "oldName": "GetEmployeesPayrollAccrualsByIdRequest"
+  },
+  {
+    "name": "SearchEmployeesSalaryPaymentsRequest",
+    "file": "src/features/employees/types/requests/SearchEmployeesSalaryPaymentsRequest.ts",
+    "oldFile": "src/features/employees/types/request/read-queries.types.ts",
+    "oldName": "SearchEmployeesSalaryPaymentsRequest"
+  },
+  {
+    "name": "GetEmployeesSalaryPaymentsByIdRequest",
+    "file": "src/features/employees/types/requests/GetEmployeesSalaryPaymentsByIdRequest.ts",
+    "oldFile": "src/features/employees/types/request/read-queries.types.ts",
+    "oldName": "GetEmployeesSalaryPaymentsByIdRequest"
+  },
+  {
+    "name": "SearchEmployeesAdvancesRequest",
+    "file": "src/features/employees/types/requests/SearchEmployeesAdvancesRequest.ts",
+    "oldFile": "src/features/employees/types/request/read-queries.types.ts",
+    "oldName": "SearchEmployeesAdvancesRequest"
+  },
+  {
+    "name": "GetEmployeesAdvancesByIdRequest",
+    "file": "src/features/employees/types/requests/GetEmployeesAdvancesByIdRequest.ts",
+    "oldFile": "src/features/employees/types/request/read-queries.types.ts",
+    "oldName": "GetEmployeesAdvancesByIdRequest"
+  },
+  {
+    "name": "ExpenseTypeListResponse",
+    "file": "src/features/expenses/types/responses/ExpenseTypeListResponse.ts",
+    "oldFile": "src/features/expenses/types/response/read-contracts.types.ts",
+    "oldName": "ExpenseTypeListResponse"
+  },
+  {
+    "name": "ExpenseTypeResponse",
+    "file": "src/features/expenses/types/responses/ExpenseTypeResponse.ts",
+    "oldFile": "src/features/expenses/types/response/read-contracts.types.ts",
+    "oldName": "ExpenseTypeResponse"
+  },
+  {
+    "name": "ExpenseDocumentListResponse",
+    "file": "src/features/expenses/types/responses/ExpenseDocumentListResponse.ts",
+    "oldFile": "src/features/expenses/types/response/read-contracts.types.ts",
+    "oldName": "ExpenseDocumentListResponse"
+  },
+  {
+    "name": "ExpenseDocumentResponse",
+    "file": "src/features/expenses/types/responses/ExpenseDocumentResponse.ts",
+    "oldFile": "src/features/expenses/types/response/read-contracts.types.ts",
+    "oldName": "ExpenseDocumentResponse"
+  },
+  {
+    "name": "ExpensePaymentsListResponse",
+    "file": "src/features/expenses/types/responses/ExpensePaymentsListResponse.ts",
+    "oldFile": "src/features/expenses/types/response/read-contracts.types.ts",
+    "oldName": "ExpensePaymentsListResponse"
+  },
+  {
+    "name": "ExpensePaymentsResponse",
+    "file": "src/features/expenses/types/responses/ExpensePaymentsResponse.ts",
+    "oldFile": "src/features/expenses/types/response/read-contracts.types.ts",
+    "oldName": "ExpensePaymentsResponse"
+  },
+  {
+    "name": "ExpenseConsumptionsListResponse",
+    "file": "src/features/expenses/types/responses/ExpenseConsumptionsListResponse.ts",
+    "oldFile": "src/features/expenses/types/response/read-contracts.types.ts",
+    "oldName": "ExpenseConsumptionsListResponse"
+  },
+  {
+    "name": "ExpenseConsumptionsResponse",
+    "file": "src/features/expenses/types/responses/ExpenseConsumptionsResponse.ts",
+    "oldFile": "src/features/expenses/types/response/read-contracts.types.ts",
+    "oldName": "ExpenseConsumptionsResponse"
+  },
+  {
+    "name": "SearchExpensesTypesRequest",
+    "file": "src/features/expenses/types/requests/SearchExpensesTypesRequest.ts",
+    "oldFile": "src/features/expenses/types/request/read-queries.types.ts",
+    "oldName": "SearchExpensesTypesRequest"
+  },
+  {
+    "name": "GetExpensesTypesByIdRequest",
+    "file": "src/features/expenses/types/requests/GetExpensesTypesByIdRequest.ts",
+    "oldFile": "src/features/expenses/types/request/read-queries.types.ts",
+    "oldName": "GetExpensesTypesByIdRequest"
+  },
+  {
+    "name": "SearchExpensesDocumentsRequest",
+    "file": "src/features/expenses/types/requests/SearchExpensesDocumentsRequest.ts",
+    "oldFile": "src/features/expenses/types/request/read-queries.types.ts",
+    "oldName": "SearchExpensesDocumentsRequest"
+  },
+  {
+    "name": "GetExpensesDocumentsByIdRequest",
+    "file": "src/features/expenses/types/requests/GetExpensesDocumentsByIdRequest.ts",
+    "oldFile": "src/features/expenses/types/request/read-queries.types.ts",
+    "oldName": "GetExpensesDocumentsByIdRequest"
+  },
+  {
+    "name": "SearchExpensesDocumentsByIdPaymentsRequest",
+    "file": "src/features/expenses/types/requests/SearchExpensesDocumentsByIdPaymentsRequest.ts",
+    "oldFile": "src/features/expenses/types/request/read-queries.types.ts",
+    "oldName": "SearchExpensesDocumentsByIdPaymentsRequest"
+  },
+  {
+    "name": "SearchExpensesDocumentsByIdConsumptionsRequest",
+    "file": "src/features/expenses/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest.ts",
+    "oldFile": "src/features/expenses/types/request/read-queries.types.ts",
+    "oldName": "SearchExpensesDocumentsByIdConsumptionsRequest"
+  },
+  {
+    "name": "SalesTargetListResponse",
+    "file": "src/features/sales/types/responses/SalesTargetListResponse.ts",
+    "oldFile": "src/features/sales/types/response/read-contracts.types.ts",
+    "oldName": "SalesTargetListResponse"
+  },
+  {
+    "name": "SalesTargetResponse",
+    "file": "src/features/sales/types/responses/SalesTargetResponse.ts",
+    "oldFile": "src/features/sales/types/response/read-contracts.types.ts",
+    "oldName": "SalesTargetResponse"
+  },
+  {
+    "name": "InvoiceListResponse",
+    "file": "src/features/sales/types/responses/InvoiceListResponse.ts",
+    "oldFile": "src/features/sales/types/response/read-contracts.types.ts",
+    "oldName": "InvoiceListResponse"
+  },
+  {
+    "name": "InvoiceResponse",
+    "file": "src/features/sales/types/responses/InvoiceResponse.ts",
+    "oldFile": "src/features/sales/types/response/read-contracts.types.ts",
+    "oldName": "InvoiceResponse"
+  },
+  {
+    "name": "InvoiceReturnListResponse",
+    "file": "src/features/sales/types/responses/InvoiceReturnListResponse.ts",
+    "oldFile": "src/features/sales/types/response/read-contracts.types.ts",
+    "oldName": "InvoiceReturnListResponse"
+  },
+  {
+    "name": "InvoiceReturnResponse",
+    "file": "src/features/sales/types/responses/InvoiceReturnResponse.ts",
+    "oldFile": "src/features/sales/types/response/read-contracts.types.ts",
+    "oldName": "InvoiceReturnResponse"
+  },
+  {
+    "name": "ReturnAvailabilityResponse",
+    "file": "src/features/sales/types/responses/ReturnAvailabilityResponse.ts",
+    "oldFile": "src/features/sales/types/response/read-contracts.types.ts",
+    "oldName": "ReturnAvailabilityResponse"
+  },
+  {
+    "name": "SearchSalesTargetsRequest",
+    "file": "src/features/sales/types/requests/SearchSalesTargetsRequest.ts",
+    "oldFile": "src/features/sales/types/request/read-queries.types.ts",
+    "oldName": "SearchSalesTargetsRequest"
+  },
+  {
+    "name": "GetSalesTargetsByIdRequest",
+    "file": "src/features/sales/types/requests/GetSalesTargetsByIdRequest.ts",
+    "oldFile": "src/features/sales/types/request/read-queries.types.ts",
+    "oldName": "GetSalesTargetsByIdRequest"
+  },
+  {
+    "name": "SearchSalesInvoicesRequest",
+    "file": "src/features/sales/types/requests/SearchSalesInvoicesRequest.ts",
+    "oldFile": "src/features/sales/types/request/read-queries.types.ts",
+    "oldName": "SearchSalesInvoicesRequest"
+  },
+  {
+    "name": "GetSalesInvoicesByIdRequest",
+    "file": "src/features/sales/types/requests/GetSalesInvoicesByIdRequest.ts",
+    "oldFile": "src/features/sales/types/request/read-queries.types.ts",
+    "oldName": "GetSalesInvoicesByIdRequest"
+  },
+  {
+    "name": "SearchSalesReturnsRequest",
+    "file": "src/features/sales/types/requests/SearchSalesReturnsRequest.ts",
+    "oldFile": "src/features/sales/types/request/read-queries.types.ts",
+    "oldName": "SearchSalesReturnsRequest"
+  },
+  {
+    "name": "GetSalesReturnsByIdRequest",
+    "file": "src/features/sales/types/requests/GetSalesReturnsByIdRequest.ts",
+    "oldFile": "src/features/sales/types/request/read-queries.types.ts",
+    "oldName": "GetSalesReturnsByIdRequest"
+  },
+  {
+    "name": "GetSalesInvoicesByIdReturnAvailabilityRequest",
+    "file": "src/features/sales/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest.ts",
+    "oldFile": "src/features/sales/types/request/read-queries.types.ts",
+    "oldName": "GetSalesInvoicesByIdReturnAvailabilityRequest"
+  },
+  {
+    "name": "SearchPurchasesInvoicesRequest",
+    "file": "src/features/purchases/types/requests/SearchPurchasesInvoicesRequest.ts",
+    "oldFile": "src/features/purchases/types/request/read-queries.types.ts",
+    "oldName": "SearchPurchasesInvoicesRequest"
+  },
+  {
+    "name": "GetPurchasesInvoicesByIdRequest",
+    "file": "src/features/purchases/types/requests/GetPurchasesInvoicesByIdRequest.ts",
+    "oldFile": "src/features/purchases/types/request/read-queries.types.ts",
+    "oldName": "GetPurchasesInvoicesByIdRequest"
+  },
+  {
+    "name": "SearchPurchasesReturnsRequest",
+    "file": "src/features/purchases/types/requests/SearchPurchasesReturnsRequest.ts",
+    "oldFile": "src/features/purchases/types/request/read-queries.types.ts",
+    "oldName": "SearchPurchasesReturnsRequest"
+  },
+  {
+    "name": "GetPurchasesReturnsByIdRequest",
+    "file": "src/features/purchases/types/requests/GetPurchasesReturnsByIdRequest.ts",
+    "oldFile": "src/features/purchases/types/request/read-queries.types.ts",
+    "oldName": "GetPurchasesReturnsByIdRequest"
+  },
+  {
+    "name": "GetPurchasesInvoicesByIdReturnAvailabilityRequest",
+    "file": "src/features/purchases/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest.ts",
+    "oldFile": "src/features/purchases/types/request/read-queries.types.ts",
+    "oldName": "GetPurchasesInvoicesByIdReturnAvailabilityRequest"
+  },
+  {
+    "name": "UserListResponse",
+    "file": "src/features/users/types/responses/UserListResponse.ts",
+    "oldFile": "src/features/users/types/response/read-contracts.types.ts",
+    "oldName": "UserListResponse"
+  },
+  {
+    "name": "UserResponse",
+    "file": "src/features/users/types/responses/UserResponse.ts",
+    "oldFile": "src/features/users/types/response/read-contracts.types.ts",
+    "oldName": "UserResponse"
+  },
+  {
+    "name": "SessionListResponse",
+    "file": "src/features/users/types/responses/SessionListResponse.ts",
+    "oldFile": "src/features/users/types/response/read-contracts.types.ts",
+    "oldName": "SessionListResponse"
+  },
+  {
+    "name": "SessionResponse",
+    "file": "src/features/users/types/responses/SessionResponse.ts",
+    "oldFile": "src/features/users/types/response/read-contracts.types.ts",
+    "oldName": "SessionResponse"
+  },
+  {
+    "name": "PermissionResponse",
+    "file": "src/features/users/types/responses/PermissionResponse.ts",
+    "oldFile": "src/features/users/types/response/read-contracts.types.ts",
+    "oldName": "PermissionResponse"
+  },
+  {
+    "name": "AuditEventListResponse",
+    "file": "src/features/users/types/responses/AuditEventListResponse.ts",
+    "oldFile": "src/features/users/types/response/read-contracts.types.ts",
+    "oldName": "AuditEventListResponse"
+  },
+  {
+    "name": "AuditEventResponse",
+    "file": "src/features/users/types/responses/AuditEventResponse.ts",
+    "oldFile": "src/features/users/types/response/read-contracts.types.ts",
+    "oldName": "AuditEventResponse"
+  },
+  {
+    "name": "SearchUsersRequest",
+    "file": "src/features/users/types/requests/SearchUsersRequest.ts",
+    "oldFile": "src/features/users/types/request/read-queries.types.ts",
+    "oldName": "SearchUsersRequest"
+  },
+  {
+    "name": "GetUsersByIdRequest",
+    "file": "src/features/users/types/requests/GetUsersByIdRequest.ts",
+    "oldFile": "src/features/users/types/request/read-queries.types.ts",
+    "oldName": "GetUsersByIdRequest"
+  },
+  {
+    "name": "SearchAuthSessionsRequest",
+    "file": "src/features/users/types/requests/SearchAuthSessionsRequest.ts",
+    "oldFile": "src/features/users/types/request/read-queries.types.ts",
+    "oldName": "SearchAuthSessionsRequest"
+  },
+  {
+    "name": "SearchUsersByIdSessionsRequest",
+    "file": "src/features/users/types/requests/SearchUsersByIdSessionsRequest.ts",
+    "oldFile": "src/features/users/types/request/read-queries.types.ts",
+    "oldName": "SearchUsersByIdSessionsRequest"
+  },
+  {
+    "name": "GetAuthPermissionsRequest",
+    "file": "src/features/users/types/requests/GetAuthPermissionsRequest.ts",
+    "oldFile": "src/features/users/types/request/read-queries.types.ts",
+    "oldName": "GetAuthPermissionsRequest"
+  },
+  {
+    "name": "SearchAuditEventsRequest",
+    "file": "src/features/users/types/requests/SearchAuditEventsRequest.ts",
+    "oldFile": "src/features/users/types/request/read-queries.types.ts",
+    "oldName": "SearchAuditEventsRequest"
+  },
+  {
+    "name": "FeatureData",
+    "file": "src/core/types/FeatureData.ts",
+    "oldFile": "src/core/providers/FeatureDataProvider.tsx",
+    "oldName": "FeatureData"
+  },
+  {
+    "name": "ModuleScreenLinksProps",
+    "file": "src/core/types/ModuleScreenLinksProps.ts",
+    "oldFile": "src/core/router/ModuleScreenLinks.tsx",
+    "oldName": "ModuleScreenLinksProps"
+  },
+  {
+    "name": "EntryProps",
+    "file": "src/core/types/EntryProps.ts",
+    "oldFile": "src/core/router/SectionNavigation.tsx",
+    "oldName": "EntryProps"
+  },
+  {
+    "name": "SectionNavigationProps",
+    "file": "src/core/types/SectionNavigationProps.ts",
+    "oldFile": "src/core/router/SectionNavigation.tsx",
+    "oldName": "SectionNavigationProps"
+  },
+  {
+    "name": "BackupReply",
+    "file": "src/features/settings/types/responses/BackupReply.ts",
+    "oldFile": "src/features/settings/types/response/backup-reply.types.ts",
+    "oldName": "BackupReply"
+  },
+  {
+    "name": "BackupRow",
+    "file": "src/features/settings/types/models/BackupRow.ts",
+    "oldFile": "src/features/settings/api/backups.ts",
+    "oldName": "BackupRow"
+  },
+  {
+    "name": "BackupFolder",
+    "file": "src/features/settings/types/models/BackupFolder.ts",
+    "oldFile": "src/features/settings/services/backup-files.ts",
+    "oldName": "BackupFolder"
+  },
+  {
+    "name": "SessionProps",
+    "file": "src/features/auth/types/SessionProps.ts",
+    "oldFile": "src/features/auth/components/SessionMenu.tsx",
+    "oldName": "SessionProps"
+  },
+  {
+    "name": "AutomaticBackupsProps",
+    "file": "src/features/settings/types/AutomaticBackupsProps.ts",
+    "oldFile": "src/features/settings/components/AutomaticBackups.tsx",
+    "oldName": "AutomaticBackupsProps"
+  },
+  {
+    "name": "Validatable",
+    "file": "src/core/types/Validatable.ts",
+    "oldFile": "src/core/components/shared/forms/ValidatedForm.tsx",
+    "oldName": "Validatable"
+  },
+  {
+    "name": "FieldProps",
+    "file": "src/core/types/FieldProps.ts",
+    "oldFile": "src/core/components/shared/forms/Field.tsx",
+    "oldName": "FieldProps"
+  },
+  {
+    "name": "PageHeadProps",
+    "file": "src/core/types/PageHeadProps.ts",
+    "oldFile": "src/core/components/shared/layout/PageHead.tsx",
+    "oldName": "PageHeadProps"
+  },
+  {
+    "name": "ReportActionsProps",
+    "file": "src/core/types/ReportActionsProps.ts",
+    "oldFile": "src/core/components/shared/reports/ReportActions.tsx",
+    "oldName": "ReportActionsProps"
+  },
+  {
+    "name": "EmptyProps",
+    "file": "src/core/types/EmptyProps.ts",
+    "oldFile": "src/core/components/shared/feedback/Empty.tsx",
+    "oldName": "EmptyProps"
+  },
+  {
+    "name": "DataTableProps",
+    "file": "src/core/types/DataTableProps.ts",
+    "oldFile": "src/core/components/shared/tables/DataTable.tsx",
+    "oldName": "DataTableProps"
+  },
+  {
+    "name": "PillProps",
+    "file": "src/core/types/PillProps.ts",
+    "oldFile": "src/core/components/shared/display/Pill.tsx",
+    "oldName": "PillProps"
+  },
+  {
+    "name": "CurrencyWords",
+    "file": "src/core/types/CurrencyWords.ts",
+    "oldFile": "src/core/utils/amount-in-words.ts",
+    "oldName": "CurrencyWords"
+  },
+  {
+    "name": "AmountWordsProps",
+    "file": "src/core/types/AmountWordsProps.ts",
+    "oldFile": "src/core/components/shared/documents/AmountWords.tsx",
+    "oldName": "AmountWordsProps"
+  },
+  {
+    "name": "DocumentNavigatorProps",
+    "file": "src/core/types/DocumentNavigatorProps.ts",
+    "oldFile": "src/core/components/shared/documents/DocumentNavigator.tsx",
+    "oldName": "DocumentNavigatorProps"
+  },
+  {
+    "name": "TotalsFooterProps",
+    "file": "src/core/types/TotalsFooterProps.ts",
+    "oldFile": "src/core/components/shared/documents/TotalsFooter.tsx",
+    "oldName": "TotalsFooterProps"
+  },
+  {
+    "name": "SavePermissionsRequest",
+    "file": "src/features/accounting/types/requests/SavePermissionsRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SavePermissionsRequest"
+  },
+  {
+    "name": "SaveContactEntryRequest",
+    "file": "src/features/accounting/types/requests/SaveContactEntryRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SaveContactEntryRequest"
+  },
+  {
+    "name": "SaveContactVoucherRequest",
+    "file": "src/features/accounting/types/requests/SaveContactVoucherRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SaveContactVoucherRequest"
+  },
+  {
+    "name": "SavePeriodSwitchRequest",
+    "file": "src/features/accounting/types/requests/SavePeriodSwitchRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SavePeriodSwitchRequest"
+  },
+  {
+    "name": "SavePeriodCreateRequest",
+    "file": "src/features/accounting/types/requests/SavePeriodCreateRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SavePeriodCreateRequest"
+  },
+  {
+    "name": "SavePeriodTransferRequest",
+    "file": "src/features/accounting/types/requests/SavePeriodTransferRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SavePeriodTransferRequest"
+  },
+  {
+    "name": "SavePeriodActivateRequest",
+    "file": "src/features/accounting/types/requests/SavePeriodActivateRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SavePeriodActivateRequest"
+  },
+  {
+    "name": "SavePeriodResetRequest",
+    "file": "src/features/accounting/types/requests/SavePeriodResetRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SavePeriodResetRequest"
+  },
+  {
+    "name": "SaveScreenDraftRequest",
+    "file": "src/features/accounting/types/requests/SaveScreenDraftRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SaveScreenDraftRequest"
+  },
+  {
+    "name": "SaveMasterRequest",
+    "file": "src/features/accounting/types/requests/SaveMasterRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SaveMasterRequest"
+  },
+  {
+    "name": "SaveManualJournalRequest",
+    "file": "src/features/accounting/types/requests/SaveManualJournalRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SaveManualJournalRequest"
+  },
+  {
+    "name": "SaveOperationRequest",
+    "file": "src/features/accounting/types/requests/SaveOperationRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SaveOperationRequest"
+  },
+  {
+    "name": "SaveVoucherRequest",
+    "file": "src/features/accounting/types/requests/SaveVoucherRequest.ts",
+    "oldFile": "src/features/accounting/types/request/accounting-request.types.ts",
+    "oldName": "SaveVoucherRequest"
+  },
+  {
+    "name": "InputLine",
+    "file": "src/features/accounting/types/InputLine.ts",
+    "oldFile": "src/features/accounting/types/input/voucher-editor-view.types.ts",
+    "oldName": "InputLine"
+  },
+  {
+    "name": "VoucherEditorProps",
+    "file": "src/features/accounting/types/VoucherEditorProps.ts",
+    "oldFile": "src/features/accounting/types/input/voucher-editor-view.types.ts",
+    "oldName": "VoucherEditorProps"
+  },
+  {
+    "name": "VoucherDetailsProps",
+    "file": "src/features/accounting/types/VoucherDetailsProps.ts",
+    "oldFile": "src/features/accounting/types/input/voucher-editor-view.types.ts",
+    "oldName": "VoucherDetailsProps"
+  },
+  {
+    "name": "FieldDef",
+    "file": "src/core/types/FieldDef.ts",
+    "oldFile": "src/core/types/PageDefinition.ts",
+    "oldName": "FieldDef"
+  },
+  {
+    "name": "PageDefinition",
+    "file": "src/core/types/PageDefinition.ts",
+    "oldFile": "src/core/types/PageDefinition.ts",
+    "oldName": "PageDefinition"
+  },
+  {
+    "name": "ViewButtonProps",
+    "file": "src/core/types/ViewButtonProps.ts",
+    "oldFile": "src/core/components/shared/actions/ViewButton.tsx",
+    "oldName": "ViewButtonProps"
+  },
+  {
+    "name": "SearchBoxProps",
+    "file": "src/core/types/SearchBoxProps.ts",
+    "oldFile": "src/core/components/shared/filters/SearchBox.tsx",
+    "oldName": "SearchBoxProps"
+  },
+  {
+    "name": "MasterScreenProps",
+    "file": "src/features/accounting/types/MasterScreenProps.ts",
+    "oldFile": "src/features/accounting/types/input/master-data-screen-view.types.ts",
+    "oldName": "MasterScreenProps"
+  },
+  {
+    "name": "DynamicFieldProps",
+    "file": "src/core/types/DynamicFieldProps.ts",
+    "oldFile": "src/core/components/shared/forms/DynamicField.tsx",
+    "oldName": "DynamicFieldProps"
+  },
+  {
+    "name": "DynamicFieldProps",
+    "file": "src/features/settings/types/DynamicFieldProps.ts",
+    "oldFile": "src/features/settings/components/LookupField.tsx",
+    "oldName": "DynamicFieldProps"
+  },
+  {
+    "name": "Filters",
+    "file": "src/core/types/Filters.ts",
+    "oldFile": "src/core/types/report-data.types.ts",
+    "oldName": "Filters"
+  },
+  {
+    "name": "ReportData",
+    "file": "src/core/types/ReportData.ts",
+    "oldFile": "src/core/types/report-data.types.ts",
+    "oldName": "ReportData"
+  },
+  {
+    "name": "ReportViewerProps",
+    "file": "src/features/reports/types/ReportViewerProps.ts",
+    "oldFile": "src/features/reports/types/input/report-workspace-view.types.ts",
+    "oldName": "ReportViewerProps"
+  },
+  {
+    "name": "AssetForm",
+    "file": "src/features/accounting/types/models/AssetForm.ts",
+    "oldFile": "src/features/accounting/components/Assets.tsx",
+    "oldName": "AssetForm"
+  },
+  {
+    "name": "AssetsProps",
+    "file": "src/features/accounting/types/AssetsProps.ts",
+    "oldFile": "src/features/accounting/components/Assets.tsx",
+    "oldName": "AssetsProps"
+  },
+  {
+    "name": "AnnualSettingsProps",
+    "file": "src/features/settings/types/AnnualSettingsProps.ts",
+    "oldFile": "src/features/settings/components/AnnualSettings.tsx",
+    "oldName": "AnnualSettingsProps"
+  },
+  {
+    "name": "SaveBackupSettingsRequest",
+    "file": "src/features/settings/types/requests/SaveBackupSettingsRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SaveBackupSettingsRequest"
+  },
+  {
+    "name": "SaveBrandingRequest",
+    "file": "src/features/settings/types/requests/SaveBrandingRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SaveBrandingRequest"
+  },
+  {
+    "name": "SaveOrganizationRequest",
+    "file": "src/features/settings/types/requests/SaveOrganizationRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SaveOrganizationRequest"
+  },
+  {
+    "name": "SaveBranchRequest",
+    "file": "src/features/settings/types/requests/SaveBranchRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SaveBranchRequest"
+  },
+  {
+    "name": "SaveGeneralSettingsRequest",
+    "file": "src/features/settings/types/requests/SaveGeneralSettingsRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SaveGeneralSettingsRequest"
+  },
+  {
+    "name": "SetupCompleteRequest",
+    "file": "src/features/settings/types/requests/SetupCompleteRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SetupCompleteRequest"
+  },
+  {
+    "name": "ImportMastersRequest",
+    "file": "src/features/settings/types/requests/ImportMastersRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "ImportMastersRequest"
+  },
+  {
+    "name": "SaveCurrencyRequest",
+    "file": "src/features/settings/types/requests/SaveCurrencyRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SaveCurrencyRequest"
+  },
+  {
+    "name": "SavePreferencesRequest",
+    "file": "src/features/settings/types/requests/SavePreferencesRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SavePreferencesRequest"
+  },
+  {
+    "name": "SaveSystemSettingsRequest",
+    "file": "src/features/settings/types/requests/SaveSystemSettingsRequest.ts",
+    "oldFile": "src/features/settings/types/request/settings-request.types.ts",
+    "oldName": "SaveSystemSettingsRequest"
+  },
+  {
+    "name": "CurrencyScreenProps",
+    "file": "src/features/accounting/types/CurrencyScreenProps.ts",
+    "oldFile": "src/features/accounting/components/CurrencyScreen.tsx",
+    "oldName": "CurrencyScreenProps"
+  },
+  {
+    "name": "JournalScreenProps",
+    "file": "src/features/accounting/types/JournalScreenProps.ts",
+    "oldFile": "src/features/accounting/types/input/journal-entry-screen-view.types.ts",
+    "oldName": "JournalScreenProps"
+  },
+  {
+    "name": "SaveProductRequest",
+    "file": "src/features/inventory/types/requests/SaveProductRequest.ts",
+    "oldFile": "src/features/inventory/types/request/inventory-request.types.ts",
+    "oldName": "SaveProductRequest"
+  },
+  {
+    "name": "SaveWarehouseRequest",
+    "file": "src/features/inventory/types/requests/SaveWarehouseRequest.ts",
+    "oldFile": "src/features/inventory/types/request/inventory-request.types.ts",
+    "oldName": "SaveWarehouseRequest"
+  },
+  {
+    "name": "SaveTransferRequest",
+    "file": "src/features/inventory/types/requests/SaveTransferRequest.ts",
+    "oldFile": "src/features/inventory/types/request/inventory-request.types.ts",
+    "oldName": "SaveTransferRequest"
+  },
+  {
+    "name": "SaveStockDocumentRequest",
+    "file": "src/features/inventory/types/requests/SaveStockDocumentRequest.ts",
+    "oldFile": "src/features/inventory/types/request/inventory-request.types.ts",
+    "oldName": "SaveStockDocumentRequest"
+  },
+  {
+    "name": "DeleteStockDraftRequest",
+    "file": "src/features/inventory/types/requests/DeleteStockDraftRequest.ts",
+    "oldFile": "src/features/inventory/types/request/inventory-request.types.ts",
+    "oldName": "DeleteStockDraftRequest"
+  },
+  {
+    "name": "SavePriceListRequest",
+    "file": "src/features/inventory/types/requests/SavePriceListRequest.ts",
+    "oldFile": "src/features/inventory/types/request/inventory-request.types.ts",
+    "oldName": "SavePriceListRequest"
+  },
+  {
+    "name": "ServiceStatusProps",
+    "file": "src/features/settings/types/ServiceStatusProps.ts",
+    "oldFile": "src/features/settings/components/ServiceStatus.tsx",
+    "oldName": "ServiceStatusProps"
+  },
+  {
+    "name": "LoginFormProps",
+    "file": "src/features/auth/types/LoginFormProps.ts",
+    "oldFile": "src/features/auth/components/LoginForm.tsx",
+    "oldName": "LoginFormProps"
+  },
+  {
+    "name": "SavePartyRequest",
+    "file": "src/features/parties/types/requests/SavePartyRequest.ts",
+    "oldFile": "src/features/parties/types/request/parties-request.types.ts",
+    "oldName": "SavePartyRequest"
+  },
+  {
+    "name": "SaveCustomersRequest",
+    "file": "src/features/customers/types/requests/SaveCustomersRequest.ts",
+    "oldFile": "src/features/customers/types/request/customers-request.types.ts",
+    "oldName": "SaveCustomersRequest"
+  },
+  {
+    "name": "SaveCustomerRequest",
+    "file": "src/features/customers/types/requests/SaveCustomerRequest.ts",
+    "oldFile": "src/features/customers/types/request/customers-request.types.ts",
+    "oldName": "SaveCustomerRequest"
+  },
+  {
+    "name": "CustomerEditorProps",
+    "file": "src/features/customers/types/CustomerEditorProps.ts",
+    "oldFile": "src/features/customers/types/input/customer-editor-view.types.ts",
+    "oldName": "CustomerEditorProps"
+  },
+  {
+    "name": "SaveEmployeeRequest",
+    "file": "src/features/employees/types/requests/SaveEmployeeRequest.ts",
+    "oldFile": "src/features/employees/types/request/employees-request.types.ts",
+    "oldName": "SaveEmployeeRequest"
+  },
+  {
+    "name": "SaveEmployeeDeleteRequest",
+    "file": "src/features/employees/types/requests/SaveEmployeeDeleteRequest.ts",
+    "oldFile": "src/features/employees/types/request/employees-request.types.ts",
+    "oldName": "SaveEmployeeDeleteRequest"
+  },
+  {
+    "name": "SaveExpenseRequest",
+    "file": "src/features/expenses/types/requests/SaveExpenseRequest.ts",
+    "oldFile": "src/features/expenses/types/request/expenses-request.types.ts",
+    "oldName": "SaveExpenseRequest"
+  },
+  {
+    "name": "SaveExpenseSaveRequest",
+    "file": "src/features/expenses/types/requests/SaveExpenseSaveRequest.ts",
+    "oldFile": "src/features/expenses/types/request/expenses-request.types.ts",
+    "oldName": "SaveExpenseSaveRequest"
+  },
+  {
+    "name": "SaveExpensePaymentRequest",
+    "file": "src/features/expenses/types/requests/SaveExpensePaymentRequest.ts",
+    "oldFile": "src/features/expenses/types/request/expenses-request.types.ts",
+    "oldName": "SaveExpensePaymentRequest"
+  },
+  {
+    "name": "SaveExpenseConsumeRequest",
+    "file": "src/features/expenses/types/requests/SaveExpenseConsumeRequest.ts",
+    "oldFile": "src/features/expenses/types/request/expenses-request.types.ts",
+    "oldName": "SaveExpenseConsumeRequest"
+  },
+  {
+    "name": "IExpenseEditorInput",
+    "file": "src/features/expenses/types/IExpenseEditorInput.ts",
+    "oldFile": "src/features/expenses/types/input/expense-editor.types.ts",
+    "oldName": "ExpenseEditorInput"
+  },
+  {
+    "name": "ExpenseController",
+    "file": "src/features/expenses/types/models/ExpenseController.ts",
+    "oldFile": "src/features/expenses/hooks/useExpenseController.ts",
+    "oldName": "ExpenseController"
+  },
+  {
+    "name": "ExpenseEditorProps",
+    "file": "src/features/expenses/types/ExpenseEditorProps.ts",
+    "oldFile": "src/features/expenses/components/ExpenseEditor.tsx",
+    "oldName": "ExpenseEditorProps"
+  },
+  {
+    "name": "ExpenseListProps",
+    "file": "src/features/expenses/types/ExpenseListProps.ts",
+    "oldFile": "src/features/expenses/components/ExpenseList.tsx",
+    "oldName": "ExpenseListProps"
+  },
+  {
+    "name": "ExpenseReportProps",
+    "file": "src/features/expenses/types/ExpenseReportProps.ts",
+    "oldFile": "src/features/expenses/components/ExpenseReport.tsx",
+    "oldName": "ExpenseReportProps"
+  },
+  {
+    "name": "ExpensesProps",
+    "file": "src/features/expenses/types/ExpensesProps.ts",
+    "oldFile": "src/features/expenses/components/Expenses.tsx",
+    "oldName": "ExpensesProps"
+  },
+  {
+    "name": "StockDocumentsProps",
+    "file": "src/features/inventory/types/StockDocumentsProps.ts",
+    "oldFile": "src/features/inventory/components/StockDocuments.tsx",
+    "oldName": "StockDocumentsProps"
+  },
+  {
+    "name": "WarehouseDirectoryProps",
+    "file": "src/features/inventory/types/WarehouseDirectoryProps.ts",
+    "oldFile": "src/features/inventory/components/screens/WarehouseDirectory.tsx",
+    "oldName": "WarehouseDirectoryProps"
+  },
+  {
+    "name": "ProductEditorProps",
+    "file": "src/features/inventory/types/ProductEditorProps.ts",
+    "oldFile": "src/features/inventory/types/input/catalog-view.types.ts",
+    "oldName": "ProductEditorProps"
+  },
+  {
+    "name": "InvoiceTotalsProps",
+    "file": "src/features/trade/types/InvoiceTotalsProps.ts",
+    "oldFile": "src/features/trade/components/InvoiceTotals.tsx",
+    "oldName": "InvoiceTotalsProps"
+  },
+  {
+    "name": "SaveInvoiceRequest",
+    "file": "src/features/trade/types/requests/SaveInvoiceRequest.ts",
+    "oldFile": "src/features/trade/types/request/trade-request.types.ts",
+    "oldName": "SaveInvoiceRequest"
+  },
+  {
+    "name": "DeleteDraftRequest",
+    "file": "src/features/trade/types/requests/DeleteDraftRequest.ts",
+    "oldFile": "src/features/trade/types/request/trade-request.types.ts",
+    "oldName": "DeleteDraftRequest"
+  },
+  {
+    "name": "SaveReturnRequest",
+    "file": "src/features/trade/types/requests/SaveReturnRequest.ts",
+    "oldFile": "src/features/trade/types/request/trade-request.types.ts",
+    "oldName": "SaveReturnRequest"
+  },
+  {
+    "name": "SavePartialReturnRequest",
+    "file": "src/features/trade/types/requests/SavePartialReturnRequest.ts",
+    "oldFile": "src/features/trade/types/request/trade-request.types.ts",
+    "oldName": "SavePartialReturnRequest"
+  },
+  {
+    "name": "PurchaseInvoiceDetailsProps",
+    "file": "src/features/purchases/types/PurchaseInvoiceDetailsProps.ts",
+    "oldFile": "src/features/purchases/components/invoices/PurchaseInvoiceDetails.tsx",
+    "oldName": "PurchaseInvoiceDetailsProps"
+  },
+  {
+    "name": "InvoiceLineGridProps",
+    "file": "src/features/trade/types/InvoiceLineGridProps.ts",
+    "oldFile": "src/features/trade/components/InvoiceLineGrid.tsx",
+    "oldName": "InvoiceLineGridProps"
+  },
+  {
+    "name": "InvoiceLookupProps",
+    "file": "src/features/trade/types/InvoiceLookupProps.ts",
+    "oldFile": "src/features/trade/components/InvoiceLookup.tsx",
+    "oldName": "InvoiceLookupProps"
+  },
+  {
+    "name": "PurchaseInvoiceEditorProps",
+    "file": "src/features/purchases/types/PurchaseInvoiceEditorProps.ts",
+    "oldFile": "src/features/purchases/components/invoices/PurchaseInvoiceEditor.tsx",
+    "oldName": "PurchaseInvoiceEditorProps"
+  },
+  {
+    "name": "SalesInvoiceDetailsProps",
+    "file": "src/features/sales/types/SalesInvoiceDetailsProps.ts",
+    "oldFile": "src/features/sales/components/invoices/SalesInvoiceDetails.tsx",
+    "oldName": "SalesInvoiceDetailsProps"
+  },
+  {
+    "name": "SalesInvoiceEditorProps",
+    "file": "src/features/sales/types/SalesInvoiceEditorProps.ts",
+    "oldFile": "src/features/sales/components/invoices/SalesInvoiceEditor.tsx",
+    "oldName": "SalesInvoiceEditorProps"
+  },
+  {
+    "name": "SaveSalesTargetRequest",
+    "file": "src/features/sales/types/requests/SaveSalesTargetRequest.ts",
+    "oldFile": "src/features/sales/types/request/sales-request.types.ts",
+    "oldName": "SaveSalesTargetRequest"
+  },
+  {
+    "name": "SaveSalesInvoiceRequest",
+    "file": "src/features/sales/types/requests/SaveSalesInvoiceRequest.ts",
+    "oldFile": "src/features/sales/types/request/sales-request.types.ts",
+    "oldName": "SaveSalesInvoiceRequest"
+  },
+  {
+    "name": "ToggleProps",
+    "file": "src/features/settings/types/ToggleProps.ts",
+    "oldFile": "src/features/settings/components/SystemSettings.tsx",
+    "oldName": "ToggleProps"
+  },
+  {
+    "name": "LockedProps",
+    "file": "src/features/settings/types/LockedProps.ts",
+    "oldFile": "src/features/settings/components/SystemSettings.tsx",
+    "oldName": "LockedProps"
+  },
+  {
+    "name": "GroupProps",
+    "file": "src/features/settings/types/GroupProps.ts",
+    "oldFile": "src/features/settings/components/SystemSettings.tsx",
+    "oldName": "GroupProps"
+  },
+  {
+    "name": "SystemSettingsProps",
+    "file": "src/features/settings/types/SystemSettingsProps.ts",
+    "oldFile": "src/features/settings/components/SystemSettings.tsx",
+    "oldName": "SystemSettingsProps"
+  },
+  {
+    "name": "Row",
+    "file": "src/features/settings/types/models/Row.ts",
+    "oldFile": "src/features/settings/components/Backups.tsx",
+    "oldName": "Row"
+  },
+  {
+    "name": "Tab",
+    "file": "src/features/settings/types/models/Tab.ts",
+    "oldFile": "src/features/settings/components/Backups.tsx",
+    "oldName": "Tab"
+  },
+  {
+    "name": "BackupsProps",
+    "file": "src/features/settings/types/BackupsProps.ts",
+    "oldFile": "src/features/settings/components/Backups.tsx",
+    "oldName": "BackupsProps"
+  },
+  {
+    "name": "SaveSuppliersRequest",
+    "file": "src/features/suppliers/types/requests/SaveSuppliersRequest.ts",
+    "oldFile": "src/features/suppliers/types/request/suppliers-request.types.ts",
+    "oldName": "SaveSuppliersRequest"
+  },
+  {
+    "name": "SaveSupplierRequest",
+    "file": "src/features/suppliers/types/requests/SaveSupplierRequest.ts",
+    "oldFile": "src/features/suppliers/types/request/suppliers-request.types.ts",
+    "oldName": "SaveSupplierRequest"
+  },
+  {
+    "name": "SupplierEditorProps",
+    "file": "src/features/suppliers/types/SupplierEditorProps.ts",
+    "oldFile": "src/features/suppliers/types/input/supplier-editor-view.types.ts",
+    "oldName": "SupplierEditorProps"
+  },
+  {
+    "name": "AuthUser",
+    "file": "src/features/auth/types/models/AuthUser.ts",
+    "oldFile": "src/features/auth/components/AccountPanel.tsx",
+    "oldName": "AuthUser"
+  },
+  {
+    "name": "AuthSession",
+    "file": "src/features/auth/types/models/AuthSession.ts",
+    "oldFile": "src/features/auth/components/AccountPanel.tsx",
+    "oldName": "AuthSession"
+  },
+  {
+    "name": "AccountPanelProps",
+    "file": "src/features/auth/types/AccountPanelProps.ts",
+    "oldFile": "src/features/auth/components/AccountPanel.tsx",
+    "oldName": "AccountPanelProps"
+  },
+  {
+    "name": "AppProps",
+    "file": "src/core/types/AppProps.ts",
+    "oldFile": "src/App.tsx",
+    "oldName": "AppProps"
+  },
+  {
+    "name": "CarouselApi",
+    "file": "src/core/types/CarouselApi.ts",
+    "oldFile": "src/core/components/ui/carousel.tsx",
+    "oldName": "CarouselApi"
+  },
+  {
+    "name": "UseCarouselParameters",
+    "file": "src/core/types/UseCarouselParameters.ts",
+    "oldFile": "src/core/components/ui/carousel.tsx",
+    "oldName": "UseCarouselParameters"
+  },
+  {
+    "name": "CarouselOptions",
+    "file": "src/core/types/CarouselOptions.ts",
+    "oldFile": "src/core/components/ui/carousel.tsx",
+    "oldName": "CarouselOptions"
+  },
+  {
+    "name": "CarouselPlugin",
+    "file": "src/core/types/CarouselPlugin.ts",
+    "oldFile": "src/core/components/ui/carousel.tsx",
+    "oldName": "CarouselPlugin"
+  },
+  {
+    "name": "CarouselProps",
+    "file": "src/core/types/CarouselProps.ts",
+    "oldFile": "src/core/components/ui/carousel.tsx",
+    "oldName": "CarouselProps"
+  },
+  {
+    "name": "CarouselContextProps",
+    "file": "src/core/types/CarouselContextProps.ts",
+    "oldFile": "src/core/components/ui/carousel.tsx",
+    "oldName": "CarouselContextProps"
+  },
+  {
+    "name": "TooltipNameType",
+    "file": "src/core/types/TooltipNameType.ts",
+    "oldFile": "src/core/components/ui/chart.tsx",
+    "oldName": "TooltipNameType"
+  },
+  {
+    "name": "ChartConfig",
+    "file": "src/core/types/ChartConfig.ts",
+    "oldFile": "src/core/components/ui/chart.tsx",
+    "oldName": "ChartConfig"
+  },
+  {
+    "name": "ChartContextProps",
+    "file": "src/core/types/ChartContextProps.ts",
+    "oldFile": "src/core/components/ui/chart.tsx",
+    "oldName": "ChartContextProps"
+  },
+  {
+    "name": "FormFieldContextValue",
+    "file": "src/core/types/FormFieldContextValue.ts",
+    "oldFile": "src/core/components/ui/form.tsx",
+    "oldName": "FormFieldContextValue"
+  },
+  {
+    "name": "FormItemContextValue",
+    "file": "src/core/types/FormItemContextValue.ts",
+    "oldFile": "src/core/components/ui/form.tsx",
+    "oldName": "FormItemContextValue"
+  },
+  {
+    "name": "PaginationLinkProps",
+    "file": "src/core/types/PaginationLinkProps.ts",
+    "oldFile": "src/core/components/ui/pagination.tsx",
+    "oldName": "PaginationLinkProps"
+  },
+  {
+    "name": "SidebarContextProps",
+    "file": "src/core/types/SidebarContextProps.ts",
+    "oldFile": "src/core/components/ui/sidebar.tsx",
+    "oldName": "SidebarContextProps"
+  },
+  {
+    "name": "IPermissionsInput",
+    "file": "src/features/accounting/types/IPermissionsInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "PermissionsInput"
+  },
+  {
+    "name": "IContactEntryInput",
+    "file": "src/features/accounting/types/IContactEntryInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "ContactEntryInput"
+  },
+  {
+    "name": "IContactVoucherInput",
+    "file": "src/features/accounting/types/IContactVoucherInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "ContactVoucherInput"
+  },
+  {
+    "name": "IPeriodSwitchInput",
+    "file": "src/features/accounting/types/IPeriodSwitchInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "PeriodSwitchInput"
+  },
+  {
+    "name": "IPeriodCreateInput",
+    "file": "src/features/accounting/types/IPeriodCreateInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "PeriodCreateInput"
+  },
+  {
+    "name": "IPeriodTransferInput",
+    "file": "src/features/accounting/types/IPeriodTransferInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "PeriodTransferInput"
+  },
+  {
+    "name": "IPeriodActivateInput",
+    "file": "src/features/accounting/types/IPeriodActivateInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "PeriodActivateInput"
+  },
+  {
+    "name": "IPeriodResetInput",
+    "file": "src/features/accounting/types/IPeriodResetInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "PeriodResetInput"
+  },
+  {
+    "name": "IScreenDraftInput",
+    "file": "src/features/accounting/types/IScreenDraftInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "ScreenDraftInput"
+  },
+  {
+    "name": "IMasterInput",
+    "file": "src/features/accounting/types/IMasterInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "MasterInput"
+  },
+  {
+    "name": "IManualJournalInput",
+    "file": "src/features/accounting/types/IManualJournalInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "ManualJournalInput"
+  },
+  {
+    "name": "IOperationInput",
+    "file": "src/features/accounting/types/IOperationInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "OperationInput"
+  },
+  {
+    "name": "IVoucherInput",
+    "file": "src/features/accounting/types/IVoucherInput.ts",
+    "oldFile": "src/features/accounting/types/input/accounting-input.types.ts",
+    "oldName": "VoucherInput"
+  },
+  {
+    "name": "AccountingCommandResponse",
+    "file": "src/features/accounting/types/responses/AccountingCommandResponse.ts",
+    "oldFile": "src/features/accounting/types/response/accounting-response.types.ts",
+    "oldName": "AccountingCommandResponse"
+  },
+  {
+    "name": "CustomersEntity",
+    "file": "src/features/customers/types/models/CustomersEntity.ts",
+    "oldFile": "src/features/customers/types/entity/customers-entity.types.ts",
+    "oldName": "CustomersEntity"
+  },
+  {
+    "name": "Customer",
+    "file": "src/features/customers/types/models/Customer.ts",
+    "oldFile": "src/features/customers/types/entity/customers-entity.types.ts",
+    "oldName": "Customer"
+  },
+  {
+    "name": "IPartyInput",
+    "file": "src/features/parties/types/IPartyInput.ts",
+    "oldFile": "src/features/parties/types/input/parties-input.types.ts",
+    "oldName": "PartyInput"
+  },
+  {
+    "name": "ICustomerInput",
+    "file": "src/features/customers/types/ICustomerInput.ts",
+    "oldFile": "src/features/customers/types/input/customers-input.types.ts",
+    "oldName": "CustomerInput"
+  },
+  {
+    "name": "ICustomersInput",
+    "file": "src/features/customers/types/ICustomersInput.ts",
+    "oldFile": "src/features/customers/types/input/customers-input.types.ts",
+    "oldName": "CustomersInput"
+  },
+  {
+    "name": "ICustomerFiltersInput",
+    "file": "src/features/customers/types/ICustomerFiltersInput.ts",
+    "oldFile": "src/features/customers/types/input/customers-input.types.ts",
+    "oldName": "CustomerFiltersInput"
+  },
+  {
+    "name": "DashboardResponse",
+    "file": "src/features/dashboard/types/responses/DashboardResponse.ts",
+    "oldFile": "src/features/dashboard/types/response/read-contracts.types.ts",
+    "oldName": "DashboardResponse"
+  },
+  {
+    "name": "GetDashboardRequest",
+    "file": "src/features/dashboard/types/requests/GetDashboardRequest.ts",
+    "oldFile": "src/features/dashboard/types/request/read-queries.types.ts",
+    "oldName": "GetDashboardRequest"
+  },
+  {
+    "name": "DashboardEntity",
+    "file": "src/features/dashboard/types/models/DashboardEntity.ts",
+    "oldFile": "src/features/dashboard/types/entity/dashboard-entity.types.ts",
+    "oldName": "DashboardEntity"
+  },
+  {
+    "name": "IDashboardInput",
+    "file": "src/features/dashboard/types/IDashboardInput.ts",
+    "oldFile": "src/features/dashboard/types/input/dashboard-input.types.ts",
+    "oldName": "DashboardInput"
+  },
+  {
+    "name": "SaveDashboardRequest",
+    "file": "src/features/dashboard/types/requests/SaveDashboardRequest.ts",
+    "oldFile": "src/features/dashboard/types/request/dashboard-request.types.ts",
+    "oldName": "SaveDashboardRequest"
+  },
+  {
+    "name": "IEmployeeInput",
+    "file": "src/features/employees/types/IEmployeeInput.ts",
+    "oldFile": "src/features/employees/types/input/employees-input.types.ts",
+    "oldName": "EmployeeInput"
+  },
+  {
+    "name": "IEmployeeDeleteInput",
+    "file": "src/features/employees/types/IEmployeeDeleteInput.ts",
+    "oldFile": "src/features/employees/types/input/employees-input.types.ts",
+    "oldName": "EmployeeDeleteInput"
+  },
+  {
+    "name": "EmployeesCommandResponse",
+    "file": "src/features/employees/types/responses/EmployeesCommandResponse.ts",
+    "oldFile": "src/features/employees/types/response/employees-response.types.ts",
+    "oldName": "EmployeesCommandResponse"
+  },
+  {
+    "name": "IExpenseInput",
+    "file": "src/features/expenses/types/IExpenseInput.ts",
+    "oldFile": "src/features/expenses/types/input/expenses-input.types.ts",
+    "oldName": "ExpenseInput"
+  },
+  {
+    "name": "IExpenseSaveInput",
+    "file": "src/features/expenses/types/IExpenseSaveInput.ts",
+    "oldFile": "src/features/expenses/types/input/expenses-input.types.ts",
+    "oldName": "ExpenseSaveInput"
+  },
+  {
+    "name": "IExpensePaymentInput",
+    "file": "src/features/expenses/types/IExpensePaymentInput.ts",
+    "oldFile": "src/features/expenses/types/input/expenses-input.types.ts",
+    "oldName": "ExpensePaymentInput"
+  },
+  {
+    "name": "IExpenseConsumeInput",
+    "file": "src/features/expenses/types/IExpenseConsumeInput.ts",
+    "oldFile": "src/features/expenses/types/input/expenses-input.types.ts",
+    "oldName": "ExpenseConsumeInput"
+  },
+  {
+    "name": "ExpensesCommandResponse",
+    "file": "src/features/expenses/types/responses/ExpensesCommandResponse.ts",
+    "oldFile": "src/features/expenses/types/response/expenses-response.types.ts",
+    "oldName": "ExpensesCommandResponse"
+  },
+  {
+    "name": "ProfitByItemReport",
+    "file": "src/features/financial/types/responses/ProfitByItemReport.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "ProfitByItemReport"
+  },
+  {
+    "name": "ProfitByItemReportRow",
+    "file": "src/features/financial/types/responses/ProfitByItemReportRow.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "ProfitByItemReportRow"
+  },
+  {
+    "name": "ProfitByCustomerReport",
+    "file": "src/features/financial/types/responses/ProfitByCustomerReport.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "ProfitByCustomerReport"
+  },
+  {
+    "name": "ProfitByCustomerReportRow",
+    "file": "src/features/financial/types/responses/ProfitByCustomerReportRow.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "ProfitByCustomerReportRow"
+  },
+  {
+    "name": "CashFlowReport",
+    "file": "src/features/financial/types/responses/CashFlowReport.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "CashFlowReport"
+  },
+  {
+    "name": "CashFlowReportRow",
+    "file": "src/features/financial/types/responses/CashFlowReportRow.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "CashFlowReportRow"
+  },
+  {
+    "name": "AccountMappingReport",
+    "file": "src/features/financial/types/responses/AccountMappingReport.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "AccountMappingReport"
+  },
+  {
+    "name": "AccountMappingReportRow",
+    "file": "src/features/financial/types/responses/AccountMappingReportRow.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "AccountMappingReportRow"
+  },
+  {
+    "name": "IncomeStatementResponse",
+    "file": "src/features/financial/types/responses/IncomeStatementResponse.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "IncomeStatementResponse"
+  },
+  {
+    "name": "FinancialLineResponse",
+    "file": "src/features/financial/types/responses/FinancialLineResponse.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "FinancialLineResponse"
+  },
+  {
+    "name": "FinancialPositionResponse",
+    "file": "src/features/financial/types/responses/FinancialPositionResponse.ts",
+    "oldFile": "src/features/financial/types/response/read-contracts.types.ts",
+    "oldName": "FinancialPositionResponse"
+  },
+  {
+    "name": "SearchReportsFinancialProfitByItemRequest",
+    "file": "src/features/financial/types/requests/SearchReportsFinancialProfitByItemRequest.ts",
+    "oldFile": "src/features/financial/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsFinancialProfitByItemRequest"
+  },
+  {
+    "name": "SearchReportsFinancialProfitByCustomerRequest",
+    "file": "src/features/financial/types/requests/SearchReportsFinancialProfitByCustomerRequest.ts",
+    "oldFile": "src/features/financial/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsFinancialProfitByCustomerRequest"
+  },
+  {
+    "name": "SearchReportsFinancialCashFlowRequest",
+    "file": "src/features/financial/types/requests/SearchReportsFinancialCashFlowRequest.ts",
+    "oldFile": "src/features/financial/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsFinancialCashFlowRequest"
+  },
+  {
+    "name": "SearchReportsFinancialAccountMappingRequest",
+    "file": "src/features/financial/types/requests/SearchReportsFinancialAccountMappingRequest.ts",
+    "oldFile": "src/features/financial/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsFinancialAccountMappingRequest"
+  },
+  {
+    "name": "GetFinancialStatementsIncomeRequest",
+    "file": "src/features/financial/types/requests/GetFinancialStatementsIncomeRequest.ts",
+    "oldFile": "src/features/financial/types/request/read-queries.types.ts",
+    "oldName": "GetFinancialStatementsIncomeRequest"
+  },
+  {
+    "name": "GetFinancialStatementsPositionRequest",
+    "file": "src/features/financial/types/requests/GetFinancialStatementsPositionRequest.ts",
+    "oldFile": "src/features/financial/types/request/read-queries.types.ts",
+    "oldName": "GetFinancialStatementsPositionRequest"
+  },
+  {
+    "name": "FinancialEntity",
+    "file": "src/features/financial/types/models/FinancialEntity.ts",
+    "oldFile": "src/features/financial/types/entity/financial-entity.types.ts",
+    "oldName": "FinancialEntity"
+  },
+  {
+    "name": "IFinancialInput",
+    "file": "src/features/financial/types/IFinancialInput.ts",
+    "oldFile": "src/features/financial/types/input/financial-input.types.ts",
+    "oldName": "FinancialInput"
+  },
+  {
+    "name": "SaveFinancialRequest",
+    "file": "src/features/financial/types/requests/SaveFinancialRequest.ts",
+    "oldFile": "src/features/financial/types/request/financial-request.types.ts",
+    "oldName": "SaveFinancialRequest"
+  },
+  {
+    "name": "IProductInput",
+    "file": "src/features/inventory/types/IProductInput.ts",
+    "oldFile": "src/features/inventory/types/input/inventory-input.types.ts",
+    "oldName": "ProductInput"
+  },
+  {
+    "name": "IWarehouseInput",
+    "file": "src/features/inventory/types/IWarehouseInput.ts",
+    "oldFile": "src/features/inventory/types/input/inventory-input.types.ts",
+    "oldName": "WarehouseInput"
+  },
+  {
+    "name": "ITransferInput",
+    "file": "src/features/inventory/types/ITransferInput.ts",
+    "oldFile": "src/features/inventory/types/input/inventory-input.types.ts",
+    "oldName": "TransferInput"
+  },
+  {
+    "name": "IStockDocumentInput",
+    "file": "src/features/inventory/types/IStockDocumentInput.ts",
+    "oldFile": "src/features/inventory/types/input/inventory-input.types.ts",
+    "oldName": "StockDocumentInput"
+  },
+  {
+    "name": "IDeleteStockDraftInput",
+    "file": "src/features/inventory/types/IDeleteStockDraftInput.ts",
+    "oldFile": "src/features/inventory/types/input/inventory-input.types.ts",
+    "oldName": "DeleteStockDraftInput"
+  },
+  {
+    "name": "IPriceListInput",
+    "file": "src/features/inventory/types/IPriceListInput.ts",
+    "oldFile": "src/features/inventory/types/input/inventory-input.types.ts",
+    "oldName": "PriceListInput"
+  },
+  {
+    "name": "InventoryCommandResponse",
+    "file": "src/features/inventory/types/responses/InventoryCommandResponse.ts",
+    "oldFile": "src/features/inventory/types/response/inventory-response.types.ts",
+    "oldName": "InventoryCommandResponse"
+  },
+  {
+    "name": "PartiesProps",
+    "file": "src/features/parties/types/PartiesProps.ts",
+    "oldFile": "src/features/parties/components/Parties.tsx",
+    "oldName": "PartiesProps"
+  },
+  {
+    "name": "PartiesCommandResponse",
+    "file": "src/features/parties/types/responses/PartiesCommandResponse.ts",
+    "oldFile": "src/features/parties/types/response/parties-response.types.ts",
+    "oldName": "PartiesCommandResponse"
+  },
+  {
+    "name": "SavePurchaseInvoiceRequest",
+    "file": "src/features/purchases/types/requests/SavePurchaseInvoiceRequest.ts",
+    "oldFile": "src/features/purchases/types/request/purchases-request.types.ts",
+    "oldName": "SavePurchaseInvoiceRequest"
+  },
+  {
+    "name": "IInvoiceInput",
+    "file": "src/features/trade/types/IInvoiceInput.ts",
+    "oldFile": "src/features/trade/types/input/trade-input.types.ts",
+    "oldName": "InvoiceInput"
+  },
+  {
+    "name": "IDeleteDraftInput",
+    "file": "src/features/trade/types/IDeleteDraftInput.ts",
+    "oldFile": "src/features/trade/types/input/trade-input.types.ts",
+    "oldName": "DeleteDraftInput"
+  },
+  {
+    "name": "IReturnInput",
+    "file": "src/features/trade/types/IReturnInput.ts",
+    "oldFile": "src/features/trade/types/input/trade-input.types.ts",
+    "oldName": "ReturnInput"
+  },
+  {
+    "name": "IPartialReturnInput",
+    "file": "src/features/trade/types/IPartialReturnInput.ts",
+    "oldFile": "src/features/trade/types/input/trade-input.types.ts",
+    "oldName": "PartialReturnInput"
+  },
+  {
+    "name": "TradeCommandResponse",
+    "file": "src/features/trade/types/responses/TradeCommandResponse.ts",
+    "oldFile": "src/features/trade/types/response/trade-response.types.ts",
+    "oldName": "TradeCommandResponse"
+  },
+  {
+    "name": "IPurchaseInvoiceInput",
+    "file": "src/features/purchases/types/IPurchaseInvoiceInput.ts",
+    "oldFile": "src/features/purchases/types/input/purchases-input.types.ts",
+    "oldName": "PurchaseInvoiceInput"
+  },
+  {
+    "name": "SearchReportsInventoryValuationRequest",
+    "file": "src/features/reports/types/requests/SearchReportsInventoryValuationRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsInventoryValuationRequest"
+  },
+  {
+    "name": "SearchReportsInventoryOpeningStockRequest",
+    "file": "src/features/reports/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsInventoryOpeningStockRequest"
+  },
+  {
+    "name": "SearchReportsInventoryReorderRequest",
+    "file": "src/features/reports/types/requests/SearchReportsInventoryReorderRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsInventoryReorderRequest"
+  },
+  {
+    "name": "SearchReportsInventoryStagnantRequest",
+    "file": "src/features/reports/types/requests/SearchReportsInventoryStagnantRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsInventoryStagnantRequest"
+  },
+  {
+    "name": "SearchReportsInventoryHistoricalCostRequest",
+    "file": "src/features/reports/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsInventoryHistoricalCostRequest"
+  },
+  {
+    "name": "SearchReportsInventoryTransfersRequest",
+    "file": "src/features/reports/types/requests/SearchReportsInventoryTransfersRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsInventoryTransfersRequest"
+  },
+  {
+    "name": "SearchReportsInventoryAdjustmentsRequest",
+    "file": "src/features/reports/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsInventoryAdjustmentsRequest"
+  },
+  {
+    "name": "SearchReportsInventoryPricesRequest",
+    "file": "src/features/reports/types/requests/SearchReportsInventoryPricesRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsInventoryPricesRequest"
+  },
+  {
+    "name": "SearchReportsCustomersBalancesRequest",
+    "file": "src/features/reports/types/requests/SearchReportsCustomersBalancesRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsCustomersBalancesRequest"
+  },
+  {
+    "name": "SearchReportsSuppliersBalancesRequest",
+    "file": "src/features/reports/types/requests/SearchReportsSuppliersBalancesRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsSuppliersBalancesRequest"
+  },
+  {
+    "name": "SearchReportsEmployeesPayrollRequest",
+    "file": "src/features/reports/types/requests/SearchReportsEmployeesPayrollRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsEmployeesPayrollRequest"
+  },
+  {
+    "name": "SearchReportsEmployeesAdvancesRequest",
+    "file": "src/features/reports/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsEmployeesAdvancesRequest"
+  },
+  {
+    "name": "SearchReportsExpensesRecognizedRequest",
+    "file": "src/features/reports/types/requests/SearchReportsExpensesRecognizedRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsExpensesRecognizedRequest"
+  },
+  {
+    "name": "SearchReportsSalesSummaryRequest",
+    "file": "src/features/reports/types/requests/SearchReportsSalesSummaryRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsSalesSummaryRequest"
+  },
+  {
+    "name": "SearchReportsPurchasesSummaryRequest",
+    "file": "src/features/reports/types/requests/SearchReportsPurchasesSummaryRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsPurchasesSummaryRequest"
+  },
+  {
+    "name": "SearchReportsSalesReturnsRequest",
+    "file": "src/features/reports/types/requests/SearchReportsSalesReturnsRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsSalesReturnsRequest"
+  },
+  {
+    "name": "SearchReportsPurchasesReturnsRequest",
+    "file": "src/features/reports/types/requests/SearchReportsPurchasesReturnsRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsPurchasesReturnsRequest"
+  },
+  {
+    "name": "SearchReportsSalesChartRequest",
+    "file": "src/features/reports/types/requests/SearchReportsSalesChartRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsSalesChartRequest"
+  },
+  {
+    "name": "SearchReportsAccountingCashMovementsRequest",
+    "file": "src/features/reports/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsAccountingCashMovementsRequest"
+  },
+  {
+    "name": "SearchReportsAccountingOpeningBalancesRequest",
+    "file": "src/features/reports/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsAccountingOpeningBalancesRequest"
+  },
+  {
+    "name": "SearchReportsAccountingTrialBalanceRequest",
+    "file": "src/features/reports/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsAccountingTrialBalanceRequest"
+  },
+  {
+    "name": "SearchReportsAccountingTaxRequest",
+    "file": "src/features/reports/types/requests/SearchReportsAccountingTaxRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsAccountingTaxRequest"
+  },
+  {
+    "name": "SearchReportsAccountingForeignCurrencyRequest",
+    "file": "src/features/reports/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsAccountingForeignCurrencyRequest"
+  },
+  {
+    "name": "SearchReportsAccountingAssetsRequest",
+    "file": "src/features/reports/types/requests/SearchReportsAccountingAssetsRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsAccountingAssetsRequest"
+  },
+  {
+    "name": "SearchReportsSalesTargetAchievementRequest",
+    "file": "src/features/reports/types/requests/SearchReportsSalesTargetAchievementRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsSalesTargetAchievementRequest"
+  },
+  {
+    "name": "SearchReportsAccountingAccountStatementRequest",
+    "file": "src/features/reports/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsAccountingAccountStatementRequest"
+  },
+  {
+    "name": "SearchReportsAccountingContactLedgerRequest",
+    "file": "src/features/reports/types/requests/SearchReportsAccountingContactLedgerRequest.ts",
+    "oldFile": "src/features/reports/types/request/read-queries.types.ts",
+    "oldName": "SearchReportsAccountingContactLedgerRequest"
+  },
+  {
+    "name": "ReportsEntity",
+    "file": "src/features/reports/types/models/ReportsEntity.ts",
+    "oldFile": "src/features/reports/types/entity/reports-entity.types.ts",
+    "oldName": "ReportsEntity"
+  },
+  {
+    "name": "IReportsInput",
+    "file": "src/features/reports/types/IReportsInput.ts",
+    "oldFile": "src/features/reports/types/input/reports-input.types.ts",
+    "oldName": "ReportsInput"
+  },
+  {
+    "name": "SaveReportsRequest",
+    "file": "src/features/reports/types/requests/SaveReportsRequest.ts",
+    "oldFile": "src/features/reports/types/request/reports-request.types.ts",
+    "oldName": "SaveReportsRequest"
+  },
+  {
+    "name": "ISalesTargetInput",
+    "file": "src/features/sales/types/ISalesTargetInput.ts",
+    "oldFile": "src/features/sales/types/input/sales-input.types.ts",
+    "oldName": "SalesTargetInput"
+  },
+  {
+    "name": "ISalesInvoiceInput",
+    "file": "src/features/sales/types/ISalesInvoiceInput.ts",
+    "oldFile": "src/features/sales/types/input/sales-input.types.ts",
+    "oldName": "SalesInvoiceInput"
+  },
+  {
+    "name": "SalesCommandResponse",
+    "file": "src/features/sales/types/responses/SalesCommandResponse.ts",
+    "oldFile": "src/features/sales/types/response/sales-response.types.ts",
+    "oldName": "SalesCommandResponse"
+  },
+  {
+    "name": "WorkflowScreenProps",
+    "file": "src/features/settings/types/WorkflowScreenProps.ts",
+    "oldFile": "src/features/settings/components/WorkflowScreen.tsx",
+    "oldName": "WorkflowScreenProps"
+  },
+  {
+    "name": "IBackupSettingsInput",
+    "file": "src/features/settings/types/IBackupSettingsInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "BackupSettingsInput"
+  },
+  {
+    "name": "IBrandingInput",
+    "file": "src/features/settings/types/IBrandingInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "BrandingInput"
+  },
+  {
+    "name": "IOrganizationInput",
+    "file": "src/features/settings/types/IOrganizationInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "OrganizationInput"
+  },
+  {
+    "name": "IBranchInput",
+    "file": "src/features/settings/types/IBranchInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "BranchInput"
+  },
+  {
+    "name": "IGeneralSettingsInput",
+    "file": "src/features/settings/types/IGeneralSettingsInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "GeneralSettingsInput"
+  },
+  {
+    "name": "ISetupCompleteInput",
+    "file": "src/features/settings/types/ISetupCompleteInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "SetupCompleteInput"
+  },
+  {
+    "name": "IImportMastersInput",
+    "file": "src/features/settings/types/IImportMastersInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "ImportMastersInput"
+  },
+  {
+    "name": "ICurrencyInput",
+    "file": "src/features/settings/types/ICurrencyInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "CurrencyInput"
+  },
+  {
+    "name": "IPreferencesInput",
+    "file": "src/features/settings/types/IPreferencesInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "PreferencesInput"
+  },
+  {
+    "name": "ISystemSettingsInput",
+    "file": "src/features/settings/types/ISystemSettingsInput.ts",
+    "oldFile": "src/features/settings/types/input/settings-input.types.ts",
+    "oldName": "SystemSettingsInput"
+  },
+  {
+    "name": "SettingsCommandResponse",
+    "file": "src/features/settings/types/responses/SettingsCommandResponse.ts",
+    "oldFile": "src/features/settings/types/response/settings-response.types.ts",
+    "oldName": "SettingsCommandResponse"
+  },
+  {
+    "name": "SuppliersEntity",
+    "file": "src/features/suppliers/types/models/SuppliersEntity.ts",
+    "oldFile": "src/features/suppliers/types/entity/suppliers-entity.types.ts",
+    "oldName": "SuppliersEntity"
+  },
+  {
+    "name": "Supplier",
+    "file": "src/features/suppliers/types/models/Supplier.ts",
+    "oldFile": "src/features/suppliers/types/entity/suppliers-entity.types.ts",
+    "oldName": "Supplier"
+  },
+  {
+    "name": "ISupplierInput",
+    "file": "src/features/suppliers/types/ISupplierInput.ts",
+    "oldFile": "src/features/suppliers/types/input/suppliers-input.types.ts",
+    "oldName": "SupplierInput"
+  },
+  {
+    "name": "ISuppliersInput",
+    "file": "src/features/suppliers/types/ISuppliersInput.ts",
+    "oldFile": "src/features/suppliers/types/input/suppliers-input.types.ts",
+    "oldName": "SuppliersInput"
+  },
+  {
+    "name": "ISupplierFiltersInput",
+    "file": "src/features/suppliers/types/ISupplierFiltersInput.ts",
+    "oldFile": "src/features/suppliers/types/input/suppliers-input.types.ts",
+    "oldName": "SupplierFiltersInput"
+  },
+  {
+    "name": "IUsersInput",
+    "file": "src/features/users/types/IUsersInput.ts",
+    "oldFile": "src/features/users/types/input/users-input.types.ts",
+    "oldName": "UsersInput"
+  },
+  {
+    "name": "SaveUsersRequest",
+    "file": "src/features/users/types/requests/SaveUsersRequest.ts",
+    "oldFile": "src/features/users/types/request/users-request.types.ts",
+    "oldName": "SaveUsersRequest"
+  }
+]

@@ -1,0 +1,13 @@
+import {it,expect} from 'vitest';
+import {createSeed} from '../reference/domain/engine';
+import examples from '../fixtures/command-examples.json';
+import {validateInventoryCommand} from '@/features/inventory/validation/validate-inventory-command';
+import {validatePeriod} from '@/features/accounting/validation/validate-period';
+import {validateParty} from '@/features/parties/validation/validate-party';
+import type {ErpReadModel} from '@/core/types/ErpReadModel';
+const seed=()=>createSeed() as ErpReadModel;
+it('product checks are read-only and accept the retained product contract',()=>{const state=seed(),before=JSON.stringify(state);expect(()=>validateInventoryCommand(state,'product',examples.product.data)).not.toThrow();expect(JSON.stringify(state)).toBe(before);});
+it('rejects invalid smallest-unit conversions before HTTP',()=>{expect(()=>validateInventoryCommand(seed(),'product',{...examples.product.data,units:[{...examples.product.data.units[0],factor:2}]})).toThrow('معاملها 1');});
+it('rejects duplicate unit barcodes already used by another product',()=>{const state=seed();state.products[0].units[0].barcode=examples.product.data.units[0].barcode;expect(()=>validateInventoryCommand(state,'product',examples.product.data)).toThrow('الباركود مستخدم');});
+it('rejects invalid dates and dates outside the active fiscal year',()=>{const state=seed();expect(()=>validatePeriod(state,'invoice',{date:'2026-02-30'})).toThrow('تاريخ غير صحيح');expect(()=>validatePeriod(state,'invoice',{date:`${state.organization.year-1}-01-01`})).toThrow('خارج السنة');});
+it('rejects unknown party currency without mutating the read model',()=>{const state=seed(),before=JSON.stringify(state);expect(()=>validateParty(state,{name:'عميل',address:'',phone:'',kind:'customer',currency:'ZZZ',priceType:'retail',limit:0,active:true})).toThrow('عملة غير معرفة');expect(JSON.stringify(state)).toBe(before);});

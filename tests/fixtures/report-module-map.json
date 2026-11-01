@@ -1,0 +1,194 @@
+{
+  "cashFlow": {
+    "feature": "financial",
+    "name": "CashFlow",
+    "fname": "buildCashFlowReport",
+    "file": "src/features/financial/services/reports/build-cash-flow-report.ts"
+  },
+  "tax": {
+    "feature": "accounting",
+    "name": "Tax",
+    "fname": "buildTaxReport",
+    "file": "src/features/accounting/services/reports/build-tax-report.ts"
+  },
+  "customers": {
+    "feature": "customers",
+    "name": "CustomerBalances",
+    "fname": "buildCustomerBalancesReport",
+    "file": "src/features/customers/services/reports/build-customer-balances-report.ts"
+  },
+  "suppliers": {
+    "feature": "suppliers",
+    "name": "SupplierBalances",
+    "fname": "buildSupplierBalancesReport",
+    "file": "src/features/suppliers/services/reports/build-supplier-balances-report.ts"
+  },
+  "stockCost": {
+    "feature": "inventory",
+    "name": "StockCost",
+    "fname": "buildStockCostReport",
+    "file": "src/features/inventory/services/reports/build-stock-cost-report.ts"
+  },
+  "endStock": {
+    "feature": "inventory",
+    "name": "StockClosingSnapshot",
+    "fname": "buildStockClosingSnapshotReport",
+    "file": "src/features/inventory/services/reports/build-stock-closing-snapshot-report.ts"
+  },
+  "reorder": {
+    "feature": "inventory",
+    "name": "Reorder",
+    "fname": "buildReorderReport",
+    "file": "src/features/inventory/services/reports/build-reorder-report.ts"
+  },
+  "stagnant": {
+    "feature": "inventory",
+    "name": "StagnantStock",
+    "fname": "buildStagnantStockReport",
+    "file": "src/features/inventory/services/reports/build-stagnant-stock-report.ts"
+  },
+  "openingStock": {
+    "feature": "inventory",
+    "name": "OpeningStock",
+    "fname": "buildOpeningStockReport",
+    "file": "src/features/inventory/services/reports/build-opening-stock-report.ts"
+  },
+  "prices": {
+    "feature": "sales",
+    "name": "ItemPrices",
+    "fname": "buildItemPricesReport",
+    "file": "src/features/sales/services/reports/build-item-prices-report.ts"
+  },
+  "historicalCost": {
+    "feature": "inventory",
+    "name": "HistoricalCost",
+    "fname": "buildHistoricalCostReport",
+    "file": "src/features/inventory/services/reports/build-historical-cost-report.ts"
+  },
+  "transfers": {
+    "feature": "inventory",
+    "name": "WarehouseTransfers",
+    "fname": "buildWarehouseTransfersReport",
+    "file": "src/features/inventory/services/reports/build-warehouse-transfers-report.ts"
+  },
+  "sales": {
+    "feature": "sales",
+    "name": "SalesSummary",
+    "fname": "buildSalesSummaryReport",
+    "file": "src/features/sales/services/reports/build-sales-summary-report.ts"
+  },
+  "purchases": {
+    "feature": "purchases",
+    "name": "PurchaseSummary",
+    "fname": "buildPurchaseSummaryReport",
+    "file": "src/features/purchases/services/reports/build-purchase-summary-report.ts"
+  },
+  "saleReturns": {
+    "feature": "sales",
+    "name": "SalesReturns",
+    "fname": "buildSalesReturnsReport",
+    "file": "src/features/sales/services/reports/build-sales-returns-report.ts"
+  },
+  "purchaseReturns": {
+    "feature": "purchases",
+    "name": "PurchaseReturns",
+    "fname": "buildPurchaseReturnsReport",
+    "file": "src/features/purchases/services/reports/build-purchase-returns-report.ts"
+  },
+  "salesChart": {
+    "feature": "sales",
+    "name": "SalesChart",
+    "fname": "buildSalesChartReport",
+    "file": "src/features/sales/services/reports/build-sales-chart-report.ts"
+  },
+  "profitItems": {
+    "feature": "financial",
+    "name": "ProfitByItem",
+    "fname": "buildProfitByItemReport",
+    "file": "src/features/financial/services/reports/build-profit-by-item-report.ts"
+  },
+  "profitCustomers": {
+    "feature": "financial",
+    "name": "ProfitByCustomer",
+    "fname": "buildProfitByCustomerReport",
+    "file": "src/features/financial/services/reports/build-profit-by-customer-report.ts"
+  },
+  "payroll": {
+    "feature": "employees",
+    "name": "Payroll",
+    "fname": "buildPayrollReport",
+    "file": "src/features/employees/services/reports/build-payroll-report.ts"
+  },
+  "advances": {
+    "feature": "employees",
+    "name": "EmployeeAdvances",
+    "fname": "buildEmployeeAdvancesReport",
+    "file": "src/features/employees/services/reports/build-employee-advances-report.ts"
+  },
+  "adjustments": {
+    "feature": "inventory",
+    "name": "StockAdjustments",
+    "fname": "buildStockAdjustmentsReport",
+    "file": "src/features/inventory/services/reports/build-stock-adjustments-report.ts"
+  },
+  "assets": {
+    "feature": "accounting",
+    "name": "AssetDepreciation",
+    "fname": "buildAssetDepreciationReport",
+    "file": "src/features/accounting/services/reports/build-asset-depreciation-report.ts"
+  },
+  "expenseDocuments": {
+    "feature": "expenses",
+    "name": "ExpenseDocuments",
+    "fname": "buildExpenseDocumentsReport",
+    "file": "src/features/expenses/services/reports/build-expense-documents-report.ts"
+  },
+  "expenseReport": {
+    "feature": "expenses",
+    "name": "RecognizedExpenses",
+    "fname": "buildRecognizedExpensesReport",
+    "file": "src/features/expenses/services/reports/build-recognized-expenses-report.ts"
+  },
+  "cash": {
+    "feature": "accounting",
+    "name": "CashMovement",
+    "fname": "buildCashMovementReport",
+    "file": "src/features/accounting/services/reports/build-cash-movement-report.ts"
+  },
+  "vouchers": {
+    "feature": "accounting",
+    "name": "Vouchers",
+    "fname": "buildVouchersReport",
+    "file": "src/features/accounting/services/reports/build-vouchers-report.ts"
+  },
+  "opening": {
+    "feature": "accounting",
+    "name": "OpeningAccountBalances",
+    "fname": "buildOpeningAccountBalancesReport",
+    "file": "src/features/accounting/services/reports/build-opening-account-balances-report.ts"
+  },
+  "trial": {
+    "feature": "accounting",
+    "name": "TrialBalance",
+    "fname": "buildTrialBalanceReport",
+    "file": "src/features/accounting/services/reports/build-trial-balance-report.ts"
+  },
+  "mapping": {
+    "feature": "financial",
+    "name": "AccountMapping",
+    "fname": "buildAccountMappingReport",
+    "file": "src/features/financial/services/reports/build-account-mapping-report.ts"
+  },
+  "fx": {
+    "feature": "accounting",
+    "name": "CurrencyDocuments",
+    "fname": "buildCurrencyDocumentsReport",
+    "file": "src/features/accounting/services/reports/build-currency-documents-report.ts"
+  },
+  "audit": {
+    "feature": "users",
+    "name": "UserAudit",
+    "fname": "buildUserAuditReport",
+    "file": "src/features/users/services/reports/build-user-audit-report.ts"
+  }
+}

@@ -1,0 +1,196 @@
+import { AmountWords } from '@/core/components/shared/documents/AmountWords';
+import { Field } from '@/core/components/shared/forms/Field';
+import { Select } from '@/core/components/shared/forms/Select';
+import { Form as ValidatedForm } from '@/core/components/shared/forms/ValidatedForm';
+import { PageHead } from '@/core/components/shared/layout/PageHead';
+import { DataTable } from '@/core/components/shared/tables/DataTable';
+import { Button } from '@/core/components/ui/button';
+import { Input } from '@/core/components/ui/input';
+import { useErpContext } from '@/core/hooks/useErpContext';
+import { exportDocument, printReport } from '@/core/reporting/service';
+import type { ReportDocument } from '@/core/types/ReportDocument';
+import { amountInWords } from '@/core/utils/amount-in-words';
+import { fmt } from '@/core/utils/formatters';
+import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
+import { tradeSummary } from '@/features/trade/services/models/trade-summary';
+import type { TradeFilters } from '@/features/trade/types/models/TradeFilters';
+import { Download, Eye, Printer } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from 'sonner';
+export function SalesSummaryReport() {
+  const { state: s, branchId, navigate } = useErpContext();
+  const initial: TradeFilters = { ...fiscalRange(s!), warehouse: '', user: '' };
+  const [draft, setDraft] = useState(initial);
+  const [filters, setFilters] = useState(initial);
+  if (!s) return null;
+  const users = [
+    ...new Map(
+      s.invoices
+        .filter((invoice) => invoice.branchId === branchId && invoice.kind === 'sale')
+        .flatMap((invoice) => [
+          ...(invoice.savedById
+            ? [[invoice.savedById, invoice.savedByName || invoice.savedById] as [string, string]]
+            : []),
+          ...(invoice.returnedById
+            ? [
+                [invoice.returnedById, invoice.returnedByName || invoice.returnedById] as [
+                  string,
+                  string,
+                ],
+              ]
+            : []),
+        ]),
+    ).entries(),
+  ];
+  const userLabel =
+    filters.user === 'unrecorded'
+      ? 'غير مسجل'
+      : users.find(([id]) => id === filters.user)?.[1] || 'جميع المستخدمين';
+  const report = tradeSummary(s, 'sale', branchId, filters);
+  const handleApply = () => {
+    if (draft.from && draft.to && draft.from > draft.to) {
+      toast.error('بداية الفترة بعد نهايتها');
+      return;
+    }
+    setFilters({ ...draft });
+  };
+  const printable = (): ReportDocument => ({
+    title: '\u062A\u0642\u0631\u064A\u0631 \u0627\u0644\u0645\u0628\u064A\u0639\u0627\u062A',
+    metadata: [
+      ['الفترة', (filters.from || 'بداية السجلات') + ' — ' + filters.to],
+      [
+        'المخزن',
+        filters.warehouse
+          ? s.warehouses.find((w) => w.id === filters.warehouse)?.name || ''
+          : 'جميع مخازن الفرع',
+      ],
+      ...[['المستخدم', userLabel] as [string, string]],
+    ],
+    tables: [{ headers: report.headers, rows: report.rows }],
+    totals: [
+      ['عدد الفواتير', String(report.count)],
+      ['عدد المرتجعات', String(report.returnCount)],
+      ['صافي ' + '\u0627\u0644\u0645\u0628\u064A\u0639\u0627\u062A' + ' YER', fmt(report.total)],
+    ],
+    words: [amountInWords(report.profit, 'YER')],
+    notes: [report.note],
+  });
+  return (
+    <>
+      <PageHead
+        title={'\u062A\u0642\u0631\u064A\u0631 \u0627\u0644\u0645\u0628\u064A\u0639\u0627\u062A'}
+        description="ملخص الإجمالي والمرتجعات والخصم والصافي ضمن الفترة والمخزن المختارين."
+        extra={
+          <div className="flex gap-2">
+            <Button variant="outline" onClick={handleApply}>
+              <Eye size={16} />
+              عرض
+            </Button>
+            <Button variant="outline" onClick={() => printReport(printable())}>
+              <Printer size={16} />
+              طباعة
+            </Button>
+            <Button variant="outline" onClick={() => exportDocument(printable())}>
+              <Download size={16} />
+              تصدير
+            </Button>
+          </div>
+        }
+      />
+      <ValidatedForm
+        className="filter-bar"
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleApply();
+        }}
+      >
+        <Field label="من تاريخ">
+          <Input
+            type="date"
+            value={draft.from}
+            onChange={(e) => setDraft({ ...draft, from: e.target.value })}
+          />
+        </Field>
+        <Field label="إلى تاريخ">
+          <Input
+            type="date"
+            value={draft.to}
+            onChange={(e) => setDraft({ ...draft, to: e.target.value })}
+          />
+        </Field>
+        <Field label="المخزن">
+          <Select
+            value={draft.warehouse}
+            onChange={(e) => setDraft({ ...draft, warehouse: e.target.value })}
+          >
+            <option value="">جميع مخازن الفرع</option>
+            {s.warehouses
+              .filter((warehouse) => warehouse.branchId === branchId)
+              .map((warehouse) => (
+                <option key={warehouse.id} value={warehouse.id}>
+                  {warehouse.name}
+                </option>
+              ))}
+          </Select>
+        </Field>
+        {
+          <Field label="اسم المستخدم">
+            <Select
+              value={draft.user}
+              onChange={(e) => setDraft({ ...draft, user: e.target.value })}
+            >
+              <option value="">جميع المستخدمين</option>
+              <option value="unrecorded">غير مسجل في البيانات القديمة</option>
+              {users.map(([id, name]) => (
+                <option key={id} value={id}>
+                  {name}
+                </option>
+              ))}
+            </Select>
+          </Field>
+        }
+        <Button>عرض النتائج</Button>
+      </ValidatedForm>
+      <div className="report-context">
+        <span>
+          {s.organization.name} · {s.branches.find((branch) => branch.id === branchId)?.name}
+        </span>
+        <span>
+          {filters.from || 'بداية السجلات'} — {filters.to}
+        </span>
+        <span>
+          {filters.warehouse
+            ? s.warehouses.find((w) => w.id === filters.warehouse)?.name
+            : 'جميع مخازن الفرع'}
+        </span>
+        {<span>المستخدم: {userLabel}</span>}
+      </div>
+      <section className="panel trade-summary">
+        <DataTable
+          headers={report.headers}
+          rows={report.rows.map((row) => row.map((v) => (typeof v === 'number' ? fmt(v) : v)))}
+        />
+        <p>{'إجمالي الربح بالحروف'}</p>
+        <AmountWords amount={report.profit} />
+      </section>
+      <div className="document-stats">
+        <div>
+          <span>عدد الفواتير النهائية في الفترة</span>
+          <strong>{report.count}</strong>
+        </div>
+        <div>
+          <span>عدد المرتجعات في الفترة</span>
+          <strong>{report.returnCount}</strong>
+        </div>
+        <div>
+          <span>صافي {'المبيعات'} · YER</span>
+          <strong>{fmt(report.total)}</strong>
+        </div>
+      </div>
+      <p className="info-note">{report.note}</p>
+      <Button variant="outline" onClick={() => navigate('/sales')}>
+        قائمة الفواتير والمرتجعات بالتفصيل
+      </Button>
+    </>
+  );
+}

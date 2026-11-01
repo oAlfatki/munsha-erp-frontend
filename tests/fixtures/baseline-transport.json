@@ -1,0 +1,708 @@
+{
+  "product": {
+    "url": "/inventory/commands/product",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "product",
+      "data": {
+        "name": "صنف أحادي",
+        "category": 1,
+        "min": 0,
+        "alert": true,
+        "active": true,
+        "maxDiscount": 10,
+        "units": [
+          {
+            "name": "حبة",
+            "factor": 1,
+            "purchase": 1000,
+            "retail": 1250,
+            "wholesale": 1200,
+            "barcode": "NEW-EXAMPLE-001"
+          }
+        ]
+      }
+    }
+  },
+  "warehouse": {
+    "url": "/inventory/commands/warehouse",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "warehouse",
+      "data": {
+        "name": "بطاقة تجريبية",
+        "branchId": "b1"
+      }
+    }
+  },
+  "transfer": {
+    "url": "/inventory/commands/transfer",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "transfer",
+      "data": {
+        "productId": "p1",
+        "from": "w1",
+        "to": "w2",
+        "qty": 1,
+        "date": "2026-10-30"
+      }
+    }
+  },
+  "stockDocument": {
+    "url": "/inventory/commands/stockDocument",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "stockDocument",
+      "data": {
+        "openingScope": "stock",
+        "openingOffsetAccount": "300",
+        "kind": "opening",
+        "status": "draft",
+        "date": "2026-01-01",
+        "branchId": "b1",
+        "warehouseId": "w1",
+        "toWarehouseId": "",
+        "currency": "YER",
+        "rate": 1,
+        "direction": "excess",
+        "note": "مثال أصناف بداية المدة مستقل عن أرصدة الحسابات",
+        "lines": [
+          {
+            "productId": "p1",
+            "unit": 1,
+            "qty": 10,
+            "price": 1000
+          }
+        ],
+        "accounts": []
+      }
+    }
+  },
+  "deleteStockDraft": {
+    "url": "/inventory/commands/deleteStockDraft",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "deleteStockDraft",
+      "data": {
+        "id": "record-id"
+      }
+    }
+  },
+  "priceList": {
+    "url": "/inventory/commands/priceList",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "priceList",
+      "data": {
+        "priceType": "retail",
+        "rows": [
+          {
+            "productId": "p1",
+            "unit": 1,
+            "expectedPrice": 1250,
+            "expectedFactor": 1,
+            "price": 1300
+          }
+        ]
+      }
+    }
+  },
+  "party": {
+    "url": "/parties/commands/party",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "party",
+      "data": {
+        "kind": "customer",
+        "name": "عميل تجريبي",
+        "address": "تعز",
+        "phone": "770000000",
+        "currency": "YER",
+        "priceType": "retail",
+        "limit": 100000,
+        "active": true
+      }
+    }
+  },
+  "employee": {
+    "url": "/employees/commands/employee",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "employee",
+      "data": {
+        "name": "بطاقة تجريبية",
+        "phone": "770000000",
+        "address": "تعز",
+        "email": "",
+        "job": "محاسب",
+        "branchId": "b1",
+        "salary": 60000,
+        "currency": "YER",
+        "joined": "2026-01-01",
+        "identity": "",
+        "issuer": "",
+        "active": true
+      }
+    }
+  },
+  "employeeDelete": {
+    "url": "/employees/commands/employeeDelete",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "employeeDelete",
+      "data": {
+        "id": "record-id"
+      }
+    }
+  },
+  "invoice": {
+    "url": "/trade/commands/invoice",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "invoice",
+      "data": {
+        "kind": "sale",
+        "date": "2026-10-30",
+        "branchId": "b1",
+        "warehouseId": "w1",
+        "partyId": "c1",
+        "currency": "YER",
+        "rate": 1,
+        "payment": "mixed",
+        "invoiceDiscount": 0,
+        "paid": 500,
+        "taxRate": 0,
+        "priceType": "retail",
+        "status": "final",
+        "note": "مثال بيع جزئي نقدًا وجزئي آجل",
+        "cashId": "default-b1",
+        "lines": [
+          {
+            "productId": "p1",
+            "unit": 1,
+            "qty": 1,
+            "free": 0,
+            "price": 1250,
+            "discount": 0
+          }
+        ]
+      }
+    }
+  },
+  "deleteDraft": {
+    "url": "/trade/commands/deleteDraft",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "deleteDraft",
+      "data": {
+        "id": "record-id"
+      }
+    }
+  },
+  "return": {
+    "url": "/trade/commands/return",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "return",
+      "data": {
+        "id": "record-id",
+        "date": "2026-10-30"
+      }
+    }
+  },
+  "partialReturn": {
+    "url": "/trade/commands/partialReturn",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "partialReturn",
+      "data": {
+        "id": "source-invoice-id",
+        "date": "2026-10-30",
+        "note": "إرجاع بند واحد",
+        "lines": [
+          {
+            "index": 0,
+            "qty": 1
+          }
+        ]
+      }
+    }
+  },
+  "expense": {
+    "url": "/expenses/commands/expense",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "expense",
+      "data": {
+        "date": "2026-10-30",
+        "branchId": "b1",
+        "category": "خدمات",
+        "description": "Paths",
+        "amount": 100,
+        "currency": "YER",
+        "rate": 1
+      }
+    }
+  },
+  "expenseSave": {
+    "url": "/expenses/commands/expenseSave",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "expenseSave",
+      "data": {
+        "date": "2026-10-30",
+        "branchId": "b1",
+        "typeId": "general",
+        "treatment": "accrued",
+        "description": "Paths",
+        "amount": 100,
+        "start": "2026-10-30",
+        "end": "2026-10-30",
+        "paid": 0,
+        "currency": "YER",
+        "rate": 1,
+        "cashId": "default-b1"
+      }
+    }
+  },
+  "expensePayment": {
+    "url": "/expenses/commands/expensePayment",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "expensePayment",
+      "data": {
+        "id": "expense-id",
+        "date": "2026-10-30",
+        "amount": 50,
+        "cashId": "default-b1",
+        "currency": "YER",
+        "rate": 1
+      }
+    }
+  },
+  "expenseConsume": {
+    "url": "/expenses/commands/expenseConsume",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "expenseConsume",
+      "data": {
+        "id": "prepaid-expense-id",
+        "date": "2026-10-30",
+        "amount": 50,
+        "period": "2026-10"
+      }
+    }
+  },
+  "backupSettings": {
+    "url": "/settings/commands/backupSettings",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "backupSettings",
+      "data": {
+        "mode": "off",
+        "hours": 4,
+        "time": "20:00",
+        "folder": "نسخ المنشأة",
+        "retention": 20
+      }
+    }
+  },
+  "branding": {
+    "url": "/settings/commands/branding",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "branding",
+      "data": {
+        "name": "بطاقة تجريبية",
+        "tagline": "نظام إدارة المنشأة",
+        "color": "#2563eb",
+        "logo": ""
+      }
+    }
+  },
+  "organization": {
+    "url": "/settings/commands/organization",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "organization",
+      "data": {
+        "name": "بطاقة تجريبية",
+        "address": "تعز",
+        "phone": "770000000",
+        "multiBranch": true,
+        "policyApproved": true
+      }
+    }
+  },
+  "branch": {
+    "url": "/settings/commands/branch",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "branch",
+      "data": {
+        "name": "بطاقة تجريبية",
+        "address": "تعز"
+      }
+    }
+  },
+  "generalSettings": {
+    "url": "/settings/commands/generalSettings",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "generalSettings",
+      "data": {
+        "profit": 10,
+        "discount": 0,
+        "price": "retail"
+      }
+    }
+  },
+  "setupComplete": {
+    "url": "/settings/commands/setupComplete",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "setupComplete",
+      "data": {
+        "responsible": "مسؤول النظام",
+        "start": "2026-01-01"
+      }
+    }
+  },
+  "importMasters": {
+    "url": "/settings/commands/importMasters",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "importMasters",
+      "data": {
+        "kind": "customer",
+        "rows": [
+          {
+            "name": "عميل استيراد تجريبي",
+            "phone": "770000001",
+            "currency": "YER"
+          }
+        ]
+      }
+    }
+  },
+  "currency": {
+    "url": "/settings/commands/currency",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "currency",
+      "data": {
+        "name": "ريال سعودي",
+        "code": "SAR",
+        "date": "2026-10-30",
+        "rate": 160,
+        "source": "سعر مرجعي تجريبي"
+      }
+    }
+  },
+  "preferences": {
+    "url": "/settings/commands/preferences",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "preferences",
+      "data": {
+        "dateFormat": "yyyy-MM-dd"
+      }
+    }
+  },
+  "systemSettings": {
+    "url": "/settings/commands/systemSettings",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "systemSettings",
+      "data": {
+        "section": "accounting",
+        "values": {
+          "multiCurrency": true,
+          "allowNegativeCash": false,
+          "taxEnabled": true,
+          "taxRate": 15
+        }
+      }
+    }
+  },
+  "permissions": {
+    "url": "/accounting/commands/permissions",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "permissions",
+      "data": {
+        "role": "مثال",
+        "permissions": []
+      }
+    }
+  },
+  "contactEntry": {
+    "url": "/accounting/commands/contactEntry",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "contactEntry",
+      "data": {
+        "contactId": "contact-id",
+        "date": "2026-10-30",
+        "branchId": "b1",
+        "amount": 100,
+        "note": "مثال توثيقي"
+      }
+    }
+  },
+  "contactVoucher": {
+    "url": "/accounting/commands/contactVoucher",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "contactVoucher",
+      "data": {
+        "contactId": "contact-id",
+        "date": "2026-10-30",
+        "branchId": "b1",
+        "amount": 100,
+        "note": "مثال توثيقي"
+      }
+    }
+  },
+  "periodSwitch": {
+    "url": "/accounting/commands/periodSwitch",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "periodSwitch",
+      "data": {
+        "id": "record-id"
+      }
+    }
+  },
+  "periodCreate": {
+    "url": "/accounting/commands/periodCreate",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "periodCreate",
+      "data": {
+        "name": "بطاقة تجريبية",
+        "year": 2027
+      }
+    }
+  },
+  "periodTransfer": {
+    "url": "/accounting/commands/periodTransfer",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "periodTransfer",
+      "data": {
+        "id": "preparing-book-id",
+        "kind": "stock",
+        "date": "2026-12-31",
+        "confirmed": true
+      }
+    }
+  },
+  "periodActivate": {
+    "url": "/accounting/commands/periodActivate",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "periodActivate",
+      "data": {
+        "id": "preparing-book-id",
+        "confirmed": true
+      }
+    }
+  },
+  "periodReset": {
+    "url": "/accounting/commands/periodReset",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "periodReset",
+      "data": {
+        "id": "record-id"
+      }
+    }
+  },
+  "screenDraft": {
+    "url": "/accounting/commands/screenDraft",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "screenDraft",
+      "data": {
+        "screen": "legacy-form",
+        "values": {
+          "note": "مثال دون أثر مالي"
+        }
+      }
+    }
+  },
+  "master": {
+    "url": "/accounting/commands/master",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "master",
+      "data": {
+        "collection": "expenseTypes",
+        "record": {
+          "name": "اتصالات",
+          "active": true,
+          "account": "510"
+        }
+      }
+    }
+  },
+  "manualJournal": {
+    "url": "/accounting/commands/manualJournal",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "manualJournal",
+      "data": {
+        "date": "2026-10-30",
+        "branchId": "b1",
+        "note": "قيد تجريبي متزن",
+        "lines": [
+          {
+            "account": "101",
+            "debit": 100,
+            "credit": 0
+          },
+          {
+            "account": "300",
+            "debit": 0,
+            "credit": 100
+          }
+        ]
+      }
+    }
+  },
+  "operation": {
+    "url": "/accounting/commands/operation",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "operation",
+      "data": {
+        "kind": "payroll",
+        "date": "2026-10-30",
+        "branchId": "b1",
+        "subject": "e1",
+        "amount": 60000,
+        "note": "إثبات راتب",
+        "period": "2026-10"
+      }
+    }
+  },
+  "voucher": {
+    "url": "/accounting/commands/voucher",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "voucher",
+      "data": {
+        "kind": "receipt",
+        "date": "2026-10-30",
+        "branchId": "b1",
+        "partyId": "c1",
+        "note": "تحصيل متعدد البنود؛ المثال يحتاج رصيدًا مستحقًا",
+        "lines": [
+          {
+            "amount": 100,
+            "currency": "YER",
+            "rate": 1,
+            "cashId": "default-b1"
+          }
+        ]
+      }
+    }
+  },
+  "salesTarget": {
+    "url": "/sales/commands/salesTarget",
+    "method": "post",
+    "body": {
+      "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
+      "revision": 0,
+      "type": "salesTarget",
+      "data": {
+        "branchId": "b1",
+        "period": "2026-10",
+        "amount": 100,
+        "note": "مثال توثيقي"
+      }
+    }
+  }
+}

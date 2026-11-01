@@ -1,0 +1,8150 @@
+[
+  {
+    "file": "src/features/accounting/types/request/accounting-request.types.ts",
+    "currentFiles": [
+      "src/features/accounting/types/requests/SavePermissionsRequest.ts",
+      "src/features/accounting/types/requests/SaveContactEntryRequest.ts",
+      "src/features/accounting/types/requests/SaveContactVoucherRequest.ts",
+      "src/features/accounting/types/requests/SavePeriodSwitchRequest.ts",
+      "src/features/accounting/types/requests/SavePeriodCreateRequest.ts",
+      "src/features/accounting/types/requests/SavePeriodTransferRequest.ts",
+      "src/features/accounting/types/requests/SavePeriodActivateRequest.ts",
+      "src/features/accounting/types/requests/SavePeriodResetRequest.ts",
+      "src/features/accounting/types/requests/SaveScreenDraftRequest.ts",
+      "src/features/accounting/types/requests/SaveMasterRequest.ts",
+      "src/features/accounting/types/requests/SaveManualJournalRequest.ts",
+      "src/features/accounting/types/requests/SaveOperationRequest.ts",
+      "src/features/accounting/types/requests/SaveVoucherRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "role",
+        "isOptional": false
+      },
+      {
+        "name": "permissions",
+        "isOptional": false
+      },
+      {
+        "name": "contactId",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "counterAccount",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "contactId",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "counterAccount",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "year",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": true
+      },
+      {
+        "name": "date",
+        "isOptional": true
+      },
+      {
+        "name": "confirmed",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": true
+      },
+      {
+        "name": "date",
+        "isOptional": true
+      },
+      {
+        "name": "confirmed",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": true
+      },
+      {
+        "name": "date",
+        "isOptional": true
+      },
+      {
+        "name": "confirmed",
+        "isOptional": true
+      },
+      {
+        "name": "screen",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "collection",
+        "isOptional": false
+      },
+      {
+        "name": "record",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "account",
+        "isOptional": false
+      },
+      {
+        "name": "debit",
+        "isOptional": false
+      },
+      {
+        "name": "credit",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "subject",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "source",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "qty",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "lines",
+        "isOptional": true
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "cashId",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/accounting/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/accounting/types/requests/SearchAccountingAccountsRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingAccountsByCodeRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingCashAccountsRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingCashAccountsByIdRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingAssetsRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingAssetsByIdRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingContactsRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingContactsByIdRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingCurrenciesRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingCurrenciesByCodeRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingFinancialBooksRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingFinancialBooksByIdRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingFinancialBooksByIdReadinessRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingVouchersRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingVouchersByIdRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingJournalsRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingJournalsByIdRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingExchangeRatesRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingAssetAcquisitionsRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingAssetAcquisitionsByIdRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingDepreciationRequest.ts",
+      "src/features/accounting/types/requests/GetAccountingDepreciationByIdRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingFinancialBooksByIdClosingStockRequest.ts",
+      "src/features/accounting/types/requests/SearchAccountingFinancialBooksByIdClosingAccountsRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "accountCode",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "sourceId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "sourceId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/accounting/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/accounting/types/responses/AccountListResponse.ts",
+      "src/features/accounting/types/responses/AccountResponse.ts",
+      "src/features/accounting/types/responses/CashAccountListResponse.ts",
+      "src/features/accounting/types/responses/CashAccountResponse.ts",
+      "src/features/accounting/types/responses/AssetListResponse.ts",
+      "src/features/accounting/types/responses/AssetResponse.ts",
+      "src/features/accounting/types/responses/ContactListResponse.ts",
+      "src/features/accounting/types/responses/ContactResponse.ts",
+      "src/features/accounting/types/responses/CurrencyListResponse.ts",
+      "src/features/accounting/types/responses/CurrencyResponse.ts",
+      "src/features/accounting/types/responses/FinancialBookListResponse.ts",
+      "src/features/accounting/types/responses/FinancialBookResponse.ts",
+      "src/features/accounting/types/responses/BookReadinessResponse.ts",
+      "src/features/accounting/types/responses/VoucherListResponse.ts",
+      "src/features/accounting/types/responses/VoucherResponse.ts",
+      "src/features/accounting/types/responses/JournalEntryListResponse.ts",
+      "src/features/accounting/types/responses/JournalEntryResponse.ts",
+      "src/features/accounting/types/responses/FxRateListResponse.ts",
+      "src/features/accounting/types/responses/FxRateResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": true
+      },
+      {
+        "name": "type",
+        "isOptional": true
+      },
+      {
+        "name": "parent",
+        "isOptional": true
+      },
+      {
+        "name": "postable",
+        "isOptional": true
+      },
+      {
+        "name": "nature",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": true
+      },
+      {
+        "name": "account",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "cost",
+        "isOptional": true
+      },
+      {
+        "name": "salvage",
+        "isOptional": true
+      },
+      {
+        "name": "life",
+        "isOptional": true
+      },
+      {
+        "name": "ready",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "account",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "year",
+        "isOptional": false
+      },
+      {
+        "name": "status",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": false
+      },
+      {
+        "name": "canActivate",
+        "isOptional": false
+      },
+      {
+        "name": "checks",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "passed",
+        "isOptional": false
+      },
+      {
+        "name": "message",
+        "isOptional": false
+      },
+      {
+        "name": "sourceVersion",
+        "isOptional": false
+      },
+      {
+        "name": "stockDone",
+        "isOptional": false
+      },
+      {
+        "name": "accountsDone",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "createdAt",
+        "isOptional": false
+      },
+      {
+        "name": "total",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "cashId",
+        "isOptional": false
+      },
+      {
+        "name": "cashAccount",
+        "isOptional": false
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "description",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "account",
+        "isOptional": false
+      },
+      {
+        "name": "debit",
+        "isOptional": false
+      },
+      {
+        "name": "credit",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "foreignAmount",
+        "isOptional": true
+      },
+      {
+        "name": "rate",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "date",
+        "isOptional": true
+      },
+      {
+        "name": "rate",
+        "isOptional": true
+      },
+      {
+        "name": "source",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/auth/types/request/auth-request.types.ts",
+    "currentFiles": [
+      "src/features/auth/types/requests/LoginRequest.ts",
+      "src/features/auth/types/requests/SaveAuthActionRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "username",
+        "isOptional": false
+      },
+      {
+        "name": "password",
+        "isOptional": false
+      },
+      {
+        "name": "action",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/auth/types/response/auth-response.types.ts",
+    "currentFiles": [
+      "src/features/auth/types/responses/AuthResponse.ts",
+      "src/features/auth/types/responses/AuthUser.ts",
+      "src/features/auth/types/responses/AuthSession.ts",
+      "src/features/auth/types/responses/AuthActionResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "user",
+        "isOptional": false
+      },
+      {
+        "name": "users",
+        "isOptional": false
+      },
+      {
+        "name": "sessions",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "username",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "role",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "must_change",
+        "isOptional": false
+      },
+      {
+        "name": "created_at",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "user_id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "username",
+        "isOptional": false
+      },
+      {
+        "name": "created_at",
+        "isOptional": false
+      },
+      {
+        "name": "last_seen",
+        "isOptional": false
+      },
+      {
+        "name": "expires_at",
+        "isOptional": false
+      },
+      {
+        "name": "device",
+        "isOptional": false
+      },
+      {
+        "name": "ok",
+        "isOptional": false
+      },
+      {
+        "name": "mustChange",
+        "isOptional": true
+      },
+      {
+        "name": "relogin",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/customers/types/request/customers-request.types.ts",
+    "currentFiles": [
+      "src/features/customers/types/requests/SaveCustomerRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "kind",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/customers/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/customers/types/requests/SearchCustomersRequest.ts",
+      "src/features/customers/types/requests/GetCustomersByIdRequest.ts",
+      "src/features/parties/types/requests/SearchPartiesGroupsRequest.ts",
+      "src/features/parties/types/requests/GetPartiesGroupsByIdRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "groupId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/customers/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/parties/types/responses/PartyListResponse.ts",
+      "src/features/parties/types/responses/PartyResponse.ts",
+      "src/features/parties/types/responses/PartyGroupListResponse.ts",
+      "src/features/parties/types/responses/PartyGroupResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "phone",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "limit",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/dashboard/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/dashboard/types/requests/GetDashboardRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/dashboard/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/dashboard/types/responses/DashboardResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "lowStock",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "availableQty",
+        "isOptional": false
+      },
+      {
+        "name": "reorderLevel",
+        "isOptional": false
+      },
+      {
+        "name": "unit",
+        "isOptional": false
+      },
+      {
+        "name": "recentAudit",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/employees/types/request/employees-request.types.ts",
+    "currentFiles": [
+      "src/features/employees/types/requests/SaveEmployeeRequest.ts",
+      "src/features/employees/types/requests/SaveEmployeeDeleteRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "phone",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "email",
+        "isOptional": false
+      },
+      {
+        "name": "job",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "salary",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "joined",
+        "isOptional": false
+      },
+      {
+        "name": "identity",
+        "isOptional": false
+      },
+      {
+        "name": "issuer",
+        "isOptional": false
+      },
+      {
+        "name": "marital",
+        "isOptional": true
+      },
+      {
+        "name": "issueDate",
+        "isOptional": true
+      },
+      {
+        "name": "photo",
+        "isOptional": true
+      },
+      {
+        "name": "files",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "type",
+        "isOptional": false
+      },
+      {
+        "name": "data",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/employees/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/employees/types/requests/SearchEmployeesRequest.ts",
+      "src/features/employees/types/requests/GetEmployeesByIdRequest.ts",
+      "src/features/employees/types/requests/SearchEmployeesPayrollAccrualsRequest.ts",
+      "src/features/employees/types/requests/GetEmployeesPayrollAccrualsByIdRequest.ts",
+      "src/features/employees/types/requests/SearchEmployeesSalaryPaymentsRequest.ts",
+      "src/features/employees/types/requests/GetEmployeesSalaryPaymentsByIdRequest.ts",
+      "src/features/employees/types/requests/SearchEmployeesAdvancesRequest.ts",
+      "src/features/employees/types/requests/GetEmployeesAdvancesByIdRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "sourceId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "sourceId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "sourceId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/employees/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/employees/types/responses/EmployeeListResponse.ts",
+      "src/features/employees/types/responses/EmployeeResponse.ts",
+      "src/features/employees/types/responses/OperationListResponse.ts",
+      "src/features/employees/types/responses/OperationResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "phone",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "email",
+        "isOptional": false
+      },
+      {
+        "name": "job",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "salary",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "joined",
+        "isOptional": false
+      },
+      {
+        "name": "identity",
+        "isOptional": false
+      },
+      {
+        "name": "issuer",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": true
+      },
+      {
+        "name": "marital",
+        "isOptional": true
+      },
+      {
+        "name": "issueDate",
+        "isOptional": true
+      },
+      {
+        "name": "files",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "type",
+        "isOptional": false
+      },
+      {
+        "name": "data",
+        "isOptional": false
+      },
+      {
+        "name": "photo",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "subject",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/expenses/types/request/expenses-request.types.ts",
+    "currentFiles": [
+      "src/features/expenses/types/requests/SaveExpenseRequest.ts",
+      "src/features/expenses/types/requests/SaveExpenseSaveRequest.ts",
+      "src/features/expenses/types/requests/SaveExpensePaymentRequest.ts",
+      "src/features/expenses/types/requests/SaveExpenseConsumeRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "category",
+        "isOptional": false
+      },
+      {
+        "name": "description",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "typeId",
+        "isOptional": false
+      },
+      {
+        "name": "treatment",
+        "isOptional": false
+      },
+      {
+        "name": "description",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "start",
+        "isOptional": false
+      },
+      {
+        "name": "end",
+        "isOptional": false
+      },
+      {
+        "name": "paid",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "rate",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "rate",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "rate",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/expenses/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/expenses/types/requests/SearchExpensesTypesRequest.ts",
+      "src/features/expenses/types/requests/GetExpensesTypesByIdRequest.ts",
+      "src/features/expenses/types/requests/SearchExpensesDocumentsRequest.ts",
+      "src/features/expenses/types/requests/GetExpensesDocumentsByIdRequest.ts",
+      "src/features/expenses/types/requests/SearchExpensesDocumentsByIdPaymentsRequest.ts",
+      "src/features/expenses/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/expenses/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/expenses/types/responses/ExpenseTypeListResponse.ts",
+      "src/features/expenses/types/responses/ExpenseTypeResponse.ts",
+      "src/features/expenses/types/responses/ExpenseDocumentListResponse.ts",
+      "src/features/expenses/types/responses/ExpenseDocumentResponse.ts",
+      "src/features/expenses/types/responses/ExpensePaymentsListResponse.ts",
+      "src/features/expenses/types/responses/ExpensePaymentsResponse.ts",
+      "src/features/expenses/types/responses/ExpenseConsumptionsListResponse.ts",
+      "src/features/expenses/types/responses/ExpenseConsumptionsResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "account",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "typeId",
+        "isOptional": false
+      },
+      {
+        "name": "account",
+        "isOptional": false
+      },
+      {
+        "name": "treatment",
+        "isOptional": false
+      },
+      {
+        "name": "description",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "start",
+        "isOptional": false
+      },
+      {
+        "name": "end",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "rate",
+        "isOptional": true
+      },
+      {
+        "name": "foreignAmount",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "payments",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "foreignAmount",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "rate",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "cashAccount",
+        "isOptional": true
+      },
+      {
+        "name": "settlements",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "period",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "recognitionRefs",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "foreignAmount",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "rate",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "cashAccount",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "period",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/financial/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/financial/types/requests/SearchReportsFinancialProfitByItemRequest.ts",
+      "src/features/financial/types/requests/SearchReportsFinancialProfitByCustomerRequest.ts",
+      "src/features/financial/types/requests/SearchReportsFinancialCashFlowRequest.ts",
+      "src/features/financial/types/requests/SearchReportsFinancialAccountMappingRequest.ts",
+      "src/features/financial/types/requests/GetFinancialStatementsIncomeRequest.ts",
+      "src/features/financial/types/requests/GetFinancialStatementsPositionRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "accountCode",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/financial/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/financial/types/responses/ProfitByItemReport.ts",
+      "src/features/financial/types/responses/ProfitByItemReportRow.ts",
+      "src/features/financial/types/responses/ProfitByCustomerReport.ts",
+      "src/features/financial/types/responses/ProfitByCustomerReportRow.ts",
+      "src/features/financial/types/responses/CashFlowReport.ts",
+      "src/features/financial/types/responses/CashFlowReportRow.ts",
+      "src/features/financial/types/responses/AccountMappingReport.ts",
+      "src/features/financial/types/responses/AccountMappingReportRow.ts",
+      "src/features/financial/types/responses/IncomeStatementResponse.ts",
+      "src/features/financial/types/responses/FinancialLineResponse.ts",
+      "src/features/financial/types/responses/FinancialPositionResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "revenue",
+        "isOptional": false
+      },
+      {
+        "name": "costOfSales",
+        "isOptional": false
+      },
+      {
+        "name": "expenses",
+        "isOptional": false
+      },
+      {
+        "name": "netIncome",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "label",
+        "isOptional": false
+      },
+      {
+        "name": "classification",
+        "isOptional": false
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "assets",
+        "isOptional": false
+      },
+      {
+        "name": "liabilities",
+        "isOptional": false
+      },
+      {
+        "name": "equity",
+        "isOptional": false
+      },
+      {
+        "name": "difference",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/inventory/types/request/inventory-request.types.ts",
+    "currentFiles": [
+      "src/features/inventory/types/requests/SaveProductRequest.ts",
+      "src/features/inventory/types/requests/SaveWarehouseRequest.ts",
+      "src/features/inventory/types/requests/SaveTransferRequest.ts",
+      "src/features/inventory/types/requests/SaveStockDocumentRequest.ts",
+      "src/features/inventory/types/requests/DeleteStockDraftRequest.ts",
+      "src/features/inventory/types/requests/SavePriceListRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "groupId",
+        "isOptional": true
+      },
+      {
+        "name": "category",
+        "isOptional": false
+      },
+      {
+        "name": "min",
+        "isOptional": false
+      },
+      {
+        "name": "alert",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "maxDiscount",
+        "isOptional": false
+      },
+      {
+        "name": "units",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "factor",
+        "isOptional": false
+      },
+      {
+        "name": "purchase",
+        "isOptional": false
+      },
+      {
+        "name": "retail",
+        "isOptional": false
+      },
+      {
+        "name": "wholesale",
+        "isOptional": false
+      },
+      {
+        "name": "barcode",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": false
+      },
+      {
+        "name": "to",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "openingScope",
+        "isOptional": true
+      },
+      {
+        "name": "openingOffsetAccount",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "status",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "toWarehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "direction",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "unit",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "price",
+        "isOptional": false
+      },
+      {
+        "name": "expectedQty",
+        "isOptional": true
+      },
+      {
+        "name": "accounts",
+        "isOptional": false
+      },
+      {
+        "name": "account",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "debit",
+        "isOptional": false
+      },
+      {
+        "name": "credit",
+        "isOptional": false
+      },
+      {
+        "name": "description",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "unit",
+        "isOptional": false
+      },
+      {
+        "name": "expectedPrice",
+        "isOptional": false
+      },
+      {
+        "name": "expectedFactor",
+        "isOptional": false
+      },
+      {
+        "name": "price",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/inventory/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/inventory/types/requests/SearchInventoryItemsRequest.ts",
+      "src/features/inventory/types/requests/GetInventoryItemsByIdRequest.ts",
+      "src/features/inventory/types/requests/SearchInventoryWarehousesRequest.ts",
+      "src/features/inventory/types/requests/GetInventoryWarehousesByIdRequest.ts",
+      "src/features/inventory/types/requests/SearchInventoryUnitsRequest.ts",
+      "src/features/inventory/types/requests/GetInventoryUnitsByIdRequest.ts",
+      "src/features/inventory/types/requests/SearchInventoryUnitCategoriesRequest.ts",
+      "src/features/inventory/types/requests/GetInventoryUnitCategoriesByIdRequest.ts",
+      "src/features/inventory/types/requests/SearchInventoryItemGroupsRequest.ts",
+      "src/features/inventory/types/requests/GetInventoryItemGroupsByIdRequest.ts",
+      "src/features/inventory/types/requests/SearchInventoryStockDocumentsRequest.ts",
+      "src/features/inventory/types/requests/GetInventoryStockDocumentsByIdRequest.ts",
+      "src/features/inventory/types/requests/SearchInventoryBalancesRequest.ts",
+      "src/features/inventory/types/requests/SearchInventoryMovementsRequest.ts",
+      "src/features/inventory/types/requests/GetInventoryItemsByIdUnitsRequest.ts",
+      "src/features/inventory/types/requests/SearchInventoryStockCountsRequest.ts",
+      "src/features/inventory/types/requests/GetInventoryStockCountsByIdRequest.ts",
+      "src/features/inventory/types/requests/SearchSearchItemsRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "category",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "status",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": true
+      },
+      {
+        "name": "openingScope",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "sourceId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/inventory/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/inventory/types/responses/ItemListResponse.ts",
+      "src/features/inventory/types/responses/ItemResponse.ts",
+      "src/features/inventory/types/responses/WarehouseListResponse.ts",
+      "src/features/inventory/types/responses/WarehouseResponse.ts",
+      "src/features/inventory/types/responses/UnitListResponse.ts",
+      "src/features/inventory/types/responses/UnitResponse.ts",
+      "src/features/inventory/types/responses/UnitCategoryListResponse.ts",
+      "src/features/inventory/types/responses/UnitCategoryResponse.ts",
+      "src/features/inventory/types/responses/ItemGroupListResponse.ts",
+      "src/features/inventory/types/responses/ItemGroupResponse.ts",
+      "src/features/inventory/types/responses/StockDocumentListResponse.ts",
+      "src/features/inventory/types/responses/StockDocumentResponse.ts",
+      "src/features/inventory/types/responses/StockBalanceListResponse.ts",
+      "src/features/inventory/types/responses/StockBalanceResponse.ts",
+      "src/features/inventory/types/responses/InventoryMovementListResponse.ts",
+      "src/features/inventory/types/responses/InventoryMovementResponse.ts",
+      "src/features/inventory/types/responses/SearchHitListResponse.ts",
+      "src/features/inventory/types/responses/SearchHitResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "category",
+        "isOptional": false
+      },
+      {
+        "name": "units",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "factor",
+        "isOptional": false
+      },
+      {
+        "name": "purchase",
+        "isOptional": false
+      },
+      {
+        "name": "retail",
+        "isOptional": false
+      },
+      {
+        "name": "wholesale",
+        "isOptional": false
+      },
+      {
+        "name": "barcode",
+        "isOptional": false
+      },
+      {
+        "name": "min",
+        "isOptional": false
+      },
+      {
+        "name": "maxDiscount",
+        "isOptional": false
+      },
+      {
+        "name": "alert",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "category",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "count",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "openingScope",
+        "isOptional": true
+      },
+      {
+        "name": "openingOffsetAccount",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "status",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "toWarehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "direction",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "total",
+        "isOptional": false
+      },
+      {
+        "name": "createdAt",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "unit",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "price",
+        "isOptional": false
+      },
+      {
+        "name": "expectedQty",
+        "isOptional": true
+      },
+      {
+        "name": "value",
+        "isOptional": true
+      },
+      {
+        "name": "accounts",
+        "isOptional": false
+      },
+      {
+        "name": "account",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": false
+      },
+      {
+        "name": "debit",
+        "isOptional": false
+      },
+      {
+        "name": "credit",
+        "isOptional": false
+      },
+      {
+        "name": "description",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "value",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "value",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "type",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "label",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "route",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/parties/types/request/parties-request.types.ts",
+    "currentFiles": [
+      "src/features/parties/types/requests/SavePartyRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "groupId",
+        "isOptional": true
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "phone",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "limit",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/purchases/types/request/purchases-request.types.ts",
+    "currentFiles": [
+      "src/features/purchases/types/requests/SavePurchaseInvoiceRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "kind",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/purchases/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/purchases/types/requests/SearchPurchasesInvoicesRequest.ts",
+      "src/features/purchases/types/requests/GetPurchasesInvoicesByIdRequest.ts",
+      "src/features/purchases/types/requests/SearchPurchasesReturnsRequest.ts",
+      "src/features/purchases/types/requests/GetPurchasesReturnsByIdRequest.ts",
+      "src/features/purchases/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "status",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "payment",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "status",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "payment",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/reports/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/reports/types/requests/SearchReportsInventoryValuationRequest.ts",
+      "src/features/reports/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
+      "src/features/reports/types/requests/SearchReportsInventoryReorderRequest.ts",
+      "src/features/reports/types/requests/SearchReportsInventoryStagnantRequest.ts",
+      "src/features/reports/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
+      "src/features/reports/types/requests/SearchReportsInventoryTransfersRequest.ts",
+      "src/features/reports/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
+      "src/features/reports/types/requests/SearchReportsInventoryPricesRequest.ts",
+      "src/features/reports/types/requests/SearchReportsCustomersBalancesRequest.ts",
+      "src/features/reports/types/requests/SearchReportsSuppliersBalancesRequest.ts",
+      "src/features/reports/types/requests/SearchReportsEmployeesPayrollRequest.ts",
+      "src/features/reports/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
+      "src/features/reports/types/requests/SearchReportsExpensesRecognizedRequest.ts",
+      "src/features/reports/types/requests/SearchReportsSalesSummaryRequest.ts",
+      "src/features/reports/types/requests/SearchReportsPurchasesSummaryRequest.ts",
+      "src/features/reports/types/requests/SearchReportsSalesReturnsRequest.ts",
+      "src/features/reports/types/requests/SearchReportsPurchasesReturnsRequest.ts",
+      "src/features/reports/types/requests/SearchReportsSalesChartRequest.ts",
+      "src/features/reports/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
+      "src/features/reports/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
+      "src/features/reports/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
+      "src/features/reports/types/requests/SearchReportsAccountingTaxRequest.ts",
+      "src/features/reports/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
+      "src/features/reports/types/requests/SearchReportsAccountingAssetsRequest.ts",
+      "src/features/reports/types/requests/SearchReportsSalesTargetAchievementRequest.ts",
+      "src/features/reports/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
+      "src/features/reports/types/requests/SearchReportsAccountingContactLedgerRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "category",
+        "isOptional": true
+      },
+      {
+        "name": "priceType",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "employeeId",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "employeeId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "productId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "accountCode",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "accountCode",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "asOf",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "employeeId",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "accountCode",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "accountCode",
+        "isOptional": true
+      },
+      {
+        "name": "contactId",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/reports/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/reports/types/responses/InventoryValuationReport.ts",
+      "src/features/reports/types/responses/InventoryValuationReportRow.ts",
+      "src/features/reports/types/responses/OpeningStockReport.ts",
+      "src/features/reports/types/responses/OpeningStockReportRow.ts",
+      "src/features/reports/types/responses/ReorderReport.ts",
+      "src/features/reports/types/responses/ReorderReportRow.ts",
+      "src/features/reports/types/responses/StagnantReport.ts",
+      "src/features/reports/types/responses/StagnantReportRow.ts",
+      "src/features/reports/types/responses/HistoricalCostReport.ts",
+      "src/features/reports/types/responses/HistoricalCostReportRow.ts",
+      "src/features/reports/types/responses/TransfersReport.ts",
+      "src/features/reports/types/responses/TransfersReportRow.ts",
+      "src/features/reports/types/responses/AdjustmentsReport.ts",
+      "src/features/reports/types/responses/AdjustmentsReportRow.ts",
+      "src/features/reports/types/responses/PricesReport.ts",
+      "src/features/reports/types/responses/PricesReportRow.ts",
+      "src/features/reports/types/responses/CustomerBalancesReport.ts",
+      "src/features/reports/types/responses/CustomerBalancesReportRow.ts",
+      "src/features/reports/types/responses/SupplierBalancesReport.ts",
+      "src/features/reports/types/responses/SupplierBalancesReportRow.ts",
+      "src/features/reports/types/responses/PayrollReport.ts",
+      "src/features/reports/types/responses/PayrollReportRow.ts",
+      "src/features/reports/types/responses/AdvancesReport.ts",
+      "src/features/reports/types/responses/AdvancesReportRow.ts",
+      "src/features/reports/types/responses/RecognizedExpensesReport.ts",
+      "src/features/reports/types/responses/RecognizedExpensesReportRow.ts",
+      "src/features/reports/types/responses/SalesSummaryReport.ts",
+      "src/features/reports/types/responses/SalesSummaryReportRow.ts",
+      "src/features/reports/types/responses/PurchasesSummaryReport.ts",
+      "src/features/reports/types/responses/PurchasesSummaryReportRow.ts",
+      "src/features/reports/types/responses/SalesReturnsReport.ts",
+      "src/features/reports/types/responses/SalesReturnsReportRow.ts",
+      "src/features/reports/types/responses/PurchaseReturnsReport.ts",
+      "src/features/reports/types/responses/PurchaseReturnsReportRow.ts",
+      "src/features/reports/types/responses/SalesChartReport.ts",
+      "src/features/reports/types/responses/SalesChartReportRow.ts",
+      "src/features/reports/types/responses/CashMovementsReport.ts",
+      "src/features/reports/types/responses/CashMovementsReportRow.ts",
+      "src/features/reports/types/responses/OpeningBalancesReport.ts",
+      "src/features/reports/types/responses/OpeningBalancesReportRow.ts",
+      "src/features/reports/types/responses/TrialBalanceReport.ts",
+      "src/features/reports/types/responses/TrialBalanceReportRow.ts",
+      "src/features/reports/types/responses/TaxReport.ts",
+      "src/features/reports/types/responses/TaxReportRow.ts",
+      "src/features/reports/types/responses/ForeignCurrencyReport.ts",
+      "src/features/reports/types/responses/ForeignCurrencyReportRow.ts",
+      "src/features/reports/types/responses/AssetsReport.ts",
+      "src/features/reports/types/responses/AssetsReportRow.ts",
+      "src/features/reports/types/responses/TargetAchievementReport.ts",
+      "src/features/reports/types/responses/TargetAchievementReportRow.ts",
+      "src/features/reports/types/responses/AccountStatementResponse.ts",
+      "src/features/reports/types/responses/StatementRow.ts"
+    ],
+    "expected": [
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "columns",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "totals",
+        "isOptional": true
+      },
+      {
+        "name": "baseAmount",
+        "isOptional": true
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "accountCode",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": false
+      },
+      {
+        "name": "openingBalance",
+        "isOptional": false
+      },
+      {
+        "name": "periodDebit",
+        "isOptional": false
+      },
+      {
+        "name": "periodCredit",
+        "isOptional": false
+      },
+      {
+        "name": "closingBalance",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      },
+      {
+        "name": "description",
+        "isOptional": false
+      },
+      {
+        "name": "debit",
+        "isOptional": false
+      },
+      {
+        "name": "credit",
+        "isOptional": false
+      },
+      {
+        "name": "runningBalance",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/sales/types/request/sales-request.types.ts",
+    "currentFiles": [
+      "src/features/sales/types/requests/SaveSalesTargetRequest.ts",
+      "src/features/sales/types/requests/SaveSalesInvoiceRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "period",
+        "isOptional": false
+      },
+      {
+        "name": "employee",
+        "isOptional": true
+      },
+      {
+        "name": "amount",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/sales/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/sales/types/requests/SearchSalesTargetsRequest.ts",
+      "src/features/sales/types/requests/GetSalesTargetsByIdRequest.ts",
+      "src/features/sales/types/requests/SearchSalesInvoicesRequest.ts",
+      "src/features/sales/types/requests/GetSalesInvoicesByIdRequest.ts",
+      "src/features/sales/types/requests/SearchSalesReturnsRequest.ts",
+      "src/features/sales/types/requests/GetSalesReturnsByIdRequest.ts",
+      "src/features/sales/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "employeeId",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "status",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "payment",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "status",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      },
+      {
+        "name": "partyId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      },
+      {
+        "name": "payment",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/sales/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/sales/types/responses/SalesTargetListResponse.ts",
+      "src/features/sales/types/responses/SalesTargetResponse.ts",
+      "src/features/sales/types/responses/InvoiceListResponse.ts",
+      "src/features/sales/types/responses/InvoiceResponse.ts",
+      "src/features/sales/types/responses/InvoiceReturnListResponse.ts",
+      "src/features/sales/types/responses/InvoiceReturnResponse.ts",
+      "src/features/sales/types/responses/ReturnAvailabilityResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "employeeId",
+        "isOptional": true
+      },
+      {
+        "name": "period",
+        "isOptional": true
+      },
+      {
+        "name": "amount",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "number",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "payment",
+        "isOptional": false
+      },
+      {
+        "name": "invoiceDiscount",
+        "isOptional": true
+      },
+      {
+        "name": "paid",
+        "isOptional": true
+      },
+      {
+        "name": "taxRate",
+        "isOptional": true
+      },
+      {
+        "name": "taxAmount",
+        "isOptional": true
+      },
+      {
+        "name": "subtotal",
+        "isOptional": true
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "status",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "unit",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "free",
+        "isOptional": false
+      },
+      {
+        "name": "price",
+        "isOptional": false
+      },
+      {
+        "name": "discount",
+        "isOptional": false
+      },
+      {
+        "name": "invoiceDiscount",
+        "isOptional": true
+      },
+      {
+        "name": "sourceInvoiceDiscount",
+        "isOptional": true
+      },
+      {
+        "name": "cost",
+        "isOptional": false
+      },
+      {
+        "name": "total",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "createdAt",
+        "isOptional": false
+      },
+      {
+        "name": "reversedBy",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "supplierNumber",
+        "isOptional": true
+      },
+      {
+        "name": "savedById",
+        "isOptional": true
+      },
+      {
+        "name": "savedByName",
+        "isOptional": true
+      },
+      {
+        "name": "returnedById",
+        "isOptional": true
+      },
+      {
+        "name": "returnedByName",
+        "isOptional": true
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "number",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "payment",
+        "isOptional": false
+      },
+      {
+        "name": "invoiceDiscount",
+        "isOptional": true
+      },
+      {
+        "name": "paid",
+        "isOptional": true
+      },
+      {
+        "name": "taxRate",
+        "isOptional": true
+      },
+      {
+        "name": "taxAmount",
+        "isOptional": true
+      },
+      {
+        "name": "subtotal",
+        "isOptional": true
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "status",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "unit",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "free",
+        "isOptional": false
+      },
+      {
+        "name": "price",
+        "isOptional": false
+      },
+      {
+        "name": "discount",
+        "isOptional": false
+      },
+      {
+        "name": "invoiceDiscount",
+        "isOptional": true
+      },
+      {
+        "name": "sourceInvoiceDiscount",
+        "isOptional": true
+      },
+      {
+        "name": "cost",
+        "isOptional": false
+      },
+      {
+        "name": "total",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "createdAt",
+        "isOptional": false
+      },
+      {
+        "name": "reversedBy",
+        "isOptional": true
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "supplierNumber",
+        "isOptional": true
+      },
+      {
+        "name": "savedById",
+        "isOptional": true
+      },
+      {
+        "name": "savedByName",
+        "isOptional": true
+      },
+      {
+        "name": "returnedById",
+        "isOptional": true
+      },
+      {
+        "name": "returnedByName",
+        "isOptional": true
+      },
+      {
+        "name": "sourceId",
+        "isOptional": false
+      },
+      {
+        "name": "adjusted",
+        "isOptional": true
+      },
+      {
+        "name": "sourceLines",
+        "isOptional": false
+      },
+      {
+        "name": "baseSubtotal",
+        "isOptional": true
+      },
+      {
+        "name": "baseTax",
+        "isOptional": true
+      },
+      {
+        "name": "baseTotal",
+        "isOptional": true
+      },
+      {
+        "name": "basePaid",
+        "isOptional": true
+      },
+      {
+        "name": "invoiceId",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "sourceLineIndex",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "unit",
+        "isOptional": false
+      },
+      {
+        "name": "originalQty",
+        "isOptional": false
+      },
+      {
+        "name": "returnedQty",
+        "isOptional": false
+      },
+      {
+        "name": "remainingQty",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/settings/types/request/settings-request.types.ts",
+    "currentFiles": [
+      "src/features/settings/types/requests/SaveBackupSettingsRequest.ts",
+      "src/features/settings/types/requests/SaveBrandingRequest.ts",
+      "src/features/settings/types/requests/SaveOrganizationRequest.ts",
+      "src/features/settings/types/requests/SaveBranchRequest.ts",
+      "src/features/settings/types/requests/SaveGeneralSettingsRequest.ts",
+      "src/features/settings/types/requests/SetupCompleteRequest.ts",
+      "src/features/settings/types/requests/ImportMastersRequest.ts",
+      "src/features/settings/types/requests/SaveCurrencyRequest.ts",
+      "src/features/settings/types/requests/SavePreferencesRequest.ts",
+      "src/features/settings/types/requests/SaveSystemSettingsRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "mode",
+        "isOptional": false
+      },
+      {
+        "name": "hours",
+        "isOptional": false
+      },
+      {
+        "name": "time",
+        "isOptional": false
+      },
+      {
+        "name": "folder",
+        "isOptional": false
+      },
+      {
+        "name": "retention",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "tagline",
+        "isOptional": false
+      },
+      {
+        "name": "color",
+        "isOptional": false
+      },
+      {
+        "name": "logo",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "phone",
+        "isOptional": false
+      },
+      {
+        "name": "multiBranch",
+        "isOptional": false
+      },
+      {
+        "name": "policyApproved",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "profit",
+        "isOptional": false
+      },
+      {
+        "name": "discount",
+        "isOptional": false
+      },
+      {
+        "name": "price",
+        "isOptional": false
+      },
+      {
+        "name": "responsible",
+        "isOptional": false
+      },
+      {
+        "name": "start",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "rows",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "source",
+        "isOptional": false
+      },
+      {
+        "name": "section",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "multiCurrency",
+        "isOptional": false
+      },
+      {
+        "name": "allowNegativeCash",
+        "isOptional": false
+      },
+      {
+        "name": "taxEnabled",
+        "isOptional": true
+      },
+      {
+        "name": "taxRate",
+        "isOptional": true
+      },
+      {
+        "name": "section",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "defaultPrice",
+        "isOptional": false
+      },
+      {
+        "name": "allowCredit",
+        "isOptional": false
+      },
+      {
+        "name": "allowBelowCost",
+        "isOptional": false
+      },
+      {
+        "name": "lineDiscount",
+        "isOptional": false
+      },
+      {
+        "name": "maxDiscount",
+        "isOptional": false
+      },
+      {
+        "name": "allowDraftDelete",
+        "isOptional": false
+      },
+      {
+        "name": "section",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "allowCredit",
+        "isOptional": false
+      },
+      {
+        "name": "updatePurchasePrice",
+        "isOptional": false
+      },
+      {
+        "name": "preventDuplicateSupplierNumber",
+        "isOptional": false
+      },
+      {
+        "name": "allowDraftDelete",
+        "isOptional": false
+      },
+      {
+        "name": "section",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "allowTransfer",
+        "isOptional": false
+      },
+      {
+        "name": "allowCrossBranchTransfer",
+        "isOptional": false
+      },
+      {
+        "name": "allowAdjustment",
+        "isOptional": false
+      },
+      {
+        "name": "requireAdjustmentReason",
+        "isOptional": false
+      },
+      {
+        "name": "alert",
+        "isOptional": false
+      },
+      {
+        "name": "reorder",
+        "isOptional": false
+      },
+      {
+        "name": "profit",
+        "isOptional": false
+      },
+      {
+        "name": "discount",
+        "isOptional": false
+      },
+      {
+        "name": "showZero",
+        "isOptional": false
+      },
+      {
+        "name": "section",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "requireVoucherNote",
+        "isOptional": false
+      },
+      {
+        "name": "maxExpense",
+        "isOptional": false
+      },
+      {
+        "name": "section",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "independentBranch",
+        "isOptional": false
+      },
+      {
+        "name": "showBranch",
+        "isOptional": false
+      },
+      {
+        "name": "showYear",
+        "isOptional": false
+      },
+      {
+        "name": "resetYear",
+        "isOptional": false
+      },
+      {
+        "name": "section",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "purchaseWarehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "cashId",
+        "isOptional": false
+      },
+      {
+        "name": "saleCashId",
+        "isOptional": false
+      },
+      {
+        "name": "purchaseCashId",
+        "isOptional": false
+      },
+      {
+        "name": "expenseCashId",
+        "isOptional": false
+      },
+      {
+        "name": "receiptCashId",
+        "isOptional": false
+      },
+      {
+        "name": "paymentCashId",
+        "isOptional": false
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "section",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "tradeName",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "phone",
+        "isOptional": false
+      },
+      {
+        "name": "email",
+        "isOptional": false
+      },
+      {
+        "name": "activity",
+        "isOptional": false
+      },
+      {
+        "name": "taxNumber",
+        "isOptional": false
+      },
+      {
+        "name": "registrationNumber",
+        "isOptional": false
+      },
+      {
+        "name": "tagline",
+        "isOptional": false
+      },
+      {
+        "name": "color",
+        "isOptional": false
+      },
+      {
+        "name": "logo",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/settings/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/settings/types/requests/SearchBranchesRequest.ts",
+      "src/features/settings/types/requests/GetBranchesByIdRequest.ts",
+      "src/features/settings/types/requests/GetSettingsCompanyRequest.ts",
+      "src/features/settings/types/requests/GetSettingsBrandingRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemRequest.ts",
+      "src/features/settings/types/requests/GetSettingsBackupPolicyRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemAccountingRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemSalesRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemPurchasesRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemInventoryRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemExpensesRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemDocumentsRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemBranchesRequest.ts",
+      "src/features/settings/types/requests/GetSettingsSystemCompanyRequest.ts",
+      "src/features/settings/types/requests/GetSettingsServiceStatusRequest.ts",
+      "src/features/settings/types/requests/GetSettingsImportTemplatesByKindRequest.ts",
+      "src/features/settings/types/requests/GetUiDraftsByKeyRequest.ts",
+      "src/features/settings/types/requests/SearchLookupsByResourceRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "key",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "resource",
+        "isOptional": false
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "branchId",
+        "isOptional": true
+      },
+      {
+        "name": "currency",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/settings/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/settings/types/responses/BranchListResponse.ts",
+      "src/features/settings/types/responses/BranchResponse.ts",
+      "src/features/settings/types/responses/OrganizationResponse.ts",
+      "src/features/settings/types/responses/BrandingResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsResponse.ts",
+      "src/features/settings/types/responses/BackupPolicyResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsAccountingResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsSalesResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsPurchasesResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsInventoryResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsExpensesResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsDocumentsResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsBranchesResponse.ts",
+      "src/features/settings/types/responses/SystemSettingsCompanyResponse.ts",
+      "src/features/settings/types/responses/ServiceStatusResponse.ts",
+      "src/features/settings/types/responses/ImportTemplateResponse.ts",
+      "src/features/settings/types/responses/DraftResponse.ts",
+      "src/features/settings/types/responses/LookupOptionPage.ts",
+      "src/features/settings/types/responses/LookupOption.ts"
+    ],
+    "expected": [
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "phone",
+        "isOptional": false
+      },
+      {
+        "name": "email",
+        "isOptional": true
+      },
+      {
+        "name": "activity",
+        "isOptional": true
+      },
+      {
+        "name": "taxNumber",
+        "isOptional": true
+      },
+      {
+        "name": "registrationNumber",
+        "isOptional": true
+      },
+      {
+        "name": "multiBranch",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "year",
+        "isOptional": false
+      },
+      {
+        "name": "costPolicy",
+        "isOptional": false
+      },
+      {
+        "name": "policyApproved",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "tagline",
+        "isOptional": false
+      },
+      {
+        "name": "color",
+        "isOptional": false
+      },
+      {
+        "name": "logo",
+        "isOptional": false
+      },
+      {
+        "name": "accounting",
+        "isOptional": false
+      },
+      {
+        "name": "multiCurrency",
+        "isOptional": false
+      },
+      {
+        "name": "allowNegativeCash",
+        "isOptional": false
+      },
+      {
+        "name": "taxEnabled",
+        "isOptional": true
+      },
+      {
+        "name": "taxRate",
+        "isOptional": true
+      },
+      {
+        "name": "sales",
+        "isOptional": false
+      },
+      {
+        "name": "defaultPrice",
+        "isOptional": false
+      },
+      {
+        "name": "allowCredit",
+        "isOptional": false
+      },
+      {
+        "name": "allowBelowCost",
+        "isOptional": false
+      },
+      {
+        "name": "lineDiscount",
+        "isOptional": false
+      },
+      {
+        "name": "maxDiscount",
+        "isOptional": false
+      },
+      {
+        "name": "allowDraftDelete",
+        "isOptional": false
+      },
+      {
+        "name": "purchases",
+        "isOptional": false
+      },
+      {
+        "name": "allowCredit",
+        "isOptional": false
+      },
+      {
+        "name": "updatePurchasePrice",
+        "isOptional": false
+      },
+      {
+        "name": "preventDuplicateSupplierNumber",
+        "isOptional": false
+      },
+      {
+        "name": "allowDraftDelete",
+        "isOptional": false
+      },
+      {
+        "name": "inventory",
+        "isOptional": false
+      },
+      {
+        "name": "allowTransfer",
+        "isOptional": false
+      },
+      {
+        "name": "allowCrossBranchTransfer",
+        "isOptional": false
+      },
+      {
+        "name": "allowAdjustment",
+        "isOptional": false
+      },
+      {
+        "name": "requireAdjustmentReason",
+        "isOptional": false
+      },
+      {
+        "name": "alert",
+        "isOptional": false
+      },
+      {
+        "name": "reorder",
+        "isOptional": false
+      },
+      {
+        "name": "profit",
+        "isOptional": false
+      },
+      {
+        "name": "discount",
+        "isOptional": false
+      },
+      {
+        "name": "showZero",
+        "isOptional": false
+      },
+      {
+        "name": "expenses",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "requireVoucherNote",
+        "isOptional": false
+      },
+      {
+        "name": "maxExpense",
+        "isOptional": false
+      },
+      {
+        "name": "documents",
+        "isOptional": false
+      },
+      {
+        "name": "independentBranch",
+        "isOptional": false
+      },
+      {
+        "name": "showBranch",
+        "isOptional": false
+      },
+      {
+        "name": "showYear",
+        "isOptional": false
+      },
+      {
+        "name": "resetYear",
+        "isOptional": false
+      },
+      {
+        "name": "branches",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "purchaseWarehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "cashId",
+        "isOptional": false
+      },
+      {
+        "name": "saleCashId",
+        "isOptional": false
+      },
+      {
+        "name": "purchaseCashId",
+        "isOptional": false
+      },
+      {
+        "name": "expenseCashId",
+        "isOptional": false
+      },
+      {
+        "name": "receiptCashId",
+        "isOptional": false
+      },
+      {
+        "name": "paymentCashId",
+        "isOptional": false
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "mode",
+        "isOptional": false
+      },
+      {
+        "name": "hours",
+        "isOptional": false
+      },
+      {
+        "name": "time",
+        "isOptional": false
+      },
+      {
+        "name": "folder",
+        "isOptional": false
+      },
+      {
+        "name": "retention",
+        "isOptional": false
+      },
+      {
+        "name": "multiCurrency",
+        "isOptional": false
+      },
+      {
+        "name": "allowNegativeCash",
+        "isOptional": false
+      },
+      {
+        "name": "taxEnabled",
+        "isOptional": true
+      },
+      {
+        "name": "taxRate",
+        "isOptional": true
+      },
+      {
+        "name": "defaultPrice",
+        "isOptional": false
+      },
+      {
+        "name": "allowCredit",
+        "isOptional": false
+      },
+      {
+        "name": "allowBelowCost",
+        "isOptional": false
+      },
+      {
+        "name": "lineDiscount",
+        "isOptional": false
+      },
+      {
+        "name": "maxDiscount",
+        "isOptional": false
+      },
+      {
+        "name": "allowDraftDelete",
+        "isOptional": false
+      },
+      {
+        "name": "allowCredit",
+        "isOptional": false
+      },
+      {
+        "name": "updatePurchasePrice",
+        "isOptional": false
+      },
+      {
+        "name": "preventDuplicateSupplierNumber",
+        "isOptional": false
+      },
+      {
+        "name": "allowDraftDelete",
+        "isOptional": false
+      },
+      {
+        "name": "allowTransfer",
+        "isOptional": false
+      },
+      {
+        "name": "allowCrossBranchTransfer",
+        "isOptional": false
+      },
+      {
+        "name": "allowAdjustment",
+        "isOptional": false
+      },
+      {
+        "name": "requireAdjustmentReason",
+        "isOptional": false
+      },
+      {
+        "name": "alert",
+        "isOptional": false
+      },
+      {
+        "name": "reorder",
+        "isOptional": false
+      },
+      {
+        "name": "profit",
+        "isOptional": false
+      },
+      {
+        "name": "discount",
+        "isOptional": false
+      },
+      {
+        "name": "showZero",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "requireVoucherNote",
+        "isOptional": false
+      },
+      {
+        "name": "maxExpense",
+        "isOptional": false
+      },
+      {
+        "name": "independentBranch",
+        "isOptional": false
+      },
+      {
+        "name": "showBranch",
+        "isOptional": false
+      },
+      {
+        "name": "showYear",
+        "isOptional": false
+      },
+      {
+        "name": "resetYear",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "purchaseWarehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "cashId",
+        "isOptional": false
+      },
+      {
+        "name": "saleCashId",
+        "isOptional": false
+      },
+      {
+        "name": "purchaseCashId",
+        "isOptional": false
+      },
+      {
+        "name": "expenseCashId",
+        "isOptional": false
+      },
+      {
+        "name": "receiptCashId",
+        "isOptional": false
+      },
+      {
+        "name": "paymentCashId",
+        "isOptional": false
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "tradeName",
+        "isOptional": false
+      },
+      {
+        "name": "address",
+        "isOptional": false
+      },
+      {
+        "name": "phone",
+        "isOptional": false
+      },
+      {
+        "name": "email",
+        "isOptional": false
+      },
+      {
+        "name": "activity",
+        "isOptional": false
+      },
+      {
+        "name": "taxNumber",
+        "isOptional": false
+      },
+      {
+        "name": "registrationNumber",
+        "isOptional": false
+      },
+      {
+        "name": "tagline",
+        "isOptional": false
+      },
+      {
+        "name": "color",
+        "isOptional": false
+      },
+      {
+        "name": "logo",
+        "isOptional": false
+      },
+      {
+        "name": "apiAvailable",
+        "isOptional": false
+      },
+      {
+        "name": "databaseAvailable",
+        "isOptional": false
+      },
+      {
+        "name": "apiVersion",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": false
+      },
+      {
+        "name": "checkedAt",
+        "isOptional": false
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "encoding",
+        "isOptional": false
+      },
+      {
+        "name": "headers",
+        "isOptional": false
+      },
+      {
+        "name": "requiredHeaders",
+        "isOptional": false
+      },
+      {
+        "name": "sampleRows",
+        "isOptional": false
+      },
+      {
+        "name": "key",
+        "isOptional": false
+      },
+      {
+        "name": "values",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "label",
+        "isOptional": false
+      },
+      {
+        "name": "code",
+        "isOptional": true
+      },
+      {
+        "name": "disabled",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/suppliers/types/request/suppliers-request.types.ts",
+    "currentFiles": [
+      "src/features/suppliers/types/requests/SaveSupplierRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "kind",
+        "isOptional": false
+      }
+    ]
+  },
+  {
+    "file": "src/features/suppliers/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/suppliers/types/requests/SearchSuppliersRequest.ts",
+      "src/features/suppliers/types/requests/GetSuppliersByIdRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "groupId",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/trade/types/request/trade-request.types.ts",
+    "currentFiles": [
+      "src/features/trade/types/requests/SaveInvoiceRequest.ts",
+      "src/features/trade/types/requests/DeleteDraftRequest.ts",
+      "src/features/trade/types/requests/SaveReturnRequest.ts",
+      "src/features/trade/types/requests/SavePartialReturnRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "id",
+        "isOptional": true
+      },
+      {
+        "name": "kind",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "branchId",
+        "isOptional": false
+      },
+      {
+        "name": "warehouseId",
+        "isOptional": false
+      },
+      {
+        "name": "partyId",
+        "isOptional": false
+      },
+      {
+        "name": "currency",
+        "isOptional": false
+      },
+      {
+        "name": "rate",
+        "isOptional": false
+      },
+      {
+        "name": "payment",
+        "isOptional": false
+      },
+      {
+        "name": "invoiceDiscount",
+        "isOptional": true
+      },
+      {
+        "name": "paid",
+        "isOptional": true
+      },
+      {
+        "name": "taxRate",
+        "isOptional": true
+      },
+      {
+        "name": "priceType",
+        "isOptional": false
+      },
+      {
+        "name": "status",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": false
+      },
+      {
+        "name": "cashId",
+        "isOptional": true
+      },
+      {
+        "name": "supplierNumber",
+        "isOptional": true
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "productId",
+        "isOptional": false
+      },
+      {
+        "name": "unit",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "free",
+        "isOptional": false
+      },
+      {
+        "name": "price",
+        "isOptional": false
+      },
+      {
+        "name": "discount",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "note",
+        "isOptional": true
+      },
+      {
+        "name": "invoiceDiscount",
+        "isOptional": true
+      },
+      {
+        "name": "paid",
+        "isOptional": true
+      },
+      {
+        "name": "lines",
+        "isOptional": false
+      },
+      {
+        "name": "index",
+        "isOptional": false
+      },
+      {
+        "name": "qty",
+        "isOptional": false
+      },
+      {
+        "name": "discount",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/users/types/request/read-queries.types.ts",
+    "currentFiles": [
+      "src/features/users/types/requests/SearchUsersRequest.ts",
+      "src/features/users/types/requests/GetUsersByIdRequest.ts",
+      "src/features/users/types/requests/SearchAuthSessionsRequest.ts",
+      "src/features/users/types/requests/SearchUsersByIdSessionsRequest.ts",
+      "src/features/users/types/requests/GetAuthPermissionsRequest.ts",
+      "src/features/users/types/requests/SearchAuditEventsRequest.ts"
+    ],
+    "expected": [
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "active",
+        "isOptional": true
+      },
+      {
+        "name": "role",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "page",
+        "isOptional": true
+      },
+      {
+        "name": "pageSize",
+        "isOptional": true
+      },
+      {
+        "name": "bookId",
+        "isOptional": true
+      },
+      {
+        "name": "from",
+        "isOptional": true
+      },
+      {
+        "name": "to",
+        "isOptional": true
+      },
+      {
+        "name": "q",
+        "isOptional": true
+      },
+      {
+        "name": "action",
+        "isOptional": true
+      },
+      {
+        "name": "reference",
+        "isOptional": true
+      }
+    ]
+  },
+  {
+    "file": "src/features/users/types/response/read-contracts.types.ts",
+    "currentFiles": [
+      "src/features/users/types/responses/UserListResponse.ts",
+      "src/features/users/types/responses/UserResponse.ts",
+      "src/features/users/types/responses/SessionListResponse.ts",
+      "src/features/users/types/responses/SessionResponse.ts",
+      "src/features/users/types/responses/PermissionResponse.ts",
+      "src/features/users/types/responses/AuditEventListResponse.ts",
+      "src/features/users/types/responses/AuditEventResponse.ts"
+    ],
+    "expected": [
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "username",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "role",
+        "isOptional": false
+      },
+      {
+        "name": "active",
+        "isOptional": false
+      },
+      {
+        "name": "must_change",
+        "isOptional": false
+      },
+      {
+        "name": "created_at",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "user_id",
+        "isOptional": false
+      },
+      {
+        "name": "name",
+        "isOptional": false
+      },
+      {
+        "name": "username",
+        "isOptional": false
+      },
+      {
+        "name": "created_at",
+        "isOptional": false
+      },
+      {
+        "name": "last_seen",
+        "isOptional": false
+      },
+      {
+        "name": "expires_at",
+        "isOptional": false
+      },
+      {
+        "name": "device",
+        "isOptional": false
+      },
+      {
+        "name": "role",
+        "isOptional": false
+      },
+      {
+        "name": "modules",
+        "isOptional": false
+      },
+      {
+        "name": "actions",
+        "isOptional": false
+      },
+      {
+        "name": "authoritative",
+        "isOptional": false
+      },
+      {
+        "name": "items",
+        "isOptional": false
+      },
+      {
+        "name": "pagination",
+        "isOptional": false
+      },
+      {
+        "name": "scope",
+        "isOptional": false
+      },
+      {
+        "name": "id",
+        "isOptional": false
+      },
+      {
+        "name": "date",
+        "isOptional": false
+      },
+      {
+        "name": "action",
+        "isOptional": false
+      },
+      {
+        "name": "reference",
+        "isOptional": false
+      }
+    ]
+  }
+]

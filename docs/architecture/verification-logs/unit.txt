@@ -1,0 +1,13 @@
+
+> munsha-erp-frontend@1.0.0 test
+> vitest run
+
+
+ RUN  v4.1.12 /workspace/munsha-erp-refactored
+
+
+ Test Files  15 passed (15)
+      Tests  564 passed (564)
+   Start at  02:28:00
+   Duration  11.78s (transform 3.36s, setup 0ms, import 3.28s, tests 5.98s, environment 2ms)
+

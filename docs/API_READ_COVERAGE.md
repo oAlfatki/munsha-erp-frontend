@@ -1,0 +1,3 @@
+# API data flow
+
+All URL definitions are in `src/core/config/endpoints.ts`. HTTP implementations remain in feature api layers. Feature-owned `use*Data` hooks list actual collection dependencies and use TanStack Query. Dashboard uses /dashboard, shell search uses /search/items, and auth uses /auth/me. Collection reads traverse pages to retain existing local report/ledger calculations. Report-only read clients remain typed contract surfaces where existing report calculation uses journal/transaction collections; they are not proof of backend deployment. /workspace is no longer called by frontend. See current implementation and PDF limitations rather than historical OpenAPI x-frontend caller metadata.
