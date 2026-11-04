@@ -1,7 +1,7 @@
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
-import { extras } from "@/features/accounting/public/extensions";
+import { extras } from '@/features/ledger/public/extensions';
 import type { BuildSalesReturnsReportContext } from '@/features/sales/types/read-models/BuildSalesReturnsReportContext';
 export function buildSalesReturnsReport(
   workspace: BuildSalesReturnsReportContext,

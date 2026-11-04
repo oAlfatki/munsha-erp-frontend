@@ -1,8 +1,8 @@
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
-import { extras } from "@/features/accounting/public/extensions";
 import type { BuildWarehouseTransfersReportContext } from '@/features/inventory/types/read-models/BuildWarehouseTransfersReportContext';
+import { extras } from '@/features/ledger/public/extensions';
 export function buildWarehouseTransfersReport(
   workspace: BuildWarehouseTransfersReportContext,
   branch: string,

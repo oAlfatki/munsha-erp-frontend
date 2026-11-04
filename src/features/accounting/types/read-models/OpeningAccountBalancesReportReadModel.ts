@@ -1,6 +1,6 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { StockDocument } from "@/features/inventory/public/types/models/StockDocument";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { StockDocument } from '@/features/stock/public/types/models/StockDocument';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface OpeningAccountBalancesReportReadModel {
   entries: Entry[];

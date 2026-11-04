@@ -9,7 +9,9 @@ export function AppProviders({ children, initialUser }: AppProvidersProps) {
   return (
     <QueryClientProvider client={QUERY_CLIENT}>
       <ThemeProvider>
-        <AuthProvider initialUser={initialUser} readSession={getAccount}>{children}</AuthProvider>
+        <AuthProvider initialUser={initialUser} readSession={getAccount}>
+          {children}
+        </AuthProvider>
       </ThemeProvider>
     </QueryClientProvider>
   );

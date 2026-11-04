@@ -1,8 +1,3 @@
-
-
-
-
-
 import { useVoucherDetailsControllerQuery } from '@/features/accounting/queries/useVoucherDetailsControllerQuery';
 import { voucherReport } from '@/features/accounting/services/reports/build-voucher-document';
 import type { VoucherDetailsProps } from '@/features/accounting/types/VoucherDetailsProps';

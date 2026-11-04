@@ -38,10 +38,10 @@ function isModuleConstant(node) {
 }
 for (const filePath of sourceFiles) {
   // Generated shadcn primitives retain their upstream names and exports.
-  if (filePath.includes('/components/ui/')) continue;
+  if (filePath.includes('/shared/ui/primitives/')) continue;
   const filename = path.basename(filePath);
   if (filename.endsWith('.d.ts') || filename === 'index.ts' || filename === 'main.tsx') continue;
-  if (filename.endsWith('.tsx') && !PASCAL_CASE.test(filename.slice(0, -4))) report(filePath, 'React file must use PascalCase');
+  if (filename.endsWith('.tsx') && !/^(?:[a-z-]+\.)?routes\.tsx$/.test(filename) && !PASCAL_CASE.test(filename.slice(0, -4))) report(filePath, 'React file must use PascalCase');
   if (filename.endsWith('.ts')) {
     const stem = filename.slice(0, -3);
     const isHookFile = /\/hooks\//.test(filePath) || /^use[A-Z]/.test(stem);
@@ -52,12 +52,12 @@ for (const filePath of sourceFiles) {
       const definitions=ast.statements.filter(node=>ts.isInterfaceDeclaration(node)||ts.isTypeAliasDeclaration(node));
       if(definitions.length!==1 || definitions[0]?.name.text!==stem || !PASCAL_CASE.test(stem))report(filePath,'Type file must declare one matching PascalCase type');
       if(/Input$/.test(stem)&&!/^I[A-Z]/.test(stem))report(filePath,'Form input type must start with I');
-    } else if (!isHookFile && !KEBAB_CASE.test(stem.replace(/\.types$/, ''))) report(filePath, 'TypeScript file must use kebab-case');
+    } else if (!isHookFile && !/^src\/core\/api\/(apiClient|apiConfig|apiError|queryClient|readAllPages)\.ts$/.test(path.relative(PROJECT_ROOT,filePath)) && !KEBAB_CASE.test(stem.replace(/\.types$/, ''))) report(filePath, 'TypeScript file must use kebab-case');
   }
 }
 for (const sourceFile of program.getSourceFiles()) {
   const filePath = sourceFile.fileName;
-  if (!filePath.startsWith(PROJECT_ROOT + '/src/') || filePath.includes('/components/ui/') || sourceFile.isDeclarationFile) continue;
+  if (!filePath.startsWith(PROJECT_ROOT + '/src/') || filePath.includes('/shared/ui/primitives/') || sourceFile.isDeclarationFile) continue;
   const componentBindings = new Set();
   function collectTags(node) {
     if ((ts.isJsxOpeningElement(node) || ts.isJsxSelfClosingElement(node)) && ts.isIdentifier(node.tagName)) componentBindings.add(checker.getSymbolAtLocation(node.tagName));

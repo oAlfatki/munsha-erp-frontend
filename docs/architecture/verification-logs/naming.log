@@ -1,0 +1,5 @@
+
+> munsha-erp-frontend@1.0.0 check:naming
+> node scripts/check-naming.mjs
+
+Naming check passed for 1395 source files (documented upstream and contract exceptions preserved).

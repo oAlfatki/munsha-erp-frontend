@@ -3,13 +3,13 @@ import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import { authApi } from '@/features/auth/api/auth-api';
 import type { SessionProps } from '@/features/auth/types/SessionProps';
-import { backupPolicyQuery } from "@/features/settings/public/backupPolicy-query";
-import { automaticBackup } from "@/features/settings/public/backup-files";
-import { backupPolicy } from "@/features/settings/public/backup-policy";
+import { automaticBackup } from '@/features/organization/public/backup-files';
+import { backupPolicy } from '@/features/organization/public/backup-policy';
+import { backupPolicyQuery } from '@/features/organization/public/backup-policy-query';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Button } from '@/shared/ui/primitives/button';
 import { useSuspenseQuery } from '@tanstack/react-query';
-import { LogOut,ShieldCheck,UserRound } from 'lucide-react';
+import { LogOut, ShieldCheck, UserRound } from 'lucide-react';
 import { useState } from 'react';
 
 export function SessionMenu({
@@ -22,7 +22,9 @@ export function SessionMenu({
   const [isOpen, setOpen] = useState(false),
     [isLeaving, setLeaving] = useState(false),
     [error, setError] = useState('');
-  const identity=useQueryIdentity(); const {data:backupSettings}=useSuspenseQuery(backupPolicyQuery(identity)); const s={backupSettings};
+  const identity = useQueryIdentity();
+  const { data: backupSettings } = useSuspenseQuery(backupPolicyQuery(identity));
+  const s = { backupSettings };
   const { navigate } = useApplication();
   async function handleLogout() {
     if (isEditing) return;

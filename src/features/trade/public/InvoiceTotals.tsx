@@ -1,6 +1,6 @@
-import { invoiceSummary } from "@/features/trade/public/presentation";
-import type { InvoiceTotalsProps } from "@/features/trade/types/InvoiceTotalsProps";
-import { TotalsFooter } from "@/shared/ui/documents/TotalsFooter";
+import { invoiceSummary } from '@/features/trade/public/presentation';
+import type { InvoiceTotalsProps } from '@/features/trade/types/InvoiceTotalsProps';
+import { TotalsFooter } from '@/shared/ui/documents/TotalsFooter';
 
 export function InvoiceTotals({
   lines,

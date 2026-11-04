@@ -1,6 +1,6 @@
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
 export interface ReturnRemainingContext {
-invoiceReturns?: (Invoice & {
+  invoiceReturns?: (Invoice & {
     sourceId: string;
     sourceLines: number[];
     adjusted?: boolean;

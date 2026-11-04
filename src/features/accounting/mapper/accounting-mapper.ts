@@ -1,31 +1,29 @@
-import type { SaveContactEntryRequest } from '@/features/accounting/types/requests/SaveContactEntryRequest';
-import type { SaveContactVoucherRequest } from '@/features/accounting/types/requests/SaveContactVoucherRequest';
-import type { SaveManualJournalRequest } from '@/features/accounting/types/requests/SaveManualJournalRequest';
-import type { SaveMasterRequest } from '@/features/accounting/types/requests/SaveMasterRequest';
-import type { SaveOperationRequest } from '@/features/accounting/types/requests/SaveOperationRequest';
-import type { SavePeriodActivateRequest } from '@/features/accounting/types/requests/SavePeriodActivateRequest';
-import type { SavePeriodCreateRequest } from '@/features/accounting/types/requests/SavePeriodCreateRequest';
-import type { SavePeriodResetRequest } from '@/features/accounting/types/requests/SavePeriodResetRequest';
-import type { SavePeriodSwitchRequest } from '@/features/accounting/types/requests/SavePeriodSwitchRequest';
-import type { SavePeriodTransferRequest } from '@/features/accounting/types/requests/SavePeriodTransferRequest';
-import type { SavePermissionsRequest } from '@/features/accounting/types/requests/SavePermissionsRequest';
-import type { SaveScreenDraftRequest } from '@/features/accounting/types/requests/SaveScreenDraftRequest';
-import type { SaveVoucherRequest } from '@/features/accounting/types/requests/SaveVoucherRequest';
 import {
-contactEntrySchema,
-contactVoucherSchema,
-manualJournalSchema,
-masterSchema,
-operationSchema,
-periodActivateSchema,
-periodCreateSchema,
-periodResetSchema,
-periodSwitchSchema,
-periodTransferSchema,
-permissionsSchema,
-screenDraftSchema,
-voucherSchema,
-} from "@/features/accounting/public/accounting-schema";
+  contactEntrySchema,
+  contactVoucherSchema,
+  manualJournalSchema,
+  operationSchema,
+  periodActivateSchema,
+  periodCreateSchema,
+  periodResetSchema,
+  periodSwitchSchema,
+  periodTransferSchema,
+  permissionsSchema,
+  screenDraftSchema,
+  voucherSchema,
+} from '@/features/ledger/public/accounting-schema';
+import type { SaveContactEntryRequest } from '@/features/ledger/public/types/requests/SaveContactEntryRequest';
+import type { SaveContactVoucherRequest } from '@/features/ledger/public/types/requests/SaveContactVoucherRequest';
+import type { SaveManualJournalRequest } from '@/features/ledger/public/types/requests/SaveManualJournalRequest';
+import type { SaveOperationRequest } from '@/features/ledger/public/types/requests/SaveOperationRequest';
+import type { SavePeriodActivateRequest } from '@/features/ledger/public/types/requests/SavePeriodActivateRequest';
+import type { SavePeriodCreateRequest } from '@/features/ledger/public/types/requests/SavePeriodCreateRequest';
+import type { SavePeriodResetRequest } from '@/features/ledger/public/types/requests/SavePeriodResetRequest';
+import type { SavePeriodSwitchRequest } from '@/features/ledger/public/types/requests/SavePeriodSwitchRequest';
+import type { SavePeriodTransferRequest } from '@/features/ledger/public/types/requests/SavePeriodTransferRequest';
+import type { SavePermissionsRequest } from '@/features/ledger/public/types/requests/SavePermissionsRequest';
+import type { SaveScreenDraftRequest } from '@/features/ledger/public/types/requests/SaveScreenDraftRequest';
+import type { SaveVoucherRequest } from '@/features/ledger/public/types/requests/SaveVoucherRequest';
 export const mapPermissionsInput = (input: unknown): SavePermissionsRequest =>
   permissionsSchema.parse(input) as SavePermissionsRequest;
 export const mapContactEntryInput = (input: unknown): SaveContactEntryRequest =>
@@ -44,8 +42,7 @@ export const mapPeriodResetInput = (input: unknown): SavePeriodResetRequest =>
   periodResetSchema.parse(input) as SavePeriodResetRequest;
 export const mapScreenDraftInput = (input: unknown): SaveScreenDraftRequest =>
   screenDraftSchema.parse(input) as SaveScreenDraftRequest;
-export const mapMasterInput = (input: unknown): SaveMasterRequest =>
-  masterSchema.parse(input) as SaveMasterRequest;
+
 export const mapManualJournalInput = (input: unknown): SaveManualJournalRequest =>
   manualJournalSchema.parse(input) as SaveManualJournalRequest;
 export const mapOperationInput = (input: unknown): SaveOperationRequest =>

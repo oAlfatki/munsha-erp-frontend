@@ -58,7 +58,9 @@ axiosInstance.interceptors.response.use(
   },
 );
 async function request<TData>(options: AxiosRequestConfig): Promise<TData> {
-  const { data, status } = await axiosInstance.request<TData | Result<TData> | ProblemDetails>(options);
+  const { data, status } = await axiosInstance.request<TData | Result<TData> | ProblemDetails>(
+    options,
+  );
   if (data && typeof data === 'object' && 'isSuccess' in data) {
     if ((data as { isSuccess: boolean }).isSuccess === false)
       throw new ApiError(data as ProblemDetails, status >= 400 ? status : 500);
@@ -69,9 +71,23 @@ async function request<TData>(options: AxiosRequestConfig): Promise<TData> {
 
 /** Feature endpoints choose verbs; one transport owns envelopes, cookies and errors. */
 export const apiClient = {
- get: <TResponse=unknown>(url:string,config?:AxiosRequestConfig)=>request<TResponse>({...config,url,method:'GET'}),
- post: <TResponse=unknown,TBody=unknown>(url:string,data:TBody,config?:AxiosRequestConfig)=>request<TResponse>({...config,url,data,method:'POST'}),
- put: <TResponse=unknown,TBody=unknown>(url:string,data:TBody,config?:AxiosRequestConfig)=>request<TResponse>({...config,url,data,method:'PUT'}),
- patch: <TResponse=unknown,TBody=unknown>(url:string,data:TBody,config?:AxiosRequestConfig)=>request<TResponse>({...config,url,data,method:'PATCH'}),
- delete: <TResponse=unknown>(url:string,config?:AxiosRequestConfig)=>request<TResponse>({...config,url,method:'DELETE'}),
+  get: <TResponse = unknown>(url: string, config?: AxiosRequestConfig) =>
+    request<TResponse>({ ...config, url, method: 'GET' }),
+  post: <TResponse = unknown, TBody = unknown>(
+    url: string,
+    data: TBody,
+    config?: AxiosRequestConfig,
+  ) => request<TResponse>({ ...config, url, data, method: 'POST' }),
+  put: <TResponse = unknown, TBody = unknown>(
+    url: string,
+    data: TBody,
+    config?: AxiosRequestConfig,
+  ) => request<TResponse>({ ...config, url, data, method: 'PUT' }),
+  patch: <TResponse = unknown, TBody = unknown>(
+    url: string,
+    data: TBody,
+    config?: AxiosRequestConfig,
+  ) => request<TResponse>({ ...config, url, data, method: 'PATCH' }),
+  delete: <TResponse = unknown>(url: string, config?: AxiosRequestConfig) =>
+    request<TResponse>({ ...config, url, method: 'DELETE' }),
 };

@@ -1,5 +1,5 @@
-import type { Branch } from "@/features/settings/public/types/models/Branch";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface CurrencyDocumentsReportReadModel {
   currencies: {

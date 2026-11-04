@@ -1,8 +1,3 @@
-
-
-
-
-
 import { useSuppliersProjectionQuery } from '@/features/suppliers/queries/useSuppliersProjectionQuery';
 export function useSuppliersProjection() {
   const { state, loading: isLoading, error } = useSuppliersProjectionQuery();

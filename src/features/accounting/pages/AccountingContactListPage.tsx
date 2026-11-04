@@ -1,6 +1,10 @@
-import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
-import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
-const DEFINITION = {title:'حسابات الدائنين والمدينين المتنوعين',note:'بطاقة طرف متنوع مرتبطة بحساب فرعي للأصول أو الالتزامات. إثبات الذمة والسداد من شاشة حركة الأطراف.',collection:'contacts',fields:[
+import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
+import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+const DEFINITION = {
+  title: 'حسابات الدائنين والمدينين المتنوعين',
+  note: 'بطاقة طرف متنوع مرتبطة بحساب فرعي للأصول أو الالتزامات. إثبات الذمة والسداد من شاشة حركة الأطراف.',
+  collection: 'contacts',
+  fields: [
     {
       key: 'name',
       label: 'اسم الحساب / الطرف',
@@ -41,14 +45,13 @@ const DEFINITION = {title:'حسابات الدائنين والمدينين ال
       type: 'number',
       required: false,
     },
-  ]} satisfies MasterFormDefinition;
+  ],
+} satisfies MasterFormDefinition;
 /** حسابات الدائنين والمدينين المتنوعين — feature-owned route content. */
 export default function AccountingContactListPage() {
-  
-
   return (
     <section className="screen-page">
-          <MasterScreen screen={DEFINITION} />
-        </section>
+      <MasterScreen screen={DEFINITION} />
+    </section>
   );
 }

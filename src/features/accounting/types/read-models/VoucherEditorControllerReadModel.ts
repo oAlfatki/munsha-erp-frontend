@@ -1,9 +1,9 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { Party } from "@/features/parties/public/types/models/Party";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
-import type { PersistedSystemSettings } from "@/features/settings/public/types/models/PersistedSystemSettings";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { PersistedSystemSettings } from '@/features/organization/public/types/models/PersistedSystemSettings';
+import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface VoucherEditorControllerReadModel {
   organization: {

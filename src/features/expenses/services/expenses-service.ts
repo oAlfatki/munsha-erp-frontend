@@ -1,15 +1,15 @@
 import type { CommandContext } from '@/core/types/CommandContext';
 import {
-submitExpense,
-submitExpenseConsume,
-submitExpensePayment,
-submitExpenseSave,
+  submitExpense,
+  submitExpenseConsume,
+  submitExpensePayment,
+  submitExpenseSave,
 } from '@/features/expenses/api/expenses-api';
 import {
-mapExpenseConsumeInput,
-mapExpenseInput,
-mapExpensePaymentInput,
-mapExpenseSaveInput,
+  mapExpenseConsumeInput,
+  mapExpenseInput,
+  mapExpensePaymentInput,
+  mapExpenseSaveInput,
 } from '@/features/expenses/mapper/expenses-mapper';
 export const saveExpense = async (
   input: unknown,

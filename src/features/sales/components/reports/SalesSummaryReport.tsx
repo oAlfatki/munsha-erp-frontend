@@ -1,17 +1,13 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
-import { exportDocument,printReport } from '@/core/reporting/service';
+import { exportDocument, printReport } from '@/core/reporting/service';
 import type { ReportDocument } from '@/core/types/ReportDocument';
 import { amountInWords } from '@/core/utils/amount-in-words';
 import { fmt } from '@/core/utils/formatters';
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
 import { useSalesSummaryReportQuery } from '@/features/sales/queries/useSalesSummaryReportQuery';
-import { tradeSummary } from "@/features/trade/public/trade-summary";
-import type { TradeFilters } from "@/features/trade/public/types/models/TradeFilters";
+import { tradeSummary } from '@/features/trade/public/trade-summary';
+import type { TradeFilters } from '@/features/trade/public/types/models/TradeFilters';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
@@ -20,7 +16,7 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Download,Eye,Printer } from 'lucide-react';
+import { Download, Eye, Printer } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 export function SalesSummaryReport() {

@@ -1,7 +1,7 @@
 import type { AuthProviderProps } from '@/core/types/AuthProviderProps';
 import type { Identity } from '@/core/types/Identity';
 import { useQuery } from '@tanstack/react-query';
-import { createContext,useContext,useEffect,useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 const Context = createContext<{
   user: Identity | null;
   loading: boolean;

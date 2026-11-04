@@ -1,21 +1,15 @@
-import { ROUTES } from '@/core/config/navigation-paths';
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { useTransfer } from '@/features/inventory/hooks/useTransfer';
 import { useInventoryControllerQuery } from '@/features/inventory/queries/useInventoryControllerQuery';
-import { transferSchema } from "@/features/inventory/public/inventory-schema";
-import { systemSettings } from "@/features/settings/public/system-settings";
+import { systemSettings } from '@/features/organization/public/system-settings';
+import { transferSchema } from '@/features/stock/public/inventory-schema';
 import { useState } from 'react';
-export function useInventoryController() {
-  const { state: s, branchId, busy: isBusy, navigate, view } = useInventoryControllerQuery();
+export function useInventoryController(initialTab: 'movements' | 'balances' = 'balances') {
+  const { state: s, branchId, busy: isBusy, navigate } = useInventoryControllerQuery();
   const transferMutationRequest = useTransfer(),
     transferForm = useValidatedForm(transferSchema, transferMutationRequest.execute),
     transferMutation = { ...transferMutationRequest, execute: transferForm.submit };
-  const [tab, setTab] = useState(view === ROUTES.INVENTORY_MOVEMENTS ? 'movements' : 'balances'),
+  const [tab, setTab] = useState<string>(initialTab),
     [searchQuery, setQ] = useState(''),
     [wh, setWh] = useState('all'),
     [isShowUnits, setShowUnits] = useState(false),

@@ -1,9 +1,10 @@
-
-
 import { useHistoricalCostReportView } from '@/features/inventory/hooks/useHistoricalCostReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function HistoricalCostReport() {
- const model=useHistoricalCostReportView({title:"مراجعة تكلفة الصنف التاريخية",summaryColumns:[]});
+  const model = useHistoricalCostReportView({
+    title: 'مراجعة تكلفة الصنف التاريخية',
+    summaryColumns: [],
+  });
 
   return (
     <ReportViewer

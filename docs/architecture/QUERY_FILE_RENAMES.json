@@ -1,0 +1,58 @@
+[
+  {
+    "from": "src/features/trade/public/saleReturns-query.ts",
+    "to": "src/features/trade/public/sale-returns-query.ts"
+  },
+  {
+    "from": "src/features/trade/public/saleInvoices-query.ts",
+    "to": "src/features/trade/public/sale-invoices-query.ts"
+  },
+  {
+    "from": "src/features/trade/public/purchaseInvoices-query.ts",
+    "to": "src/features/trade/public/purchase-invoices-query.ts"
+  },
+  {
+    "from": "src/features/trade/public/purchaseReturns-query.ts",
+    "to": "src/features/trade/public/purchase-returns-query.ts"
+  },
+  {
+    "from": "src/features/sales/public/salesTargets-query.ts",
+    "to": "src/features/sales/public/sales-targets-query.ts"
+  },
+  {
+    "from": "src/features/organization/public/backupPolicy-query.ts",
+    "to": "src/features/organization/public/backup-policy-query.ts"
+  },
+  {
+    "from": "src/features/stock/public/stockDocuments-query.ts",
+    "to": "src/features/stock/public/stock-documents-query.ts"
+  },
+  {
+    "from": "src/features/stock/public/stockCounts-query.ts",
+    "to": "src/features/stock/public/stock-counts-query.ts"
+  },
+  {
+    "from": "src/features/stock/public/unitCategories-query.ts",
+    "to": "src/features/stock/public/unit-categories-query.ts"
+  },
+  {
+    "from": "src/features/stock/public/itemGroups-query.ts",
+    "to": "src/features/stock/public/item-groups-query.ts"
+  },
+  {
+    "from": "src/features/personnel/public/salaryPayments-query.ts",
+    "to": "src/features/personnel/public/salary-payments-query.ts"
+  },
+  {
+    "from": "src/features/parties/public/partyGroups-query.ts",
+    "to": "src/features/parties/public/party-groups-query.ts"
+  },
+  {
+    "from": "src/features/ledger/public/expenseTypes-query.ts",
+    "to": "src/features/ledger/public/expense-types-query.ts"
+  },
+  {
+    "from": "src/features/ledger/public/expenseDocuments-query.ts",
+    "to": "src/features/ledger/public/expense-documents-query.ts"
+  }
+]

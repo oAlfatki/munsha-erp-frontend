@@ -1,0 +1,1722 @@
+[
+  {
+    "from": "src/features/accounting/public/account-balances.ts",
+    "to": "src/features/ledger/public/account-balances.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/accounting-schema.ts",
+    "to": "src/features/ledger/public/accounting-schema.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/accounts-query.ts",
+    "to": "src/features/ledger/public/accounts-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/acquisitions-query.ts",
+    "to": "src/features/ledger/public/acquisitions-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/annual-books.ts",
+    "to": "src/features/ledger/public/annual-books.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/assets-query.ts",
+    "to": "src/features/ledger/public/assets-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/books-query.ts",
+    "to": "src/features/ledger/public/books-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/cash-query.ts",
+    "to": "src/features/ledger/public/cash-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/cash.ts",
+    "to": "src/features/ledger/public/cash.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/contacts-query.ts",
+    "to": "src/features/ledger/public/contacts-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/currencies-query.ts",
+    "to": "src/features/ledger/public/currencies-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/depreciation-query.ts",
+    "to": "src/features/ledger/public/depreciation-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/extensions.ts",
+    "to": "src/features/ledger/public/extensions.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/fiscal-range.ts",
+    "to": "src/features/ledger/public/fiscal-range.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/journals-query.ts",
+    "to": "src/features/ledger/public/journals-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/master-records.ts",
+    "to": "src/features/ledger/public/master-records.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/read-api.ts",
+    "to": "src/features/ledger/public/read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/types/models/AnnualBooks.ts",
+    "to": "src/features/ledger/public/types/models/AnnualBooks.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/types/models/DocumentKind.ts",
+    "to": "src/features/ledger/public/types/models/DocumentKind.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/types/models/Entry.ts",
+    "to": "src/features/ledger/public/types/models/Entry.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/types/models/ExtensionData.ts",
+    "to": "src/features/ledger/public/types/models/ExtensionData.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/types/models/OperationRecord.ts",
+    "to": "src/features/ledger/public/types/models/OperationRecord.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/validate-period.ts",
+    "to": "src/features/ledger/public/validate-period.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/queries/vouchers-query.ts",
+    "to": "src/features/ledger/queries/vouchers-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/models/AnnualBook.ts",
+    "to": "src/features/ledger/types/models/AnnualBook.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/models/AssetForm.ts",
+    "to": "src/features/ledger/types/models/AssetForm.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/models/BookState.ts",
+    "to": "src/features/ledger/types/models/BookState.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/models/JournalLine.ts",
+    "to": "src/features/ledger/types/models/JournalLine.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/models/MasterRecord.ts",
+    "to": "src/features/ledger/types/models/MasterRecord.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/models/VoucherDocument.ts",
+    "to": "src/features/ledger/types/models/VoucherDocument.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/models/VoucherLine.ts",
+    "to": "src/features/ledger/types/models/VoucherLine.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingAccountsByCodeRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingAccountsByCodeRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingAssetAcquisitionsByIdRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingAssetAcquisitionsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingAssetsByIdRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingAssetsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingCashAccountsByIdRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingCashAccountsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingContactsByIdRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingContactsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingCurrenciesByCodeRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingCurrenciesByCodeRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingDepreciationByIdRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingDepreciationByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingFinancialBooksByIdReadinessRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingFinancialBooksByIdReadinessRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingFinancialBooksByIdRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingFinancialBooksByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingJournalsByIdRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingJournalsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/GetAccountingVouchersByIdRequest.ts",
+    "to": "src/features/ledger/types/requests/GetAccountingVouchersByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SaveContactEntryRequest.ts",
+    "to": "src/features/ledger/types/requests/SaveContactEntryRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SaveContactVoucherRequest.ts",
+    "to": "src/features/ledger/types/requests/SaveContactVoucherRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SaveManualJournalRequest.ts",
+    "to": "src/features/ledger/types/requests/SaveManualJournalRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SaveMasterRequest.ts",
+    "to": "src/features/ledger/types/requests/SaveMasterRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SaveOperationRequest.ts",
+    "to": "src/features/ledger/types/requests/SaveOperationRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SavePeriodActivateRequest.ts",
+    "to": "src/features/ledger/types/requests/SavePeriodActivateRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SavePeriodCreateRequest.ts",
+    "to": "src/features/ledger/types/requests/SavePeriodCreateRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SavePeriodResetRequest.ts",
+    "to": "src/features/ledger/types/requests/SavePeriodResetRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SavePeriodSwitchRequest.ts",
+    "to": "src/features/ledger/types/requests/SavePeriodSwitchRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SavePeriodTransferRequest.ts",
+    "to": "src/features/ledger/types/requests/SavePeriodTransferRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SavePermissionsRequest.ts",
+    "to": "src/features/ledger/types/requests/SavePermissionsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SaveScreenDraftRequest.ts",
+    "to": "src/features/ledger/types/requests/SaveScreenDraftRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SaveVoucherRequest.ts",
+    "to": "src/features/ledger/types/requests/SaveVoucherRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingAccountsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingAccountsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingAssetAcquisitionsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingAssetAcquisitionsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingAssetsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingAssetsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingCashAccountsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingCashAccountsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingContactsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingContactsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingCurrenciesRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingCurrenciesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingDepreciationRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingDepreciationRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingExchangeRatesRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingExchangeRatesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingFinancialBooksByIdClosingAccountsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingFinancialBooksByIdClosingAccountsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingFinancialBooksByIdClosingStockRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingFinancialBooksByIdClosingStockRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingFinancialBooksRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingFinancialBooksRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingJournalsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingJournalsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchAccountingVouchersRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchAccountingVouchersRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchReportsAccountingAssetsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchReportsAccountingAssetsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchReportsAccountingContactLedgerRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchReportsAccountingContactLedgerRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchReportsAccountingTaxRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchReportsAccountingTaxRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
+    "to": "src/features/ledger/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/AccountListResponse.ts",
+    "to": "src/features/ledger/types/responses/AccountListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/AccountResponse.ts",
+    "to": "src/features/ledger/types/responses/AccountResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/AccountStatementResponse.ts",
+    "to": "src/features/ledger/types/responses/AccountStatementResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/AssetListResponse.ts",
+    "to": "src/features/ledger/types/responses/AssetListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/AssetResponse.ts",
+    "to": "src/features/ledger/types/responses/AssetResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/AssetsReport.ts",
+    "to": "src/features/ledger/types/responses/AssetsReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/AssetsReportRow.ts",
+    "to": "src/features/ledger/types/responses/AssetsReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/BookReadinessResponse.ts",
+    "to": "src/features/ledger/types/responses/BookReadinessResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/CashAccountListResponse.ts",
+    "to": "src/features/ledger/types/responses/CashAccountListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/CashAccountResponse.ts",
+    "to": "src/features/ledger/types/responses/CashAccountResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/CashMovementsReport.ts",
+    "to": "src/features/ledger/types/responses/CashMovementsReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/CashMovementsReportRow.ts",
+    "to": "src/features/ledger/types/responses/CashMovementsReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/ContactListResponse.ts",
+    "to": "src/features/ledger/types/responses/ContactListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/ContactResponse.ts",
+    "to": "src/features/ledger/types/responses/ContactResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/CurrencyListResponse.ts",
+    "to": "src/features/ledger/types/responses/CurrencyListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/CurrencyResponse.ts",
+    "to": "src/features/ledger/types/responses/CurrencyResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/FinancialBookListResponse.ts",
+    "to": "src/features/ledger/types/responses/FinancialBookListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/FinancialBookResponse.ts",
+    "to": "src/features/ledger/types/responses/FinancialBookResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/ForeignCurrencyReport.ts",
+    "to": "src/features/ledger/types/responses/ForeignCurrencyReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/ForeignCurrencyReportRow.ts",
+    "to": "src/features/ledger/types/responses/ForeignCurrencyReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/FxRateListResponse.ts",
+    "to": "src/features/ledger/types/responses/FxRateListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/FxRateResponse.ts",
+    "to": "src/features/ledger/types/responses/FxRateResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/JournalEntryListResponse.ts",
+    "to": "src/features/ledger/types/responses/JournalEntryListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/JournalEntryResponse.ts",
+    "to": "src/features/ledger/types/responses/JournalEntryResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/OpeningBalancesReport.ts",
+    "to": "src/features/ledger/types/responses/OpeningBalancesReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/OpeningBalancesReportRow.ts",
+    "to": "src/features/ledger/types/responses/OpeningBalancesReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/StatementRow.ts",
+    "to": "src/features/ledger/types/responses/StatementRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/TaxReport.ts",
+    "to": "src/features/ledger/types/responses/TaxReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/TaxReportRow.ts",
+    "to": "src/features/ledger/types/responses/TaxReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/TrialBalanceReport.ts",
+    "to": "src/features/ledger/types/responses/TrialBalanceReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/TrialBalanceReportRow.ts",
+    "to": "src/features/ledger/types/responses/TrialBalanceReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/VoucherListResponse.ts",
+    "to": "src/features/ledger/types/responses/VoucherListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/responses/VoucherResponse.ts",
+    "to": "src/features/ledger/types/responses/VoucherResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/api/backups.ts",
+    "to": "src/features/organization/api/backups.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/api/read-api.ts",
+    "to": "src/features/organization/api/read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/backup-files.ts",
+    "to": "src/features/organization/public/backup-files.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/backup-policy.ts",
+    "to": "src/features/organization/public/backup-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/backupPolicy-query.ts",
+    "to": "src/features/organization/public/backupPolicy-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/branches-query.ts",
+    "to": "src/features/organization/public/branches-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/company-query.ts",
+    "to": "src/features/organization/public/company-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/contact-voucher-policy.ts",
+    "to": "src/features/organization/public/contact-voucher-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/delete-draft-policy.ts",
+    "to": "src/features/organization/public/delete-draft-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/expense-payment-policy.ts",
+    "to": "src/features/organization/public/expense-payment-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/expense-save-policy.ts",
+    "to": "src/features/organization/public/expense-save-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/invoice-policy.ts",
+    "to": "src/features/organization/public/invoice-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/operation-policy.ts",
+    "to": "src/features/organization/public/operation-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/settings-schema.ts",
+    "to": "src/features/organization/public/settings-schema.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/stock-document-policy.ts",
+    "to": "src/features/organization/public/stock-document-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/system-query.ts",
+    "to": "src/features/organization/public/system-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/system-settings.ts",
+    "to": "src/features/organization/public/system-settings.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/transfer-policy.ts",
+    "to": "src/features/organization/public/transfer-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/types/models/Branch.ts",
+    "to": "src/features/organization/public/types/models/Branch.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/types/models/EmployeeFile.ts",
+    "to": "src/features/organization/public/types/models/EmployeeFile.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/types/models/PersistedSystemSettings.ts",
+    "to": "src/features/organization/public/types/models/PersistedSystemSettings.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/voucher-policy.ts",
+    "to": "src/features/organization/public/voucher-policy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/queries/branding-query.ts",
+    "to": "src/features/organization/queries/branding-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/BackupArchive.ts",
+    "to": "src/features/organization/types/models/BackupArchive.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/BackupFolder.ts",
+    "to": "src/features/organization/types/models/BackupFolder.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/BackupPolicy.ts",
+    "to": "src/features/organization/types/models/BackupPolicy.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/BackupRow.ts",
+    "to": "src/features/organization/types/models/BackupRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/BranchDefaults.ts",
+    "to": "src/features/organization/types/models/BranchDefaults.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/GeneralSettings.ts",
+    "to": "src/features/organization/types/models/GeneralSettings.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/Row.ts",
+    "to": "src/features/organization/types/models/Row.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/SystemSettings.ts",
+    "to": "src/features/organization/types/models/SystemSettings.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/models/Tab.ts",
+    "to": "src/features/organization/types/models/Tab.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetBranchesByIdRequest.ts",
+    "to": "src/features/organization/types/requests/GetBranchesByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsBackupPolicyRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsBackupPolicyRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsBrandingRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsBrandingRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsCompanyRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsCompanyRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsImportTemplatesByKindRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsImportTemplatesByKindRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsServiceStatusRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsServiceStatusRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemAccountingRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemAccountingRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemBranchesRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemBranchesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemCompanyRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemCompanyRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemDocumentsRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemDocumentsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemExpensesRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemExpensesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemInventoryRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemInventoryRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemPurchasesRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemPurchasesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetSettingsSystemSalesRequest.ts",
+    "to": "src/features/organization/types/requests/GetSettingsSystemSalesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/GetUiDraftsByKeyRequest.ts",
+    "to": "src/features/organization/types/requests/GetUiDraftsByKeyRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/ImportMastersRequest.ts",
+    "to": "src/features/organization/types/requests/ImportMastersRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SaveBackupSettingsRequest.ts",
+    "to": "src/features/organization/types/requests/SaveBackupSettingsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SaveBranchRequest.ts",
+    "to": "src/features/organization/types/requests/SaveBranchRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SaveBrandingRequest.ts",
+    "to": "src/features/organization/types/requests/SaveBrandingRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SaveCurrencyRequest.ts",
+    "to": "src/features/organization/types/requests/SaveCurrencyRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SaveGeneralSettingsRequest.ts",
+    "to": "src/features/organization/types/requests/SaveGeneralSettingsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SaveOrganizationRequest.ts",
+    "to": "src/features/organization/types/requests/SaveOrganizationRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SavePreferencesRequest.ts",
+    "to": "src/features/organization/types/requests/SavePreferencesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SaveSystemSettingsRequest.ts",
+    "to": "src/features/organization/types/requests/SaveSystemSettingsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SearchBranchesRequest.ts",
+    "to": "src/features/organization/types/requests/SearchBranchesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SearchLookupsByResourceRequest.ts",
+    "to": "src/features/organization/types/requests/SearchLookupsByResourceRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/requests/SetupCompleteRequest.ts",
+    "to": "src/features/organization/types/requests/SetupCompleteRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/BackupPolicyResponse.ts",
+    "to": "src/features/organization/types/responses/BackupPolicyResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/BackupReply.ts",
+    "to": "src/features/organization/types/responses/BackupReply.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/BranchListResponse.ts",
+    "to": "src/features/organization/types/responses/BranchListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/BranchResponse.ts",
+    "to": "src/features/organization/types/responses/BranchResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/BrandingResponse.ts",
+    "to": "src/features/organization/types/responses/BrandingResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/DraftResponse.ts",
+    "to": "src/features/organization/types/responses/DraftResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/ImportTemplateResponse.ts",
+    "to": "src/features/organization/types/responses/ImportTemplateResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/LookupOption.ts",
+    "to": "src/features/organization/types/responses/LookupOption.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/LookupOptionPage.ts",
+    "to": "src/features/organization/types/responses/LookupOptionPage.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/OrganizationResponse.ts",
+    "to": "src/features/organization/types/responses/OrganizationResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/ServiceStatusResponse.ts",
+    "to": "src/features/organization/types/responses/ServiceStatusResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsAccountingResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsAccountingResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsBranchesResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsBranchesResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsCompanyResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsCompanyResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsDocumentsResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsDocumentsResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsExpensesResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsExpensesResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsInventoryResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsInventoryResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsPurchasesResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsPurchasesResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/responses/SystemSettingsSalesResponse.ts",
+    "to": "src/features/organization/types/responses/SystemSettingsSalesResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/api/inventory-api.ts",
+    "to": "src/features/stock/api/inventory-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/mapper/inventory-mapper.ts",
+    "to": "src/features/stock/mapper/inventory-mapper.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/build-stock-document.ts",
+    "to": "src/features/stock/public/build-stock-document.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/inventory-schema.ts",
+    "to": "src/features/stock/public/inventory-schema.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/itemGroups-query.ts",
+    "to": "src/features/stock/public/itemGroups-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/items-query.ts",
+    "to": "src/features/stock/public/items-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/movements-query.ts",
+    "to": "src/features/stock/public/movements-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/read-api.ts",
+    "to": "src/features/stock/public/read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/stockCounts-query.ts",
+    "to": "src/features/stock/public/stockCounts-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/stockDocuments-query.ts",
+    "to": "src/features/stock/public/stockDocuments-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/stocks-query.ts",
+    "to": "src/features/stock/public/stocks-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/types/models/Movement.ts",
+    "to": "src/features/stock/public/types/models/Movement.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/types/models/OpeningAccountLine.ts",
+    "to": "src/features/stock/public/types/models/OpeningAccountLine.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/types/models/PriceFilters.ts",
+    "to": "src/features/stock/public/types/models/PriceFilters.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/types/models/Product.ts",
+    "to": "src/features/stock/public/types/models/Product.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/types/models/Stock.ts",
+    "to": "src/features/stock/public/types/models/Stock.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/types/models/StockDocument.ts",
+    "to": "src/features/stock/public/types/models/StockDocument.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/types/models/Warehouse.ts",
+    "to": "src/features/stock/public/types/models/Warehouse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/types/responses/InventoryValuationReport.ts",
+    "to": "src/features/stock/public/types/responses/InventoryValuationReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/unitCategories-query.ts",
+    "to": "src/features/stock/public/unitCategories-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/units-query.ts",
+    "to": "src/features/stock/public/units-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/useStockDocument.ts",
+    "to": "src/features/stock/public/useStockDocument.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/public/warehouses-query.ts",
+    "to": "src/features/stock/public/warehouses-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/queries/useStockDocumentValidationData.ts",
+    "to": "src/features/stock/queries/useStockDocumentValidationData.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/services/inventory-service.ts",
+    "to": "src/features/stock/services/inventory-service.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/models/CostFilters.ts",
+    "to": "src/features/stock/types/models/CostFilters.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/models/StockDocumentLine.ts",
+    "to": "src/features/stock/types/models/StockDocumentLine.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/models/Unit.ts",
+    "to": "src/features/stock/types/models/Unit.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/DeleteStockDraftRequest.ts",
+    "to": "src/features/stock/types/requests/DeleteStockDraftRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/GetInventoryItemGroupsByIdRequest.ts",
+    "to": "src/features/stock/types/requests/GetInventoryItemGroupsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/GetInventoryItemsByIdRequest.ts",
+    "to": "src/features/stock/types/requests/GetInventoryItemsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/GetInventoryItemsByIdUnitsRequest.ts",
+    "to": "src/features/stock/types/requests/GetInventoryItemsByIdUnitsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/GetInventoryStockCountsByIdRequest.ts",
+    "to": "src/features/stock/types/requests/GetInventoryStockCountsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/GetInventoryStockDocumentsByIdRequest.ts",
+    "to": "src/features/stock/types/requests/GetInventoryStockDocumentsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/GetInventoryUnitCategoriesByIdRequest.ts",
+    "to": "src/features/stock/types/requests/GetInventoryUnitCategoriesByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/GetInventoryUnitsByIdRequest.ts",
+    "to": "src/features/stock/types/requests/GetInventoryUnitsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/GetInventoryWarehousesByIdRequest.ts",
+    "to": "src/features/stock/types/requests/GetInventoryWarehousesByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SavePriceListRequest.ts",
+    "to": "src/features/stock/types/requests/SavePriceListRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SaveProductRequest.ts",
+    "to": "src/features/stock/types/requests/SaveProductRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SaveStockDocumentRequest.ts",
+    "to": "src/features/stock/types/requests/SaveStockDocumentRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SaveTransferRequest.ts",
+    "to": "src/features/stock/types/requests/SaveTransferRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SaveWarehouseRequest.ts",
+    "to": "src/features/stock/types/requests/SaveWarehouseRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryBalancesRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryBalancesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryItemGroupsRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryItemGroupsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryItemsRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryItemsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryMovementsRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryMovementsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryStockCountsRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryStockCountsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryStockDocumentsRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryStockDocumentsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryUnitCategoriesRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryUnitCategoriesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryUnitsRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryUnitsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchInventoryWarehousesRequest.ts",
+    "to": "src/features/stock/types/requests/SearchInventoryWarehousesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
+    "to": "src/features/stock/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
+    "to": "src/features/stock/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
+    "to": "src/features/stock/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchReportsInventoryPricesRequest.ts",
+    "to": "src/features/stock/types/requests/SearchReportsInventoryPricesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchReportsInventoryReorderRequest.ts",
+    "to": "src/features/stock/types/requests/SearchReportsInventoryReorderRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchReportsInventoryStagnantRequest.ts",
+    "to": "src/features/stock/types/requests/SearchReportsInventoryStagnantRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchReportsInventoryTransfersRequest.ts",
+    "to": "src/features/stock/types/requests/SearchReportsInventoryTransfersRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchReportsInventoryValuationRequest.ts",
+    "to": "src/features/stock/types/requests/SearchReportsInventoryValuationRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/requests/SearchSearchItemsRequest.ts",
+    "to": "src/features/stock/types/requests/SearchSearchItemsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/AdjustmentsReport.ts",
+    "to": "src/features/stock/types/responses/AdjustmentsReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/AdjustmentsReportRow.ts",
+    "to": "src/features/stock/types/responses/AdjustmentsReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/HistoricalCostReport.ts",
+    "to": "src/features/stock/types/responses/HistoricalCostReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/HistoricalCostReportRow.ts",
+    "to": "src/features/stock/types/responses/HistoricalCostReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/InventoryMovementListResponse.ts",
+    "to": "src/features/stock/types/responses/InventoryMovementListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/InventoryMovementResponse.ts",
+    "to": "src/features/stock/types/responses/InventoryMovementResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/InventoryValuationReportRow.ts",
+    "to": "src/features/stock/types/responses/InventoryValuationReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/ItemGroupListResponse.ts",
+    "to": "src/features/stock/types/responses/ItemGroupListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/ItemGroupResponse.ts",
+    "to": "src/features/stock/types/responses/ItemGroupResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/ItemListResponse.ts",
+    "to": "src/features/stock/types/responses/ItemListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/ItemResponse.ts",
+    "to": "src/features/stock/types/responses/ItemResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/OpeningStockReport.ts",
+    "to": "src/features/stock/types/responses/OpeningStockReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/OpeningStockReportRow.ts",
+    "to": "src/features/stock/types/responses/OpeningStockReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/PricesReport.ts",
+    "to": "src/features/stock/types/responses/PricesReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/PricesReportRow.ts",
+    "to": "src/features/stock/types/responses/PricesReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/ReorderReport.ts",
+    "to": "src/features/stock/types/responses/ReorderReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/ReorderReportRow.ts",
+    "to": "src/features/stock/types/responses/ReorderReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/SearchHitListResponse.ts",
+    "to": "src/features/stock/types/responses/SearchHitListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/SearchHitResponse.ts",
+    "to": "src/features/stock/types/responses/SearchHitResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/StagnantReport.ts",
+    "to": "src/features/stock/types/responses/StagnantReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/StagnantReportRow.ts",
+    "to": "src/features/stock/types/responses/StagnantReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/StockBalanceListResponse.ts",
+    "to": "src/features/stock/types/responses/StockBalanceListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/StockBalanceResponse.ts",
+    "to": "src/features/stock/types/responses/StockBalanceResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/StockDocumentListResponse.ts",
+    "to": "src/features/stock/types/responses/StockDocumentListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/StockDocumentResponse.ts",
+    "to": "src/features/stock/types/responses/StockDocumentResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/TransfersReport.ts",
+    "to": "src/features/stock/types/responses/TransfersReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/TransfersReportRow.ts",
+    "to": "src/features/stock/types/responses/TransfersReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/UnitCategoryListResponse.ts",
+    "to": "src/features/stock/types/responses/UnitCategoryListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/UnitCategoryResponse.ts",
+    "to": "src/features/stock/types/responses/UnitCategoryResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/UnitListResponse.ts",
+    "to": "src/features/stock/types/responses/UnitListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/UnitResponse.ts",
+    "to": "src/features/stock/types/responses/UnitResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/WarehouseListResponse.ts",
+    "to": "src/features/stock/types/responses/WarehouseListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/types/responses/WarehouseResponse.ts",
+    "to": "src/features/stock/types/responses/WarehouseResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/inventory/validation/validate-inventory-command.ts",
+    "to": "src/features/stock/validation/validate-inventory-command.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/public/advances-query.ts",
+    "to": "src/features/personnel/public/advances-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/public/employees-query.ts",
+    "to": "src/features/personnel/public/employees-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/public/payroll-query.ts",
+    "to": "src/features/personnel/public/payroll-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/public/read-api.ts",
+    "to": "src/features/personnel/public/read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/public/salaryPayments-query.ts",
+    "to": "src/features/personnel/public/salaryPayments-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/public/types/models/Employee.ts",
+    "to": "src/features/personnel/public/types/models/Employee.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/public/types/responses/OperationListResponse.ts",
+    "to": "src/features/personnel/public/types/responses/OperationListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/public/types/responses/OperationResponse.ts",
+    "to": "src/features/personnel/public/types/responses/OperationResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/GetEmployeesAdvancesByIdRequest.ts",
+    "to": "src/features/personnel/types/requests/GetEmployeesAdvancesByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/GetEmployeesByIdRequest.ts",
+    "to": "src/features/personnel/types/requests/GetEmployeesByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/GetEmployeesPayrollAccrualsByIdRequest.ts",
+    "to": "src/features/personnel/types/requests/GetEmployeesPayrollAccrualsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/GetEmployeesSalaryPaymentsByIdRequest.ts",
+    "to": "src/features/personnel/types/requests/GetEmployeesSalaryPaymentsByIdRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/SaveEmployeeDeleteRequest.ts",
+    "to": "src/features/personnel/types/requests/SaveEmployeeDeleteRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/SaveEmployeeRequest.ts",
+    "to": "src/features/personnel/types/requests/SaveEmployeeRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/SearchEmployeesAdvancesRequest.ts",
+    "to": "src/features/personnel/types/requests/SearchEmployeesAdvancesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/SearchEmployeesPayrollAccrualsRequest.ts",
+    "to": "src/features/personnel/types/requests/SearchEmployeesPayrollAccrualsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/SearchEmployeesRequest.ts",
+    "to": "src/features/personnel/types/requests/SearchEmployeesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/SearchEmployeesSalaryPaymentsRequest.ts",
+    "to": "src/features/personnel/types/requests/SearchEmployeesSalaryPaymentsRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
+    "to": "src/features/personnel/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/requests/SearchReportsEmployeesPayrollRequest.ts",
+    "to": "src/features/personnel/types/requests/SearchReportsEmployeesPayrollRequest.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/responses/AdvancesReport.ts",
+    "to": "src/features/personnel/types/responses/AdvancesReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/responses/AdvancesReportRow.ts",
+    "to": "src/features/personnel/types/responses/AdvancesReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/responses/EmployeeListResponse.ts",
+    "to": "src/features/personnel/types/responses/EmployeeListResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/responses/EmployeeResponse.ts",
+    "to": "src/features/personnel/types/responses/EmployeeResponse.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/responses/PayrollReport.ts",
+    "to": "src/features/personnel/types/responses/PayrollReport.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/employees/types/responses/PayrollReportRow.ts",
+    "to": "src/features/personnel/types/responses/PayrollReportRow.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/customers/api/read-api.ts",
+    "to": "src/features/parties/api/customers-read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/customers/public/customers-query.ts",
+    "to": "src/features/parties/public/customers-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/suppliers/api/read-api.ts",
+    "to": "src/features/parties/api/suppliers-read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/suppliers/public/suppliers-query.ts",
+    "to": "src/features/parties/public/suppliers-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/sales/public/read-api.ts",
+    "to": "src/features/trade/api/sales-read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/sales/public/saleInvoices-query.ts",
+    "to": "src/features/trade/public/saleInvoices-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/sales/public/saleReturns-query.ts",
+    "to": "src/features/trade/public/saleReturns-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/purchases/public/purchaseInvoices-query.ts",
+    "to": "src/features/trade/public/purchaseInvoices-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/purchases/public/purchaseReturns-query.ts",
+    "to": "src/features/trade/public/purchaseReturns-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/purchases/public/read-api.ts",
+    "to": "src/features/trade/api/purchases-read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/expenses/api/read-api.ts",
+    "to": "src/features/ledger/api/expense-read-api.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/expenses/public/expense-read-model.ts",
+    "to": "src/features/ledger/public/expense-read-model.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/expenses/public/expenseDocuments-query.ts",
+    "to": "src/features/ledger/public/expenseDocuments-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/expenses/public/expenseTypes-query.ts",
+    "to": "src/features/ledger/public/expenseTypes-query.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/hooks/useMaster.ts",
+    "to": "src/features/master-data/hooks/useMaster.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/hooks/useMasterScreenController.ts",
+    "to": "src/features/master-data/hooks/useMasterScreenController.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/MasterDataScreen.tsx",
+    "to": "src/features/master-data/public/MasterDataScreen.tsx",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/public/types/MasterFormDefinition.ts",
+    "to": "src/features/master-data/public/types/MasterFormDefinition.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/queries/useMasterScreenControllerQuery.ts",
+    "to": "src/features/master-data/queries/useMasterScreenControllerQuery.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/queries/useMasterValidationData.ts",
+    "to": "src/features/master-data/queries/useMasterValidationData.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/MasterScreenProps.ts",
+    "to": "src/features/master-data/types/MasterScreenProps.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/MasterScreenControllerReadModel.ts",
+    "to": "src/features/master-data/types/read-models/MasterScreenControllerReadModel.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/MasterValidationReadModel.ts",
+    "to": "src/features/master-data/types/read-models/MasterValidationReadModel.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/LookupField.tsx",
+    "to": "src/features/master-data/public/LookupField.tsx",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/queries/useLookupOptions.ts",
+    "to": "src/features/master-data/queries/useLookupOptions.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/DynamicFieldProps.ts",
+    "to": "src/features/master-data/types/DynamicFieldProps.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/AnnualSettings.tsx",
+    "to": "src/features/accounting/public/AnnualSettings.tsx",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/public/useCurrency.ts",
+    "to": "src/features/accounting/public/useCurrency.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/queries/useAnnualSettingsQuery.ts",
+    "to": "src/features/accounting/queries/useAnnualSettingsQuery.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/queries/useCurrencyValidationData.ts",
+    "to": "src/features/accounting/queries/useCurrencyValidationData.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/AnnualSettingsProps.ts",
+    "to": "src/features/accounting/types/AnnualSettingsProps.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/read-models/AnnualSettingsReadModel.ts",
+    "to": "src/features/accounting/types/read-models/AnnualSettingsReadModel.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/settings/types/read-models/CurrencyValidationReadModel.ts",
+    "to": "src/features/accounting/types/read-models/CurrencyValidationReadModel.ts",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/parties/pages/PartyGroupListPage.tsx",
+    "to": "src/features/customers/pages/PartyGroupListPage.tsx",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  },
+  {
+    "from": "src/features/trade/pages/InvoiceDetailsPage.tsx",
+    "to": "src/app/pages/InvoiceDetailsPage.tsx",
+    "reason": "Navigation/UI and shared domain ownership separated to break runtime module cycles; existing implementation and wire semantics preserved"
+  }
+]

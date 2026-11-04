@@ -1,6 +1,6 @@
 import { ThemeToggle } from '@/core/theme/ThemeToggle';
 import { LoginForm } from '@/features/auth/components/LoginForm';
-import { Boxes,ShieldCheck } from 'lucide-react';
+import { Boxes, ShieldCheck } from 'lucide-react';
 export default function LoginPage() {
   return (
     <main className="login-page" dir="rtl">

@@ -1,7 +1,7 @@
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
-import { extras } from "@/features/accounting/public/extensions";
 import type { BuildPayrollReportContext } from '@/features/employees/types/read-models/BuildPayrollReportContext';
+import { extras } from '@/features/ledger/public/extensions';
 export function buildPayrollReport(
   workspace: BuildPayrollReportContext,
   branch: string,

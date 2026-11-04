@@ -7,12 +7,16 @@ import type { ApplicationProviderProps } from '@/core/types/ApplicationProviderP
 import type { ApplicationState } from '@/core/types/ApplicationState';
 import type { CommandReceipt } from '@/core/types/CommandReceipt';
 
-import { useMutation,useQueryClient } from '@tanstack/react-query';
-import { createContext,useCallback,useContext,useEffect,useRef,useState } from 'react';
-import { useBeforeUnload,useBlocker,useLocation,useNavigate } from 'react-router-dom';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { useBeforeUnload, useBlocker, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 const Context = createContext<ApplicationState>(null!);
-export function ApplicationProvider({ children, heartbeat, checkSession }: ApplicationProviderProps) {
+export function ApplicationProvider({
+  children,
+  heartbeat,
+  checkSession,
+}: ApplicationProviderProps) {
   const routeView = useLocation().pathname;
   const { user } = useAuth();
   const cache = useQueryClient();

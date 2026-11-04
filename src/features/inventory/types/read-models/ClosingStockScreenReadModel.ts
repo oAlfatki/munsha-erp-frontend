@@ -1,8 +1,8 @@
-import type { AnnualBooks } from "@/features/accounting/public/types/models/AnnualBooks";
-import type { Movement } from "@/features/inventory/public/types/models/Movement";
-import type { Product } from "@/features/inventory/public/types/models/Product";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
+import type { AnnualBooks } from '@/features/ledger/public/types/models/AnnualBooks';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { Movement } from '@/features/stock/public/types/models/Movement';
+import type { Product } from '@/features/stock/public/types/models/Product';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface ClosingStockScreenReadModel {
   organization: {

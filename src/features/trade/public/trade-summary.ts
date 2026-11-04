@@ -1,9 +1,9 @@
-import type { TradeFilters } from "@/features/trade/public/types/models/TradeFilters";
-import type { TradeSummaryContext } from "@/features/trade/types/read-models/TradeSummaryContext";
+import type { TradeFilters } from '@/features/trade/public/types/models/TradeFilters';
+import type { TradeSummaryContext } from '@/features/trade/types/read-models/TradeSummaryContext';
 
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
-import { money } from "@/core/utils/money";
-import { lineTotal } from "@/features/trade/public/line-total";
+// Frontend display calculations; backend authority requires independent verification.
+import { money } from '@/core/utils/money';
+import { lineTotal } from '@/features/trade/public/line-total';
 export function tradeSummary(
   workspace: TradeSummaryContext,
   kind: 'sale' | 'purchase',

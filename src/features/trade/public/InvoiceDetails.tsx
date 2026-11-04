@@ -1,30 +1,26 @@
-import { ROUTES } from "@/core/config/navigation-paths";
+import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
-import { useValidatedForm } from "@/core/hooks/useValidatedForm";
-import { printReport } from "@/core/reporting/service";
-import { fmt,today } from "@/core/utils/formatters";
-import { InvoiceTotals } from "@/features/trade/public/InvoiceTotals";
-import { useDeleteDraft } from "@/features/trade/hooks/useDeleteDraft";
-import { useReturn } from "@/features/trade/hooks/useReturn";
-import { useInvoiceDetailsQuery } from "@/features/trade/queries/useInvoiceDetailsQuery";
-import { invoiceReport } from "@/features/trade/public/build-invoice-document";
-import type { InvoiceDetailsProps } from "@/features/trade/types/InvoiceDetailsProps";
-import { lineTotal } from "@/features/trade/public/line-total";
-import { deleteDraftSchema,returnSchema } from "@/features/trade/public/trade-schema";
-import { Modal } from "@/shared/ui/dialogs/Modal";
-import { DocumentNavigator } from "@/shared/ui/documents/DocumentNavigator";
-import { Button } from "@/shared/ui/primitives/button";
-import { DataTable } from "@/shared/ui/tables/DataTable";
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { printReport } from '@/core/reporting/service';
+import { fmt, today } from '@/core/utils/formatters';
+import { useDeleteDraft } from '@/features/trade/hooks/useDeleteDraft';
+import { useReturn } from '@/features/trade/hooks/useReturn';
+import { invoiceReport } from '@/features/trade/public/build-invoice-document';
+import { InvoiceTotals } from '@/features/trade/public/InvoiceTotals';
+import { lineTotal } from '@/features/trade/public/line-total';
+import { deleteDraftSchema, returnSchema } from '@/features/trade/public/trade-schema';
+import { useInvoiceDetailsQuery } from '@/features/trade/queries/useInvoiceDetailsQuery';
+import type { InvoiceDetailsProps } from '@/features/trade/types/InvoiceDetailsProps';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
+import { Button } from '@/shared/ui/primitives/button';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Printer } from 'lucide-react';
 
 export function InvoiceDetails({
   current,
   browse,
-  view,
+  isDeepLink,
   setDetail,
   setEditor,
   isConfirm: isConfirm,
@@ -52,8 +48,7 @@ export function InvoiceDetails({
       }
       onClose={() => {
         setDetail(null);
-        if (view.startsWith(ROUTES.DOCUMENT_PREFIX))
-          navigate(current.kind === 'sale' ? ROUTES.SALES : ROUTES.PURCHASES);
+        if (isDeepLink) navigate(current.kind === 'sale' ? ROUTES.SALES : ROUTES.PURCHASES);
       }}
       isWide
     >

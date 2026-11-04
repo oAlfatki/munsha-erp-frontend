@@ -1,9 +1,9 @@
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
-import { extras } from "@/features/accounting/public/extensions";
+import { extras } from '@/features/ledger/public/extensions';
 import type { BuildSalesSummaryReportContext } from '@/features/sales/types/read-models/BuildSalesSummaryReportContext';
-import { tradeSummary } from "@/features/trade/public/trade-summary";
+import { tradeSummary } from '@/features/trade/public/trade-summary';
 export function buildSalesSummaryReport(
   workspace: BuildSalesSummaryReportContext,
   branch: string,

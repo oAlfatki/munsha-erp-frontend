@@ -1,6 +1,6 @@
-import { SupplierDirectory } from '@/features/suppliers/components/SupplierDirectory';
+import { SupplierDirectoryView } from '@/features/suppliers/components/SupplierDirectoryView';
+import { useSupplierDirectoryController } from '@/features/suppliers/hooks/useSupplierDirectoryController';
 export default function SupplierListPage() {
-  
-
-  return <SupplierDirectory />;
+  const model = useSupplierDirectoryController(false);
+  return <SupplierDirectoryView model={model} />;
 }

@@ -1,5 +1,3 @@
-
-
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useSupplierBalancesReportView } from '@/features/suppliers/hooks/useSupplierBalancesReportView';
@@ -14,7 +12,12 @@ const extraTotals = (rows: (string | number)[][]): [string, string][] => {
   ];
 };
 export function SupplierBalancesReport() {
- const model=useSupplierBalancesReportView({title:"تقرير حسابات الموردين",summaryColumns:[2, 3],getAmount:getAmount,extraTotals:extraTotals});
+  const model = useSupplierBalancesReportView({
+    title: 'تقرير حسابات الموردين',
+    summaryColumns: [2, 3],
+    getAmount: getAmount,
+    extraTotals: extraTotals,
+  });
 
   return (
     <ReportViewer

@@ -1,20 +1,16 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf,printReport } from '@/core/reporting/service';
-import { fmt,today } from '@/core/utils/formatters';
-import { useMaster } from '@/features/accounting/hooks/useMaster';
+import { exportPdf, printReport } from '@/core/reporting/service';
+import { fmt, today } from '@/core/utils/formatters';
 import { useAssetsQuery } from '@/features/accounting/queries/useAssetsQuery';
 import { assetValues } from '@/features/accounting/services/models/asset-values';
-import { extras } from "@/features/accounting/public/extensions";
 import type { AssetsProps } from '@/features/accounting/types/AssetsProps';
-import type { AssetForm } from '@/features/accounting/types/models/AssetForm';
-import type { MasterRecord } from '@/features/accounting/types/models/MasterRecord';
-import { masterSchema } from "@/features/accounting/public/accounting-schema";
+import { extras } from '@/features/ledger/public/extensions';
+import type { AssetForm } from '@/features/ledger/public/types/models/AssetForm';
+import type { MasterRecord } from '@/features/ledger/public/types/models/MasterRecord';
+import { masterSchema } from '@/features/master-data/public/master-schema';
+import { useMaster } from '@/features/master-data/public/useMaster';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -26,7 +22,7 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { List,Printer,Save } from 'lucide-react';
+import { List, Printer, Save } from 'lucide-react';
 import { useState } from 'react';
 
 function form(r: MasterRecord | undefined, branchId: string): AssetForm {

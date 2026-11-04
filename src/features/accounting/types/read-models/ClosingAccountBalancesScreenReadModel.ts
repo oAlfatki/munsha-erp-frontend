@@ -1,9 +1,9 @@
-import type { AnnualBooks } from "@/features/accounting/public/types/models/AnnualBooks";
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Employee } from "@/features/employees/public/types/models/Employee";
-import type { Party } from "@/features/parties/public/types/models/Party";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
+import type { AnnualBooks } from '@/features/ledger/public/types/models/AnnualBooks';
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Employee } from '@/features/personnel/public/types/models/Employee';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface ClosingAccountBalancesScreenReadModel {
   organization: {

@@ -5,7 +5,8 @@ import type { SupplierBalancesReport } from '@/features/suppliers/types/response
 export async function fetchReportsSuppliersBalances(
   params: SearchReportsSuppliersBalancesRequest,
 ): Promise<SupplierBalancesReport> {
-  return await apiClient.get<SupplierBalancesReport>(ENDPOINTS.fetchReportsSuppliersBalances,{params: {
+  return await apiClient.get<SupplierBalancesReport>(ENDPOINTS.fetchReportsSuppliersBalances, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -13,5 +14,6 @@ export async function fetchReportsSuppliersBalances(
       q: params.q,
       asOf: params.asOf,
       partyId: params.partyId,
-    }});
+    },
+  });
 }

@@ -1,33 +1,31 @@
 import type { CommandContext } from '@/core/types/CommandContext';
 import {
-submitContactEntry,
-submitContactVoucher,
-submitManualJournal,
-submitMaster,
-submitOperation,
-submitPeriodActivate,
-submitPeriodCreate,
-submitPeriodReset,
-submitPeriodSwitch,
-submitPeriodTransfer,
-submitPermissions,
-submitScreenDraft,
-submitVoucher,
+  submitContactEntry,
+  submitContactVoucher,
+  submitManualJournal,
+  submitOperation,
+  submitPeriodActivate,
+  submitPeriodCreate,
+  submitPeriodReset,
+  submitPeriodSwitch,
+  submitPeriodTransfer,
+  submitPermissions,
+  submitScreenDraft,
+  submitVoucher,
 } from '@/features/accounting/api/accounting-api';
 import {
-mapContactEntryInput,
-mapContactVoucherInput,
-mapManualJournalInput,
-mapMasterInput,
-mapOperationInput,
-mapPeriodActivateInput,
-mapPeriodCreateInput,
-mapPeriodResetInput,
-mapPeriodSwitchInput,
-mapPeriodTransferInput,
-mapPermissionsInput,
-mapScreenDraftInput,
-mapVoucherInput,
+  mapContactEntryInput,
+  mapContactVoucherInput,
+  mapManualJournalInput,
+  mapOperationInput,
+  mapPeriodActivateInput,
+  mapPeriodCreateInput,
+  mapPeriodResetInput,
+  mapPeriodSwitchInput,
+  mapPeriodTransferInput,
+  mapPermissionsInput,
+  mapScreenDraftInput,
+  mapVoucherInput,
 } from '@/features/accounting/mapper/accounting-mapper';
 export const savePermissions = async (
   input: unknown,
@@ -74,11 +72,7 @@ export const saveScreenDraft = async (
   context: CommandContext,
 ): Promise<Awaited<ReturnType<typeof submitScreenDraft>>> =>
   submitScreenDraft(mapScreenDraftInput(input), context);
-export const saveMaster = async (
-  input: unknown,
-  context: CommandContext,
-): Promise<Awaited<ReturnType<typeof submitMaster>>> =>
-  submitMaster(mapMasterInput(input), context);
+
 export const saveManualJournal = async (
   input: unknown,
   context: CommandContext,

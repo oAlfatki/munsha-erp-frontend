@@ -1,20 +1,20 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Movement } from "@/features/inventory/public/types/models/Movement";
-import type { Product } from "@/features/inventory/public/types/models/Product";
-import type { Stock } from "@/features/inventory/public/types/models/Stock";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { Party } from "@/features/parties/public/types/models/Party";
-import type { PersistedSystemSettings } from "@/features/settings/public/types/models/PersistedSystemSettings";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { PersistedSystemSettings } from '@/features/organization/public/types/models/PersistedSystemSettings';
+import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Movement } from '@/features/stock/public/types/models/Movement';
+import type { Product } from '@/features/stock/public/types/models/Product';
+import type { Stock } from '@/features/stock/public/types/models/Stock';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
 export interface ValidateInvoiceContext {
-warehouses: Warehouse[];
-currencies: {
+  warehouses: Warehouse[];
+  currencies: {
     code: string;
     name: string;
     rate: number;
   }[];
-organization: {
+  organization: {
     name: string;
     email?: string;
     activity?: string;
@@ -28,12 +28,12 @@ organization: {
     costPolicy: 'moving_average';
     policyApproved: boolean;
   };
-invoices: Invoice[];
-parties: Party[];
-movements: Movement[];
-products: Product[];
-stocks: Stock[];
-systemSettings?: PersistedSystemSettings;
-extras?: ExtensionData;
-entries: Entry[];
+  invoices: Invoice[];
+  parties: Party[];
+  movements: Movement[];
+  products: Product[];
+  stocks: Stock[];
+  systemSettings?: PersistedSystemSettings;
+  extras?: ExtensionData;
+  entries: Entry[];
 }

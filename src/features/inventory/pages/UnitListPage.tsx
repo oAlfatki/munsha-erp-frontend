@@ -1,6 +1,9 @@
-import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
-import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
-const DEFINITION = {title:'قائمة الوحدات',collection:'units',fields:[
+import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
+import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+const DEFINITION = {
+  title: 'قائمة الوحدات',
+  collection: 'units',
+  fields: [
     {
       key: 'name',
       label: 'اسم الوحدة',
@@ -18,14 +21,13 @@ const DEFINITION = {title:'قائمة الوحدات',collection:'units',fields:
         ['3', 'ثلاثية'],
       ],
     },
-  ]} satisfies MasterFormDefinition;
+  ],
+} satisfies MasterFormDefinition;
 /** قائمة الوحدات — feature-owned route content. */
 export default function UnitListPage() {
-  
-
   return (
     <section className="screen-page">
-          <MasterScreen screen={DEFINITION} />
-        </section>
+      <MasterScreen screen={DEFINITION} />
+    </section>
   );
 }

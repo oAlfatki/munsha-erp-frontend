@@ -6,7 +6,7 @@ import type { ReportDocument } from '@/core/types/ReportDocument';
 import type { ReactNode } from 'react';
 export interface ReportViewerProps {
   title: string;
-  model:ReportPresentationModel;
+  model: ReportPresentationModel;
   summaryColumns?: number[];
   shouldShowFrom?: boolean;
   isAsOf?: boolean;

@@ -1,3 +1,5 @@
+> وثيقة تاريخية للنسخة قبل Navigation-driven refactor؛ لا تصف الوضع الحالي. المرجع الحالي: [architecture/DATA_FLOW.md](architecture/DATA_FLOW.md).
+
 # المعمارية الحالية — 2026-11-01
 
 `main → App → AppProviders → AppRouter → ApplicationProvider → CompanyProvider → DashboardLayout → PageScope → Feature Page`

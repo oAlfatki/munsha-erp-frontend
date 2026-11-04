@@ -6,12 +6,12 @@ import { APP_ROUTES } from '@/app/router/routes';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { RouteErrorPage } from '@/core/router/RouteErrorPage';
 import { ApplicationProvider } from '@/core/state/ApplicationProvider';
-import { authApi,submitStatus } from '@/features/auth/api/auth-api';
+import { authApi, submitStatus } from '@/features/auth/api/auth-api';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
-import { createBrowserRouter,Navigate,RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 function ApplicationLayout() {
   return (
-    <ApplicationProvider heartbeat={()=>authApi.heartbeat()} checkSession={submitStatus}>
+    <ApplicationProvider heartbeat={() => authApi.heartbeat()} checkSession={submitStatus}>
       <CompanyProvider>
         <DashboardLayout />
       </CompanyProvider>

@@ -1,6 +1,6 @@
-import type { AnnualBooks } from "@/features/accounting/public/types/models/AnnualBooks";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Product } from "@/features/inventory/public/types/models/Product";
+import type { AnnualBooks } from '@/features/ledger/public/types/models/AnnualBooks';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Product } from '@/features/stock/public/types/models/Product';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface PriceListReadModel {
   products: Product[];

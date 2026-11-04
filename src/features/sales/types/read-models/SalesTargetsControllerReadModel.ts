@@ -1,7 +1,7 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Employee } from "@/features/employees/public/types/models/Employee";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Employee } from '@/features/personnel/public/types/models/Employee';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface SalesTargetsControllerReadModel {
   organization: {

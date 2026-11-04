@@ -1,5 +1,5 @@
-import type { Branch } from "@/features/settings/public/types/models/Branch";
-import type { Audit } from "@/features/users/public/types/models/Audit";
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { Audit } from '@/features/users/public/types/models/Audit';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface UserAuditReportReadModel {
   audit: Audit[];

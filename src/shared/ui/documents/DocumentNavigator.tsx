@@ -1,6 +1,6 @@
 import type { DocumentNavigatorProps } from '@/core/types/DocumentNavigatorProps';
 import { Button } from '@/shared/ui/primitives/button';
-import { ChevronLeft,ChevronRight,ChevronsLeft,ChevronsRight,List } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, List } from 'lucide-react';
 
 export function DocumentNavigator({
   index,

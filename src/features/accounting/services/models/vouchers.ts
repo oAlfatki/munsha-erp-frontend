@@ -1,5 +1,5 @@
 import type { VoucherDueContext } from '@/features/accounting/types/read-models/VoucherDueContext';
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
+// Frontend display calculations; backend authority requires independent verification.
 import { money } from '@/core/utils/money';
 export function voucherDue(
   workspace: VoucherDueContext,

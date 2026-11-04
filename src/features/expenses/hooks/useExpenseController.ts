@@ -1,36 +1,29 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { fmt,today } from '@/core/utils/formatters';
+import { fmt, today } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
-import { cashOptions,defaultCashId } from "@/features/accounting/public/cash";
-import { extras } from "@/features/accounting/public/extensions";
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
 import { useExpenseConsume } from '@/features/expenses/hooks/useExpenseConsume';
 import { useExpensePayment } from '@/features/expenses/hooks/useExpensePayment';
 import { useExpenseSave } from '@/features/expenses/hooks/useExpenseSave';
 import { useExpenseControllerQuery } from '@/features/expenses/queries/useExpenseControllerQuery';
 import {
-expenseForeignDue,
-expenseForeignPaid,
-expenseViews,
-TREATMENT_LABELS,
+  expenseForeignDue,
+  expenseForeignPaid,
+  expenseViews,
+  TREATMENT_LABELS,
 } from '@/features/expenses/services/models/expenses';
 import type { IExpenseEditorInput } from '@/features/expenses/types/IExpenseEditorInput';
 import type { ExpenseView } from '@/features/expenses/types/models/ExpenseView';
 import {
-expenseConsumeSchema,
-expensePaymentSchema,
-expenseSaveSchema,
+  expenseConsumeSchema,
+  expensePaymentSchema,
+  expenseSaveSchema,
 } from '@/features/expenses/validation/expenses-schema';
-import {
-operationCashId,
-systemSettings,
-} from "@/features/settings/public/system-settings";
+import { cashOptions, defaultCashId } from '@/features/ledger/public/cash';
+import { extras } from '@/features/ledger/public/extensions';
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { operationCashId, systemSettings } from '@/features/organization/public/system-settings';
 import { useState } from 'react';
 export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
   const { state: s, branchId, busy: isBusy, navigate } = useExpenseControllerQuery();

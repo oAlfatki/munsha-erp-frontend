@@ -1,22 +1,22 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
-export const PURCHASES_ROUTES:RouteObject[]=[
-{
-    path:ROUTES.PURCHASES,
+export const PURCHASES_ROUTES: RouteObject[] = [
+  {
+    path: ROUTES.PURCHASES,
     lazy: async () => ({
       Component: (await import('@/features/purchases/pages/PurchaseInvoiceListPage')).default,
     }),
-    handle: { module: 'purchases', title: '', },
+    handle: { module: 'purchases', title: '' },
   },
-{
-    path:ROUTES.PURCHASES_NEW,
+  {
+    path: ROUTES.PURCHASES_NEW,
     lazy: async () => ({
-      Component: (await import('@/features/purchases/pages/PurchaseInvoiceListPage')).default,
+      Component: (await import('@/features/purchases/pages/CreatePurchaseInvoicePage')).default,
     }),
-    handle: { module: 'purchases', title: '', },
+    handle: { module: 'purchases', title: '' },
   },
-{
-    path:ROUTES.PURCHASES_PURCHASE_REPORT,
+  {
+    path: ROUTES.PURCHASES_PURCHASE_REPORT,
     lazy: async () => ({
       Component: (await import('@/features/purchases/pages/PurchaseSummaryPage')).default,
     }),
@@ -26,8 +26,8 @@ export const PURCHASES_ROUTES:RouteObject[]=[
       navModule: 'purchases',
     },
   },
-{
-    path:ROUTES.PURCHASES_PURCHASE_RETURNS,
+  {
+    path: ROUTES.PURCHASES_PURCHASE_RETURNS,
     lazy: async () => ({
       Component: (await import('@/features/purchases/pages/PurchaseReturnsPage')).default,
     }),
@@ -36,5 +36,5 @@ export const PURCHASES_ROUTES:RouteObject[]=[
       title: 'فاتورة مرتجع شراء',
       navModule: 'purchases',
     },
-  }
+  },
 ];

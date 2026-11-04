@@ -1,7 +1,21 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { booksQuery } from "@/features/accounting/public/books-query";
-import { journalsQuery } from "@/features/accounting/public/journals-query";
 import type { FinancialProjectionReadModel } from '@/features/financial/types/read-models/FinancialProjectionReadModel';
-import { useSuspenseQueries,useSuspenseQuery } from '@tanstack/react-query';
-export function useFinancialProjectionQuery(){const app=useApplication(),identity=useQueryIdentity();const {data:books}=useSuspenseQuery(booksQuery(identity));const scope={...identity,bookId:books.scope.bookId};const [q0]=useSuspenseQueries({queries:[journalsQuery(scope)]});const state:FinancialProjectionReadModel={entries:q0.data.items};return {...app,state,loading:false,error:'',revision:Math.max(books.scope.revision,q0.data.scope.revision)};}
+import { booksQuery } from '@/features/ledger/public/books-query';
+import { journalsQuery } from '@/features/ledger/public/journals-query';
+import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+export function useFinancialProjectionQuery() {
+  const app = useApplication(),
+    identity = useQueryIdentity();
+  const { data: books } = useSuspenseQuery(booksQuery(identity));
+  const scope = { ...identity, bookId: books.scope.bookId };
+  const [q0] = useSuspenseQueries({ queries: [journalsQuery(scope)] });
+  const state: FinancialProjectionReadModel = { entries: q0.data.items };
+  return {
+    ...app,
+    state,
+    loading: false,
+    error: '',
+    revision: Math.max(books.scope.revision, q0.data.scope.revision),
+  };
+}

@@ -1,7 +1,7 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface PurchaseSummaryReportReadModel {
   warehouses: Warehouse[];

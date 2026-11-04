@@ -1,22 +1,22 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
-export const INVENTORY_ROUTES:RouteObject[]=[
-{
-    path:ROUTES.INVENTORY,
+export const INVENTORY_ROUTES: RouteObject[] = [
+  {
+    path: ROUTES.INVENTORY,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/InventoryBalancesPage')).default,
     }),
-    handle: { module: 'inventory', title: '', },
+    handle: { module: 'inventory', title: '' },
   },
-{
-    path:ROUTES.INVENTORY_MOVEMENTS,
+  {
+    path: ROUTES.INVENTORY_MOVEMENTS,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/InventoryBalancesPage')).default,
+      Component: (await import('@/features/inventory/pages/InventoryMovementsPage')).default,
     }),
-    handle: { module: 'inventory', title: '', },
+    handle: { module: 'inventory', title: '' },
   },
-{
-    path:ROUTES.INVENTORY_ADJUSTMENT,
+  {
+    path: ROUTES.INVENTORY_ADJUSTMENT,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/StockAdjustmentPage')).default,
     }),
@@ -26,8 +26,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_ADJUSTMENTS,
+  {
+    path: ROUTES.INVENTORY_ADJUSTMENTS,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/StockAdjustmentHistoryPage')).default,
     }),
@@ -37,8 +37,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_COST,
+  {
+    path: ROUTES.INVENTORY_COST,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/InventoryValuationPage')).default,
     }),
@@ -48,8 +48,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_COUNT,
+  {
+    path: ROUTES.INVENTORY_COUNT,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/StockCountPage')).default,
     }),
@@ -59,8 +59,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_END_STOCK,
+  {
+    path: ROUTES.INVENTORY_END_STOCK,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/ClosingStockPage')).default,
     }),
@@ -70,8 +70,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_GROUPS,
+  {
+    path: ROUTES.INVENTORY_GROUPS,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/ItemGroupListPage')).default,
     }),
@@ -81,8 +81,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_GROUPS_ADD,
+  {
+    path: ROUTES.INVENTORY_GROUPS_ADD,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/CreateItemGroupPage')).default,
     }),
@@ -92,8 +92,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_HISTORICAL_COST,
+  {
+    path: ROUTES.INVENTORY_HISTORICAL_COST,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/HistoricalInventoryCostPage')).default,
     }),
@@ -103,8 +103,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_OPENING_STOCK,
+  {
+    path: ROUTES.INVENTORY_OPENING_STOCK,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/OpeningStockPage')).default,
     }),
@@ -114,8 +114,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_OPENING_STOCK_REPORT,
+  {
+    path: ROUTES.INVENTORY_OPENING_STOCK_REPORT,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/OpeningStockReportPage')).default,
     }),
@@ -125,8 +125,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_REORDER,
+  {
+    path: ROUTES.INVENTORY_REORDER,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/ReorderAlertsPage')).default,
     }),
@@ -136,8 +136,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_STAGNANT,
+  {
+    path: ROUTES.INVENTORY_STAGNANT,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/StagnantInventoryPage')).default,
     }),
@@ -147,8 +147,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_TRANSFER_DOCUMENT,
+  {
+    path: ROUTES.INVENTORY_TRANSFER_DOCUMENT,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/StockTransferPage')).default,
     }),
@@ -158,8 +158,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_TRANSFERS,
+  {
+    path: ROUTES.INVENTORY_TRANSFERS,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/StockTransferHistoryPage')).default,
     }),
@@ -169,8 +169,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_UNITS,
+  {
+    path: ROUTES.INVENTORY_UNITS,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/UnitListPage')).default,
     }),
@@ -180,8 +180,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_UNITS_ADD,
+  {
+    path: ROUTES.INVENTORY_UNITS_ADD,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/CreateUnitPage')).default,
     }),
@@ -191,8 +191,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_WAREHOUSES,
+  {
+    path: ROUTES.INVENTORY_WAREHOUSES,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/WarehouseListPage')).default,
     }),
@@ -202,8 +202,8 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_WAREHOUSES_ADD,
+  {
+    path: ROUTES.INVENTORY_WAREHOUSES_ADD,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/CreateWarehousePage')).default,
     }),
@@ -213,18 +213,18 @@ export const INVENTORY_ROUTES:RouteObject[]=[
       navModule: 'inventory',
     },
   },
-{
-    path:ROUTES.INVENTORY_ITEMS,
+  {
+    path: ROUTES.INVENTORY_ITEMS,
     lazy: async () => ({
       Component: (await import('@/features/inventory/pages/ProductListPage')).default,
     }),
-    handle: { module: 'inventory', title: '', },
+    handle: { module: 'inventory', title: '' },
   },
-{
-    path:ROUTES.INVENTORY_ITEMS_NEW,
+  {
+    path: ROUTES.INVENTORY_ITEMS_NEW,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/ProductListPage')).default,
+      Component: (await import('@/features/inventory/pages/CreateProductPage')).default,
     }),
-    handle: { module: 'inventory', title: '', },
-  }
+    handle: { module: 'inventory', title: '' },
+  },
 ];

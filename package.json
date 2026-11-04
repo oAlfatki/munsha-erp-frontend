@@ -15,7 +15,8 @@
     "test:e2e": "playwright test",
     "check:naming": "node scripts/check-naming.mjs",
     "lint": "eslint src",
-    "format:check": "prettier --check src"
+    "format:check": "prettier --check src",
+    "check:architecture": "node scripts/check-architecture.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "5.7.1",

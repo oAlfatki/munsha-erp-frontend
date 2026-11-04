@@ -1,5 +1,3 @@
-
-
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useCustomerBalancesReportView } from '@/features/customers/hooks/useCustomerBalancesReportView';
@@ -14,7 +12,12 @@ const extraTotals = (rows: (string | number)[][]): [string, string][] => {
   ];
 };
 export function CustomerBalancesReport() {
- const model=useCustomerBalancesReportView({title:"تقرير حسابات العملاء",summaryColumns:[2, 3],getAmount:getAmount,extraTotals:extraTotals});
+  const model = useCustomerBalancesReportView({
+    title: 'تقرير حسابات العملاء',
+    summaryColumns: [2, 3],
+    getAmount: getAmount,
+    extraTotals: extraTotals,
+  });
 
   return (
     <ReportViewer

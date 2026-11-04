@@ -1,16 +1,13 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-
-
-
-
+import type { AccountingViewProps } from '@/features/accounting/types/AccountingViewProps';
 
 import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { AccountStatement } from '@/features/accounting/components/Statement';
 import { VoucherEditor } from '@/features/accounting/components/VoucherEditor';
 import { useAccountingQuery } from '@/features/accounting/queries/useAccountingQuery';
-import { allAccounts } from "@/features/accounting/public/extensions";
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { allAccounts } from '@/features/ledger/public/extensions';
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
 import { Field } from '@/shared/ui/forms/Field';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
@@ -18,10 +15,10 @@ import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { useState } from 'react';
-export function Accounting() {
-  const { state: s, branchId, view, navigate } = useAccountingQuery();
-  const [tab,setTab]=useState('journal'),
-    [isVoucher,setVoucher]=useState(false),
+export function Accounting({ initialTab = 'journal', initialPartyId = '' }: AccountingViewProps) {
+  const { state: s, branchId, navigate } = useAccountingQuery();
+  const [tab, setTab] = useState<string>(initialTab),
+    [isVoucher, setVoucher] = useState(false),
     [from, setFrom] = useState(fiscalRange(s!).from),
     [to, setTo] = useState(fiscalRange(s!).to);
   if (!s) return null;
@@ -88,7 +85,7 @@ export function Accounting() {
     <>
       {tabs}
       {tab === 'statement' ? (
-        <AccountStatement />
+        <AccountStatement initialPartyId={initialPartyId} />
       ) : (
         <>
           <PageHead
@@ -121,12 +118,7 @@ export function Accounting() {
           )}
         </>
       )}
-      {isVoucher && (
-        <VoucherEditor
-          kind="receipt"
-          onClose={() => setVoucher(false)}
-        />
-      )}
+      {isVoucher && <VoucherEditor kind="receipt" onClose={() => setVoucher(false)} />}
     </>
   );
 }

@@ -16,7 +16,8 @@ import type { ProfitByItemReport } from '@/features/financial/types/responses/Pr
 export async function fetchReportsFinancialProfitByItem(
   params: SearchReportsFinancialProfitByItemRequest,
 ): Promise<ProfitByItemReport> {
-  return await apiClient.get<ProfitByItemReport>(ENDPOINTS.fetchReportsFinancialProfitByItem,{params: {
+  return await apiClient.get<ProfitByItemReport>(ENDPOINTS.fetchReportsFinancialProfitByItem, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -25,28 +26,35 @@ export async function fetchReportsFinancialProfitByItem(
       to: params.to,
       q: params.q,
       productId: params.productId,
-    }});
+    },
+  });
 }
 /** Get profit by customer report. Existing HTTP contract. */
 export async function fetchReportsFinancialProfitByCustomer(
   params: SearchReportsFinancialProfitByCustomerRequest,
 ): Promise<ProfitByCustomerReport> {
-  return await apiClient.get<ProfitByCustomerReport>(ENDPOINTS.fetchReportsFinancialProfitByCustomer,{params: {
-      page: params.page,
-      pageSize: params.pageSize,
-      bookId: params.bookId,
-      branchId: params.branchId,
-      from: params.from,
-      to: params.to,
-      q: params.q,
-      partyId: params.partyId,
-    }});
+  return await apiClient.get<ProfitByCustomerReport>(
+    ENDPOINTS.fetchReportsFinancialProfitByCustomer,
+    {
+      params: {
+        page: params.page,
+        pageSize: params.pageSize,
+        bookId: params.bookId,
+        branchId: params.branchId,
+        from: params.from,
+        to: params.to,
+        q: params.q,
+        partyId: params.partyId,
+      },
+    },
+  );
 }
 /** Get cash flow report. Existing HTTP contract. */
 export async function fetchReportsFinancialCashFlow(
   params: SearchReportsFinancialCashFlowRequest,
 ): Promise<CashFlowReport> {
-  return await apiClient.get<CashFlowReport>(ENDPOINTS.fetchReportsFinancialCashFlow,{params: {
+  return await apiClient.get<CashFlowReport>(ENDPOINTS.fetchReportsFinancialCashFlow, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -54,13 +62,15 @@ export async function fetchReportsFinancialCashFlow(
       from: params.from,
       to: params.to,
       q: params.q,
-    }});
+    },
+  });
 }
 /** Get account mapping report. Existing HTTP contract. */
 export async function fetchReportsFinancialAccountMapping(
   params: SearchReportsFinancialAccountMappingRequest,
 ): Promise<AccountMappingReport> {
-  return await apiClient.get<AccountMappingReport>(ENDPOINTS.fetchReportsFinancialAccountMapping,{params: {
+  return await apiClient.get<AccountMappingReport>(ENDPOINTS.fetchReportsFinancialAccountMapping, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -68,17 +78,23 @@ export async function fetchReportsFinancialAccountMapping(
       q: params.q,
       asOf: params.asOf,
       accountCode: params.accountCode,
-    }});
+    },
+  });
 }
 /** Get the income statement. Existing HTTP contract. */
 export async function fetchFinancialStatementsIncome(
   params: GetFinancialStatementsIncomeRequest,
 ): Promise<IncomeStatementResponse> {
-  return await apiClient.get<IncomeStatementResponse>(ENDPOINTS.fetchFinancialStatementsIncome,{params: { bookId: params.bookId, branchId: params.branchId, from: params.from, to: params.to }});
+  return await apiClient.get<IncomeStatementResponse>(ENDPOINTS.fetchFinancialStatementsIncome, {
+    params: { bookId: params.bookId, branchId: params.branchId, from: params.from, to: params.to },
+  });
 }
 /** Get the statement of financial position. Existing HTTP contract. */
 export async function fetchFinancialStatementsPosition(
   params: GetFinancialStatementsPositionRequest,
 ): Promise<FinancialPositionResponse> {
-  return await apiClient.get<FinancialPositionResponse>(ENDPOINTS.fetchFinancialStatementsPosition,{params: { bookId: params.bookId, branchId: params.branchId, asOf: params.asOf }});
+  return await apiClient.get<FinancialPositionResponse>(
+    ENDPOINTS.fetchFinancialStatementsPosition,
+    { params: { bookId: params.bookId, branchId: params.branchId, asOf: params.asOf } },
+  );
 }

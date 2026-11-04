@@ -32,7 +32,7 @@
     ]
   },
   {
-    "file": "src/features/accounting/public/read-api.ts",
+    "file": "src/features/ledger/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -1399,7 +1399,7 @@
     ]
   },
   {
-    "file": "src/features/customers/api/read-api.ts",
+    "file": "src/features/parties/api/customers-read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -1653,7 +1653,7 @@
     ]
   },
   {
-    "file": "src/features/employees/public/read-api.ts",
+    "file": "src/features/personnel/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -2111,7 +2111,7 @@
     ]
   },
   {
-    "file": "src/features/expenses/api/read-api.ts",
+    "file": "src/features/ledger/public/expense-read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -2991,7 +2991,7 @@
     ]
   },
   {
-    "file": "src/features/inventory/api/inventory-api.ts",
+    "file": "src/features/stock/api/inventory-api.ts",
     "kind": "api",
     "expected": [
       "inventory",
@@ -3009,7 +3009,7 @@
     ]
   },
   {
-    "file": "src/features/inventory/public/read-api.ts",
+    "file": "src/features/stock/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -4107,7 +4107,7 @@
     ]
   },
   {
-    "file": "src/features/purchases/public/read-api.ts",
+    "file": "src/features/trade/api/purchases-read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -6020,7 +6020,7 @@
     ]
   },
   {
-    "file": "src/features/sales/public/read-api.ts",
+    "file": "src/features/trade/public/sales-read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -6674,7 +6674,7 @@
     ]
   },
   {
-    "file": "src/features/settings/api/backups.ts",
+    "file": "src/features/organization/public/backups.ts",
     "kind": "api",
     "expected": [
       "/backups",
@@ -6719,7 +6719,7 @@
     ]
   },
   {
-    "file": "src/features/settings/api/read-api.ts",
+    "file": "src/features/organization/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -7871,7 +7871,7 @@
     ]
   },
   {
-    "file": "src/features/suppliers/api/read-api.ts",
+    "file": "src/features/parties/api/suppliers-read-api.ts",
     "kind": "api",
     "expected": [
       "GET",

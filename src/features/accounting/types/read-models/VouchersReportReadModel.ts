@@ -1,8 +1,8 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { VoucherDocument } from '@/features/accounting/types/models/VoucherDocument';
-import type { Party } from "@/features/parties/public/types/models/Party";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { VoucherDocument } from '@/features/ledger/public/types/models/VoucherDocument';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { Party } from '@/features/parties/public/types/models/Party';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface VouchersReportReadModel {
   vouchers?: VoucherDocument[];

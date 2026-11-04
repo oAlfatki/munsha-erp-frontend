@@ -1,15 +1,15 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
-export const SETTINGS_ROUTES:RouteObject[]=[
-{
-    path:ROUTES.SETTINGS,
+export const SETTINGS_ROUTES: RouteObject[] = [
+  {
+    path: ROUTES.SETTINGS,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/SettingsOverviewPage')).default,
     }),
-    handle: { module: 'settings', title: '', },
+    handle: { module: 'settings', title: '' },
   },
-{
-    path:ROUTES.SETTINGS_ANNUAL_BOOKS,
+  {
+    path: ROUTES.SETTINGS_ANNUAL_BOOKS,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/FinancialBooksPage')).default,
     }),
@@ -19,8 +19,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_BACKUP,
+  {
+    path: ROUTES.SETTINGS_BACKUP,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/BackupListPage')).default,
     }),
@@ -30,8 +30,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_BACKUP_POLICY,
+  {
+    path: ROUTES.SETTINGS_BACKUP_POLICY,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/BackupPolicyPage')).default,
     }),
@@ -41,8 +41,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_BRANCHES,
+  {
+    path: ROUTES.SETTINGS_BRANCHES,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/BranchListPage')).default,
     }),
@@ -52,22 +52,22 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_BRANDING,
+  {
+    path: ROUTES.SETTINGS_BRANDING,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/CompanySettingsPage')).default,
     }),
-    handle: { module: 'settings', title: '', },
+    handle: { module: 'settings', title: '' },
   },
-{
-    path:ROUTES.SETTINGS_BUSINESS,
+  {
+    path: ROUTES.SETTINGS_BUSINESS,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/CompanySettingsPage')).default,
     }),
-    handle: { module: 'settings', title: '', },
+    handle: { module: 'settings', title: '' },
   },
-{
-    path:ROUTES.SETTINGS_DATABASE,
+  {
+    path: ROUTES.SETTINGS_DATABASE,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/DatabaseStatusPage')).default,
     }),
@@ -77,15 +77,15 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_GENERAL,
+  {
+    path: ROUTES.SETTINGS_GENERAL,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/GeneralSettingsPage')).default,
     }),
-    handle: { module: 'settings', title: '', },
+    handle: { module: 'settings', title: '' },
   },
-{
-    path:ROUTES.SETTINGS_MIGRATION,
+  {
+    path: ROUTES.SETTINGS_MIGRATION,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/ImportMasterDataPage')).default,
     }),
@@ -95,8 +95,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_RESTORE,
+  {
+    path: ROUTES.SETTINGS_RESTORE,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/RestoreBackupPage')).default,
     }),
@@ -106,15 +106,15 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYNC,
+  {
+    path: ROUTES.SETTINGS_SYNC,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/DatabaseStatusPage')).default,
     }),
-    handle: { module: 'settings', title: '', },
+    handle: { module: 'settings', title: '' },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_ACCOUNTING,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_ACCOUNTING,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/AccountingSettingsPage')).default,
     }),
@@ -124,8 +124,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_BRANCHES,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_BRANCHES,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/BranchesSettingsPage')).default,
     }),
@@ -135,8 +135,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_COMPANY,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_COMPANY,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/CompanySettingsPage')).default,
     }),
@@ -146,8 +146,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_DOCUMENTS,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_DOCUMENTS,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/DocumentsSettingsPage')).default,
     }),
@@ -157,8 +157,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_EXPENSES,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_EXPENSES,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/ExpensesSettingsPage')).default,
     }),
@@ -168,8 +168,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_GENERAL,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_GENERAL,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/GeneralSettingsPage')).default,
     }),
@@ -179,8 +179,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_INVENTORY,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_INVENTORY,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/InventorySettingsPage')).default,
     }),
@@ -190,8 +190,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_PRINTING,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_PRINTING,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/PrintingSettingsPage')).default,
     }),
@@ -201,8 +201,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_PURCHASES,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_PURCHASES,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/PurchasesSettingsPage')).default,
     }),
@@ -212,8 +212,8 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       navModule: 'settings',
     },
   },
-{
-    path:ROUTES.SETTINGS_SYSTEM_SALES,
+  {
+    path: ROUTES.SETTINGS_SYSTEM_SALES,
     lazy: async () => ({
       Component: (await import('@/features/settings/pages/SalesSettingsPage')).default,
     }),
@@ -222,5 +222,5 @@ export const SETTINGS_ROUTES:RouteObject[]=[
       title: 'إعدادات المبيعات',
       navModule: 'settings',
     },
-  }
+  },
 ];

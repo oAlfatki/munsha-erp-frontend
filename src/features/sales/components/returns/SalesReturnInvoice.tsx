@@ -1,22 +1,18 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument,printReport } from '@/core/reporting/service';
-import { fmt,today } from '@/core/utils/formatters';
+import { exportDocument, printReport } from '@/core/reporting/service';
+import { fmt, today } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
-import { isArchived } from "@/features/accounting/public/annual-books";
-import { balance } from "@/features/accounting/public/account-balances";
-import { ProductEditor } from "@/features/inventory/public/Catalog";
+import { ProductEditor } from '@/features/inventory/public/Catalog';
+import { balance } from '@/features/ledger/public/account-balances';
+import { isArchived } from '@/features/ledger/public/annual-books';
 import { useSalesReturnInvoiceQuery } from '@/features/sales/queries/useSalesReturnInvoiceQuery';
-import { usePartialReturn } from "@/features/trade/public/usePartialReturn";
-import { quoteReturn,returnRemaining } from "@/features/trade/public/partial-returns";
-import { invoiceReport } from "@/features/trade/public/build-invoice-document";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
-import { partialReturnSchema } from "@/features/trade/public/trade-schema";
+import { invoiceReport } from '@/features/trade/public/build-invoice-document';
+import { quoteReturn, returnRemaining } from '@/features/trade/public/partial-returns';
+import { partialReturnSchema } from '@/features/trade/public/trade-schema';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
+import { usePartialReturn } from '@/features/trade/public/usePartialReturn';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
@@ -28,8 +24,8 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Download,Plus,Printer,Save,Search,Undo2 } from 'lucide-react';
-import { useRef,useState } from 'react';
+import { Download, Plus, Printer, Save, Search, Undo2 } from 'lucide-react';
+import { useRef, useState } from 'react';
 export function SalesReturnInvoice() {
   const root = useRef<HTMLDivElement>(null);
   const { state: s, branchId, busy: isBusy, navigate } = useSalesReturnInvoiceQuery();

@@ -1,13 +1,10 @@
-import type { DocumentKind } from "@/features/accounting/public/types/models/DocumentKind";
-import type { CarryCountersContext } from "@/features/accounting/types/read-models/CarryCountersContext";
-import type { NextDocumentNumberContext } from "@/features/accounting/types/read-models/NextDocumentNumberContext";
-import type { ReferencesContext } from "@/features/accounting/types/read-models/ReferencesContext";
+import type { CarryCountersContext } from '@/features/accounting/types/read-models/CarryCountersContext';
+import type { NextDocumentNumberContext } from '@/features/accounting/types/read-models/NextDocumentNumberContext';
+import type { ReferencesContext } from '@/features/accounting/types/read-models/ReferencesContext';
+import type { DocumentKind } from '@/features/ledger/public/types/models/DocumentKind';
 
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
-import {
-branchDefaults,
-systemSettings,
-} from "@/features/settings/public/system-settings";
+// Frontend display calculations; backend authority requires independent verification.
+import { branchDefaults, systemSettings } from '@/features/organization/public/system-settings';
 export const PREFIXES: Record<DocumentKind, string> = {
   sale: 'SAL-',
   purchase: 'PUR-',

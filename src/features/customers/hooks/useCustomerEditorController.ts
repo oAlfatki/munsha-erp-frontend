@@ -1,15 +1,10 @@
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { useSaveCustomer } from '@/features/customers/hooks/useSaveCustomer';
 import { useCustomerEditorControllerQuery } from '@/features/customers/queries/useCustomerEditorControllerQuery';
 import type { CustomerEditorProps } from '@/features/customers/types/CustomerEditorProps';
 import { customerInputSchema } from '@/features/customers/validation/customers-schema';
-import { usePartyForm } from "@/features/parties/public/usePartyForm";
-import { branchDefaults } from "@/features/settings/public/system-settings";
+import { systemSettings } from '@/features/organization/public/system-settings';
+import { usePartyForm } from '@/features/parties/public/usePartyForm';
 export function useCustomerEditorController({ party }: CustomerEditorProps) {
   const { state: s, branchId, busy: isBusy, navigate } = useCustomerEditorControllerQuery();
   const partyMutationRequest = useSaveCustomer();
@@ -22,7 +17,11 @@ export function useCustomerEditorController({ party }: CustomerEditorProps) {
     address: party?.address || '',
     phone: party?.phone || '',
     currency: party?.currency || 'YER',
-    priceType: party?.priceType || (s ? branchDefaults(s, branchId).priceType : 'retail'),
+    priceType:
+      party?.priceType ||
+      (s
+        ? (systemSettings(s).branches[branchId]?.priceType ?? systemSettings(s).sales.defaultPrice)
+        : 'retail'),
     limit: party?.limit || 0,
     active: party?.active ?? true,
   });

@@ -1,6 +1,9 @@
-import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
-import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
-const DEFINITION = {title:'أنواع المصروفات',collection:'expenseTypes',fields:[
+import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
+import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+const DEFINITION = {
+  title: 'أنواع المصروفات',
+  collection: 'expenseTypes',
+  fields: [
     {
       key: 'name',
       label: 'اسم نوع المصروف',
@@ -19,14 +22,13 @@ const DEFINITION = {title:'أنواع المصروفات',collection:'expenseTyp
       type: 'text',
       required: false,
     },
-  ]} satisfies MasterFormDefinition;
+  ],
+} satisfies MasterFormDefinition;
 /** أنواع المصروفات — feature-owned route content. */
 export default function ExpenseTypeListPage() {
-  
-
   return (
     <section className="screen-page">
-          <MasterScreen screen={DEFINITION} />
-        </section>
+      <MasterScreen screen={DEFINITION} />
+    </section>
   );
 }

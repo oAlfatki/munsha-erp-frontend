@@ -15,9 +15,9 @@ export function useReportPresentation({
   getAmount,
   extraTotals,
 }: ReportPresentationOptions) {
-  const {initial,draft,setDraft,filters,setFilters,handleApplyFilters}=filterState;
-  const [selected,setSelected]=useState<(string|number)[]|null>(null);
-  const [isSummary,setSummary]=useState(false);
+  const { initial, draft, setDraft, filters, setFilters, handleApplyFilters } = filterState;
+  const [selected, setSelected] = useState<(string | number)[] | null>(null);
+  const [isSummary, setSummary] = useState(false);
   const summaryCols = summaryColumns;
   const report = (rows = data.rows): ReportDocument => {
     const totals: [string, string][] = [
@@ -46,10 +46,10 @@ export function useReportPresentation({
         ...(filters.query ? [['البحث', filters.query] as [string, string]] : []),
         ...(filters.warehouse
           ? [
-              ['المخزن', context.warehouseOptions.find((w)=>w.id===filters.warehouse)?.name || ''] as [
-                string,
-                string,
-              ],
+              [
+                'المخزن',
+                context.warehouseOptions.find((w) => w.id === filters.warehouse)?.name || '',
+              ] as [string, string],
             ]
           : []),
       ],

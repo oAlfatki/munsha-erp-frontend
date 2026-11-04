@@ -1,5 +1,5 @@
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Party } from "@/features/parties/public/types/models/Party";
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Party } from '@/features/parties/public/types/models/Party';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface VoucherDetailsControllerReadModel {
   parties: Party[];

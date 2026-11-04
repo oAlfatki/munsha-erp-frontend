@@ -1,8 +1,8 @@
-import type { Product } from "@/features/inventory/public/types/models/Product";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { Product } from '@/features/stock/public/types/models/Product';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
 export interface QuoteReturnContext {
-products: Product[];
-invoiceReturns?: (Invoice & {
+  products: Product[];
+  invoiceReturns?: (Invoice & {
     sourceId: string;
     sourceLines: number[];
     adjusted?: boolean;

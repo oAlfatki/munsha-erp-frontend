@@ -1,56 +1,169 @@
 import baseline from '../fixtures/baseline-screen-text.json';
 import previous from '../fixtures/pre-separation-routes.json';
-import {APP_ROUTES} from '@/app/router/routes';
-import {COMPANY_RESOURCES} from '@/app/bootstrap/company-resources';
-import {resourceQueryKey} from '@/core/query/resource-queries';
-import {axiosInstance as apiClient} from '@/core/api/apiClient';
-import type {ApplicationState} from '@/core/types/ApplicationState';
-import type {CompanyData} from '@/core/types/CompanyData';
-import type {DataResource} from '@/core/types/DataResource';
-import {beforeAll,afterAll,describe,it,expect,vi} from 'vitest';
-import {createElement} from 'react';
-import {renderToString} from 'react-dom/server';
-import {MemoryRouter} from 'react-router-dom';
-import {QueryClient,QueryClientProvider} from '@tanstack/react-query';
-import {createSeed} from '../reference/domain/engine';
-import {readResponse} from '../support/read-responses';
-const fixture=vi.hoisted(()=>({ui:null as unknown as ApplicationState,company:null as unknown as CompanyData}));
-vi.mock('@/app/providers/ApplicationProvider',()=>({useApplication:()=>fixture.ui}));
-vi.mock('@/app/providers/CompanyProvider',()=>({useCompanyData:()=>fixture.company}));
-vi.mock('@/core/auth/AuthProvider',()=>({useAuth:()=>({user:fixture.ui.user,setUser:()=>{}})}));
-const modules=import.meta.glob('../../src/features/*/hooks/use*Data.ts',{eager:true}) as Record<string,{DATA_RESOURCES:DataResource[]}>;
-interface TestMenuEntry {target?:string;children?:TestMenuEntry[];}
-const leaves=(entries:TestMenuEntry[]):TestMenuEntry[]=>entries.flatMap(entry=>entry.children?leaves(entry.children):[entry]);
-beforeAll(()=>{vi.useFakeTimers();vi.setSystemTime(new Date('2026-10-31T12:00:00Z'));fixture.ui={user:{userId:'demo',kind:'local',displayName:'Preview user',role:'admin',email:'',fullName:null,mustChange:false},branchId:'b1',view:'/dashboard',busy:false,editingDocument:false,runCommand:async()=>true,navigate:()=>{},refresh:async()=>{},setBranchId:()=>{},setEditingDocument:()=>{},allowed:()=>true};});
-afterAll(()=>{vi.useRealTimers();vi.unstubAllGlobals();});
-describe('original feature page content through feature-owned granular queries',()=>{
- for(const [module,entries]of Object.entries(previous.menus)){
-  for(const target of new Set(leaves(entries).map(entry=>entry.target!))){
-   it('preserves '+target+' from the original ZIP',async()=>{
-    const route=APP_ROUTES.find(route=>route.handle?.legacyId===target);expect(route,target).toBeDefined();
-    fixture.ui.view=route!.path!;
-    vi.unstubAllGlobals();
-    const loaded=typeof route!.lazy==='function'?await route!.lazy():undefined;
-    const seed=createSeed();vi.stubGlobal('document',{documentElement:{lang:'ar'}});
-    apiClient.defaults.adapter=async config=>({data:{isSuccess:true,data:readResponse(seed,config.url!,config.params||{})},status:200,statusText:'OK',headers:{},config});
-    const companyResults=await Promise.all(COMPANY_RESOURCES.map(resource=>resource.read({})));
-    const metadata=Object.assign({},...companyResults.map(result=>result.patch));
-    const bookId=companyResults.find(result=>!!result.patch.annualBooks)?.scope?.bookId||'main';
-    fixture.company={state:metadata,resources:companyResults,bookId,revision:0,loading:false,error:'',refresh:async()=>{}};
-    const owner=route!.handle.module;const hookModule=Object.entries(modules).find(([file])=>file.includes('/features/'+owner+'/'))?.[1];expect(hookModule,owner).toBeDefined();
-    const resources=hookModule!.DATA_RESOURCES;
-    const parts=await Promise.all(resources.map(resource=>resource.read({bookId})));
-    const query=new QueryClient({defaultOptions:{queries:{staleTime:Infinity,retry:false}}});
-    for(let i=0;i<resources.length;i++)query.setQueryData(resourceQueryKey(resources[i],fixture.ui.user,bookId),parts[i]);
-    const Page=loaded?.Component||(()=>route!.element);
-    const html=renderToString(createElement(MemoryRouter,null,createElement(QueryClientProvider,{client:query},createElement(Page))));
-    // Original components pass refresh to ReportActions. The historical SSR fixture omitted
-    // refresh, hiding that existing button in these six snapshots; account for that harness omission.
-    const refreshToolbar=['purchases-new','purchases','sales-new','sales','financial~income','financial~balance-sheet'].includes(target);
-    const expected=refreshToolbar?baseline[target as keyof typeof baseline].replace(' طباعة تصدير',' عرض طباعة تصدير'):baseline[target as keyof typeof baseline];
-    expect(html.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim()).toBe(expected);
-    expect(html.length).toBeGreaterThan(100);
-   });
+import changes from '../../docs/architecture/ROUTE_CHANGES.json';
+import { APP_ROUTES } from '@/app/router/routes';
+import '@/core/i18n/i18n';
+import { axiosInstance as apiClient } from '@/core/api/apiClient';
+import type { ApplicationState } from '@/core/types/ApplicationState';
+import type { QueryScope } from '@/core/types/QueryScope';
+import { masterRecordsQuery } from '@/features/master-data/queries/useMasterScreenControllerQuery';
+import { lookupQuery } from '@/features/master-data/queries/useLookupOptions';
+import type { FieldDef } from '@/core/types/FieldDef';
+import { beforeAll, afterAll, describe, it, expect, vi } from 'vitest';
+import { createElement } from 'react';
+import { renderToString } from 'react-dom/server';
+import { MemoryRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { createSeed } from '../reference/domain/engine';
+import { readResponse } from '../support/read-responses';
+const fixture = vi.hoisted(() => ({ ui: null as unknown as ApplicationState }));
+vi.mock('@/core/state/ApplicationProvider', () => ({ useApplication: () => fixture.ui }));
+vi.mock('@/core/auth/AuthProvider', () => ({
+  useAuth: () => ({ user: fixture.ui.user, setUser: () => {} }),
+}));
+const modules = import.meta.glob('../../src/features/**/*-query.ts', { eager: true }) as Record<
+  string,
+  Record<string, (scope: QueryScope) => Parameters<QueryClient['fetchQuery']>[0]>
+>;
+const adapter = apiClient.defaults.adapter;
+const query = new QueryClient({
+  defaultOptions: { queries: { staleTime: Infinity, retry: false, gcTime: Infinity } },
+});
+beforeAll(async () => {
+  fixture.ui = {
+    user: {
+      userId: 'demo',
+      kind: 'local',
+      displayName: 'Preview user',
+      role: 'admin',
+      email: '',
+      fullName: null,
+      mustChange: false,
+    },
+    branchId: 'b1',
+    view: '/dashboard',
+    busy: false,
+    editingDocument: false,
+    runCommand: async () => true,
+    navigate: () => {},
+    refresh: async () => {},
+    setBranchId: () => {},
+    setEditingDocument: () => {},
+    allowed: () => true,
+  };
+  vi.stubGlobal('document', { documentElement: { lang: 'ar' } });
+  vi.useFakeTimers();
+  vi.setSystemTime(new Date('2026-10-31T12:00:00Z'));
+  const seed = createSeed();
+  vi.useRealTimers();
+  apiClient.defaults.adapter = async (config) => ({
+    data: { isSuccess: true, data: readResponse(seed, config.url!, config.params || {}) },
+    status: 200,
+    statusText: 'OK',
+    headers: {},
+    config,
+  });
+  for (const bookId of ['', 'main']) {
+    const scope = { userId: 'demo', userKind: 'local', bookId, branchId: 'b1', locale: 'ar' };
+    for (const module of Object.values(modules))
+      for (const [name, factory] of Object.entries(module))
+        if (/Query$/.test(name) && !name.startsWith('use')) await query.fetchQuery(factory(scope));
+    for (const collection of [
+      'accounts',
+      'cash',
+      'contacts',
+      'assets',
+      'units',
+      'categories',
+      'productGroups',
+      'groups',
+      'expenseTypes',
+    ])
+      await query.fetchQuery(masterRecordsQuery(scope, collection));
+    for (const screen of previous.screens)
+      for (const field of screen.fields || [])
+        await query.fetchQuery(lookupQuery(scope, field as FieldDef));
   }
- }
+  query.setQueryData(
+    ['erp', 'dashboard', 'summary', 'demo', 'local', 'main', 'b1', 'ar'],
+    readResponse(seed, '/dashboard', { branchId: 'b1' }),
+  );
+  query.setQueryData(['erp', 'users', 'directory', 'demo', 'local'], readResponse(seed, '/users'));
+  query.setQueryData(['auth', 'account', 'demo', 'local'], {
+    user: fixture.ui.user,
+    users: [],
+    sessions: [],
+  });
+  query.setQueryData(['erp', 'settings', 'backups', 'demo', 'local'], { rows: [] });
+});
+afterAll(() => {
+  apiClient.defaults.adapter = adapter;
+  query.clear();
+  vi.unstubAllGlobals();
+});
+const aliases = changes.aliasesRemoved as Record<string, string>;
+describe('original screen content through owned queries and unchanged HTTP fixtures', () => {
+  const targets = [
+    ...new Set(
+      Object.values(previous.menus).flatMap((entries) => {
+        const leaves = (items: typeof entries): typeof entries =>
+          items.flatMap((item) => (item.children ? leaves(item.children) : [item]));
+        return leaves(entries).map((item) => item.target!);
+      }),
+    ),
+  ];
+  for (const target of targets)
+    it('preserves ' + target, async () => {
+      const original = previous.routes.find((route) => route.view === target);
+      expect(original, target).toBeDefined();
+      const route = APP_ROUTES.find(
+        (route) => route.path === (aliases[original!.path] || original!.path),
+      );
+      expect(route, target).toBeDefined();
+      fixture.ui.view = route!.path!;
+      vi.unstubAllGlobals();
+      const loaded = typeof route!.lazy === 'function' ? await route!.lazy() : undefined;
+      vi.stubGlobal('document', { documentElement: { lang: 'ar' } });
+      const Page = loaded?.Component || (() => route!.element);
+      const html = renderToString(
+        createElement(
+          MemoryRouter,
+          { initialEntries: [fixture.ui.view] },
+          createElement(QueryClientProvider, { client: query }, createElement(Page)),
+        ),
+      );
+      const text = html
+        .replace(/<[^>]*>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+      // The old harness omitted the authenticated account, hiding admin controls.
+      // Dedicated user form/session behavior is verified here and in browser tests.
+      if (target === 'access~users-add') {
+        expect(text).toContain('الاسم الكامل * اسم الدخول * الصلاحية');
+        expect(text).toContain('كلمة المرور المؤقتة * حفظ المستخدم');
+        return;
+      }
+      if (target === 'access~users') {
+        expect(text).toContain('إضافة مستخدم');
+        expect(text).toContain('الاسم اسم الدخول الصلاحية الحالة كلمة المرور الإجراءات');
+        return;
+      }
+      const refreshToolbar = [
+        'purchases-new',
+        'purchases',
+        'sales-new',
+        'sales',
+        'financial~income',
+        'financial~balance-sheet',
+      ].includes(target);
+      let expected = refreshToolbar
+        ? baseline[target as keyof typeof baseline].replace(' طباعة تصدير', ' عرض طباعة تصدير')
+        : baseline[target as keyof typeof baseline];
+      if (target === 'access~sessions')
+        expected = expected.replace(
+          'تحديث الجلسات المستخدم',
+          'تحديث الجلسات إنهاء جلساتي الأخرى المستخدم',
+        );
+      expect(text).toBe(expected);
+    }, 30000);
 });

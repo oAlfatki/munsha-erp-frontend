@@ -1,10 +1,10 @@
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Employee } from "@/features/employees/public/types/models/Employee";
-import type { Movement } from "@/features/inventory/public/types/models/Movement";
-import type { Product } from "@/features/inventory/public/types/models/Product";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { Party } from "@/features/parties/public/types/models/Party";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Employee } from '@/features/personnel/public/types/models/Employee';
+import type { Movement } from '@/features/stock/public/types/models/Movement';
+import type { Product } from '@/features/stock/public/types/models/Product';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface WarehouseTransfersReportReadModel {
   warehouses: Warehouse[];

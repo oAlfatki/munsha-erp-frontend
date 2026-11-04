@@ -1,15 +1,15 @@
-import { ROUTES } from "@/core/config/navigation-paths";
-import { useAccountAction } from "@/features/auth/hooks/useAccountAction";
-import { useAccountQuery } from "@/features/auth/hooks/useAccountQuery";
-import { useChangePasswordForm } from "@/features/auth/hooks/useChangePasswordForm";
-import type { AccountCommand } from "@/features/auth/types/AccountCommand";
-import type { AccountPanelProps } from "@/features/auth/types/AccountPanelProps";
-import { Field } from "@/shared/ui/forms/Field";
-import { Form as ValidatedForm } from "@/shared/ui/forms/ValidatedForm";
-import { PageHead } from "@/shared/ui/layout/PageHead";
-import { Button } from "@/shared/ui/primitives/button";
-import { Input } from "@/shared/ui/primitives/input";
-import { DataTable } from "@/shared/ui/tables/DataTable";
+import { ROUTES } from '@/core/config/navigation-paths';
+import { useAccountAction } from '@/features/auth/hooks/useAccountAction';
+import { useAccountQuery } from '@/features/auth/hooks/useAccountQuery';
+import { useChangePasswordForm } from '@/features/auth/hooks/useChangePasswordForm';
+import type { AccountCommand } from '@/features/auth/types/AccountCommand';
+import type { AccountPanelProps } from '@/features/auth/types/AccountPanelProps';
+import { Field } from '@/shared/ui/forms/Field';
+import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import { useState } from 'react';
 
 export function AccountPanel({ mode = 'password', user }: AccountPanelProps) {
@@ -26,7 +26,7 @@ export function AccountPanel({ mode = 'password', user }: AccountPanelProps) {
   const authAction = useAccountAction();
   const isBusy = authAction.isPending;
   const passwordForm = useChangePasswordForm();
-  async function action(p:AccountCommand) {
+  async function action(p: AccountCommand) {
     setError('');
     try {
       await authAction.mutateAsync(p);
@@ -74,7 +74,7 @@ export function AccountPanel({ mode = 'password', user }: AccountPanelProps) {
               e.preventDefault();
               passwordForm.reset({ current, password, confirm });
               void passwordForm.handleSubmit(
-                (values) => action({ operation: 'changePassword', input:values }),
+                (values) => action({ operation: 'changePassword', input: values }),
                 (errors) =>
                   setError(
                     Object.values(errors)
@@ -122,7 +122,10 @@ export function AccountPanel({ mode = 'password', user }: AccountPanelProps) {
               تحديث الجلسات
             </Button>
             {data?.user.kind === 'local' && (
-              <Button disabled={isBusy} onClick={() => action({ operation: 'revokeOtherSessions' })}>
+              <Button
+                disabled={isBusy}
+                onClick={() => action({ operation: 'revokeOtherSessions' })}
+              >
                 إنهاء جلساتي الأخرى
               </Button>
             )}

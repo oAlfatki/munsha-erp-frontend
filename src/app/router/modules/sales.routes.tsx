@@ -1,22 +1,22 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
-export const SALES_ROUTES:RouteObject[]=[
-{
-    path:ROUTES.SALES,
+export const SALES_ROUTES: RouteObject[] = [
+  {
+    path: ROUTES.SALES,
     lazy: async () => ({
       Component: (await import('@/features/sales/pages/SalesInvoiceListPage')).default,
     }),
-    handle: { module: 'sales', title: '', },
+    handle: { module: 'sales', title: '' },
   },
-{
-    path:ROUTES.SALES_NEW,
+  {
+    path: ROUTES.SALES_NEW,
     lazy: async () => ({
-      Component: (await import('@/features/sales/pages/SalesInvoiceListPage')).default,
+      Component: (await import('@/features/sales/pages/CreateSalesInvoicePage')).default,
     }),
-    handle: { module: 'sales', title: '', },
+    handle: { module: 'sales', title: '' },
   },
-{
-    path:ROUTES.SALES_SALES_CHART,
+  {
+    path: ROUTES.SALES_SALES_CHART,
     lazy: async () => ({
       Component: (await import('@/features/sales/pages/SalesChartPage')).default,
     }),
@@ -26,8 +26,8 @@ export const SALES_ROUTES:RouteObject[]=[
       navModule: 'sales',
     },
   },
-{
-    path:ROUTES.SALES_SALES_REPORT,
+  {
+    path: ROUTES.SALES_SALES_REPORT,
     lazy: async () => ({
       Component: (await import('@/features/sales/pages/SalesSummaryPage')).default,
     }),
@@ -37,8 +37,8 @@ export const SALES_ROUTES:RouteObject[]=[
       navModule: 'sales',
     },
   },
-{
-    path:ROUTES.SALES_SALES_RETURNS,
+  {
+    path: ROUTES.SALES_SALES_RETURNS,
     lazy: async () => ({
       Component: (await import('@/features/sales/pages/SalesReturnsPage')).default,
     }),
@@ -48,8 +48,8 @@ export const SALES_ROUTES:RouteObject[]=[
       navModule: 'sales',
     },
   },
-{
-    path:ROUTES.SALES_TARGETS,
+  {
+    path: ROUTES.SALES_TARGETS,
     lazy: async () => ({
       Component: (await import('@/features/sales/pages/SalesTargetsPage')).default,
     }),
@@ -59,8 +59,8 @@ export const SALES_ROUTES:RouteObject[]=[
       navModule: 'sales',
     },
   },
-{
-    path:ROUTES.INVENTORY_PRICES,
+  {
+    path: ROUTES.INVENTORY_PRICES,
     lazy: async () => ({
       Component: (await import('@/features/sales/pages/SalesItemPricingPage')).default,
     }),
@@ -69,5 +69,5 @@ export const SALES_ROUTES:RouteObject[]=[
       title: 'تسعيرة الأصناف',
       navModule: 'sales',
     },
-  }
+  },
 ];

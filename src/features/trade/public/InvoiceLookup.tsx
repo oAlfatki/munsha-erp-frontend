@@ -1,15 +1,10 @@
-
-
-
-
-
-import { fmt } from "@/core/utils/formatters";
-import { useInvoiceLookupQuery } from "@/features/trade/queries/useInvoiceLookupQuery";
-import type { InvoiceLookupProps } from "@/features/trade/types/InvoiceLookupProps";
-import { Modal } from "@/shared/ui/dialogs/Modal";
-import { SearchBox } from "@/shared/ui/filters/SearchBox";
-import { Button } from "@/shared/ui/primitives/button";
-import { DataTable } from "@/shared/ui/tables/DataTable";
+import { fmt } from '@/core/utils/formatters';
+import { useInvoiceLookupQuery } from '@/features/trade/queries/useInvoiceLookupQuery';
+import type { InvoiceLookupProps } from '@/features/trade/types/InvoiceLookupProps';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { SearchBox } from '@/shared/ui/filters/SearchBox';
+import { Button } from '@/shared/ui/primitives/button';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Search } from 'lucide-react';
 import { useState } from 'react';
 

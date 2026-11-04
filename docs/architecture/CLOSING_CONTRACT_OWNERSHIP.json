@@ -1,0 +1,16 @@
+{
+  "from": "src/features/ledger/public/read-api.ts",
+  "to": "src/features/accounting/api/closing-stock-api.ts",
+  "symbol": "fetchAccountingFinancialBooksByIdClosingStock",
+  "typeMoves": [
+    [
+      "src/features/personnel/public/types/responses/OperationResponse.ts",
+      "src/features/ledger/public/types/responses/OperationResponse.ts"
+    ],
+    [
+      "src/features/personnel/public/types/responses/OperationListResponse.ts",
+      "src/features/ledger/public/types/responses/OperationListResponse.ts"
+    ]
+  ],
+  "reason": "Closing-stock contract composition lives in Accounting; base ledger no longer depends on stock/report or personnel DTO ownership"
+}

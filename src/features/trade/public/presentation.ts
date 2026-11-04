@@ -1,10 +1,10 @@
-import type { StatementDataContext } from "@/features/trade/types/read-models/StatementDataContext";
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
-import { money } from "@/core/utils/money";
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import { allocateInvoiceDiscount } from "@/features/trade/public/invoice-discounts";
-import type { InvoiceLine } from "@/features/trade/public/types/models/InvoiceLine";
-import { lineTotal } from "@/features/trade/public/line-total";
+import type { StatementDataContext } from '@/features/trade/types/read-models/StatementDataContext';
+// Frontend display calculations; backend authority requires independent verification.
+import { money } from '@/core/utils/money';
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import { allocateInvoiceDiscount } from '@/features/trade/public/invoice-discounts';
+import { lineTotal } from '@/features/trade/public/line-total';
+import type { InvoiceLine } from '@/features/trade/public/types/models/InvoiceLine';
 export function invoiceSummary(
   lines: InvoiceLine[],
   payment: 'cash' | 'credit' | 'mixed',

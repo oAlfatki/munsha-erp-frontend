@@ -1,5 +1,5 @@
-import type { SavePartyRequest } from "@/features/parties/public/types/requests/SavePartyRequest";
-import { partyFormSchema } from "@/features/parties/validation/party-form-schema";
+import type { SavePartyRequest } from '@/features/parties/public/types/requests/SavePartyRequest';
+import { partyFormSchema } from '@/features/parties/validation/party-form-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 export function usePartyForm(defaultValues: SavePartyRequest) {

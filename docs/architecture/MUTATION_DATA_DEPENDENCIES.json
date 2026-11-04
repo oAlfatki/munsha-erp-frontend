@@ -8,21 +8,21 @@
       "extras",
       "systemSettings"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 2,
     "queriesAfter": 2
   },
   {
-    "hook": "src/features/accounting/hooks/useMaster.ts",
-    "loader": "src/features/accounting/queries/useMasterValidationData.ts",
+    "hook": "src/features/master-data/hooks/useMaster.ts",
+    "loader": "src/features/master-data/queries/useMasterValidationData.ts",
     "fields": [
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
-    "hook": "src/features/accounting/hooks/useOperation.ts",
+    "hook": "src/features/accounting/public/useOperation.ts",
     "loader": "src/features/accounting/queries/useOperationValidationData.ts",
     "fields": [
       "organization",
@@ -30,47 +30,47 @@
       "extras",
       "systemSettings"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 2,
     "queriesAfter": 2
   },
   {
-    "hook": "src/features/accounting/hooks/usePeriodActivate.ts",
+    "hook": "src/features/accounting/public/usePeriodActivate.ts",
     "loader": "src/features/accounting/queries/usePeriodActivateValidationData.ts",
     "fields": [
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
-    "hook": "src/features/accounting/hooks/usePeriodCreate.ts",
+    "hook": "src/features/accounting/public/usePeriodCreate.ts",
     "loader": "src/features/accounting/queries/usePeriodCreateValidationData.ts",
     "fields": [
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
-    "hook": "src/features/accounting/hooks/usePeriodReset.ts",
+    "hook": "src/features/accounting/public/usePeriodReset.ts",
     "loader": "src/features/accounting/queries/usePeriodResetValidationData.ts",
     "fields": [
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
-    "hook": "src/features/accounting/hooks/usePeriodSwitch.ts",
+    "hook": "src/features/accounting/public/usePeriodSwitch.ts",
     "loader": "src/features/accounting/queries/usePeriodSwitchValidationData.ts",
     "fields": [
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -80,7 +80,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -92,27 +92,27 @@
       "extras",
       "systemSettings"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 2,
     "queriesAfter": 2
   },
   {
-    "hook": "src/features/settings/hooks/useCurrency.ts",
-    "loader": "src/features/settings/queries/useCurrencyValidationData.ts",
+    "hook": "src/features/accounting/public/useCurrency.ts",
+    "loader": "src/features/accounting/queries/useCurrencyValidationData.ts",
     "fields": [
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
-    "hook": "src/features/accounting/hooks/usePeriodTransfer.ts",
+    "hook": "src/features/accounting/public/usePeriodTransfer.ts",
     "loader": "src/features/accounting/queries/usePeriodTransferValidationData.ts",
     "fields": [
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -124,26 +124,21 @@
       "branches",
       "extras"
     ],
-    "queriesBefore": 9,
+    "queriesBefore": 2,
     "queriesAfter": 2
   },
   {
-    "hook": "src/features/inventory/hooks/useStockDocument.ts",
-    "loader": "src/features/inventory/queries/useStockDocumentValidationData.ts",
+    "hook": "src/features/stock/public/useStockDocument.ts",
+    "loader": "src/features/stock/queries/useStockDocumentValidationData.ts",
     "fields": [
       "organization",
       "annualBooks",
       "warehouses",
       "extras",
-      "systemSettings",
-      "products",
-      "movements",
-      "stocks",
-      "branches",
-      "invoices"
+      "systemSettings"
     ],
-    "queriesBefore": 10,
-    "queriesAfter": 9
+    "queriesBefore": 9,
+    "queriesAfter": 3
   },
   {
     "hook": "src/features/customers/hooks/useSaveCustomer.ts",
@@ -155,7 +150,7 @@
       "parties",
       "extras"
     ],
-    "queriesBefore": 9,
+    "queriesBefore": 4,
     "queriesAfter": 4
   },
   {
@@ -165,7 +160,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -175,7 +170,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -185,7 +180,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -197,7 +192,7 @@
       "extras",
       "systemSettings"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 2,
     "queriesAfter": 2
   },
   {
@@ -210,7 +205,7 @@
       "extras",
       "systemSettings"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 3,
     "queriesAfter": 3
   },
   {
@@ -228,7 +223,7 @@
       "branches",
       "invoices"
     ],
-    "queriesBefore": 10,
+    "queriesBefore": 9,
     "queriesAfter": 9
   },
   {
@@ -244,7 +239,7 @@
       "branches",
       "invoices"
     ],
-    "queriesBefore": 10,
+    "queriesBefore": 8,
     "queriesAfter": 8
   },
   {
@@ -260,7 +255,7 @@
       "branches",
       "invoices"
     ],
-    "queriesBefore": 10,
+    "queriesBefore": 8,
     "queriesAfter": 8
   },
   {
@@ -276,11 +271,11 @@
       "branches",
       "invoices"
     ],
-    "queriesBefore": 10,
+    "queriesBefore": 8,
     "queriesAfter": 8
   },
   {
-    "hook": "src/features/trade/hooks/useInvoice.ts",
+    "hook": "src/features/trade/public/useInvoice.ts",
     "loader": "src/features/trade/queries/useInvoiceValidationData.ts",
     "fields": [
       "organization",
@@ -296,7 +291,7 @@
       "stocks",
       "entries"
     ],
-    "queriesBefore": 13,
+    "queriesBefore": 12,
     "queriesAfter": 12
   },
   {
@@ -309,7 +304,7 @@
       "extras",
       "systemSettings"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 4,
     "queriesAfter": 4
   },
   {
@@ -319,17 +314,17 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
-    "hook": "src/features/trade/hooks/usePartialReturn.ts",
+    "hook": "src/features/trade/public/usePartialReturn.ts",
     "loader": "src/features/trade/queries/usePartialReturnValidationData.ts",
     "fields": [
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -339,11 +334,11 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 5,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
-    "hook": "src/features/inventory/hooks/usePriceList.ts",
+    "hook": "src/features/inventory/public/usePriceList.ts",
     "loader": "src/features/inventory/queries/usePriceListValidationData.ts",
     "fields": [
       "organization",
@@ -355,7 +350,7 @@
       "branches",
       "invoices"
     ],
-    "queriesBefore": 10,
+    "queriesBefore": 8,
     "queriesAfter": 8
   },
   {
@@ -365,7 +360,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -375,7 +370,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -385,7 +380,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -395,7 +390,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -405,7 +400,7 @@
       "organization",
       "annualBooks"
     ],
-    "queriesBefore": 6,
+    "queriesBefore": 1,
     "queriesAfter": 1
   },
   {
@@ -418,7 +413,7 @@
       "parties",
       "extras"
     ],
-    "queriesBefore": 9,
+    "queriesBefore": 4,
     "queriesAfter": 4
   }
 ]

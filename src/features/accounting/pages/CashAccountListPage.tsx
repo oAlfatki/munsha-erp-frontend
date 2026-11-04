@@ -1,6 +1,10 @@
-import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
-import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
-const DEFINITION = {title:'قائمة الصناديق والبنوك',note:'الصناديق مرتبطة بالفرع والعملة والحساب؛ سند صرف المصروف يستخدم الصندوق المحدد. الفواتير والسندات العامة تستخدم الصندوق الرئيسي في هذه النسخة.',collection:'cash',fields:[
+import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
+import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+const DEFINITION = {
+  title: 'قائمة الصناديق والبنوك',
+  note: 'الصناديق مرتبطة بالفرع والعملة والحساب؛ سند صرف المصروف يستخدم الصندوق المحدد. الفواتير والسندات العامة تستخدم الصندوق الرئيسي في هذه النسخة.',
+  collection: 'cash',
+  fields: [
     {
       key: 'name',
       label: 'اسم الصندوق أو البنك',
@@ -52,14 +56,13 @@ const DEFINITION = {title:'قائمة الصناديق والبنوك',note:'ا�
       type: 'account',
       required: false,
     },
-  ]} satisfies MasterFormDefinition;
+  ],
+} satisfies MasterFormDefinition;
 /** قائمة الصناديق والبنوك — feature-owned route content. */
 export default function CashAccountListPage() {
-  
-
   return (
     <section className="screen-page">
-          <MasterScreen screen={DEFINITION} />
-        </section>
+      <MasterScreen screen={DEFINITION} />
+    </section>
   );
 }

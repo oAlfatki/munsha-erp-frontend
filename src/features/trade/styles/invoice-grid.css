@@ -1,0 +1,3 @@
+.invoice-entry-grid td:first-child {
+  min-width: 290px;
+}

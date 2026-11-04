@@ -1,14 +1,14 @@
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Movement } from "@/features/inventory/public/types/models/Movement";
-import type { Product } from "@/features/inventory/public/types/models/Product";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { PersistedSystemSettings } from "@/features/settings/public/types/models/PersistedSystemSettings";
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { PersistedSystemSettings } from '@/features/organization/public/types/models/PersistedSystemSettings';
+import type { Movement } from '@/features/stock/public/types/models/Movement';
+import type { Product } from '@/features/stock/public/types/models/Product';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
 export interface BuildReorderReportContext {
-warehouses: Warehouse[];
-movements: Movement[];
-products: Product[];
-systemSettings?: PersistedSystemSettings;
-organization: {
+  warehouses: Warehouse[];
+  movements: Movement[];
+  products: Product[];
+  systemSettings?: PersistedSystemSettings;
+  organization: {
     name: string;
     email?: string;
     activity?: string;
@@ -22,5 +22,5 @@ organization: {
     costPolicy: 'moving_average';
     policyApproved: boolean;
   };
-extras?: ExtensionData;
+  extras?: ExtensionData;
 }

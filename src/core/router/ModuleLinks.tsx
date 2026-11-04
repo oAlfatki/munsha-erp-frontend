@@ -36,7 +36,11 @@ export function ModuleLinks({ module }: ModuleLinksProps) {
         variant="ghost"
         onClick={() =>
           navigate(
-            module === 'access' ? '/access' : module === 'accounts' ? ROUTES.ACCOUNTING : '/' + module,
+            module === 'access'
+              ? ROUTES.USERS
+              : module === 'accounts'
+                ? ROUTES.ACCOUNTING
+                : '/' + module,
           )
         }
       >

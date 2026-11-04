@@ -1,5 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { extras } from "@/features/accounting/public/extensions";
+import { extras } from '@/features/ledger/public/extensions';
 import { useSupplierEditorController } from '@/features/suppliers/hooks/useSupplierEditorController';
 import type { SupplierEditorProps } from '@/features/suppliers/types/SupplierEditorProps';
 import { Modal } from '@/shared/ui/dialogs/Modal';

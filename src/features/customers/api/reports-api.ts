@@ -5,7 +5,8 @@ import type { CustomerBalancesReport } from '@/features/customers/types/response
 export async function fetchReportsCustomersBalances(
   params: SearchReportsCustomersBalancesRequest,
 ): Promise<CustomerBalancesReport> {
-  return await apiClient.get<CustomerBalancesReport>(ENDPOINTS.fetchReportsCustomersBalances,{params: {
+  return await apiClient.get<CustomerBalancesReport>(ENDPOINTS.fetchReportsCustomersBalances, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -13,5 +14,6 @@ export async function fetchReportsCustomersBalances(
       q: params.q,
       asOf: params.asOf,
       partyId: params.partyId,
-    }});
+    },
+  });
 }

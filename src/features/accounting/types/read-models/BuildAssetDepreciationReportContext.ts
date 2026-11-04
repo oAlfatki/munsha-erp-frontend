@@ -1,4 +1,4 @@
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
 export interface BuildAssetDepreciationReportContext {
-extras?: ExtensionData;
+  extras?: ExtensionData;
 }

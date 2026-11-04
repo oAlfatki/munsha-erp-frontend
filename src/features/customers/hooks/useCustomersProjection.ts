@@ -1,8 +1,3 @@
-
-
-
-
-
 import { useCustomersProjectionQuery } from '@/features/customers/queries/useCustomersProjectionQuery';
 export function useCustomersProjection() {
   const { state, loading: isLoading, error } = useCustomersProjectionQuery();

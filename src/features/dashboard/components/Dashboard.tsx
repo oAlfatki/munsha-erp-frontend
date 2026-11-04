@@ -3,17 +3,17 @@ import { fmt } from '@/core/utils/formatters';
 import { useDashboardController } from '@/features/dashboard/hooks/useDashboardController';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import {
-ArrowLeft,
-ArrowUpLeft,
-Banknote,
-FilePlus2,
-Package,
-ReceiptText,
-ShoppingCart,
-TriangleAlert,
-Truck,
-Undo2,
-UserPlus,
+  ArrowLeft,
+  ArrowUpLeft,
+  Banknote,
+  FilePlus2,
+  Package,
+  ReceiptText,
+  ShoppingCart,
+  TriangleAlert,
+  Truck,
+  Undo2,
+  UserPlus,
 } from 'lucide-react';
 export function Dashboard() {
   const model = useDashboardController();
@@ -69,7 +69,12 @@ export function Dashboard() {
                 to: ROUTES.ACCOUNTING_VOUCHERS_RECEIPT_NEW,
                 color: 'teal',
               },
-              { label: 'سند صرف', icon: Banknote, to: ROUTES.ACCOUNTING_VOUCHERS_PAYMENT_NEW, color: 'sand' },
+              {
+                label: 'سند صرف',
+                icon: Banknote,
+                to: ROUTES.ACCOUNTING_VOUCHERS_PAYMENT_NEW,
+                color: 'sand',
+              },
             ].map(({ label, icon: Icon, to, color }) => (
               <button key={to} onClick={() => navigate(to)}>
                 <span className={'stat-icon ' + color}>

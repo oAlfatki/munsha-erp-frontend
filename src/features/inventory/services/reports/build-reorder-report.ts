@@ -2,7 +2,7 @@ import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildReorderReportContext } from '@/features/inventory/types/read-models/BuildReorderReportContext';
-import { systemSettings } from "@/features/settings/public/system-settings";
+import { systemSettings } from '@/features/organization/public/system-settings';
 export function buildReorderReport(
   workspace: BuildReorderReportContext,
   branch: string,

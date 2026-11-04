@@ -1,10 +1,10 @@
 import type { ModalProps } from '@/core/types/ModalProps';
 import {
-Dialog,
-DialogContent,
-DialogDescription,
-DialogHeader,
-DialogTitle,
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
 } from '@/shared/ui/primitives/dialog';
 
 export function Modal({

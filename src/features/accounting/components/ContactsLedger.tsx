@@ -1,23 +1,19 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { exportPdf } from '@/core/reporting/service';
-import { fmt,today } from '@/core/utils/formatters';
+import { fmt, today } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useContactEntry } from '@/features/accounting/hooks/useContactEntry';
 import { useContactVoucher } from '@/features/accounting/hooks/useContactVoucher';
 import { useContactsLedgerQuery } from '@/features/accounting/queries/useContactsLedgerQuery';
-import { cashOptions,defaultCashId } from "@/features/accounting/public/cash";
-import { allAccounts,extras } from "@/features/accounting/public/extensions";
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
 import {
-contactEntrySchema,
-contactVoucherSchema,
-} from "@/features/accounting/public/accounting-schema";
+  contactEntrySchema,
+  contactVoucherSchema,
+} from '@/features/ledger/public/accounting-schema';
+import { cashOptions, defaultCashId } from '@/features/ledger/public/cash';
+import { allAccounts, extras } from '@/features/ledger/public/extensions';
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';

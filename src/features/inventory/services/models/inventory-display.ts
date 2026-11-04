@@ -1,5 +1,5 @@
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
-import type { Unit } from '@/features/inventory/types/models/Unit';
+// Frontend display calculations; backend authority requires independent verification.
+import type { Unit } from '@/features/stock/public/types/models/Unit';
 export function quantityByUnits(qty: number, units: Unit[]): string {
   let remaining = Math.abs(qty);
   const chunks = units.map((u, i) => {

@@ -1,22 +1,22 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
-export const EMPLOYEES_ROUTES:RouteObject[]=[
-{
-    path:ROUTES.EMPLOYEES,
+export const EMPLOYEES_ROUTES: RouteObject[] = [
+  {
+    path: ROUTES.EMPLOYEES,
     lazy: async () => ({
       Component: (await import('@/features/employees/pages/EmployeeListPage')).default,
     }),
-    handle: { module: 'employees', title: '', },
+    handle: { module: 'employees', title: '' },
   },
-{
-    path:ROUTES.EMPLOYEES_NEW,
+  {
+    path: ROUTES.EMPLOYEES_NEW,
     lazy: async () => ({
-      Component: (await import('@/features/employees/pages/EmployeeListPage')).default,
+      Component: (await import('@/features/employees/pages/CreateEmployeePage')).default,
     }),
-    handle: { module: 'employees', title: '', },
+    handle: { module: 'employees', title: '' },
   },
-{
-    path:ROUTES.EMPLOYEES_ADVANCE,
+  {
+    path: ROUTES.EMPLOYEES_ADVANCE,
     lazy: async () => ({
       Component: (await import('@/features/employees/pages/EmployeeAdvancePage')).default,
     }),
@@ -26,8 +26,8 @@ export const EMPLOYEES_ROUTES:RouteObject[]=[
       navModule: 'employees',
     },
   },
-{
-    path:ROUTES.EMPLOYEES_PAYROLL,
+  {
+    path: ROUTES.EMPLOYEES_PAYROLL,
     lazy: async () => ({
       Component: (await import('@/features/employees/pages/PayrollAccrualPage')).default,
     }),
@@ -37,8 +37,8 @@ export const EMPLOYEES_ROUTES:RouteObject[]=[
       navModule: 'employees',
     },
   },
-{
-    path:ROUTES.EMPLOYEES_SALARY_PAYMENT,
+  {
+    path: ROUTES.EMPLOYEES_SALARY_PAYMENT,
     lazy: async () => ({
       Component: (await import('@/features/employees/pages/SalaryPaymentPage')).default,
     }),
@@ -48,8 +48,8 @@ export const EMPLOYEES_ROUTES:RouteObject[]=[
       navModule: 'employees',
     },
   },
-{
-    path:ROUTES.EMPLOYEES_SALARY_REPORT,
+  {
+    path: ROUTES.EMPLOYEES_SALARY_REPORT,
     lazy: async () => ({
       Component: (await import('@/features/employees/pages/SalaryReportPage')).default,
     }),
@@ -59,8 +59,8 @@ export const EMPLOYEES_ROUTES:RouteObject[]=[
       navModule: 'employees',
     },
   },
-{
-    path:ROUTES.EMPLOYEES_WITHDRAWALS,
+  {
+    path: ROUTES.EMPLOYEES_WITHDRAWALS,
     lazy: async () => ({
       Component: (await import('@/features/employees/pages/EmployeeWithdrawalsPage')).default,
     }),
@@ -69,5 +69,5 @@ export const EMPLOYEES_ROUTES:RouteObject[]=[
       title: 'تقرير مسحوبات الموظفين',
       navModule: 'accounts',
     },
-  }
+  },
 ];

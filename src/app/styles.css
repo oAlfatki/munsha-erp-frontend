@@ -1,0 +1,32 @@
+@import '../core/styles/index.css';
+@import './styles/shell-and-shared-ui.css';
+@import '../features/trade/styles/invoice-summary.css';
+@import './styles/document-total-overrides.css';
+@import '../features/trade/styles/invoice-header.css';
+@import './styles/document-dialogs-and-reports.css';
+@import '../features/settings/styles/backup.css';
+@import './styles/workflow-controls.css';
+@import '../features/trade/styles/invoice-footer.css';
+@import './styles/statements.css';
+@import '../features/inventory/styles/stock-entry.css';
+@import './styles/responsive-documents.css';
+@import '../features/trade/styles/invoice-lookup.css';
+@import './styles/trade-summary.css';
+@import '../features/trade/styles/invoice-fields.css';
+@import './styles/document-branding.css';
+
+@import '../features/settings/styles/system-settings.css';
+
+@import './styles/settings-controls.css';
+
+@import '../features/trade/styles/invoice-hint.css';
+
+@import './styles/invoice-line-overrides.css';
+@import '../features/trade/styles/invoice-grid.css';
+@import './styles/grid-search.css';
+@import '../features/trade/styles/invoice-new-row.css';
+@import './styles/invoice-print-overrides.css';
+
+@import '../features/trade/styles/invoice-entry.css';
+
+@import './styles/voucher-and-document-grid.css';

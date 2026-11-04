@@ -1,29 +1,29 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
-export const ACCOUNTING_ROUTES:RouteObject[]=[
-{
-    path:ROUTES.ACCOUNTING,
+export const ACCOUNTING_ROUTES: RouteObject[] = [
+  {
+    path: ROUTES.ACCOUNTING,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/AccountingOverviewPage')).default,
     }),
-    handle: { module: 'accounting', title: '', },
+    handle: { module: 'accounting', title: '' },
   },
-{
-    path:ROUTES.ACCOUNTING_VOUCHERS_PAYMENT_NEW,
+  {
+    path: ROUTES.ACCOUNTING_VOUCHERS_PAYMENT_NEW,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CreatePaymentVoucherPage')).default,
     }),
-    handle: { module: 'accounting', title: '', },
+    handle: { module: 'accounting', title: '' },
   },
-{
-    path:ROUTES.ACCOUNTING_VOUCHERS_RECEIPT_NEW,
+  {
+    path: ROUTES.ACCOUNTING_VOUCHERS_RECEIPT_NEW,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CreateReceiptVoucherPage')).default,
     }),
-    handle: { module: 'accounting', title: '', },
+    handle: { module: 'accounting', title: '' },
   },
-{
-    path:ROUTES.ACCOUNTING_ACCOUNTS,
+  {
+    path: ROUTES.ACCOUNTING_ACCOUNTS,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/ChartOfAccountsPage')).default,
     }),
@@ -33,8 +33,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_ASSET_PURCHASE,
+  {
+    path: ROUTES.ACCOUNTING_ASSET_PURCHASE,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/AssetAcquisitionPage')).default,
     }),
@@ -44,8 +44,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_ASSET_REPORT,
+  {
+    path: ROUTES.ACCOUNTING_ASSET_REPORT,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/AssetDepreciationReportPage')).default,
     }),
@@ -55,8 +55,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_ASSETS,
+  {
+    path: ROUTES.ACCOUNTING_ASSETS,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/AssetListPage')).default,
     }),
@@ -66,8 +66,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_ASSETS_ADD,
+  {
+    path: ROUTES.ACCOUNTING_ASSETS_ADD,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CreateAssetPage')).default,
     }),
@@ -77,8 +77,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_CASH_BANK,
+  {
+    path: ROUTES.ACCOUNTING_CASH_BANK,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CreateCashAccountPage')).default,
     }),
@@ -88,8 +88,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_CASH_BANK_LIST,
+  {
+    path: ROUTES.ACCOUNTING_CASH_BANK_LIST,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CashAccountListPage')).default,
     }),
@@ -99,8 +99,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_CASH_MOVEMENT,
+  {
+    path: ROUTES.ACCOUNTING_CASH_MOVEMENT,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CashMovementPage')).default,
     }),
@@ -110,8 +110,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_CLOSE,
+  {
+    path: ROUTES.ACCOUNTING_CLOSE,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/FiscalYearClosingPage')).default,
     }),
@@ -121,8 +121,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_CONTACTS,
+  {
+    path: ROUTES.ACCOUNTING_CONTACTS,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/AccountingContactListPage')).default,
     }),
@@ -132,8 +132,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_CONTACTS_LEDGER,
+  {
+    path: ROUTES.ACCOUNTING_CONTACTS_LEDGER,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/AccountingContactLedgerPage')).default,
     }),
@@ -143,8 +143,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_CURRENCIES,
+  {
+    path: ROUTES.ACCOUNTING_CURRENCIES,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CurrencyListPage')).default,
     }),
@@ -154,8 +154,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_CURRENCIES_ADD,
+  {
+    path: ROUTES.ACCOUNTING_CURRENCIES_ADD,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CreateCurrencyPage')).default,
     }),
@@ -165,8 +165,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_DEPRECIATION,
+  {
+    path: ROUTES.ACCOUNTING_DEPRECIATION,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/AssetDepreciationPage')).default,
     }),
@@ -176,8 +176,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_END_BALANCES,
+  {
+    path: ROUTES.ACCOUNTING_END_BALANCES,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/ClosingAccountBalancesPage')).default,
     }),
@@ -187,8 +187,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_FX,
+  {
+    path: ROUTES.ACCOUNTING_FX,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CurrencyDocumentsPage')).default,
     }),
@@ -198,8 +198,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_JOURNAL_NEW,
+  {
+    path: ROUTES.ACCOUNTING_JOURNAL_NEW,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/CreateJournalEntryPage')).default,
     }),
@@ -209,8 +209,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_OPENING,
+  {
+    path: ROUTES.ACCOUNTING_OPENING,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/OpeningAccountBalancesPage')).default,
     }),
@@ -220,8 +220,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_OPENING_REPORT,
+  {
+    path: ROUTES.ACCOUNTING_OPENING_REPORT,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/OpeningAccountBalancesReportPage'))
         .default,
@@ -232,8 +232,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_PERIODS,
+  {
+    path: ROUTES.ACCOUNTING_PERIODS,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/FiscalPeriodReviewPage')).default,
     }),
@@ -243,8 +243,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_REOPEN,
+  {
+    path: ROUTES.ACCOUNTING_REOPEN,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/FiscalYearReopeningPage')).default,
     }),
@@ -254,8 +254,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_STATEMENT,
+  {
+    path: ROUTES.ACCOUNTING_STATEMENT,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/AccountStatementPage')).default,
     }),
@@ -265,8 +265,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_TAX_REPORT,
+  {
+    path: ROUTES.ACCOUNTING_TAX_REPORT,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/TaxReportPage')).default,
     }),
@@ -276,8 +276,8 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_VOUCHERS,
+  {
+    path: ROUTES.ACCOUNTING_VOUCHERS,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/VoucherListPage')).default,
     }),
@@ -287,11 +287,11 @@ export const ACCOUNTING_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.ACCOUNTING_STATEMENT_PARTYID,
+  {
+    path: ROUTES.ACCOUNTING_STATEMENT_PARTYID,
     lazy: async () => ({
       Component: (await import('@/features/accounting/pages/PartyAccountStatementPage')).default,
     }),
-    handle: { module: 'accounting', title: '', },
-  }
+    handle: { module: 'accounting', title: '' },
+  },
 ];

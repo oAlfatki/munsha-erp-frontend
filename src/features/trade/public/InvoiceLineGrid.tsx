@@ -1,19 +1,19 @@
-import { fmt } from "@/core/utils/formatters";
-import { systemSettings } from "@/features/settings/public/system-settings";
+import { fmt } from '@/core/utils/formatters';
+import { systemSettings } from '@/features/organization/public/system-settings';
+import { lineTotal } from '@/features/trade/public/line-total';
+import type { InvoiceLine } from '@/features/trade/public/types/models/InvoiceLine';
 import {
-invoiceEntryLine,
-invoiceItemMatches,
-} from "@/features/trade/services/models/invoice-entry";
-import type { InvoiceLineGridProps } from "@/features/trade/types/InvoiceLineGridProps";
-import type { InvoiceLine } from "@/features/trade/public/types/models/InvoiceLine";
-import type { ItemMatch } from "@/features/trade/types/models/ItemMatch";
-import { lineTotal } from "@/features/trade/public/line-total";
-import { Field } from "@/shared/ui/forms/Field";
-import { Select } from "@/shared/ui/forms/Select";
-import { Button } from "@/shared/ui/primitives/button";
-import { Input } from "@/shared/ui/primitives/input";
-import { Plus,Trash2 } from 'lucide-react';
-import { useLayoutEffect,useRef,useState } from 'react';
+  invoiceEntryLine,
+  invoiceItemMatches,
+} from '@/features/trade/services/models/invoice-entry';
+import type { InvoiceLineGridProps } from '@/features/trade/types/InvoiceLineGridProps';
+import type { ItemMatch } from '@/features/trade/types/models/ItemMatch';
+import { Field } from '@/shared/ui/forms/Field';
+import { Select } from '@/shared/ui/forms/Select';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
+import { Plus, Trash2 } from 'lucide-react';
+import { useLayoutEffect, useRef, useState } from 'react';
 
 export function InvoiceLineGrid({
   state: workspace,

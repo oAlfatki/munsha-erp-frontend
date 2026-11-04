@@ -1,6 +1,6 @@
-import type { InvoiceEventsContext } from "@/features/trade/types/read-models/InvoiceEventsContext";
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { InvoiceEventsContext } from '@/features/trade/types/read-models/InvoiceEventsContext';
+// Frontend display calculations; backend authority requires independent verification.
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
 export function invoiceEvents(
   workspace: InvoiceEventsContext,
   kind: Invoice['kind'],

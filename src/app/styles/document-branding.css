@@ -1,0 +1,134 @@
+.white-label-print-header img {
+  max-height: 70px;
+  max-width: 140px;
+  object-fit: contain;
+}
+@media print {
+  .white-label-print-header {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.settings-hub {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.settings-card {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.settings-card-icon {
+  padding: 13px;
+  background: var(--muted);
+  border-radius: 14px;
+  color: var(--brand-primary);
+  margin-bottom: 18px;
+}
+.settings-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.settings-card p {
+  color: var(--muted-foreground);
+  font-size: 16px;
+  margin-bottom: 18px;
+  line-height: 1.9;
+}
+.settings-card > div:last-child {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 4px;
+}
+.settings-card button {
+  justify-content: space-between;
+  white-space: normal;
+  text-align: right;
+  height: auto;
+  min-height: 42px;
+}
+.annual-period-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--foreground);
+  font-size: 15px;
+  margin-bottom: 22px;
+}
+.annual-period-banner button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+.annual-period-banner.archived {
+  background: var(--muted);
+  border-color: #ead6a5;
+  color: #805916;
+}
+@media (max-width: 760px) {
+  .settings-hub {
+    grid-template-columns: 1fr;
+  }
+  .settings-card {
+    padding: 20px;
+  }
+}
+@media print {
+  .annual-period-banner {
+    display: none;
+  }
+}
+.print-all-rows,
+.device-print-footer {
+  display: none;
+}
+@media print {
+  .data-table > tbody:not(.print-all-rows) {
+    display: none !important;
+  }
+  .data-table > .print-all-rows {
+    display: table-row-group !important;
+  }
+  .device-print-footer {
+    display: block;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .table-footer {
+    display: none !important;
+  }
+  html[data-print-logo='no'] .white-label-print-header img {
+    display: none !important;
+  }
+  html[data-print-address='no'] .white-label-print-header p,
+  html[data-print-address='no'] .invoice-print-header > p {
+    display: none !important;
+  }
+  html[data-print-words='no'] .amount-words {
+    display: none !important;
+  }
+  html[data-print-paper='thermal'] .workspace-content {
+    width: 80mm !important;
+    max-width: 80mm !important;
+    padding: 3mm !important;
+  }
+  html[data-print-paper='thermal'] .data-table {
+    font-size: 11px !important;
+  }
+  html[data-print-paper='thermal'] .data-table th,
+  html[data-print-paper='thermal'] .data-table td {
+    padding: 3px !important;
+  }
+}

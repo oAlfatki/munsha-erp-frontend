@@ -1,4 +1,4 @@
-import type { InvoiceLine } from "@/features/trade/public/types/models/InvoiceLine";
+import type { InvoiceLine } from '@/features/trade/public/types/models/InvoiceLine';
 export interface InvoiceTotalsProps {
   lines: InvoiceLine[];
   payment: 'cash' | 'credit' | 'mixed';

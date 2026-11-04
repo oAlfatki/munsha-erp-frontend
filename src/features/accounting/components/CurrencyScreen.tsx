@@ -1,16 +1,11 @@
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { printReport } from '@/core/reporting/service';
-import { fmt,today } from '@/core/utils/formatters';
+import { fmt, today } from '@/core/utils/formatters';
+import { useCurrency } from '@/features/accounting/public/useCurrency';
 import { useCurrencyScreenQuery } from '@/features/accounting/queries/useCurrencyScreenQuery';
-import { extras } from "@/features/accounting/public/extensions";
 import type { CurrencyScreenProps } from '@/features/accounting/types/CurrencyScreenProps';
-import { useCurrency } from "@/features/settings/public/useCurrency";
-import { currencySchema } from "@/features/settings/public/settings-schema";
+import { currencySchema } from '@/features/ledger/public/currency-schema';
+import { extras } from '@/features/ledger/public/extensions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Field } from '@/shared/ui/forms/Field';

@@ -1,6 +1,6 @@
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
-import { money } from "@/core/utils/money";
-import type { InvoiceLine } from "@/features/trade/public/types/models/InvoiceLine";
+// Frontend display calculations; backend authority requires independent verification.
+import { money } from '@/core/utils/money';
+import type { InvoiceLine } from '@/features/trade/public/types/models/InvoiceLine';
 export function allocateInvoiceDiscount<
   TData extends Pick<InvoiceLine, 'qty' | 'price' | 'discount'>,
 >(

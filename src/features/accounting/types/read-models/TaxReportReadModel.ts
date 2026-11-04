@@ -1,5 +1,5 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface TaxReportReadModel {
   entries: Entry[];

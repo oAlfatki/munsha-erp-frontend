@@ -1,13 +1,13 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { StockDocument } from "@/features/inventory/public/types/models/StockDocument";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
-import type { PersistedSystemSettings } from "@/features/settings/public/types/models/PersistedSystemSettings";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
-import type { Audit } from "@/features/users/public/types/models/Audit";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { PersistedSystemSettings } from '@/features/organization/public/types/models/PersistedSystemSettings';
+import type { StockDocument } from '@/features/stock/public/types/models/StockDocument';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
+import type { Audit } from '@/features/users/public/types/models/Audit';
 export interface NextDocumentNumberContext {
-organization: {
+  organization: {
     name: string;
     email?: string;
     activity?: string;
@@ -21,13 +21,13 @@ organization: {
     costPolicy: 'moving_average';
     policyApproved: boolean;
   };
-documentCounters?: Record<string, number>;
-entries: Entry[];
-systemSettings?: PersistedSystemSettings;
-extras?: ExtensionData;
-warehouses: Warehouse[];
-branches: Branch[];
-invoices: Invoice[];
-stockDocuments?: StockDocument[];
-audit: Audit[];
+  documentCounters?: Record<string, number>;
+  entries: Entry[];
+  systemSettings?: PersistedSystemSettings;
+  extras?: ExtensionData;
+  warehouses: Warehouse[];
+  branches: Branch[];
+  invoices: Invoice[];
+  stockDocuments?: StockDocument[];
+  audit: Audit[];
 }

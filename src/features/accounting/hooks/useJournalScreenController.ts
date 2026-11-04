@@ -1,13 +1,8 @@
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { useManualJournal } from '@/features/accounting/hooks/useManualJournal';
 import { useJournalScreenControllerQuery } from '@/features/accounting/queries/useJournalScreenControllerQuery';
-import { manualJournalSchema } from "@/features/accounting/public/accounting-schema";
+import { manualJournalSchema } from '@/features/ledger/public/accounting-schema';
 import { useState } from 'react';
 export function useJournalScreenController() {
   const { state: s, branchId, busy: isBusy, navigate } = useJournalScreenControllerQuery();

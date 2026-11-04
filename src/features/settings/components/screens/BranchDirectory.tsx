@@ -1,13 +1,8 @@
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { printReport } from '@/core/reporting/service';
+import { branchSchema } from '@/features/organization/public/settings-schema';
 import { useBranch } from '@/features/settings/hooks/useBranch';
 import { useBranchDirectoryQuery } from '@/features/settings/queries/useBranchDirectoryQuery';
-import { branchSchema } from "@/features/settings/public/settings-schema";
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -18,7 +13,7 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Printer,Save } from 'lucide-react';
+import { Printer, Save } from 'lucide-react';
 import { useState } from 'react';
 export function BranchDirectory() {
   const screen = {
@@ -40,9 +35,7 @@ export function BranchDirectory() {
     address: string;
     branchId: string;
     active: boolean;
-  } | null>(() =>
-    null,
-  );
+  } | null>(() => null);
   if (!s) return null;
   const list = s.branches.map((branch) => ({ ...branch, branchId: '', address: branch.address }));
   return (

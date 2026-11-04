@@ -1,15 +1,15 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
-export const FINANCIAL_ROUTES:RouteObject[]=[
-{
-    path:ROUTES.FINANCIAL_STATEMENTS,
+export const FINANCIAL_ROUTES: RouteObject[] = [
+  {
+    path: ROUTES.FINANCIAL_STATEMENTS,
     lazy: async () => ({
       Component: (await import('@/features/financial/pages/FinancialOverviewPage')).default,
     }),
-    handle: { module: 'financial', title: '', },
+    handle: { module: 'financial', title: '' },
   },
-{
-    path:ROUTES.FINANCIAL_STATEMENTS_BALANCE_SHEET,
+  {
+    path: ROUTES.FINANCIAL_STATEMENTS_BALANCE_SHEET,
     lazy: async () => ({
       Component: (await import('@/features/financial/pages/BalanceSheetPage')).default,
     }),
@@ -19,8 +19,8 @@ export const FINANCIAL_ROUTES:RouteObject[]=[
       navModule: 'financial',
     },
   },
-{
-    path:ROUTES.FINANCIAL_STATEMENTS_CASH_FLOW,
+  {
+    path: ROUTES.FINANCIAL_STATEMENTS_CASH_FLOW,
     lazy: async () => ({
       Component: (await import('@/features/financial/pages/CashFlowPage')).default,
     }),
@@ -30,8 +30,8 @@ export const FINANCIAL_ROUTES:RouteObject[]=[
       navModule: 'financial',
     },
   },
-{
-    path:ROUTES.FINANCIAL_STATEMENTS_INCOME,
+  {
+    path: ROUTES.FINANCIAL_STATEMENTS_INCOME,
     lazy: async () => ({
       Component: (await import('@/features/financial/pages/IncomeStatementPage')).default,
     }),
@@ -41,8 +41,8 @@ export const FINANCIAL_ROUTES:RouteObject[]=[
       navModule: 'financial',
     },
   },
-{
-    path:ROUTES.FINANCIAL_STATEMENTS_MAPPING,
+  {
+    path: ROUTES.FINANCIAL_STATEMENTS_MAPPING,
     lazy: async () => ({
       Component: (await import('@/features/financial/pages/FinancialAccountMappingPage')).default,
     }),
@@ -52,8 +52,8 @@ export const FINANCIAL_ROUTES:RouteObject[]=[
       navModule: 'financial',
     },
   },
-{
-    path:ROUTES.FINANCIAL_STATEMENTS_PROFIT_CUSTOMERS,
+  {
+    path: ROUTES.FINANCIAL_STATEMENTS_PROFIT_CUSTOMERS,
     lazy: async () => ({
       Component: (await import('@/features/financial/pages/CustomerProfitPage')).default,
     }),
@@ -63,8 +63,8 @@ export const FINANCIAL_ROUTES:RouteObject[]=[
       navModule: 'financial',
     },
   },
-{
-    path:ROUTES.FINANCIAL_STATEMENTS_PROFIT_ITEMS,
+  {
+    path: ROUTES.FINANCIAL_STATEMENTS_PROFIT_ITEMS,
     lazy: async () => ({
       Component: (await import('@/features/financial/pages/ProductProfitPage')).default,
     }),
@@ -73,5 +73,5 @@ export const FINANCIAL_ROUTES:RouteObject[]=[
       title: 'الأرباح من الأصناف',
       navModule: 'financial',
     },
-  }
+  },
 ];

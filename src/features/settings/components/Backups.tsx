@@ -1,30 +1,25 @@
-
-
-
-
-
 import { ApiError } from '@/core/api/apiError';
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { newId } from '@/core/utils/id';
-import { submitBackupAction } from '@/features/settings/api/backups';
+import { validateBackupState } from '@/features/organization/public/backup';
+import {
+  backupFileName,
+  chooseBackupFolder,
+  clearBackupFolder,
+  readBackupFolder,
+  saveBackupFile,
+} from '@/features/organization/public/backup-files';
+import { backupPolicy } from '@/features/organization/public/backup-policy';
+import { backupsApi } from '@/features/organization/public/backups';
+import { backupSettingsSchema } from '@/features/organization/public/settings-schema';
+import type { BackupArchive } from '@/features/organization/public/types/models/BackupArchive';
+import type { BackupPolicy } from '@/features/organization/public/types/models/BackupPolicy';
+import type { Row } from '@/features/organization/public/types/models/Row';
+import type { Tab } from '@/features/organization/public/types/models/Tab';
 import { useBackupSettings } from '@/features/settings/hooks/useBackupSettings';
 import { useBackupsQuery as useBackupsListQuery } from '@/features/settings/hooks/useBackupsQuery';
 import { useBackupsQuery } from '@/features/settings/queries/useBackupsQuery';
-import {
-backupFileName,
-chooseBackupFolder,
-clearBackupFolder,
-readBackupFolder,
-saveBackupFile,
-} from "@/features/settings/public/backup-files";
-import { backupPolicy } from "@/features/settings/public/backup-policy";
 import type { BackupsProps } from '@/features/settings/types/BackupsProps';
-import type { BackupArchive } from '@/features/settings/types/models/BackupArchive';
-import type { BackupPolicy } from '@/features/settings/types/models/BackupPolicy';
-import type { Row } from '@/features/settings/types/models/Row';
-import type { Tab } from '@/features/settings/types/models/Tab';
-import { validateBackupState } from '@/features/settings/validation/backup';
-import { backupSettingsSchema } from "@/features/settings/public/settings-schema";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
@@ -34,7 +29,7 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { useEffect,useRef,useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { toast } from 'sonner';
 
 export function Backups({ initialTab = 'backup' }: BackupsProps) {
@@ -99,7 +94,7 @@ export function Backups({ initialTab = 'backup' }: BackupsProps) {
       };
       const signature = JSON.stringify(body);
       if (pending.current?.signature !== signature) pending.current = { signature, id: newId() };
-      const d = await submitBackupAction({ ...body, requestId: pending.current.id });
+      const d = await backupsApi[action]({ ...body, requestId: pending.current.id });
       pending.current = null;
       if (action === 'download') {
         const destination = await saveBackupFile(d, backupFileName(d.revision, d.createdAt));
@@ -265,8 +260,7 @@ export function Backups({ initialTab = 'backup' }: BackupsProps) {
                   if (!window.confirm('هل تريد إنشاء نسخة كاملة من الخادم وتنزيلها؟')) return;
                   try {
                     setStatus('جارٍ حفظ ملف النسخة…');
-                    const response = await submitBackupAction({
-                      action: 'create',
+                    const response = await backupsApi.create({
                       revision,
                       requestId: newId(),
                     });

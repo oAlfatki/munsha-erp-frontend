@@ -1,21 +1,13 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf,printReport } from '@/core/reporting/service';
+import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
-import { usePeriodTransfer } from "@/features/accounting/public/usePeriodTransfer";
-import {
-bookCatalog,
-isArchived,
-stockClosing,
-} from "@/features/accounting/public/annual-books";
-import { periodTransferSchema } from "@/features/accounting/public/accounting-schema";
+import { usePeriodTransfer } from '@/features/accounting/public/usePeriodTransfer';
 import { useClosingStockScreenQuery } from '@/features/inventory/queries/useClosingStockScreenQuery';
+import { periodTransferSchema } from '@/features/ledger/public/accounting-schema';
+import { bookCatalog, isArchived, stockClosing } from '@/features/ledger/public/annual-books';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
@@ -25,7 +17,7 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Database,Download,Eye,Printer,Save,Undo2 } from 'lucide-react';
+import { Database, Download, Eye, Printer, Save, Undo2 } from 'lucide-react';
 import { useState } from 'react';
 export function ClosingStockScreen() {
   const { state: s, revision, busy: isBusy, navigate } = useClosingStockScreenQuery();

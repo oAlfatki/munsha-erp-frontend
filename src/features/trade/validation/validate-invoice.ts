@@ -1,9 +1,9 @@
 import { money } from '@/core/utils/money';
-import { balance } from "@/features/accounting/public/account-balances";
-import { systemSettings } from "@/features/settings/public/system-settings";
-import { invoiceSummary } from "@/features/trade/public/presentation";
+import { balance } from '@/features/ledger/public/account-balances';
+import { systemSettings } from '@/features/organization/public/system-settings';
+import { invoiceSummary } from '@/features/trade/public/presentation';
+import { invoiceSchema } from '@/features/trade/public/trade-schema';
 import type { ValidateInvoiceContext } from '@/features/trade/types/read-models/ValidateInvoiceContext';
-import { invoiceSchema } from "@/features/trade/public/trade-schema";
 export function validateInvoice(data: ValidateInvoiceContext, input: unknown) {
   const p = invoiceSchema.parse(input),
     settings = systemSettings(data);

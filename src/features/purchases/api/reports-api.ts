@@ -7,7 +7,8 @@ import type { PurchasesSummaryReport } from '@/features/purchases/types/response
 export async function fetchReportsPurchasesSummary(
   params: SearchReportsPurchasesSummaryRequest,
 ): Promise<PurchasesSummaryReport> {
-  return await apiClient.get<PurchasesSummaryReport>(ENDPOINTS.fetchReportsPurchasesSummary,{params: {
+  return await apiClient.get<PurchasesSummaryReport>(ENDPOINTS.fetchReportsPurchasesSummary, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -18,12 +19,14 @@ export async function fetchReportsPurchasesSummary(
       partyId: params.partyId,
       currency: params.currency,
       productId: params.productId,
-    }});
+    },
+  });
 }
 export async function fetchReportsPurchasesReturns(
   params: SearchReportsPurchasesReturnsRequest,
 ): Promise<PurchaseReturnsReport> {
-  return await apiClient.get<PurchaseReturnsReport>(ENDPOINTS.fetchReportsPurchasesReturns,{params: {
+  return await apiClient.get<PurchaseReturnsReport>(ENDPOINTS.fetchReportsPurchasesReturns, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -33,5 +36,6 @@ export async function fetchReportsPurchasesReturns(
       q: params.q,
       partyId: params.partyId,
       currency: params.currency,
-    }});
+    },
+  });
 }

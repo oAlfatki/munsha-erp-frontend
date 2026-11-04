@@ -2,7 +2,7 @@ import { readDeviceSettings } from '@/core/services/device-settings';
 import type { DataTableProps } from '@/core/types/DataTableProps';
 import { Empty } from '@/shared/ui/feedback/Empty';
 import { Button } from '@/shared/ui/primitives/button';
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export function DataTable({ headers, rows, empty, foot }: DataTableProps) {
   const [size, setSize] = useState(25),

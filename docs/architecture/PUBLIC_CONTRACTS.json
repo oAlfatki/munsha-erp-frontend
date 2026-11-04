@@ -2675,5 +2675,1219 @@
       "src/features/accounting/public/read-api.ts"
     ],
     "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SaveContactEntryRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SaveContactEntryRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SaveContactVoucherRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SaveContactVoucherRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SaveManualJournalRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SaveManualJournalRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SaveOperationRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SaveOperationRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SavePeriodActivateRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SavePeriodActivateRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SavePeriodCreateRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SavePeriodCreateRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SavePeriodResetRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SavePeriodResetRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SavePeriodSwitchRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SavePeriodSwitchRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SavePeriodTransferRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SavePeriodTransferRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SavePermissionsRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SavePermissionsRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SaveScreenDraftRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SaveScreenDraftRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SaveVoucherRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SaveVoucherRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/accounting-api.ts",
+      "src/features/accounting/mapper/accounting-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SearchReportsAccountingAssetsRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SearchReportsAccountingAssetsRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SearchReportsAccountingContactLedgerRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SearchReportsAccountingContactLedgerRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SearchReportsAccountingTaxRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SearchReportsAccountingTaxRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/responses/AccountStatementResponse.ts",
+    "to": "src/features/ledger/public/types/responses/AccountStatementResponse.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/responses/AssetsReport.ts",
+    "to": "src/features/ledger/public/types/responses/AssetsReport.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/responses/CashMovementsReport.ts",
+    "to": "src/features/ledger/public/types/responses/CashMovementsReport.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/responses/ForeignCurrencyReport.ts",
+    "to": "src/features/ledger/public/types/responses/ForeignCurrencyReport.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/responses/OpeningBalancesReport.ts",
+    "to": "src/features/ledger/public/types/responses/OpeningBalancesReport.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/responses/TaxReport.ts",
+    "to": "src/features/ledger/public/types/responses/TaxReport.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/responses/TrialBalanceReport.ts",
+    "to": "src/features/ledger/public/types/responses/TrialBalanceReport.ts",
+    "consumers": [
+      "src/features/accounting/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/models/AssetForm.ts",
+    "to": "src/features/ledger/public/types/models/AssetForm.ts",
+    "consumers": [
+      "src/features/accounting/components/Assets.tsx"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/models/MasterRecord.ts",
+    "to": "src/features/ledger/public/types/models/MasterRecord.ts",
+    "consumers": [
+      "src/features/accounting/components/Assets.tsx",
+      "src/features/master-data/hooks/useMasterScreenController.ts",
+      "src/features/master-data/queries/useMasterScreenControllerQuery.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/master-data/hooks/useMaster.ts",
+    "to": "src/features/master-data/public/useMaster.ts",
+    "consumers": [
+      "src/features/accounting/components/Assets.tsx"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/master-data/validation/master-schema.ts",
+    "to": "src/features/master-data/public/master-schema.ts",
+    "consumers": [
+      "src/features/accounting/components/Assets.tsx"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/ledger/validation/currency-schema.ts",
+    "to": "src/features/ledger/public/currency-schema.ts",
+    "consumers": [
+      "src/features/accounting/components/CurrencyScreen.tsx"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/ledger/services/currency-service.ts",
+    "to": "src/features/ledger/public/currency-service.ts",
+    "consumers": [
+      "src/features/accounting/public/useCurrency.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/ledger/queries/vouchers-query.ts",
+    "to": "src/features/ledger/public/vouchers-query.ts",
+    "consumers": [
+      "src/features/accounting/queries/useVouchersReportQuery.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/ledger/types/models/VoucherDocument.ts",
+    "to": "src/features/ledger/public/types/models/VoucherDocument.ts",
+    "consumers": [
+      "src/features/accounting/services/reports/build-voucher-document.ts",
+      "src/features/accounting/types/VoucherDetailsProps.ts",
+      "src/features/accounting/types/read-models/VouchersReportReadModel.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/personnel/types/requests/SaveEmployeeDeleteRequest.ts",
+    "to": "src/features/personnel/public/types/requests/SaveEmployeeDeleteRequest.ts",
+    "consumers": [
+      "src/features/employees/api/employees-api.ts",
+      "src/features/employees/mapper/employees-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/personnel/types/requests/SaveEmployeeRequest.ts",
+    "to": "src/features/personnel/public/types/requests/SaveEmployeeRequest.ts",
+    "consumers": [
+      "src/features/employees/api/employees-api.ts",
+      "src/features/employees/mapper/employees-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/personnel/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
+    "to": "src/features/personnel/public/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
+    "consumers": [
+      "src/features/employees/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/personnel/types/requests/SearchReportsEmployeesPayrollRequest.ts",
+    "to": "src/features/personnel/public/types/requests/SearchReportsEmployeesPayrollRequest.ts",
+    "consumers": [
+      "src/features/employees/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/personnel/types/responses/AdvancesReport.ts",
+    "to": "src/features/personnel/public/types/responses/AdvancesReport.ts",
+    "consumers": [
+      "src/features/employees/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/personnel/types/responses/PayrollReport.ts",
+    "to": "src/features/personnel/public/types/responses/PayrollReport.ts",
+    "consumers": [
+      "src/features/employees/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
+    "to": "src/features/stock/public/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
+    "to": "src/features/stock/public/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
+    "to": "src/features/stock/public/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/requests/SearchReportsInventoryPricesRequest.ts",
+    "to": "src/features/stock/public/types/requests/SearchReportsInventoryPricesRequest.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/requests/SearchReportsInventoryReorderRequest.ts",
+    "to": "src/features/stock/public/types/requests/SearchReportsInventoryReorderRequest.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/requests/SearchReportsInventoryStagnantRequest.ts",
+    "to": "src/features/stock/public/types/requests/SearchReportsInventoryStagnantRequest.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/requests/SearchReportsInventoryTransfersRequest.ts",
+    "to": "src/features/stock/public/types/requests/SearchReportsInventoryTransfersRequest.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/requests/SearchReportsInventoryValuationRequest.ts",
+    "to": "src/features/stock/public/types/requests/SearchReportsInventoryValuationRequest.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/responses/AdjustmentsReport.ts",
+    "to": "src/features/stock/public/types/responses/AdjustmentsReport.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/responses/HistoricalCostReport.ts",
+    "to": "src/features/stock/public/types/responses/HistoricalCostReport.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/responses/OpeningStockReport.ts",
+    "to": "src/features/stock/public/types/responses/OpeningStockReport.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/responses/PricesReport.ts",
+    "to": "src/features/stock/public/types/responses/PricesReport.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/responses/ReorderReport.ts",
+    "to": "src/features/stock/public/types/responses/ReorderReport.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/responses/StagnantReport.ts",
+    "to": "src/features/stock/public/types/responses/StagnantReport.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/responses/TransfersReport.ts",
+    "to": "src/features/stock/public/types/responses/TransfersReport.ts",
+    "consumers": [
+      "src/features/inventory/api/reports-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/models/CostFilters.ts",
+    "to": "src/features/stock/public/types/models/CostFilters.ts",
+    "consumers": [
+      "src/features/inventory/components/InventoryCost.tsx",
+      "src/features/inventory/services/models/inventory-cost.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/types/models/StockDocumentLine.ts",
+    "to": "src/features/stock/public/types/models/StockDocumentLine.ts",
+    "consumers": [
+      "src/features/inventory/components/StockDocuments.tsx"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/stock/services/inventory-service.ts",
+    "to": "src/features/stock/public/inventory-service.ts",
+    "consumers": [
+      "src/features/inventory/hooks/useDeleteStockDraft.ts",
+      "src/features/inventory/hooks/useProduct.ts",
+      "src/features/inventory/hooks/useTransfer.ts",
+      "src/features/inventory/hooks/useWarehouse.ts",
+      "src/features/inventory/public/usePriceList.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/stock/validation/validate-inventory-command.ts",
+    "to": "src/features/stock/public/validate-inventory-command.ts",
+    "consumers": [
+      "src/features/inventory/hooks/useDeleteStockDraft.ts",
+      "src/features/inventory/hooks/useProduct.ts",
+      "src/features/inventory/hooks/useTransfer.ts",
+      "src/features/inventory/hooks/useWarehouse.ts",
+      "src/features/inventory/public/usePriceList.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/stock/types/models/Unit.ts",
+    "to": "src/features/stock/public/types/models/Unit.ts",
+    "consumers": [
+      "src/features/inventory/hooks/useProductEditorController.ts",
+      "src/features/inventory/services/models/inventory-display.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SaveCurrencyRequest.ts",
+    "to": "src/features/organization/public/types/requests/SaveCurrencyRequest.ts",
+    "consumers": [
+      "src/features/ledger/api/currency-api.ts",
+      "src/features/ledger/mappers/currency-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/requests/GetExpensesDocumentsByIdRequest.ts",
+    "to": "src/features/expenses/public/types/requests/GetExpensesDocumentsByIdRequest.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/requests/GetExpensesTypesByIdRequest.ts",
+    "to": "src/features/expenses/public/types/requests/GetExpensesTypesByIdRequest.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest.ts",
+    "to": "src/features/expenses/public/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/requests/SearchExpensesDocumentsByIdPaymentsRequest.ts",
+    "to": "src/features/expenses/public/types/requests/SearchExpensesDocumentsByIdPaymentsRequest.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/requests/SearchExpensesDocumentsRequest.ts",
+    "to": "src/features/expenses/public/types/requests/SearchExpensesDocumentsRequest.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/requests/SearchExpensesTypesRequest.ts",
+    "to": "src/features/expenses/public/types/requests/SearchExpensesTypesRequest.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/responses/ExpenseConsumptionsListResponse.ts",
+    "to": "src/features/expenses/public/types/responses/ExpenseConsumptionsListResponse.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/responses/ExpenseDocumentListResponse.ts",
+    "to": "src/features/expenses/public/types/responses/ExpenseDocumentListResponse.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/responses/ExpenseDocumentResponse.ts",
+    "to": "src/features/expenses/public/types/responses/ExpenseDocumentResponse.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts",
+      "src/features/ledger/public/expense-read-model.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/responses/ExpensePaymentsListResponse.ts",
+    "to": "src/features/expenses/public/types/responses/ExpensePaymentsListResponse.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/responses/ExpenseTypeListResponse.ts",
+    "to": "src/features/expenses/public/types/responses/ExpenseTypeListResponse.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/responses/ExpenseTypeResponse.ts",
+    "to": "src/features/expenses/public/types/responses/ExpenseTypeResponse.ts",
+    "consumers": [
+      "src/features/ledger/api/expense-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/BalanceContext.ts",
+    "to": "src/features/accounting/public/types/read-models/BalanceContext.ts",
+    "consumers": [
+      "src/features/ledger/public/account-balances.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/AccountClosingContext.ts",
+    "to": "src/features/accounting/public/types/read-models/AccountClosingContext.ts",
+    "consumers": [
+      "src/features/ledger/public/annual-books.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/BookCatalogContext.ts",
+    "to": "src/features/accounting/public/types/read-models/BookCatalogContext.ts",
+    "consumers": [
+      "src/features/ledger/public/annual-books.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/ClosingChecksContext.ts",
+    "to": "src/features/accounting/public/types/read-models/ClosingChecksContext.ts",
+    "consumers": [
+      "src/features/ledger/public/annual-books.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/IsArchivedContext.ts",
+    "to": "src/features/accounting/public/types/read-models/IsArchivedContext.ts",
+    "consumers": [
+      "src/features/ledger/public/annual-books.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/StockClosingContext.ts",
+    "to": "src/features/accounting/public/types/read-models/StockClosingContext.ts",
+    "consumers": [
+      "src/features/ledger/public/annual-books.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/CashLedgerBalanceContext.ts",
+    "to": "src/features/accounting/public/types/read-models/CashLedgerBalanceContext.ts",
+    "consumers": [
+      "src/features/ledger/public/cash.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/CashOptionsContext.ts",
+    "to": "src/features/accounting/public/types/read-models/CashOptionsContext.ts",
+    "consumers": [
+      "src/features/ledger/public/cash.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/IsCashLineContext.ts",
+    "to": "src/features/accounting/public/types/read-models/IsCashLineContext.ts",
+    "consumers": [
+      "src/features/ledger/public/cash.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/RequireCashContext.ts",
+    "to": "src/features/accounting/public/types/read-models/RequireCashContext.ts",
+    "consumers": [
+      "src/features/ledger/public/cash.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/models/Expense.ts",
+    "to": "src/features/expenses/public/types/models/Expense.ts",
+    "consumers": [
+      "src/features/ledger/public/expense-read-model.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/expenses/types/read-models/ExpenseReadProjection.ts",
+    "to": "src/features/expenses/public/types/read-models/ExpenseReadProjection.ts",
+    "consumers": [
+      "src/features/ledger/public/expense-read-model.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/AllAccountsContext.ts",
+    "to": "src/features/accounting/public/types/read-models/AllAccountsContext.ts",
+    "consumers": [
+      "src/features/ledger/public/extensions.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/ExtrasContext.ts",
+    "to": "src/features/accounting/public/types/read-models/ExtrasContext.ts",
+    "consumers": [
+      "src/features/ledger/public/extensions.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/FiscalRangeContext.ts",
+    "to": "src/features/accounting/public/types/read-models/FiscalRangeContext.ts",
+    "consumers": [
+      "src/features/ledger/public/fiscal-range.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/accounting/types/read-models/ValidatePeriodContext.ts",
+    "to": "src/features/accounting/public/types/read-models/ValidatePeriodContext.ts",
+    "consumers": [
+      "src/features/ledger/public/validate-period.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/ledger/types/requests/SaveMasterRequest.ts",
+    "to": "src/features/ledger/public/types/requests/SaveMasterRequest.ts",
+    "consumers": [
+      "src/features/master-data/api/master-api.ts",
+      "src/features/master-data/mappers/master-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/api/read-api.ts",
+    "to": "src/features/organization/public/read-api.ts",
+    "consumers": [
+      "src/features/master-data/queries/useLookupOptions.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/ledger/api/expense-read-api.ts",
+    "to": "src/features/ledger/public/expense-read-api.ts",
+    "consumers": [
+      "src/features/master-data/queries/useMasterScreenControllerQuery.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/parties/api/groups-api.ts",
+    "to": "src/features/parties/public/groups-api.ts",
+    "consumers": [
+      "src/features/master-data/queries/useMasterScreenControllerQuery.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/settings/types/read-models/BackupPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/BackupPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/backup-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/GeneralSettingsContext.ts",
+    "to": "src/features/settings/public/types/read-models/GeneralSettingsContext.ts",
+    "consumers": [
+      "src/features/organization/public/completion.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/ContactVoucherSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/ContactVoucherSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/contact-voucher-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/DeleteDraftSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/DeleteDraftSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/delete-draft-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/ExpensePaymentSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/ExpensePaymentSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/expense-payment-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/ExpenseSaveSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/ExpenseSaveSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/expense-save-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/InvoiceSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/InvoiceSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/invoice-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/OperationSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/OperationSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/operation-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/StockDocumentSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/StockDocumentSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/stock-document-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/BranchDefaultsContext.ts",
+    "to": "src/features/settings/public/types/read-models/BranchDefaultsContext.ts",
+    "consumers": [
+      "src/features/organization/public/system-settings.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/OperationCashIdContext.ts",
+    "to": "src/features/settings/public/types/read-models/OperationCashIdContext.ts",
+    "consumers": [
+      "src/features/organization/public/system-settings.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/TransferSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/TransferSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/transfer-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/types/read-models/VoucherSettingsPolicyContext.ts",
+    "to": "src/features/settings/public/types/read-models/VoucherSettingsPolicyContext.ts",
+    "consumers": [
+      "src/features/organization/public/voucher-policy.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/settings/validation/backup.ts",
+    "to": "src/features/settings/public/backup.ts",
+    "consumers": [
+      "src/features/organization/types/models/BackupArchive.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/settings/validation/backup-policy-schema.ts",
+    "to": "src/features/settings/public/backup-policy-schema.ts",
+    "consumers": [
+      "src/features/organization/types/models/BackupPolicy.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/customers/types/requests/GetCustomersByIdRequest.ts",
+    "to": "src/features/customers/public/types/requests/GetCustomersByIdRequest.ts",
+    "consumers": [
+      "src/features/parties/api/customers-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/customers/types/requests/SearchCustomersRequest.ts",
+    "to": "src/features/customers/public/types/requests/SearchCustomersRequest.ts",
+    "consumers": [
+      "src/features/parties/api/customers-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/suppliers/types/requests/GetSuppliersByIdRequest.ts",
+    "to": "src/features/suppliers/public/types/requests/GetSuppliersByIdRequest.ts",
+    "consumers": [
+      "src/features/parties/api/suppliers-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/suppliers/types/requests/SearchSuppliersRequest.ts",
+    "to": "src/features/suppliers/public/types/requests/SearchSuppliersRequest.ts",
+    "consumers": [
+      "src/features/parties/api/suppliers-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/trade/api/sales-read-api.ts",
+    "to": "src/features/trade/public/sales-read-api.ts",
+    "consumers": [
+      "src/features/sales/public/salesTargets-query.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/organization/types/requests/ImportMastersRequest.ts",
+    "to": "src/features/organization/public/types/requests/ImportMastersRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SaveBackupSettingsRequest.ts",
+    "to": "src/features/organization/public/types/requests/SaveBackupSettingsRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SaveBranchRequest.ts",
+    "to": "src/features/organization/public/types/requests/SaveBranchRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SaveBrandingRequest.ts",
+    "to": "src/features/organization/public/types/requests/SaveBrandingRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SaveGeneralSettingsRequest.ts",
+    "to": "src/features/organization/public/types/requests/SaveGeneralSettingsRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SaveOrganizationRequest.ts",
+    "to": "src/features/organization/public/types/requests/SaveOrganizationRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SavePreferencesRequest.ts",
+    "to": "src/features/organization/public/types/requests/SavePreferencesRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SaveSystemSettingsRequest.ts",
+    "to": "src/features/organization/public/types/requests/SaveSystemSettingsRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/requests/SetupCompleteRequest.ts",
+    "to": "src/features/organization/public/types/requests/SetupCompleteRequest.ts",
+    "consumers": [
+      "src/features/settings/api/settings-api.ts",
+      "src/features/settings/mapper/settings-mapper.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/api/backups.ts",
+    "to": "src/features/organization/public/backups.ts",
+    "consumers": [
+      "src/features/settings/components/AutomaticBackups.tsx",
+      "src/features/settings/components/Backups.tsx",
+      "src/features/settings/hooks/useBackupsQuery.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/organization/types/models/BackupArchive.ts",
+    "to": "src/features/organization/public/types/models/BackupArchive.ts",
+    "consumers": [
+      "src/features/settings/components/Backups.tsx",
+      "src/features/settings/validation/backup.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/models/BackupPolicy.ts",
+    "to": "src/features/organization/public/types/models/BackupPolicy.ts",
+    "consumers": [
+      "src/features/settings/components/Backups.tsx",
+      "src/features/settings/types/read-models/BackupPolicyContext.ts",
+      "src/features/settings/types/read-models/BackupsReadModel.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/models/Row.ts",
+    "to": "src/features/organization/public/types/models/Row.ts",
+    "consumers": [
+      "src/features/settings/components/Backups.tsx"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/types/models/Tab.ts",
+    "to": "src/features/organization/public/types/models/Tab.ts",
+    "consumers": [
+      "src/features/settings/components/Backups.tsx",
+      "src/features/settings/types/BackupsProps.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/organization/queries/branding-query.ts",
+    "to": "src/features/organization/public/branding-query.ts",
+    "consumers": [
+      "src/features/settings/queries/useSystemSettingsQuery.ts"
+    ],
+    "purpose": "Deliberate public subpath with its existing implementation; no all-feature barrel, global state, or forwarding wrapper"
+  },
+  {
+    "from": "src/features/inventory/types/read-models/StockDocumentReportContext.ts",
+    "to": "src/features/inventory/public/types/read-models/StockDocumentReportContext.ts",
+    "consumers": [
+      "src/features/stock/public/build-stock-document.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/inventory/types/read-models/StockDocumentValidationReadModel.ts",
+    "to": "src/features/inventory/public/types/read-models/StockDocumentValidationReadModel.ts",
+    "consumers": [
+      "src/features/stock/queries/useStockDocumentValidationData.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/inventory/types/read-models/ValidateInventoryCommandContext.ts",
+    "to": "src/features/inventory/public/types/read-models/ValidateInventoryCommandContext.ts",
+    "consumers": [
+      "src/features/stock/validation/validate-inventory-command.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/purchases/types/requests/GetPurchasesInvoicesByIdRequest.ts",
+    "to": "src/features/purchases/public/types/requests/GetPurchasesInvoicesByIdRequest.ts",
+    "consumers": [
+      "src/features/trade/api/purchases-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/purchases/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest.ts",
+    "to": "src/features/purchases/public/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest.ts",
+    "consumers": [
+      "src/features/trade/api/purchases-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/purchases/types/requests/GetPurchasesReturnsByIdRequest.ts",
+    "to": "src/features/purchases/public/types/requests/GetPurchasesReturnsByIdRequest.ts",
+    "consumers": [
+      "src/features/trade/api/purchases-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/purchases/types/requests/SearchPurchasesInvoicesRequest.ts",
+    "to": "src/features/purchases/public/types/requests/SearchPurchasesInvoicesRequest.ts",
+    "consumers": [
+      "src/features/trade/api/purchases-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/purchases/types/requests/SearchPurchasesReturnsRequest.ts",
+    "to": "src/features/purchases/public/types/requests/SearchPurchasesReturnsRequest.ts",
+    "consumers": [
+      "src/features/trade/api/purchases-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/requests/GetSalesInvoicesByIdRequest.ts",
+    "to": "src/features/sales/public/types/requests/GetSalesInvoicesByIdRequest.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest.ts",
+    "to": "src/features/sales/public/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/requests/GetSalesReturnsByIdRequest.ts",
+    "to": "src/features/sales/public/types/requests/GetSalesReturnsByIdRequest.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/requests/GetSalesTargetsByIdRequest.ts",
+    "to": "src/features/sales/public/types/requests/GetSalesTargetsByIdRequest.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/requests/SearchSalesInvoicesRequest.ts",
+    "to": "src/features/sales/public/types/requests/SearchSalesInvoicesRequest.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/requests/SearchSalesReturnsRequest.ts",
+    "to": "src/features/sales/public/types/requests/SearchSalesReturnsRequest.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/requests/SearchSalesTargetsRequest.ts",
+    "to": "src/features/sales/public/types/requests/SearchSalesTargetsRequest.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/responses/SalesTargetListResponse.ts",
+    "to": "src/features/sales/public/types/responses/SalesTargetListResponse.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
+  },
+  {
+    "from": "src/features/sales/types/responses/SalesTargetResponse.ts",
+    "to": "src/features/sales/public/types/responses/SalesTargetResponse.ts",
+    "consumers": [
+      "src/features/trade/api/sales-read-api.ts"
+    ],
+    "purpose": "Explicit narrow domain/transport contract shared across modules"
   }
 ]

@@ -1,14 +1,9 @@
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { fmt,today } from '@/core/utils/formatters';
-import { useOperation } from "@/features/accounting/public/useOperation";
-import { extras } from "@/features/accounting/public/extensions";
-import { operationSchema } from "@/features/accounting/public/accounting-schema";
+import { fmt, today } from '@/core/utils/formatters';
+import { useOperation } from '@/features/accounting/public/useOperation';
 import { useSalaryPaymentScreenQuery } from '@/features/employees/queries/useSalaryPaymentScreenQuery';
+import { operationSchema } from '@/features/ledger/public/accounting-schema';
+import { extras } from '@/features/ledger/public/extensions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
@@ -18,7 +13,7 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { CheckCheck,Save,Undo2 } from 'lucide-react';
+import { CheckCheck, Save, Undo2 } from 'lucide-react';
 import { useState } from 'react';
 export function SalaryPaymentScreen() {
   const screen = {

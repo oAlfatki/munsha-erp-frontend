@@ -1,6 +1,10 @@
-import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
-import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
-const DEFINITION = {title:'قائمة المجموعات',note:'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',collection:'productGroups',fields:[
+import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
+import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+const DEFINITION = {
+  title: 'قائمة المجموعات',
+  note: 'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',
+  collection: 'productGroups',
+  fields: [
     {
       key: 'name',
       label: 'اسم المجموعة',
@@ -13,14 +17,13 @@ const DEFINITION = {title:'قائمة المجموعات',note:'مجموعات �
       type: 'text',
       required: false,
     },
-  ]} satisfies MasterFormDefinition;
+  ],
+} satisfies MasterFormDefinition;
 /** قائمة المجموعات — feature-owned route content. */
 export default function ItemGroupListPage() {
-  
-
   return (
     <section className="screen-page">
-          <MasterScreen screen={DEFINITION} />
-        </section>
+      <MasterScreen screen={DEFINITION} />
+    </section>
   );
 }

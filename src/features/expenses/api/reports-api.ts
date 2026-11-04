@@ -5,7 +5,8 @@ import type { RecognizedExpensesReport } from '@/features/expenses/types/respons
 export async function fetchReportsExpensesRecognized(
   params: SearchReportsExpensesRecognizedRequest,
 ): Promise<RecognizedExpensesReport> {
-  return await apiClient.get<RecognizedExpensesReport>(ENDPOINTS.fetchReportsExpensesRecognized,{params: {
+  return await apiClient.get<RecognizedExpensesReport>(ENDPOINTS.fetchReportsExpensesRecognized, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -13,5 +14,6 @@ export async function fetchReportsExpensesRecognized(
       from: params.from,
       to: params.to,
       q: params.q,
-    }});
+    },
+  });
 }

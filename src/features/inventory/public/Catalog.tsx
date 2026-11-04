@@ -1,24 +1,25 @@
-import { exportPdf } from "@/core/reporting/service";
-import { fmt } from "@/core/utils/formatters";
-import { extras } from "@/features/accounting/public/extensions";
-import { useCatalogController } from "@/features/inventory/hooks/useCatalogController";
-import { useProductEditorController } from "@/features/inventory/hooks/useProductEditorController";
-import type { ProductEditorProps } from "@/features/inventory/types/ProductEditorProps";
-import { ViewButton } from "@/shared/ui/actions/ViewButton";
-import { Modal } from "@/shared/ui/dialogs/Modal";
-import { Pill } from "@/shared/ui/display/Pill";
-import { SearchBox } from "@/shared/ui/filters/SearchBox";
-import { Field } from "@/shared/ui/forms/Field";
-import { Select } from "@/shared/ui/forms/Select";
-import { Form as ValidatedForm } from "@/shared/ui/forms/ValidatedForm";
-import { PageHead } from "@/shared/ui/layout/PageHead";
-import { Button } from "@/shared/ui/primitives/button";
-import { Input } from "@/shared/ui/primitives/input";
-import { ReportActions } from "@/shared/ui/reports/ReportActions";
-import { DataTable } from "@/shared/ui/tables/DataTable";
-import { Check,Layers3,Package } from 'lucide-react';
-export function Catalog() {
-  const model = useCatalogController();
+import { exportPdf } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { useCatalogController } from '@/features/inventory/hooks/useCatalogController';
+import { useProductEditorController } from '@/features/inventory/hooks/useProductEditorController';
+import type { ProductEditorProps } from '@/features/inventory/types/ProductEditorProps';
+import { extras } from '@/features/ledger/public/extensions';
+import type { EditableListOptions } from '@/shared/types/EditableListOptions';
+import { ViewButton } from '@/shared/ui/actions/ViewButton';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { Pill } from '@/shared/ui/display/Pill';
+import { SearchBox } from '@/shared/ui/filters/SearchBox';
+import { Field } from '@/shared/ui/forms/Field';
+import { Select } from '@/shared/ui/forms/Select';
+import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Check, Layers3, Package } from 'lucide-react';
+export function Catalog({ isInitialCreate = false }: EditableListOptions) {
+  const model = useCatalogController(isInitialCreate);
   if (!model) return null;
   const { s, search, setSearch, editing, setEditing, items, close } = model;
   return (

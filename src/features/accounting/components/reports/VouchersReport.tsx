@@ -1,8 +1,4 @@
-
-
 import { useVouchersReportView } from '@/features/accounting/hooks/useVouchersReportView';
-
-
 
 import { VoucherDetails } from '@/features/accounting/components/VoucherEditor';
 import { useVouchersReportQuery } from '@/features/accounting/queries/useVouchersReportQuery';
@@ -11,10 +7,14 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function VouchersReport() {
- const model=useVouchersReportView({title:"بحث سندات الصرف والقبض",summaryColumns:[4],rowDocument:(row) => {
-        const v = find(row);
-        return state && v ? voucherReport(state, v) : undefined;
-      }});
+  const model = useVouchersReportView({
+    title: 'بحث سندات الصرف والقبض',
+    summaryColumns: [4],
+    rowDocument: (row) => {
+      const v = find(row);
+      return state && v ? voucherReport(state, v) : undefined;
+    },
+  });
 
   const { state, branchId } = useVouchersReportQuery();
   const find = (row: (string | number)[]) =>

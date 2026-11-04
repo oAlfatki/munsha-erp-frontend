@@ -1,7 +1,7 @@
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
-import { extras } from "@/features/accounting/public/extensions";
 import type { BuildStockAdjustmentsReportContext } from '@/features/inventory/types/read-models/BuildStockAdjustmentsReportContext';
+import { extras } from '@/features/ledger/public/extensions';
 export function buildStockAdjustmentsReport(
   workspace: BuildStockAdjustmentsReportContext,
   branch: string,

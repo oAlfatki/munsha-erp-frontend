@@ -1,6 +1,6 @@
 import type { EmptyProps } from '@/core/types/EmptyProps';
 import { Button } from '@/shared/ui/primitives/button';
-import { PackageOpen,Plus } from 'lucide-react';
+import { PackageOpen, Plus } from 'lucide-react';
 
 export function Empty({
   title = 'لا توجد نتائج',

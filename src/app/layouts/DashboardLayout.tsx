@@ -1,53 +1,55 @@
 import { useCompanyData } from '@/app/providers/CompanyProvider';
 import { useAuth } from '@/core/auth/AuthProvider';
-import { MENU_ITEMS,menuLeaves } from '@/core/config/menu';
+import { MENU_ITEMS, menuLeaves } from '@/core/config/menu';
 import { ROUTES } from '@/core/config/navigation-paths';
+import { LanguageSwitch } from '@/core/i18n/LanguageSwitch';
 import { setReportIdentity } from '@/core/reporting/formatting';
 import { ModuleLinks } from '@/core/router/ModuleLinks';
 import { SectionNavigation } from '@/core/router/SectionNavigation';
 import {
-applyDeviceSettings,
-DEFAULT_DEVICE_SETTINGS,
-readDeviceSettings,
+  applyDeviceSettings,
+  DEFAULT_DEVICE_SETTINGS,
+  readDeviceSettings,
 } from '@/core/services/device-settings';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import { ThemeToggle } from '@/core/theme/ThemeToggle';
-import { isArchived } from "@/features/accounting/public/annual-books";
 import { SessionMenu } from '@/features/auth/components/SessionMenu';
-import { fetchSearchItems } from "@/features/inventory/public/read-api";
+import { isArchived } from '@/features/ledger/public/annual-books';
 import { AutomaticBackups } from '@/features/settings/components/AutomaticBackups';
+import { fetchSearchItems } from '@/features/stock/public/read-api';
 import { fetchAuditEvents } from '@/features/users/api/read-api';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { useQuery } from '@tanstack/react-query';
 import {
-ArrowUpLeft,
-Bell,
-Boxes,
-Building2,
-ChartNoAxesCombined,
-ChevronDown,
-ChevronLeft,
-CloudCheck,
-ContactRound,
-Landmark,
-LayoutDashboard,
-LoaderCircle,
-Menu,
-Package,
-ReceiptText,
-RefreshCw,
-Search,
-Settings2,
-ShieldCheck,
-ShoppingBag,
-ShoppingCart,
-Truck,
-Users,
+  ArrowUpLeft,
+  Bell,
+  Boxes,
+  Building2,
+  ChartNoAxesCombined,
+  ChevronDown,
+  ChevronLeft,
+  CloudCheck,
+  ContactRound,
+  Landmark,
+  LayoutDashboard,
+  LoaderCircle,
+  Menu,
+  Package,
+  ReceiptText,
+  RefreshCw,
+  Search,
+  Settings2,
+  ShieldCheck,
+  ShoppingBag,
+  ShoppingCart,
+  Truck,
+  Users,
 } from 'lucide-react';
-import { useEffect,useState } from 'react';
-import { Outlet,useMatches } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Outlet, useMatches } from 'react-router-dom';
 const NAV = [
   { id: 'dashboard', name: 'لوحة المتابعة', icon: LayoutDashboard },
   { id: 'access', name: 'المستخدمون والصلاحيات', icon: ShieldCheck },
@@ -63,6 +65,7 @@ const NAV = [
   { id: 'financial', name: 'القوائم المالية', icon: ChartNoAxesCombined },
 ];
 export function DashboardLayout() {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const session = { user, signInHref: ROUTES.LOGIN, signOutHref: ROUTES.LOGIN };
   const {
@@ -228,7 +231,7 @@ export function DashboardLayout() {
                   onClick={() =>
                     go(
                       n.id === 'access'
-                        ? '/access'
+                        ? ROUTES.USERS
                         : n.id === 'accounts'
                           ? ROUTES.ACCOUNTING
                           : '/' + n.id,
@@ -236,7 +239,7 @@ export function DashboardLayout() {
                   }
                 >
                   <n.icon size={19} />
-                  <span>{n.name}</span>
+                  <span>{t('navigation.' + n.id, { defaultValue: n.name })}</span>
                   {n.id === 'dashboard' ? (
                     <span className="nav-badge">نظرة عامة</span>
                   ) : (
@@ -307,7 +310,11 @@ export function DashboardLayout() {
                 onChange={(e) => {
                   setBranchId(e.target.value);
                   if (view.endsWith('/new'))
-                    go(view === ROUTES.ACCOUNTING_JOURNAL_NEW ? ROUTES.ACCOUNTING : view.slice(0, -4));
+                    go(
+                      view === ROUTES.ACCOUNTING_JOURNAL_NEW
+                        ? ROUTES.ACCOUNTING
+                        : view.slice(0, -4),
+                    );
                 }}
               >
                 {s.branches
@@ -321,6 +328,7 @@ export function DashboardLayout() {
             </div>
           </div>
           <div className="topbar-end">
+            <LanguageSwitch />
             <ThemeToggle />
             <AutomaticBackups isEnabled={session.user?.role === 'admin'} />
             <SessionMenu {...session} editing={isEditingDocument} />
@@ -414,11 +422,17 @@ export function DashboardLayout() {
             <button
               key={n.id}
               onClick={() =>
-                go(n.id === 'access' ? '/access' : n.id === 'accounts' ? ROUTES.ACCOUNTING : '/' + n.id)
+                go(
+                  n.id === 'access'
+                    ? ROUTES.USERS
+                    : n.id === 'accounts'
+                      ? ROUTES.ACCOUNTING
+                      : '/' + n.id,
+                )
               }
             >
               <n.icon size={17} />
-              <span>{n.name}</span>
+              <span>{t('navigation.' + n.id, { defaultValue: n.name })}</span>
               <ArrowUpLeft size={15} />
             </button>
           ))}

@@ -1,6 +1,7 @@
-import { exportPdf,printReport } from '@/core/reporting/service';
+import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { useEmployeesController } from '@/features/employees/hooks/useEmployeesController';
+import type { EditableListOptions } from '@/shared/types/EditableListOptions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -13,8 +14,8 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-export function Employees() {
-  const model = useEmployeesController();
+export function Employees({ isInitialCreate = false }: EditableListOptions) {
+  const model = useEmployeesController(isInitialCreate);
   if (!model) return null;
   const {
     s,

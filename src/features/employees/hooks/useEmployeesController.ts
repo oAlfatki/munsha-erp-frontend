@@ -1,20 +1,16 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { newId } from '@/core/utils/id';
 import { useEmployee } from '@/features/employees/hooks/useEmployee';
 import { useEmployeeDelete } from '@/features/employees/hooks/useEmployeeDelete';
 import { useEmployeesControllerQuery } from '@/features/employees/queries/useEmployeesControllerQuery';
-import type { Employee } from "@/features/employees/public/types/models/Employee";
 import {
-employeeDeleteSchema,
-employeeSchema,
+  employeeDeleteSchema,
+  employeeSchema,
 } from '@/features/employees/validation/employees-schema';
+import type { Employee } from '@/features/personnel/public/types/models/Employee';
 import { useState } from 'react';
 import { toast } from 'sonner';
 const fileData = (file: File) =>
@@ -24,8 +20,8 @@ const fileData = (file: File) =>
     r.onerror = () => reject(Error('تعذر قراءة الملف'));
     r.readAsDataURL(file);
   });
-export function useEmployeesController() {
-  const { state: s, branchId, busy: isBusy, view, navigate } = useEmployeesControllerQuery();
+export function useEmployeesController(isInitialCreate = false) {
+  const { state: s, branchId, busy: isBusy, navigate } = useEmployeesControllerQuery();
   const employeeMutationRequest = useEmployee(),
     employeeForm = useValidatedForm(employeeSchema, employeeMutationRequest.execute),
     employeeMutation = { ...employeeMutationRequest, execute: employeeForm.submit };
@@ -58,9 +54,7 @@ export function useEmployeesController() {
     files: [],
   });
   const [searchQuery, setQ] = useState(''),
-    [edit, setEdit] = useState<Employee | undefined>(() =>
-      view === ROUTES.EMPLOYEES_NEW ? blank() : undefined,
-    ),
+    [edit, setEdit] = useState<Employee | undefined>(() => (isInitialCreate ? blank() : undefined)),
     [tab, setTab] = useState('basic'),
     [isDeleting, setDeleting] = useState(false);
   if (!s) return null;
@@ -71,7 +65,7 @@ export function useEmployeesController() {
   );
   const handleClose = () => {
     setEdit(undefined);
-    if (view === ROUTES.EMPLOYEES_NEW) navigate(ROUTES.EMPLOYEES);
+    if (isInitialCreate) navigate(ROUTES.EMPLOYEES);
   };
   const upload = async (file: File | undefined, isPhoto: boolean) => {
     if (!file || !edit) return;

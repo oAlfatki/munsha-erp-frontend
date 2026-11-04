@@ -1,0 +1,8 @@
+
+ RUN  v4.1.12 /workspace/munsha-erp-github-upload
+
+
+ Test Files  4 passed (4)
+      Tests  48 passed (48)
+   Start at  20:52:26
+   Duration  2.07s (transform 620ms, setup 0ms, import 1.24s, tests 105ms, environment 0ms)

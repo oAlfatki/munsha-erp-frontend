@@ -1,3 +1,6 @@
-import { AccountStatement } from '@/features/accounting/components/Statement';
+import { Accounting } from '@/features/accounting/components/Accounting';
 import { useParams } from 'react-router-dom';
-export default function PartyAccountStatementPage(){const {partyId=''}=useParams();return <AccountStatement initialPartyId={partyId}/>;}
+export default function PartyAccountStatementPage() {
+  const { partyId = '' } = useParams();
+  return <Accounting initialTab="statement" initialPartyId={partyId} />;
+}

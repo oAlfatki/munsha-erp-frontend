@@ -2,19 +2,19 @@
   {
     "file": "src/features/accounting/types/request/accounting-request.types.ts",
     "currentFiles": [
-      "src/features/accounting/types/requests/SavePermissionsRequest.ts",
-      "src/features/accounting/types/requests/SaveContactEntryRequest.ts",
-      "src/features/accounting/types/requests/SaveContactVoucherRequest.ts",
-      "src/features/accounting/types/requests/SavePeriodSwitchRequest.ts",
-      "src/features/accounting/types/requests/SavePeriodCreateRequest.ts",
-      "src/features/accounting/types/requests/SavePeriodTransferRequest.ts",
-      "src/features/accounting/types/requests/SavePeriodActivateRequest.ts",
-      "src/features/accounting/types/requests/SavePeriodResetRequest.ts",
-      "src/features/accounting/types/requests/SaveScreenDraftRequest.ts",
-      "src/features/accounting/types/requests/SaveMasterRequest.ts",
-      "src/features/accounting/types/requests/SaveManualJournalRequest.ts",
-      "src/features/accounting/types/requests/SaveOperationRequest.ts",
-      "src/features/accounting/types/requests/SaveVoucherRequest.ts"
+      "src/features/ledger/public/types/requests/SavePermissionsRequest.ts",
+      "src/features/ledger/public/types/requests/SaveContactEntryRequest.ts",
+      "src/features/ledger/public/types/requests/SaveContactVoucherRequest.ts",
+      "src/features/ledger/public/types/requests/SavePeriodSwitchRequest.ts",
+      "src/features/ledger/public/types/requests/SavePeriodCreateRequest.ts",
+      "src/features/ledger/public/types/requests/SavePeriodTransferRequest.ts",
+      "src/features/ledger/public/types/requests/SavePeriodActivateRequest.ts",
+      "src/features/ledger/public/types/requests/SavePeriodResetRequest.ts",
+      "src/features/ledger/public/types/requests/SaveScreenDraftRequest.ts",
+      "src/features/ledger/public/types/requests/SaveMasterRequest.ts",
+      "src/features/ledger/public/types/requests/SaveManualJournalRequest.ts",
+      "src/features/ledger/public/types/requests/SaveOperationRequest.ts",
+      "src/features/ledger/public/types/requests/SaveVoucherRequest.ts"
     ],
     "expected": [
       {
@@ -290,30 +290,30 @@
   {
     "file": "src/features/accounting/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/accounting/types/requests/SearchAccountingAccountsRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingAccountsByCodeRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingCashAccountsRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingCashAccountsByIdRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingAssetsRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingAssetsByIdRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingContactsRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingContactsByIdRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingCurrenciesRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingCurrenciesByCodeRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingFinancialBooksRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingFinancialBooksByIdRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingFinancialBooksByIdReadinessRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingVouchersRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingVouchersByIdRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingJournalsRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingJournalsByIdRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingExchangeRatesRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingAssetAcquisitionsRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingAssetAcquisitionsByIdRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingDepreciationRequest.ts",
-      "src/features/accounting/types/requests/GetAccountingDepreciationByIdRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingFinancialBooksByIdClosingStockRequest.ts",
-      "src/features/accounting/types/requests/SearchAccountingFinancialBooksByIdClosingAccountsRequest.ts"
+      "src/features/ledger/types/requests/SearchAccountingAccountsRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingAccountsByCodeRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingCashAccountsRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingCashAccountsByIdRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingAssetsRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingAssetsByIdRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingContactsRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingContactsByIdRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingCurrenciesRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingCurrenciesByCodeRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingFinancialBooksRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingFinancialBooksByIdRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingFinancialBooksByIdReadinessRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingVouchersRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingVouchersByIdRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingJournalsRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingJournalsByIdRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingExchangeRatesRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingAssetAcquisitionsRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingAssetAcquisitionsByIdRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingDepreciationRequest.ts",
+      "src/features/ledger/types/requests/GetAccountingDepreciationByIdRequest.ts",
+      "src/features/ledger/public/types/requests/SearchAccountingFinancialBooksByIdClosingStockRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingFinancialBooksByIdClosingAccountsRequest.ts"
     ],
     "expected": [
       {
@@ -761,25 +761,25 @@
   {
     "file": "src/features/accounting/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/accounting/types/responses/AccountListResponse.ts",
-      "src/features/accounting/types/responses/AccountResponse.ts",
-      "src/features/accounting/types/responses/CashAccountListResponse.ts",
-      "src/features/accounting/types/responses/CashAccountResponse.ts",
-      "src/features/accounting/types/responses/AssetListResponse.ts",
-      "src/features/accounting/types/responses/AssetResponse.ts",
-      "src/features/accounting/types/responses/ContactListResponse.ts",
-      "src/features/accounting/types/responses/ContactResponse.ts",
-      "src/features/accounting/types/responses/CurrencyListResponse.ts",
-      "src/features/accounting/types/responses/CurrencyResponse.ts",
-      "src/features/accounting/types/responses/FinancialBookListResponse.ts",
-      "src/features/accounting/types/responses/FinancialBookResponse.ts",
-      "src/features/accounting/types/responses/BookReadinessResponse.ts",
-      "src/features/accounting/types/responses/VoucherListResponse.ts",
-      "src/features/accounting/types/responses/VoucherResponse.ts",
-      "src/features/accounting/types/responses/JournalEntryListResponse.ts",
-      "src/features/accounting/types/responses/JournalEntryResponse.ts",
-      "src/features/accounting/types/responses/FxRateListResponse.ts",
-      "src/features/accounting/types/responses/FxRateResponse.ts"
+      "src/features/ledger/types/responses/AccountListResponse.ts",
+      "src/features/ledger/types/responses/AccountResponse.ts",
+      "src/features/ledger/types/responses/CashAccountListResponse.ts",
+      "src/features/ledger/types/responses/CashAccountResponse.ts",
+      "src/features/ledger/types/responses/AssetListResponse.ts",
+      "src/features/ledger/types/responses/AssetResponse.ts",
+      "src/features/ledger/types/responses/ContactListResponse.ts",
+      "src/features/ledger/types/responses/ContactResponse.ts",
+      "src/features/ledger/types/responses/CurrencyListResponse.ts",
+      "src/features/ledger/types/responses/CurrencyResponse.ts",
+      "src/features/ledger/types/responses/FinancialBookListResponse.ts",
+      "src/features/ledger/types/responses/FinancialBookResponse.ts",
+      "src/features/ledger/types/responses/BookReadinessResponse.ts",
+      "src/features/ledger/types/responses/VoucherListResponse.ts",
+      "src/features/ledger/types/responses/VoucherResponse.ts",
+      "src/features/ledger/types/responses/JournalEntryListResponse.ts",
+      "src/features/ledger/types/responses/JournalEntryResponse.ts",
+      "src/features/ledger/types/responses/FxRateListResponse.ts",
+      "src/features/ledger/types/responses/FxRateResponse.ts"
     ],
     "expected": [
       {
@@ -1223,8 +1223,7 @@
   {
     "file": "src/features/auth/types/request/auth-request.types.ts",
     "currentFiles": [
-      "src/features/auth/types/requests/LoginRequest.ts",
-      "src/features/auth/types/requests/SaveAuthActionRequest.ts"
+      "src/features/auth/types/requests/LoginRequest.ts"
     ],
     "expected": [
       {
@@ -1234,7 +1233,13 @@
       {
         "name": "password",
         "isOptional": false
-      },
+      }
+    ],
+    "retiredFiles": [
+      "src/features/auth/types/requests/SaveAuthActionRequest.ts"
+    ],
+    "retirementReason": "Generic auth-action wrapper replaced by explicit authApi functions; original wire requests require HTTP contract tests.",
+    "retiredExpected": [
       {
         "name": "action",
         "isOptional": false
@@ -1351,8 +1356,8 @@
   {
     "file": "src/features/customers/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/customers/types/requests/SearchCustomersRequest.ts",
-      "src/features/customers/types/requests/GetCustomersByIdRequest.ts",
+      "src/features/parties/public/types/requests/SearchCustomersRequest.ts",
+      "src/features/parties/public/types/requests/GetCustomersByIdRequest.ts",
       "src/features/parties/types/requests/SearchPartiesGroupsRequest.ts",
       "src/features/parties/types/requests/GetPartiesGroupsByIdRequest.ts"
     ],
@@ -1565,8 +1570,8 @@
   {
     "file": "src/features/employees/types/request/employees-request.types.ts",
     "currentFiles": [
-      "src/features/employees/types/requests/SaveEmployeeRequest.ts",
-      "src/features/employees/types/requests/SaveEmployeeDeleteRequest.ts"
+      "src/features/personnel/public/types/requests/SaveEmployeeRequest.ts",
+      "src/features/personnel/public/types/requests/SaveEmployeeDeleteRequest.ts"
     ],
     "expected": [
       {
@@ -1662,14 +1667,14 @@
   {
     "file": "src/features/employees/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/employees/types/requests/SearchEmployeesRequest.ts",
-      "src/features/employees/types/requests/GetEmployeesByIdRequest.ts",
-      "src/features/employees/types/requests/SearchEmployeesPayrollAccrualsRequest.ts",
-      "src/features/employees/types/requests/GetEmployeesPayrollAccrualsByIdRequest.ts",
-      "src/features/employees/types/requests/SearchEmployeesSalaryPaymentsRequest.ts",
-      "src/features/employees/types/requests/GetEmployeesSalaryPaymentsByIdRequest.ts",
-      "src/features/employees/types/requests/SearchEmployeesAdvancesRequest.ts",
-      "src/features/employees/types/requests/GetEmployeesAdvancesByIdRequest.ts"
+      "src/features/personnel/types/requests/SearchEmployeesRequest.ts",
+      "src/features/personnel/types/requests/GetEmployeesByIdRequest.ts",
+      "src/features/personnel/types/requests/SearchEmployeesPayrollAccrualsRequest.ts",
+      "src/features/personnel/types/requests/GetEmployeesPayrollAccrualsByIdRequest.ts",
+      "src/features/personnel/types/requests/SearchEmployeesSalaryPaymentsRequest.ts",
+      "src/features/personnel/types/requests/GetEmployeesSalaryPaymentsByIdRequest.ts",
+      "src/features/personnel/types/requests/SearchEmployeesAdvancesRequest.ts",
+      "src/features/personnel/types/requests/GetEmployeesAdvancesByIdRequest.ts"
     ],
     "expected": [
       {
@@ -1853,10 +1858,10 @@
   {
     "file": "src/features/employees/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/employees/types/responses/EmployeeListResponse.ts",
-      "src/features/employees/types/responses/EmployeeResponse.ts",
-      "src/features/employees/public/types/responses/OperationListResponse.ts",
-      "src/features/employees/public/types/responses/OperationResponse.ts"
+      "src/features/personnel/types/responses/EmployeeListResponse.ts",
+      "src/features/personnel/types/responses/EmployeeResponse.ts",
+      "src/features/ledger/public/types/responses/OperationListResponse.ts",
+      "src/features/ledger/public/types/responses/OperationResponse.ts"
     ],
     "expected": [
       {
@@ -2163,12 +2168,12 @@
   {
     "file": "src/features/expenses/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/expenses/types/requests/SearchExpensesTypesRequest.ts",
-      "src/features/expenses/types/requests/GetExpensesTypesByIdRequest.ts",
-      "src/features/expenses/types/requests/SearchExpensesDocumentsRequest.ts",
-      "src/features/expenses/types/requests/GetExpensesDocumentsByIdRequest.ts",
-      "src/features/expenses/types/requests/SearchExpensesDocumentsByIdPaymentsRequest.ts",
-      "src/features/expenses/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest.ts"
+      "src/features/ledger/public/types/requests/SearchExpensesTypesRequest.ts",
+      "src/features/ledger/public/types/requests/GetExpensesTypesByIdRequest.ts",
+      "src/features/ledger/public/types/requests/SearchExpensesDocumentsRequest.ts",
+      "src/features/ledger/public/types/requests/GetExpensesDocumentsByIdRequest.ts",
+      "src/features/ledger/public/types/requests/SearchExpensesDocumentsByIdPaymentsRequest.ts",
+      "src/features/ledger/public/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest.ts"
     ],
     "expected": [
       {
@@ -2284,14 +2289,14 @@
   {
     "file": "src/features/expenses/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/expenses/types/responses/ExpenseTypeListResponse.ts",
-      "src/features/expenses/types/responses/ExpenseTypeResponse.ts",
-      "src/features/expenses/types/responses/ExpenseDocumentListResponse.ts",
-      "src/features/expenses/types/responses/ExpenseDocumentResponse.ts",
-      "src/features/expenses/types/responses/ExpensePaymentsListResponse.ts",
-      "src/features/expenses/types/responses/ExpensePaymentsResponse.ts",
-      "src/features/expenses/types/responses/ExpenseConsumptionsListResponse.ts",
-      "src/features/expenses/types/responses/ExpenseConsumptionsResponse.ts"
+      "src/features/ledger/public/types/responses/ExpenseTypeListResponse.ts",
+      "src/features/ledger/public/types/responses/ExpenseTypeResponse.ts",
+      "src/features/ledger/public/types/responses/ExpenseDocumentListResponse.ts",
+      "src/features/ledger/public/types/responses/ExpenseDocumentResponse.ts",
+      "src/features/ledger/public/types/responses/ExpensePaymentsListResponse.ts",
+      "src/features/ledger/public/types/responses/ExpensePaymentsResponse.ts",
+      "src/features/ledger/public/types/responses/ExpenseConsumptionsListResponse.ts",
+      "src/features/ledger/public/types/responses/ExpenseConsumptionsResponse.ts"
     ],
     "expected": [
       {
@@ -2886,12 +2891,12 @@
   {
     "file": "src/features/inventory/types/request/inventory-request.types.ts",
     "currentFiles": [
-      "src/features/inventory/types/requests/SaveProductRequest.ts",
-      "src/features/inventory/types/requests/SaveWarehouseRequest.ts",
-      "src/features/inventory/types/requests/SaveTransferRequest.ts",
-      "src/features/inventory/types/requests/SaveStockDocumentRequest.ts",
-      "src/features/inventory/types/requests/DeleteStockDraftRequest.ts",
-      "src/features/inventory/types/requests/SavePriceListRequest.ts"
+      "src/features/stock/types/requests/SaveProductRequest.ts",
+      "src/features/stock/types/requests/SaveWarehouseRequest.ts",
+      "src/features/stock/types/requests/SaveTransferRequest.ts",
+      "src/features/stock/types/requests/SaveStockDocumentRequest.ts",
+      "src/features/stock/types/requests/DeleteStockDraftRequest.ts",
+      "src/features/stock/types/requests/SavePriceListRequest.ts"
     ],
     "expected": [
       {
@@ -3127,24 +3132,24 @@
   {
     "file": "src/features/inventory/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/inventory/types/requests/SearchInventoryItemsRequest.ts",
-      "src/features/inventory/types/requests/GetInventoryItemsByIdRequest.ts",
-      "src/features/inventory/types/requests/SearchInventoryWarehousesRequest.ts",
-      "src/features/inventory/types/requests/GetInventoryWarehousesByIdRequest.ts",
-      "src/features/inventory/types/requests/SearchInventoryUnitsRequest.ts",
-      "src/features/inventory/types/requests/GetInventoryUnitsByIdRequest.ts",
-      "src/features/inventory/types/requests/SearchInventoryUnitCategoriesRequest.ts",
-      "src/features/inventory/types/requests/GetInventoryUnitCategoriesByIdRequest.ts",
-      "src/features/inventory/types/requests/SearchInventoryItemGroupsRequest.ts",
-      "src/features/inventory/types/requests/GetInventoryItemGroupsByIdRequest.ts",
-      "src/features/inventory/types/requests/SearchInventoryStockDocumentsRequest.ts",
-      "src/features/inventory/types/requests/GetInventoryStockDocumentsByIdRequest.ts",
-      "src/features/inventory/types/requests/SearchInventoryBalancesRequest.ts",
-      "src/features/inventory/types/requests/SearchInventoryMovementsRequest.ts",
-      "src/features/inventory/types/requests/GetInventoryItemsByIdUnitsRequest.ts",
-      "src/features/inventory/types/requests/SearchInventoryStockCountsRequest.ts",
-      "src/features/inventory/types/requests/GetInventoryStockCountsByIdRequest.ts",
-      "src/features/inventory/types/requests/SearchSearchItemsRequest.ts"
+      "src/features/stock/types/requests/SearchInventoryItemsRequest.ts",
+      "src/features/stock/types/requests/GetInventoryItemsByIdRequest.ts",
+      "src/features/stock/types/requests/SearchInventoryWarehousesRequest.ts",
+      "src/features/stock/types/requests/GetInventoryWarehousesByIdRequest.ts",
+      "src/features/stock/types/requests/SearchInventoryUnitsRequest.ts",
+      "src/features/stock/types/requests/GetInventoryUnitsByIdRequest.ts",
+      "src/features/stock/types/requests/SearchInventoryUnitCategoriesRequest.ts",
+      "src/features/stock/types/requests/GetInventoryUnitCategoriesByIdRequest.ts",
+      "src/features/stock/types/requests/SearchInventoryItemGroupsRequest.ts",
+      "src/features/stock/types/requests/GetInventoryItemGroupsByIdRequest.ts",
+      "src/features/stock/types/requests/SearchInventoryStockDocumentsRequest.ts",
+      "src/features/stock/types/requests/GetInventoryStockDocumentsByIdRequest.ts",
+      "src/features/stock/types/requests/SearchInventoryBalancesRequest.ts",
+      "src/features/stock/types/requests/SearchInventoryMovementsRequest.ts",
+      "src/features/stock/types/requests/GetInventoryItemsByIdUnitsRequest.ts",
+      "src/features/stock/types/requests/SearchInventoryStockCountsRequest.ts",
+      "src/features/stock/types/requests/GetInventoryStockCountsByIdRequest.ts",
+      "src/features/stock/types/requests/SearchSearchItemsRequest.ts"
     ],
     "expected": [
       {
@@ -3492,24 +3497,24 @@
   {
     "file": "src/features/inventory/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/inventory/types/responses/ItemListResponse.ts",
-      "src/features/inventory/types/responses/ItemResponse.ts",
-      "src/features/inventory/types/responses/WarehouseListResponse.ts",
-      "src/features/inventory/types/responses/WarehouseResponse.ts",
-      "src/features/inventory/types/responses/UnitListResponse.ts",
-      "src/features/inventory/types/responses/UnitResponse.ts",
-      "src/features/inventory/types/responses/UnitCategoryListResponse.ts",
-      "src/features/inventory/types/responses/UnitCategoryResponse.ts",
-      "src/features/inventory/types/responses/ItemGroupListResponse.ts",
-      "src/features/inventory/types/responses/ItemGroupResponse.ts",
-      "src/features/inventory/types/responses/StockDocumentListResponse.ts",
-      "src/features/inventory/types/responses/StockDocumentResponse.ts",
-      "src/features/inventory/types/responses/StockBalanceListResponse.ts",
-      "src/features/inventory/types/responses/StockBalanceResponse.ts",
-      "src/features/inventory/types/responses/InventoryMovementListResponse.ts",
-      "src/features/inventory/types/responses/InventoryMovementResponse.ts",
-      "src/features/inventory/types/responses/SearchHitListResponse.ts",
-      "src/features/inventory/types/responses/SearchHitResponse.ts"
+      "src/features/stock/types/responses/ItemListResponse.ts",
+      "src/features/stock/types/responses/ItemResponse.ts",
+      "src/features/stock/types/responses/WarehouseListResponse.ts",
+      "src/features/stock/types/responses/WarehouseResponse.ts",
+      "src/features/stock/types/responses/UnitListResponse.ts",
+      "src/features/stock/types/responses/UnitResponse.ts",
+      "src/features/stock/types/responses/UnitCategoryListResponse.ts",
+      "src/features/stock/types/responses/UnitCategoryResponse.ts",
+      "src/features/stock/types/responses/ItemGroupListResponse.ts",
+      "src/features/stock/types/responses/ItemGroupResponse.ts",
+      "src/features/stock/types/responses/StockDocumentListResponse.ts",
+      "src/features/stock/types/responses/StockDocumentResponse.ts",
+      "src/features/stock/types/responses/StockBalanceListResponse.ts",
+      "src/features/stock/types/responses/StockBalanceResponse.ts",
+      "src/features/stock/types/responses/InventoryMovementListResponse.ts",
+      "src/features/stock/types/responses/InventoryMovementResponse.ts",
+      "src/features/stock/types/responses/SearchHitListResponse.ts",
+      "src/features/stock/types/responses/SearchHitResponse.ts"
     ],
     "expected": [
       {
@@ -3993,11 +3998,11 @@
   {
     "file": "src/features/purchases/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/purchases/types/requests/SearchPurchasesInvoicesRequest.ts",
-      "src/features/purchases/types/requests/GetPurchasesInvoicesByIdRequest.ts",
-      "src/features/purchases/types/requests/SearchPurchasesReturnsRequest.ts",
-      "src/features/purchases/types/requests/GetPurchasesReturnsByIdRequest.ts",
-      "src/features/purchases/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest.ts"
+      "src/features/trade/public/types/requests/SearchPurchasesInvoicesRequest.ts",
+      "src/features/trade/public/types/requests/GetPurchasesInvoicesByIdRequest.ts",
+      "src/features/trade/public/types/requests/SearchPurchasesReturnsRequest.ts",
+      "src/features/trade/public/types/requests/GetPurchasesReturnsByIdRequest.ts",
+      "src/features/trade/public/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest.ts"
     ],
     "expected": [
       {
@@ -4137,33 +4142,33 @@
   {
     "file": "src/features/reports/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/reports/types/requests/SearchReportsInventoryValuationRequest.ts",
-      "src/features/reports/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
-      "src/features/reports/types/requests/SearchReportsInventoryReorderRequest.ts",
-      "src/features/reports/types/requests/SearchReportsInventoryStagnantRequest.ts",
-      "src/features/reports/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
-      "src/features/reports/types/requests/SearchReportsInventoryTransfersRequest.ts",
-      "src/features/reports/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
-      "src/features/reports/types/requests/SearchReportsInventoryPricesRequest.ts",
-      "src/features/reports/types/requests/SearchReportsCustomersBalancesRequest.ts",
-      "src/features/reports/types/requests/SearchReportsSuppliersBalancesRequest.ts",
-      "src/features/reports/types/requests/SearchReportsEmployeesPayrollRequest.ts",
-      "src/features/reports/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
-      "src/features/reports/types/requests/SearchReportsExpensesRecognizedRequest.ts",
-      "src/features/reports/types/requests/SearchReportsSalesSummaryRequest.ts",
-      "src/features/reports/types/requests/SearchReportsPurchasesSummaryRequest.ts",
-      "src/features/reports/types/requests/SearchReportsSalesReturnsRequest.ts",
-      "src/features/reports/types/requests/SearchReportsPurchasesReturnsRequest.ts",
-      "src/features/reports/types/requests/SearchReportsSalesChartRequest.ts",
-      "src/features/reports/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
-      "src/features/reports/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
-      "src/features/reports/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
-      "src/features/reports/types/requests/SearchReportsAccountingTaxRequest.ts",
-      "src/features/reports/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
-      "src/features/reports/types/requests/SearchReportsAccountingAssetsRequest.ts",
-      "src/features/reports/types/requests/SearchReportsSalesTargetAchievementRequest.ts",
-      "src/features/reports/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
-      "src/features/reports/types/requests/SearchReportsAccountingContactLedgerRequest.ts"
+      "src/features/stock/public/types/requests/SearchReportsInventoryValuationRequest.ts",
+      "src/features/stock/public/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
+      "src/features/stock/public/types/requests/SearchReportsInventoryReorderRequest.ts",
+      "src/features/stock/public/types/requests/SearchReportsInventoryStagnantRequest.ts",
+      "src/features/stock/public/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
+      "src/features/stock/public/types/requests/SearchReportsInventoryTransfersRequest.ts",
+      "src/features/stock/public/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
+      "src/features/stock/public/types/requests/SearchReportsInventoryPricesRequest.ts",
+      "src/features/customers/types/requests/SearchReportsCustomersBalancesRequest.ts",
+      "src/features/suppliers/types/requests/SearchReportsSuppliersBalancesRequest.ts",
+      "src/features/personnel/public/types/requests/SearchReportsEmployeesPayrollRequest.ts",
+      "src/features/personnel/public/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
+      "src/features/expenses/types/requests/SearchReportsExpensesRecognizedRequest.ts",
+      "src/features/sales/types/requests/SearchReportsSalesSummaryRequest.ts",
+      "src/features/purchases/types/requests/SearchReportsPurchasesSummaryRequest.ts",
+      "src/features/sales/types/requests/SearchReportsSalesReturnsRequest.ts",
+      "src/features/purchases/types/requests/SearchReportsPurchasesReturnsRequest.ts",
+      "src/features/sales/types/requests/SearchReportsSalesChartRequest.ts",
+      "src/features/ledger/public/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
+      "src/features/ledger/public/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
+      "src/features/ledger/public/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
+      "src/features/ledger/public/types/requests/SearchReportsAccountingTaxRequest.ts",
+      "src/features/ledger/public/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
+      "src/features/ledger/public/types/requests/SearchReportsAccountingAssetsRequest.ts",
+      "src/features/sales/types/requests/SearchReportsSalesTargetAchievementRequest.ts",
+      "src/features/ledger/public/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
+      "src/features/ledger/public/types/requests/SearchReportsAccountingContactLedgerRequest.ts"
     ],
     "expected": [
       {
@@ -5071,58 +5076,58 @@
   {
     "file": "src/features/reports/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/reports/types/responses/InventoryValuationReport.ts",
-      "src/features/reports/types/responses/InventoryValuationReportRow.ts",
-      "src/features/reports/types/responses/OpeningStockReport.ts",
-      "src/features/reports/types/responses/OpeningStockReportRow.ts",
-      "src/features/reports/types/responses/ReorderReport.ts",
-      "src/features/reports/types/responses/ReorderReportRow.ts",
-      "src/features/reports/types/responses/StagnantReport.ts",
-      "src/features/reports/types/responses/StagnantReportRow.ts",
-      "src/features/reports/types/responses/HistoricalCostReport.ts",
-      "src/features/reports/types/responses/HistoricalCostReportRow.ts",
-      "src/features/reports/types/responses/TransfersReport.ts",
-      "src/features/reports/types/responses/TransfersReportRow.ts",
-      "src/features/reports/types/responses/AdjustmentsReport.ts",
-      "src/features/reports/types/responses/AdjustmentsReportRow.ts",
-      "src/features/reports/types/responses/PricesReport.ts",
-      "src/features/reports/types/responses/PricesReportRow.ts",
-      "src/features/reports/types/responses/CustomerBalancesReport.ts",
-      "src/features/reports/types/responses/CustomerBalancesReportRow.ts",
-      "src/features/reports/types/responses/SupplierBalancesReport.ts",
-      "src/features/reports/types/responses/SupplierBalancesReportRow.ts",
-      "src/features/reports/types/responses/PayrollReport.ts",
-      "src/features/reports/types/responses/PayrollReportRow.ts",
-      "src/features/reports/types/responses/AdvancesReport.ts",
-      "src/features/reports/types/responses/AdvancesReportRow.ts",
-      "src/features/reports/types/responses/RecognizedExpensesReport.ts",
-      "src/features/reports/types/responses/RecognizedExpensesReportRow.ts",
-      "src/features/reports/types/responses/SalesSummaryReport.ts",
-      "src/features/reports/types/responses/SalesSummaryReportRow.ts",
-      "src/features/reports/types/responses/PurchasesSummaryReport.ts",
-      "src/features/reports/types/responses/PurchasesSummaryReportRow.ts",
-      "src/features/reports/types/responses/SalesReturnsReport.ts",
-      "src/features/reports/types/responses/SalesReturnsReportRow.ts",
-      "src/features/reports/types/responses/PurchaseReturnsReport.ts",
-      "src/features/reports/types/responses/PurchaseReturnsReportRow.ts",
-      "src/features/reports/types/responses/SalesChartReport.ts",
-      "src/features/reports/types/responses/SalesChartReportRow.ts",
-      "src/features/reports/types/responses/CashMovementsReport.ts",
-      "src/features/reports/types/responses/CashMovementsReportRow.ts",
-      "src/features/reports/types/responses/OpeningBalancesReport.ts",
-      "src/features/reports/types/responses/OpeningBalancesReportRow.ts",
-      "src/features/reports/types/responses/TrialBalanceReport.ts",
-      "src/features/reports/types/responses/TrialBalanceReportRow.ts",
-      "src/features/reports/types/responses/TaxReport.ts",
-      "src/features/reports/types/responses/TaxReportRow.ts",
-      "src/features/reports/types/responses/ForeignCurrencyReport.ts",
-      "src/features/reports/types/responses/ForeignCurrencyReportRow.ts",
-      "src/features/reports/types/responses/AssetsReport.ts",
-      "src/features/reports/types/responses/AssetsReportRow.ts",
-      "src/features/reports/types/responses/TargetAchievementReport.ts",
-      "src/features/reports/types/responses/TargetAchievementReportRow.ts",
-      "src/features/reports/types/responses/AccountStatementResponse.ts",
-      "src/features/reports/types/responses/StatementRow.ts"
+      "src/features/stock/public/types/responses/InventoryValuationReport.ts",
+      "src/features/stock/types/responses/InventoryValuationReportRow.ts",
+      "src/features/stock/public/types/responses/OpeningStockReport.ts",
+      "src/features/stock/types/responses/OpeningStockReportRow.ts",
+      "src/features/stock/public/types/responses/ReorderReport.ts",
+      "src/features/stock/types/responses/ReorderReportRow.ts",
+      "src/features/stock/public/types/responses/StagnantReport.ts",
+      "src/features/stock/types/responses/StagnantReportRow.ts",
+      "src/features/stock/public/types/responses/HistoricalCostReport.ts",
+      "src/features/stock/types/responses/HistoricalCostReportRow.ts",
+      "src/features/stock/public/types/responses/TransfersReport.ts",
+      "src/features/stock/types/responses/TransfersReportRow.ts",
+      "src/features/stock/public/types/responses/AdjustmentsReport.ts",
+      "src/features/stock/types/responses/AdjustmentsReportRow.ts",
+      "src/features/stock/public/types/responses/PricesReport.ts",
+      "src/features/stock/types/responses/PricesReportRow.ts",
+      "src/features/customers/types/responses/CustomerBalancesReport.ts",
+      "src/features/customers/types/responses/CustomerBalancesReportRow.ts",
+      "src/features/suppliers/types/responses/SupplierBalancesReport.ts",
+      "src/features/suppliers/types/responses/SupplierBalancesReportRow.ts",
+      "src/features/personnel/public/types/responses/PayrollReport.ts",
+      "src/features/personnel/types/responses/PayrollReportRow.ts",
+      "src/features/personnel/public/types/responses/AdvancesReport.ts",
+      "src/features/personnel/types/responses/AdvancesReportRow.ts",
+      "src/features/expenses/types/responses/RecognizedExpensesReport.ts",
+      "src/features/expenses/types/responses/RecognizedExpensesReportRow.ts",
+      "src/features/sales/types/responses/SalesSummaryReport.ts",
+      "src/features/sales/types/responses/SalesSummaryReportRow.ts",
+      "src/features/purchases/types/responses/PurchasesSummaryReport.ts",
+      "src/features/purchases/types/responses/PurchasesSummaryReportRow.ts",
+      "src/features/sales/types/responses/SalesReturnsReport.ts",
+      "src/features/sales/types/responses/SalesReturnsReportRow.ts",
+      "src/features/purchases/types/responses/PurchaseReturnsReport.ts",
+      "src/features/purchases/types/responses/PurchaseReturnsReportRow.ts",
+      "src/features/sales/types/responses/SalesChartReport.ts",
+      "src/features/sales/types/responses/SalesChartReportRow.ts",
+      "src/features/ledger/public/types/responses/CashMovementsReport.ts",
+      "src/features/ledger/types/responses/CashMovementsReportRow.ts",
+      "src/features/ledger/public/types/responses/OpeningBalancesReport.ts",
+      "src/features/ledger/types/responses/OpeningBalancesReportRow.ts",
+      "src/features/ledger/public/types/responses/TrialBalanceReport.ts",
+      "src/features/ledger/types/responses/TrialBalanceReportRow.ts",
+      "src/features/ledger/public/types/responses/TaxReport.ts",
+      "src/features/ledger/types/responses/TaxReportRow.ts",
+      "src/features/ledger/public/types/responses/ForeignCurrencyReport.ts",
+      "src/features/ledger/types/responses/ForeignCurrencyReportRow.ts",
+      "src/features/ledger/public/types/responses/AssetsReport.ts",
+      "src/features/ledger/types/responses/AssetsReportRow.ts",
+      "src/features/sales/types/responses/TargetAchievementReport.ts",
+      "src/features/sales/types/responses/TargetAchievementReportRow.ts",
+      "src/features/ledger/public/types/responses/AccountStatementResponse.ts",
+      "src/features/ledger/types/responses/StatementRow.ts"
     ],
     "expected": [
       {
@@ -5923,13 +5928,13 @@
   {
     "file": "src/features/sales/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/sales/types/requests/SearchSalesTargetsRequest.ts",
-      "src/features/sales/types/requests/GetSalesTargetsByIdRequest.ts",
-      "src/features/sales/types/requests/SearchSalesInvoicesRequest.ts",
-      "src/features/sales/types/requests/GetSalesInvoicesByIdRequest.ts",
-      "src/features/sales/types/requests/SearchSalesReturnsRequest.ts",
-      "src/features/sales/types/requests/GetSalesReturnsByIdRequest.ts",
-      "src/features/sales/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest.ts"
+      "src/features/trade/public/types/requests/SearchSalesTargetsRequest.ts",
+      "src/features/trade/public/types/requests/GetSalesTargetsByIdRequest.ts",
+      "src/features/trade/public/types/requests/SearchSalesInvoicesRequest.ts",
+      "src/features/trade/public/types/requests/GetSalesInvoicesByIdRequest.ts",
+      "src/features/trade/public/types/requests/SearchSalesReturnsRequest.ts",
+      "src/features/trade/public/types/requests/GetSalesReturnsByIdRequest.ts",
+      "src/features/trade/public/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest.ts"
     ],
     "expected": [
       {
@@ -6109,13 +6114,13 @@
   {
     "file": "src/features/sales/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/sales/types/responses/SalesTargetListResponse.ts",
-      "src/features/sales/types/responses/SalesTargetResponse.ts",
-      "src/features/sales/public/types/responses/InvoiceListResponse.ts",
-      "src/features/sales/public/types/responses/InvoiceResponse.ts",
-      "src/features/sales/public/types/responses/InvoiceReturnListResponse.ts",
-      "src/features/sales/public/types/responses/InvoiceReturnResponse.ts",
-      "src/features/sales/public/types/responses/ReturnAvailabilityResponse.ts"
+      "src/features/trade/public/types/responses/SalesTargetListResponse.ts",
+      "src/features/trade/public/types/responses/SalesTargetResponse.ts",
+      "src/features/trade/public/types/responses/InvoiceListResponse.ts",
+      "src/features/trade/public/types/responses/InvoiceResponse.ts",
+      "src/features/trade/public/types/responses/InvoiceReturnListResponse.ts",
+      "src/features/trade/public/types/responses/InvoiceReturnResponse.ts",
+      "src/features/trade/public/types/responses/ReturnAvailabilityResponse.ts"
     ],
     "expected": [
       {
@@ -6547,16 +6552,16 @@
   {
     "file": "src/features/settings/types/request/settings-request.types.ts",
     "currentFiles": [
-      "src/features/settings/types/requests/SaveBackupSettingsRequest.ts",
-      "src/features/settings/types/requests/SaveBrandingRequest.ts",
-      "src/features/settings/types/requests/SaveOrganizationRequest.ts",
-      "src/features/settings/types/requests/SaveBranchRequest.ts",
-      "src/features/settings/types/requests/SaveGeneralSettingsRequest.ts",
-      "src/features/settings/types/requests/SetupCompleteRequest.ts",
-      "src/features/settings/types/requests/ImportMastersRequest.ts",
-      "src/features/settings/types/requests/SaveCurrencyRequest.ts",
-      "src/features/settings/types/requests/SavePreferencesRequest.ts",
-      "src/features/settings/types/requests/SaveSystemSettingsRequest.ts"
+      "src/features/organization/public/types/requests/SaveBackupSettingsRequest.ts",
+      "src/features/organization/public/types/requests/SaveBrandingRequest.ts",
+      "src/features/organization/public/types/requests/SaveOrganizationRequest.ts",
+      "src/features/organization/public/types/requests/SaveBranchRequest.ts",
+      "src/features/organization/public/types/requests/SaveGeneralSettingsRequest.ts",
+      "src/features/organization/public/types/requests/SetupCompleteRequest.ts",
+      "src/features/organization/public/types/requests/ImportMastersRequest.ts",
+      "src/features/ledger/public/types/requests/SaveCurrencyRequest.ts",
+      "src/features/organization/public/types/requests/SavePreferencesRequest.ts",
+      "src/features/organization/public/types/requests/SaveSystemSettingsRequest.ts"
     ],
     "expected": [
       {
@@ -6956,24 +6961,24 @@
   {
     "file": "src/features/settings/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/settings/types/requests/SearchBranchesRequest.ts",
-      "src/features/settings/types/requests/GetBranchesByIdRequest.ts",
-      "src/features/settings/types/requests/GetSettingsCompanyRequest.ts",
-      "src/features/settings/types/requests/GetSettingsBrandingRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemRequest.ts",
-      "src/features/settings/types/requests/GetSettingsBackupPolicyRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemAccountingRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemSalesRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemPurchasesRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemInventoryRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemExpensesRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemDocumentsRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemBranchesRequest.ts",
-      "src/features/settings/types/requests/GetSettingsSystemCompanyRequest.ts",
-      "src/features/settings/types/requests/GetSettingsServiceStatusRequest.ts",
-      "src/features/settings/types/requests/GetSettingsImportTemplatesByKindRequest.ts",
-      "src/features/settings/types/requests/GetUiDraftsByKeyRequest.ts",
-      "src/features/settings/types/requests/SearchLookupsByResourceRequest.ts"
+      "src/features/organization/types/requests/SearchBranchesRequest.ts",
+      "src/features/organization/types/requests/GetBranchesByIdRequest.ts",
+      "src/features/organization/types/requests/GetSettingsCompanyRequest.ts",
+      "src/features/organization/types/requests/GetSettingsBrandingRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemRequest.ts",
+      "src/features/organization/types/requests/GetSettingsBackupPolicyRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemAccountingRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemSalesRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemPurchasesRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemInventoryRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemExpensesRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemDocumentsRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemBranchesRequest.ts",
+      "src/features/organization/types/requests/GetSettingsSystemCompanyRequest.ts",
+      "src/features/organization/types/requests/GetSettingsServiceStatusRequest.ts",
+      "src/features/organization/types/requests/GetSettingsImportTemplatesByKindRequest.ts",
+      "src/features/organization/types/requests/GetUiDraftsByKeyRequest.ts",
+      "src/features/organization/types/requests/SearchLookupsByResourceRequest.ts"
     ],
     "expected": [
       {
@@ -7097,25 +7102,25 @@
   {
     "file": "src/features/settings/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/settings/types/responses/BranchListResponse.ts",
-      "src/features/settings/types/responses/BranchResponse.ts",
-      "src/features/settings/types/responses/OrganizationResponse.ts",
-      "src/features/settings/types/responses/BrandingResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsResponse.ts",
-      "src/features/settings/types/responses/BackupPolicyResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsAccountingResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsSalesResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsPurchasesResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsInventoryResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsExpensesResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsDocumentsResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsBranchesResponse.ts",
-      "src/features/settings/types/responses/SystemSettingsCompanyResponse.ts",
-      "src/features/settings/types/responses/ServiceStatusResponse.ts",
-      "src/features/settings/types/responses/ImportTemplateResponse.ts",
-      "src/features/settings/types/responses/DraftResponse.ts",
-      "src/features/settings/types/responses/LookupOptionPage.ts",
-      "src/features/settings/types/responses/LookupOption.ts"
+      "src/features/organization/types/responses/BranchListResponse.ts",
+      "src/features/organization/types/responses/BranchResponse.ts",
+      "src/features/organization/types/responses/OrganizationResponse.ts",
+      "src/features/organization/types/responses/BrandingResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsResponse.ts",
+      "src/features/organization/types/responses/BackupPolicyResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsAccountingResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsSalesResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsPurchasesResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsInventoryResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsExpensesResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsDocumentsResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsBranchesResponse.ts",
+      "src/features/organization/types/responses/SystemSettingsCompanyResponse.ts",
+      "src/features/organization/types/responses/ServiceStatusResponse.ts",
+      "src/features/organization/types/responses/ImportTemplateResponse.ts",
+      "src/features/organization/types/responses/DraftResponse.ts",
+      "src/features/organization/types/responses/LookupOptionPage.ts",
+      "src/features/organization/types/responses/LookupOption.ts"
     ],
     "expected": [
       {
@@ -7715,8 +7720,8 @@
   {
     "file": "src/features/suppliers/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/suppliers/types/requests/SearchSuppliersRequest.ts",
-      "src/features/suppliers/types/requests/GetSuppliersByIdRequest.ts"
+      "src/features/parties/public/types/requests/SearchSuppliersRequest.ts",
+      "src/features/parties/public/types/requests/GetSuppliersByIdRequest.ts"
     ],
     "expected": [
       {

@@ -1,9 +1,10 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import { exportPdf } from '@/core/reporting/service';
-import { fmt,today } from '@/core/utils/formatters';
+import { fmt, today } from '@/core/utils/formatters';
 import { useInventoryController } from '@/features/inventory/hooks/useInventoryController';
 import { quantityByUnits } from '@/features/inventory/services/models/inventory-display';
-import { systemSettings } from "@/features/settings/public/system-settings";
+import type { InventoryViewProps } from '@/features/inventory/types/InventoryViewProps';
+import { systemSettings } from '@/features/organization/public/system-settings';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -15,8 +16,8 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-export function Inventory() {
-  const model = useInventoryController();
+export function Inventory({ initialTab = 'balances' }: InventoryViewProps) {
+  const model = useInventoryController(initialTab);
   if (!model) return null;
   const {
     s,

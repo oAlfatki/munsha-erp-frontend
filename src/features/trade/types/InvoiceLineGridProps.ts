@@ -1,4 +1,4 @@
-import type { InvoiceLine } from "@/features/trade/public/types/models/InvoiceLine";
+import type { InvoiceLine } from '@/features/trade/public/types/models/InvoiceLine';
 import type { InvoiceLineGridReadModel } from '@/features/trade/types/read-models/InvoiceLineGridReadModel';
 export interface InvoiceLineGridProps {
   state: InvoiceLineGridReadModel;

@@ -1,27 +1,28 @@
-import { printReport } from "@/core/reporting/service";
-import { fmt } from "@/core/utils/formatters";
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
-import { PurchaseInvoiceEditor } from "@/features/purchases/components/invoices/PurchaseInvoiceEditor";
-import { usePurchaseInvoicesController } from "@/features/purchases/hooks/usePurchaseInvoicesController";
-import { InvoiceDetails } from "@/features/trade/public/InvoiceDetails";
-import { returnRemaining } from "@/features/trade/public/partial-returns";
-import { invoiceReport } from "@/features/trade/public/build-invoice-document";
-import { ViewButton } from "@/shared/ui/actions/ViewButton";
-import { Pill } from "@/shared/ui/display/Pill";
-import { SearchBox } from "@/shared/ui/filters/SearchBox";
-import { Select } from "@/shared/ui/forms/Select";
-import { PageHead } from "@/shared/ui/layout/PageHead";
-import { Button } from "@/shared/ui/primitives/button";
-import { Input } from "@/shared/ui/primitives/input";
-import { ReportActions } from "@/shared/ui/reports/ReportActions";
-import { DataTable } from "@/shared/ui/tables/DataTable";
-import { Download,Printer } from 'lucide-react';
-export function PurchaseInvoices() {
-  const model = usePurchaseInvoicesController();
+import { printReport } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { PurchaseInvoiceEditor } from '@/features/purchases/components/invoices/PurchaseInvoiceEditor';
+import { usePurchaseInvoicesController } from '@/features/purchases/hooks/usePurchaseInvoicesController';
+import { invoiceReport } from '@/features/trade/public/build-invoice-document';
+import { InvoiceDetails } from '@/features/trade/public/InvoiceDetails';
+import { returnRemaining } from '@/features/trade/public/partial-returns';
+import type { DocumentScreenOptions } from '@/shared/types/DocumentScreenOptions';
+import { ViewButton } from '@/shared/ui/actions/ViewButton';
+import { Pill } from '@/shared/ui/display/Pill';
+import { SearchBox } from '@/shared/ui/filters/SearchBox';
+import { Select } from '@/shared/ui/forms/Select';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Download, Printer } from 'lucide-react';
+export function PurchaseInvoices(options: DocumentScreenOptions) {
+  const model = usePurchaseInvoicesController(options);
   if (!model) return null;
   const {
     s,
-    view,
+    isDeepLink,
     refresh,
     searchQuery,
     setQ,
@@ -185,7 +186,7 @@ export function PurchaseInvoices() {
         <InvoiceDetails
           current={current}
           browse={browse}
-          view={view}
+          isDeepLink={isDeepLink}
           setDetail={setDetail}
           setEditor={setEditor}
           isConfirm={isConfirm}

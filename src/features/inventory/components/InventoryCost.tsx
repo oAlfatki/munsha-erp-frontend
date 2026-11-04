@@ -1,16 +1,11 @@
-
-
-
-
-
-import { exportPdf,printReport } from '@/core/reporting/service';
+import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
-import { extras } from "@/features/accounting/public/extensions";
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
 import { useInventoryCostQuery } from '@/features/inventory/queries/useInventoryCostQuery';
 import { inventoryCost } from '@/features/inventory/services/models/inventory-cost';
-import type { CostFilters } from '@/features/inventory/types/models/CostFilters';
-import { systemSettings } from "@/features/settings/public/system-settings";
+import { extras } from '@/features/ledger/public/extensions';
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { systemSettings } from '@/features/organization/public/system-settings';
+import type { CostFilters } from '@/features/stock/public/types/models/CostFilters';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
@@ -19,7 +14,7 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Download,Eye,Printer,Undo2 } from 'lucide-react';
+import { Download, Eye, Printer, Undo2 } from 'lucide-react';
 import { useState } from 'react';
 export function InventoryCost() {
   const { state: s, branchId } = useInventoryCostQuery();

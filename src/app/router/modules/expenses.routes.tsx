@@ -1,15 +1,15 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
-export const EXPENSES_ROUTES:RouteObject[]=[
-{
-    path:ROUTES.EXPENSES,
+export const EXPENSES_ROUTES: RouteObject[] = [
+  {
+    path: ROUTES.EXPENSES,
     lazy: async () => ({
       Component: (await import('@/features/expenses/pages/ExpenseOverviewPage')).default,
     }),
-    handle: { module: 'expenses', title: '', },
+    handle: { module: 'expenses', title: '' },
   },
-{
-    path:ROUTES.EXPENSES_ADD,
+  {
+    path: ROUTES.EXPENSES_ADD,
     lazy: async () => ({
       Component: (await import('@/features/expenses/pages/CreateExpensePage')).default,
     }),
@@ -19,8 +19,8 @@ export const EXPENSES_ROUTES:RouteObject[]=[
       navModule: 'expenses',
     },
   },
-{
-    path:ROUTES.EXPENSES_EXPENSE_LIST,
+  {
+    path: ROUTES.EXPENSES_EXPENSE_LIST,
     lazy: async () => ({
       Component: (await import('@/features/expenses/pages/ExpenseListPage')).default,
     }),
@@ -30,8 +30,8 @@ export const EXPENSES_ROUTES:RouteObject[]=[
       navModule: 'expenses',
     },
   },
-{
-    path:ROUTES.EXPENSES_EXPENSE_REPORT,
+  {
+    path: ROUTES.EXPENSES_EXPENSE_REPORT,
     lazy: async () => ({
       Component: (await import('@/features/expenses/pages/ExpenseReportPage')).default,
     }),
@@ -41,8 +41,8 @@ export const EXPENSES_ROUTES:RouteObject[]=[
       navModule: 'accounts',
     },
   },
-{
-    path:ROUTES.EXPENSES_EXPENSE_TYPES,
+  {
+    path: ROUTES.EXPENSES_EXPENSE_TYPES,
     lazy: async () => ({
       Component: (await import('@/features/expenses/pages/ExpenseTypeListPage')).default,
     }),
@@ -51,5 +51,5 @@ export const EXPENSES_ROUTES:RouteObject[]=[
       title: 'أنواع المصروفات',
       navModule: 'expenses',
     },
-  }
+  },
 ];

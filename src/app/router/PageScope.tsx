@@ -7,7 +7,9 @@ export function PageScope() {
   const { view, branchId, state } = { ...useApplication(), ...useCompanyData() };
   return (
     <div key={view + branchId + state?.organization.year}>
-      <Suspense fallback={<LoadingState/>}><Outlet /></Suspense>
+      <Suspense fallback={<LoadingState />}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }

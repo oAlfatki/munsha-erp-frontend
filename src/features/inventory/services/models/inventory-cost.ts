@@ -1,7 +1,7 @@
-import type { CostFilters } from '@/features/inventory/types/models/CostFilters';
 import type { InventoryCostContext } from '@/features/inventory/types/read-models/InventoryCostContext';
+import type { CostFilters } from '@/features/stock/public/types/models/CostFilters';
 
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
+// Frontend display calculations; backend authority requires independent verification.
 import { money } from '@/core/utils/money';
 import { quantityByUnits } from '@/features/inventory/services/models/inventory-display';
 export function inventoryCost(workspace: InventoryCostContext, branch: string, f: CostFilters) {

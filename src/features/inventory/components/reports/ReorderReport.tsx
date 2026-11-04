@@ -1,9 +1,7 @@
-
-
 import { useReorderReportView } from '@/features/inventory/hooks/useReorderReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function ReorderReport() {
- const model=useReorderReportView({title:"أصناف بلغت حد الطلب",summaryColumns:[5]});
+  const model = useReorderReportView({ title: 'أصناف بلغت حد الطلب', summaryColumns: [5] });
 
   return (
     <ReportViewer

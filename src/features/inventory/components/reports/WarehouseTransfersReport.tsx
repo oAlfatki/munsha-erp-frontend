@@ -1,9 +1,10 @@
-
-
 import { useWarehouseTransfersReportView } from '@/features/inventory/hooks/useWarehouseTransfersReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function WarehouseTransfersReport() {
- const model=useWarehouseTransfersReportView({title:"فواتير التحويل بين المخازن",summaryColumns:[]});
+  const model = useWarehouseTransfersReportView({
+    title: 'فواتير التحويل بين المخازن',
+    summaryColumns: [],
+  });
 
   return (
     <ReportViewer

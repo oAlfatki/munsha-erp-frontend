@@ -1,4 +1,4 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
 export interface VoucherDueContext {
-entries: Entry[];
+  entries: Entry[];
 }

@@ -1,45 +1,42 @@
 import { CONFIG } from '@/core/config/env';
+function pathSegment(value: string) {
+  if (typeof value !== 'string' || !value.trim()) throw Error('معرّف الطلب مطلوب');
+  return encodeURIComponent(value);
+}
 /** Existing HTTP paths, centralized without changing contracts. */
 export const ENDPOINTS = {
   authRefresh: '/auth/refresh-token',
-  command: (feature: unknown, type: unknown) => `/${feature}/commands/${type}`,
+  command: (feature: string, type: string) =>
+    `/${pathSegment(feature)}/commands/${pathSegment(type)}`,
   fetchAccountingAccounts: `/accounting/accounts`,
-  fetchAccountingAccountsByCode: (code: unknown) =>
-    `/accounting/accounts/${encodeURIComponent(String(code))}`,
+  fetchAccountingAccountsByCode: (code: string) => `/accounting/accounts/${pathSegment(code)}`,
   fetchAccountingCashAccounts: `/accounting/cash-accounts`,
-  fetchAccountingCashAccountsById: (id: unknown) =>
-    `/accounting/cash-accounts/${encodeURIComponent(String(id))}`,
+  fetchAccountingCashAccountsById: (id: string) => `/accounting/cash-accounts/${pathSegment(id)}`,
   fetchAccountingAssets: `/accounting/assets`,
-  fetchAccountingAssetsById: (id: unknown) =>
-    `/accounting/assets/${encodeURIComponent(String(id))}`,
+  fetchAccountingAssetsById: (id: string) => `/accounting/assets/${pathSegment(id)}`,
   fetchAccountingContacts: `/accounting/contacts`,
-  fetchAccountingContactsById: (id: unknown) =>
-    `/accounting/contacts/${encodeURIComponent(String(id))}`,
+  fetchAccountingContactsById: (id: string) => `/accounting/contacts/${pathSegment(id)}`,
   fetchAccountingCurrencies: `/accounting/currencies`,
-  fetchAccountingCurrenciesByCode: (code: unknown) =>
-    `/accounting/currencies/${encodeURIComponent(String(code))}`,
+  fetchAccountingCurrenciesByCode: (code: string) => `/accounting/currencies/${pathSegment(code)}`,
   fetchAccountingFinancialBooks: `/accounting/financial-books`,
-  fetchAccountingFinancialBooksById: (id: unknown) =>
-    `/accounting/financial-books/${encodeURIComponent(String(id))}`,
-  fetchAccountingFinancialBooksByIdReadiness: (id: unknown) =>
-    `/accounting/financial-books/${encodeURIComponent(String(id))}/readiness`,
+  fetchAccountingFinancialBooksById: (id: string) =>
+    `/accounting/financial-books/${pathSegment(id)}`,
+  fetchAccountingFinancialBooksByIdReadiness: (id: string) =>
+    `/accounting/financial-books/${pathSegment(id)}/readiness`,
   fetchAccountingVouchers: `/accounting/vouchers`,
-  fetchAccountingVouchersById: (id: unknown) =>
-    `/accounting/vouchers/${encodeURIComponent(String(id))}`,
+  fetchAccountingVouchersById: (id: string) => `/accounting/vouchers/${pathSegment(id)}`,
   fetchAccountingJournals: `/accounting/journals`,
-  fetchAccountingJournalsById: (id: unknown) =>
-    `/accounting/journals/${encodeURIComponent(String(id))}`,
+  fetchAccountingJournalsById: (id: string) => `/accounting/journals/${pathSegment(id)}`,
   fetchAccountingExchangeRates: `/accounting/exchange-rates`,
   fetchAccountingAssetAcquisitions: `/accounting/asset-acquisitions`,
-  fetchAccountingAssetAcquisitionsById: (id: unknown) =>
-    `/accounting/asset-acquisitions/${encodeURIComponent(String(id))}`,
+  fetchAccountingAssetAcquisitionsById: (id: string) =>
+    `/accounting/asset-acquisitions/${pathSegment(id)}`,
   fetchAccountingDepreciation: `/accounting/depreciation`,
-  fetchAccountingDepreciationById: (id: unknown) =>
-    `/accounting/depreciation/${encodeURIComponent(String(id))}`,
-  fetchAccountingFinancialBooksByIdClosingStock: (id: unknown) =>
-    `/accounting/financial-books/${encodeURIComponent(String(id))}/closing-stock`,
-  fetchAccountingFinancialBooksByIdClosingAccounts: (id: unknown) =>
-    `/accounting/financial-books/${encodeURIComponent(String(id))}/closing-accounts`,
+  fetchAccountingDepreciationById: (id: string) => `/accounting/depreciation/${pathSegment(id)}`,
+  fetchAccountingFinancialBooksByIdClosingStock: (id: string) =>
+    `/accounting/financial-books/${pathSegment(id)}/closing-stock`,
+  fetchAccountingFinancialBooksByIdClosingAccounts: (id: string) =>
+    `/accounting/financial-books/${pathSegment(id)}/closing-accounts`,
   fetchAccount: CONFIG.apiMode === 'site' ? '/auth' : '/auth/me',
   submitStatus: CONFIG.apiMode === 'site' ? '/auth?status=1' : '/auth/me',
   authAction: '/auth',
@@ -47,37 +44,33 @@ export const ENDPOINTS = {
   authLogout: '/auth/logout',
   authHeartbeat: '/auth/heartbeat',
   authChangePassword: '/auth/change-password',
-  authRevokeSession: (id: unknown) => '/auth/sessions/' + encodeURIComponent(String(String(id))),
+  authRevokeSession: (id: string) => '/auth/sessions/' + pathSegment(id),
   authRevokeOtherSessions: '/auth/sessions/others',
   createUser: '/users',
-  updateUser: (id: unknown) => '/users/' + encodeURIComponent(String(String(id))),
-  resetUserPassword: (id: unknown) =>
-    '/users/' + encodeURIComponent(String(String(id))) + '/password',
+  updateUser: (id: string) => '/users/' + pathSegment(id),
+  resetUserPassword: (id: string) => '/users/' + pathSegment(id) + '/password',
   fetchCustomers: `/customers`,
-  fetchCustomersById: (id: unknown) => `/customers/${encodeURIComponent(String(id))}`,
+  fetchCustomersById: (id: string) => `/customers/${pathSegment(id)}`,
   fetchPartiesGroups: `/parties/groups`,
-  fetchPartiesGroupsById: (id: unknown) => `/parties/groups/${encodeURIComponent(String(id))}`,
+  fetchPartiesGroupsById: (id: string) => `/parties/groups/${pathSegment(id)}`,
   fetchDashboard: `/dashboard`,
   fetchEmployees: `/employees`,
-  fetchEmployeesById: (id: unknown) => `/employees/${encodeURIComponent(String(id))}`,
+  fetchEmployeesById: (id: string) => `/employees/${pathSegment(id)}`,
   fetchEmployeesPayrollAccruals: `/employees/payroll-accruals`,
-  fetchEmployeesPayrollAccrualsById: (id: unknown) =>
-    `/employees/payroll-accruals/${encodeURIComponent(String(id))}`,
+  fetchEmployeesPayrollAccrualsById: (id: string) =>
+    `/employees/payroll-accruals/${pathSegment(id)}`,
   fetchEmployeesSalaryPayments: `/employees/salary-payments`,
-  fetchEmployeesSalaryPaymentsById: (id: unknown) =>
-    `/employees/salary-payments/${encodeURIComponent(String(id))}`,
+  fetchEmployeesSalaryPaymentsById: (id: string) => `/employees/salary-payments/${pathSegment(id)}`,
   fetchEmployeesAdvances: `/employees/advances`,
-  fetchEmployeesAdvancesById: (id: unknown) =>
-    `/employees/advances/${encodeURIComponent(String(id))}`,
+  fetchEmployeesAdvancesById: (id: string) => `/employees/advances/${pathSegment(id)}`,
   fetchExpensesTypes: `/expenses/types`,
-  fetchExpensesTypesById: (id: unknown) => `/expenses/types/${encodeURIComponent(String(id))}`,
+  fetchExpensesTypesById: (id: string) => `/expenses/types/${pathSegment(id)}`,
   fetchExpensesDocuments: `/expenses/documents`,
-  fetchExpensesDocumentsById: (id: unknown) =>
-    `/expenses/documents/${encodeURIComponent(String(id))}`,
-  fetchExpensesDocumentsByIdPayments: (id: unknown) =>
-    `/expenses/documents/${encodeURIComponent(String(id))}/payments`,
-  fetchExpensesDocumentsByIdConsumptions: (id: unknown) =>
-    `/expenses/documents/${encodeURIComponent(String(id))}/consumptions`,
+  fetchExpensesDocumentsById: (id: string) => `/expenses/documents/${pathSegment(id)}`,
+  fetchExpensesDocumentsByIdPayments: (id: string) =>
+    `/expenses/documents/${pathSegment(id)}/payments`,
+  fetchExpensesDocumentsByIdConsumptions: (id: string) =>
+    `/expenses/documents/${pathSegment(id)}/consumptions`,
   fetchReportsFinancialProfitByItem: `/reports/financial/profit-by-item`,
   fetchReportsFinancialProfitByCustomer: `/reports/financial/profit-by-customer`,
   fetchReportsFinancialCashFlow: `/reports/financial/cash-flow`,
@@ -85,37 +78,29 @@ export const ENDPOINTS = {
   fetchFinancialStatementsIncome: `/financial-statements/income`,
   fetchFinancialStatementsPosition: `/financial-statements/position`,
   fetchInventoryItems: `/inventory/items`,
-  fetchInventoryItemsById: (id: unknown) => `/inventory/items/${encodeURIComponent(String(id))}`,
+  fetchInventoryItemsById: (id: string) => `/inventory/items/${pathSegment(id)}`,
   fetchInventoryWarehouses: `/inventory/warehouses`,
-  fetchInventoryWarehousesById: (id: unknown) =>
-    `/inventory/warehouses/${encodeURIComponent(String(id))}`,
+  fetchInventoryWarehousesById: (id: string) => `/inventory/warehouses/${pathSegment(id)}`,
   fetchInventoryUnits: `/inventory/units`,
-  fetchInventoryUnitsById: (id: unknown) => `/inventory/units/${encodeURIComponent(String(id))}`,
+  fetchInventoryUnitsById: (id: string) => `/inventory/units/${pathSegment(id)}`,
   fetchInventoryUnitCategories: `/inventory/unit-categories`,
-  fetchInventoryUnitCategoriesById: (id: unknown) =>
-    `/inventory/unit-categories/${encodeURIComponent(String(id))}`,
+  fetchInventoryUnitCategoriesById: (id: string) => `/inventory/unit-categories/${pathSegment(id)}`,
   fetchInventoryItemGroups: `/inventory/item-groups`,
-  fetchInventoryItemGroupsById: (id: unknown) =>
-    `/inventory/item-groups/${encodeURIComponent(String(id))}`,
+  fetchInventoryItemGroupsById: (id: string) => `/inventory/item-groups/${pathSegment(id)}`,
   fetchInventoryStockDocuments: `/inventory/stock-documents`,
-  fetchInventoryStockDocumentsById: (id: unknown) =>
-    `/inventory/stock-documents/${encodeURIComponent(String(id))}`,
+  fetchInventoryStockDocumentsById: (id: string) => `/inventory/stock-documents/${pathSegment(id)}`,
   fetchInventoryBalances: `/inventory/balances`,
   fetchInventoryMovements: `/inventory/movements`,
-  fetchInventoryItemsByIdUnits: (id: unknown) =>
-    `/inventory/items/${encodeURIComponent(String(id))}/units`,
+  fetchInventoryItemsByIdUnits: (id: string) => `/inventory/items/${pathSegment(id)}/units`,
   fetchInventoryStockCounts: `/inventory/stock-counts`,
-  fetchInventoryStockCountsById: (id: unknown) =>
-    `/inventory/stock-counts/${encodeURIComponent(String(id))}`,
+  fetchInventoryStockCountsById: (id: string) => `/inventory/stock-counts/${pathSegment(id)}`,
   fetchSearchItems: `/search/items`,
   fetchPurchasesInvoices: `/purchases/invoices`,
-  fetchPurchasesInvoicesById: (id: unknown) =>
-    `/purchases/invoices/${encodeURIComponent(String(id))}`,
+  fetchPurchasesInvoicesById: (id: string) => `/purchases/invoices/${pathSegment(id)}`,
   fetchPurchasesReturns: `/purchases/returns`,
-  fetchPurchasesReturnsById: (id: unknown) =>
-    `/purchases/returns/${encodeURIComponent(String(id))}`,
-  fetchPurchasesInvoicesByIdReturnAvailability: (id: unknown) =>
-    `/purchases/invoices/${encodeURIComponent(String(id))}/return-availability`,
+  fetchPurchasesReturnsById: (id: string) => `/purchases/returns/${pathSegment(id)}`,
+  fetchPurchasesInvoicesByIdReturnAvailability: (id: string) =>
+    `/purchases/invoices/${pathSegment(id)}/return-availability`,
   fetchReportsInventoryValuation: `/reports/inventory/valuation`,
   fetchReportsInventoryOpeningStock: `/reports/inventory/opening-stock`,
   fetchReportsInventoryReorder: `/reports/inventory/reorder`,
@@ -144,18 +129,18 @@ export const ENDPOINTS = {
   fetchReportsAccountingAccountStatement: `/reports/accounting/account-statement`,
   fetchReportsAccountingContactLedger: `/reports/accounting/contact-ledger`,
   fetchSalesTargets: `/sales/targets`,
-  fetchSalesTargetsById: (id: unknown) => `/sales/targets/${encodeURIComponent(String(id))}`,
+  fetchSalesTargetsById: (id: string) => `/sales/targets/${pathSegment(id)}`,
   fetchSalesInvoices: `/sales/invoices`,
-  fetchSalesInvoicesById: (id: unknown) => `/sales/invoices/${encodeURIComponent(String(id))}`,
+  fetchSalesInvoicesById: (id: string) => `/sales/invoices/${pathSegment(id)}`,
   fetchSalesReturns: `/sales/returns`,
-  fetchSalesReturnsById: (id: unknown) => `/sales/returns/${encodeURIComponent(String(id))}`,
-  fetchSalesInvoicesByIdReturnAvailability: (id: unknown) =>
-    `/sales/invoices/${encodeURIComponent(String(id))}/return-availability`,
+  fetchSalesReturnsById: (id: string) => `/sales/returns/${pathSegment(id)}`,
+  fetchSalesInvoicesByIdReturnAvailability: (id: string) =>
+    `/sales/invoices/${pathSegment(id)}/return-availability`,
   fetchBackups: '/backups',
-  submitBackupAction: (action: unknown) =>
+  submitBackupAction: (action: 'create' | 'restore' | 'download' | 'auto') =>
     CONFIG.apiMode === 'site' ? '/backups' : '/backups/' + String(action),
   fetchBranches: `/branches`,
-  fetchBranchesById: (id: unknown) => `/branches/${encodeURIComponent(String(id))}`,
+  fetchBranchesById: (id: string) => `/branches/${pathSegment(id)}`,
   fetchSettingsCompany: `/settings/company`,
   fetchSettingsBranding: `/settings/branding`,
   fetchSettingsSystem: `/settings/system`,
@@ -169,16 +154,16 @@ export const ENDPOINTS = {
   fetchSettingsSystemBranches: `/settings/system/branches`,
   fetchSettingsSystemCompany: `/settings/system/company`,
   fetchSettingsServiceStatus: `/settings/service-status`,
-  fetchSettingsImportTemplatesByKind: (kind: unknown) =>
-    `/settings/import-templates/${encodeURIComponent(String(kind))}`,
-  fetchUiDraftsByKey: (key: unknown) => `/ui-drafts/${encodeURIComponent(String(key))}`,
-  fetchLookupsByResource: (resource: unknown) => `/lookups/${encodeURIComponent(String(resource))}`,
+  fetchSettingsImportTemplatesByKind: (kind: string) =>
+    `/settings/import-templates/${pathSegment(kind)}`,
+  fetchUiDraftsByKey: (key: string) => `/ui-drafts/${pathSegment(key)}`,
+  fetchLookupsByResource: (resource: string) => `/lookups/${pathSegment(resource)}`,
   fetchSuppliers: `/suppliers`,
-  fetchSuppliersById: (id: unknown) => `/suppliers/${encodeURIComponent(String(id))}`,
+  fetchSuppliersById: (id: string) => `/suppliers/${pathSegment(id)}`,
   fetchUsers: `/users`,
-  fetchUsersById: (id: unknown) => `/users/${encodeURIComponent(String(id))}`,
+  fetchUsersById: (id: string) => `/users/${pathSegment(id)}`,
   fetchAuthSessions: `/auth/sessions`,
-  fetchUsersByIdSessions: (id: unknown) => `/users/${encodeURIComponent(String(id))}/sessions`,
+  fetchUsersByIdSessions: (id: string) => `/users/${pathSegment(id)}/sessions`,
   fetchAuthPermissions: `/auth/permissions`,
   fetchAuditEvents: `/audit/events`,
 } as const;

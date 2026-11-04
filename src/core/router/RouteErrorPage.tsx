@@ -1,5 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { Link,useRouteError } from 'react-router-dom';
+import { Link, useRouteError } from 'react-router-dom';
 export function RouteErrorPage() {
   const error = useRouteError();
   return (

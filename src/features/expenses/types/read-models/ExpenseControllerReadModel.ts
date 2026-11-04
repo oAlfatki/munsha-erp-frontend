@@ -1,10 +1,10 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Expense } from '@/features/expenses/types/models/Expense';
-import type { ExpenseDocument } from "@/features/expenses/public/types/models/ExpenseDocument";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
-import type { PersistedSystemSettings } from "@/features/settings/public/types/models/PersistedSystemSettings";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { Expense } from '@/features/ledger/public/types/models/Expense';
+import type { ExpenseDocument } from '@/features/ledger/public/types/models/ExpenseDocument';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { PersistedSystemSettings } from '@/features/organization/public/types/models/PersistedSystemSettings';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface ExpenseControllerReadModel {
   organization: {

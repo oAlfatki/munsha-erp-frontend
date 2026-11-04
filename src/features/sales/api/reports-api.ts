@@ -11,7 +11,8 @@ import type { TargetAchievementReport } from '@/features/sales/types/responses/T
 export async function fetchReportsSalesSummary(
   params: SearchReportsSalesSummaryRequest,
 ): Promise<SalesSummaryReport> {
-  return await apiClient.get<SalesSummaryReport>(ENDPOINTS.fetchReportsSalesSummary,{params: {
+  return await apiClient.get<SalesSummaryReport>(ENDPOINTS.fetchReportsSalesSummary, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -22,12 +23,14 @@ export async function fetchReportsSalesSummary(
       partyId: params.partyId,
       currency: params.currency,
       productId: params.productId,
-    }});
+    },
+  });
 }
 export async function fetchReportsSalesReturns(
   params: SearchReportsSalesReturnsRequest,
 ): Promise<SalesReturnsReport> {
-  return await apiClient.get<SalesReturnsReport>(ENDPOINTS.fetchReportsSalesReturns,{params: {
+  return await apiClient.get<SalesReturnsReport>(ENDPOINTS.fetchReportsSalesReturns, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -37,12 +40,14 @@ export async function fetchReportsSalesReturns(
       q: params.q,
       partyId: params.partyId,
       currency: params.currency,
-    }});
+    },
+  });
 }
 export async function fetchReportsSalesChart(
   params: SearchReportsSalesChartRequest,
 ): Promise<SalesChartReport> {
-  return await apiClient.get<SalesChartReport>(ENDPOINTS.fetchReportsSalesChart,{params: {
+  return await apiClient.get<SalesChartReport>(ENDPOINTS.fetchReportsSalesChart, {
+    params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,
@@ -50,20 +55,26 @@ export async function fetchReportsSalesChart(
       from: params.from,
       to: params.to,
       q: params.q,
-    }});
+    },
+  });
 }
 export async function fetchReportsSalesTargetAchievement(
   params: SearchReportsSalesTargetAchievementRequest,
 ): Promise<TargetAchievementReport> {
-  return await apiClient.get<TargetAchievementReport>(ENDPOINTS.fetchReportsSalesTargetAchievement,{params: {
-      page: params.page,
-      pageSize: params.pageSize,
-      bookId: params.bookId,
-      branchId: params.branchId,
-      from: params.from,
-      to: params.to,
-      q: params.q,
-      employeeId: params.employeeId,
-      period: params.period,
-    }});
+  return await apiClient.get<TargetAchievementReport>(
+    ENDPOINTS.fetchReportsSalesTargetAchievement,
+    {
+      params: {
+        page: params.page,
+        pageSize: params.pageSize,
+        bookId: params.bookId,
+        branchId: params.branchId,
+        from: params.from,
+        to: params.to,
+        q: params.q,
+        employeeId: params.employeeId,
+        period: params.period,
+      },
+    },
+  );
 }

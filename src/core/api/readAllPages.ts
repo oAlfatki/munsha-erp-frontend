@@ -4,12 +4,12 @@ import type { ReadParams } from '@/core/types/ReadParams';
 export async function readAllPages<T>(
   read: (params: ReadParams) => Promise<ReadPage<T>>,
   params: ReadParams,
-  signal?:AbortSignal,
+  signal?: AbortSignal,
 ): Promise<ReadPage<T>> {
   let result: ReadPage<T> | undefined;
   const items: T[] = [];
   for (let page = 1; page <= 1000; page++) {
-    if(signal?.aborted)throw new DOMException('Aborted','AbortError');
+    if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
     const next = await read({ ...params, page, pageSize: 200 });
     if (
       !Array.isArray(next.items) ||
@@ -18,6 +18,11 @@ export async function readAllPages<T>(
       next.pagination.page !== page
     )
       throw Error('استجابة قائمة غير مكتملة من الخادم');
+    if (
+      (params.bookId && next.scope.bookId !== params.bookId) ||
+      (params.branchId && next.scope.branchId !== params.branchId)
+    )
+      throw Error('نطاق البيانات المستلمة لا يطابق الطلب');
     if (
       result &&
       (next.scope.revision !== result.scope.revision ||

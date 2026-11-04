@@ -1,6 +1,10 @@
-import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
-import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
-const DEFINITION = {title:'إضافة مجموعة',note:'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',collection:'productGroups',fields:[
+import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
+import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+const DEFINITION = {
+  title: 'إضافة مجموعة',
+  note: 'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',
+  collection: 'productGroups',
+  fields: [
     {
       key: 'name',
       label: 'اسم المجموعة',
@@ -13,14 +17,14 @@ const DEFINITION = {title:'إضافة مجموعة',note:'مجموعات لتص�
       type: 'text',
       required: false,
     },
-  ],initiallyOpen:true} satisfies MasterFormDefinition;
+  ],
+  initiallyOpen: true,
+} satisfies MasterFormDefinition;
 /** إضافة مجموعة — feature-owned route content. */
 export default function CreateItemGroupPage() {
-  
-
   return (
     <section className="screen-page">
-          <MasterScreen screen={DEFINITION} />
-        </section>
+      <MasterScreen screen={DEFINITION} />
+    </section>
   );
 }

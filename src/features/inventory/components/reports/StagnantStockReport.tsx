@@ -1,9 +1,7 @@
-
-
 import { useStagnantStockReportView } from '@/features/inventory/hooks/useStagnantStockReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function StagnantStockReport() {
- const model=useStagnantStockReportView({title:"الأصناف الراكدة",summaryColumns:[5]});
+  const model = useStagnantStockReportView({ title: 'الأصناف الراكدة', summaryColumns: [5] });
 
   return (
     <ReportViewer

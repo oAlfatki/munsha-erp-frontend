@@ -1,15 +1,15 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import { fmt } from '@/core/utils/formatters';
 import { useJournalScreenController } from '@/features/accounting/hooks/useJournalScreenController';
-import { allAccounts } from "@/features/accounting/public/extensions";
 import type { JournalScreenProps } from '@/features/accounting/types/JournalScreenProps';
+import { allAccounts } from '@/features/ledger/public/extensions';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { ArrowLeft,Plus,Save,Trash2 } from 'lucide-react';
+import { ArrowLeft, Plus, Save, Trash2 } from 'lucide-react';
 
 export function JournalScreen({ screen }: JournalScreenProps) {
   const model = useJournalScreenController();

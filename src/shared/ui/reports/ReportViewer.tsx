@@ -11,21 +11,18 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Download,Eye,Printer,Search } from 'lucide-react';
+import { Download, Eye, Printer, Search } from 'lucide-react';
 
 /** Shared report presentation only. Feature modules own calculations, columns and specialized filters/details. */
 export function ReportViewer({
   title,
   model,
-  summaryColumns = [],
   shouldShowFrom: isShowFrom = true,
   isAsOf: isAsOf = false,
   shouldShowWarehouse: isShowWarehouse = false,
   extraFilters,
   renderDetails,
   rowDocument,
-  getAmount,
-  extraTotals,
   renderVisualization,
 }: ReportViewerProps) {
   if (!model) return null;
@@ -99,12 +96,11 @@ export function ReportViewer({
               onChange={(e) => setDraft({ ...draft, warehouse: e.target.value })}
             >
               <option value="">جميع مخازن الفرع</option>
-              {context.warehouseOptions
-                .map((warehouse) => (
-                  <option key={warehouse.id} value={warehouse.id}>
-                    {warehouse.name}
-                  </option>
-                ))}
+              {context.warehouseOptions.map((warehouse) => (
+                <option key={warehouse.id} value={warehouse.id}>
+                  {warehouse.name}
+                </option>
+              ))}
             </Select>
           </Field>
         )}

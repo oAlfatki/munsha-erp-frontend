@@ -1,8 +1,8 @@
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
-import { allAccounts } from "@/features/accounting/public/extensions";
 import type { BuildTrialBalanceReportContext } from '@/features/accounting/types/read-models/BuildTrialBalanceReportContext';
+import { allAccounts } from '@/features/ledger/public/extensions';
 export function buildTrialBalanceReport(
   workspace: BuildTrialBalanceReportContext,
   branch: string,

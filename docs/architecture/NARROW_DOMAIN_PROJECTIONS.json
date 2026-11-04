@@ -1,0 +1,107 @@
+[
+  {
+    "file": "src/features/ledger/public/types/read-models/ExtrasContext.ts",
+    "removedEntityDependency": "Product",
+    "projection": "{units:{name:string}[]}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/AccountClosingContext.ts",
+    "removedEntityDependency": "Party",
+    "projection": "{id:string;name:string}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/AccountClosingContext.ts",
+    "removedEntityDependency": "Employee",
+    "projection": "{id:string;name:string}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "Party",
+    "projection": "{id:string;name:string}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "Employee",
+    "projection": "{id:string;name:string}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/StockClosingContext.ts",
+    "removedEntityDependency": "Product",
+    "projection": "{id:string;code:string;name:string;units:{name:string}[]}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/StockClosingContext.ts",
+    "removedEntityDependency": "Warehouse",
+    "projection": "{id:string;name:string;branchId:string}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/StockClosingContext.ts",
+    "removedEntityDependency": "Movement",
+    "projection": "{productId:string;warehouseId:string;date:string;qty:number;value:number}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "Product",
+    "projection": "{id:string;code:string;name:string;units:{name:string}[]}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "Warehouse",
+    "projection": "{id:string;name:string;branchId:string}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "Movement",
+    "projection": "{productId:string;warehouseId:string;date:string;qty:number;value:number}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "Branch",
+    "projection": "{id:string;name:string}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "Invoice",
+    "projection": "{status:'draft'|'final'}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "StockDocument",
+    "projection": "{status:'draft'|'final'}"
+  },
+  {
+    "file": "src/features/ledger/public/types/read-models/ClosingChecksContext.ts",
+    "removedEntityDependency": "Stock",
+    "projection": "{productId:string;warehouseId:string;qty:number;value:number}"
+  },
+  {
+    "file": "src/features/organization/public/types/read-models/StockDocumentSettingsPolicyContext.ts",
+    "removedEntityDependency": "Warehouse",
+    "projection": "{id:string;branchId:string;active:boolean}"
+  },
+  {
+    "file": "src/features/organization/public/types/read-models/OperationCashIdContext.ts",
+    "removedEntityDependency": "Warehouse",
+    "projection": "{id:string;branchId:string;active:boolean}"
+  },
+  {
+    "file": "src/features/organization/public/types/read-models/TransferSettingsPolicyContext.ts",
+    "removedEntityDependency": "Warehouse",
+    "projection": "{id:string;branchId:string;active:boolean}"
+  },
+  {
+    "file": "src/features/organization/public/types/read-models/BranchDefaultsContext.ts",
+    "removedEntityDependency": "Warehouse",
+    "projection": "{id:string;branchId:string;active:boolean}"
+  },
+  {
+    "file": "src/features/organization/public/types/read-models/DeleteDraftSettingsPolicyContext.ts",
+    "removedEntityDependency": "Invoice",
+    "projection": "{id:string;kind:'sale'|'purchase'}"
+  },
+  {
+    "file": "src/features/stock/public/types/read-models/ValidateInventoryCommandContext.ts",
+    "removedEntityDependency": "Invoice",
+    "projection": "{warehouseId?:string}"
+  }
+]

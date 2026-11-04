@@ -1,80 +1,150 @@
-import { postCommand } from '@/core/services/http/command-api';
+import type { CommandReceipt } from '@/core/types/CommandReceipt';
+import { apiClient } from '@/core/api/apiClient';
+import { ENDPOINTS } from '@/core/config/endpoints';
+import { requireCommandApi } from '@/core/api/require-api-mode';
 import type { CommandContext } from '@/core/types/CommandContext';
-import type { SaveContactEntryRequest } from '@/features/accounting/types/requests/SaveContactEntryRequest';
-import type { SaveContactVoucherRequest } from '@/features/accounting/types/requests/SaveContactVoucherRequest';
-import type { SaveManualJournalRequest } from '@/features/accounting/types/requests/SaveManualJournalRequest';
-import type { SaveMasterRequest } from '@/features/accounting/types/requests/SaveMasterRequest';
-import type { SaveOperationRequest } from '@/features/accounting/types/requests/SaveOperationRequest';
-import type { SavePeriodActivateRequest } from '@/features/accounting/types/requests/SavePeriodActivateRequest';
-import type { SavePeriodCreateRequest } from '@/features/accounting/types/requests/SavePeriodCreateRequest';
-import type { SavePeriodResetRequest } from '@/features/accounting/types/requests/SavePeriodResetRequest';
-import type { SavePeriodSwitchRequest } from '@/features/accounting/types/requests/SavePeriodSwitchRequest';
-import type { SavePeriodTransferRequest } from '@/features/accounting/types/requests/SavePeriodTransferRequest';
-import type { SavePermissionsRequest } from '@/features/accounting/types/requests/SavePermissionsRequest';
-import type { SaveScreenDraftRequest } from '@/features/accounting/types/requests/SaveScreenDraftRequest';
-import type { SaveVoucherRequest } from '@/features/accounting/types/requests/SaveVoucherRequest';
+import type { SaveContactEntryRequest } from '@/features/ledger/public/types/requests/SaveContactEntryRequest';
+import type { SaveContactVoucherRequest } from '@/features/ledger/public/types/requests/SaveContactVoucherRequest';
+import type { SaveManualJournalRequest } from '@/features/ledger/public/types/requests/SaveManualJournalRequest';
+import type { SaveOperationRequest } from '@/features/ledger/public/types/requests/SaveOperationRequest';
+import type { SavePeriodActivateRequest } from '@/features/ledger/public/types/requests/SavePeriodActivateRequest';
+import type { SavePeriodCreateRequest } from '@/features/ledger/public/types/requests/SavePeriodCreateRequest';
+import type { SavePeriodResetRequest } from '@/features/ledger/public/types/requests/SavePeriodResetRequest';
+import type { SavePeriodSwitchRequest } from '@/features/ledger/public/types/requests/SavePeriodSwitchRequest';
+import type { SavePeriodTransferRequest } from '@/features/ledger/public/types/requests/SavePeriodTransferRequest';
+import type { SavePermissionsRequest } from '@/features/ledger/public/types/requests/SavePermissionsRequest';
+import type { SaveScreenDraftRequest } from '@/features/ledger/public/types/requests/SaveScreenDraftRequest';
+import type { SaveVoucherRequest } from '@/features/ledger/public/types/requests/SaveVoucherRequest';
 export const submitPermissions = async (
   data: SavePermissionsRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'permissions', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'permissions'), {
+    ...context,
+    type: 'permissions',
+    data: data,
+  });
+};
 export const submitContactEntry = async (
   data: SaveContactEntryRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'contactEntry', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'contactEntry'), {
+    ...context,
+    type: 'contactEntry',
+    data: data,
+  });
+};
 export const submitContactVoucher = async (
   data: SaveContactVoucherRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'contactVoucher', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'contactVoucher'), {
+    ...context,
+    type: 'contactVoucher',
+    data: data,
+  });
+};
 export const submitPeriodSwitch = async (
   data: SavePeriodSwitchRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'periodSwitch', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodSwitch'), {
+    ...context,
+    type: 'periodSwitch',
+    data: data,
+  });
+};
 export const submitPeriodCreate = async (
   data: SavePeriodCreateRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'periodCreate', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodCreate'), {
+    ...context,
+    type: 'periodCreate',
+    data: data,
+  });
+};
 export const submitPeriodTransfer = async (
   data: SavePeriodTransferRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'periodTransfer', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodTransfer'), {
+    ...context,
+    type: 'periodTransfer',
+    data: data,
+  });
+};
 export const submitPeriodActivate = async (
   data: SavePeriodActivateRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'periodActivate', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodActivate'), {
+    ...context,
+    type: 'periodActivate',
+    data: data,
+  });
+};
 export const submitPeriodReset = async (
   data: SavePeriodResetRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'periodReset', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodReset'), {
+    ...context,
+    type: 'periodReset',
+    data: data,
+  });
+};
 export const submitScreenDraft = async (
   data: SaveScreenDraftRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'screenDraft', data, context);
-export const submitMaster = async (
-  data: SaveMasterRequest,
-  context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'master', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'screenDraft'), {
+    ...context,
+    type: 'screenDraft',
+    data: data,
+  });
+};
+
 export const submitManualJournal = async (
   data: SaveManualJournalRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'manualJournal', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'manualJournal'), {
+    ...context,
+    type: 'manualJournal',
+    data: data,
+  });
+};
 export const submitOperation = async (
   data: SaveOperationRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'operation', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'operation'), {
+    ...context,
+    type: 'operation',
+    data: data,
+  });
+};
 export const submitVoucher = async (
   data: SaveVoucherRequest,
   context: CommandContext,
-): Promise<Awaited<ReturnType<typeof postCommand>>> =>
-  postCommand('accounting', 'voucher', data, context);
+): Promise<CommandReceipt> => {
+  requireCommandApi();
+  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'voucher'), {
+    ...context,
+    type: 'voucher',
+    data: data,
+  });
+};

@@ -1,9 +1,9 @@
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Employee } from "@/features/employees/public/types/models/Employee";
-import type { Product } from "@/features/inventory/public/types/models/Product";
-import type { StockDocument } from "@/features/inventory/public/types/models/StockDocument";
-import type { Party } from "@/features/parties/public/types/models/Party";
-import type { Branch } from "@/features/settings/public/types/models/Branch";
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Branch } from '@/features/organization/public/types/models/Branch';
+import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Employee } from '@/features/personnel/public/types/models/Employee';
+import type { Product } from '@/features/stock/public/types/models/Product';
+import type { StockDocument } from '@/features/stock/public/types/models/StockDocument';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface StockAdjustmentsReportReadModel {
   parties: Party[];

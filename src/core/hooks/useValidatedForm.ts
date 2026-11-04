@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-import type { ZodType,ZodTypeDef } from 'zod';
+import type { ZodType, ZodTypeDef } from 'zod';
 /** Form validation only. The supplied callback owns mutation delivery and server state. */
 export function useValidatedForm<TInput>(
   formSchema: ZodType<Record<string, unknown>, ZodTypeDef, Record<string, unknown>>,

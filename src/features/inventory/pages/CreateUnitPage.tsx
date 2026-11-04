@@ -1,6 +1,9 @@
-import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
-import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
-const DEFINITION = {title:'إضافة وحدة',collection:'units',fields:[
+import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
+import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+const DEFINITION = {
+  title: 'إضافة وحدة',
+  collection: 'units',
+  fields: [
     {
       key: 'name',
       label: 'اسم الوحدة',
@@ -18,14 +21,14 @@ const DEFINITION = {title:'إضافة وحدة',collection:'units',fields:[
         ['3', 'ثلاثية'],
       ],
     },
-  ],initiallyOpen:true} satisfies MasterFormDefinition;
+  ],
+  initiallyOpen: true,
+} satisfies MasterFormDefinition;
 /** إضافة وحدة — feature-owned route content. */
 export default function CreateUnitPage() {
-  
-
   return (
     <section className="screen-page">
-          <MasterScreen screen={DEFINITION} />
-        </section>
+      <MasterScreen screen={DEFINITION} />
+    </section>
   );
 }

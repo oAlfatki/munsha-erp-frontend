@@ -1,0 +1,89 @@
+{
+  "entry": "src/app/styles.css",
+  "parts": [
+    {
+      "file": "src/app/styles/shell-and-shared-ui.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/document-total-overrides.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/document-dialogs-and-reports.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/workflow-controls.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/statements.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/responsive-documents.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/trade-summary.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/document-branding.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/settings-controls.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/invoice-line-overrides.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/grid-search.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/invoice-print-overrides.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    },
+    {
+      "file": "src/app/styles/voucher-and-document-grid.css",
+      "purpose": "Ordered app-wide style composition preserving exact cascade between domain fragments"
+    }
+  ],
+  "order": [
+    "../core/styles/index.css",
+    "src/app/styles/shell-and-shared-ui.css",
+    "../features/trade/styles/invoice-summary.css",
+    "src/app/styles/document-total-overrides.css",
+    "../features/trade/styles/invoice-header.css",
+    "src/app/styles/document-dialogs-and-reports.css",
+    "../features/settings/styles/backup.css",
+    "src/app/styles/workflow-controls.css",
+    "../features/trade/styles/invoice-footer.css",
+    "src/app/styles/statements.css",
+    "../features/inventory/styles/stock-entry.css",
+    "src/app/styles/responsive-documents.css",
+    "../features/trade/styles/invoice-lookup.css",
+    "src/app/styles/trade-summary.css",
+    "../features/trade/styles/invoice-fields.css",
+    "src/app/styles/document-branding.css",
+    "../features/settings/styles/system-settings.css",
+    "src/app/styles/settings-controls.css",
+    "../features/trade/styles/invoice-hint.css",
+    "src/app/styles/invoice-line-overrides.css",
+    "../features/trade/styles/invoice-grid.css",
+    "src/app/styles/grid-search.css",
+    "../features/trade/styles/invoice-new-row.css",
+    "src/app/styles/invoice-print-overrides.css",
+    "../features/trade/styles/invoice-entry.css",
+    "src/app/styles/voucher-and-document-grid.css"
+  ],
+  "proof": {
+    "kind": "Rule/declaration AST order equality against pre-split stylesheet",
+    "sha256": "03e0ee07c09a48aa201c95e1e11aa4dce103cf133245ee5687127b874e6af470"
+  }
+}

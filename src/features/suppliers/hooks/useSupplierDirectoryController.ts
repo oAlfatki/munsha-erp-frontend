@@ -1,19 +1,16 @@
+import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
-import type { Party } from "@/features/parties/public/types/models/Party";
+import type { Party } from '@/features/parties/public/types/models/Party';
 import { useSuppliersProjection } from '@/features/suppliers/hooks/useSuppliersProjection';
 import { useSupplierDirectoryControllerQuery } from '@/features/suppliers/queries/useSupplierDirectoryControllerQuery';
 import { useState } from 'react';
-export function useSupplierDirectoryController() {
+export function useSupplierDirectoryController(isInitialCreate = false) {
   const { data: parties = [] } = useSuppliersProjection();
-  const { state: s, navigate, view } = useSupplierDirectoryControllerQuery();
+  const { state: s, navigate } = useSupplierDirectoryControllerQuery();
   const [searchQuery, setQ] = useState('');
   const [group, setGroup] = useState('');
   const [editing, setEditing] = useState<Party | null | undefined>(() =>
-    view.endsWith('/new') ? null : undefined,
+    isInitialCreate ? null : undefined,
   );
   if (!s) return null;
   const list = parties.filter(
@@ -26,7 +23,10 @@ export function useSupplierDirectoryController() {
   return {
     s,
     navigate,
-    view,
+    closeEditor: () => {
+      setEditing(undefined);
+      if (isInitialCreate) navigate(ROUTES.SUPPLIERS);
+    },
     searchQuery,
     setQ,
     group,

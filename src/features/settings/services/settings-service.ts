@@ -1,27 +1,25 @@
 import type { CommandContext } from '@/core/types/CommandContext';
 import {
-submitBackupSettings,
-submitBranch,
-submitBranding,
-submitCurrency,
-submitGeneralSettings,
-submitImportMasters,
-submitOrganization,
-submitPreferences,
-submitSetupComplete,
-submitSystemSettings,
+  submitBackupSettings,
+  submitBranch,
+  submitBranding,
+  submitGeneralSettings,
+  submitImportMasters,
+  submitOrganization,
+  submitPreferences,
+  submitSetupComplete,
+  submitSystemSettings,
 } from '@/features/settings/api/settings-api';
 import {
-mapBackupSettingsInput,
-mapBranchInput,
-mapBrandingInput,
-mapCurrencyInput,
-mapGeneralSettingsInput,
-mapImportMastersInput,
-mapOrganizationInput,
-mapPreferencesInput,
-mapSetupCompleteInput,
-mapSystemSettingsInput,
+  mapBackupSettingsInput,
+  mapBranchInput,
+  mapBrandingInput,
+  mapGeneralSettingsInput,
+  mapImportMastersInput,
+  mapOrganizationInput,
+  mapPreferencesInput,
+  mapSetupCompleteInput,
+  mapSystemSettingsInput,
 } from '@/features/settings/mapper/settings-mapper';
 export const saveBackupSettings = async (
   input: unknown,
@@ -58,11 +56,7 @@ export const saveImportMasters = async (
   context: CommandContext,
 ): Promise<Awaited<ReturnType<typeof submitImportMasters>>> =>
   submitImportMasters(mapImportMastersInput(input), context);
-export const saveCurrency = async (
-  input: unknown,
-  context: CommandContext,
-): Promise<Awaited<ReturnType<typeof submitCurrency>>> =>
-  submitCurrency(mapCurrencyInput(input), context);
+
 export const savePreferences = async (
   input: unknown,
   context: CommandContext,

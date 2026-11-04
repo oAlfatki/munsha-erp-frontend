@@ -4,10 +4,7 @@ import { useVoucherDetailsController } from '@/features/accounting/hooks/useVouc
 import { useVoucherEditorController } from '@/features/accounting/hooks/useVoucherEditorController';
 import type { VoucherDetailsProps } from '@/features/accounting/types/VoucherDetailsProps';
 import type { VoucherEditorProps } from '@/features/accounting/types/VoucherEditorProps';
-import {
-operationCashId,
-systemSettings,
-} from "@/features/settings/public/system-settings";
+import { operationCashId, systemSettings } from '@/features/organization/public/system-settings';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { TotalsFooter } from '@/shared/ui/documents/TotalsFooter';
 import { Field } from '@/shared/ui/forms/Field';
@@ -16,7 +13,7 @@ import { Form } from '@/shared/ui/forms/ValidatedForm';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Plus,Trash2 } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
 
 export function VoucherEditor({
   kind: initialKind,

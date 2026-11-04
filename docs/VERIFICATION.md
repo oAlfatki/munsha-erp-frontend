@@ -1,3 +1,5 @@
+> وثيقة تاريخية للنسخة قبل Navigation-driven refactor؛ لا تصف الوضع الحالي. المرجع الحالي: [architecture/VERIFICATION.md](architecture/VERIFICATION.md).
+
 # نتائج التحقق النهائية — 2026-11-01
 
 - npm ci --ignore-scripts --offline في نسخة منفصلة: 533 packages. يوجد تنبيه دعم ESLint 9.39.1.

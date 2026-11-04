@@ -1,16 +1,11 @@
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { useProduct } from '@/features/inventory/hooks/useProduct';
 import { useProductEditorControllerQuery } from '@/features/inventory/queries/useProductEditorControllerQuery';
-import type { Unit } from '@/features/inventory/types/models/Unit';
 import type { ProductEditorProps } from '@/features/inventory/types/ProductEditorProps';
-import { productSchema } from "@/features/inventory/public/inventory-schema";
-import { generalSettings } from "@/features/settings/public/completion";
-import { systemSettings } from "@/features/settings/public/system-settings";
+import { generalSettings } from '@/features/organization/public/completion';
+import { systemSettings } from '@/features/organization/public/system-settings';
+import { productSchema } from '@/features/stock/public/inventory-schema';
+import type { Unit } from '@/features/stock/public/types/models/Unit';
 import { useState } from 'react';
 
 const BLANK: Unit = { name: 'حبة', factor: 1, purchase: 0, retail: 0, wholesale: 0, barcode: '' };

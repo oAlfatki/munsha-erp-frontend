@@ -1,0 +1,62 @@
+[
+  {
+    "file": "src/features/trade/styles/invoice-summary.css",
+    "originalLine": 1536,
+    "rules": 5
+  },
+  {
+    "file": "src/features/trade/styles/invoice-header.css",
+    "originalLine": 1599,
+    "rules": 3
+  },
+  {
+    "file": "src/features/settings/styles/backup.css",
+    "originalLine": 2544,
+    "rules": 3
+  },
+  {
+    "file": "src/features/trade/styles/invoice-footer.css",
+    "originalLine": 2806,
+    "rules": 3
+  },
+  {
+    "file": "src/features/inventory/styles/stock-entry.css",
+    "originalLine": 2870,
+    "rules": 6
+  },
+  {
+    "file": "src/features/trade/styles/invoice-lookup.css",
+    "originalLine": 3083,
+    "rules": 2
+  },
+  {
+    "file": "src/features/trade/styles/invoice-fields.css",
+    "originalLine": 3129,
+    "rules": 1
+  },
+  {
+    "file": "src/features/settings/styles/system-settings.css",
+    "originalLine": 3270,
+    "rules": 1
+  },
+  {
+    "file": "src/features/trade/styles/invoice-hint.css",
+    "originalLine": 3801,
+    "rules": 1
+  },
+  {
+    "file": "src/features/trade/styles/invoice-grid.css",
+    "originalLine": 3824,
+    "rules": 1
+  },
+  {
+    "file": "src/features/trade/styles/invoice-new-row.css",
+    "originalLine": 3858,
+    "rules": 2
+  },
+  {
+    "file": "src/features/trade/styles/invoice-entry.css",
+    "originalLine": 3871,
+    "rules": 1
+  }
+]

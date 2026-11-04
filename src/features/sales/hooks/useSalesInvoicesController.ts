@@ -1,18 +1,24 @@
 import { ROUTES } from '@/core/config/navigation-paths';
+import type { DocumentScreenOptions } from '@/shared/types/DocumentScreenOptions';
 
-
-
-
-
-import { exportDocument,exportPdf } from '@/core/reporting/service';
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { exportDocument, exportPdf } from '@/core/reporting/service';
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
 import { useSalesInvoicesControllerQuery } from '@/features/sales/queries/useSalesInvoicesControllerQuery';
-import { invoiceEvents } from "@/features/trade/public/invoice-events";
-import { invoiceReport } from "@/features/trade/public/build-invoice-document";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
-import { useEffect,useState } from 'react';
-export function useSalesInvoicesController() {
-  const { state: s, branchId, view, navigate, refresh, setEditingDocument } = useSalesInvoicesControllerQuery();
+import { invoiceReport } from '@/features/trade/public/build-invoice-document';
+import { invoiceEvents } from '@/features/trade/public/invoice-events';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
+import { useEffect, useState } from 'react';
+export function useSalesInvoicesController({
+  isInitialCreate = false,
+  documentId,
+}: DocumentScreenOptions = {}) {
+  const {
+    state: s,
+    branchId,
+    navigate,
+    refresh,
+    setEditingDocument,
+  } = useSalesInvoicesControllerQuery();
   const [searchQuery, setQ] = useState('');
   const [status, setStatus] = useState('all');
   const [documentType, setDocumentType] = useState('all');
@@ -22,9 +28,9 @@ export function useSalesInvoicesController() {
   const [detail, setDetail] = useState<string | null>(null);
   const [isConfirm, setConfirm] = useState(false);
   useEffect(() => {
-    if (view.endsWith('/new')) setEditor(null);
-    if (view.startsWith(ROUTES.DOCUMENT_PREFIX)) setDetail(decodeURIComponent(view.split('/').at(-1)!));
-  }, [view]);
+    if (isInitialCreate) setEditor(null);
+    if (documentId) setDetail(documentId);
+  }, [isInitialCreate, documentId]);
   if (!s) return null;
   const label = 'المبيعات';
   const current =
@@ -67,7 +73,7 @@ export function useSalesInvoicesController() {
         );
   return {
     s,
-    view,
+    isDeepLink: !!documentId,
     refresh,
     searchQuery,
     setQ,

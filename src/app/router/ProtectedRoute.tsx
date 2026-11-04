@@ -1,8 +1,8 @@
 import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
-import { AccountPanel } from "@/features/auth/public/AccountPanel";
+import { AccountPanel } from '@/features/auth/public/AccountPanel';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
-import { Navigate,Outlet,useLocation } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 export function ProtectedRoute() {
   const { user, loading: isLoading, error, retry } = useAuth();
   const location = useLocation();

@@ -1,0 +1,14 @@
+.backup-hero {
+  display: flex;
+  gap: 25px;
+  padding: 18px 0 30px;
+  align-items: center;
+}
+.backup-hero h2 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+.backup-hero p {
+  color: var(--foreground);
+  font-size: 16px;
+}

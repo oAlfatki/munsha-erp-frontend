@@ -1,4 +1,4 @@
-import { partySchema } from "@/features/parties/public/parties-schema";
+import { partySchema } from '@/features/parties/public/parties-schema';
 import { z } from 'zod';
 export const suppliersFilterSchema = z.object({
   query: z

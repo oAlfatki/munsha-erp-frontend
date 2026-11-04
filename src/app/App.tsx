@@ -11,7 +11,9 @@ export function App({ initialUser }: AppProps) {
   return (
     <AppProviders initialUser={initialUser}>
       <FieldNavigation />
-      <Suspense fallback={<LoadingState/>}><AppRouter /></Suspense>
+      <Suspense fallback={<LoadingState />}>
+        <AppRouter />
+      </Suspense>
       <ReportPreview />
       <Toaster position="bottom-left" dir="rtl" richColors closeButton />
     </AppProviders>

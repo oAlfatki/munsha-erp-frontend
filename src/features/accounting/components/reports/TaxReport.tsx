@@ -1,9 +1,7 @@
-
-
 import { useTaxReportView } from '@/features/accounting/hooks/useTaxReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function TaxReport() {
- const model=useTaxReportView({title:"تقرير الضرائب",summaryColumns:[]});
+  const model = useTaxReportView({ title: 'تقرير الضرائب', summaryColumns: [] });
 
   return (
     <ReportViewer

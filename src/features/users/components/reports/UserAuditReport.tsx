@@ -1,9 +1,7 @@
-
-
 import { useUserAuditReportView } from '@/features/users/hooks/useUserAuditReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function UserAuditReport() {
- const model=useUserAuditReportView({title:"حركات المستخدمين",summaryColumns:[]});
+  const model = useUserAuditReportView({ title: 'حركات المستخدمين', summaryColumns: [] });
 
   return (
     <ReportViewer

@@ -1,6 +1,9 @@
-import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
-import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
-const DEFINITION = {title:'إضافة حساب ودليل الحسابات',collection:'accounts',fields:[
+import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
+import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+const DEFINITION = {
+  title: 'إضافة حساب ودليل الحسابات',
+  collection: 'accounts',
+  fields: [
     {
       key: 'name',
       label: 'اسم الحساب',
@@ -52,14 +55,13 @@ const DEFINITION = {title:'إضافة حساب ودليل الحسابات',coll
         ['no', 'حساب تجميعي فقط'],
       ],
     },
-  ]} satisfies MasterFormDefinition;
+  ],
+} satisfies MasterFormDefinition;
 /** إضافة حساب ودليل الحسابات — feature-owned route content. */
 export default function ChartOfAccountsPage() {
-  
-
   return (
     <section className="screen-page">
-          <MasterScreen screen={DEFINITION} />
-        </section>
+      <MasterScreen screen={DEFINITION} />
+    </section>
   );
 }

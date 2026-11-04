@@ -1,9 +1,9 @@
-import type { ExpenseDocument } from "@/features/expenses/public/types/models/ExpenseDocument";
 import type { ExpenseView } from '@/features/expenses/types/models/ExpenseView';
 import type { ExpenseViewsContext } from '@/features/expenses/types/read-models/ExpenseViewsContext';
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
+import type { ExpenseDocument } from '@/features/ledger/public/types/models/ExpenseDocument';
+// Frontend display calculations; backend authority requires independent verification.
 import { money } from '@/core/utils/money';
-import { extras } from "@/features/accounting/public/extensions";
+import { extras } from '@/features/ledger/public/extensions';
 import { z } from 'zod';
 export const TREATMENT_LABELS = {
   current: 'مصروف حالي',

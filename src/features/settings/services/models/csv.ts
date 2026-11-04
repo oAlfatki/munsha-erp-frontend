@@ -1,4 +1,4 @@
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
+// Frontend display calculations; backend authority requires independent verification.
 export function parseMasterCsv(input: string): string[][] {
   const result: string[][] = [];
   let row: string[] = [],

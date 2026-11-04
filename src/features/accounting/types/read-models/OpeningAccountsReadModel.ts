@@ -1,8 +1,8 @@
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Product } from "@/features/inventory/public/types/models/Product";
-import type { StockDocument } from "@/features/inventory/public/types/models/StockDocument";
-import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
-import type { Party } from "@/features/parties/public/types/models/Party";
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Product } from '@/features/stock/public/types/models/Product';
+import type { StockDocument } from '@/features/stock/public/types/models/StockDocument';
+import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface OpeningAccountsReadModel {
   stockDocuments?: StockDocument[];

@@ -188,5 +188,10 @@
     "file": "src/app/types/PageDefinition.ts",
     "reason": "No import path from production bootstrap after migrating every consumer",
     "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/services/http/command-api.ts",
+    "reason": "All 41 command APIs now choose apiClient.post and their existing endpoint/body explicitly; 48 focused HTTP contract tests passed before removal.",
+    "replacement": "Explicit feature API functions + core/api/require-api-mode.ts (existing mode guard only)"
   }
 ]

@@ -1,14 +1,9 @@
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { printReport } from '@/core/reporting/service';
 import { useWarehouse } from '@/features/inventory/hooks/useWarehouse';
 import { useWarehouseDirectoryQuery } from '@/features/inventory/queries/useWarehouseDirectoryQuery';
 import type { WarehouseDirectoryProps } from '@/features/inventory/types/WarehouseDirectoryProps';
-import { warehouseSchema } from "@/features/inventory/public/inventory-schema";
+import { warehouseSchema } from '@/features/stock/public/inventory-schema';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -20,7 +15,7 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Printer,Save } from 'lucide-react';
+import { Printer, Save } from 'lucide-react';
 import { useState } from 'react';
 export function WarehouseDirectory({
   shouldInitiallyAdd: isInitiallyAdd = false,

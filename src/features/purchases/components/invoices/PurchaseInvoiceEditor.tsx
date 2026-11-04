@@ -1,31 +1,26 @@
-
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { printReport } from '@/core/reporting/service';
-import { fmt,today } from '@/core/utils/formatters';
+import { fmt, today } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
-import { cashOptions } from "@/features/accounting/public/cash";
-import { ProductEditor } from "@/features/inventory/public/Catalog";
+import { ProductEditor } from '@/features/inventory/public/Catalog';
+import { cashOptions } from '@/features/ledger/public/cash';
+import {
+  branchDefaults,
+  operationCashId,
+  systemSettings,
+} from '@/features/organization/public/system-settings';
 import { usePurchaseInvoiceEditorQuery } from '@/features/purchases/queries/usePurchaseInvoiceEditorQuery';
 import type { PurchaseInvoiceEditorProps } from '@/features/purchases/types/PurchaseInvoiceEditorProps';
-import {
-branchDefaults,
-operationCashId,
-systemSettings,
-} from "@/features/settings/public/system-settings";
-import { InvoiceLineGrid } from "@/features/trade/public/InvoiceLineGrid";
-import { InvoiceLookup } from "@/features/trade/public/InvoiceLookup";
-import { InvoiceTotals } from "@/features/trade/public/InvoiceTotals";
-import { useInvoice } from "@/features/trade/public/useInvoice";
-import { allocateInvoiceDiscount } from "@/features/trade/public/invoice-discounts";
-import { invoiceSummary } from "@/features/trade/public/presentation";
-import { invoiceReport } from "@/features/trade/public/build-invoice-document";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
-import type { InvoiceLine } from "@/features/trade/public/types/models/InvoiceLine";
-import { invoiceSchema } from "@/features/trade/public/trade-schema";
+import { invoiceReport } from '@/features/trade/public/build-invoice-document';
+import { allocateInvoiceDiscount } from '@/features/trade/public/invoice-discounts';
+import { InvoiceLineGrid } from '@/features/trade/public/InvoiceLineGrid';
+import { InvoiceLookup } from '@/features/trade/public/InvoiceLookup';
+import { InvoiceTotals } from '@/features/trade/public/InvoiceTotals';
+import { invoiceSummary } from '@/features/trade/public/presentation';
+import { invoiceSchema } from '@/features/trade/public/trade-schema';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
+import type { InvoiceLine } from '@/features/trade/public/types/models/InvoiceLine';
+import { useInvoice } from '@/features/trade/public/useInvoice';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
 import { Field } from '@/shared/ui/forms/Field';
@@ -35,8 +30,8 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { ArrowRight,Save } from 'lucide-react';
-import { useEffect,useRef,useState } from 'react';
+import { ArrowRight, Save } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 export function PurchaseInvoiceEditor({
   invoice,
   onClose: close,

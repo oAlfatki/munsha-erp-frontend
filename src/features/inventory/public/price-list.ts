@@ -1,7 +1,7 @@
-import type { PriceFilters } from "@/features/inventory/public/types/models/PriceFilters";
-import type { PriceRowsContext } from "@/features/inventory/types/read-models/PriceRowsContext";
+import type { PriceRowsContext } from '@/features/inventory/types/read-models/PriceRowsContext';
+import type { PriceFilters } from '@/features/stock/public/types/models/PriceFilters';
 
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
+// Frontend display calculations; backend authority requires independent verification.
 export function priceRows(workspace: PriceRowsContext, f: PriceFilters) {
   return workspace.products
     .filter(

@@ -1,8 +1,8 @@
-import type { Entry } from "@/features/accounting/public/types/models/Entry";
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
+import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
 export interface BuildVouchersReportContext {
-entries: Entry[];
-organization: {
+  entries: Entry[];
+  organization: {
     name: string;
     email?: string;
     activity?: string;
@@ -16,5 +16,5 @@ organization: {
     costPolicy: 'moving_average';
     policyApproved: boolean;
   };
-extras?: ExtensionData;
+  extras?: ExtensionData;
 }

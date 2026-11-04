@@ -1,8 +1,8 @@
-import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
-import type { Party } from "@/features/parties/public/types/models/Party";
+import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Party } from '@/features/parties/public/types/models/Party';
 export interface VoucherReportContext {
-parties: Party[];
-organization: {
+  parties: Party[];
+  organization: {
     name: string;
     email?: string;
     activity?: string;
@@ -16,5 +16,5 @@ organization: {
     costPolicy: 'moving_average';
     policyApproved: boolean;
   };
-extras?: ExtensionData;
+  extras?: ExtensionData;
 }

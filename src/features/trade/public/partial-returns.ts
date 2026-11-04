@@ -1,17 +1,21 @@
-import type { ReturnPick } from "@/features/trade/types/models/ReturnPick";
-import type { QuoteReturnContext } from "@/features/trade/types/read-models/QuoteReturnContext";
-import type { ReturnRemainingContext } from "@/features/trade/types/read-models/ReturnRemainingContext";
+import type { ReturnPick } from '@/features/trade/types/models/ReturnPick';
+import type { QuoteReturnContext } from '@/features/trade/types/read-models/QuoteReturnContext';
+import type { ReturnRemainingContext } from '@/features/trade/types/read-models/ReturnRemainingContext';
 
-// Frontend read models and display helpers. Authoritative mutations live in server/core.
-import { money } from "@/core/utils/money";
-import { allocateInvoiceDiscount } from "@/features/trade/public/invoice-discounts";
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
-import type { InvoiceLine } from "@/features/trade/public/types/models/InvoiceLine";
-import { lineTotal } from "@/features/trade/public/line-total";
+// Frontend display calculations; backend authority requires independent verification.
+import { money } from '@/core/utils/money';
+import { allocateInvoiceDiscount } from '@/features/trade/public/invoice-discounts';
+import { lineTotal } from '@/features/trade/public/line-total';
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
+import type { InvoiceLine } from '@/features/trade/public/types/models/InvoiceLine';
 const check = (ok: unknown, message: string) => {
   if (!ok) throw Error(message);
 };
-export function returnRemaining(workspace: ReturnRemainingContext, invoice: Invoice, index: number) {
+export function returnRemaining(
+  workspace: ReturnRemainingContext,
+  invoice: Invoice,
+  index: number,
+) {
   const old = (workspace.invoiceReturns || [])
     .flatMap((r) =>
       r.sourceId === invoice.id

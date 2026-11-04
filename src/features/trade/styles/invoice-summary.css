@@ -1,0 +1,30 @@
+.invoice-footer {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+}
+.invoice-summary {
+  border-right: 1px solid var(--border);
+  padding-right: 27px;
+}
+.invoice-summary > div {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+.invoice-summary b {
+  font-family: Arial;
+  color: var(--foreground);
+  font-size: 15px;
+}
+.invoice-summary .grand-total {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--foreground);
+}

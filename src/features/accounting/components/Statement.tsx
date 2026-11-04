@@ -1,15 +1,11 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
-import { exportPdf,printReport } from '@/core/reporting/service';
+import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { VoucherEditor } from '@/features/accounting/components/VoucherEditor';
 import { useAccountStatementQuery } from '@/features/accounting/queries/useAccountStatementQuery';
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
-import { statementData } from "@/features/trade/public/presentation";
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { statementData } from '@/features/trade/public/presentation';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
@@ -23,20 +19,20 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import {
-ArrowLeft,
-Banknote,
-ChartNoAxesColumn,
-Download,
-Eye,
-Printer,
-ReceiptText,
+  ArrowLeft,
+  Banknote,
+  ChartNoAxesColumn,
+  Download,
+  Eye,
+  Printer,
+  ReceiptText,
 } from 'lucide-react';
 import { useState } from 'react';
 
-export function AccountStatement({initialPartyId=''}:{initialPartyId?:string}) {
-  const { state: s, branchId, view, navigate } = useAccountStatementQuery();
+export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: string }) {
+  const { state: s, branchId, navigate } = useAccountStatementQuery();
   const [draft, setDraft] = useState({
-      party:initialPartyId,
+      party: initialPartyId,
       ...fiscalRange(s!),
       query: '',
     }),

@@ -9,4 +9,3 @@ export async function saveCustomer(
 ): Promise<CommandReceipt> {
   return await submitCustomer(mapCustomerInput(input), context);
 }
-/** Keep the existing workspace contract until granular reads are implemented by the backend. */

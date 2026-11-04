@@ -1,9 +1,9 @@
-import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { Invoice } from '@/features/trade/public/types/models/Invoice';
 export interface BuildCurrencyDocumentsReportContext {
-currencies: {
+  currencies: {
     code: string;
     name: string;
     rate: number;
   }[];
-invoices: Invoice[];
+  invoices: Invoice[];
 }

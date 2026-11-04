@@ -1,32 +1,28 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-
-
-
-
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument,printReport } from '@/core/reporting/service';
+import { exportDocument, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useOpeningAccountsQuery } from '@/features/accounting/queries/useOpeningAccountsQuery';
-import { allAccounts } from "@/features/accounting/public/extensions";
-import { fiscalRange } from "@/features/accounting/public/fiscal-range";
-import { useStockDocument } from "@/features/inventory/public/useStockDocument";
-import { stockDocumentReport } from "@/features/inventory/public/build-stock-document";
-import type { OpeningAccountLine } from "@/features/inventory/public/types/models/OpeningAccountLine";
-import type { StockDocument } from "@/features/inventory/public/types/models/StockDocument";
-import { stockDocumentSchema } from "@/features/inventory/public/inventory-schema";
+import { allAccounts } from '@/features/ledger/public/extensions';
+import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { stockDocumentReport } from '@/features/stock/public/build-stock-document';
+import { stockDocumentSchema } from '@/features/stock/public/inventory-schema';
+import type { OpeningAccountLine } from '@/features/stock/public/types/models/OpeningAccountLine';
+import type { StockDocument } from '@/features/stock/public/types/models/StockDocument';
+import { useStockDocument } from '@/features/stock/public/useStockDocument';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { TotalsFooter } from '@/shared/ui/documents/TotalsFooter';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
-import { Form,validateForm } from '@/shared/ui/forms/ValidatedForm';
+import { Form, validateForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Plus,Trash2 } from 'lucide-react';
+import { Plus, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 export function OpeningAccounts() {
   const { state: s, branchId, busy: isBusy, navigate } = useOpeningAccountsQuery();

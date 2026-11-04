@@ -7,7 +7,7 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
-import { useLocation,useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 export function LoginForm() {
   const { form, mutation } = useLogin();
   const [error, setError] = useState('');
