@@ -1,11 +1,16 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { allAccounts } from '@/features/accounting/services/models/extensions';
-import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
+
+
+
+
+
+import { allAccounts } from "@/features/accounting/public/extensions";
+import { fiscalRange } from "@/features/accounting/public/fiscal-range";
 import { useFinancialProjection } from '@/features/financial/hooks/useFinancialProjection';
+import { useIncomeStatementControllerQuery } from '@/features/financial/queries/useIncomeStatementControllerQuery';
 import { useState } from 'react';
 export function useIncomeStatementController() {
   const { data: entries = [] } = useFinancialProjection();
-  const { state: s, branchId, refresh } = useErpContext();
+  const { state: s, branchId, refresh } = useIncomeStatementControllerQuery();
   const [from, setFrom] = useState(fiscalRange(s!).from),
     [to, setTo] = useState(fiscalRange(s!).to);
   if (!s) return null;

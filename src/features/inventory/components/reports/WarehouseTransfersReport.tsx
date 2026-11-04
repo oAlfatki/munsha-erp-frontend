@@ -1,10 +1,14 @@
-import { buildWarehouseTransfersReport } from '@/features/inventory/services/reports/build-warehouse-transfers-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useWarehouseTransfersReportView } from '@/features/inventory/hooks/useWarehouseTransfersReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function WarehouseTransfersReport() {
+ const model=useWarehouseTransfersReportView({title:"فواتير التحويل بين المخازن",summaryColumns:[]});
+
   return (
     <ReportViewer
       title="فواتير التحويل بين المخازن"
-      buildData={buildWarehouseTransfersReport}
+      model={model}
       summaryColumns={[]}
       shouldShowFrom={true}
       isAsOf={false}

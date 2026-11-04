@@ -1,15 +1,6 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import type { PageDefinition } from '@/app/types/PageDefinition';
-import { MasterScreen } from '@/features/accounting/components/MasterDataScreen';
-import { usePartiesData } from '@/features/parties/hooks/usePartiesData';
-const DEFINITION: PageDefinition = {
-  id: 'groups',
-  module: 'customers',
-  title: 'مجموعات العملاء والموردين',
-  page: 72,
-  mode: 'master',
-  collection: 'groups',
-  fields: [
+import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
+import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
+const DEFINITION = {title:'مجموعات العملاء والموردين',note:'تعريف مجموعات وربطها ببطاقات العملاء والموردين، مع تصفية القوائم حسب المجموعة.',collection:'groups',fields:[
     {
       key: 'name',
       label: 'اسم المجموعة',
@@ -32,20 +23,14 @@ const DEFINITION: PageDefinition = {
       type: 'text',
       required: false,
     },
-  ],
-  note: 'تعريف مجموعات وربطها ببطاقات العملاء والموردين، مع تصفية القوائم حسب المجموعة.',
-};
+  ]} satisfies MasterFormDefinition;
 /** مجموعات العملاء والموردين — feature-owned route content. */
 export default function PartyGroupListPage() {
-  const featureData = usePartiesData();
+  
 
   return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="customers~groups">
+    <section className="screen-page">
           <MasterScreen screen={DEFINITION} />
         </section>
-      }
-    </FeatureDataScope>
   );
 }

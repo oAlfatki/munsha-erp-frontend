@@ -1,11 +1,12 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { exportPdf } from '@/core/reporting/service';
+import type { ExpenseReportProps } from '@/features/expenses/types/ExpenseReportProps';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Input } from '@/shared/ui/primitives/input';
-import { exportPdf } from '@/core/reporting/service';
-import type { ExpenseReportProps } from '@/features/expenses/types/ExpenseReportProps';
 export function ExpenseReport({ controller }: ExpenseReportProps) {
   const {
     s: workspace,
@@ -28,7 +29,7 @@ export function ExpenseReport({ controller }: ExpenseReportProps) {
       <PageHead
         title={'تقارير المصروفات'}
         description="مصروفات حالية ومستحقة ومقدمة في سجل موحد."
-        onAction={() => navigate('/expenses/add')}
+        onAction={() => navigate(ROUTES.EXPENSES_ADD)}
         label="إضافة مصروف"
         extra={
           <ReportActions

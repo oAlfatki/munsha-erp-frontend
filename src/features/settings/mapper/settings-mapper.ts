@@ -9,17 +9,17 @@ import type { SavePreferencesRequest } from '@/features/settings/types/requests/
 import type { SaveSystemSettingsRequest } from '@/features/settings/types/requests/SaveSystemSettingsRequest';
 import type { SetupCompleteRequest } from '@/features/settings/types/requests/SetupCompleteRequest';
 import {
-  backupSettingsSchema,
-  branchSchema,
-  brandingSchema,
-  currencySchema,
-  generalSettingsSchema,
-  importMastersSchema,
-  organizationSchema,
-  preferencesSchema,
-  setupCompleteSchema,
-  systemSettingsSchema,
-} from '@/features/settings/validation/settings-schema';
+backupSettingsSchema,
+branchSchema,
+brandingSchema,
+currencySchema,
+generalSettingsSchema,
+importMastersSchema,
+organizationSchema,
+preferencesSchema,
+setupCompleteSchema,
+systemSettingsSchema,
+} from "@/features/settings/public/settings-schema";
 export const mapBackupSettingsInput = (input: unknown): SaveBackupSettingsRequest =>
   backupSettingsSchema.parse(input) as SaveBackupSettingsRequest;
 export const mapBrandingInput = (input: unknown): SaveBrandingRequest =>

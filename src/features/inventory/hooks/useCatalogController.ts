@@ -1,12 +1,18 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
-import type { Product } from '@/features/inventory/types/models/Product';
-import { useEffect, useState } from 'react';
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { useCatalogControllerQuery } from '@/features/inventory/queries/useCatalogControllerQuery';
+import type { Product } from "@/features/inventory/public/types/models/Product";
+import { useEffect,useState } from 'react';
 export function useCatalogController() {
-  const { state: s, view, navigate } = useErpContext();
+  const { state: s, view, navigate } = useCatalogControllerQuery();
   const [search, setSearch] = useState('');
   const [editing, setEditing] = useState<Product | null | undefined>(undefined);
   useEffect(() => {
-    if (view === '/inventory/items/new') setEditing(null);
+    if (view === ROUTES.INVENTORY_ITEMS_NEW) setEditing(null);
   }, [view]);
   if (!s) return null;
   const items = s.products.filter((product) =>
@@ -14,7 +20,7 @@ export function useCatalogController() {
   );
   const close = () => {
     setEditing(undefined);
-    if (view === '/inventory/items/new') navigate('/inventory/items');
+    if (view === ROUTES.INVENTORY_ITEMS_NEW) navigate(ROUTES.INVENTORY_ITEMS);
   };
   return { s, search, setSearch, editing, setEditing, items, close };
 }

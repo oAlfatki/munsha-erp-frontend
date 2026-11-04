@@ -1,4 +1,4 @@
-import { useApplication } from '@/app/providers/ApplicationProvider';
+import { useApplication } from '@/core/state/ApplicationProvider';
 import type { CommandContext } from '@/core/types/CommandContext';
 import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { useCallback } from 'react';
@@ -8,13 +8,13 @@ import { ZodError } from 'zod';
 export function useCommandMutation<TInput>(
   type: string,
   service: (input: TInput, context: CommandContext) => Promise<CommandReceipt>,
-  validate?: (input: TInput) => void,
+  validate?: (input: TInput) => void | Promise<void>,
 ) {
   const { runCommand, busy: isBusy } = useApplication();
   const execute = useCallback(
     async (input: TInput) => {
       try {
-        validate?.(input);
+        await validate?.(input);
         return await runCommand(type, input, service);
       } catch (error) {
         toast.error(

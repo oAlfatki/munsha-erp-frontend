@@ -1,10 +1,14 @@
-import { buildAssetDepreciationReport } from '@/features/accounting/services/reports/build-asset-depreciation-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useAssetDepreciationReportView } from '@/features/accounting/hooks/useAssetDepreciationReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function AssetDepreciationReport() {
+ const model=useAssetDepreciationReportView({title:"تقرير الأصول والإهلاك",summaryColumns:[1, 2, 3]});
+
   return (
     <ReportViewer
       title="تقرير الأصول والإهلاك"
-      buildData={buildAssetDepreciationReport}
+      model={model}
       summaryColumns={[1, 2, 3]}
       shouldShowFrom={false}
       isAsOf={true}

@@ -1,13 +1,15 @@
-import { useCompanyData } from '@/app/providers/CompanyProvider';
+import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { requestExitBackup } from '@/features/settings/api/backups';
-import { automaticBackup } from '@/features/settings/services/backup-files';
-import { backupPolicy } from '@/features/settings/services/models/backup-policy';
+import { backupPolicyQuery } from "@/features/settings/public/backupPolicy-query";
+import { automaticBackup } from "@/features/settings/public/backup-files";
+import { backupPolicy } from "@/features/settings/public/backup-policy";
 import type { AutomaticBackupsProps } from '@/features/settings/types/AutomaticBackupsProps';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { toast } from 'sonner';
 
 export function AutomaticBackups({ isEnabled: isEnabled }: AutomaticBackupsProps) {
-  const { state: s } = useCompanyData();
+  const identity=useQueryIdentity(); const {data:backupSettings}=useSuspenseQuery(backupPolicyQuery(identity)); const s={backupSettings};
   const mode = s ? backupPolicy(s).mode : 'off';
   useEffect(() => {
     if (!isEnabled || mode === 'off') return;

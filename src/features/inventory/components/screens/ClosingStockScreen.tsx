@@ -1,28 +1,34 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { exportPdf,printReport } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { money } from '@/core/utils/money';
+import { usePeriodTransfer } from "@/features/accounting/public/usePeriodTransfer";
+import {
+bookCatalog,
+isArchived,
+stockClosing,
+} from "@/features/accounting/public/annual-books";
+import { periodTransferSchema } from "@/features/accounting/public/accounting-schema";
+import { useClosingStockScreenQuery } from '@/features/inventory/queries/useClosingStockScreenQuery';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf, printReport } from '@/core/reporting/service';
-import { fmt } from '@/core/utils/formatters';
-import { money } from '@/core/utils/money';
-import { usePeriodTransfer } from '@/features/accounting/hooks/usePeriodTransfer';
-import {
-  bookCatalog,
-  isArchived,
-  stockClosing,
-} from '@/features/accounting/services/models/annual-books';
-import { periodTransferSchema } from '@/features/accounting/validation/accounting-schema';
-import { Database, Download, Eye, Printer, Save, Undo2 } from 'lucide-react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Database,Download,Eye,Printer,Save,Undo2 } from 'lucide-react';
 import { useState } from 'react';
 export function ClosingStockScreen() {
-  const { state: s, revision, busy: isBusy, navigate } = useErpContext();
+  const { state: s, revision, busy: isBusy, navigate } = useClosingStockScreenQuery();
   const periodTransferMutationRequest = usePeriodTransfer();
   const periodTransferForm = useValidatedForm(
     periodTransferSchema,
@@ -212,7 +218,7 @@ export function ClosingStockScreen() {
         الحفظ يرحّل أرصدة نهاية السنة لجميع الفروع والمخازن، ويشترط إزالة مرشحات العرض. التراجع يمسح
         مرشحات الشاشة فقط؛ لا يلغي ترحيلًا محفوظًا.
       </div>
-      <Button variant="outline" onClick={() => navigate('/settings/annual-books')}>
+      <Button variant="outline" onClick={() => navigate(ROUTES.SETTINGS_ANNUAL_BOOKS)}>
         <Database size={16} />
         إنشاء الفترة الجديدة وإدارة الترحيل
       </Button>
@@ -230,7 +236,7 @@ export function ClosingStockScreen() {
           <Button
             onClick={() => {
               setConfirm(false);
-              navigate('/settings/annual-books');
+              navigate(ROUTES.SETTINGS_ANNUAL_BOOKS);
             }}
           >
             إنشاء فترة جديدة أولًا

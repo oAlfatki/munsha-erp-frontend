@@ -1,8 +1,8 @@
-import { MENU_ITEMS, menuLeaves as navigationLeaves } from '@/core/config/menu';
+import { MENU_ITEMS,menuLeaves as navigationLeaves } from '@/core/config/menu';
 import type { EntryProps } from '@/core/types/EntryProps';
 import type { SectionNavigationProps } from '@/core/types/SectionNavigationProps';
-import { ChevronDown, ChevronLeft, List, Plus } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ChevronDown,ChevronLeft,List,Plus } from 'lucide-react';
+import { useEffect,useState } from 'react';
 
 function Entry({ entry, view, go }: EntryProps) {
   const isActive = entry.children

@@ -12,20 +12,20 @@ import type { SavePermissionsRequest } from '@/features/accounting/types/request
 import type { SaveScreenDraftRequest } from '@/features/accounting/types/requests/SaveScreenDraftRequest';
 import type { SaveVoucherRequest } from '@/features/accounting/types/requests/SaveVoucherRequest';
 import {
-  contactEntrySchema,
-  contactVoucherSchema,
-  manualJournalSchema,
-  masterSchema,
-  operationSchema,
-  periodActivateSchema,
-  periodCreateSchema,
-  periodResetSchema,
-  periodSwitchSchema,
-  periodTransferSchema,
-  permissionsSchema,
-  screenDraftSchema,
-  voucherSchema,
-} from '@/features/accounting/validation/accounting-schema';
+contactEntrySchema,
+contactVoucherSchema,
+manualJournalSchema,
+masterSchema,
+operationSchema,
+periodActivateSchema,
+periodCreateSchema,
+periodResetSchema,
+periodSwitchSchema,
+periodTransferSchema,
+permissionsSchema,
+screenDraftSchema,
+voucherSchema,
+} from "@/features/accounting/public/accounting-schema";
 export const mapPermissionsInput = (input: unknown): SavePermissionsRequest =>
   permissionsSchema.parse(input) as SavePermissionsRequest;
 export const mapContactEntryInput = (input: unknown): SaveContactEntryRequest =>

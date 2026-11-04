@@ -1,13 +1,18 @@
+
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
+import { useEmployeeDeleteValidationData } from '@/features/employees/queries/useEmployeeDeleteValidationData';
 import { saveEmployeeDelete } from '@/features/employees/services/employees-service';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
 export function useEmployeeDelete() {
-  const { state } = useErpContext();
-  return useCommandMutation('employeeDelete', saveEmployeeDelete, (input) => {
+  const loadValidationData=useEmployeeDeleteValidationData();
+  return useCommandMutation('employeeDelete', saveEmployeeDelete, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'employeeDelete', input);
-    validatePolicy(state, 'employeeDelete', input);
+    /* No setting-policy branch applies to this command; its own Zod schema validates the payload. */
   });
 }

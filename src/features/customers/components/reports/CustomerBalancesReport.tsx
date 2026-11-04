@@ -1,7 +1,9 @@
+
+
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
-import { buildCustomerBalancesReport } from '@/features/customers/services/reports/build-customer-balances-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+import { useCustomerBalancesReportView } from '@/features/customers/hooks/useCustomerBalancesReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 const getAmount = (rows: (string | number)[][]) =>
   money(rows.reduce((n, r) => n + Number(r[2]) - Number(r[3]), 0));
 const extraTotals = (rows: (string | number)[][]): [string, string][] => {
@@ -12,10 +14,12 @@ const extraTotals = (rows: (string | number)[][]): [string, string][] => {
   ];
 };
 export function CustomerBalancesReport() {
+ const model=useCustomerBalancesReportView({title:"تقرير حسابات العملاء",summaryColumns:[2, 3],getAmount:getAmount,extraTotals:extraTotals});
+
   return (
     <ReportViewer
       title="تقرير حسابات العملاء"
-      buildData={buildCustomerBalancesReport}
+      model={model}
       summaryColumns={[2, 3]}
       shouldShowFrom={false}
       isAsOf={true}

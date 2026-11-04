@@ -1,9 +1,8 @@
-import type {BuildSalesChartReportContext} from '@/features/sales/types/read-models/BuildSalesChartReportContext';
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
-import { extras } from '@/features/accounting/services/models/extensions';
+import { extras } from "@/features/accounting/public/extensions";
+import type { BuildSalesChartReportContext } from '@/features/sales/types/read-models/BuildSalesChartReportContext';
 export function buildSalesChartReport(
   workspace: BuildSalesChartReportContext,
   branch: string,

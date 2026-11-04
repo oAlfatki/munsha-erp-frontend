@@ -1,19 +1,6 @@
-import { useApplication } from '@/app/providers/ApplicationProvider';
-import { useCompanyData } from '@/app/providers/CompanyProvider';
+import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
+import { useApplication } from '@/core/state/ApplicationProvider';
+import { booksQuery } from "@/features/accounting/public/books-query";
 import { fetchDashboard } from '@/features/dashboard/api/read-api';
-import { useQuery } from '@tanstack/react-query';
-export function useDashboardController() {
-  const { branchId, user, navigate } = useApplication();
-  const { state, bookId } = useCompanyData();
-  const query = useQuery({
-    queryKey: ['erp', 'dashboard', 'summary', user?.userId, user?.kind, bookId, branchId],
-    queryFn: () => fetchDashboard({ bookId, branchId }),
-    enabled: !!state && !!user,
-  });
-  return {
-    navigate,
-    low: query.data?.lowStock || [],
-    isLoading: query.isPending,
-    error: query.error?.message || '',
-  };
-}
+import { useQuery,useSuspenseQuery } from '@tanstack/react-query';
+export function useDashboardController(){const {branchId,user,navigate}=useApplication(),identity=useQueryIdentity();const {data:books}=useSuspenseQuery(booksQuery(identity));const bookId=books.scope.bookId;const query=useQuery({queryKey:['erp','dashboard','summary',user?.userId,user?.kind,bookId,branchId,identity.locale],queryFn:()=>fetchDashboard({bookId,branchId}),enabled:!!user});return {navigate,low:query.data?.lowStock||[],isLoading:query.isPending,error:query.error?.message||''};}

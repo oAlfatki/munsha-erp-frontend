@@ -1,17 +1,3 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import { Access } from '@/features/users/components/Access';
-import { useUsersData } from '@/features/users/hooks/useUsersData';
-/** صلاحيات العمليات والنطاقات — feature-owned route content. */
-export default function UserPermissionsPage() {
-  const featureData = useUsersData();
-
-  return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="access~matrix">
-          <Access />
-        </section>
-      }
-    </FeatureDataScope>
-  );
-}
+import { AccessRules } from '@/features/users/components/AccessRules';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+export default function UserPermissionsPage(){return <><PageHead title="صلاحيات الحسابات" description="الصلاحيات المعتمدة لكل نوع من حسابات النظام."/><AccessRules/></>;}

@@ -5,13 +5,13 @@ import type { SaveStockDocumentRequest } from '@/features/inventory/types/reques
 import type { SaveTransferRequest } from '@/features/inventory/types/requests/SaveTransferRequest';
 import type { SaveWarehouseRequest } from '@/features/inventory/types/requests/SaveWarehouseRequest';
 import {
-  deleteStockDraftSchema,
-  priceListSchema,
-  productSchema,
-  stockDocumentSchema,
-  transferSchema,
-  warehouseSchema,
-} from '@/features/inventory/validation/inventory-schema';
+deleteStockDraftSchema,
+priceListSchema,
+productSchema,
+stockDocumentSchema,
+transferSchema,
+warehouseSchema,
+} from "@/features/inventory/public/inventory-schema";
 export const mapProductInput = (input: unknown): SaveProductRequest =>
   productSchema.parse(input) as SaveProductRequest;
 export const mapWarehouseInput = (input: unknown): SaveWarehouseRequest =>

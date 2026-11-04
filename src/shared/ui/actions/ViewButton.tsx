@@ -1,5 +1,5 @@
-import { Button } from '@/shared/ui/primitives/button';
 import type { ViewButtonProps } from '@/core/types/ViewButtonProps';
+import { Button } from '@/shared/ui/primitives/button';
 import { ArrowUpLeft } from 'lucide-react';
 
 export function ViewButton({ onClick }: ViewButtonProps) {

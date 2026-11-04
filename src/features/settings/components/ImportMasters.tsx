@@ -1,21 +1,26 @@
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { exportCsv } from '@/core/services/export-csv';
+import { useImportMasters } from '@/features/settings/hooks/useImportMasters';
+import { useImportMastersQuery } from '@/features/settings/queries/useImportMastersQuery';
+import { parseMasterCsv } from '@/features/settings/services/models/csv';
+import { validateImportPreview } from '@/features/settings/validation/import-preview';
+import { importMastersSchema } from "@/features/settings/public/settings-schema";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportCsv } from '@/core/services/export-csv';
-import { useImportMasters } from '@/features/settings/hooks/useImportMasters';
-import { parseMasterCsv } from '@/features/settings/services/models/csv';
-import { validateImportPreview } from '@/features/settings/validation/import-preview';
-import { importMastersSchema } from '@/features/settings/validation/settings-schema';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import { useState } from 'react';
 export function ImportMasters() {
-  const { state: s, busy: isBusy, revision } = useErpContext();
+  const { state: s, busy: isBusy, revision } = useImportMastersQuery();
   const importMastersMutationRequest = useImportMasters(),
     importMastersForm = useValidatedForm(importMastersSchema, importMastersMutationRequest.execute),
     importMastersMutation = { ...importMastersMutationRequest, execute: importMastersForm.submit };

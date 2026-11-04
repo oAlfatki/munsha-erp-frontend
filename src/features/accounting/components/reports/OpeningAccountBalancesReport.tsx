@@ -1,10 +1,14 @@
-import { buildOpeningAccountBalancesReport } from '@/features/accounting/services/reports/build-opening-account-balances-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useOpeningAccountBalancesReportView } from '@/features/accounting/hooks/useOpeningAccountBalancesReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function OpeningAccountBalancesReport() {
+ const model=useOpeningAccountBalancesReportView({title:"تقرير الأرصدة الافتتاحية",summaryColumns:[3, 4]});
+
   return (
     <ReportViewer
       title="تقرير الأرصدة الافتتاحية"
-      buildData={buildOpeningAccountBalancesReport}
+      model={model}
       summaryColumns={[3, 4]}
       shouldShowFrom={true}
       isAsOf={false}

@@ -1,13 +1,18 @@
+
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
+import { useExpenseConsumeValidationData } from '@/features/expenses/queries/useExpenseConsumeValidationData';
 import { saveExpenseConsume } from '@/features/expenses/services/expenses-service';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
 export function useExpenseConsume() {
-  const { state } = useErpContext();
-  return useCommandMutation('expenseConsume', saveExpenseConsume, (input) => {
+  const loadValidationData=useExpenseConsumeValidationData();
+  return useCommandMutation('expenseConsume', saveExpenseConsume, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'expenseConsume', input);
-    validatePolicy(state, 'expenseConsume', input);
+    /* No setting-policy branch applies to this command; its own Zod schema validates the payload. */
   });
 }

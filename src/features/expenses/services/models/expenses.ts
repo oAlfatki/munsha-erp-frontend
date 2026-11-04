@@ -1,10 +1,9 @@
-import type {ExpenseViewsContext} from '@/features/expenses/types/read-models/ExpenseViewsContext';
-import type { ExpenseDocument } from '@/features/expenses/types/models/ExpenseDocument';
+import type { ExpenseDocument } from "@/features/expenses/public/types/models/ExpenseDocument";
 import type { ExpenseView } from '@/features/expenses/types/models/ExpenseView';
+import type { ExpenseViewsContext } from '@/features/expenses/types/read-models/ExpenseViewsContext';
 // Frontend read models and display helpers. Authoritative mutations live in server/core.
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import { money } from '@/core/utils/money';
-import { extras } from '@/features/accounting/services/models/extensions';
+import { extras } from "@/features/accounting/public/extensions";
 import { z } from 'zod';
 export const TREATMENT_LABELS = {
   current: 'مصروف حالي',

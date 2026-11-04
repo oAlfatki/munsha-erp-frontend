@@ -1,5 +1,5 @@
-import { ENDPOINTS } from '@/core/config/endpoints';
 import { apiClient } from '@/core/api/apiClient';
+import { ENDPOINTS } from '@/core/config/endpoints';
 import type { GetAuthPermissionsRequest } from '@/features/users/types/requests/GetAuthPermissionsRequest';
 import type { GetUsersByIdRequest } from '@/features/users/types/requests/GetUsersByIdRequest';
 import type { SearchAuditEventsRequest } from '@/features/users/types/requests/SearchAuditEventsRequest';
@@ -45,9 +45,9 @@ export async function fetchAuthPermissions(
 }
 /** List user activity events. Existing HTTP contract. */
 export async function fetchAuditEvents(
-  params: SearchAuditEventsRequest = {},
+  params: SearchAuditEventsRequest = {},signal?:AbortSignal
 ): Promise<AuditEventListResponse> {
-  return await apiClient.get<AuditEventListResponse>(ENDPOINTS.fetchAuditEvents,{params: {
+  return await apiClient.get<AuditEventListResponse>(ENDPOINTS.fetchAuditEvents,{signal,params: {
       page: params.page,
       pageSize: params.pageSize,
       bookId: params.bookId,

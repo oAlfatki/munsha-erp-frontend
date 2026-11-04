@@ -1,6 +1,6 @@
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
+import type { BackupArchive } from '@/features/settings/types/models/BackupArchive';
 import { z } from 'zod';
-const backupStateSchema = z
+export const backupStateSchema = z
   .object({
     organization: z
       .object({
@@ -65,7 +65,7 @@ const backupStateSchema = z
     audit: z.array(z.unknown()),
   })
   .passthrough();
-export function validateBackupState(value: unknown): ErpReadModel {
+export function validateBackupState(value: unknown): BackupArchive {
   const text = JSON.stringify(value);
   if (new TextEncoder().encode(text).length > 1500000) throw new Error('النسخة تتجاوز حد 1.5MB');
   const safe = (v: unknown, depth = 0): void => {
@@ -78,5 +78,5 @@ export function validateBackupState(value: unknown): ErpReadModel {
       }
   };
   safe(value);
-  return backupStateSchema.parse(value) as unknown as ErpReadModel;
+  return backupStateSchema.parse(value);
 }

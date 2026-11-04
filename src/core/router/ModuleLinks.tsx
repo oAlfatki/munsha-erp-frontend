@@ -1,8 +1,9 @@
+import { MENU_ITEMS } from '@/core/config/menu';
+import { ROUTES } from '@/core/config/navigation-paths';
+import { useApplication } from '@/core/state/ApplicationProvider';
+import type { ModuleLinksProps } from '@/core/types/ModuleLinksProps';
 import { Select } from '@/shared/ui/forms/Select';
 import { Button } from '@/shared/ui/primitives/button';
-import { MENU_ITEMS } from '@/core/config/menu';
-import { useApplication } from '@/app/providers/ApplicationProvider';
-import type { ModuleLinksProps } from '@/core/types/ModuleLinksProps';
 
 export function ModuleLinks({ module }: ModuleLinksProps) {
   const { navigate, view } = useApplication();
@@ -35,7 +36,7 @@ export function ModuleLinks({ module }: ModuleLinksProps) {
         variant="ghost"
         onClick={() =>
           navigate(
-            module === 'access' ? '/access' : module === 'accounts' ? '/accounting' : '/' + module,
+            module === 'access' ? '/access' : module === 'accounts' ? ROUTES.ACCOUNTING : '/' + module,
           )
         }
       >

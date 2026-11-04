@@ -1,8 +1,7 @@
-import type {BuildPayrollReportContext} from '@/features/employees/types/read-models/BuildPayrollReportContext';
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
-import { extras } from '@/features/accounting/services/models/extensions';
+import { extras } from "@/features/accounting/public/extensions";
+import type { BuildPayrollReportContext } from '@/features/employees/types/read-models/BuildPayrollReportContext';
 export function buildPayrollReport(
   workspace: BuildPayrollReportContext,
   branch: string,

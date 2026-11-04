@@ -1,8 +1,8 @@
 import type { CommandContext } from '@/core/types/CommandContext';
-import { submitEmployee, submitEmployeeDelete } from '@/features/employees/api/employees-api';
+import { submitEmployee,submitEmployeeDelete } from '@/features/employees/api/employees-api';
 import {
-  mapEmployeeDeleteInput,
-  mapEmployeeInput,
+mapEmployeeDeleteInput,
+mapEmployeeInput,
 } from '@/features/employees/mapper/employees-mapper';
 export const saveEmployee = async (
   input: unknown,

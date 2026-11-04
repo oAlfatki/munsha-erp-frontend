@@ -1,33 +1,20 @@
-import type { AnnualBooks } from '@/features/accounting/types/models/AnnualBooks';
-import type { Entry } from '@/features/accounting/types/models/Entry';
-import type { ExtensionData } from '@/features/accounting/types/models/ExtensionData';
-import type { VoucherDocument } from '@/features/accounting/types/models/VoucherDocument';
-import type { Employee } from '@/features/employees/types/models/Employee';
-import type { Expense } from '@/features/expenses/types/models/Expense';
-import type { ExpenseDocument } from '@/features/expenses/types/models/ExpenseDocument';
-import type { Movement } from '@/features/inventory/types/models/Movement';
-import type { Product } from '@/features/inventory/types/models/Product';
-import type { Stock } from '@/features/inventory/types/models/Stock';
-import type { StockDocument } from '@/features/inventory/types/models/StockDocument';
-import type { Warehouse } from '@/features/inventory/types/models/Warehouse';
-import type { Party } from '@/features/parties/types/models/Party';
-import type { BackupPolicy } from '@/features/settings/types/models/BackupPolicy';
-import type { Branch } from '@/features/settings/types/models/Branch';
-import type { SystemSettings } from '@/features/settings/types/models/SystemSettings';
-import type { Invoice } from '@/features/trade/types/models/Invoice';
-import type { Audit } from '@/features/users/types/models/Audit';
-/** Minimal input contract derived from this computation and its delegated helpers. */
+import type { Entry } from "@/features/accounting/public/types/models/Entry";
+import type { ExtensionData } from "@/features/accounting/public/types/models/ExtensionData";
+import type { Movement } from "@/features/inventory/public/types/models/Movement";
+import type { Product } from "@/features/inventory/public/types/models/Product";
+import type { Stock } from "@/features/inventory/public/types/models/Stock";
+import type { Warehouse } from "@/features/inventory/public/types/models/Warehouse";
+import type { Party } from "@/features/parties/public/types/models/Party";
+import type { PersistedSystemSettings } from "@/features/settings/public/types/models/PersistedSystemSettings";
+import type { Invoice } from "@/features/trade/public/types/models/Invoice";
 export interface ValidateInvoiceContext {
-  currencies: {
+warehouses: Warehouse[];
+currencies: {
     code: string;
     name: string;
     rate: number;
   }[];
-  entries: Entry[];
-  extras?: ExtensionData;
-  invoices: Invoice[];
-  movements: Movement[];
-  organization: {
+organization: {
     name: string;
     email?: string;
     activity?: string;
@@ -41,9 +28,12 @@ export interface ValidateInvoiceContext {
     costPolicy: 'moving_average';
     policyApproved: boolean;
   };
-  parties: Party[];
-  products: Product[];
-  stocks: Stock[];
-  systemSettings?: SystemSettings;
-  warehouses: Warehouse[];
+invoices: Invoice[];
+parties: Party[];
+movements: Movement[];
+products: Product[];
+stocks: Stock[];
+systemSettings?: PersistedSystemSettings;
+extras?: ExtensionData;
+entries: Entry[];
 }

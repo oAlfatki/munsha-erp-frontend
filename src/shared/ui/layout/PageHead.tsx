@@ -1,5 +1,5 @@
-import { Button } from '@/shared/ui/primitives/button';
 import type { PageHeadProps } from '@/core/types/PageHeadProps';
+import { Button } from '@/shared/ui/primitives/button';
 import { Plus } from 'lucide-react';
 
 export function PageHead({

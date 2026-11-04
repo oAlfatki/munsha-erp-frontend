@@ -1,4 +1,4 @@
-import { invoiceSchema } from '@/features/trade/validation/trade-schema';
+import { invoiceSchema } from "@/features/trade/public/trade-schema";
 import { z } from 'zod';
 export const salesTargetSchema = z
   .object({

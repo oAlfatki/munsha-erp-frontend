@@ -1,10 +1,10 @@
+import type { FieldProps } from '@/core/types/FieldProps';
+import type { Validatable } from '@/core/types/Validatable';
 import { validateControl } from '@/shared/ui/forms/control-validation';
 import { Select } from '@/shared/ui/forms/Select';
 import { fieldError } from '@/shared/ui/forms/ValidatedForm';
 import { Input } from '@/shared/ui/primitives/input';
-import type { FieldProps } from '@/core/types/FieldProps';
-import type { Validatable } from '@/core/types/Validatable';
-import React, { useState } from 'react';
+import React,{ useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 export function Field({ label, children, isFullWidth: isSpan = false }: FieldProps) {

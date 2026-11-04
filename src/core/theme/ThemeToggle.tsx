@@ -1,5 +1,5 @@
 import { useTheme } from '@/core/theme/ThemeProvider';
-import { Monitor, Moon, Sun } from 'lucide-react';
+import { Monitor,Moon,Sun } from 'lucide-react';
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const Icon = theme === 'dark' ? Moon : theme === 'light' ? Sun : Monitor;

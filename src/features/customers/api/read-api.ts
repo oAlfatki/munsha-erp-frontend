@@ -1,14 +1,14 @@
-import { ENDPOINTS } from '@/core/config/endpoints';
 import { apiClient } from '@/core/api/apiClient';
+import { ENDPOINTS } from '@/core/config/endpoints';
 import type { GetCustomersByIdRequest } from '@/features/customers/types/requests/GetCustomersByIdRequest';
 import type { SearchCustomersRequest } from '@/features/customers/types/requests/SearchCustomersRequest';
-import type { PartyListResponse } from '@/features/parties/types/responses/PartyListResponse';
-import type { PartyResponse } from '@/features/parties/types/responses/PartyResponse';
+import type { PartyListResponse } from "@/features/parties/public/types/responses/PartyListResponse";
+import type { PartyResponse } from "@/features/parties/public/types/responses/PartyResponse";
 /** List customers. Existing HTTP contract. */
 export async function fetchCustomers(
-  params: SearchCustomersRequest = {},
+  params: SearchCustomersRequest = {},signal?:AbortSignal
 ): Promise<PartyListResponse> {
-  return await apiClient.get<PartyListResponse>(ENDPOINTS.fetchCustomers,{params: {
+  return await apiClient.get<PartyListResponse>(ENDPOINTS.fetchCustomers,{signal,params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,

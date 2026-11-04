@@ -1,3 +1,15 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { exportPdf,printReport } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { VoucherEditor } from '@/features/accounting/components/VoucherEditor';
+import { useAccountStatementQuery } from '@/features/accounting/queries/useAccountStatementQuery';
+import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { statementData } from "@/features/trade/public/presentation";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
@@ -7,32 +19,24 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { exportPdf, printReport } from '@/core/reporting/service';
-import { fmt } from '@/core/utils/formatters';
-import { VoucherEditor } from '@/features/accounting/components/VoucherEditor';
-import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
-import { statementData } from '@/features/trade/services/models/presentation';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import {
-  ArrowLeft,
-  Banknote,
-  ChartNoAxesColumn,
-  Download,
-  Eye,
-  Printer,
-  ReceiptText,
+ArrowLeft,
+Banknote,
+ChartNoAxesColumn,
+Download,
+Eye,
+Printer,
+ReceiptText,
 } from 'lucide-react';
 import { useState } from 'react';
 
-export function AccountStatement() {
-  const { state: s, branchId, view, navigate } = useErpContext();
+export function AccountStatement({initialPartyId=''}:{initialPartyId?:string}) {
+  const { state: s, branchId, view, navigate } = useAccountStatementQuery();
   const [draft, setDraft] = useState({
-      party: view.startsWith('/accounting/action/')
-        ? decodeURIComponent(view.split('/').at(-1)!)
-        : '',
+      party:initialPartyId,
       ...fiscalRange(s!),
       query: '',
     }),
@@ -338,7 +342,7 @@ export function AccountStatement() {
                 variant="outline"
                 onClick={() =>
                   navigate(
-                    '/documents/' +
+                    ROUTES.DOCUMENT_PREFIX +
                       encodeURIComponent(
                         s.invoices.find((invoice) => invoice.number === current.entry.reference)!
                           .id,

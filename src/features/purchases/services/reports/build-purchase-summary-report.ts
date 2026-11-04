@@ -1,10 +1,9 @@
-import type {BuildPurchaseSummaryReportContext} from '@/features/purchases/types/read-models/BuildPurchaseSummaryReportContext';
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
-import { extras } from '@/features/accounting/services/models/extensions';
-import { tradeSummary } from '@/features/trade/services/models/trade-summary';
+import { extras } from "@/features/accounting/public/extensions";
+import type { BuildPurchaseSummaryReportContext } from '@/features/purchases/types/read-models/BuildPurchaseSummaryReportContext';
+import { tradeSummary } from "@/features/trade/public/trade-summary";
 export function buildPurchaseSummaryReport(
   workspace: BuildPurchaseSummaryReportContext,
   branch: string,

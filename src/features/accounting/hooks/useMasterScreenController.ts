@@ -1,21 +1,26 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+
+
+
+
+
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { useMaster } from '@/features/accounting/hooks/useMaster';
-import { extras } from '@/features/accounting/services/models/extensions';
+import { useMasterScreenControllerQuery } from '@/features/accounting/queries/useMasterScreenControllerQuery';
+import { extras } from "@/features/accounting/public/extensions";
 import type { MasterScreenProps } from '@/features/accounting/types/MasterScreenProps';
 import type { MasterRecord } from '@/features/accounting/types/models/MasterRecord';
-import { masterSchema } from '@/features/accounting/validation/accounting-schema';
+import { masterSchema } from "@/features/accounting/public/accounting-schema";
 import { useState } from 'react';
 
 export function useMasterScreenController({ screen }: MasterScreenProps) {
-  const { state: s, busy: isBusy, branchId, navigate } = useErpContext();
+  const { state: s, busy: isBusy, branchId, navigate } = useMasterScreenControllerQuery();
   const masterMutationRequest = useMaster(),
     masterForm = useValidatedForm(masterSchema, masterMutationRequest.execute),
     masterMutation = { ...masterMutationRequest, execute: masterForm.submit };
   const [query, setQuery] = useState(''),
     [edit, setEdit] = useState<Record<string, string> | null>(() =>
-      screen.id.endsWith('-add') || screen.id === 'cash-bank'
+      screen.initiallyOpen
         ? Object.fromEntries(
             (screen.fields || []).map((field) => [
               field.key,

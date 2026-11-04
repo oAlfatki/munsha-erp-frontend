@@ -1,3 +1,9 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { exportPdf } from '@/core/reporting/service';
+import { fmt,today } from '@/core/utils/formatters';
+import { useInventoryController } from '@/features/inventory/hooks/useInventoryController';
+import { quantityByUnits } from '@/features/inventory/services/models/inventory-display';
+import { systemSettings } from "@/features/settings/public/system-settings";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -5,15 +11,10 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { ReportActions } from '@/shared/ui/reports/ReportActions';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { exportPdf } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
-import { useInventoryController } from '@/features/inventory/hooks/useInventoryController';
-import { quantityByUnits } from '@/features/inventory/services/models/inventory-display';
-import { systemSettings } from '@/features/settings/services/models/system-settings';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 export function Inventory() {
   const model = useInventoryController();
   if (!model) return null;
@@ -51,7 +52,7 @@ export function Inventory() {
       <PageHead
         title="المخزون والمخازن"
         description="أرصدة دقيقة، تكلفة واضحة وحركة موثقة لكل صنف."
-        onAction={() => navigate('/inventory/transfer-document')}
+        onAction={() => navigate(ROUTES.INVENTORY_TRANSFER_DOCUMENT)}
         label="تحويل بين المخازن"
         extra={
           <ReportActions

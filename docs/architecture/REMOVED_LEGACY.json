@@ -1,0 +1,192 @@
+[
+  {
+    "file": "src/features/accounting/hooks/useAccountingData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/accounting/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/customers/hooks/useCustomersData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/customers/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/employees/hooks/useEmployeesData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/employees/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/expenses/hooks/useExpensesData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/expenses/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/financial/hooks/useFinancialData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/inventory/hooks/useInventoryData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/inventory/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/parties/hooks/usePartiesData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/parties/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/purchases/hooks/usePurchasesData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/purchases/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/sales/hooks/useSalesData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/sales/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/settings/hooks/useSettingsData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/settings/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/suppliers/hooks/useSuppliersData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/suppliers/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/trade/hooks/useTradeData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/users/hooks/useUsersData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/features/users/services/data-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/hooks/useErpContext.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/hooks/useFeatureResources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/query/resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/query/resource-queries.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/types/ErpReadModel.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/types/FeatureData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/types/FeatureDataScopeProps.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/types/DataResource.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/types/ResourceResult.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/types/CompanyData.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/core/types/CompanyMetadata.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/app/providers/FeatureDataScope.tsx",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/app/bootstrap/company-resources.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  },
+  {
+    "file": "src/app/types/PageDefinition.ts",
+    "reason": "No import path from production bootstrap after migrating every consumer",
+    "replacement": "Feature-owned screen queries/read-models; generic presentation-only report UI"
+  }
+]

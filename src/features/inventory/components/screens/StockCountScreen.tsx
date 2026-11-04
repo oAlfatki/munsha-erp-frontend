@@ -1,19 +1,24 @@
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { fmt,today } from '@/core/utils/formatters';
+import { useOperation } from "@/features/accounting/public/useOperation";
+import { extras } from "@/features/accounting/public/extensions";
+import { operationSchema } from "@/features/accounting/public/accounting-schema";
+import { useStockCountScreenQuery } from '@/features/inventory/queries/useStockCountScreenQuery';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { fmt, today } from '@/core/utils/formatters';
-import { useOperation } from '@/features/accounting/hooks/useOperation';
-import { extras } from '@/features/accounting/services/models/extensions';
-import { operationSchema } from '@/features/accounting/validation/accounting-schema';
-import { CheckCheck, Save, Undo2 } from 'lucide-react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { CheckCheck,Save,Undo2 } from 'lucide-react';
 import { useState } from 'react';
 export function StockCountScreen() {
   const screen = {
@@ -25,7 +30,7 @@ export function StockCountScreen() {
     operation: 'count',
     note: 'حفظ العدد لا يغير المخزون. حدّث الجرد إذا حدثت أي حركة في يوم العد أو بعده.',
   };
-  const { state: s, branchId, busy: isBusy } = useErpContext();
+  const { state: s, branchId, busy: isBusy } = useStockCountScreenQuery();
   const operationMutationRequest = useOperation();
   const operationForm = useValidatedForm(operationSchema, operationMutationRequest.execute);
   const operationMutation = { ...operationMutationRequest, execute: operationForm.submit };

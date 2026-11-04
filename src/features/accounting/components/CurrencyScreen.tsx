@@ -1,24 +1,29 @@
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { printReport } from '@/core/reporting/service';
+import { fmt,today } from '@/core/utils/formatters';
+import { useCurrencyScreenQuery } from '@/features/accounting/queries/useCurrencyScreenQuery';
+import { extras } from "@/features/accounting/public/extensions";
+import type { CurrencyScreenProps } from '@/features/accounting/types/CurrencyScreenProps';
+import { useCurrency } from "@/features/settings/public/useCurrency";
+import { currencySchema } from "@/features/settings/public/settings-schema";
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Field } from '@/shared/ui/forms/Field';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { printReport } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
-import { extras } from '@/features/accounting/services/models/extensions';
-import type { CurrencyScreenProps } from '@/features/accounting/types/CurrencyScreenProps';
-import { useCurrency } from '@/features/settings/hooks/useCurrency';
-import { currencySchema } from '@/features/settings/validation/settings-schema';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Save } from 'lucide-react';
 import { useState } from 'react';
 
 export function CurrencyScreen({ screen }: CurrencyScreenProps) {
-  const { state: s, busy: isBusy } = useErpContext();
+  const { state: s, busy: isBusy } = useCurrencyScreenQuery();
   const currencyMutationRequest = useCurrency(),
     currencyForm = useValidatedForm(currencySchema, currencyMutationRequest.execute),
     currencyMutation = { ...currencyMutationRequest, execute: currencyForm.submit };

@@ -1,3 +1,13 @@
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { printReport } from '@/core/reporting/service';
+import { useBranch } from '@/features/settings/hooks/useBranch';
+import { useBranchDirectoryQuery } from '@/features/settings/queries/useBranchDirectoryQuery';
+import { branchSchema } from "@/features/settings/public/settings-schema";
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -5,15 +15,10 @@ import { SearchBox } from '@/shared/ui/filters/SearchBox';
 import { Field } from '@/shared/ui/forms/Field';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { printReport } from '@/core/reporting/service';
-import { useBranch } from '@/features/settings/hooks/useBranch';
-import { branchSchema } from '@/features/settings/validation/settings-schema';
-import { Printer, Save } from 'lucide-react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Printer,Save } from 'lucide-react';
 import { useState } from 'react';
 export function BranchDirectory() {
   const screen = {
@@ -24,7 +29,7 @@ export function BranchDirectory() {
     mode: 'locations',
     collection: 'branch',
   };
-  const { state: s, busy: isBusy, branchId } = useErpContext();
+  const { state: s, busy: isBusy, branchId } = useBranchDirectoryQuery();
   const branchMutationRequest = useBranch();
   const branchForm = useValidatedForm(branchSchema, branchMutationRequest.execute);
   const branchMutation = { ...branchMutationRequest, execute: branchForm.submit };
@@ -36,7 +41,7 @@ export function BranchDirectory() {
     branchId: string;
     active: boolean;
   } | null>(() =>
-    screen.id.endsWith('-add') ? { name: '', address: '', branchId, active: true } : null,
+    null,
   );
   if (!s) return null;
   const list = s.branches.map((branch) => ({ ...branch, branchId: '', address: branch.address }));

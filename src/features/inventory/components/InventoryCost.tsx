@@ -1,23 +1,28 @@
+
+
+
+
+
+import { exportPdf,printReport } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { extras } from "@/features/accounting/public/extensions";
+import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { useInventoryCostQuery } from '@/features/inventory/queries/useInventoryCostQuery';
+import { inventoryCost } from '@/features/inventory/services/models/inventory-cost';
+import type { CostFilters } from '@/features/inventory/types/models/CostFilters';
+import { systemSettings } from "@/features/settings/public/system-settings";
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { exportPdf, printReport } from '@/core/reporting/service';
-import { fmt } from '@/core/utils/formatters';
-import { extras } from '@/features/accounting/services/models/extensions';
-import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
-import { inventoryCost } from '@/features/inventory/services/models/inventory-cost';
-import type { CostFilters } from '@/features/inventory/types/models/CostFilters';
-import { systemSettings } from '@/features/settings/services/models/system-settings';
-import { Download, Eye, Printer, Undo2 } from 'lucide-react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Download,Eye,Printer,Undo2 } from 'lucide-react';
 import { useState } from 'react';
 export function InventoryCost() {
-  const { state: s, branchId } = useErpContext();
+  const { state: s, branchId } = useInventoryCostQuery();
   const initial: CostFilters = {
     ...fiscalRange(s!),
     warehouse: '',

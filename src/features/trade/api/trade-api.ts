@@ -1,7 +1,7 @@
 import { postCommand } from '@/core/services/http/command-api';
 import type { CommandContext } from '@/core/types/CommandContext';
 import type { DeleteDraftRequest } from '@/features/trade/types/requests/DeleteDraftRequest';
-import type { SaveInvoiceRequest } from '@/features/trade/types/requests/SaveInvoiceRequest';
+import type { SaveInvoiceRequest } from "@/features/trade/public/types/requests/SaveInvoiceRequest";
 import type { SavePartialReturnRequest } from '@/features/trade/types/requests/SavePartialReturnRequest';
 import type { SaveReturnRequest } from '@/features/trade/types/requests/SaveReturnRequest';
 export const submitInvoice = async (

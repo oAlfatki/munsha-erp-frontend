@@ -1,8 +1,9 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { useApplication } from '@/core/state/ApplicationProvider';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
-import { useErpContext } from '@/core/hooks/useErpContext';
 export function FiscalYearReopening() {
-  const { navigate } = useErpContext();
+  const { navigate } = useApplication();
   return (
     <>
       <PageHead
@@ -15,7 +16,7 @@ export function FiscalYearReopening() {
           يمكن فتح السنة السابقة لعرض التقارير ثم الرجوع للسنة الحالية. لن يغيّر زر العرض حالة
           الإقفال أو الأرصدة.
         </p>
-        <Button onClick={() => navigate('/settings/annual-books')}>فتح الفترات والأرشيف</Button>
+        <Button onClick={() => navigate(ROUTES.SETTINGS_ANNUAL_BOOKS)}>فتح الفترات والأرشيف</Button>
       </section>
     </>
   );

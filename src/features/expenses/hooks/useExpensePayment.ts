@@ -1,13 +1,18 @@
+import { validateExpensePaymentSettingsPolicy } from "@/features/settings/public/expense-payment-policy";
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
+import { useExpensePaymentValidationData } from '@/features/expenses/queries/useExpensePaymentValidationData';
 import { saveExpensePayment } from '@/features/expenses/services/expenses-service';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
 export function useExpensePayment() {
-  const { state } = useErpContext();
-  return useCommandMutation('expensePayment', saveExpensePayment, (input) => {
+  const loadValidationData=useExpensePaymentValidationData();
+  return useCommandMutation('expensePayment', saveExpensePayment, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'expensePayment', input);
-    validatePolicy(state, 'expensePayment', input);
+    validateExpensePaymentSettingsPolicy(state,input);
   });
 }

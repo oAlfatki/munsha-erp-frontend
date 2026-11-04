@@ -1,2 +1,2 @@
-import { invoiceSchema } from '@/features/trade/validation/trade-schema';
+import { invoiceSchema } from "@/features/trade/public/trade-schema";
 export const purchaseInvoiceInputSchema = invoiceSchema.omit({ kind: true });

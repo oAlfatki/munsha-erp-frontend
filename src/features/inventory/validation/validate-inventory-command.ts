@@ -1,6 +1,5 @@
-import type {ValidateInventoryCommandContext} from '@/features/inventory/types/read-models/ValidateInventoryCommandContext';
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
-import { productSchema, transferSchema, warehouseSchema } from './inventory-schema';
+import type { ValidateInventoryCommandContext } from '@/features/inventory/types/read-models/ValidateInventoryCommandContext';
+import { productSchema,transferSchema,warehouseSchema } from "@/features/inventory/public/inventory-schema";
 /** Read-only checks, matching the original product/transfer/warehouse business rules. */
 export function validateInventoryCommand(data: ValidateInventoryCommandContext, type: string, input: unknown) {
   if (type === 'product') {

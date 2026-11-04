@@ -1,3 +1,20 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { exportPdf,printReport } from '@/core/reporting/service';
+import { fmt,today } from '@/core/utils/formatters';
+import { useMaster } from '@/features/accounting/hooks/useMaster';
+import { useAssetsQuery } from '@/features/accounting/queries/useAssetsQuery';
+import { assetValues } from '@/features/accounting/services/models/asset-values';
+import { extras } from "@/features/accounting/public/extensions";
+import type { AssetsProps } from '@/features/accounting/types/AssetsProps';
+import type { AssetForm } from '@/features/accounting/types/models/AssetForm';
+import type { MasterRecord } from '@/features/accounting/types/models/MasterRecord';
+import { masterSchema } from "@/features/accounting/public/accounting-schema";
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -5,22 +22,11 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { ReportActions } from '@/shared/ui/reports/ReportActions';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf, printReport } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
-import { useMaster } from '@/features/accounting/hooks/useMaster';
-import { assetValues } from '@/features/accounting/services/models/asset-values';
-import { extras } from '@/features/accounting/services/models/extensions';
-import type { AssetsProps } from '@/features/accounting/types/AssetsProps';
-import type { AssetForm } from '@/features/accounting/types/models/AssetForm';
-import type { MasterRecord } from '@/features/accounting/types/models/MasterRecord';
-import { masterSchema } from '@/features/accounting/validation/accounting-schema';
-import { List, Printer, Save } from 'lucide-react';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { List,Printer,Save } from 'lucide-react';
 import { useState } from 'react';
 
 function form(r: MasterRecord | undefined, branchId: string): AssetForm {
@@ -45,7 +51,7 @@ function form(r: MasterRecord | undefined, branchId: string): AssetForm {
 }
 
 export function Assets({ isAdd: isAdd = false }: AssetsProps) {
-  const { state: s, branchId, busy: isBusy, navigate } = useErpContext();
+  const { state: s, branchId, busy: isBusy, navigate } = useAssetsQuery();
   const masterMutationRequest = useMaster(),
     masterForm = useValidatedForm(masterSchema, masterMutationRequest.execute),
     masterMutation = { ...masterMutationRequest, execute: masterForm.submit };
@@ -78,7 +84,7 @@ export function Assets({ isAdd: isAdd = false }: AssetsProps) {
     );
     const handleBack = () => {
       setEdit(null);
-      if (isAdd) navigate('/accounting/assets');
+      if (isAdd) navigate(ROUTES.ACCOUNTING_ASSETS);
     };
     return (
       <>
@@ -295,7 +301,7 @@ export function Assets({ isAdd: isAdd = false }: AssetsProps) {
       <PageHead
         title="قائمة الأصول الثابتة"
         description="بطاقات الأصول وتكلفتها وقسط الإهلاك الثابت أو المتغير لكل فترة."
-        onAction={() => navigate('/accounting/assets-add')}
+        onAction={() => navigate(ROUTES.ACCOUNTING_ASSETS_ADD)}
         label="إضافة أصل"
         extra={<ReportActions onExport={handleExportRows} />}
       />

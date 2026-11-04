@@ -1,3 +1,10 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { exportPdf } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { extras } from "@/features/accounting/public/extensions";
+import { balance } from "@/features/accounting/public/account-balances";
+import { SupplierEditor } from '@/features/suppliers/components/SupplierEditor';
+import { useSupplierDirectoryController } from '@/features/suppliers/hooks/useSupplierDirectoryController';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -5,12 +12,6 @@ import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { exportPdf } from '@/core/reporting/service';
-import { fmt } from '@/core/utils/formatters';
-import { extras } from '@/features/accounting/services/models/extensions';
-import { balance } from '@/features/accounting/utils/account-balances';
-import { SupplierEditor } from '@/features/suppliers/components/SupplierEditor';
-import { useSupplierDirectoryController } from '@/features/suppliers/hooks/useSupplierDirectoryController';
 export function SupplierDirectory() {
   const model = useSupplierDirectoryController();
   if (!model) return null;
@@ -88,7 +89,7 @@ export function SupplierDirectory() {
           party={editing}
           onClose={() => {
             setEditing(undefined);
-            if (view.endsWith('/new')) navigate('/suppliers');
+            if (view.endsWith('/new')) navigate(ROUTES.SUPPLIERS);
           }}
         />
       )}

@@ -1,3 +1,6 @@
+import { exportPdf,printReport } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { useEmployeesController } from '@/features/employees/hooks/useEmployeesController';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -6,13 +9,10 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { ReportActions } from '@/shared/ui/reports/ReportActions';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { exportPdf, printReport } from '@/core/reporting/service';
-import { fmt } from '@/core/utils/formatters';
-import { useEmployeesController } from '@/features/employees/hooks/useEmployeesController';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 export function Employees() {
   const model = useEmployeesController();
   if (!model) return null;

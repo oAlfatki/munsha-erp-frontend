@@ -1,17 +1,7 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import { Access } from '@/features/users/components/Access';
-import { useUsersData } from '@/features/users/hooks/useUsersData';
-/** إضافة مستخدم — feature-owned route content. */
-export default function CreateUserPage() {
-  const featureData = useUsersData();
-
-  return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="access~users-add">
-          <Access />
-        </section>
-      }
-    </FeatureDataScope>
-  );
-}
+import { useAuth } from '@/core/auth/AuthProvider';
+import { ROUTES } from '@/core/config/navigation-paths';
+import { AccessRules } from '@/features/users/components/AccessRules';
+import { UserEditor } from '@/features/users/components/UserEditor';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { useNavigate } from 'react-router-dom';
+export default function CreateUserPage(){const {user}=useAuth(),navigate=useNavigate();return <><PageHead title="إضافة مستخدم" description="حساب دخول مستقل وصلاحية معتمدة."/><AccessRules/>{user?.role==='admin'?<UserEditor onSaved={()=>navigate(ROUTES.USERS)} onCancel={()=>navigate(ROUTES.USERS)}/>:<p className="info-note">إدارة حسابات المستخدمين متاحة لمسؤول النظام.</p>}</>;}

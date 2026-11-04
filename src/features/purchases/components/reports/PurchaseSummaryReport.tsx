@@ -1,24 +1,30 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { exportDocument,printReport } from '@/core/reporting/service';
+import type { ReportDocument } from '@/core/types/ReportDocument';
+import { amountInWords } from '@/core/utils/amount-in-words';
+import { fmt } from '@/core/utils/formatters';
+import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { usePurchaseSummaryReportQuery } from '@/features/purchases/queries/usePurchaseSummaryReportQuery';
+import { tradeSummary } from "@/features/trade/public/trade-summary";
+import type { TradeFilters } from "@/features/trade/public/types/models/TradeFilters";
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { exportDocument, printReport } from '@/core/reporting/service';
-import type { ReportDocument } from '@/core/types/ReportDocument';
-import { amountInWords } from '@/core/utils/amount-in-words';
-import { fmt } from '@/core/utils/formatters';
-import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
-import { tradeSummary } from '@/features/trade/services/models/trade-summary';
-import type { TradeFilters } from '@/features/trade/types/models/TradeFilters';
-import { Download, Eye, Printer } from 'lucide-react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Download,Eye,Printer } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
 export function PurchaseSummaryReport() {
-  const { state: s, branchId, navigate } = useErpContext();
+  const { state: s, branchId, navigate } = usePurchaseSummaryReportQuery();
   const initial: TradeFilters = { ...fiscalRange(s!), warehouse: '', user: '' };
   const [draft, setDraft] = useState(initial);
   const [filters, setFilters] = useState(initial);
@@ -155,7 +161,7 @@ export function PurchaseSummaryReport() {
         </div>
       </div>
       <p className="info-note">{report.note}</p>
-      <Button variant="outline" onClick={() => navigate('/purchases')}>
+      <Button variant="outline" onClick={() => navigate(ROUTES.PURCHASES)}>
         قائمة الفواتير والمرتجعات بالتفصيل
       </Button>
     </>

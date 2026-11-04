@@ -1,15 +1,21 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { useTransfer } from '@/features/inventory/hooks/useTransfer';
-import { transferSchema } from '@/features/inventory/validation/inventory-schema';
-import { systemSettings } from '@/features/settings/services/models/system-settings';
+import { useInventoryControllerQuery } from '@/features/inventory/queries/useInventoryControllerQuery';
+import { transferSchema } from "@/features/inventory/public/inventory-schema";
+import { systemSettings } from "@/features/settings/public/system-settings";
 import { useState } from 'react';
 export function useInventoryController() {
-  const { state: s, branchId, busy: isBusy, navigate, view } = useErpContext();
+  const { state: s, branchId, busy: isBusy, navigate, view } = useInventoryControllerQuery();
   const transferMutationRequest = useTransfer(),
     transferForm = useValidatedForm(transferSchema, transferMutationRequest.execute),
     transferMutation = { ...transferMutationRequest, execute: transferForm.submit };
-  const [tab, setTab] = useState(view === '/inventory/movements' ? 'movements' : 'balances'),
+  const [tab, setTab] = useState(view === ROUTES.INVENTORY_MOVEMENTS ? 'movements' : 'balances'),
     [searchQuery, setQ] = useState(''),
     [wh, setWh] = useState('all'),
     [isShowUnits, setShowUnits] = useState(false),

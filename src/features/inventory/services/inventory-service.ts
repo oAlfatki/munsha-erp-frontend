@@ -1,19 +1,19 @@
 import type { CommandContext } from '@/core/types/CommandContext';
 import {
-  submitDeleteStockDraft,
-  submitPriceList,
-  submitProduct,
-  submitStockDocument,
-  submitTransfer,
-  submitWarehouse,
+submitDeleteStockDraft,
+submitPriceList,
+submitProduct,
+submitStockDocument,
+submitTransfer,
+submitWarehouse,
 } from '@/features/inventory/api/inventory-api';
 import {
-  mapDeleteStockDraftInput,
-  mapPriceListInput,
-  mapProductInput,
-  mapStockDocumentInput,
-  mapTransferInput,
-  mapWarehouseInput,
+mapDeleteStockDraftInput,
+mapPriceListInput,
+mapProductInput,
+mapStockDocumentInput,
+mapTransferInput,
+mapWarehouseInput,
 } from '@/features/inventory/mapper/inventory-mapper';
 export const saveProduct = async (
   input: unknown,

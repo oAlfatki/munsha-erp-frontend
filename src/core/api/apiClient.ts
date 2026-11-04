@@ -1,10 +1,10 @@
-import { ENDPOINTS } from '@/core/config/endpoints';
-import {API_CONFIG} from './apiConfig';
 import { ApiError } from '@/core/api/apiError';
+import { ENDPOINTS } from '@/core/config/endpoints';
 import type { ProblemDetails } from '@/core/types/ProblemDetails';
 import type { Result } from '@/core/types/Result';
 import type { AxiosRequestConfig } from 'axios';
 import axios from 'axios';
+import { API_CONFIG } from './apiConfig';
 export const axiosInstance = axios.create({
   ...API_CONFIG,
 });

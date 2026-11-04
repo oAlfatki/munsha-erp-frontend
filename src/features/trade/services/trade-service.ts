@@ -1,15 +1,15 @@
 import type { CommandContext } from '@/core/types/CommandContext';
 import {
-  submitDeleteDraft,
-  submitInvoice,
-  submitPartialReturn,
-  submitReturn,
+submitDeleteDraft,
+submitInvoice,
+submitPartialReturn,
+submitReturn,
 } from '@/features/trade/api/trade-api';
 import {
-  mapDeleteDraftInput,
-  mapInvoiceInput,
-  mapPartialReturnInput,
-  mapReturnInput,
+mapDeleteDraftInput,
+mapInvoiceInput,
+mapPartialReturnInput,
+mapReturnInput,
 } from '@/features/trade/mapper/trade-mapper';
 export const saveInvoice = async (
   input: unknown,

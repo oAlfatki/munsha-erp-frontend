@@ -1,21 +1,26 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+
+
+
+
+
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { newId } from '@/core/utils/id';
 import { money } from '@/core/utils/money';
 import { useVoucher } from '@/features/accounting/hooks/useVoucher';
-import { cashOptions } from '@/features/accounting/services/models/cash';
+import { useVoucherEditorControllerQuery } from '@/features/accounting/queries/useVoucherEditorControllerQuery';
+import { cashOptions } from "@/features/accounting/public/cash";
 import { voucherDue } from '@/features/accounting/services/models/vouchers';
 import type { InputLine } from '@/features/accounting/types/InputLine';
 import type { VoucherEditorProps } from '@/features/accounting/types/VoucherEditorProps';
-import { voucherSchema } from '@/features/accounting/validation/accounting-schema';
-import { operationCashId } from '@/features/settings/services/models/system-settings';
+import { voucherSchema } from "@/features/accounting/public/accounting-schema";
+import { operationCashId } from "@/features/settings/public/system-settings";
 import { useState } from 'react';
 export function useVoucherEditorController({
   kind: initialKind,
   partyId = '',
 }: VoucherEditorProps) {
-  const { state: s, branchId, busy: isBusy } = useErpContext();
+  const { state: s, branchId, busy: isBusy } = useVoucherEditorControllerQuery();
   const voucherMutationRequest = useVoucher();
   const voucherForm = useValidatedForm(voucherSchema, voucherMutationRequest.execute);
   const voucherMutation = { ...voucherMutationRequest, execute: voucherForm.submit };

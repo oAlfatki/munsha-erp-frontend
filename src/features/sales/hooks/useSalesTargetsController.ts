@@ -1,13 +1,18 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+
+
+
+
+
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
-import { extras } from '@/features/accounting/services/models/extensions';
+import { extras } from "@/features/accounting/public/extensions";
 import { useSalesTarget } from '@/features/sales/hooks/useSalesTarget';
+import { useSalesTargetsControllerQuery } from '@/features/sales/queries/useSalesTargetsControllerQuery';
 import { salesTargetSchema } from '@/features/sales/validation/sales-schema';
-import { tradeSummary } from '@/features/trade/services/models/trade-summary';
+import { tradeSummary } from "@/features/trade/public/trade-summary";
 import { useState } from 'react';
 export function useSalesTargetsController() {
-  const { state: s, branchId, busy: isBusy } = useErpContext();
+  const { state: s, branchId, busy: isBusy } = useSalesTargetsControllerQuery();
   const salesTargetMutationRequest = useSalesTarget(),
     salesTargetForm = useValidatedForm(salesTargetSchema, salesTargetMutationRequest.execute),
     salesTargetMutation = { ...salesTargetMutationRequest, execute: salesTargetForm.submit };

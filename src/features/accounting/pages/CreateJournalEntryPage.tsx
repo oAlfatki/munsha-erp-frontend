@@ -1,26 +1,13 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import type { PageDefinition } from '@/app/types/PageDefinition';
 import { JournalScreen } from '@/features/accounting/components/JournalEntryScreen';
-import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
-const DEFINITION: PageDefinition = {
-  id: 'journal-new',
-  module: 'accounts',
-  title: 'إضافة قيد يومي يدوي',
-  page: 151,
-  mode: 'journal',
-  note: 'قيد متزن بالعملة الأساسية. الحسابات الرقابية للمخزون والذمم والرواتب والأصول تتغير من مستنداتها فقط.',
-};
+import type { ScreenHeading } from '@/shared/types/ScreenHeading';
+const DEFINITION = {title:'إضافة قيد يومي يدوي',note:'قيد متزن بالعملة الأساسية. الحسابات الرقابية للمخزون والذمم والرواتب والأصول تتغير من مستنداتها فقط.'} satisfies ScreenHeading;
 /** إضافة قيد يومي يدوي — feature-owned route content. */
 export default function CreateJournalEntryPage() {
-  const featureData = useAccountingData();
+  
 
   return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="accounts~journal-new">
+    <section className="screen-page">
           <JournalScreen screen={DEFINITION} />
         </section>
-      }
-    </FeatureDataScope>
   );
 }

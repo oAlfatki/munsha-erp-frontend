@@ -1,12 +1,17 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+
+
+
+
+
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { usePartyForm } from '@/features/parties/hooks/usePartyForm';
-import { branchDefaults } from '@/features/settings/services/models/system-settings';
+import { usePartyForm } from "@/features/parties/public/usePartyForm";
+import { branchDefaults } from "@/features/settings/public/system-settings";
 import { useSaveSupplier } from '@/features/suppliers/hooks/useSaveSupplier';
+import { useSupplierEditorControllerQuery } from '@/features/suppliers/queries/useSupplierEditorControllerQuery';
 import type { SupplierEditorProps } from '@/features/suppliers/types/SupplierEditorProps';
 import { supplierInputSchema } from '@/features/suppliers/validation/suppliers-schema';
 export function useSupplierEditorController({ party }: SupplierEditorProps) {
-  const { state: s, branchId, busy: isBusy, navigate } = useErpContext();
+  const { state: s, branchId, busy: isBusy, navigate } = useSupplierEditorControllerQuery();
   const partyMutationRequest = useSaveSupplier();
   const partyForm = useValidatedForm(supplierInputSchema, partyMutationRequest.execute);
   const partyMutation = { ...partyMutationRequest, execute: partyForm.submit };

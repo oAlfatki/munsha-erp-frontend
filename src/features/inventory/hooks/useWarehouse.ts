@@ -1,15 +1,20 @@
+
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
+import { useWarehouseValidationData } from '@/features/inventory/queries/useWarehouseValidationData';
 import { saveWarehouse } from '@/features/inventory/services/inventory-service';
 import { validateInventoryCommand } from '@/features/inventory/validation/validate-inventory-command';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
 export function useWarehouse() {
-  const { state } = useErpContext();
-  return useCommandMutation('warehouse', saveWarehouse, (input) => {
+  const loadValidationData=useWarehouseValidationData();
+  return useCommandMutation('warehouse', saveWarehouse, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'warehouse', input);
-    validatePolicy(state, 'warehouse', input);
+    /* No setting-policy branch applies to this command; its own Zod schema validates the payload. */
     validateInventoryCommand(state, 'warehouse', input);
   });
 }

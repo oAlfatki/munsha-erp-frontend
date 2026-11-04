@@ -1,5 +1,5 @@
-import { ENDPOINTS } from '@/core/config/endpoints';
 import { apiClient } from '@/core/api/apiClient';
+import { ENDPOINTS } from '@/core/config/endpoints';
 import type { GetExpensesDocumentsByIdRequest } from '@/features/expenses/types/requests/GetExpensesDocumentsByIdRequest';
 import type { GetExpensesTypesByIdRequest } from '@/features/expenses/types/requests/GetExpensesTypesByIdRequest';
 import type { SearchExpensesDocumentsByIdConsumptionsRequest } from '@/features/expenses/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest';
@@ -14,9 +14,9 @@ import type { ExpenseTypeListResponse } from '@/features/expenses/types/response
 import type { ExpenseTypeResponse } from '@/features/expenses/types/responses/ExpenseTypeResponse';
 /** List expense types. Existing HTTP contract. */
 export async function fetchExpensesTypes(
-  params: SearchExpensesTypesRequest = {},
+  params: SearchExpensesTypesRequest = {},signal?:AbortSignal
 ): Promise<ExpenseTypeListResponse> {
-  return await apiClient.get<ExpenseTypeListResponse>(ENDPOINTS.fetchExpensesTypes,{params: {
+  return await apiClient.get<ExpenseTypeListResponse>(ENDPOINTS.fetchExpensesTypes,{signal,params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
@@ -32,9 +32,9 @@ export async function fetchExpensesTypesById(
 }
 /** List expense documents. Existing HTTP contract. */
 export async function fetchExpensesDocuments(
-  params: SearchExpensesDocumentsRequest = {},
+  params: SearchExpensesDocumentsRequest = {},signal?:AbortSignal
 ): Promise<ExpenseDocumentListResponse> {
-  return await apiClient.get<ExpenseDocumentListResponse>(ENDPOINTS.fetchExpensesDocuments,{params: {
+  return await apiClient.get<ExpenseDocumentListResponse>(ENDPOINTS.fetchExpensesDocuments,{signal,params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,

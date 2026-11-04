@@ -1,52 +1,53 @@
-import { useAuth } from '@/core/auth/AuthProvider';
-import { Modal } from '@/shared/ui/dialogs/Modal';
-import { Button } from '@/shared/ui/primitives/button';
-import { Input } from '@/shared/ui/primitives/input';
-import { MENU_ITEMS, menuLeaves } from '@/core/config/menu';
-import { useApplication } from '@/app/providers/ApplicationProvider';
 import { useCompanyData } from '@/app/providers/CompanyProvider';
+import { useAuth } from '@/core/auth/AuthProvider';
+import { MENU_ITEMS,menuLeaves } from '@/core/config/menu';
+import { ROUTES } from '@/core/config/navigation-paths';
+import { setReportIdentity } from '@/core/reporting/formatting';
 import { ModuleLinks } from '@/core/router/ModuleLinks';
 import { SectionNavigation } from '@/core/router/SectionNavigation';
 import {
-  applyDeviceSettings,
-  DEFAULT_DEVICE_SETTINGS,
-  readDeviceSettings,
+applyDeviceSettings,
+DEFAULT_DEVICE_SETTINGS,
+readDeviceSettings,
 } from '@/core/services/device-settings';
+import { useApplication } from '@/core/state/ApplicationProvider';
 import { ThemeToggle } from '@/core/theme/ThemeToggle';
-import { setReportIdentity } from '@/core/reporting/formatting';
-import { isArchived } from '@/features/accounting/services/models/annual-books';
+import { isArchived } from "@/features/accounting/public/annual-books";
 import { SessionMenu } from '@/features/auth/components/SessionMenu';
-import { fetchSearchItems } from '@/features/inventory/api/read-api';
+import { fetchSearchItems } from "@/features/inventory/public/read-api";
 import { AutomaticBackups } from '@/features/settings/components/AutomaticBackups';
 import { fetchAuditEvents } from '@/features/users/api/read-api';
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
 import { useQuery } from '@tanstack/react-query';
 import {
-  ArrowUpLeft,
-  Bell,
-  Boxes,
-  Building2,
-  ChartNoAxesCombined,
-  ChevronDown,
-  ChevronLeft,
-  CloudCheck,
-  ContactRound,
-  Landmark,
-  LayoutDashboard,
-  LoaderCircle,
-  Menu,
-  Package,
-  ReceiptText,
-  RefreshCw,
-  Search,
-  Settings2,
-  ShieldCheck,
-  ShoppingBag,
-  ShoppingCart,
-  Truck,
-  Users,
+ArrowUpLeft,
+Bell,
+Boxes,
+Building2,
+ChartNoAxesCombined,
+ChevronDown,
+ChevronLeft,
+CloudCheck,
+ContactRound,
+Landmark,
+LayoutDashboard,
+LoaderCircle,
+Menu,
+Package,
+ReceiptText,
+RefreshCw,
+Search,
+Settings2,
+ShieldCheck,
+ShoppingBag,
+ShoppingCart,
+Truck,
+Users,
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { Outlet, useMatches } from 'react-router-dom';
+import { useEffect,useState } from 'react';
+import { Outlet,useMatches } from 'react-router-dom';
 const NAV = [
   { id: 'dashboard', name: 'لوحة المتابعة', icon: LayoutDashboard },
   { id: 'access', name: 'المستخدمون والصلاحيات', icon: ShieldCheck },
@@ -63,7 +64,7 @@ const NAV = [
 ];
 export function DashboardLayout() {
   const { user } = useAuth();
-  const session = { user, signInHref: '/login', signOutHref: '/login' };
+  const session = { user, signInHref: ROUTES.LOGIN, signOutHref: ROUTES.LOGIN };
   const {
     state: s,
     loading: isLoading,
@@ -175,7 +176,7 @@ export function DashboardLayout() {
   return (
     <div className="app-shell">
       <aside className={'sidebar ' + (isMobile ? 'open' : '')}>
-        <button className="brand" onClick={() => go('/dashboard')}>
+        <button className="brand" onClick={() => go(ROUTES.DASHBOARD)}>
           <span className="brand-icon">
             {s.branding?.logo ? (
               <img src={s.branding.logo} alt="شعار المنصة" />
@@ -229,7 +230,7 @@ export function DashboardLayout() {
                       n.id === 'access'
                         ? '/access'
                         : n.id === 'accounts'
-                          ? '/accounting'
+                          ? ROUTES.ACCOUNTING
                           : '/' + n.id,
                     )
                   }
@@ -306,7 +307,7 @@ export function DashboardLayout() {
                 onChange={(e) => {
                   setBranchId(e.target.value);
                   if (view.endsWith('/new'))
-                    go(view === '/accounts~journal/new' ? '/accounting' : view.slice(0, -4));
+                    go(view === ROUTES.ACCOUNTING_JOURNAL_NEW ? ROUTES.ACCOUNTING : view.slice(0, -4));
                 }}
               >
                 {s.branches
@@ -370,7 +371,7 @@ export function DashboardLayout() {
                 السنة المالية {s.organization.year} ·{' '}
                 {isArchived(s) ? 'مؤرشفة — للعرض فقط' : 'مفتوحة'}
               </span>
-              <button onClick={() => go('/settings/annual-books')}>
+              <button onClick={() => go(ROUTES.SETTINGS_ANNUAL_BOOKS)}>
                 الفترات والترحيل
                 <ChevronLeft size={14} />
               </button>
@@ -413,7 +414,7 @@ export function DashboardLayout() {
             <button
               key={n.id}
               onClick={() =>
-                go(n.id === 'access' ? '/access' : n.id === 'accounts' ? '/accounting' : '/' + n.id)
+                go(n.id === 'access' ? '/access' : n.id === 'accounts' ? ROUTES.ACCOUNTING : '/' + n.id)
               }
             >
               <n.icon size={17} />
@@ -431,7 +432,7 @@ export function DashboardLayout() {
               </button>
             ))}
           {productSearch.data?.items.map((product) => (
-            <button key={product.id} onClick={() => go('/inventory/items')}>
+            <button key={product.id} onClick={() => go(ROUTES.INVENTORY_ITEMS)}>
               <Package size={17} />
               <span>{product.label}</span>
               <small>صنف</small>

@@ -1,13 +1,18 @@
+import { validateVoucherSettingsPolicy } from "@/features/settings/public/voucher-policy";
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
+import { useVoucherValidationData } from '@/features/accounting/queries/useVoucherValidationData';
 import { saveVoucher } from '@/features/accounting/services/accounting-service';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
 export function useVoucher() {
-  const { state } = useErpContext();
-  return useCommandMutation('voucher', saveVoucher, (input) => {
+  const loadValidationData=useVoucherValidationData();
+  return useCommandMutation('voucher', saveVoucher, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'voucher', input);
-    validatePolicy(state, 'voucher', input);
+    validateVoucherSettingsPolicy(state,input);
   });
 }

@@ -1,3 +1,22 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { exportDocument,printReport } from '@/core/reporting/service';
+import { fmt,today } from '@/core/utils/formatters';
+import { money } from '@/core/utils/money';
+import { isArchived } from "@/features/accounting/public/annual-books";
+import { balance } from "@/features/accounting/public/account-balances";
+import { ProductEditor } from "@/features/inventory/public/Catalog";
+import { useSalesReturnInvoiceQuery } from '@/features/sales/queries/useSalesReturnInvoiceQuery';
+import { usePartialReturn } from "@/features/trade/public/usePartialReturn";
+import { quoteReturn,returnRemaining } from "@/features/trade/public/partial-returns";
+import { invoiceReport } from "@/features/trade/public/build-invoice-document";
+import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import { partialReturnSchema } from "@/features/trade/public/trade-schema";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
@@ -6,27 +25,14 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { validateForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument, printReport } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
-import { money } from '@/core/utils/money';
-import { isArchived } from '@/features/accounting/services/models/annual-books';
-import { balance } from '@/features/accounting/utils/account-balances';
-import { ProductEditor } from '@/features/inventory/components/Catalog';
-import { invoiceReport } from '@/features/reports/services/models/report-documents';
-import { usePartialReturn } from '@/features/trade/hooks/usePartialReturn';
-import { quoteReturn, returnRemaining } from '@/features/trade/services/models/partial-returns';
-import type { Invoice } from '@/features/trade/types/models/Invoice';
-import { partialReturnSchema } from '@/features/trade/validation/trade-schema';
-import { Download, Plus, Printer, Save, Search, Undo2 } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Download,Plus,Printer,Save,Search,Undo2 } from 'lucide-react';
+import { useRef,useState } from 'react';
 export function SalesReturnInvoice() {
   const root = useRef<HTMLDivElement>(null);
-  const { state: s, branchId, busy: isBusy, navigate } = useErpContext();
+  const { state: s, branchId, busy: isBusy, navigate } = useSalesReturnInvoiceQuery();
   const partialReturnMutationRequest = usePartialReturn();
   const partialReturnForm = useValidatedForm(
     partialReturnSchema,
@@ -254,7 +260,7 @@ export function SalesReturnInvoice() {
         index={sources.findIndex((invoice) => invoice.id === id)}
         count={sources.length}
         onChange={(i) => choose(sources[i])}
-        onList={() => navigate('/sales')}
+        onList={() => navigate(ROUTES.SALES)}
       />
       {selected ? (
         <>

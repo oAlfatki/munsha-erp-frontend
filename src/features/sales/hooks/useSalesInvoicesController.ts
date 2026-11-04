@@ -1,12 +1,18 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { exportDocument, exportPdf } from '@/core/reporting/service';
-import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
-import { invoiceReport } from '@/features/reports/services/models/report-documents';
-import { invoiceEvents } from '@/features/trade/services/models/invoice-events';
-import type { Invoice } from '@/features/trade/types/models/Invoice';
-import { useEffect, useState } from 'react';
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { exportDocument,exportPdf } from '@/core/reporting/service';
+import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { useSalesInvoicesControllerQuery } from '@/features/sales/queries/useSalesInvoicesControllerQuery';
+import { invoiceEvents } from "@/features/trade/public/invoice-events";
+import { invoiceReport } from "@/features/trade/public/build-invoice-document";
+import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import { useEffect,useState } from 'react';
 export function useSalesInvoicesController() {
-  const { state: s, branchId, view, navigate, refresh, setEditingDocument } = useErpContext();
+  const { state: s, branchId, view, navigate, refresh, setEditingDocument } = useSalesInvoicesControllerQuery();
   const [searchQuery, setQ] = useState('');
   const [status, setStatus] = useState('all');
   const [documentType, setDocumentType] = useState('all');
@@ -17,7 +23,7 @@ export function useSalesInvoicesController() {
   const [isConfirm, setConfirm] = useState(false);
   useEffect(() => {
     if (view.endsWith('/new')) setEditor(null);
-    if (view.startsWith('/documents/')) setDetail(decodeURIComponent(view.split('/').at(-1)!));
+    if (view.startsWith(ROUTES.DOCUMENT_PREFIX)) setDetail(decodeURIComponent(view.split('/').at(-1)!));
   }, [view]);
   if (!s) return null;
   const label = 'المبيعات';
@@ -42,7 +48,7 @@ export function useSalesInvoicesController() {
   const close = () => {
     setEditingDocument(false);
     setEditor(undefined);
-    navigate('/sales');
+    navigate(ROUTES.SALES);
   };
   const csv = (docs: Invoice[]) =>
     docs.length === 1

@@ -1,10 +1,14 @@
-import { buildCashMovementReport } from '@/features/accounting/services/reports/build-cash-movement-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useCashMovementReportView } from '@/features/accounting/hooks/useCashMovementReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function CashMovementReport() {
+ const model=useCashMovementReportView({title:"حركة الصندوق",summaryColumns:[3, 4]});
+
   return (
     <ReportViewer
       title="حركة الصندوق"
-      buildData={buildCashMovementReport}
+      model={model}
       summaryColumns={[3, 4]}
       shouldShowFrom={true}
       isAsOf={false}

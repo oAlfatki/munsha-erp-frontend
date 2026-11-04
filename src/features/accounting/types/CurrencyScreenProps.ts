@@ -1,4 +1,4 @@
-import type { PageDefinition as Screen } from '@/app/types/PageDefinition';
+import type { ScreenHeading } from '@/shared/types/ScreenHeading';
 export interface CurrencyScreenProps {
-  screen: Screen;
+  screen:ScreenHeading;
 }

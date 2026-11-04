@@ -1,12 +1,15 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
+import { useApplication } from '@/core/state/ApplicationProvider';
+import { authApi } from '@/features/auth/api/auth-api';
+import type { SessionProps } from '@/features/auth/types/SessionProps';
+import { backupPolicyQuery } from "@/features/settings/public/backupPolicy-query";
+import { automaticBackup } from "@/features/settings/public/backup-files";
+import { backupPolicy } from "@/features/settings/public/backup-policy";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Button } from '@/shared/ui/primitives/button';
-import { useApplication } from '@/app/providers/ApplicationProvider';
-import { useCompanyData } from '@/app/providers/CompanyProvider';
-import { authRequest } from '@/features/auth/api/auth-client';
-import type { SessionProps } from '@/features/auth/types/SessionProps';
-import { automaticBackup } from '@/features/settings/services/backup-files';
-import { backupPolicy } from '@/features/settings/services/models/backup-policy';
-import { LogOut, ShieldCheck, UserRound } from 'lucide-react';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { LogOut,ShieldCheck,UserRound } from 'lucide-react';
 import { useState } from 'react';
 
 export function SessionMenu({
@@ -19,7 +22,7 @@ export function SessionMenu({
   const [isOpen, setOpen] = useState(false),
     [isLeaving, setLeaving] = useState(false),
     [error, setError] = useState('');
-  const { state: s } = useCompanyData();
+  const identity=useQueryIdentity(); const {data:backupSettings}=useSuspenseQuery(backupPolicyQuery(identity)); const s={backupSettings};
   const { navigate } = useApplication();
   async function handleLogout() {
     if (isEditing) return;
@@ -28,9 +31,9 @@ export function SessionMenu({
     try {
       if (s && user?.role === 'admin' && backupPolicy(s).mode === 'exit')
         await automaticBackup('exit');
-      await authRequest({ action: 'logout' });
+      await authApi.logout();
       if (user?.kind === 'owner') window.top!.location.href = signOutHref;
-      else window.location.href = '/login';
+      else window.location.href = ROUTES.LOGIN;
     } catch (e) {
       setError((e as Error).message);
       setLeaving(false);
@@ -79,7 +82,7 @@ export function SessionMenu({
                 variant="outline"
                 disabled={isEditing}
                 onClick={() => {
-                  navigate('/users/password');
+                  navigate(ROUTES.USERS_PASSWORD);
                   setOpen(false);
                 }}
               >
@@ -89,7 +92,7 @@ export function SessionMenu({
                 variant="outline"
                 disabled={isEditing}
                 onClick={() => {
-                  navigate('/users/sessions');
+                  navigate(ROUTES.USERS_SESSIONS);
                   setOpen(false);
                 }}
               >

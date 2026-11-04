@@ -1,3 +1,39 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import {
+DEFAULT_DEVICE_SETTINGS,
+readDeviceSettings,
+saveDeviceSettings,
+} from '@/core/services/device-settings';
+import { fmt } from '@/core/utils/formatters';
+import { isArchived } from "@/features/accounting/public/annual-books";
+import { cashOptions } from "@/features/accounting/public/cash";
+import { allAccounts } from "@/features/accounting/public/extensions";
+import { nextDocumentNumber,PREFIXES } from "@/features/accounting/public/numbering";
+import type { DocumentKind } from "@/features/accounting/public/types/models/DocumentKind";
+import { SETTINGS_TABS } from '@/features/settings/constants/settings-tabs';
+import { useOrganization } from '@/features/settings/hooks/useOrganization';
+import { useSystemSettings } from '@/features/settings/hooks/useSystemSettings';
+import { useSystemSettingsQuery } from '@/features/settings/queries/useSystemSettingsQuery';
+import {
+branchDefaults,
+operationCashId,
+systemSettings,
+} from "@/features/settings/public/system-settings";
+import type { GroupProps } from '@/features/settings/types/GroupProps';
+import type { LockedProps } from '@/features/settings/types/LockedProps';
+import type { SettingsTab } from '@/features/settings/types/models/SettingsTab';
+import type { SystemSettingsProps } from '@/features/settings/types/SystemSettingsProps';
+import type { ToggleProps } from '@/features/settings/types/ToggleProps';
+import {
+organizationSchema,
+systemSettingsSchema,
+} from "@/features/settings/public/settings-schema";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
@@ -5,41 +41,11 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import {
-  DEFAULT_DEVICE_SETTINGS,
-  readDeviceSettings,
-  saveDeviceSettings,
-} from '@/core/services/device-settings';
-import { fmt } from '@/core/utils/formatters';
-import { isArchived } from '@/features/accounting/services/models/annual-books';
-import { cashOptions } from '@/features/accounting/services/models/cash';
-import { allAccounts } from '@/features/accounting/services/models/extensions';
-import { nextDocumentNumber, PREFIXES } from '@/features/accounting/services/models/numbering';
-import type { DocumentKind } from '@/features/accounting/types/models/DocumentKind';
-import { SETTINGS_TABS } from '@/features/settings/constants/settings-tabs';
-import { useOrganization } from '@/features/settings/hooks/useOrganization';
-import { useSystemSettings } from '@/features/settings/hooks/useSystemSettings';
-import {
-  branchDefaults,
-  operationCashId,
-  systemSettings,
-} from '@/features/settings/services/models/system-settings';
-import type { GroupProps } from '@/features/settings/types/GroupProps';
-import type { LockedProps } from '@/features/settings/types/LockedProps';
-import type { SettingsTab } from '@/features/settings/types/models/SettingsTab';
-import type { SystemSettingsProps } from '@/features/settings/types/SystemSettingsProps';
-import type { ToggleProps } from '@/features/settings/types/ToggleProps';
-import {
-  organizationSchema,
-  systemSettingsSchema,
-} from '@/features/settings/validation/settings-schema';
-import { ArrowLeft, Database, Printer, Save, Undo2 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { ArrowLeft,Database,Printer,Save,Undo2 } from 'lucide-react';
+import { useEffect,useState } from 'react';
 import { toast } from 'sonner';
 
 function Toggle({ label, isChecked: isValue, onChange, note }: ToggleProps) {
@@ -76,7 +82,7 @@ function Group({ title, children }: GroupProps) {
 }
 
 export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) {
-  const { state: s, branchId, busy: isBusy, navigate } = useErpContext();
+  const { state: s, branchId, busy: isBusy, navigate } = useSystemSettingsQuery();
   const organizationMutationRequest = useOrganization(),
     organizationForm = useValidatedForm(organizationSchema, organizationMutationRequest.execute),
     organizationMutation = { ...organizationMutationRequest, execute: organizationForm.submit };
@@ -225,8 +231,8 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
           <div className="settings-services">
             <strong>خدمات البيانات</strong>
             {[
-              ['النسخ والاسترجاع', '/settings/backup'],
-              ['الاتصال والترحيل', '/settings/annual-books'],
+              ['النسخ والاسترجاع', ROUTES.SETTINGS_BACKUP],
+              ['الاتصال والترحيل', ROUTES.SETTINGS_ANNUAL_BOOKS],
             ].map(([title, path]) => (
               <button key={path} onClick={() => navigate(path)}>
                 {title}
@@ -333,7 +339,7 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => navigate('/settings/branches')}
+                    onClick={() => navigate(ROUTES.SETTINGS_BRANCHES)}
                   >
                     إدارة الفروع
                   </Button>
@@ -375,7 +381,7 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
                     <Button
                       type="button"
                       variant="outline"
-                      onClick={() => navigate('/accounting/tax-report')}
+                      onClick={() => navigate(ROUTES.ACCOUNTING_TAX_REPORT)}
                     >
                       تقرير الضرائب
                     </Button>
@@ -436,7 +442,7 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => navigate('/settings/annual-books')}
+                    onClick={() => navigate(ROUTES.SETTINGS_ANNUAL_BOOKS)}
                   >
                     إدارة السنة والترحيل
                   </Button>
@@ -466,7 +472,7 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => navigate('/accounting/accounts')}
+                    onClick={() => navigate(ROUTES.ACCOUNTING_ACCOUNTS)}
                   >
                     فتح دليل الحسابات
                   </Button>
@@ -1001,7 +1007,7 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
                   <Button
                     type="button"
                     variant="outline"
-                    onClick={() => navigate('/settings/backup')}
+                    onClick={() => navigate(ROUTES.SETTINGS_BACKUP)}
                   >
                     <Database size={16} />
                     النسخ ونقاط الاسترجاع
@@ -1009,7 +1015,7 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
                   <Button
                     type="button"
                     variant="link"
-                    onClick={() => navigate('/settings/backup-policy')}
+                    onClick={() => navigate(ROUTES.SETTINGS_BACKUP_POLICY)}
                   >
                     إعدادات النسخ الاحتياطي
                   </Button>

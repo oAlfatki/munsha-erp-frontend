@@ -1,5 +1,5 @@
-import { Input } from '@/shared/ui/primitives/input';
 import type { SearchBoxProps } from '@/core/types/SearchBoxProps';
+import { Input } from '@/shared/ui/primitives/input';
 import { Search } from 'lucide-react';
 
 export function SearchBox({

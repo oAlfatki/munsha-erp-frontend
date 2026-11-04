@@ -1,16 +1,17 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { fmt } from '@/core/utils/formatters';
+import { money } from '@/core/utils/money';
+import { cashOptions } from "@/features/accounting/public/cash";
+import { expenseForeignPaid } from '@/features/expenses/services/models/expenses';
+import type { ExpenseEditorProps } from '@/features/expenses/types/ExpenseEditorProps';
+import type { ExpenseTreatment } from '@/features/expenses/types/models/ExpenseTreatment';
+import { LABELS } from '@/features/expenses/utils/treatments';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { fmt } from '@/core/utils/formatters';
-import { money } from '@/core/utils/money';
-import { cashOptions } from '@/features/accounting/services/models/cash';
-import { expenseForeignPaid } from '@/features/expenses/services/models/expenses';
-import type { ExpenseEditorProps } from '@/features/expenses/types/ExpenseEditorProps';
-import type { ExpenseTreatment } from '@/features/expenses/types/models/ExpenseTreatment';
-import { LABELS } from '@/features/expenses/utils/treatments';
 export function ExpenseEditor({ controller }: ExpenseEditorProps) {
   const {
     s: workspace,
@@ -224,7 +225,7 @@ export function ExpenseEditor({ controller }: ExpenseEditorProps) {
           القيمة المحلية: {fmt(money(edit.amount * edit.rate))} YER.{' '}
           {edit.currency !== workspace.organization.currency &&
             'راجع سعر الصرف؛ السداد في هذه النسخة بعملة المصروف وسعره المثبت.'}{' '}
-          <Button type="button" variant="link" onClick={() => navigate('/accounting/cash-bank')}>
+          <Button type="button" variant="link" onClick={() => navigate(ROUTES.ACCOUNTING_CASH_BANK)}>
             إضافة صندوق أو بنك
           </Button>
         </div>

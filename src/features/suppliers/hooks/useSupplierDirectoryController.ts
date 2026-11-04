@@ -1,10 +1,15 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
-import type { Party } from '@/features/parties/types/models/Party';
+
+
+
+
+
+import type { Party } from "@/features/parties/public/types/models/Party";
 import { useSuppliersProjection } from '@/features/suppliers/hooks/useSuppliersProjection';
+import { useSupplierDirectoryControllerQuery } from '@/features/suppliers/queries/useSupplierDirectoryControllerQuery';
 import { useState } from 'react';
 export function useSupplierDirectoryController() {
   const { data: parties = [] } = useSuppliersProjection();
-  const { state: s, navigate, view } = useErpContext();
+  const { state: s, navigate, view } = useSupplierDirectoryControllerQuery();
   const [searchQuery, setQ] = useState('');
   const [group, setGroup] = useState('');
   const [editing, setEditing] = useState<Party | null | undefined>(() =>

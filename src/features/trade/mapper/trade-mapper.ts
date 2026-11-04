@@ -1,13 +1,13 @@
 import type { DeleteDraftRequest } from '@/features/trade/types/requests/DeleteDraftRequest';
-import type { SaveInvoiceRequest } from '@/features/trade/types/requests/SaveInvoiceRequest';
+import type { SaveInvoiceRequest } from "@/features/trade/public/types/requests/SaveInvoiceRequest";
 import type { SavePartialReturnRequest } from '@/features/trade/types/requests/SavePartialReturnRequest';
 import type { SaveReturnRequest } from '@/features/trade/types/requests/SaveReturnRequest';
 import {
-  deleteDraftSchema,
-  invoiceSchema,
-  partialReturnSchema,
-  returnSchema,
-} from '@/features/trade/validation/trade-schema';
+deleteDraftSchema,
+invoiceSchema,
+partialReturnSchema,
+returnSchema,
+} from "@/features/trade/public/trade-schema";
 export const mapInvoiceInput = (input: unknown): SaveInvoiceRequest =>
   invoiceSchema.parse(input) as SaveInvoiceRequest;
 export const mapDeleteDraftInput = (input: unknown): DeleteDraftRequest =>

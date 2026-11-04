@@ -1,44 +1,49 @@
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { printReport } from '@/core/reporting/service';
+import { fmt,today } from '@/core/utils/formatters';
+import { money } from '@/core/utils/money';
+import { cashOptions } from "@/features/accounting/public/cash";
+import { ProductEditor } from "@/features/inventory/public/Catalog";
+import { useSalesInvoiceEditorQuery } from '@/features/sales/queries/useSalesInvoiceEditorQuery';
+import type { SalesInvoiceEditorProps } from '@/features/sales/types/SalesInvoiceEditorProps';
+import {
+branchDefaults,
+operationCashId,
+systemSettings,
+} from "@/features/settings/public/system-settings";
+import { InvoiceLineGrid } from "@/features/trade/public/InvoiceLineGrid";
+import { InvoiceLookup } from "@/features/trade/public/InvoiceLookup";
+import { InvoiceTotals } from "@/features/trade/public/InvoiceTotals";
+import { useInvoice } from "@/features/trade/public/useInvoice";
+import { allocateInvoiceDiscount } from "@/features/trade/public/invoice-discounts";
+import { invoiceSummary } from "@/features/trade/public/presentation";
+import { invoiceReport } from "@/features/trade/public/build-invoice-document";
+import type { Invoice } from "@/features/trade/public/types/models/Invoice";
+import type { InvoiceLine } from "@/features/trade/public/types/models/InvoiceLine";
+import { invoiceSchema } from "@/features/trade/public/trade-schema";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { validateForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { printReport } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
-import { money } from '@/core/utils/money';
-import { cashOptions } from '@/features/accounting/services/models/cash';
-import { ProductEditor } from '@/features/inventory/components/Catalog';
-import { invoiceReport } from '@/features/reports/services/models/report-documents';
-import type { SalesInvoiceEditorProps } from '@/features/sales/types/SalesInvoiceEditorProps';
-import {
-  branchDefaults,
-  operationCashId,
-  systemSettings,
-} from '@/features/settings/services/models/system-settings';
-import { InvoiceLineGrid } from '@/features/trade/components/InvoiceLineGrid';
-import { InvoiceLookup } from '@/features/trade/components/InvoiceLookup';
-import { InvoiceTotals } from '@/features/trade/components/InvoiceTotals';
-import { useInvoice } from '@/features/trade/hooks/useInvoice';
-import { allocateInvoiceDiscount } from '@/features/trade/services/models/invoice-discounts';
-import { invoiceSummary } from '@/features/trade/services/models/presentation';
-import type { Invoice } from '@/features/trade/types/models/Invoice';
-import type { InvoiceLine } from '@/features/trade/types/models/InvoiceLine';
-import { invoiceSchema } from '@/features/trade/validation/trade-schema';
-import { ArrowRight, Save } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { ArrowRight,Save } from 'lucide-react';
+import { useEffect,useRef,useState } from 'react';
 export function SalesInvoiceEditor({
   invoice,
   onClose: close,
   onLoad,
   onNew,
 }: SalesInvoiceEditorProps) {
-  const { state: s, branchId, busy: isBusy, setEditingDocument } = useErpContext();
+  const { state: s, branchId, busy: isBusy, setEditingDocument } = useSalesInvoiceEditorQuery();
   const invoiceMutationRequest = useInvoice();
   const invoiceForm = useValidatedForm(invoiceSchema, invoiceMutationRequest.execute);
   const invoiceMutation = { ...invoiceMutationRequest, execute: invoiceForm.submit };

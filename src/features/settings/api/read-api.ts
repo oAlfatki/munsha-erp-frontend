@@ -1,5 +1,5 @@
-import { ENDPOINTS } from '@/core/config/endpoints';
 import { apiClient } from '@/core/api/apiClient';
+import { ENDPOINTS } from '@/core/config/endpoints';
 import type { GetBranchesByIdRequest } from '@/features/settings/types/requests/GetBranchesByIdRequest';
 import type { GetSettingsBackupPolicyRequest } from '@/features/settings/types/requests/GetSettingsBackupPolicyRequest';
 import type { GetSettingsBrandingRequest } from '@/features/settings/types/requests/GetSettingsBrandingRequest';
@@ -38,9 +38,9 @@ import type { SystemSettingsResponse } from '@/features/settings/types/responses
 import type { SystemSettingsSalesResponse } from '@/features/settings/types/responses/SystemSettingsSalesResponse';
 /** List branches. Existing HTTP contract. */
 export async function fetchBranches(
-  params: SearchBranchesRequest = {},
+  params: SearchBranchesRequest = {},signal?:AbortSignal
 ): Promise<BranchListResponse> {
-  return await apiClient.get<BranchListResponse>(ENDPOINTS.fetchBranches,{params: {
+  return await apiClient.get<BranchListResponse>(ENDPOINTS.fetchBranches,{signal,params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,
@@ -54,27 +54,27 @@ export async function fetchBranchesById(params: GetBranchesByIdRequest): Promise
 }
 /** Get company settings. Existing HTTP contract. */
 export async function fetchSettingsCompany(
-  params: GetSettingsCompanyRequest = {},
+  params: GetSettingsCompanyRequest = {},signal?:AbortSignal
 ): Promise<OrganizationResponse> {
-  return await apiClient.get<OrganizationResponse>(ENDPOINTS.fetchSettingsCompany,{params: { bookId: params.bookId }});
+  return await apiClient.get<OrganizationResponse>(ENDPOINTS.fetchSettingsCompany,{signal,params: { bookId: params.bookId }});
 }
 /** Get white-label branding. Existing HTTP contract. */
 export async function fetchSettingsBranding(
-  params: GetSettingsBrandingRequest = {},
+  params: GetSettingsBrandingRequest = {},signal?:AbortSignal
 ): Promise<BrandingResponse> {
-  return await apiClient.get<BrandingResponse>(ENDPOINTS.fetchSettingsBranding,{params: { bookId: params.bookId }});
+  return await apiClient.get<BrandingResponse>(ENDPOINTS.fetchSettingsBranding,{signal,params: { bookId: params.bookId }});
 }
 /** Get all persisted system settings. Existing HTTP contract. */
 export async function fetchSettingsSystem(
-  params: GetSettingsSystemRequest = {},
+  params: GetSettingsSystemRequest = {},signal?:AbortSignal
 ): Promise<SystemSettingsResponse> {
-  return await apiClient.get<SystemSettingsResponse>(ENDPOINTS.fetchSettingsSystem,{params: { bookId: params.bookId }});
+  return await apiClient.get<SystemSettingsResponse>(ENDPOINTS.fetchSettingsSystem,{signal,params: { bookId: params.bookId }});
 }
 /** Get automatic backup policy. Existing HTTP contract. */
 export async function fetchSettingsBackupPolicy(
-  params: GetSettingsBackupPolicyRequest = {},
+  params: GetSettingsBackupPolicyRequest = {},signal?:AbortSignal
 ): Promise<BackupPolicyResponse> {
-  return await apiClient.get<BackupPolicyResponse>(ENDPOINTS.fetchSettingsBackupPolicy,{params: { bookId: params.bookId }});
+  return await apiClient.get<BackupPolicyResponse>(ENDPOINTS.fetchSettingsBackupPolicy,{signal,params: { bookId: params.bookId }});
 }
 /** Get accounting settings. Existing HTTP contract. */
 export async function fetchSettingsSystemAccounting(

@@ -1,25 +1,30 @@
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { exportDocument,printReport } from '@/core/reporting/service';
+import type { ReportDocument } from '@/core/types/ReportDocument';
+import { fmt } from '@/core/utils/formatters';
+import { isArchived } from "@/features/accounting/public/annual-books";
+import { extras } from "@/features/accounting/public/extensions";
+import { usePriceList } from "@/features/inventory/public/usePriceList";
+import { priceRows } from "@/features/inventory/public/price-list";
+import type { PriceFilters } from "@/features/inventory/public/types/models/PriceFilters";
+import { priceListSchema } from "@/features/inventory/public/inventory-schema";
+import { usePriceListQuery } from '@/features/sales/queries/usePriceListQuery';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument, printReport } from '@/core/reporting/service';
-import type { ReportDocument } from '@/core/types/ReportDocument';
-import { fmt } from '@/core/utils/formatters';
-import { isArchived } from '@/features/accounting/services/models/annual-books';
-import { extras } from '@/features/accounting/services/models/extensions';
-import { usePriceList } from '@/features/inventory/hooks/usePriceList';
-import { priceRows } from '@/features/inventory/services/models/price-list';
-import type { PriceFilters } from '@/features/inventory/types/models/PriceFilters';
-import { priceListSchema } from '@/features/inventory/validation/inventory-schema';
-import { Download, Eye, Printer, Save, Undo2 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Download,Eye,Printer,Save,Undo2 } from 'lucide-react';
+import { useEffect,useState } from 'react';
 import { toast } from 'sonner';
 export function PriceList() {
-  const { state: s, busy: isBusy, setEditingDocument } = useErpContext();
+  const { state: s, busy: isBusy, setEditingDocument } = usePriceListQuery();
   const priceListMutationRequest = usePriceList(),
     priceListForm = useValidatedForm(priceListSchema, priceListMutationRequest.execute),
     priceListMutation = { ...priceListMutationRequest, execute: priceListForm.submit };

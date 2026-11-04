@@ -1,5 +1,5 @@
-import { ENDPOINTS } from '@/core/config/endpoints';
 import { apiClient } from '@/core/api/apiClient';
+import { ENDPOINTS } from '@/core/config/endpoints';
 import type { GetFinancialStatementsIncomeRequest } from '@/features/financial/types/requests/GetFinancialStatementsIncomeRequest';
 import type { GetFinancialStatementsPositionRequest } from '@/features/financial/types/requests/GetFinancialStatementsPositionRequest';
 import type { SearchReportsFinancialAccountMappingRequest } from '@/features/financial/types/requests/SearchReportsFinancialAccountMappingRequest';

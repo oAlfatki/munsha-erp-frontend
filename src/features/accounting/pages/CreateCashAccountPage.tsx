@@ -1,15 +1,6 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import type { PageDefinition } from '@/app/types/PageDefinition';
-import { MasterScreen } from '@/features/accounting/components/MasterDataScreen';
-import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
-const DEFINITION: PageDefinition = {
-  id: 'cash-bank',
-  module: 'accounts',
-  title: 'إضافة الصناديق والبنوك',
-  page: 155,
-  mode: 'master',
-  collection: 'cash',
-  fields: [
+import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
+import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
+const DEFINITION = {title:'إضافة الصناديق والبنوك',note:'الصناديق مرتبطة بالفرع والعملة والحساب؛ سند صرف المصروف يستخدم الصندوق المحدد. الفواتير والسندات العامة تستخدم الصندوق الرئيسي في هذه النسخة.',collection:'cash',fields:[
     {
       key: 'name',
       label: 'اسم الصندوق أو البنك',
@@ -61,20 +52,14 @@ const DEFINITION: PageDefinition = {
       type: 'account',
       required: false,
     },
-  ],
-  note: 'الصناديق مرتبطة بالفرع والعملة والحساب؛ سند صرف المصروف يستخدم الصندوق المحدد. الفواتير والسندات العامة تستخدم الصندوق الرئيسي في هذه النسخة.',
-};
+  ],initiallyOpen:true,showCashListLink:true} satisfies MasterFormDefinition;
 /** إضافة الصناديق والبنوك — feature-owned route content. */
 export default function CreateCashAccountPage() {
-  const featureData = useAccountingData();
+  
 
   return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="accounts~cash-bank">
+    <section className="screen-page">
           <MasterScreen screen={DEFINITION} />
         </section>
-      }
-    </FeatureDataScope>
   );
 }

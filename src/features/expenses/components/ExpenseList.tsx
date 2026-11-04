@@ -1,3 +1,10 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { exportPdf } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { cashOptions } from "@/features/accounting/public/cash";
+import { TREATMENT_LABELS } from '@/features/expenses/services/models/expenses';
+import type { ExpenseListProps } from '@/features/expenses/types/ExpenseListProps';
+import { LABELS } from '@/features/expenses/utils/treatments';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -6,16 +13,10 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { ReportActions } from '@/shared/ui/reports/ReportActions';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { exportPdf } from '@/core/reporting/service';
-import { fmt } from '@/core/utils/formatters';
-import { cashOptions } from '@/features/accounting/services/models/cash';
-import { TREATMENT_LABELS } from '@/features/expenses/services/models/expenses';
-import type { ExpenseListProps } from '@/features/expenses/types/ExpenseListProps';
-import { LABELS } from '@/features/expenses/utils/treatments';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 export function ExpenseList({ controller }: ExpenseListProps) {
   const {
     s: workspace,
@@ -54,7 +55,7 @@ export function ExpenseList({ controller }: ExpenseListProps) {
       <PageHead
         title={'قائمة المصروفات'}
         description="مصروفات حالية ومستحقة ومقدمة في سجل موحد."
-        onAction={() => navigate('/expenses/add')}
+        onAction={() => navigate(ROUTES.EXPENSES_ADD)}
         label="إضافة مصروف"
         extra={
           <ReportActions

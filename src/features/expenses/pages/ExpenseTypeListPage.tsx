@@ -1,15 +1,6 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import type { PageDefinition } from '@/app/types/PageDefinition';
-import { MasterScreen } from '@/features/accounting/components/MasterDataScreen';
-import { useExpensesData } from '@/features/expenses/hooks/useExpensesData';
-const DEFINITION: PageDefinition = {
-  id: 'expense-types',
-  module: 'expenses',
-  title: 'أنواع المصروفات',
-  page: 114,
-  mode: 'master',
-  collection: 'expenseTypes',
-  fields: [
+import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
+import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
+const DEFINITION = {title:'أنواع المصروفات',collection:'expenseTypes',fields:[
     {
       key: 'name',
       label: 'اسم نوع المصروف',
@@ -28,19 +19,14 @@ const DEFINITION: PageDefinition = {
       type: 'text',
       required: false,
     },
-  ],
-};
+  ]} satisfies MasterFormDefinition;
 /** أنواع المصروفات — feature-owned route content. */
 export default function ExpenseTypeListPage() {
-  const featureData = useExpensesData();
+  
 
   return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="expenses~expense-types">
+    <section className="screen-page">
           <MasterScreen screen={DEFINITION} />
         </section>
-      }
-    </FeatureDataScope>
   );
 }

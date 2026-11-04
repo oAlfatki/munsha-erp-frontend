@@ -1,13 +1,18 @@
+
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
+import { useSystemSettingsValidationData } from '@/features/settings/queries/useSystemSettingsValidationData';
 import { saveSystemSettings } from '@/features/settings/services/settings-service';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
 export function useSystemSettings() {
-  const { state } = useErpContext();
-  return useCommandMutation('systemSettings', saveSystemSettings, (input) => {
+  const loadValidationData=useSystemSettingsValidationData();
+  return useCommandMutation('systemSettings', saveSystemSettings, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'systemSettings', input);
-    validatePolicy(state, 'systemSettings', input);
+    /* No setting-policy branch applies to this command; its own Zod schema validates the payload. */
   });
 }

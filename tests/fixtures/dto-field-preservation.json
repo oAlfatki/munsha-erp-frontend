@@ -1247,7 +1247,7 @@
       "src/features/auth/types/responses/AuthResponse.ts",
       "src/features/auth/types/responses/AuthUser.ts",
       "src/features/auth/types/responses/AuthSession.ts",
-      "src/features/auth/types/responses/AuthActionResponse.ts"
+      "src/features/auth/public/types/responses/AuthActionResponse.ts"
     ],
     "expected": [
       {
@@ -1422,8 +1422,8 @@
   {
     "file": "src/features/customers/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/parties/types/responses/PartyListResponse.ts",
-      "src/features/parties/types/responses/PartyResponse.ts",
+      "src/features/parties/public/types/responses/PartyListResponse.ts",
+      "src/features/parties/public/types/responses/PartyResponse.ts",
       "src/features/parties/types/responses/PartyGroupListResponse.ts",
       "src/features/parties/types/responses/PartyGroupResponse.ts"
     ],
@@ -1855,8 +1855,8 @@
     "currentFiles": [
       "src/features/employees/types/responses/EmployeeListResponse.ts",
       "src/features/employees/types/responses/EmployeeResponse.ts",
-      "src/features/employees/types/responses/OperationListResponse.ts",
-      "src/features/employees/types/responses/OperationResponse.ts"
+      "src/features/employees/public/types/responses/OperationListResponse.ts",
+      "src/features/employees/public/types/responses/OperationResponse.ts"
     ],
     "expected": [
       {
@@ -3933,7 +3933,7 @@
   {
     "file": "src/features/parties/types/request/parties-request.types.ts",
     "currentFiles": [
-      "src/features/parties/types/requests/SavePartyRequest.ts"
+      "src/features/parties/public/types/requests/SavePartyRequest.ts"
     ],
     "expected": [
       {
@@ -6111,11 +6111,11 @@
     "currentFiles": [
       "src/features/sales/types/responses/SalesTargetListResponse.ts",
       "src/features/sales/types/responses/SalesTargetResponse.ts",
-      "src/features/sales/types/responses/InvoiceListResponse.ts",
-      "src/features/sales/types/responses/InvoiceResponse.ts",
-      "src/features/sales/types/responses/InvoiceReturnListResponse.ts",
-      "src/features/sales/types/responses/InvoiceReturnResponse.ts",
-      "src/features/sales/types/responses/ReturnAvailabilityResponse.ts"
+      "src/features/sales/public/types/responses/InvoiceListResponse.ts",
+      "src/features/sales/public/types/responses/InvoiceResponse.ts",
+      "src/features/sales/public/types/responses/InvoiceReturnListResponse.ts",
+      "src/features/sales/public/types/responses/InvoiceReturnResponse.ts",
+      "src/features/sales/public/types/responses/ReturnAvailabilityResponse.ts"
     ],
     "expected": [
       {
@@ -7756,7 +7756,7 @@
   {
     "file": "src/features/trade/types/request/trade-request.types.ts",
     "currentFiles": [
-      "src/features/trade/types/requests/SaveInvoiceRequest.ts",
+      "src/features/trade/public/types/requests/SaveInvoiceRequest.ts",
       "src/features/trade/types/requests/DeleteDraftRequest.ts",
       "src/features/trade/types/requests/SaveReturnRequest.ts",
       "src/features/trade/types/requests/SavePartialReturnRequest.ts"
@@ -8014,7 +8014,7 @@
       "src/features/users/types/responses/SessionResponse.ts",
       "src/features/users/types/responses/PermissionResponse.ts",
       "src/features/users/types/responses/AuditEventListResponse.ts",
-      "src/features/users/types/responses/AuditEventResponse.ts"
+      "src/features/users/public/types/responses/AuditEventResponse.ts"
     ],
     "expected": [
       {

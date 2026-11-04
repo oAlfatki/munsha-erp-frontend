@@ -32,7 +32,7 @@
     ]
   },
   {
-    "file": "src/features/accounting/api/read-api.ts",
+    "file": "src/features/accounting/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -1653,7 +1653,7 @@
     ]
   },
   {
-    "file": "src/features/employees/api/read-api.ts",
+    "file": "src/features/employees/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -3009,7 +3009,7 @@
     ]
   },
   {
-    "file": "src/features/inventory/api/read-api.ts",
+    "file": "src/features/inventory/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -4107,7 +4107,7 @@
     ]
   },
   {
-    "file": "src/features/purchases/api/read-api.ts",
+    "file": "src/features/purchases/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -6020,7 +6020,7 @@
     ]
   },
   {
-    "file": "src/features/sales/api/read-api.ts",
+    "file": "src/features/sales/public/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",

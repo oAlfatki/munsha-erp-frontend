@@ -1,10 +1,14 @@
-import { buildStagnantStockReport } from '@/features/inventory/services/reports/build-stagnant-stock-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useStagnantStockReportView } from '@/features/inventory/hooks/useStagnantStockReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function StagnantStockReport() {
+ const model=useStagnantStockReportView({title:"الأصناف الراكدة",summaryColumns:[5]});
+
   return (
     <ReportViewer
       title="الأصناف الراكدة"
-      buildData={buildStagnantStockReport}
+      model={model}
       summaryColumns={[5]}
       shouldShowFrom={true}
       isAsOf={true}

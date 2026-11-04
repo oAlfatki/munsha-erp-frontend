@@ -1,11 +1,12 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { extras } from "@/features/accounting/public/extensions";
+import { useSupplierEditorController } from '@/features/suppliers/hooks/useSupplierEditorController';
+import type { SupplierEditorProps } from '@/features/suppliers/types/SupplierEditorProps';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { extras } from '@/features/accounting/services/models/extensions';
-import { useSupplierEditorController } from '@/features/suppliers/hooks/useSupplierEditorController';
-import type { SupplierEditorProps } from '@/features/suppliers/types/SupplierEditorProps';
 
 export function SupplierEditor({ party, onClose: close }: SupplierEditorProps) {
   const model = useSupplierEditorController({ party, onClose: close });
@@ -97,7 +98,7 @@ export function SupplierEditor({ party, onClose: close }: SupplierEditorProps) {
               type="button"
               variant="outline"
               onClick={() => {
-                navigate('/accounting/action/' + party.id);
+                navigate(ROUTES.ACCOUNT_STATEMENT_PREFIX + party.id);
                 close();
               }}
             >

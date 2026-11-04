@@ -1,4 +1,2 @@
-import type { PageDefinition as Screen } from '@/app/types/PageDefinition';
-export interface MasterScreenProps {
-  screen: Screen;
-}
+import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
+export interface MasterScreenProps{screen:MasterFormDefinition;}

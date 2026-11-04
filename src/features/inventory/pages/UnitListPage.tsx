@@ -1,15 +1,6 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import type { PageDefinition } from '@/app/types/PageDefinition';
-import { MasterScreen } from '@/features/accounting/components/MasterDataScreen';
-import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
-const DEFINITION: PageDefinition = {
-  id: 'units',
-  module: 'inventory',
-  title: 'قائمة الوحدات',
-  page: 82,
-  mode: 'master',
-  collection: 'units',
-  fields: [
+import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
+import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
+const DEFINITION = {title:'قائمة الوحدات',collection:'units',fields:[
     {
       key: 'name',
       label: 'اسم الوحدة',
@@ -27,19 +18,14 @@ const DEFINITION: PageDefinition = {
         ['3', 'ثلاثية'],
       ],
     },
-  ],
-};
+  ]} satisfies MasterFormDefinition;
 /** قائمة الوحدات — feature-owned route content. */
 export default function UnitListPage() {
-  const featureData = useInventoryData();
+  
 
   return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="inventory~units">
+    <section className="screen-page">
           <MasterScreen screen={DEFINITION} />
         </section>
-      }
-    </FeatureDataScope>
   );
 }

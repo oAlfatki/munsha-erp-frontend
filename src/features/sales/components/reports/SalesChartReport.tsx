@@ -1,11 +1,15 @@
+
+
 import { fmt } from '@/core/utils/formatters';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
-import { buildSalesChartReport } from '@/features/sales/services/reports/build-sales-chart-report';
+import { useSalesChartReportView } from '@/features/sales/hooks/useSalesChartReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function SalesChartReport() {
+ const model=useSalesChartReportView({title:"الرسم البياني لحركة المبيعات",summaryColumns:[2]});
+
   return (
     <ReportViewer
       title="الرسم البياني لحركة المبيعات"
-      buildData={buildSalesChartReport}
+      model={model}
       summaryColumns={[2]}
       shouldShowFrom={true}
       isAsOf={false}

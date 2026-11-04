@@ -1,15 +1,6 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import type { PageDefinition } from '@/app/types/PageDefinition';
-import { MasterScreen } from '@/features/accounting/components/MasterDataScreen';
-import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
-const DEFINITION: PageDefinition = {
-  id: 'groups',
-  module: 'inventory',
-  title: 'قائمة المجموعات',
-  page: 83,
-  mode: 'master',
-  collection: 'productGroups',
-  fields: [
+import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
+import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
+const DEFINITION = {title:'قائمة المجموعات',note:'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',collection:'productGroups',fields:[
     {
       key: 'name',
       label: 'اسم المجموعة',
@@ -22,20 +13,14 @@ const DEFINITION: PageDefinition = {
       type: 'text',
       required: false,
     },
-  ],
-  note: 'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',
-};
+  ]} satisfies MasterFormDefinition;
 /** قائمة المجموعات — feature-owned route content. */
 export default function ItemGroupListPage() {
-  const featureData = useInventoryData();
+  
 
   return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="inventory~groups">
+    <section className="screen-page">
           <MasterScreen screen={DEFINITION} />
         </section>
-      }
-    </FeatureDataScope>
   );
 }

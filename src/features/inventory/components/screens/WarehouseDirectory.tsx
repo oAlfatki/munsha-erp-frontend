@@ -1,3 +1,14 @@
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { printReport } from '@/core/reporting/service';
+import { useWarehouse } from '@/features/inventory/hooks/useWarehouse';
+import { useWarehouseDirectoryQuery } from '@/features/inventory/queries/useWarehouseDirectoryQuery';
+import type { WarehouseDirectoryProps } from '@/features/inventory/types/WarehouseDirectoryProps';
+import { warehouseSchema } from "@/features/inventory/public/inventory-schema";
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -6,16 +17,10 @@ import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { printReport } from '@/core/reporting/service';
-import { useWarehouse } from '@/features/inventory/hooks/useWarehouse';
-import type { WarehouseDirectoryProps } from '@/features/inventory/types/WarehouseDirectoryProps';
-import { warehouseSchema } from '@/features/inventory/validation/inventory-schema';
-import { Printer, Save } from 'lucide-react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Printer,Save } from 'lucide-react';
 import { useState } from 'react';
 export function WarehouseDirectory({
   shouldInitiallyAdd: isInitiallyAdd = false,
@@ -28,7 +33,7 @@ export function WarehouseDirectory({
     mode: 'locations',
     collection: 'warehouse',
   };
-  const { state: s, busy: isBusy, branchId } = useErpContext();
+  const { state: s, busy: isBusy, branchId } = useWarehouseDirectoryQuery();
   const warehouseMutationRequest = useWarehouse();
   const warehouseForm = useValidatedForm(warehouseSchema, warehouseMutationRequest.execute);
   const warehouseMutation = { ...warehouseMutationRequest, execute: warehouseForm.submit };

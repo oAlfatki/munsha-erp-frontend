@@ -1,30 +1,36 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { exportPdf } from '@/core/reporting/service';
+import { fmt,today } from '@/core/utils/formatters';
+import { money } from '@/core/utils/money';
+import { useContactEntry } from '@/features/accounting/hooks/useContactEntry';
+import { useContactVoucher } from '@/features/accounting/hooks/useContactVoucher';
+import { useContactsLedgerQuery } from '@/features/accounting/queries/useContactsLedgerQuery';
+import { cashOptions,defaultCashId } from "@/features/accounting/public/cash";
+import { allAccounts,extras } from "@/features/accounting/public/extensions";
+import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import {
+contactEntrySchema,
+contactVoucherSchema,
+} from "@/features/accounting/public/accounting-schema";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { ReportActions } from '@/shared/ui/reports/ReportActions';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
-import { money } from '@/core/utils/money';
-import { useContactEntry } from '@/features/accounting/hooks/useContactEntry';
-import { useContactVoucher } from '@/features/accounting/hooks/useContactVoucher';
-import { cashOptions, defaultCashId } from '@/features/accounting/services/models/cash';
-import { allAccounts, extras } from '@/features/accounting/services/models/extensions';
-import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
-import {
-  contactEntrySchema,
-  contactVoucherSchema,
-} from '@/features/accounting/validation/accounting-schema';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import { useState } from 'react';
 export function ContactsLedger() {
-  const { state: s, branchId, busy: isBusy, navigate } = useErpContext();
+  const { state: s, branchId, busy: isBusy, navigate } = useContactsLedgerQuery();
   const contactEntryMutationRequest = useContactEntry(),
     contactEntryForm = useValidatedForm(contactEntrySchema, contactEntryMutationRequest.execute),
     contactEntryMutation = { ...contactEntryMutationRequest, execute: contactEntryForm.submit };
@@ -108,7 +114,7 @@ export function ContactsLedger() {
         <Field label="إلى تاريخ">
           <Input type="date" value={to} min={from} onChange={(e) => setTo(e.target.value)} />
         </Field>
-        <Button variant="outline" onClick={() => navigate('/accounting/contacts')}>
+        <Button variant="outline" onClick={() => navigate(ROUTES.ACCOUNTING_CONTACTS)}>
           إضافة / قائمة الأطراف
         </Button>
       </div>

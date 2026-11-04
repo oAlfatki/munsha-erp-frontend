@@ -1,9 +1,8 @@
-import type {BuildVouchersReportContext} from '@/features/accounting/types/read-models/BuildVouchersReportContext';
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
 import { money } from '@/core/utils/money';
-import { isCashLine } from '@/features/accounting/services/models/cash';
+import { isCashLine } from "@/features/accounting/public/cash";
+import type { BuildVouchersReportContext } from '@/features/accounting/types/read-models/BuildVouchersReportContext';
 export function buildVouchersReport(
   workspace: BuildVouchersReportContext,
   branch: string,

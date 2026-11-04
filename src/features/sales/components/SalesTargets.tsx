@@ -1,14 +1,14 @@
+import { exportPdf } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { useSalesTargetsController } from '@/features/sales/hooks/useSalesTargetsController';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { ReportActions } from '@/shared/ui/reports/ReportActions';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { exportPdf } from '@/core/reporting/service';
-import { fmt } from '@/core/utils/formatters';
-import { useSalesTargetsController } from '@/features/sales/hooks/useSalesTargetsController';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 export function SalesTargets() {
   const model = useSalesTargetsController();
   if (!model) return null;

@@ -1,11 +1,16 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+
+
+
+
+
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { useManualJournal } from '@/features/accounting/hooks/useManualJournal';
-import { manualJournalSchema } from '@/features/accounting/validation/accounting-schema';
+import { useJournalScreenControllerQuery } from '@/features/accounting/queries/useJournalScreenControllerQuery';
+import { manualJournalSchema } from "@/features/accounting/public/accounting-schema";
 import { useState } from 'react';
 export function useJournalScreenController() {
-  const { state: s, branchId, busy: isBusy, navigate } = useErpContext();
+  const { state: s, branchId, busy: isBusy, navigate } = useJournalScreenControllerQuery();
   const manualJournalMutationRequest = useManualJournal();
   const manualJournalForm = useValidatedForm(
     manualJournalSchema,

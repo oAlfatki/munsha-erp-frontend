@@ -1,12 +1,13 @@
 import { useAuth } from '@/core/auth/AuthProvider';
+import { ROUTES } from '@/core/config/navigation-paths';
+import { useLogin } from '@/features/auth/hooks/useLogin';
+import { getAccount } from '@/features/auth/services/auth-service';
 import { Field } from '@/shared/ui/forms/Field';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useLogin } from '@/features/auth/hooks/useLogin';
-import { getAccount } from '@/features/auth/services/auth-service';
 import { ArrowLeft } from 'lucide-react';
 import { useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation,useNavigate } from 'react-router-dom';
 export function LoginForm() {
   const { form, mutation } = useLogin();
   const [error, setError] = useState('');
@@ -23,7 +24,7 @@ export function LoginForm() {
       const target =
         typeof from === 'string' && from.startsWith('/') && !from.startsWith('//')
           ? from
-          : '/dashboard';
+          : ROUTES.DASHBOARD;
       navigate(target, { replace: true });
     } catch (e) {
       setError((e as Error).message);

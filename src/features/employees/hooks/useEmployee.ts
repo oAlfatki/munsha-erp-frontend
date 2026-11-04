@@ -1,13 +1,18 @@
+
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
+import { useEmployeeValidationData } from '@/features/employees/queries/useEmployeeValidationData';
 import { saveEmployee } from '@/features/employees/services/employees-service';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
 export function useEmployee() {
-  const { state } = useErpContext();
-  return useCommandMutation('employee', saveEmployee, (input) => {
+  const loadValidationData=useEmployeeValidationData();
+  return useCommandMutation('employee', saveEmployee, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'employee', input);
-    validatePolicy(state, 'employee', input);
+    /* No setting-policy branch applies to this command; its own Zod schema validates the payload. */
   });
 }

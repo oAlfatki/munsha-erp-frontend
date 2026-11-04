@@ -1,10 +1,14 @@
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
-import { buildUserAuditReport } from '@/features/users/services/reports/build-user-audit-report';
+
+
+import { useUserAuditReportView } from '@/features/users/hooks/useUserAuditReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function UserAuditReport() {
+ const model=useUserAuditReportView({title:"حركات المستخدمين",summaryColumns:[]});
+
   return (
     <ReportViewer
       title="حركات المستخدمين"
-      buildData={buildUserAuditReport}
+      model={model}
       summaryColumns={[]}
       shouldShowFrom={true}
       isAsOf={false}

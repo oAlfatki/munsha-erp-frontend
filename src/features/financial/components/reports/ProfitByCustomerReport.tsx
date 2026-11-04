@@ -1,10 +1,14 @@
-import { buildProfitByCustomerReport } from '@/features/financial/services/reports/build-profit-by-customer-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useProfitByCustomerReportView } from '@/features/financial/hooks/useProfitByCustomerReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function ProfitByCustomerReport() {
+ const model=useProfitByCustomerReportView({title:"الأرباح من العملاء",summaryColumns:[2, 3, 4]});
+
   return (
     <ReportViewer
       title="الأرباح من العملاء"
-      buildData={buildProfitByCustomerReport}
+      model={model}
       summaryColumns={[2, 3, 4]}
       shouldShowFrom={true}
       isAsOf={false}

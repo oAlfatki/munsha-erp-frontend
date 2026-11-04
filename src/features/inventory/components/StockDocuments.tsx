@@ -1,36 +1,41 @@
+
+
+
+
+
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { exportDocument,exportPdf,printReport } from '@/core/reporting/service';
+import { fmt,today } from '@/core/utils/formatters';
+import { money } from '@/core/utils/money';
+import { allAccounts } from "@/features/accounting/public/extensions";
+import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { useDeleteStockDraft } from '@/features/inventory/hooks/useDeleteStockDraft';
+import { useStockDocument } from "@/features/inventory/public/useStockDocument";
+import { useStockDocumentsQuery } from '@/features/inventory/queries/useStockDocumentsQuery';
+import { stockDocumentReport } from "@/features/inventory/public/build-stock-document";
+import type { StockDocument } from "@/features/inventory/public/types/models/StockDocument";
+import type { StockDocumentLine } from '@/features/inventory/types/models/StockDocumentLine';
+import type { StockDocumentsProps } from '@/features/inventory/types/StockDocumentsProps';
+import {
+deleteStockDraftSchema,
+stockDocumentSchema,
+} from "@/features/inventory/public/inventory-schema";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
 import { TotalsFooter } from '@/shared/ui/documents/TotalsFooter';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
-import { Form as ValidatedForm, validateForm } from '@/shared/ui/forms/ValidatedForm';
+import { Form as ValidatedForm,validateForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument, exportPdf, printReport } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
-import { money } from '@/core/utils/money';
-import { allAccounts } from '@/features/accounting/services/models/extensions';
-import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
-import { useDeleteStockDraft } from '@/features/inventory/hooks/useDeleteStockDraft';
-import { useStockDocument } from '@/features/inventory/hooks/useStockDocument';
-import type { StockDocument } from '@/features/inventory/types/models/StockDocument';
-import type { StockDocumentLine } from '@/features/inventory/types/models/StockDocumentLine';
-import type { StockDocumentsProps } from '@/features/inventory/types/StockDocumentsProps';
-import {
-  deleteStockDraftSchema,
-  stockDocumentSchema,
-} from '@/features/inventory/validation/inventory-schema';
-import { stockDocumentReport } from '@/features/reports/services/models/report-documents';
-import { Download, List, Plus, Printer, Save, Search, Trash2 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Download,List,Plus,Printer,Save,Search,Trash2 } from 'lucide-react';
+import { useEffect,useState } from 'react';
 import { toast } from 'sonner';
 export function StockDocuments({ kind }: StockDocumentsProps) {
-  const { state: s, branchId, busy: isBusy } = useErpContext();
+  const { state: s, branchId, busy: isBusy } = useStockDocumentsQuery();
   const deleteStockDraftMutationRequest = useDeleteStockDraft();
   const deleteStockDraftForm = useValidatedForm(
     deleteStockDraftSchema,

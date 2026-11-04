@@ -1,18 +1,19 @@
-import { LoadingState } from '@/shared/ui/feedback/LoadingState';
+import { ROUTES } from '@/core/config/navigation-paths';
 import { fmt } from '@/core/utils/formatters';
 import { useDashboardController } from '@/features/dashboard/hooks/useDashboardController';
+import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import {
-  ArrowLeft,
-  ArrowUpLeft,
-  Banknote,
-  FilePlus2,
-  Package,
-  ReceiptText,
-  ShoppingCart,
-  TriangleAlert,
-  Truck,
-  Undo2,
-  UserPlus,
+ArrowLeft,
+ArrowUpLeft,
+Banknote,
+FilePlus2,
+Package,
+ReceiptText,
+ShoppingCart,
+TriangleAlert,
+Truck,
+Undo2,
+UserPlus,
 } from 'lucide-react';
 export function Dashboard() {
   const model = useDashboardController();
@@ -49,26 +50,26 @@ export function Dashboard() {
           </div>
           <div className="quick-grid">
             {[
-              { label: 'فاتورة بيع', icon: FilePlus2, to: '/sales/new', color: 'teal' },
-              { label: 'فاتورة شراء', icon: ShoppingCart, to: '/purchases/new', color: 'sand' },
-              { label: 'إضافة صنف', icon: Package, to: '/inventory/items/new', color: 'blue' },
-              { label: 'تسجيل مصروف', icon: ReceiptText, to: '/expenses/add', color: 'purple' },
-              { label: 'إضافة مورد', icon: Truck, to: '/suppliers/new', color: 'sand' },
-              { label: 'إضافة عميل', icon: UserPlus, to: '/customers/new', color: 'teal' },
-              { label: 'مرتجع مبيعات', icon: Undo2, to: '/sales/sales-returns', color: 'blue' },
+              { label: 'فاتورة بيع', icon: FilePlus2, to: ROUTES.SALES_NEW, color: 'teal' },
+              { label: 'فاتورة شراء', icon: ShoppingCart, to: ROUTES.PURCHASES_NEW, color: 'sand' },
+              { label: 'إضافة صنف', icon: Package, to: ROUTES.INVENTORY_ITEMS_NEW, color: 'blue' },
+              { label: 'تسجيل مصروف', icon: ReceiptText, to: ROUTES.EXPENSES_ADD, color: 'purple' },
+              { label: 'إضافة مورد', icon: Truck, to: ROUTES.SUPPLIERS_NEW, color: 'sand' },
+              { label: 'إضافة عميل', icon: UserPlus, to: ROUTES.CUSTOMERS_NEW, color: 'teal' },
+              { label: 'مرتجع مبيعات', icon: Undo2, to: ROUTES.SALES_SALES_RETURNS, color: 'blue' },
               {
                 label: 'مرتجع مشتريات',
                 icon: Undo2,
-                to: '/purchases/purchase-returns',
+                to: ROUTES.PURCHASES_PURCHASE_RETURNS,
                 color: 'purple',
               },
               {
                 label: 'سند قبض',
                 icon: ReceiptText,
-                to: '/accounting/action/receipt',
+                to: ROUTES.ACCOUNTING_VOUCHERS_RECEIPT_NEW,
                 color: 'teal',
               },
-              { label: 'سند صرف', icon: Banknote, to: '/accounting/action/payment', color: 'sand' },
+              { label: 'سند صرف', icon: Banknote, to: ROUTES.ACCOUNTING_VOUCHERS_PAYMENT_NEW, color: 'sand' },
             ].map(({ label, icon: Icon, to, color }) => (
               <button key={to} onClick={() => navigate(to)}>
                 <span className={'stat-icon ' + color}>
@@ -119,7 +120,7 @@ export function Dashboard() {
               <p>لا توجد أصناف دون حد الطلب.</p>
             </div>
           )}
-          <button className="stock-link" onClick={() => navigate('/inventory')}>
+          <button className="stock-link" onClick={() => navigate(ROUTES.INVENTORY)}>
             مراجعة المخزون <ArrowLeft size={15} />
           </button>
         </section>

@@ -1,36 +1,27 @@
-import { Field } from '@/shared/ui/forms/Field';
-import { PageHead } from '@/shared/ui/layout/PageHead';
-import { ReportActions } from '@/shared/ui/reports/ReportActions';
-import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Button } from '@/shared/ui/primitives/button';
-import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
 import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { AccountStatement } from '@/features/accounting/components/Statement';
 import { VoucherEditor } from '@/features/accounting/components/VoucherEditor';
-import { allAccounts } from '@/features/accounting/services/models/extensions';
-import { fiscalRange } from '@/features/accounting/services/models/fiscal-range';
+import { useAccountingQuery } from '@/features/accounting/queries/useAccountingQuery';
+import { allAccounts } from "@/features/accounting/public/extensions";
+import { fiscalRange } from "@/features/accounting/public/fiscal-range";
+import { Field } from '@/shared/ui/forms/Field';
+import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
+import { ReportActions } from '@/shared/ui/reports/ReportActions';
+import { DataTable } from '@/shared/ui/tables/DataTable';
 import { useState } from 'react';
 export function Accounting() {
-  const { state: s, branchId, view, navigate } = useErpContext();
-  const [tab, setTab] = useState(
-      view.startsWith('/accounting/action/') &&
-        ![
-          '/accounting/action/voucher',
-          '/accounting/action/receipt',
-          '/accounting/action/payment',
-        ].includes(view)
-        ? 'statement'
-        : 'journal',
-    ),
-    [isVoucher, setVoucher] = useState(
-      [
-        '/accounting/action/voucher',
-        '/accounting/action/receipt',
-        '/accounting/action/payment',
-      ].includes(view),
-    ),
+  const { state: s, branchId, view, navigate } = useAccountingQuery();
+  const [tab,setTab]=useState('journal'),
+    [isVoucher,setVoucher]=useState(false),
     [from, setFrom] = useState(fiscalRange(s!).from),
     [to, setTo] = useState(fiscalRange(s!).to);
   if (!s) return null;
@@ -114,7 +105,7 @@ export function Accounting() {
             <Field label="إلى تاريخ / الميزان كما في">
               <Input type="date" value={to} onChange={(e) => setTo(e.target.value)} />
             </Field>
-            <Button variant="outline" onClick={() => navigate('/accounts~journal/new')}>
+            <Button variant="outline" onClick={() => navigate(ROUTES.ACCOUNTING_JOURNAL_NEW)}>
               إضافة قيد يدوي
             </Button>
           </div>
@@ -132,7 +123,7 @@ export function Accounting() {
       )}
       {isVoucher && (
         <VoucherEditor
-          kind={view === '/accounting/action/payment' ? 'payment' : 'receipt'}
+          kind="receipt"
           onClose={() => setVoucher(false)}
         />
       )}

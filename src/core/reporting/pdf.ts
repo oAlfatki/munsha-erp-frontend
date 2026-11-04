@@ -1,7 +1,7 @@
+import { formatCell } from '@/core/reporting/formatting';
 import type { DeviceSettings } from '@/core/types/DeviceSettings';
 import type { ReportDocument } from '@/core/types/ReportDocument';
 import type { ReportIdentity } from '@/core/types/ReportIdentity';
-import { formatCell } from '@/core/reporting/formatting';
 let fontPromise: Promise<string> | undefined;
 async function fontData() {
   return (fontPromise ??= fetch('/fonts/SakkalMajalla-Regular.ttf')

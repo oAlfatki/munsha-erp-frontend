@@ -1,39 +1,44 @@
+
+
+
+
+
+import { ApiError } from '@/core/api/apiError';
+import { useValidatedForm } from '@/core/hooks/useValidatedForm';
+import { newId } from '@/core/utils/id';
+import { submitBackupAction } from '@/features/settings/api/backups';
+import { useBackupSettings } from '@/features/settings/hooks/useBackupSettings';
+import { useBackupsQuery as useBackupsListQuery } from '@/features/settings/hooks/useBackupsQuery';
+import { useBackupsQuery } from '@/features/settings/queries/useBackupsQuery';
+import {
+backupFileName,
+chooseBackupFolder,
+clearBackupFolder,
+readBackupFolder,
+saveBackupFile,
+} from "@/features/settings/public/backup-files";
+import { backupPolicy } from "@/features/settings/public/backup-policy";
+import type { BackupsProps } from '@/features/settings/types/BackupsProps';
+import type { BackupArchive } from '@/features/settings/types/models/BackupArchive';
+import type { BackupPolicy } from '@/features/settings/types/models/BackupPolicy';
+import type { Row } from '@/features/settings/types/models/Row';
+import type { Tab } from '@/features/settings/types/models/Tab';
+import { validateBackupState } from '@/features/settings/validation/backup';
+import { backupSettingsSchema } from "@/features/settings/public/settings-schema";
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { ApiError } from '@/core/api/apiError';
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
-import { newId } from '@/core/utils/id';
-import { submitBackupAction } from '@/features/settings/api/backups';
-import { useBackupSettings } from '@/features/settings/hooks/useBackupSettings';
-import { useBackupsQuery } from '@/features/settings/hooks/useBackupsQuery';
-import {
-  backupFileName,
-  chooseBackupFolder,
-  clearBackupFolder,
-  readBackupFolder,
-  saveBackupFile,
-} from '@/features/settings/services/backup-files';
-import { backupPolicy } from '@/features/settings/services/models/backup-policy';
-import type { BackupsProps } from '@/features/settings/types/BackupsProps';
-import type { BackupPolicy } from '@/features/settings/types/models/BackupPolicy';
-import type { Row } from '@/features/settings/types/models/Row';
-import type { Tab } from '@/features/settings/types/models/Tab';
-import { validateBackupState } from '@/features/settings/validation/backup';
-import { backupSettingsSchema } from '@/features/settings/validation/settings-schema';
-import { useEffect, useRef, useState } from 'react';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { useEffect,useRef,useState } from 'react';
 import { toast } from 'sonner';
 
 export function Backups({ initialTab = 'backup' }: BackupsProps) {
-  const { state: s, revision, refresh, navigate } = useErpContext();
+  const { state: s, revision, refresh, navigate } = useBackupsQuery();
   const backupSettingsMutationRequest = useBackupSettings(),
     backupSettingsForm = useValidatedForm(
       backupSettingsSchema,
@@ -49,14 +54,14 @@ export function Backups({ initialTab = 'backup' }: BackupsProps) {
     [status, setStatus] = useState('جاهز'),
     [isBusy, setBusy] = useState(false),
     [error, setError] = useState(''),
-    [fileState, setFileState] = useState<ErpReadModel | null>(null),
+    [fileState, setFileState] = useState<BackupArchive | null>(null),
     [selected, setSelected] = useState<Row | null>(null),
     [phrase, setPhrase] = useState('');
   const pending = useRef<{
     signature: string;
     id: string;
   } | null>(null);
-  const backups = useBackupsQuery();
+  const backups = useBackupsListQuery();
   const rows = backups.data?.rows || [];
   const handleLoad = async () => {
     const result = await backups.refetch();

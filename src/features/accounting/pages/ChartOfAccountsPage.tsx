@@ -1,15 +1,6 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import type { PageDefinition } from '@/app/types/PageDefinition';
-import { MasterScreen } from '@/features/accounting/components/MasterDataScreen';
-import { useAccountingData } from '@/features/accounting/hooks/useAccountingData';
-const DEFINITION: PageDefinition = {
-  id: 'accounts',
-  module: 'accounts',
-  title: 'إضافة حساب ودليل الحسابات',
-  page: 138,
-  mode: 'master',
-  collection: 'accounts',
-  fields: [
+import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
+import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
+const DEFINITION = {title:'إضافة حساب ودليل الحسابات',collection:'accounts',fields:[
     {
       key: 'name',
       label: 'اسم الحساب',
@@ -61,19 +52,14 @@ const DEFINITION: PageDefinition = {
         ['no', 'حساب تجميعي فقط'],
       ],
     },
-  ],
-};
+  ]} satisfies MasterFormDefinition;
 /** إضافة حساب ودليل الحسابات — feature-owned route content. */
 export default function ChartOfAccountsPage() {
-  const featureData = useAccountingData();
+  
 
   return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="accounts~accounts">
+    <section className="screen-page">
           <MasterScreen screen={DEFINITION} />
         </section>
-      }
-    </FeatureDataScope>
   );
 }

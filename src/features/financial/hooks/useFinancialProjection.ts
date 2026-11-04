@@ -1,5 +1,10 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+
+
+
+
+
+import { useFinancialProjectionQuery } from '@/features/financial/queries/useFinancialProjectionQuery';
 export function useFinancialProjection() {
-  const { state, loading: isLoading, error } = useErpContext();
+  const { state, loading: isLoading, error } = useFinancialProjectionQuery();
   return { data: state?.entries, isPending: isLoading, error };
 }

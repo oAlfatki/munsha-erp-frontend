@@ -1,10 +1,14 @@
-import { buildReorderReport } from '@/features/inventory/services/reports/build-reorder-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useReorderReportView } from '@/features/inventory/hooks/useReorderReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function ReorderReport() {
+ const model=useReorderReportView({title:"أصناف بلغت حد الطلب",summaryColumns:[5]});
+
   return (
     <ReportViewer
       title="أصناف بلغت حد الطلب"
-      buildData={buildReorderReport}
+      model={model}
       summaryColumns={[5]}
       shouldShowFrom={false}
       isAsOf={true}

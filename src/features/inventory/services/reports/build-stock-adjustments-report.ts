@@ -1,8 +1,7 @@
-import type {BuildStockAdjustmentsReportContext} from '@/features/inventory/types/read-models/BuildStockAdjustmentsReportContext';
-import type { ErpReadModel } from '@/core/types/ErpReadModel';
 import type { Filters } from '@/core/types/Filters';
 import type { ReportData } from '@/core/types/ReportData';
-import { extras } from '@/features/accounting/services/models/extensions';
+import { extras } from "@/features/accounting/public/extensions";
+import type { BuildStockAdjustmentsReportContext } from '@/features/inventory/types/read-models/BuildStockAdjustmentsReportContext';
 export function buildStockAdjustmentsReport(
   workspace: BuildStockAdjustmentsReportContext,
   branch: string,

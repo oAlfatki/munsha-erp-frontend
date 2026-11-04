@@ -1,10 +1,14 @@
-import { buildCurrencyDocumentsReport } from '@/features/accounting/services/reports/build-currency-documents-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useCurrencyDocumentsReportView } from '@/features/accounting/hooks/useCurrencyDocumentsReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function CurrencyDocumentsReport() {
+ const model=useCurrencyDocumentsReportView({title:"مراجعة أرصدة العملات",summaryColumns:[]});
+
   return (
     <ReportViewer
       title="مراجعة أرصدة العملات"
-      buildData={buildCurrencyDocumentsReport}
+      model={model}
       summaryColumns={[]}
       shouldShowFrom={true}
       isAsOf={false}

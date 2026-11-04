@@ -1,14 +1,14 @@
-import { ENDPOINTS } from '@/core/config/endpoints';
 import { apiClient } from '@/core/api/apiClient';
-import type { PartyListResponse } from '@/features/parties/types/responses/PartyListResponse';
-import type { PartyResponse } from '@/features/parties/types/responses/PartyResponse';
+import { ENDPOINTS } from '@/core/config/endpoints';
+import type { PartyListResponse } from "@/features/parties/public/types/responses/PartyListResponse";
+import type { PartyResponse } from "@/features/parties/public/types/responses/PartyResponse";
 import type { GetSuppliersByIdRequest } from '@/features/suppliers/types/requests/GetSuppliersByIdRequest';
 import type { SearchSuppliersRequest } from '@/features/suppliers/types/requests/SearchSuppliersRequest';
 /** List suppliers. Existing HTTP contract. */
 export async function fetchSuppliers(
-  params: SearchSuppliersRequest = {},
+  params: SearchSuppliersRequest = {},signal?:AbortSignal
 ): Promise<PartyListResponse> {
-  return await apiClient.get<PartyListResponse>(ENDPOINTS.fetchSuppliers,{params: {
+  return await apiClient.get<PartyListResponse>(ENDPOINTS.fetchSuppliers,{signal,params: {
       page: params.page,
       pageSize: params.pageSize,
       q: params.q,

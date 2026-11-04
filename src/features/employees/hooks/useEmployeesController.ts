@@ -1,13 +1,19 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+import { ROUTES } from '@/core/config/navigation-paths';
+
+
+
+
+
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { newId } from '@/core/utils/id';
 import { useEmployee } from '@/features/employees/hooks/useEmployee';
 import { useEmployeeDelete } from '@/features/employees/hooks/useEmployeeDelete';
-import type { Employee } from '@/features/employees/types/models/Employee';
+import { useEmployeesControllerQuery } from '@/features/employees/queries/useEmployeesControllerQuery';
+import type { Employee } from "@/features/employees/public/types/models/Employee";
 import {
-  employeeDeleteSchema,
-  employeeSchema,
+employeeDeleteSchema,
+employeeSchema,
 } from '@/features/employees/validation/employees-schema';
 import { useState } from 'react';
 import { toast } from 'sonner';
@@ -19,7 +25,7 @@ const fileData = (file: File) =>
     r.readAsDataURL(file);
   });
 export function useEmployeesController() {
-  const { state: s, branchId, busy: isBusy, view, navigate } = useErpContext();
+  const { state: s, branchId, busy: isBusy, view, navigate } = useEmployeesControllerQuery();
   const employeeMutationRequest = useEmployee(),
     employeeForm = useValidatedForm(employeeSchema, employeeMutationRequest.execute),
     employeeMutation = { ...employeeMutationRequest, execute: employeeForm.submit };
@@ -53,7 +59,7 @@ export function useEmployeesController() {
   });
   const [searchQuery, setQ] = useState(''),
     [edit, setEdit] = useState<Employee | undefined>(() =>
-      view === '/employees/new' ? blank() : undefined,
+      view === ROUTES.EMPLOYEES_NEW ? blank() : undefined,
     ),
     [tab, setTab] = useState('basic'),
     [isDeleting, setDeleting] = useState(false);
@@ -65,7 +71,7 @@ export function useEmployeesController() {
   );
   const handleClose = () => {
     setEdit(undefined);
-    if (view === '/employees/new') navigate('/employees');
+    if (view === ROUTES.EMPLOYEES_NEW) navigate(ROUTES.EMPLOYEES);
   };
   const upload = async (file: File | undefined, isPhoto: boolean) => {
     if (!file || !edit) return;

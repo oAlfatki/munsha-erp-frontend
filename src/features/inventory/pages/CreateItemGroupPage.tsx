@@ -1,15 +1,6 @@
-import { FeatureDataScope } from '@/app/providers/FeatureDataScope';
-import type { PageDefinition } from '@/app/types/PageDefinition';
-import { MasterScreen } from '@/features/accounting/components/MasterDataScreen';
-import { useInventoryData } from '@/features/inventory/hooks/useInventoryData';
-const DEFINITION: PageDefinition = {
-  id: 'groups-add',
-  module: 'inventory',
-  title: 'إضافة مجموعة',
-  page: 83,
-  mode: 'master',
-  collection: 'productGroups',
-  fields: [
+import { MasterScreen } from "@/features/accounting/public/MasterDataScreen";
+import type { MasterFormDefinition } from "@/features/accounting/public/types/MasterFormDefinition";
+const DEFINITION = {title:'إضافة مجموعة',note:'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',collection:'productGroups',fields:[
     {
       key: 'name',
       label: 'اسم المجموعة',
@@ -22,20 +13,14 @@ const DEFINITION: PageDefinition = {
       type: 'text',
       required: false,
     },
-  ],
-  note: 'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',
-};
+  ],initiallyOpen:true} satisfies MasterFormDefinition;
 /** إضافة مجموعة — feature-owned route content. */
 export default function CreateItemGroupPage() {
-  const featureData = useInventoryData();
+  
 
   return (
-    <FeatureDataScope data={featureData}>
-      {
-        <section className="screen-page" data-screen="inventory~groups-add">
+    <section className="screen-page">
           <MasterScreen screen={DEFINITION} />
         </section>
-      }
-    </FeatureDataScope>
   );
 }

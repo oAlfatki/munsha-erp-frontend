@@ -1,4 +1,4 @@
-import { z, type ZodErrorMap } from 'zod';
+import { z,type ZodErrorMap } from 'zod';
 /** Fallback for union/root/type errors; feature-specific Arabic messages take precedence. */
 const arabicErrorMap: ZodErrorMap = (issue) => ({
   message:

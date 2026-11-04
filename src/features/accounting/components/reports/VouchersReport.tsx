@@ -1,18 +1,28 @@
+
+
+import { useVouchersReportView } from '@/features/accounting/hooks/useVouchersReportView';
+
+
+
+import { VoucherDetails } from '@/features/accounting/components/VoucherEditor';
+import { useVouchersReportQuery } from '@/features/accounting/queries/useVouchersReportQuery';
+import { voucherReport } from '@/features/accounting/services/reports/build-voucher-document';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { VoucherDetails } from '@/features/accounting/components/VoucherEditor';
-import { buildVouchersReport } from '@/features/accounting/services/reports/build-vouchers-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
-import { voucherReport } from '@/features/reports/services/models/report-documents';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function VouchersReport() {
-  const { state, branchId } = useErpContext();
+ const model=useVouchersReportView({title:"بحث سندات الصرف والقبض",summaryColumns:[4],rowDocument:(row) => {
+        const v = find(row);
+        return state && v ? voucherReport(state, v) : undefined;
+      }});
+
+  const { state, branchId } = useVouchersReportQuery();
   const find = (row: (string | number)[]) =>
     state?.vouchers?.find((v) => v.reference === row[1] && v.branchId === branchId);
   return (
     <ReportViewer
       title="بحث سندات الصرف والقبض"
-      buildData={buildVouchersReport}
+      model={model}
       summaryColumns={[4]}
       shouldShowFrom={true}
       isAsOf={false}

@@ -1,10 +1,14 @@
-import { buildCashFlowReport } from '@/features/financial/services/reports/build-cash-flow-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useCashFlowReportView } from '@/features/financial/hooks/useCashFlowReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function CashFlowReport() {
+ const model=useCashFlowReportView({title:"قائمة التدفقات النقدية",summaryColumns:[]});
+
   return (
     <ReportViewer
       title="قائمة التدفقات النقدية"
-      buildData={buildCashFlowReport}
+      model={model}
       summaryColumns={[]}
       shouldShowFrom={true}
       isAsOf={false}

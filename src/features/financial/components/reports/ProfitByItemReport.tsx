@@ -1,10 +1,14 @@
-import { buildProfitByItemReport } from '@/features/financial/services/reports/build-profit-by-item-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useProfitByItemReportView } from '@/features/financial/hooks/useProfitByItemReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function ProfitByItemReport() {
+ const model=useProfitByItemReportView({title:"الأرباح من الأصناف",summaryColumns:[2, 3, 4]});
+
   return (
     <ReportViewer
       title="الأرباح من الأصناف"
-      buildData={buildProfitByItemReport}
+      model={model}
       summaryColumns={[2, 3, 4]}
       shouldShowFrom={true}
       isAsOf={false}

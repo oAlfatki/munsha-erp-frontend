@@ -1,10 +1,15 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+
+
+
+
+
 import { useCustomersProjection } from '@/features/customers/hooks/useCustomersProjection';
-import type { Party } from '@/features/parties/types/models/Party';
+import { useCustomerDirectoryControllerQuery } from '@/features/customers/queries/useCustomerDirectoryControllerQuery';
+import type { Party } from "@/features/parties/public/types/models/Party";
 import { useState } from 'react';
 export function useCustomerDirectoryController() {
   const { data: parties = [] } = useCustomersProjection();
-  const { state: s, navigate, view } = useErpContext();
+  const { state: s, navigate, view } = useCustomerDirectoryControllerQuery();
   const [searchQuery, setQ] = useState('');
   const [group, setGroup] = useState('');
   const [editing, setEditing] = useState<Party | null | undefined>(() =>

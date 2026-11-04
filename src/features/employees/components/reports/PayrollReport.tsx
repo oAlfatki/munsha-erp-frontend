@@ -1,10 +1,14 @@
-import { buildPayrollReport } from '@/features/employees/services/reports/build-payroll-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { usePayrollReportView } from '@/features/employees/hooks/usePayrollReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function PayrollReport() {
+ const model=usePayrollReportView({title:"تقرير رواتب الموظفين",summaryColumns:[]});
+
   return (
     <ReportViewer
       title="تقرير رواتب الموظفين"
-      buildData={buildPayrollReport}
+      model={model}
       summaryColumns={[]}
       shouldShowFrom={true}
       isAsOf={false}

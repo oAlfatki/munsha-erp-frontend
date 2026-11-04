@@ -1,3 +1,10 @@
+import { ROUTES } from '@/core/config/navigation-paths';
+import { exportPdf } from '@/core/reporting/service';
+import { fmt } from '@/core/utils/formatters';
+import { extras } from "@/features/accounting/public/extensions";
+import { balance } from "@/features/accounting/public/account-balances";
+import { CustomerEditor } from '@/features/customers/components/CustomerEditor';
+import { useCustomerDirectoryController } from '@/features/customers/hooks/useCustomerDirectoryController';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -5,12 +12,6 @@ import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { exportPdf } from '@/core/reporting/service';
-import { fmt } from '@/core/utils/formatters';
-import { extras } from '@/features/accounting/services/models/extensions';
-import { balance } from '@/features/accounting/utils/account-balances';
-import { CustomerEditor } from '@/features/customers/components/CustomerEditor';
-import { useCustomerDirectoryController } from '@/features/customers/hooks/useCustomerDirectoryController';
 export function CustomerDirectory() {
   const model = useCustomerDirectoryController();
   if (!model) return null;
@@ -88,7 +89,7 @@ export function CustomerDirectory() {
           party={editing}
           onClose={() => {
             setEditing(undefined);
-            if (view.endsWith('/new')) navigate('/customers');
+            if (view.endsWith('/new')) navigate(ROUTES.CUSTOMERS);
           }}
         />
       )}

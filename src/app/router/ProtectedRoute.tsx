@@ -1,7 +1,8 @@
 import { useAuth } from '@/core/auth/AuthProvider';
+import { ROUTES } from '@/core/config/navigation-paths';
+import { AccountPanel } from "@/features/auth/public/AccountPanel";
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
-import { AccountPanel } from '@/features/auth/components/AccountPanel';
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
+import { Navigate,Outlet,useLocation } from 'react-router-dom';
 export function ProtectedRoute() {
   const { user, loading: isLoading, error, retry } = useAuth();
   const location = useLocation();
@@ -13,7 +14,7 @@ export function ProtectedRoute() {
         <button onClick={retry}>إعادة المحاولة</button>
       </main>
     );
-  if (!user) return <Navigate to="/login" replace state={{ from: location.pathname }} />;
+  if (!user) return <Navigate to={ROUTES.LOGIN} replace state={{ from: location.pathname }} />;
   if (user.mustChange)
     return (
       <main className="password-required">

@@ -1,13 +1,18 @@
+
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
+import { useImportMastersValidationData } from '@/features/settings/queries/useImportMastersValidationData';
 import { saveImportMasters } from '@/features/settings/services/settings-service';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
 export function useImportMasters() {
-  const { state } = useErpContext();
-  return useCommandMutation('importMasters', saveImportMasters, (input) => {
+  const loadValidationData=useImportMastersValidationData();
+  return useCommandMutation('importMasters', saveImportMasters, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'importMasters', input);
-    validatePolicy(state, 'importMasters', input);
+    /* No setting-policy branch applies to this command; its own Zod schema validates the payload. */
   });
 }

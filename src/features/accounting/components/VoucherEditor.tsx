@@ -1,11 +1,3 @@
-import { Modal } from '@/shared/ui/dialogs/Modal';
-import { TotalsFooter } from '@/shared/ui/documents/TotalsFooter';
-import { Field } from '@/shared/ui/forms/Field';
-import { Select } from '@/shared/ui/forms/Select';
-import { Form } from '@/shared/ui/forms/ValidatedForm';
-import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Button } from '@/shared/ui/primitives/button';
-import { Input } from '@/shared/ui/primitives/input';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useVoucherDetailsController } from '@/features/accounting/hooks/useVoucherDetailsController';
@@ -13,10 +5,18 @@ import { useVoucherEditorController } from '@/features/accounting/hooks/useVouch
 import type { VoucherDetailsProps } from '@/features/accounting/types/VoucherDetailsProps';
 import type { VoucherEditorProps } from '@/features/accounting/types/VoucherEditorProps';
 import {
-  operationCashId,
-  systemSettings,
-} from '@/features/settings/services/models/system-settings';
-import { Plus, Trash2 } from 'lucide-react';
+operationCashId,
+systemSettings,
+} from "@/features/settings/public/system-settings";
+import { Modal } from '@/shared/ui/dialogs/Modal';
+import { TotalsFooter } from '@/shared/ui/documents/TotalsFooter';
+import { Field } from '@/shared/ui/forms/Field';
+import { Select } from '@/shared/ui/forms/Select';
+import { Form } from '@/shared/ui/forms/ValidatedForm';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
+import { DataTable } from '@/shared/ui/tables/DataTable';
+import { Plus,Trash2 } from 'lucide-react';
 
 export function VoucherEditor({
   kind: initialKind,

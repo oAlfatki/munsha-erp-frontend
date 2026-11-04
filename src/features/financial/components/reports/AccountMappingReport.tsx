@@ -1,10 +1,14 @@
-import { buildAccountMappingReport } from '@/features/financial/services/reports/build-account-mapping-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useAccountMappingReportView } from '@/features/financial/hooks/useAccountMappingReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function AccountMappingReport() {
+ const model=useAccountMappingReportView({title:"ربط الحسابات بالقوائم المالية",summaryColumns:[3, 4]});
+
   return (
     <ReportViewer
       title="ربط الحسابات بالقوائم المالية"
-      buildData={buildAccountMappingReport}
+      model={model}
       summaryColumns={[3, 4]}
       shouldShowFrom={false}
       isAsOf={true}

@@ -1,17 +1,22 @@
-import { useErpContext } from '@/core/hooks/useErpContext';
+
+
+
+
+
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { useProduct } from '@/features/inventory/hooks/useProduct';
+import { useProductEditorControllerQuery } from '@/features/inventory/queries/useProductEditorControllerQuery';
 import type { Unit } from '@/features/inventory/types/models/Unit';
 import type { ProductEditorProps } from '@/features/inventory/types/ProductEditorProps';
-import { productSchema } from '@/features/inventory/validation/inventory-schema';
-import { generalSettings } from '@/features/settings/services/models/completion';
-import { systemSettings } from '@/features/settings/services/models/system-settings';
+import { productSchema } from "@/features/inventory/public/inventory-schema";
+import { generalSettings } from "@/features/settings/public/completion";
+import { systemSettings } from "@/features/settings/public/system-settings";
 import { useState } from 'react';
 
 const BLANK: Unit = { name: 'حبة', factor: 1, purchase: 0, retail: 0, wholesale: 0, barcode: '' };
 
 export function useProductEditorController({ product, onClose: close }: ProductEditorProps) {
-  const { busy: isBusy, state: workspace } = useErpContext();
+  const { busy: isBusy, state: workspace } = useProductEditorControllerQuery();
   const productMutationRequest = useProduct(),
     productForm = useValidatedForm(productSchema, productMutationRequest.execute),
     productMutation = { ...productMutationRequest, execute: productForm.submit };

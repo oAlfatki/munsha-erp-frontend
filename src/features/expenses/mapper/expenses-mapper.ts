@@ -3,10 +3,10 @@ import type { SaveExpensePaymentRequest } from '@/features/expenses/types/reques
 import type { SaveExpenseRequest } from '@/features/expenses/types/requests/SaveExpenseRequest';
 import type { SaveExpenseSaveRequest } from '@/features/expenses/types/requests/SaveExpenseSaveRequest';
 import {
-  expenseConsumeSchema,
-  expensePaymentSchema,
-  expenseSaveSchema,
-  expenseSchema,
+expenseConsumeSchema,
+expensePaymentSchema,
+expenseSaveSchema,
+expenseSchema,
 } from '@/features/expenses/validation/expenses-schema';
 export const mapExpenseInput = (input: unknown): SaveExpenseRequest =>
   expenseSchema.parse(input) as SaveExpenseRequest;

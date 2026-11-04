@@ -1,6 +1,6 @@
 import { postCommand } from '@/core/services/http/command-api';
 import type { CommandContext } from '@/core/types/CommandContext';
-import type { SavePartyRequest } from '@/features/parties/types/requests/SavePartyRequest';
+import type { SavePartyRequest } from "@/features/parties/public/types/requests/SavePartyRequest";
 export const submitParty = async (
   data: SavePartyRequest,
   context: CommandContext,

@@ -1,10 +1,14 @@
-import { buildEmployeeAdvancesReport } from '@/features/employees/services/reports/build-employee-advances-report';
-import { ReportViewer } from '@/features/reports/components/ReportViewer';
+
+
+import { useEmployeeAdvancesReportView } from '@/features/employees/hooks/useEmployeeAdvancesReportView';
+import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
 export function EmployeeAdvancesReport() {
+ const model=useEmployeeAdvancesReportView({title:"تقرير مسحوبات الموظفين",summaryColumns:[]});
+
   return (
     <ReportViewer
       title="تقرير مسحوبات الموظفين"
-      buildData={buildEmployeeAdvancesReport}
+      model={model}
       summaryColumns={[]}
       shouldShowFrom={true}
       isAsOf={false}

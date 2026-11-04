@@ -1,13 +1,18 @@
+
+
+
+
+
+
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { useErpContext } from '@/core/hooks/useErpContext';
-import { validatePeriod } from '@/features/accounting/validation/validate-period';
+import { validatePeriod } from "@/features/accounting/public/validate-period";
+import { useOrganizationValidationData } from '@/features/settings/queries/useOrganizationValidationData';
 import { saveOrganization } from '@/features/settings/services/settings-service';
-import { validatePolicy } from '@/features/settings/validation/validate-policy';
 export function useOrganization() {
-  const { state } = useErpContext();
-  return useCommandMutation('organization', saveOrganization, (input) => {
+  const loadValidationData=useOrganizationValidationData();
+  return useCommandMutation('organization', saveOrganization, async (input) => {const state=await loadValidationData();
     if (!state) throw Error('انتظر تحميل بيانات العملية');
     validatePeriod(state, 'organization', input);
-    validatePolicy(state, 'organization', input);
+    /* No setting-policy branch applies to this command; its own Zod schema validates the payload. */
   });
 }
