@@ -15,14 +15,13 @@ import { stockDocumentsQuery } from '@/features/stock/public/stock-documents-que
 import { warehousesQuery } from '@/features/stock/public/warehouses-query';
 import { purchaseInvoicesQuery } from '@/features/trade/public/purchase-invoices-query';
 import { saleInvoicesQuery } from '@/features/trade/public/sale-invoices-query';
-import { auditQuery } from '@/features/users/public/audit-query';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
 export function useSystemSettingsQuery() {
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));
   const scope = { ...identity, bookId: books.scope.bookId };
-  const [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12] = useSuspenseQueries({
+  const [q0, q1, q2, q3, q4, q5, q6, q7, q9, q10, q11, q12] = useSuspenseQueries({
     queries: [
       companyQuery(scope),
       brandingQuery(scope),
@@ -32,7 +31,6 @@ export function useSystemSettingsQuery() {
       systemQuery(scope),
       journalsQuery(scope),
       stockDocumentsQuery(scope),
-      auditQuery(scope),
       saleInvoicesQuery(scope),
       purchaseInvoicesQuery(scope),
       accountsQuery(scope),
@@ -64,7 +62,6 @@ export function useSystemSettingsQuery() {
     entries: q6.data.items,
     invoices: [...q9.data.items, ...q10.data.items],
     stockDocuments: q7.data.items,
-    audit: q8.data.items,
   };
   return {
     ...app,
@@ -81,7 +78,6 @@ export function useSystemSettingsQuery() {
       0,
       q6.data.scope.revision,
       q7.data.scope.revision,
-      q8.data.scope.revision,
       q9.data.scope.revision,
       q10.data.scope.revision,
       q11.data.scope.revision,

@@ -1,8 +1,8 @@
 import baseline from '../fixtures/baseline-screen-text.json';
 import previous from '../fixtures/pre-separation-routes.json';
-import changes from '../../docs/architecture/ROUTE_CHANGES.json';
+import changes from '../fixtures/ROUTE_CHANGES.json';
 import { APP_ROUTES } from '@/app/router/routes';
-import '@/core/i18n/i18n';
+
 import { axiosInstance as apiClient } from '@/core/api/apiClient';
 import type { ApplicationState } from '@/core/types/ApplicationState';
 import type { QueryScope } from '@/core/types/QueryScope';
@@ -19,7 +19,13 @@ import { readResponse } from '../support/read-responses';
 const fixture = vi.hoisted(() => ({ ui: null as unknown as ApplicationState }));
 vi.mock('@/core/state/ApplicationProvider', () => ({ useApplication: () => fixture.ui }));
 vi.mock('@/core/auth/AuthProvider', () => ({
-  useAuth: () => ({ user: fixture.ui.user, setUser: () => {} }),
+  useAuth: () => ({
+    user: fixture.ui.user,
+    can: () => true,
+    logout: async () => {},
+    refreshIdentity: async () => {},
+    clearSession: async () => {},
+  }),
 }));
 const modules = import.meta.glob('../../src/features/**/*-query.ts', { eager: true }) as Record<
   string,
@@ -32,13 +38,13 @@ const query = new QueryClient({
 beforeAll(async () => {
   fixture.ui = {
     user: {
-      userId: 'demo',
-      kind: 'local',
+      userId: 'test-user',
+      username: 'test',
+      branchId: '1',
+      permissions: [],
       displayName: 'Preview user',
-      role: 'admin',
       email: '',
-      fullName: null,
-      mustChange: false,
+      fullName: 'مستخدم اختبار',
     },
     branchId: 'b1',
     view: '/dashboard',
@@ -64,7 +70,7 @@ beforeAll(async () => {
     config,
   });
   for (const bookId of ['', 'main']) {
-    const scope = { userId: 'demo', userKind: 'local', bookId, branchId: 'b1', locale: 'ar' };
+    const scope = { userId: 'test-user', userKind: 'aspnet', bookId, branchId: 'b1', locale: 'ar' };
     for (const module of Object.values(modules))
       for (const [name, factory] of Object.entries(module))
         if (/Query$/.test(name) && !name.startsWith('use')) await query.fetchQuery(factory(scope));
@@ -85,16 +91,19 @@ beforeAll(async () => {
         await query.fetchQuery(lookupQuery(scope, field as FieldDef));
   }
   query.setQueryData(
-    ['erp', 'dashboard', 'summary', 'demo', 'local', 'main', 'b1', 'ar'],
+    ['erp', 'dashboard', 'summary', 'test-user', 'aspnet', 'main', 'b1', 'ar'],
     readResponse(seed, '/dashboard', { branchId: 'b1' }),
   );
-  query.setQueryData(['erp', 'users', 'directory', 'demo', 'local'], readResponse(seed, '/users'));
-  query.setQueryData(['auth', 'account', 'demo', 'local'], {
+  query.setQueryData(
+    ['erp', 'users', 'directory', 'test-user', 'aspnet'],
+    readResponse(seed, '/users'),
+  );
+  query.setQueryData(['auth', 'account', 'test-user', 'aspnet'], {
     user: fixture.ui.user,
     users: [],
     sessions: [],
   });
-  query.setQueryData(['erp', 'settings', 'backups', 'demo', 'local'], { rows: [] });
+  query.setQueryData(['erp', 'settings', 'backups', 'test-user', 'aspnet'], { rows: [] });
 });
 afterAll(() => {
   apiClient.defaults.adapter = adapter;
@@ -113,57 +122,63 @@ describe('original screen content through owned queries and unchanged HTTP fixtu
     ),
   ];
   for (const target of targets)
-    it('preserves ' + target, async () => {
-      const original = previous.routes.find((route) => route.view === target);
-      expect(original, target).toBeDefined();
-      const route = APP_ROUTES.find(
-        (route) => route.path === (aliases[original!.path] || original!.path),
-      );
-      expect(route, target).toBeDefined();
-      fixture.ui.view = route!.path!;
-      vi.unstubAllGlobals();
-      const loaded = typeof route!.lazy === 'function' ? await route!.lazy() : undefined;
-      vi.stubGlobal('document', { documentElement: { lang: 'ar' } });
-      const Page = loaded?.Component || (() => route!.element);
-      const html = renderToString(
-        createElement(
-          MemoryRouter,
-          { initialEntries: [fixture.ui.view] },
-          createElement(QueryClientProvider, { client: query }, createElement(Page)),
-        ),
-      );
-      const text = html
-        .replace(/<[^>]*>/g, ' ')
-        .replace(/\s+/g, ' ')
-        .trim();
-      // The old harness omitted the authenticated account, hiding admin controls.
-      // Dedicated user form/session behavior is verified here and in browser tests.
-      if (target === 'access~users-add') {
-        expect(text).toContain('الاسم الكامل * اسم الدخول * الصلاحية');
-        expect(text).toContain('كلمة المرور المؤقتة * حفظ المستخدم');
-        return;
-      }
-      if (target === 'access~users') {
-        expect(text).toContain('إضافة مستخدم');
-        expect(text).toContain('الاسم اسم الدخول الصلاحية الحالة كلمة المرور الإجراءات');
-        return;
-      }
-      const refreshToolbar = [
-        'purchases-new',
-        'purchases',
-        'sales-new',
-        'sales',
-        'financial~income',
-        'financial~balance-sheet',
-      ].includes(target);
-      let expected = refreshToolbar
-        ? baseline[target as keyof typeof baseline].replace(' طباعة تصدير', ' عرض طباعة تصدير')
-        : baseline[target as keyof typeof baseline];
-      if (target === 'access~sessions')
-        expected = expected.replace(
-          'تحديث الجلسات المستخدم',
-          'تحديث الجلسات إنهاء جلساتي الأخرى المستخدم',
+    it(
+      'preserves ' + target,
+      async () => {
+        const original = previous.routes.find((route) => route.view === target);
+        expect(original, target).toBeDefined();
+        const route = APP_ROUTES.find(
+          (route) => route.path === (aliases[original!.path] || original!.path),
         );
-      expect(text).toBe(expected);
-    }, 30000);
+        expect(route, target).toBeDefined();
+        fixture.ui.view = route!.path!;
+        vi.unstubAllGlobals();
+        const loaded = typeof route!.lazy === 'function' ? await route!.lazy() : undefined;
+        vi.stubGlobal('document', { documentElement: { lang: 'ar' } });
+        const Page = loaded?.Component || (() => route!.element);
+        const html = renderToString(
+          createElement(
+            MemoryRouter,
+            { initialEntries: [fixture.ui.view] },
+            createElement(QueryClientProvider, { client: query }, createElement(Page)),
+          ),
+        );
+        const text = html
+          .replace(/<[^>]*>/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim();
+        // Auth/Users now follow v1.5, not the retired role-based screen snapshots.
+        const currentScreens: Record<string, string> = {
+          'access~users-add': 'إضافة مستخدم',
+          'access~users': 'المستخدمون',
+          'access~password': 'تغيير كلمة المرور',
+          'access~matrix': 'صلاحيات المستخدم',
+          'access~sessions': 'جلساتي',
+          'access~audit': 'حركات المستخدمين',
+        };
+        if (currentScreens[target]) {
+          expect(text).toContain(currentScreens[target]);
+          expect(text).not.toContain('كلمة المرور المؤقتة');
+          return;
+        }
+        const refreshToolbar = [
+          'purchases-new',
+          'purchases',
+          'sales-new',
+          'sales',
+          'financial~income',
+          'financial~balance-sheet',
+        ].includes(target);
+        let expected = refreshToolbar
+          ? baseline[target as keyof typeof baseline].replace(' طباعة تصدير', ' عرض طباعة تصدير')
+          : baseline[target as keyof typeof baseline];
+        if (target === 'access~sessions')
+          expected = expected.replace(
+            'تحديث الجلسات المستخدم',
+            'تحديث الجلسات إنهاء جلساتي الأخرى المستخدم',
+          );
+        expect(text).toBe(expected);
+      },
+      30000,
+    );
 });

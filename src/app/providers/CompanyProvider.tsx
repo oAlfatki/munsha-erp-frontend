@@ -1,3 +1,4 @@
+import { useAuth } from '@/core/auth/AuthProvider';
 import type { CompanyData } from '@/app/types/CompanyData';
 import type { CompanyProviderProps } from '@/app/types/CompanyProviderProps';
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
@@ -12,6 +13,7 @@ import { createContext, useContext, useEffect } from 'react';
 const Context = createContext<CompanyData | null>(null);
 /** Shell metadata only; screens own their data directly through feature queries. */
 export function CompanyProvider({ children }: CompanyProviderProps) {
+  const { user } = useAuth();
   const app = useApplication(),
     scope = useQueryIdentity(),
     client = useQueryClient();
@@ -36,15 +38,12 @@ export function CompanyProvider({ children }: CompanyProviderProps) {
     ? {
         organization: company.data,
         branding: branding.data,
-        branches: branches.data.items,
+        branches: branches.data.items.filter((branch) => String(branch.id) === user?.branchId),
         annualBooks: { activeId: books.data.scope.bookId, books: books.data.items },
         backupSettings: backup.data,
       }
     : null;
-  const branchId =
-    state?.branches.find((b) => b.id === app.branchId && b.active)?.id ||
-    state?.branches.find((b) => b.active)?.id ||
-    '';
+  const branchId = user?.branchId || '';
   useEffect(() => {
     if (branchId !== app.branchId) app.setBranchId(branchId);
   }, [branchId, app.branchId, app.setBranchId]);

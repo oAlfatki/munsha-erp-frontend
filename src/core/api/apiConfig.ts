@@ -4,6 +4,4 @@ export const API_CONFIG = {
   timeout: 30000,
   withCredentials: true,
   headers: { Accept: 'application/json, application/problem+json' },
-  apiMode: CONFIG.apiMode,
-  sessionRefresh: CONFIG.sessionRefresh,
 };

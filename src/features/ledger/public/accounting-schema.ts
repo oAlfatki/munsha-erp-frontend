@@ -1,26 +1,4 @@
 import { z } from 'zod';
-export const permissionsSchema = z
-  .object({
-    role: z
-      .string({
-        required_error: 'القيمة المدخلة مطلوب',
-        invalid_type_error: 'أدخل قيمة صحيحة في القيمة المدخلة',
-      })
-      .min(1, 'القيمة المدخلة يجب ألا يقل عن 1')
-      .max(180, 'القيمة المدخلة يجب ألا يزيد عن 180'),
-    permissions: z
-      .array(
-        z
-          .string({
-            required_error: 'القيمة المدخلة مطلوب',
-            invalid_type_error: 'أدخل قيمة صحيحة في القيمة المدخلة',
-          })
-          .min(1, 'القيمة المدخلة يجب ألا يقل عن 1')
-          .max(180, 'القيمة المدخلة يجب ألا يزيد عن 180'),
-      )
-      .max(100, 'القيمة المدخلة يجب ألا يزيد عن 100'),
-  })
-  .passthrough();
 export const contactEntrySchema = z
   .object({
     contactId: z.string({

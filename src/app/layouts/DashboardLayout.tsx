@@ -2,7 +2,6 @@ import { useCompanyData } from '@/app/providers/CompanyProvider';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { MENU_ITEMS, menuLeaves } from '@/core/config/menu';
 import { ROUTES } from '@/core/config/navigation-paths';
-import { LanguageSwitch } from '@/core/i18n/LanguageSwitch';
 import { setReportIdentity } from '@/core/reporting/formatting';
 import { ModuleLinks } from '@/core/router/ModuleLinks';
 import { SectionNavigation } from '@/core/router/SectionNavigation';
@@ -17,7 +16,7 @@ import { SessionMenu } from '@/features/auth/components/SessionMenu';
 import { isArchived } from '@/features/ledger/public/annual-books';
 import { AutomaticBackups } from '@/features/settings/components/AutomaticBackups';
 import { fetchSearchItems } from '@/features/stock/public/read-api';
-import { fetchAuditEvents } from '@/features/users/api/read-api';
+import { userActivityApi } from '@/features/users/public/audit-events';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
@@ -48,7 +47,6 @@ import {
   Users,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { Outlet, useMatches } from 'react-router-dom';
 const NAV = [
   { id: 'dashboard', name: 'لوحة المتابعة', icon: LayoutDashboard },
@@ -65,8 +63,7 @@ const NAV = [
   { id: 'financial', name: 'القوائم المالية', icon: ChartNoAxesCombined },
 ];
 export function DashboardLayout() {
-  const { t } = useTranslation();
-  const { user } = useAuth();
+  const { user, can, accessError, isAccessLoading } = useAuth();
   const session = { user, signInHref: ROUTES.LOGIN, signOutHref: ROUTES.LOGIN };
   const {
     state: s,
@@ -115,14 +112,15 @@ export function DashboardLayout() {
     [isNotifications, setNotifications] = useState(false);
   const bookId = s?.annualBooks?.activeId;
   const productSearch = useQuery({
-    queryKey: ['erp', 'inventory', 'search', user?.userId, user?.kind, bookId, branchId, query],
+    queryKey: ['erp', 'inventory', 'search', user?.userId, 'aspnet', bookId, branchId, query],
     queryFn: () => fetchSearchItems({ q: query, page: 1, pageSize: 10, bookId }),
     enabled: isCommand && !!query.trim(),
   });
   const notifications = useQuery({
-    queryKey: ['erp', 'users', 'notifications', user?.userId, user?.kind, bookId],
-    queryFn: () => fetchAuditEvents({ page: 1, pageSize: 8, bookId }),
-    enabled: isNotifications,
+    queryKey: ['erp', 'users', 'notifications', user?.userId, 'aspnet', bookId],
+    queryFn: () =>
+      userActivityApi.audit({ page: 1, pageSize: 8, branchId: Number(user?.branchId) }),
+    enabled: isNotifications && can('USERS', 'USERS_AUDIT_VIEW'),
   });
   const matches = useMatches();
   const routeHandle = matches.findLast((match) => match.handle)?.handle as
@@ -239,7 +237,7 @@ export function DashboardLayout() {
                   }
                 >
                   <n.icon size={19} />
-                  <span>{t('navigation.' + n.id, { defaultValue: n.name })}</span>
+                  <span>{n.name}</span>
                   {n.id === 'dashboard' ? (
                     <span className="nav-badge">نظرة عامة</span>
                   ) : (
@@ -266,13 +264,7 @@ export function DashboardLayout() {
             <span className="avatar">{s.organization.name.slice(0, 2)}</span>
             <div>
               <strong>{session.user?.displayName}</strong>
-              <small>
-                {session.user?.role === 'admin'
-                  ? 'مسؤول النظام'
-                  : session.user?.role === 'staff'
-                    ? 'مستخدم عمليات'
-                    : 'مشاهدة فقط'}
-              </small>
+              <small>{'صلاحيات الحساب المعتمدة'}</small>
             </div>
             <ShieldCheck size={16} />
           </div>
@@ -328,9 +320,8 @@ export function DashboardLayout() {
             </div>
           </div>
           <div className="topbar-end">
-            <LanguageSwitch />
             <ThemeToggle />
-            <AutomaticBackups isEnabled={session.user?.role === 'admin'} />
+            <AutomaticBackups isEnabled={!!user} />
             <SessionMenu {...session} editing={isEditingDocument} />
             <button className="global-search" onClick={() => setCommand(true)}>
               <Search size={16} />
@@ -372,6 +363,16 @@ export function DashboardLayout() {
               </Button>
             </div>
           )}
+          {isAccessLoading && <p role="status">جارٍ تحميل صلاحيات الحساب…</p>}
+          {accessError && (
+            <div role="alert">
+              <p>
+                تعذر تحميل صلاحيات الحساب. لم تُمنح صلاحيات افتراضية؛ قد يتطلب عقد دليل الصلاحيات
+                مراجعة مع Backend.
+              </p>
+              <Button onClick={refresh}>إعادة المحاولة</Button>
+            </div>
+          )}
           <ModuleLinks module={area} />
           {
             <div className={'annual-period-banner ' + (isArchived(s) ? 'archived' : '')}>
@@ -385,9 +386,7 @@ export function DashboardLayout() {
               </button>
             </div>
           }
-          {session.user?.role === 'viewer' && (
-            <div className="info-note">حساب مشاهدة فقط — لا يمكنك حفظ العمليات.</div>
-          )}
+
           <Outlet />
           <div className="device-print-footer">{device.footer}</div>
         </div>
@@ -432,7 +431,7 @@ export function DashboardLayout() {
               }
             >
               <n.icon size={17} />
-              <span>{t('navigation.' + n.id, { defaultValue: n.name })}</span>
+              <span>{n.name}</span>
               <ArrowUpLeft size={15} />
             </button>
           ))}
@@ -469,9 +468,10 @@ export function DashboardLayout() {
                 <CloudCheck size={17} />
               </span>
               <div>
-                <strong>{a.action}</strong>
+                <strong>{a.eventCode}</strong>
                 <small>
-                  {a.reference} · {new Date(a.date).toLocaleDateString('ar-YE')}
+                  {a.targetId || 'غير متوفر'} ·{' '}
+                  {new Date(a.occurredAtUtc).toLocaleDateString('ar-YE')}
                 </small>
               </div>
             </div>

@@ -1,7 +1,6 @@
 import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import { requireCommandApi } from '@/core/api/require-api-mode';
 import type { CommandContext } from '@/core/types/CommandContext';
 import type { SaveExpenseConsumeRequest } from '@/features/expenses/types/requests/SaveExpenseConsumeRequest';
 import type { SaveExpensePaymentRequest } from '@/features/expenses/types/requests/SaveExpensePaymentRequest';
@@ -11,7 +10,6 @@ export const submitExpense = async (
   data: SaveExpenseRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('expenses', 'expense'), {
     ...context,
     type: 'expense',
@@ -22,7 +20,6 @@ export const submitExpenseSave = async (
   data: SaveExpenseSaveRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('expenses', 'expenseSave'), {
     ...context,
     type: 'expenseSave',
@@ -33,7 +30,6 @@ export const submitExpensePayment = async (
   data: SaveExpensePaymentRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('expenses', 'expensePayment'), {
     ...context,
     type: 'expensePayment',
@@ -44,7 +40,6 @@ export const submitExpenseConsume = async (
   data: SaveExpenseConsumeRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('expenses', 'expenseConsume'), {
     ...context,
     type: 'expenseConsume',

@@ -14,7 +14,7 @@ export function useDashboardController() {
       'dashboard',
       'summary',
       user?.userId,
-      user?.kind,
+      'aspnet',
       bookId,
       branchId,
       identity.locale,

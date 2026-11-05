@@ -1,7 +1,6 @@
 import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import { requireCommandApi } from '@/core/api/require-api-mode';
 import type { CommandContext } from '@/core/types/CommandContext';
 import type { SaveContactEntryRequest } from '@/features/ledger/public/types/requests/SaveContactEntryRequest';
 import type { SaveContactVoucherRequest } from '@/features/ledger/public/types/requests/SaveContactVoucherRequest';
@@ -12,25 +11,12 @@ import type { SavePeriodCreateRequest } from '@/features/ledger/public/types/req
 import type { SavePeriodResetRequest } from '@/features/ledger/public/types/requests/SavePeriodResetRequest';
 import type { SavePeriodSwitchRequest } from '@/features/ledger/public/types/requests/SavePeriodSwitchRequest';
 import type { SavePeriodTransferRequest } from '@/features/ledger/public/types/requests/SavePeriodTransferRequest';
-import type { SavePermissionsRequest } from '@/features/ledger/public/types/requests/SavePermissionsRequest';
 import type { SaveScreenDraftRequest } from '@/features/ledger/public/types/requests/SaveScreenDraftRequest';
 import type { SaveVoucherRequest } from '@/features/ledger/public/types/requests/SaveVoucherRequest';
-export const submitPermissions = async (
-  data: SavePermissionsRequest,
-  context: CommandContext,
-): Promise<CommandReceipt> => {
-  requireCommandApi();
-  return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'permissions'), {
-    ...context,
-    type: 'permissions',
-    data: data,
-  });
-};
 export const submitContactEntry = async (
   data: SaveContactEntryRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'contactEntry'), {
     ...context,
     type: 'contactEntry',
@@ -41,7 +27,6 @@ export const submitContactVoucher = async (
   data: SaveContactVoucherRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'contactVoucher'), {
     ...context,
     type: 'contactVoucher',
@@ -52,7 +37,6 @@ export const submitPeriodSwitch = async (
   data: SavePeriodSwitchRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodSwitch'), {
     ...context,
     type: 'periodSwitch',
@@ -63,7 +47,6 @@ export const submitPeriodCreate = async (
   data: SavePeriodCreateRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodCreate'), {
     ...context,
     type: 'periodCreate',
@@ -74,7 +57,6 @@ export const submitPeriodTransfer = async (
   data: SavePeriodTransferRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodTransfer'), {
     ...context,
     type: 'periodTransfer',
@@ -85,7 +67,6 @@ export const submitPeriodActivate = async (
   data: SavePeriodActivateRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodActivate'), {
     ...context,
     type: 'periodActivate',
@@ -96,7 +77,6 @@ export const submitPeriodReset = async (
   data: SavePeriodResetRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'periodReset'), {
     ...context,
     type: 'periodReset',
@@ -107,7 +87,6 @@ export const submitScreenDraft = async (
   data: SaveScreenDraftRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'screenDraft'), {
     ...context,
     type: 'screenDraft',
@@ -119,7 +98,6 @@ export const submitManualJournal = async (
   data: SaveManualJournalRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'manualJournal'), {
     ...context,
     type: 'manualJournal',
@@ -130,7 +108,6 @@ export const submitOperation = async (
   data: SaveOperationRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'operation'), {
     ...context,
     type: 'operation',
@@ -141,7 +118,6 @@ export const submitVoucher = async (
   data: SaveVoucherRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'voucher'), {
     ...context,
     type: 'voucher',

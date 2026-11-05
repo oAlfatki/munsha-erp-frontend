@@ -47,14 +47,6 @@ export const backupStateSchema = z
     movements: z.array(z.unknown()),
     expenses: z.array(z.unknown()),
     currencies: z.array(z.unknown()),
-    roles: z.record(
-      z.array(
-        z.string({
-          required_error: 'القيمة المدخلة مطلوب',
-          invalid_type_error: 'أدخل قيمة صحيحة في القيمة المدخلة',
-        }),
-      ),
-    ),
     processed: z.array(
       z.string({
         required_error: 'القيمة المدخلة مطلوب',

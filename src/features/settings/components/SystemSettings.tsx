@@ -2,7 +2,7 @@ import { ROUTES } from '@/core/config/navigation-paths';
 import { useSystemSettingsController } from '@/features/settings/hooks/useSystemSettingsController';
 
 import { fmt } from '@/core/utils/formatters';
-import { nextDocumentNumber, PREFIXES } from '@/features/accounting/public/numbering';
+import { PREFIXES } from '@/features/accounting/public/numbering';
 import { isArchived } from '@/features/ledger/public/annual-books';
 import { cashOptions } from '@/features/ledger/public/cash';
 import type { DocumentKind } from '@/features/ledger/public/types/models/DocumentKind';
@@ -793,7 +793,7 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
                     التالي يديره الخادم بمعاملة تحفظ الإصدار وتمنع التكرار؛ لا يمكن إدخاله يدويًا.
                   </p>
                 </Group>
-                <Group title={'الأرقام التالية المحفوظة · ' + branchName}>
+                <Group title={'ترقيم المستندات · ' + branchName}>
                   <DataTable
                     headers={['نوع المستند', 'البادئة الثابتة', 'الرقم التالي — للقراءة']}
                     rows={(Object.keys(PREFIXES) as DocumentKind[]).map((kind) => [
@@ -807,7 +807,7 @@ export function SystemSettings({ initialTab = 'company' }: SystemSettingsProps) 
                         adjustment: 'تسوية مخزون',
                       }[kind],
                       PREFIXES[kind],
-                      nextDocumentNumber(s, kind, branchId),
+                      'غير متاح من API الحالي',
                     ])}
                   />
                   <Locked

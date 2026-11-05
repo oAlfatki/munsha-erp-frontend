@@ -6,7 +6,6 @@ import type { PersistedSystemSettings } from '@/features/organization/public/typ
 import type { StockDocument } from '@/features/stock/public/types/models/StockDocument';
 import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
 import type { Invoice } from '@/features/trade/public/types/models/Invoice';
-import type { Audit } from '@/features/users/public/types/models/Audit';
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface SystemSettingsReadModel {
   organization: {
@@ -38,5 +37,4 @@ export interface SystemSettingsReadModel {
   entries: Entry[];
   invoices: Invoice[];
   stockDocuments?: StockDocument[];
-  audit: Audit[];
 }

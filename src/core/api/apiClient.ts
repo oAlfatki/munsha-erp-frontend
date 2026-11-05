@@ -1,46 +1,67 @@
+import {
+  sessionGeneration,
+  hasSessionRefresh,
+  refreshSession,
+  expireSession,
+} from '@/core/api/session-transport';
 import { ApiError } from '@/core/api/apiError';
-import { ENDPOINTS } from '@/core/config/endpoints';
 import type { ProblemDetails } from '@/core/types/ProblemDetails';
 import type { Result } from '@/core/types/Result';
-import type { AxiosRequestConfig } from 'axios';
+import type { SessionRequestConfig } from '@/core/types/SessionRequestConfig';
 import axios from 'axios';
 import { API_CONFIG } from './apiConfig';
 export const axiosInstance = axios.create({
   ...API_CONFIG,
 });
-let refreshFlight: Promise<unknown> | null = null;
 axiosInstance.interceptors.request.use((request) => {
-  request.headers.set('Accept-Language', document.documentElement.lang || 'ar');
-  if (request.data instanceof FormData) request.headers.delete('Content-Type');
+  request.headers.set('Accept-Language', 'ar');
+  if (typeof FormData !== 'undefined' && request.data instanceof FormData)
+    request.headers.delete('Content-Type');
+  (request as typeof request & { sessionGeneration?: number }).sessionGeneration ??=
+    sessionGeneration();
   return request;
 });
 axiosInstance.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    const expected = (response.config as SessionRequestConfig).sessionGeneration;
+    if (expected !== undefined && expected !== sessionGeneration())
+      throw new axios.CanceledError('أُلغي الطلب لتغير الجلسة.');
+    return response;
+  },
   async (error) => {
-    const status = error.response?.status || 0,
-      request = error.config as (AxiosRequestConfig & { hasRetried?: boolean }) | undefined;
-    const isPublicAuth = !!request?.url && /\/(login|refresh-token)$/.test(request.url);
+    if (axios.isCancel(error)) return Promise.reject(error);
+    const status = error.response?.status || 0;
+    const request = error.config as
+      | (SessionRequestConfig & {
+          hasRetried?: boolean;
+          skipSessionRefresh?: boolean;
+          sessionGeneration?: number;
+        })
+      | undefined;
+    const expected = request?.sessionGeneration ?? sessionGeneration();
+    const isLogin = request?.url === '/auth/sign-in';
     if (
       status === 401 &&
-      API_CONFIG.apiMode === 'aspnet' &&
-      API_CONFIG.sessionRefresh &&
+      !isLogin &&
+      expected === sessionGeneration() &&
       request &&
       !request.hasRetried &&
-      !isPublicAuth
+      !request.skipSessionRefresh &&
+      hasSessionRefresh()
     ) {
       request.hasRetried = true;
       try {
-        if (!refreshFlight)
-          refreshFlight = axiosInstance.post(ENDPOINTS.authRefresh).finally(() => {
-            refreshFlight = null;
-          });
-        await refreshFlight;
+        await refreshSession();
+        if (expected !== sessionGeneration())
+          throw new ApiError({ detail: 'انتهت الجلسة أثناء تنفيذ الطلب' }, 401);
         return await axiosInstance.request(request);
-      } catch {
-        /* Normalize the original error below. */
+      } catch (refreshError) {
+        if (refreshError instanceof ApiError && refreshError.status === 401)
+          expireSession(expected);
+        return Promise.reject(refreshError);
       }
     }
-    if (status === 401 && !isPublicAuth) window.dispatchEvent(new Event('auth:unauthorized'));
+    if (status === 401 && !isLogin) expireSession(expected);
     const raw = error.response?.data as (ProblemDetails & { error?: string }) | undefined;
     return Promise.reject(
       new ApiError(
@@ -57,7 +78,7 @@ axiosInstance.interceptors.response.use(
     );
   },
 );
-async function request<TData>(options: AxiosRequestConfig): Promise<TData> {
+async function request<TData>(options: SessionRequestConfig): Promise<TData> {
   const { data, status } = await axiosInstance.request<TData | Result<TData> | ProblemDetails>(
     options,
   );
@@ -71,23 +92,23 @@ async function request<TData>(options: AxiosRequestConfig): Promise<TData> {
 
 /** Feature endpoints choose verbs; one transport owns envelopes, cookies and errors. */
 export const apiClient = {
-  get: <TResponse = unknown>(url: string, config?: AxiosRequestConfig) =>
+  get: <TResponse = unknown>(url: string, config?: SessionRequestConfig) =>
     request<TResponse>({ ...config, url, method: 'GET' }),
   post: <TResponse = unknown, TBody = unknown>(
     url: string,
     data: TBody,
-    config?: AxiosRequestConfig,
+    config?: SessionRequestConfig,
   ) => request<TResponse>({ ...config, url, data, method: 'POST' }),
   put: <TResponse = unknown, TBody = unknown>(
     url: string,
     data: TBody,
-    config?: AxiosRequestConfig,
+    config?: SessionRequestConfig,
   ) => request<TResponse>({ ...config, url, data, method: 'PUT' }),
   patch: <TResponse = unknown, TBody = unknown>(
     url: string,
     data: TBody,
-    config?: AxiosRequestConfig,
+    config?: SessionRequestConfig,
   ) => request<TResponse>({ ...config, url, data, method: 'PATCH' }),
-  delete: <TResponse = unknown>(url: string, config?: AxiosRequestConfig) =>
+  delete: <TResponse = unknown>(url: string, config?: SessionRequestConfig) =>
     request<TResponse>({ ...config, url, method: 'DELETE' }),
 };

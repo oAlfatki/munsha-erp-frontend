@@ -1,7 +1,6 @@
 import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import { requireCommandApi } from '@/core/api/require-api-mode';
 import type { CommandContext } from '@/core/types/CommandContext';
 import type { DeleteStockDraftRequest } from '@/features/stock/types/requests/DeleteStockDraftRequest';
 import type { SavePriceListRequest } from '@/features/stock/types/requests/SavePriceListRequest';
@@ -13,7 +12,6 @@ export const submitProduct = async (
   data: SaveProductRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('inventory', 'product'), {
     ...context,
     type: 'product',
@@ -24,7 +22,6 @@ export const submitWarehouse = async (
   data: SaveWarehouseRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('inventory', 'warehouse'), {
     ...context,
     type: 'warehouse',
@@ -35,7 +32,6 @@ export const submitTransfer = async (
   data: SaveTransferRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('inventory', 'transfer'), {
     ...context,
     type: 'transfer',
@@ -46,7 +42,6 @@ export const submitStockDocument = async (
   data: SaveStockDocumentRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('inventory', 'stockDocument'), {
     ...context,
     type: 'stockDocument',
@@ -57,7 +52,6 @@ export const submitDeleteStockDraft = async (
   data: DeleteStockDraftRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('inventory', 'deleteStockDraft'), {
     ...context,
     type: 'deleteStockDraft',
@@ -68,7 +62,6 @@ export const submitPriceList = async (
   data: SavePriceListRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('inventory', 'priceList'), {
     ...context,
     type: 'priceList',

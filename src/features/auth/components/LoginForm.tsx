@@ -1,48 +1,37 @@
-import { useAuth } from '@/core/auth/AuthProvider';
-import { ROUTES } from '@/core/config/navigation-paths';
+import { loginDestination } from '@/features/auth/services/login-destination';
 import { useLogin } from '@/features/auth/hooks/useLogin';
-import { getAccount } from '@/features/auth/services/auth-service';
 import { Field } from '@/shared/ui/forms/Field';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ArrowLeft } from 'lucide-react';
-import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 export function LoginForm() {
-  const { form, mutation } = useLogin();
-  const [error, setError] = useState('');
-  const auth = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const submit = form.handleSubmit(async (input) => {
-    setError('');
-    try {
-      await mutation.mutateAsync(input);
-      const result = await getAccount();
-      auth.setUser(result.user);
-      const from = location.state?.from;
-      const target =
-        typeof from === 'string' && from.startsWith('/') && !from.startsWith('//')
-          ? from
-          : ROUTES.DASHBOARD;
-      navigate(target, { replace: true });
-    } catch (e) {
-      setError((e as Error).message);
-    }
-  });
+  const { form, submit, isPending } = useLogin();
+  const navigate = useNavigate(),
+    location = useLocation();
   return (
     <>
-      <form onSubmit={submit} noValidate className="auth-form">
+      <form
+        onSubmit={submit(() => {
+          const safe = loginDestination(location.state?.from);
+          navigate(safe, { replace: true });
+        })}
+        noValidate
+        aria-busy={isPending}
+        className="auth-form"
+      >
         <Field label="اسم المستخدم *">
           <Input
             {...form.register('username')}
             autoComplete="username"
-            dir="ltr"
             aria-invalid={!!form.formState.errors.username}
+            aria-describedby={form.formState.errors.username ? 'login-username-error' : undefined}
+            dir="ltr"
+            disabled={isPending}
           />
         </Field>
         {form.formState.errors.username && (
-          <p className="field-error" role="alert">
+          <p id="login-username-error" role="alert" className="field-error">
             {form.formState.errors.username.message}
           </p>
         )}
@@ -50,27 +39,29 @@ export function LoginForm() {
           <Input
             {...form.register('password')}
             autoComplete="current-password"
-            type="password"
             aria-invalid={!!form.formState.errors.password}
+            aria-describedby={form.formState.errors.password ? 'login-password-error' : undefined}
+            type="password"
+            disabled={isPending}
           />
         </Field>
         {form.formState.errors.password && (
-          <p className="field-error" role="alert">
+          <p id="login-password-error" role="alert" className="field-error">
             {form.formState.errors.password.message}
           </p>
         )}
-        {error && (
-          <p className="field-error" role="alert">
-            {error}
+        {form.formState.errors.root && (
+          <p role="alert" className="field-error">
+            {form.formState.errors.root.message}
           </p>
         )}
-        <Button disabled={mutation.isPending} type="submit">
-          {mutation.isPending ? 'جارٍ الدخول…' : 'تسجيل الدخول'}
+        <Button disabled={isPending || form.formState.isSubmitting} type="submit">
+          {isPending ? 'جارٍ الدخول…' : 'تسجيل الدخول'}
           <ArrowLeft size={18} />
         </Button>
       </form>
       <p className="login-limit">
-        يُنشئ مسؤول المنشأة حسابات المستخدمين من «المستخدمون والصلاحيات».
+        يُنشئ المستخدمون المصرح لهم حسابات الدخول من «المستخدمون والصلاحيات».
       </p>
     </>
   );

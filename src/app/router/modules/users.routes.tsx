@@ -2,6 +2,13 @@ import { ROUTES } from '@/core/config/navigation-paths';
 import type { RouteObject } from 'react-router-dom';
 export const USERS_ROUTES: RouteObject[] = [
   {
+    path: ROUTES.USERS_ID,
+    lazy: async () => ({
+      Component: (await import('@/features/users/pages/ViewUserPage')).default,
+    }),
+    handle: { module: 'users', title: 'تفاصيل المستخدم', navModule: 'access' },
+  },
+  {
     path: ROUTES.USERS,
     lazy: async () => ({
       Component: (await import('@/features/users/pages/UserListPage')).default,

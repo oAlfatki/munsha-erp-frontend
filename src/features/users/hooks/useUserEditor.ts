@@ -1,32 +1,75 @@
+import { assertGrantable } from '@/features/users/validation/permission-grants';
+import { useAuth } from '@/core/auth/AuthProvider';
+import { errorMessage } from '@/core/api/error-message';
 import { usersApi } from '@/features/users/api/users-api';
-import type { IUserFormInput } from '@/features/users/types/IUserFormInput';
-import type { UserResponse } from '@/features/users/types/responses/UserResponse';
+import type { UserDetails, UserFormValues } from '@/features/users/type';
 import { userFormSchema } from '@/features/users/validation/user-form-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
-export function useUserEditor(user: UserResponse | undefined, onSaved: () => void) {
-  const cache = useQueryClient();
-  const form = useForm<IUserFormInput>({
+import { useRef } from 'react';
+export function useUserEditor(user: UserDetails | undefined, onSaved: () => void) {
+  const auth = useAuth(),
+    client = useQueryClient(),
+    lock = useRef(false);
+  const form = useForm<UserFormValues>({
     resolver: zodResolver(userFormSchema),
     defaultValues: {
       id: user?.id,
-      name: user?.name || '',
+      fullName: user?.fullName || '',
       username: user?.username || '',
       password: '',
-      role: user?.role || 'staff',
-      active: user ? !!user.active : true,
+      branchId: user?.branchId || Number(auth.user?.branchId),
+      permissions: [],
     },
+    shouldUnregister: false,
   });
   const mutation = useMutation({
-    mutationFn: (values: IUserFormInput) =>
-      user ? usersApi.update({ ...values, id: user.id }) : usersApi.create(values),
+    gcTime: 0,
+    mutationFn: async (v: UserFormValues) => {
+      const code = user ? 'USERS_UPDATE' : 'USERS_CREATE';
+      if (!auth.can('USERS', code, String(v.branchId)))
+        throw Error('لا تملك صلاحية الحفظ في هذا الفرع.');
+      if (!user) assertGrantable(v.permissions, auth.user?.permissions || []);
+      return user
+        ? usersApi.update(user.id, {
+            fullName: v.fullName,
+            username: v.username,
+            rowVersion: v.rowVersion!,
+          })
+        : usersApi.create({
+            fullName: v.fullName,
+            username: v.username,
+            password: v.password,
+            branchId: v.branchId,
+            permissions: v.permissions,
+          });
+    },
     onSuccess: async () => {
-      await cache.invalidateQueries({ queryKey: ['erp', 'users'] });
-      await cache.invalidateQueries({ queryKey: ['auth', 'account'] });
+      form.setValue('password', '');
+      await client.invalidateQueries({ queryKey: ['users'] });
       onSaved();
     },
   });
-  const submit = form.handleSubmit((values) => mutation.mutate(values));
-  return { form, submit, isPending: mutation.isPending, error: mutation.error?.message || '' };
+  const submit = form.handleSubmit(async (v) => {
+    if (lock.current) return;
+    lock.current = true;
+    try {
+      await mutation.mutateAsync(v);
+    } catch (e) {
+      form.setError('root', { message: errorMessage(e) });
+    } finally {
+      lock.current = false;
+      form.setValue('password', '');
+      mutation.reset();
+    }
+  });
+  return {
+    form,
+    submit,
+    isPending: mutation.isPending,
+    isEditing: !!user,
+    error: form.formState.errors.root?.message || '',
+    hasVersion: !user || !!form.getValues('rowVersion'),
+  };
 }

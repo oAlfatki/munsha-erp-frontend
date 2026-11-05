@@ -1,47 +1,65 @@
 import { apiClient } from '@/core/api/apiClient';
-import { ENDPOINTS } from '@/core/config/endpoints';
-import { CONFIG } from '@/core/config/env';
-import type { AuthActionResponse } from '@/features/auth/public/types/responses/AuthActionResponse';
-import { fetchUsers, fetchUsersById } from '@/features/users/api/read-api';
-import type { IUserFormInput } from '@/features/users/types/IUserFormInput';
+import type {
+  CreateUserRequest,
+  CreateUserResponse,
+  UpdateUserRequest,
+  UserDetails,
+  UsersPage,
+  UsersFilters,
+  UserPermissions,
+  PermissionMask,
+  AuditFilters,
+  AuditLogsPage,
+  UserSessionsPage,
+} from '@/features/users/type';
+const path = (id: number) => {
+  if (!Number.isSafeInteger(id) || id < 1) throw Error('معرّف المستخدم غير صحيح.');
+  return '/users/' + id;
+};
 export const usersApi = {
-  list: fetchUsers,
-  detail: fetchUsersById,
-  create: (input: IUserFormInput) =>
-    apiClient.post<AuthActionResponse>(
-      CONFIG.apiMode === 'site' ? ENDPOINTS.authAction : ENDPOINTS.createUser,
-      {
-        action: 'create',
-        name: input.name,
-        username: input.username,
-        password: input.password,
-        role: input.role,
-      },
-    ),
-  update: (input: IUserFormInput & { id: string }) =>
-    CONFIG.apiMode === 'site'
-      ? apiClient.post<AuthActionResponse>(ENDPOINTS.authAction, {
-          action: 'update',
-          id: input.id,
-          name: input.name,
-          role: input.role,
-          active: input.active,
-        })
-      : apiClient.put<AuthActionResponse>(ENDPOINTS.updateUser(input.id), {
-          action: 'update',
-          id: input.id,
-          name: input.name,
-          role: input.role,
-          active: input.active,
-        }),
-  resetPassword: (input: { id: string; password: string }) =>
-    CONFIG.apiMode === 'site'
-      ? apiClient.post<AuthActionResponse>(ENDPOINTS.authAction, {
-          action: 'resetPassword',
-          ...input,
-        })
-      : apiClient.put<AuthActionResponse>(ENDPOINTS.resetUserPassword(input.id), {
-          action: 'resetPassword',
-          ...input,
-        }),
+  sessions: (id: number, page: number, signal?: AbortSignal) =>
+    apiClient.get<UserSessionsPage>(path(id) + '/sessions', {
+      params: { page, pageSize: 20 },
+      signal,
+    }),
+  revokeSession: (id: number, sessionId: string) =>
+    apiClient.delete<void>(path(id) + '/sessions/' + encodeURIComponent(sessionId)),
+  revokeAllSessions: (id: number) =>
+    apiClient.post<{ revokedCount: number }>(path(id) + '/sessions/revoke-all', {}),
+  audit: (params: AuditFilters, signal?: AbortSignal) =>
+    apiClient.get<AuditLogsPage>('/audit-logs', { params, signal }),
+  auditReport: (kind: 'print' | 'export', filters: AuditFilters) => {
+    const { page: _page, pageSize: _pageSize, ...params } = filters;
+    return apiClient.post<Blob>(
+      '/audit-logs/' + kind,
+      { ...params, format: 'pdf' },
+      { responseType: 'blob' },
+    );
+  },
+
+  list: (params: UsersFilters, signal?: AbortSignal) =>
+    apiClient.get<UsersPage>('/users', { params, signal }),
+  detail: (id: number, signal?: AbortSignal) => apiClient.get<UserDetails>(path(id), { signal }),
+  create: (input: CreateUserRequest) =>
+    apiClient.post<CreateUserResponse>('/users', {
+      fullName: input.fullName,
+      username: input.username,
+      password: input.password,
+      branchId: input.branchId,
+      permissions: input.permissions,
+    }),
+  update: (id: number, input: UpdateUserRequest) => {
+    if (!input.rowVersion) throw Error('لا يمكن الحفظ دون رمز نسخة البيانات من الخادم.');
+    return apiClient.put<unknown>(path(id), {
+      fullName: input.fullName,
+      username: input.username,
+      rowVersion: input.rowVersion,
+    });
+  },
+  resetPassword: (input: { id: number; newPassword: string }) =>
+    apiClient.post<unknown>(path(input.id) + '/reset-password', { newPassword: input.newPassword }),
+  permissions: (id: number, signal?: AbortSignal) =>
+    apiClient.get<UserPermissions>(path(id) + '/permissions', { signal }),
+  savePermissions: (id: number, permissionsVersion: string, permissions: PermissionMask[]) =>
+    apiClient.put<UserPermissions>(path(id) + '/permissions', { permissionsVersion, permissions }),
 };

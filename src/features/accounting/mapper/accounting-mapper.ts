@@ -8,7 +8,6 @@ import {
   periodResetSchema,
   periodSwitchSchema,
   periodTransferSchema,
-  permissionsSchema,
   screenDraftSchema,
   voucherSchema,
 } from '@/features/ledger/public/accounting-schema';
@@ -21,11 +20,8 @@ import type { SavePeriodCreateRequest } from '@/features/ledger/public/types/req
 import type { SavePeriodResetRequest } from '@/features/ledger/public/types/requests/SavePeriodResetRequest';
 import type { SavePeriodSwitchRequest } from '@/features/ledger/public/types/requests/SavePeriodSwitchRequest';
 import type { SavePeriodTransferRequest } from '@/features/ledger/public/types/requests/SavePeriodTransferRequest';
-import type { SavePermissionsRequest } from '@/features/ledger/public/types/requests/SavePermissionsRequest';
 import type { SaveScreenDraftRequest } from '@/features/ledger/public/types/requests/SaveScreenDraftRequest';
 import type { SaveVoucherRequest } from '@/features/ledger/public/types/requests/SaveVoucherRequest';
-export const mapPermissionsInput = (input: unknown): SavePermissionsRequest =>
-  permissionsSchema.parse(input) as SavePermissionsRequest;
 export const mapContactEntryInput = (input: unknown): SaveContactEntryRequest =>
   contactEntrySchema.parse(input) as SaveContactEntryRequest;
 export const mapContactVoucherInput = (input: unknown): SaveContactVoucherRequest =>

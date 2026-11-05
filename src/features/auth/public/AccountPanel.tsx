@@ -1,158 +1,191 @@
-import { ROUTES } from '@/core/config/navigation-paths';
-import { useAccountAction } from '@/features/auth/hooks/useAccountAction';
-import { useAccountQuery } from '@/features/auth/hooks/useAccountQuery';
-import { useChangePasswordForm } from '@/features/auth/hooks/useChangePasswordForm';
-import type { AccountCommand } from '@/features/auth/types/AccountCommand';
-import type { AccountPanelProps } from '@/features/auth/types/AccountPanelProps';
+import { revokeOtherSessions } from '@/features/auth/services/revoke-other-sessions';
+import { useAuth } from '@/core/auth/AuthProvider';
+import { errorMessage } from '@/core/api/error-message';
+import { authApi } from '@/features/auth/api/auth-api';
+import { passwordChangeSchema } from '@/features/auth/validation/password-change-schema';
+import type { ChangePasswordInput } from '@/features/auth/type';
 import { Field } from '@/shared/ui/forms/Field';
-import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { DataTable } from '@/shared/ui/tables/DataTable';
-import { useState } from 'react';
-
-export function AccountPanel({ mode = 'password', user }: AccountPanelProps) {
-  const account = useAccountQuery();
-  const data = account.data || (user ? { user, sessions: [] } : null);
-  const [error, setError] = useState(''),
-    [current, setCurrent] = useState(''),
-    [password, setPassword] = useState(''),
-    [confirm, setConfirm] = useState('');
-  const handleLoad = async () => {
-    const result = await account.refetch();
-    if (result.error) setError(result.error.message);
-  };
-  const authAction = useAccountAction();
-  const isBusy = authAction.isPending;
-  const passwordForm = useChangePasswordForm();
-  async function action(p: AccountCommand) {
-    setError('');
-    try {
-      await authAction.mutateAsync(p);
-      await handleLoad();
-    } catch (e) {
-      setError((e as Error).message);
-    }
-  }
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useRef, useState } from 'react';
+export function AccountPanel({ mode = 'password' }: { mode?: 'password' | 'sessions' }) {
+  const auth = useAuth(),
+    client = useQueryClient();
+  const [page, setPage] = useState(1),
+    [message, setMessage] = useState('');
+  const lock = useRef(false);
+  const form = useForm<ChangePasswordInput>({
+    resolver: zodResolver(passwordChangeSchema),
+    defaultValues: { currentPassword: '', newPassword: '', confirm: '' },
+    shouldUnregister: true,
+  });
+  const query = useQuery({
+    queryKey: ['auth', 'sessions', auth.user?.userId, page],
+    queryFn: ({ signal }) => authApi.sessions(page, signal),
+    enabled: mode === 'sessions' && !!auth.user,
+    retry: false,
+  });
+  const password = useMutation({
+    gcTime: 0,
+    mutationFn: authApi.changePassword,
+    onSuccess: async () => {
+      form.reset();
+      setMessage('حُفظت كلمة المرور.');
+      await auth.refreshIdentity();
+    },
+  });
+  const others = useMutation({
+    mutationFn: revokeOtherSessions,
+    onSettled: async () => {
+      await client.invalidateQueries({ queryKey: ['auth', 'sessions'] });
+    },
+  });
+  const revoke = useMutation({
+    mutationFn: async (session: { id: string; isCurrent: boolean } | null) => {
+      if (!session) {
+        await authApi.revokeAllSessions();
+        await auth.clearSession();
+      } else {
+        await authApi.revokeSession(session.id);
+        if (session.isCurrent) await auth.clearSession();
+      }
+    },
+    onSuccess: async () => {
+      await client.invalidateQueries({ queryKey: ['auth', 'sessions'] });
+    },
+  });
   return (
     <>
-      {data?.user.mustChange && (
-        <Button
-          variant="outline"
-          onClick={async () => {
-            await authAction.mutateAsync({ operation: 'logout' });
-            window.location.href = ROUTES.LOGIN;
-          }}
-        >
-          تسجيل الخروج
-        </Button>
-      )}
       <PageHead
-        title={mode === 'password' ? 'تغيير كلمة المرور' : 'الجلسات النشطة'}
+        title={mode === 'password' ? 'تغيير كلمة المرور' : 'جلساتي'}
         description={
           mode === 'password'
-            ? 'بعد تغيير كلمة المرور تنتهي جميع جلسات حسابك ويلزم الدخول مجددًا.'
-            : 'تنتهي الجلسة بعد 30 دقيقة من عدم النشاط أو بعد 12 ساعة من الدخول.'
+            ? 'أدخل كلمة المرور الحالية والجديدة.'
+            : 'جلسات حسابك والأجهزة المرتبطة به.'
         }
       />
-      {error && (
-        <p className="field-error" role="alert">
-          {error}
-        </p>
+      {message && <p role="status">{message}</p>}
+      {mode === 'sessions' && (
+        <>
+          <Button
+            disabled={others.isPending || revoke.isPending || query.isPending}
+            onClick={() => others.mutate()}
+          >
+            إنهاء جلساتي الأخرى
+          </Button>
+          {others.error && <p role="alert">{errorMessage(others.error)}</p>}
+          {others.isSuccess && <p role="status">تم إنهاء {others.data.revokedCount} جلسة أخرى.</p>}
+        </>
       )}
       {mode === 'password' ? (
-        data?.user.kind === 'owner' ? (
-          <p className="info-note">
-            حسابك الحالي يستخدم دخول ChatGPT. أنشئ حسابًا مستقلًا من قائمة المستخدمين لاستخدام كلمة
-            مرور خاصة بالنظام. كلمة مرور ChatGPT تُغيّر من إعدادات حساب ChatGPT.
-          </p>
-        ) : (
-          <ValidatedForm
-            className="auth-form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              passwordForm.reset({ current, password, confirm });
-              void passwordForm.handleSubmit(
-                (values) => action({ operation: 'changePassword', input: values }),
-                (errors) =>
-                  setError(
-                    Object.values(errors)
-                      .map((error) => String(error.message || 'راجع كلمة المرور'))
-                      .join('\n'),
-                  ),
-              )();
-            }}
-          >
-            <Field label="كلمة المرور الحالية *">
-              <Input
-                type="password"
-                autoComplete="current-password"
-                value={current}
-                onChange={(e) => setCurrent(e.target.value)}
-              />
-            </Field>
-            <Field label="كلمة المرور الجديدة — 10 أحرف على الأقل *">
-              <Input
-                type="password"
-                autoComplete="new-password"
-                minLength={10}
-                maxLength={128}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </Field>
-            <Field label="تأكيد كلمة المرور الجديدة *">
-              <Input
-                type="password"
-                autoComplete="new-password"
-                minLength={10}
-                maxLength={128}
-                value={confirm}
-                onChange={(e) => setConfirm(e.target.value)}
-              />
-            </Field>
-            <Button disabled={isBusy}>حفظ كلمة المرور</Button>
-          </ValidatedForm>
-        )
+        <form
+          noValidate
+          onSubmit={form.handleSubmit(async (values) => {
+            if (lock.current) return;
+            lock.current = true;
+            try {
+              await password.mutateAsync(values);
+            } catch (e) {
+              form.setError('root', { message: errorMessage(e) });
+            } finally {
+              lock.current = false;
+              form.setValue('currentPassword', '');
+              form.setValue('newPassword', '');
+              form.setValue('confirm', '');
+              password.reset();
+            }
+          })}
+          className="auth-form"
+        >
+          <Field label="كلمة المرور الحالية *">
+            <Input
+              type="password"
+              autoComplete="current-password"
+              {...form.register('currentPassword')}
+            />
+          </Field>
+          <Field label="كلمة المرور الجديدة *">
+            <Input type="password" autoComplete="new-password" {...form.register('newPassword')} />
+          </Field>
+          <Field label="تأكيد كلمة المرور الجديدة *">
+            <Input type="password" autoComplete="new-password" {...form.register('confirm')} />
+          </Field>
+          {Object.entries(form.formState.errors).map(([key, e]) => (
+            <p role="alert" key={key}>
+              {e.message}
+            </p>
+          ))}
+          <Button disabled={password.isPending || form.formState.isSubmitting}>
+            حفظ كلمة المرور
+          </Button>
+        </form>
       ) : (
         <>
           <div className="dialog-actions">
-            <Button variant="outline" onClick={handleLoad}>
-              تحديث الجلسات
+            <Button onClick={() => void query.refetch()}>تحديث الجلسات</Button>
+            <Button
+              disabled={revoke.isPending || others.isPending}
+              onClick={() => revoke.mutate(null)}
+            >
+              إنهاء جميع جلساتي وتسجيل الخروج
             </Button>
-            {data?.user.kind === 'local' && (
-              <Button
-                disabled={isBusy}
-                onClick={() => action({ operation: 'revokeOtherSessions' })}
-              >
-                إنهاء جلساتي الأخرى
-              </Button>
-            )}
           </div>
-          <DataTable
-            headers={['المستخدم', 'بداية الجلسة', 'آخر نشاط', 'الجهاز', 'الإجراء']}
-            rows={(data?.sessions || []).map((s) => [
-              s.name + (s.id === data?.user.sessionId ? ' — الجلسة الحالية' : ''),
-              new Date(s.created_at).toLocaleString('ar-YE'),
-              new Date(s.last_seen).toLocaleString('ar-YE'),
-              s.device,
-              <Button
-                key={s.id}
-                disabled={isBusy}
-                variant="outline"
-                onClick={() => action({ operation: 'revokeSession', id: s.id })}
-              >
-                إنهاء الجلسة
-              </Button>,
-            ])}
-          />
-          {data?.user.kind === 'owner' && (
-            <p className="info-note">
-              هذه جلسات حسابات النظام المستقلة. جلسة مالك الموقع بحساب ChatGPT تُدار من زر تسجيل
-              الخروج.
-            </p>
+          {query.isPending ? (
+            <p role="status">جارٍ تحميل الجلسات…</p>
+          ) : query.error ? (
+            <p role="alert">{errorMessage(query.error)}</p>
+          ) : (
+            <>
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    {['الجلسة', 'الجهاز', 'آخر نشاط', 'الإجراء'].map((h) => (
+                      <th key={h}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {query.data?.items.map((s) => (
+                    <tr key={s.id}>
+                      <td>{s.isCurrent ? 'الجلسة الحالية' : 'جلسة أخرى'}</td>
+                      <td>{s.deviceName || s.browser || 'غير متوفر'}</td>
+                      <td>
+                        {s.lastActivityAtUtc
+                          ? new Date(s.lastActivityAtUtc).toLocaleString('ar-YE')
+                          : 'غير متوفر'}
+                      </td>
+                      <td>
+                        <Button
+                          disabled={revoke.isPending || others.isPending}
+                          onClick={() => revoke.mutate(s)}
+                        >
+                          إنهاء الجلسة
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              {!query.data?.items.length && <p>لا توجد جلسات.</p>}
+              <div className="dialog-actions">
+                <Button disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
+                  السابق
+                </Button>
+                <span>الصفحة {page}</span>
+                <Button
+                  disabled={!query.data || page * query.data.pageSize >= query.data.totalCount}
+                  onClick={() => setPage((p) => p + 1)}
+                >
+                  اللاحق
+                </Button>
+              </div>
+            </>
           )}
+          {revoke.error && <p role="alert">{errorMessage(revoke.error)}</p>}
         </>
       )}
     </>

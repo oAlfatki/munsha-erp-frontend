@@ -107,10 +107,6 @@
     "settings",
     "saveSystemSettings"
   ],
-  "permissions": [
-    "accounting",
-    "savePermissions"
-  ],
   "contactEntry": [
     "accounting",
     "saveContactEntry"

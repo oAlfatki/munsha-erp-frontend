@@ -1,115 +1,136 @@
 import { useAuth } from '@/core/auth/AuthProvider';
+import { errorMessage } from '@/core/api/error-message';
 import { ROUTES } from '@/core/config/navigation-paths';
-import { usersApi } from '@/features/users/api/users-api';
 import { useUsersQuery } from '@/features/users/queries/users-query';
-import { resetPasswordSchema } from '@/features/users/validation/user-form-schema';
-import { Modal } from '@/shared/ui/dialogs/Modal';
-import { Field } from '@/shared/ui/forms/Field';
 import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Field } from '@/shared/ui/forms/Field';
+import { Select } from '@/shared/ui/forms/Select';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { DataTable } from '@/shared/ui/tables/DataTable';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { AccessRules } from './AccessRules';
-const ROLES = { admin: 'مسؤول النظام', staff: 'مستخدم عمليات', viewer: 'مشاهدة فقط' };
 export function UserDirectory() {
-  const { user } = useAuth(),
-    query = useUsersQuery(),
-    navigate = useNavigate(),
-    cache = useQueryClient();
-  const [reset, setReset] = useState<{ id: string; name: string } | null>(null);
-  const [message, setMessage] = useState('');
-  const form = useForm<{ id: string; password: string }>({
-    resolver: zodResolver(resetPasswordSchema),
-  });
-  const mutation = useMutation({
-    mutationFn: usersApi.resetPassword,
-    onSuccess: async () => {
-      setReset(null);
-      form.reset();
-      setMessage('أُعيد تعيين كلمة المرور وأُنهيت الجلسات.');
-      await cache.invalidateQueries({ queryKey: ['erp', 'users'] });
-    },
+  const auth = useAuth(),
+    navigate = useNavigate();
+  const [page, setPage] = useState(1),
+    [search, setSearch] = useState(''),
+    [active, setActive] = useState('');
+  const branchId = Number(auth.user?.branchId);
+  const query = useUsersQuery({
+    page,
+    pageSize: 20,
+    search,
+    branchId,
+    isActive: active === '' ? undefined : active === 'true',
   });
   return (
     <>
       <PageHead
         title="المستخدمون"
-        description="حسابات الدخول المستقلة وحالة الحساب ونوع الصلاحية."
+        description="حسابات المستخدمين وصلاحياتها حسب الفرع."
         extra={
-          user?.role === 'admin' ? (
+          auth.can('USERS', 'USERS_CREATE') ? (
             <Button onClick={() => navigate(ROUTES.USERS_NEW)}>إضافة مستخدم</Button>
           ) : undefined
         }
       />
-      <AccessRules />
-      {message && (
-        <p role="status" className="info-note">
-          {message}
-        </p>
-      )}
-      {query.error && <p role="alert">{query.error.message}</p>}
-      {user?.role !== 'admin' ? (
-        <p className="info-note">
-          إدارة حسابات المستخدمين متاحة لمسؤول النظام. استخدم «تغيير كلمة المرور» و«الجلسات» لإدارة
-          حسابك.
-        </p>
-      ) : query.isPending ? (
-        <p role="status">جارٍ تحميل المستخدمين…</p>
+      {!auth.can('USERS', 'USERS_VIEW') ? (
+        <p role="alert">لا تتوفر صلاحية عرض المستخدمين لهذا الحساب.</p>
       ) : (
-        <DataTable
-          headers={['الاسم', 'اسم الدخول', 'الصلاحية', 'الحالة', 'كلمة المرور', 'الإجراءات']}
-          rows={(query.data?.items || []).map((u) => [
-            u.name,
-            u.username,
-            ROLES[u.role] || u.role,
-            u.active ? 'نشط' : 'معطّل',
-            u.must_change ? 'يلزم تغييرها' : 'محدثة',
-            <div className="flex gap-2" key={u.id}>
-              <Button
-                variant="outline"
-                onClick={() => navigate('/users/' + encodeURIComponent(u.id) + '/edit')}
-              >
-                عرض وتعديل
-              </Button>
-              <Button
-                variant="ghost"
-                onClick={() => {
-                  setReset(u);
-                  form.reset({ id: u.id, password: '' });
+        <>
+          <div className="filter-bar">
+            <Field label="البحث">
+              <Input
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setPage(1);
+                }}
+              />
+            </Field>
+            <Field label="حالة المستخدم">
+              <Select
+                value={active}
+                onChange={(e) => {
+                  setActive(e.target.value);
+                  setPage(1);
                 }}
               >
-                إعادة تعيين كلمة المرور
-              </Button>
-            </div>,
-          ])}
-        />
-      )}{' '}
-      {reset && (
-        <Modal
-          isOpen
-          title={'إعادة تعيين كلمة المرور — ' + reset.name}
-          onClose={() => setReset(null)}
-        >
-          <p className="info-note">
-            تنتهي جميع جلسات هذا المستخدم فورًا. عليه تغيير كلمة المرور المؤقتة في أول دخول.
-          </p>
-          <form noValidate onSubmit={form.handleSubmit((values) => mutation.mutate(values))}>
-            <input type="hidden" {...form.register('id')} />
-            <Field label="كلمة المرور المؤقتة الجديدة *">
-              <Input type="password" autoComplete="new-password" {...form.register('password')} />
+                <option value="">الكل</option>
+                <option value="true">نشط</option>
+                <option value="false">معطل</option>
+              </Select>
             </Field>
-            {form.formState.errors.password && (
-              <p role="alert">{form.formState.errors.password.message}</p>
-            )}
-            {mutation.error && <p role="alert">{mutation.error.message}</p>}
-            <Button disabled={mutation.isPending}>تأكيد إعادة التعيين</Button>
-          </form>
-        </Modal>
+            <Field label="الفرع">
+              <Input value={branchId} readOnly />
+            </Field>
+          </div>
+          {query.isPending ? (
+            <p role="status">جارٍ تحميل المستخدمين…</p>
+          ) : query.error ? (
+            <p role="alert">{errorMessage(query.error)}</p>
+          ) : (
+            <>
+              <div className="table-card">
+                <table className="data-table">
+                  <thead>
+                    <tr>
+                      {['الاسم', 'اسم المستخدم', 'الفرع', 'الحالة', 'الإجراءات'].map((h) => (
+                        <th key={h}>{h}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {query.data?.items.map((u) => (
+                      <tr key={u.id}>
+                        <td>{u.fullName}</td>
+                        <td>{u.username}</td>
+                        <td>{u.branchName}</td>
+                        <td>{u.isActive ? 'نشط' : 'معطل'}</td>
+                        <td>
+                          <Button variant="outline" onClick={() => navigate('/users/' + u.id)}>
+                            عرض
+                          </Button>
+                          {auth.can('USERS', 'USERS_UPDATE', String(u.branchId)) && (
+                            <Button
+                              variant="ghost"
+                              onClick={() => navigate('/users/' + u.id + '/edit')}
+                            >
+                              تعديل
+                            </Button>
+                          )}
+                          {auth.can('USERS', 'USERS_PERMISSIONS_VIEW', String(u.branchId)) && (
+                            <Button
+                              variant="ghost"
+                              onClick={() => navigate(ROUTES.USERS_MATRIX + '?userId=' + u.id)}
+                            >
+                              الصلاحيات
+                            </Button>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                {!query.data?.items.length && <p>لا توجد نتائج.</p>}
+              </div>
+              <div className="dialog-actions">
+                <Button disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
+                  السابق
+                </Button>
+                <span>
+                  الصفحة {page} — {query.data?.totalCount || 0} مستخدم
+                </span>
+                <Button
+                  disabled={!query.data || page * query.data.pageSize >= query.data.totalCount}
+                  onClick={() => setPage((p) => p + 1)}
+                >
+                  اللاحق
+                </Button>
+              </div>
+            </>
+          )}
+        </>
       )}
     </>
   );

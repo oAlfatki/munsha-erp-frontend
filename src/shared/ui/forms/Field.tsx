@@ -54,7 +54,7 @@ export function Field({ label, children, isFullWidth: isSpan = false }: FieldPro
           }
         : {}),
       'aria-label': child.props['aria-label'] || label.replace(/[*＊]/g, '').trim(),
-      'aria-invalid': !!error,
+      'aria-invalid': !!error || child.props['aria-invalid'],
       'aria-describedby':
         [child.props['aria-describedby'], error ? errorId : ''].filter(Boolean).join(' ') ||
         undefined,

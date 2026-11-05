@@ -184,11 +184,5 @@
     "name": "CurrencyDocuments",
     "fname": "buildCurrencyDocumentsReport",
     "file": "src/features/accounting/services/reports/build-currency-documents-report.ts"
-  },
-  "audit": {
-    "feature": "users",
-    "name": "UserAudit",
-    "fname": "buildUserAuditReport",
-    "file": "src/features/users/services/reports/build-user-audit-report.ts"
   }
 }

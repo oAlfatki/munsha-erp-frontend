@@ -1,7 +1,7 @@
 import { it, expect } from 'vitest';
 import { createSeed } from '../reference/domain/engine';
 import { systemSettings, validatePolicy } from '../reference/domain/system-settings';
-import manifest from '../../docs/architecture/POLICY_SPECIALIZATION.json';
+import manifest from '../fixtures/POLICY_SPECIALIZATION.json';
 import examples from '../fixtures/command-examples.json';
 const modules = import.meta.glob('../../src/features/organization/public/*-policy.ts', {
   eager: true,

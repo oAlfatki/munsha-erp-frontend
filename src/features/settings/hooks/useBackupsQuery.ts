@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 export function useBackupsQuery() {
   const { user } = useAuth();
   return useQuery({
-    queryKey: ['erp', 'settings', 'backups', user?.userId, user?.kind],
+    queryKey: ['erp', 'settings', 'backups', user?.userId, 'aspnet'],
     queryFn: fetchBackups,
   });
 }

@@ -1,81 +1,69 @@
-import { afterEach, it, expect, vi } from 'vitest';
+import { afterEach, it, expect } from 'vitest';
 import { axiosInstance } from '@/core/api/apiClient';
 import { authApi } from '@/features/auth/api/auth-api';
 import { usersApi } from '@/features/users/api/users-api';
 const original = axiosInstance.defaults.adapter;
 afterEach(() => {
   axiosInstance.defaults.adapter = original;
-  vi.unstubAllGlobals();
 });
-it('preserves explicit auth and user HTTP operations, body tags and encoded IDs', async () => {
-  vi.stubGlobal('document', { documentElement: { lang: 'ar' } });
+it('uses the adopted Auth/Users verbs and DTOs without retired action or role fields', async () => {
   const calls: unknown[] = [];
   axiosInstance.defaults.adapter = async (config) => {
     calls.push([config.method, config.url, config.data ? JSON.parse(config.data) : undefined]);
+    return { data: undefined, status: 204, statusText: 'No Content', headers: {}, config };
+  };
+  await authApi.login({ username: 'test', password: 'password' });
+  await authApi.logout();
+  await authApi.refresh();
+  await authApi.changePassword({ currentPassword: 'old', newPassword: 'new', confirm: 'new' });
+  await authApi.revokeSession('c28739a9-6190-4879-a066-4884ef04a00c');
+  await authApi.revokeAllSessions();
+  const permissions = [{ moduleCode: 'USERS', mask: '1' }];
+  await usersApi.create({
+    fullName: 'مستخدم',
+    username: 'test',
+    password: 'password',
+    branchId: 1,
+    permissions,
+  });
+  await usersApi.update(7, { fullName: 'الاسم', username: 'test', rowVersion: 'version' });
+  await usersApi.resetPassword({ id: 7, newPassword: 'replacement' });
+  expect(calls).toEqual([
+    ['post', '/auth/sign-in', { username: 'test', password: 'password' }],
+    ['post', '/auth/sign-out', {}],
+    ['post', '/auth/refresh', {}],
+    ['post', '/auth/change-password', { currentPassword: 'old', newPassword: 'new' }],
+    ['delete', '/auth/sessions/c28739a9-6190-4879-a066-4884ef04a00c', undefined],
+    ['post', '/auth/sessions/revoke-all', {}],
+    [
+      'post',
+      '/users',
+      { fullName: 'مستخدم', username: 'test', password: 'password', branchId: 1, permissions },
+    ],
+    ['put', '/users/7', { fullName: 'الاسم', username: 'test', rowVersion: 'version' }],
+    ['post', '/users/7/reset-password', { newPassword: 'replacement' }],
+  ]);
+});
+it('keeps server pagination and filter parameters and does not bulk-load users', async () => {
+  const calls: any[] = [];
+  axiosInstance.defaults.adapter = async (config) => {
+    calls.push(config);
     return {
-      data: { isSuccess: true, data: { ok: true } },
+      data: { items: [], page: 3, pageSize: 20, totalCount: 50 },
       status: 200,
       statusText: 'OK',
       headers: {},
       config,
     };
   };
-  await authApi.login({ username: 'example', password: 'long-password' });
-  await authApi.logout();
-  await authApi.heartbeat();
-  await authApi.changePassword({
-    current: 'old-password',
-    password: 'new-password',
-    confirm: 'new-password',
-  });
-  await authApi.revokeSession('s/1');
-  await authApi.revokeOtherSessions();
-  const input = {
-    name: 'Example',
-    username: 'example',
-    password: 'long-password',
-    role: 'staff',
-    active: true,
-  };
-  await usersApi.create(input);
-  await usersApi.update({ ...input, id: 'u/1' });
-  await usersApi.resetPassword({ id: 'u/1', password: 'replacement' });
-  expect(calls).toEqual([
-    ['post', '/auth/login', { action: 'login', username: 'example', password: 'long-password' }],
-    ['post', '/auth/logout', { action: 'logout' }],
-    ['post', '/auth/heartbeat', { action: 'heartbeat' }],
-    [
-      'post',
-      '/auth/change-password',
-      {
-        action: 'changePassword',
-        current: 'old-password',
-        password: 'new-password',
-        confirm: 'new-password',
-      },
-    ],
-    ['delete', '/auth/sessions/s%2F1', undefined],
-    ['delete', '/auth/sessions/others', undefined],
-    [
-      'post',
-      '/users',
-      {
-        action: 'create',
-        name: 'Example',
-        username: 'example',
-        password: 'long-password',
-        role: 'staff',
-      },
-    ],
-    [
-      'put',
-      '/users/u%2F1',
-      { action: 'update', id: 'u/1', name: 'Example', role: 'staff', active: true },
-    ],
-    [
-      'put',
-      '/users/u%2F1/password',
-      { action: 'resetPassword', id: 'u/1', password: 'replacement' },
-    ],
-  ]);
+  const filters = { page: 3, pageSize: 20, search: 'test', branchId: 1, isActive: false };
+  await expect(usersApi.list(filters)).resolves.toMatchObject({ page: 3, totalCount: 50 });
+  expect(calls).toHaveLength(1);
+  expect(calls[0].params).toEqual(filters);
+});
+it('blocks user changes without a concurrency token or safe identifier', () => {
+  expect(() => usersApi.update(1, { fullName: 'a', username: 'a', rowVersion: '' })).toThrow(
+    'نسخة',
+  );
+  expect(() => usersApi.detail(Number.MAX_SAFE_INTEGER + 1)).toThrow('معرّف');
 });

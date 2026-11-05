@@ -1,19 +1,59 @@
 # Munsha ERP Frontend
 
-واجهة React 19 + TypeScript + Vite بنمط feature-based. هذه نسخة إعادة هيكلة مستقلة من الحزمة المرفوعة؛ لا تحتوي خادمًا حقيقيًا أو بيانات Demo في runtime.
+واجهة ERP باللغة العربية فقط، باستخدام React وTypeScript وVite. تسجيل الدخول يعتمد عقد ASP.NET Core، والصلاحيات من Backend حسب Module وAction والفرع؛ لا توجد أدوار ثابتة أو بيانات Demo داخل التطبيق.
 
 ## التشغيل
 
-Node >=22.13.0. نفّذ `npm ci`، انسخ `.env.example` إلى `.env.local` وحدد عنوان API الحقيقي، ثم `npm run dev`. إعداد افتراضي: `VITE_API_MODE=aspnet` و`VITE_API_BASE_URL=http://localhost:5000/api/v1`. لا تُضمّن أسرارًا داخل VITE variables.
+يتطلب Node.js >=22.13.0 وخادم API حقيقي. نفذ:
+
+```sh
+npm ci
+cp .env.example .env.local
+npm run dev
+```
+
+اضبط `VITE_API_BASE_URL` في `.env.local` على عنوان API شاملاً `/api/v1`. لا تضع أسراراً في متغيرات `VITE_`. يجب السماح بعنوان الواجهة في CORS عند استخدام Cookies وإرسالها مع الطلبات. افتح العنوان الذي يعرضه Vite؛ يبدأ الاستخدام من `/login` بحساب فعلي منشأ في Backend. لا يوجد حساب افتراضي.
+
+## تنظيم المشروع
+
+- `src/app`: تركيب التطبيق وProviders وتسجيل جميع Routes.
+- `src/core`: API Client والجلسة والصلاحيات وإعدادات التطبيق.
+- `src/features`: صفحات ومكونات وHooks وعقود وقواعد كل ميزة.
+- `src/shared`: عناصر الواجهة والنماذج والأدوات المشتركة.
+- `tests`: اختبارات فقط؛ HTTP fixtures ليست Backend ولا يتم تضمينها في التطبيق.
+- `docs/openapi/munsha-v1.5.design.openapi.json`: العقد المرفوع للمراجعة؛ وجوده لا يثبت تنفيذ الخادم.
+
+## حالة الربط
+
+واجهتا Auth وUsers قيد الانتقال إلى العقد v1.5. ليست كل ميزات ERP قد انتقلت إليه. بعض عمليات الميزات الأخرى تستخدم مسارات `/commands/` التي لا يعرّفها العقد المرفوع؛ لا يمكن اعتبارها جاهزة للربط دون مراجعة عقودها. صلاحيات الميزات غير الموثقة لا تُمنح افتراضياً. تفاصيل Users تتطلب معالجة فجوة `rowVersion` في استجابة GET قبل إتاحة التعديل الآمن. العقد يحدد فرعاً واحداً للمستخدم؛ لم يُفترض دعم عدة فروع. Backend غير موجود في المستودع، ولم يُختبر اتصال فعلي به.
 
 ## التحقق
 
-`npm run check:architecture`، `npm run typecheck`، `npm run lint`، `npm run check:naming`، `npm run format:check`، `npm test`، `npm run build`.
+```sh
+npm run typecheck
+npm run lint
+npm run check:architecture
+npm run check:naming
+npm test
+npm run build
+```
 
-شغّل `npm run preview -- --host 127.0.0.1 --port 5175` ثم `PLAYWRIGHT_BASE_URL=http://127.0.0.1:5175 PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:e2e`، أو ثبت Chromium عبر Playwright وحدد مساره المناسب. اختبارات E2E تعترض HTTP بمرجع في tests؛ ليست إثبات ربط بالباك إند.
+اختبارات المتصفح تتطلب خادم Vite وChromium. نفذ `npm run preview -- --host 127.0.0.1 --port 5173` ثم `PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npx playwright test tests/e2e/login-v15.spec.ts`. هذه اختبارات HTTP معزولة ولا تثبت تكامل Backend.
 
-اقرأ `docs/architecture/FEATURE_OWNERSHIP.md` و`DATA_FLOW.md` و`SCREEN_MIGRATION_MATRIX.csv` و`REMOVAL_LEDGER.md` و`VERIFICATION.md`. ملفات baseline وتقارير 2026-11-01 تاريخية للمقارنة، وليست وصفًا للنسخة الحالية. العقود الأصلية في docs/openapi؛ وجودها لا يثبت تنفيذ Backend.
+يحتفظ `tests/reference` بمرجع حسابي مجمّد لاختبارات منع تغير النتائج المالية فقط؛ لا يُشغَّل مع التطبيق ولا يُستورد منه. العقد المرفوع محفوظ كما وصل، ويحتوي بعض تعاريف Legacy المتناقضة مع Auth/Users الجديدة؛ لا تُعتمد تلك التعاريف لتفويض المستخدمين.
 
-## الفصل الحالي
+ترقيم المستندات في إعدادات النظام لا يعرض رقماً تالياً مفترضاً؛ يحتاج عقداً من Backend يعيد الرقم أو يخصصه ذرياً. لا يُستخدم سجل أنشطة المستخدمين الجديد كمصدر بديل لأرقام المستندات.
 
-`app` يركّب المزودين والمسارات، `core` للبنية التحتية، `shared` للمكونات العامة، والميزات تملك الشاشات والـqueries والعقود والحسابات. لا توجد ERP-wide read model أو scopes أو دمج موارد عام في runtime. الإنجليزية متاحة في أساس i18next والتنقل الرئيسي واتجاه الصفحة؛ لم تكتمل ترجمة جميع النصوص التجارية.
+## التنقل بين الشاشات
+
+بعد نجاح تسجيل الدخول واستعادة بيانات المنشأة، استخدم قائمة الأقسام ثم روابط كل قسم. جميع المسارات مسجلة مركزياً في `src/app/router`، ومحتوى الشاشات داخل `src/features`.
+
+- `/login`: الدخول بحساب حقيقي؛ لا يوجد دخول تجريبي.
+- `/users`: القائمة والبحث والحالة وPagination من الخادم.
+- `/users/new`: إنشاء حساب بالصلاحيات والفرع وفق العقد الحالي.
+- `/users/:id`: التفاصيل والصلاحيات والجلسات وإعادة تعيين كلمة المرور حسب صلاحيات الحساب.
+- `/users/:id/edit`: التعديل مع توضيح فجوة RowVersion؛ الحفظ متوقف حتى يوفر الخادم رمز النسخة.
+- شاشات الحساب الشخصي: تغيير كلمة المرور وجلساتي من قائمة الحساب.
+- حركات المستخدمين: سجل `/audit-logs` وفلاتره وتقاريره من Backend.
+
+بقية الميزات التجارية موجودة ولم تُستبدل ببيانات محلية. انتقال جميع عقودها وصلاحياتها إلى v1.5 لم يكتمل؛ نجاح الاختبارات المعزولة لا يعني أنها تعمل مع Backend فعلي. عمليات `/commands/` غير المربوطة بصلاحية موثقة تمنعها الواجهة. فشل جلب دليل الصلاحيات لا يمنح أي صلاحيات افتراضية.

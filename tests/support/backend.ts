@@ -6,35 +6,48 @@ import { applyCommand, createSeed } from '../reference/domain/engine';
 export async function installTestBackend(
   page: Page,
   initialSignedIn = true,
-  role: 'admin' | 'staff' | 'viewer' = 'admin',
+  hasUserPermissions = true,
 ) {
   let signedIn = initialSignedIn;
   let state = createSeed();
   let revision = 0;
   const receipts = new Map<string, { signature: string; revision: number }>();
   const calls: { method: string; path: string; body: unknown }[] = [];
-  let users: import('@/features/users/types/responses/UserResponse').UserResponse[] = [];
+  let users: import('@/features/users/type').UserDetails[] = [];
   let sessions = [
     {
-      id: 'test-session',
-      user_id: 'test-user',
-      name: 'مستخدم اختبار',
-      created_at: Date.now(),
-      last_seen: Date.now(),
-      user_agent: 'Test browser',
-      current: true,
+      id: 'c28739a9-6190-4879-a066-4884ef04a00c',
+      createdAtUtc: '2026-11-01T00:00:00Z',
+      expiresAtUtc: '2027-01-01T00:00:00Z',
+      lastActivityAtUtc: '2026-11-01T00:00:00Z',
+      deviceName: 'جهاز اختبار',
+      isCurrent: true,
     },
   ];
   let nextFailure: { path: string; status: number; detail: string } | undefined;
+  const codes = [
+    'USERS_VIEW',
+    'USERS_CREATE',
+    'USERS_UPDATE',
+    'USERS_STATUS_MANAGE',
+    'USERS_PASSWORD_RESET',
+    'USERS_PERMISSIONS_VIEW',
+    'USERS_PERMISSIONS_MANAGE',
+    'USERS_SESSIONS_VIEW',
+    'USERS_SESSIONS_REVOKE',
+    'USERS_AUDIT_VIEW',
+    'USERS_AUDIT_PRINT',
+    'USERS_AUDIT_EXPORT',
+  ];
+  const mask = String((1n << BigInt(codes.length)) - 1n);
+  const permissionValues = [{ moduleCode: 'USERS', mask: hasUserPermissions ? mask : '0' }];
   const user = {
-    userId: 'test-user',
-    displayName: 'مستخدم اختبار',
-    fullName: null,
-    email: '',
-    kind: 'local',
-    role,
-    mustChange: false,
-    sessionId: 'test-session',
+    id: 1,
+    username: 'test',
+    fullName: 'مستخدم اختبار',
+    branchId: 1,
+    isActive: true,
+    permissions: permissionValues,
   };
   await page.route('**/api/v1/**', async (route) => {
     const request = route.request();
@@ -59,85 +72,109 @@ export async function installTestBackend(
       nextFailure = undefined;
       return problem(failure.status, failure.detail);
     }
-    if (path === '/auth/login') {
-      if (!body?.username || !body.password) return problem(422, 'Credentials required');
+    const raw = (data: unknown, status = 200) =>
+      route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(data) });
+    if (path === '/auth/sign-in') {
+      if (!body?.username || !body.password) return problem(422, 'بيانات الدخول مطلوبة');
       signedIn = true;
-      return ok({ ok: true });
+      return raw({ user, session: sessions[0], expiresAtUtc: '2027-01-01T00:00:00Z' });
     }
-    if (!signedIn) return problem(401, 'Authentication required');
-    if (path === '/auth/logout') {
+    if (!signedIn) return problem(401, 'يلزم تسجيل الدخول');
+    if (path === '/auth/sign-out') {
       signedIn = false;
-      return ok({ ok: true });
+      return route.fulfill({ status: 204 });
     }
-    if (path === '/auth/me')
-      return ok({ user, users: user.role === 'admin' ? users : [], sessions });
-    if (path === '/auth/heartbeat' && method === 'POST') return ok({ ok: true });
-    if (path === '/auth/sessions/others' && method === 'DELETE') {
-      sessions = sessions.filter((s) => s.current);
-      return ok({ ok: true });
+    if (path === '/auth/me') return raw(user);
+    if (path === '/auth/refresh')
+      return raw({ expiresAtUtc: '2027-01-01T00:00:00Z', sessionId: sessions[0]?.id });
+    if (path === '/auth/change-password')
+      return body?.currentPassword && body.newPassword
+        ? raw({ code: 'OK', message: 'تم الحفظ' })
+        : problem(422, 'كلمة المرور مطلوبة');
+    if (path === '/auth/sessions' && method === 'GET')
+      return raw({ items: sessions, page: 1, pageSize: 20, totalCount: sessions.length });
+    if (path === '/auth/sessions/revoke-all') {
+      sessions = [];
+      signedIn = false;
+      return raw({ revokedCount: 1 });
     }
     if (path.startsWith('/auth/sessions/') && method === 'DELETE') {
-      const id = decodeURIComponent(path.split('/').at(-1)!);
+      const id = path.split('/').at(-1);
+      if (sessions.find((s) => s.id === id)?.isCurrent) signedIn = false;
       sessions = sessions.filter((s) => s.id !== id);
-      return ok({ ok: true });
+      return route.fulfill({ status: 204 });
     }
-    if (path === '/auth/change-password' && method === 'POST') {
-      if (String(body?.password || '').length < 10 || body?.password !== body?.confirm)
-        return problem(422, 'Invalid password');
-      return ok({ ok: true });
-    }
-    if (path === '/users' || path.startsWith('/users/')) {
-      if (user.role !== 'admin') return problem(403, 'User administration requires admin');
-      const id = decodeURIComponent(path.split('/')[2] || '');
-      if (method === 'GET' && id) {
-        const row = users.find((u) => u.id === id);
-        return row ? ok(row) : problem(404, 'User not found');
-      }
-      if (method === 'GET')
-        return ok({
-          ...(readResponse(state, '/users') as object),
-          items: users,
-          pagination: {
-            page: 1,
-            pageSize: 200,
-            totalItems: users.length,
-            totalPages: 1,
-            hasNextPage: false,
+    if (path === '/permissions/catalog')
+      return raw({
+        modules: [
+          {
+            moduleCode: 'USERS',
+            nameAr: 'المستخدمون',
+            nameEn: 'Users',
+            definitions: codes.map((code, index) => ({
+              code,
+              bitValue: String(1n << BigInt(index)),
+              nameAr: code === 'USERS_VIEW' ? 'عرض المستخدمين' : code,
+              nameEn: code,
+            })),
           },
-        });
-      if (method === 'POST' && path === '/users') {
-        if (!body?.name || !body.username || String(body.password || '').length < 10)
-          return problem(422, 'Invalid user');
-        if (users.some((u) => u.username === body.username))
-          return problem(409, 'اسم الدخول مستخدم');
-        users.push({
-          id: 'user-' + (users.length + 1),
-          name: String(body.name),
-          username: String(body.username),
-          role: body.role as 'staff',
-          active: 1,
-          must_change: 1,
-          created_at: Date.now(),
-        });
-        return ok({ ok: true });
-      }
+        ],
+      });
+    if (path === '/audit-logs') return raw({ items: [], page: 1, pageSize: 20, totalCount: 0 });
+    if (path === '/users' || path.startsWith('/users/')) {
+      if (!hasUserPermissions) return problem(403, 'لا تملك الصلاحية');
+      const id = Number(path.split('/')[2]);
       const row = users.find((u) => u.id === id);
-      if (!row) return problem(404, 'User not found');
-      if (method === 'PUT' && path.endsWith('/password')) {
-        if (String(body?.password || '').length < 10) return problem(422, 'Invalid password');
-        row.must_change = 1;
-        sessions = sessions.filter((s) => s.user_id !== id);
-        return ok({ ok: true });
+      if (method === 'POST' && path === '/users') {
+        if (!body?.fullName || !body.username || !body.password)
+          return problem(422, 'بيانات المستخدم مطلوبة');
+        if (users.some((u) => u.username === body.username))
+          return problem(409, 'اسم المستخدم مستخدم بالفعل.');
+        const created = {
+          id: users.length + 2,
+          fullName: String(body.fullName),
+          username: String(body.username),
+          branchId: Number(body.branchId),
+          branchName: 'الفرع الرئيسي',
+          isActive: true,
+          createdAtUtc: new Date().toISOString(),
+          updatedAtUtc: null,
+        };
+        users.push(created);
+        return raw({ ...created, rowVersion: 'create-version' }, 201);
       }
-      if (method === 'PUT') {
-        if (!body?.name) return problem(422, 'Name required');
-        Object.assign(row, {
-          name: String(body.name),
-          role: body.role,
-          active: body.active ? 1 : 0,
+      if (path === '/users' && method === 'GET') {
+        const params = new URL(request.url()).searchParams;
+        const pageNumber = Number(params.get('page') || 1),
+          pageSize = Number(params.get('pageSize') || 20);
+        const filtered = users.filter(
+          (u) =>
+            (!params.get('search') || (u.fullName + u.username).includes(params.get('search')!)) &&
+            (!params.get('isActive') || String(u.isActive) === params.get('isActive')),
+        );
+        return raw({
+          items: filtered.slice((pageNumber - 1) * pageSize, pageNumber * pageSize),
+          page: pageNumber,
+          pageSize,
+          totalCount: filtered.length,
         });
-        return ok({ ok: true });
       }
+      if (!row) return problem(404, 'المستخدم غير موجود');
+      if (path.endsWith('/reset-password') && method === 'POST')
+        return body?.newPassword
+          ? raw({ code: 'OK', message: 'تم الحفظ' })
+          : problem(422, 'كلمة المرور مطلوبة');
+      if (path.endsWith('/permissions'))
+        return raw({
+          userId: id,
+          branchId: row.branchId,
+          permissions: permissionValues,
+          permissionsVersion: 'permission-version',
+        });
+      if (path.endsWith('/sessions') && method === 'GET')
+        return raw({ items: [], page: 1, pageSize: 20, totalCount: 0 });
+      if (method === 'GET') return raw(row);
+      if (method === 'PUT') return problem(409, 'رمز نسخة البيانات غير متوفر');
     }
     if (path === '/workspace') return problem(410, 'Workspace endpoint must not be called');
     if (method === 'GET' && !path.startsWith('/backups')) {
@@ -169,8 +206,8 @@ export async function installTestBackend(
       if (body.revision !== revision) return problem(409, 'Workspace changed');
       try {
         state = applyCommand(state, String(body.type), body.data, {
-          id: user.userId,
-          name: user.displayName,
+          id: String(user.id),
+          name: user.fullName,
         });
         revision++;
         receipts.set(id, { signature, revision });

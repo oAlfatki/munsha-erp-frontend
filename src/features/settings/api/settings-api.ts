@@ -1,7 +1,6 @@
 import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import { requireCommandApi } from '@/core/api/require-api-mode';
 import type { CommandContext } from '@/core/types/CommandContext';
 import type { ImportMastersRequest } from '@/features/organization/public/types/requests/ImportMastersRequest';
 import type { SaveBackupSettingsRequest } from '@/features/organization/public/types/requests/SaveBackupSettingsRequest';
@@ -16,7 +15,6 @@ export const submitBackupSettings = async (
   data: SaveBackupSettingsRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'backupSettings'), {
     ...context,
     type: 'backupSettings',
@@ -27,7 +25,6 @@ export const submitBranding = async (
   data: SaveBrandingRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'branding'), {
     ...context,
     type: 'branding',
@@ -38,7 +35,6 @@ export const submitOrganization = async (
   data: SaveOrganizationRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'organization'), {
     ...context,
     type: 'organization',
@@ -49,7 +45,6 @@ export const submitBranch = async (
   data: SaveBranchRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'branch'), {
     ...context,
     type: 'branch',
@@ -60,7 +55,6 @@ export const submitGeneralSettings = async (
   data: SaveGeneralSettingsRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'generalSettings'), {
     ...context,
     type: 'generalSettings',
@@ -71,7 +65,6 @@ export const submitSetupComplete = async (
   data: SetupCompleteRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'setupComplete'), {
     ...context,
     type: 'setupComplete',
@@ -82,7 +75,6 @@ export const submitImportMasters = async (
   data: ImportMastersRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'importMasters'), {
     ...context,
     type: 'importMasters',
@@ -94,7 +86,6 @@ export const submitPreferences = async (
   data: SavePreferencesRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'preferences'), {
     ...context,
     type: 'preferences',
@@ -105,7 +96,6 @@ export const submitSystemSettings = async (
   data: SaveSystemSettingsRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('settings', 'systemSettings'), {
     ...context,
     type: 'systemSettings',

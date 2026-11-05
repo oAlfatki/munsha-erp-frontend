@@ -1,11 +1,9 @@
-import { CONFIG } from '@/core/config/env';
 function pathSegment(value: string) {
   if (typeof value !== 'string' || !value.trim()) throw Error('معرّف الطلب مطلوب');
   return encodeURIComponent(value);
 }
 /** Existing HTTP paths, centralized without changing contracts. */
 export const ENDPOINTS = {
-  authRefresh: '/auth/refresh-token',
   command: (feature: string, type: string) =>
     `/${pathSegment(feature)}/commands/${pathSegment(type)}`,
   fetchAccountingAccounts: `/accounting/accounts`,
@@ -37,18 +35,15 @@ export const ENDPOINTS = {
     `/accounting/financial-books/${pathSegment(id)}/closing-stock`,
   fetchAccountingFinancialBooksByIdClosingAccounts: (id: string) =>
     `/accounting/financial-books/${pathSegment(id)}/closing-accounts`,
-  fetchAccount: CONFIG.apiMode === 'site' ? '/auth' : '/auth/me',
-  submitStatus: CONFIG.apiMode === 'site' ? '/auth?status=1' : '/auth/me',
-  authAction: '/auth',
-  authLogin: '/auth/login',
-  authLogout: '/auth/logout',
-  authHeartbeat: '/auth/heartbeat',
+  authRefresh: '/auth/refresh',
+  fetchPermissionCatalog: '/permissions/catalog',
+  fetchAccount: '/auth/me',
+  submitStatus: '/auth/me',
+  authLogin: '/auth/sign-in',
+  authLogout: '/auth/sign-out',
   authChangePassword: '/auth/change-password',
   authRevokeSession: (id: string) => '/auth/sessions/' + pathSegment(id),
-  authRevokeOtherSessions: '/auth/sessions/others',
-  createUser: '/users',
-  updateUser: (id: string) => '/users/' + pathSegment(id),
-  resetUserPassword: (id: string) => '/users/' + pathSegment(id) + '/password',
+  authRevokeAllSessions: '/auth/sessions/revoke-all',
   fetchCustomers: `/customers`,
   fetchCustomersById: (id: string) => `/customers/${pathSegment(id)}`,
   fetchPartiesGroups: `/parties/groups`,
@@ -137,8 +132,7 @@ export const ENDPOINTS = {
   fetchSalesInvoicesByIdReturnAvailability: (id: string) =>
     `/sales/invoices/${pathSegment(id)}/return-availability`,
   fetchBackups: '/backups',
-  submitBackupAction: (action: 'create' | 'restore' | 'download' | 'auto') =>
-    CONFIG.apiMode === 'site' ? '/backups' : '/backups/' + String(action),
+  submitBackupAction: (action: 'create' | 'restore' | 'download' | 'auto') => '/backups/' + action,
   fetchBranches: `/branches`,
   fetchBranchesById: (id: string) => `/branches/${pathSegment(id)}`,
   fetchSettingsCompany: `/settings/company`,
@@ -160,10 +154,5 @@ export const ENDPOINTS = {
   fetchLookupsByResource: (resource: string) => `/lookups/${pathSegment(resource)}`,
   fetchSuppliers: `/suppliers`,
   fetchSuppliersById: (id: string) => `/suppliers/${pathSegment(id)}`,
-  fetchUsers: `/users`,
-  fetchUsersById: (id: string) => `/users/${pathSegment(id)}`,
   fetchAuthSessions: `/auth/sessions`,
-  fetchUsersByIdSessions: (id: string) => `/users/${pathSegment(id)}/sessions`,
-  fetchAuthPermissions: `/auth/permissions`,
-  fetchAuditEvents: `/audit/events`,
 } as const;

@@ -44,7 +44,6 @@ const schemas = {
   currency: currencySchema,
   preferences: settings.preferencesSchema,
   systemSettings: settings.systemSettingsSchema,
-  permissions: accounting.permissionsSchema,
   contactEntry: accounting.contactEntrySchema,
   contactVoucher: accounting.contactVoucherSchema,
   periodSwitch: accounting.periodSwitchSchema,

@@ -9,7 +9,6 @@ import {
   submitPeriodReset,
   submitPeriodSwitch,
   submitPeriodTransfer,
-  submitPermissions,
   submitScreenDraft,
   submitVoucher,
 } from '@/features/accounting/api/accounting-api';
@@ -23,15 +22,9 @@ import {
   mapPeriodResetInput,
   mapPeriodSwitchInput,
   mapPeriodTransferInput,
-  mapPermissionsInput,
   mapScreenDraftInput,
   mapVoucherInput,
 } from '@/features/accounting/mapper/accounting-mapper';
-export const savePermissions = async (
-  input: unknown,
-  context: CommandContext,
-): Promise<Awaited<ReturnType<typeof submitPermissions>>> =>
-  submitPermissions(mapPermissionsInput(input), context);
 export const saveContactEntry = async (
   input: unknown,
   context: CommandContext,

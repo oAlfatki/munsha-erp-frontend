@@ -1,11 +1,10 @@
-import type { UserRole } from '@/core/types/UserRole';
 export interface Identity {
   userId: string;
+  username: string;
   displayName: string;
-  fullName: string | null;
+  fullName: string;
   email: string;
-  kind: 'owner' | 'local';
-  role: UserRole;
-  mustChange: boolean;
+  branchId: string;
   sessionId?: string;
+  permissions: { moduleCode: string; mask: string }[];
 }

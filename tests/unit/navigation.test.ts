@@ -2,13 +2,14 @@ import { describe, it, expect } from 'vitest';
 import { APP_ROUTES } from '@/app/router/routes';
 import { MENU_ITEMS, menuLeaves } from '@/core/config/menu';
 import previous from '../fixtures/pre-separation-routes.json';
-import changes from '../../docs/architecture/ROUTE_CHANGES.json';
+import changes from '../fixtures/ROUTE_CHANGES.json';
 describe('central routes preserve original destinations', () => {
   it('migrates every original screen to its canonical route and keeps edit deep links', () => {
     const aliases = changes.aliasesRemoved as Record<string, string>;
     const expected = [
       ...new Set(previous.routes.map((route) => aliases[route.path] || route.path)),
       '/users/:id/edit',
+      '/users/:id',
     ].sort();
     expect(APP_ROUTES.map((route) => route.path).sort()).toEqual(expected);
     for (const alias of Object.keys(aliases))
