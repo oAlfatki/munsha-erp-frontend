@@ -1,7 +1,7 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { extras } from '@/features/ledger/public/extensions';
+import { extras } from '@/features/ledger/public';
 import { useSupplierEditorController } from '@/features/suppliers/hooks/useSupplierEditorController';
-import type { SupplierEditorProps } from '@/features/suppliers/types/SupplierEditorProps';
+import type { SupplierEditorProps } from '@/features/suppliers/types/props/SupplierEditorProps';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';

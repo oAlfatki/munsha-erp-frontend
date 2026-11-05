@@ -1,4 +1,4 @@
-import type { ViewButtonProps } from '@/core/types/ViewButtonProps';
+import type { ViewButtonProps } from '@/core/types/props/ViewButtonProps';
 import { Button } from '@/shared/ui/primitives/button';
 import { ArrowUpLeft } from 'lucide-react';
 

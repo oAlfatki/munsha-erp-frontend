@@ -4,23 +4,20 @@ import {
   readDeviceSettings,
   saveDeviceSettings,
 } from '@/core/services/device-settings';
-import { cashOptions } from '@/features/ledger/public/cash';
-import { allAccounts } from '@/features/ledger/public/extensions';
-import {
-  organizationSchema,
-  systemSettingsSchema,
-} from '@/features/organization/public/settings-schema';
+import { allAccounts, cashOptions } from '@/features/ledger/public';
 import {
   branchDefaults,
   operationCashId,
+  organizationSchema,
   systemSettings,
-} from '@/features/organization/public/system-settings';
+  systemSettingsSchema,
+} from '@/features/organization/public';
 import { SETTINGS_TABS } from '@/features/settings/constants/settings-tabs';
 import { useOrganization } from '@/features/settings/hooks/useOrganization';
 import { useSystemSettings } from '@/features/settings/hooks/useSystemSettings';
 import { useSystemSettingsQuery } from '@/features/settings/queries/useSystemSettingsQuery';
 import type { SettingsTab } from '@/features/settings/types/models/SettingsTab';
-import type { SystemSettingsProps } from '@/features/settings/types/SystemSettingsProps';
+import type { SystemSettingsProps } from '@/features/settings/types/props/SystemSettingsProps';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 /** Screen state, commands and derived values; no route-based dispatch. */

@@ -1,20 +1,17 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { ProfitByItemReportReadModel } from '@/features/financial/types/read-models/ProfitByItemReportReadModel';
-import { assetsQuery } from '@/features/ledger/public/assets-query';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { journalsQuery } from '@/features/ledger/public/journals-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { customersQuery } from '@/features/parties/public/customers-query';
-import { suppliersQuery } from '@/features/parties/public/suppliers-query';
-import { employeesQuery } from '@/features/personnel/public/employees-query';
-import { itemsQuery } from '@/features/stock/public/items-query';
-import { purchaseInvoicesQuery } from '@/features/trade/public/purchase-invoices-query';
-import { purchaseReturnsQuery } from '@/features/trade/public/purchase-returns-query';
-import { saleInvoicesQuery } from '@/features/trade/public/sale-invoices-query';
-import { saleReturnsQuery } from '@/features/trade/public/sale-returns-query';
+import { assetsQuery, booksQuery, journalsQuery, mapMasterRecords } from '@/features/ledger/public';
+import { branchesQuery, companyQuery } from '@/features/organization/public';
+import { customersQuery, suppliersQuery } from '@/features/parties/public';
+import { employeesQuery } from '@/features/personnel/public';
+import { itemsQuery } from '@/features/stock/public';
+import {
+  purchaseInvoicesQuery,
+  purchaseReturnsQuery,
+  saleInvoicesQuery,
+  saleReturnsQuery,
+} from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
 export function useProfitByItemReportQuery() {
   const app = useApplication(),

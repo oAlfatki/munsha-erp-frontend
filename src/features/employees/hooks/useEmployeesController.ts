@@ -9,8 +9,8 @@ import { useEmployeesControllerQuery } from '@/features/employees/queries/useEmp
 import {
   employeeDeleteSchema,
   employeeSchema,
-} from '@/features/employees/validation/employees-schema';
-import type { Employee } from '@/features/personnel/public/types/models/Employee';
+} from '@/features/employees/validations/employees-schema';
+import type { Employee } from '@/features/personnel/public';
 import { useState } from 'react';
 import { toast } from 'sonner';
 const fileData = (file: File) =>

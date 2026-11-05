@@ -1,5 +1,5 @@
-import { useAuth } from '@/core/auth/AuthProvider';
 import { errorMessage } from '@/core/api/error-message';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { UserEditor } from '@/features/users/components/UserEditor';
 import { useUserQuery } from '@/features/users/queries/users-query';

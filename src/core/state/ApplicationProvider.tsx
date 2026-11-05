@@ -3,9 +3,9 @@ import { useAuth } from '@/core/auth/AuthProvider';
 import { canRunCommand } from '@/core/auth/permissions';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { affectedOwners } from '@/core/query/invalidation';
-import type { ApplicationProviderProps } from '@/core/types/ApplicationProviderProps';
-import type { ApplicationState } from '@/core/types/ApplicationState';
-import type { CommandReceipt } from '@/core/types/CommandReceipt';
+import type { ApplicationState } from '@/core/types/api/ApplicationState';
+import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
+import type { ApplicationProviderProps } from '@/core/types/props/ApplicationProviderProps';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';

@@ -1,17 +1,17 @@
 import { readAllPages } from '@/core/api/readAllPages';
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import type { FieldDef } from '@/core/types/FieldDef';
-import type { QueryScope } from '@/core/types/QueryScope';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { allAccounts } from '@/features/ledger/public/extensions';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
+import type { QueryScope } from '@/core/types/api/QueryScope';
+import type { FieldDef } from '@/core/types/forms/FieldDef';
 import {
+  allAccounts,
+  booksQuery,
   fetchAccountingAccounts,
   fetchAccountingCurrencies,
-} from '@/features/ledger/public/read-api';
-import { fetchBranches } from '@/features/organization/public/read-api';
-import { fetchEmployees } from '@/features/personnel/public/read-api';
-import { fetchInventoryItems, fetchInventoryWarehouses } from '@/features/stock/public/read-api';
+  mapMasterRecords,
+} from '@/features/ledger/public';
+import { fetchBranches } from '@/features/organization/public';
+import { fetchEmployees } from '@/features/personnel/public';
+import { fetchInventoryItems, fetchInventoryWarehouses } from '@/features/stock/public';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
 export function lookupQuery(identity: QueryScope, field: FieldDef) {
   const kind = field.key === 'currency' ? 'currency' : field.type || 'local';

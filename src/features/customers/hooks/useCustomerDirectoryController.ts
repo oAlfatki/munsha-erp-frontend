@@ -2,7 +2,7 @@ import { ROUTES } from '@/core/config/navigation-paths';
 
 import { useCustomersProjection } from '@/features/customers/hooks/useCustomersProjection';
 import { useCustomerDirectoryControllerQuery } from '@/features/customers/queries/useCustomerDirectoryControllerQuery';
-import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Party } from '@/features/parties/public';
 import { useState } from 'react';
 export function useCustomerDirectoryController(isInitialCreate = false) {
   const { data: parties = [] } = useCustomersProjection();

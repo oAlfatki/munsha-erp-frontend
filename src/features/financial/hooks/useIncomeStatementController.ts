@@ -1,7 +1,6 @@
 import { useFinancialProjection } from '@/features/financial/hooks/useFinancialProjection';
 import { useIncomeStatementControllerQuery } from '@/features/financial/queries/useIncomeStatementControllerQuery';
-import { allAccounts } from '@/features/ledger/public/extensions';
-import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { allAccounts, fiscalRange } from '@/features/ledger/public';
 import { useState } from 'react';
 export function useIncomeStatementController() {
   const { data: entries = [] } = useFinancialProjection();

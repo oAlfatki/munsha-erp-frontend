@@ -1,13 +1,13 @@
-import { assertGrantable } from '@/features/users/validation/permission-grants';
-import { useAuth } from '@/core/auth/AuthProvider';
 import { errorMessage } from '@/core/api/error-message';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { usersApi } from '@/features/users/api/users-api';
 import type { UserDetails, UserFormValues } from '@/features/users/type';
-import { userFormSchema } from '@/features/users/validation/user-form-schema';
+import { assertGrantable } from '@/features/users/validations/permission-grants';
+import { userFormSchema } from '@/features/users/validations/user-form-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useForm } from 'react-hook-form';
 import { useRef } from 'react';
+import { useForm } from 'react-hook-form';
 export function useUserEditor(user: UserDetails | undefined, onSaved: () => void) {
   const auth = useAuth(),
     client = useQueryClient(),

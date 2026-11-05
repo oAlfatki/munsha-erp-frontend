@@ -1,7 +1,7 @@
 import type { UserFormValues } from '@/features/users/type';
-import type { UseFormReturn } from 'react-hook-form';
 import { Field } from '@/shared/ui/forms/Field';
 import { Input } from '@/shared/ui/primitives/input';
+import type { UseFormReturn } from 'react-hook-form';
 export function UserFormFields({
   form,
   isEditing,

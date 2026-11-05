@@ -1,4 +1,4 @@
-import type { Filters } from '@/core/types/Filters';
+import type { Filters } from '@/core/types/api/Filters';
 import { useState } from 'react';
 import { toast } from 'sonner';
 export function useReportFilters(initial: Filters) {

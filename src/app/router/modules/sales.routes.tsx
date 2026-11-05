@@ -4,21 +4,21 @@ export const SALES_ROUTES: RouteObject[] = [
   {
     path: ROUTES.SALES,
     lazy: async () => ({
-      Component: (await import('@/features/sales/pages/SalesInvoiceListPage')).default,
+      Component: (await import('@/features/sales/invoices/pages/SalesInvoiceListPage')).default,
     }),
     handle: { module: 'sales', title: '' },
   },
   {
     path: ROUTES.SALES_NEW,
     lazy: async () => ({
-      Component: (await import('@/features/sales/pages/CreateSalesInvoicePage')).default,
+      Component: (await import('@/features/sales/invoices/pages/CreateSalesInvoicePage')).default,
     }),
     handle: { module: 'sales', title: '' },
   },
   {
     path: ROUTES.SALES_SALES_CHART,
     lazy: async () => ({
-      Component: (await import('@/features/sales/pages/SalesChartPage')).default,
+      Component: (await import('@/features/sales/invoices/pages/SalesChartPage')).default,
     }),
     handle: {
       module: 'sales',
@@ -29,7 +29,7 @@ export const SALES_ROUTES: RouteObject[] = [
   {
     path: ROUTES.SALES_SALES_REPORT,
     lazy: async () => ({
-      Component: (await import('@/features/sales/pages/SalesSummaryPage')).default,
+      Component: (await import('@/features/sales/invoices/pages/SalesSummaryPage')).default,
     }),
     handle: {
       module: 'sales',
@@ -40,7 +40,7 @@ export const SALES_ROUTES: RouteObject[] = [
   {
     path: ROUTES.SALES_SALES_RETURNS,
     lazy: async () => ({
-      Component: (await import('@/features/sales/pages/SalesReturnsPage')).default,
+      Component: (await import('@/features/sales/returns/pages/SalesReturnsPage')).default,
     }),
     handle: {
       module: 'sales',
@@ -51,7 +51,7 @@ export const SALES_ROUTES: RouteObject[] = [
   {
     path: ROUTES.SALES_TARGETS,
     lazy: async () => ({
-      Component: (await import('@/features/sales/pages/SalesTargetsPage')).default,
+      Component: (await import('@/features/sales/targets/pages/SalesTargetsPage')).default,
     }),
     handle: {
       module: 'sales',
@@ -62,7 +62,7 @@ export const SALES_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_PRICES,
     lazy: async () => ({
-      Component: (await import('@/features/sales/pages/SalesItemPricingPage')).default,
+      Component: (await import('@/features/sales/pricing/pages/SalesItemPricingPage')).default,
     }),
     handle: {
       module: 'sales',

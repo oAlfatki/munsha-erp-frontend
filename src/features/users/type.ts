@@ -1,5 +1,5 @@
+import type { permissionCatalogSchema } from '@/features/users/services/permission-catalog';
 import type { z } from 'zod';
-import type { permissionCatalogSchema } from '@/features/users/public/permission-catalog';
 export interface PermissionMask {
   moduleCode: string;
   mask: string;

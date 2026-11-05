@@ -1,5 +1,5 @@
-import type { ReportDocument } from '@/core/types/ReportDocument';
-import type { ReportTable } from '@/core/types/ReportTable';
+import type { ReportDocument } from '@/core/types/reports/ReportDocument';
+import type { ReportTable } from '@/core/types/reports/ReportTable';
 const text = (e: Element | null) => e?.textContent?.replace(/\s+/g, ' ').trim() || '';
 function cell(e: Element): string {
   const copy = e.cloneNode(true) as Element;

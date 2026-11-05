@@ -1,4 +1,4 @@
-import type { TotalsFooterProps } from '@/core/types/TotalsFooterProps';
+import type { TotalsFooterProps } from '@/core/types/props/TotalsFooterProps';
 import { fmt } from '@/core/utils/formatters';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 

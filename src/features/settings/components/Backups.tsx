@@ -1,25 +1,22 @@
 import { ApiError } from '@/core/api/apiError';
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { newId } from '@/core/utils/id';
-import { validateBackupState } from '@/features/organization/public/backup';
+import type { BackupArchive, BackupPolicy, Row, Tab } from '@/features/organization/public';
 import {
   backupFileName,
+  backupPolicy,
+  backupsApi,
+  backupSettingsSchema,
   chooseBackupFolder,
   clearBackupFolder,
   readBackupFolder,
   saveBackupFile,
-} from '@/features/organization/public/backup-files';
-import { backupPolicy } from '@/features/organization/public/backup-policy';
-import { backupsApi } from '@/features/organization/public/backups';
-import { backupSettingsSchema } from '@/features/organization/public/settings-schema';
-import type { BackupArchive } from '@/features/organization/public/types/models/BackupArchive';
-import type { BackupPolicy } from '@/features/organization/public/types/models/BackupPolicy';
-import type { Row } from '@/features/organization/public/types/models/Row';
-import type { Tab } from '@/features/organization/public/types/models/Tab';
+  validateBackupState,
+} from '@/features/organization/public';
 import { useBackupSettings } from '@/features/settings/hooks/useBackupSettings';
 import { useBackupsQuery as useBackupsListQuery } from '@/features/settings/hooks/useBackupsQuery';
 import { useBackupsQuery } from '@/features/settings/queries/useBackupsQuery';
-import type { BackupsProps } from '@/features/settings/types/BackupsProps';
+import type { BackupsProps } from '@/features/settings/types/props/BackupsProps';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';

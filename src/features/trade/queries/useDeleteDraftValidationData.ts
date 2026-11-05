@@ -1,9 +1,8 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { systemQuery } from '@/features/organization/public/system-query';
-import { purchaseInvoicesQuery } from '@/features/trade/public/purchase-invoices-query';
-import { saleInvoicesQuery } from '@/features/trade/public/sale-invoices-query';
+import { booksQuery } from '@/features/ledger/public';
+import { companyQuery, systemQuery } from '@/features/organization/public';
+import { purchaseInvoicesQuery } from '@/features/trade/queries/purchase-invoices-query';
+import { saleInvoicesQuery } from '@/features/trade/queries/sale-invoices-query';
 import type { DeleteDraftValidationReadModel } from '@/features/trade/types/read-models/DeleteDraftValidationReadModel';
 import { useQueryClient } from '@tanstack/react-query';
 export function useDeleteDraftValidationData() {

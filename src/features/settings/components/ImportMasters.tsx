@@ -1,10 +1,10 @@
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { exportCsv } from '@/core/services/export-csv';
-import { importMastersSchema } from '@/features/organization/public/settings-schema';
+import { importMastersSchema } from '@/features/organization/public';
 import { useImportMasters } from '@/features/settings/hooks/useImportMasters';
 import { useImportMastersQuery } from '@/features/settings/queries/useImportMastersQuery';
 import { parseMasterCsv } from '@/features/settings/services/models/csv';
-import { validateImportPreview } from '@/features/settings/validation/import-preview';
+import { validateImportPreview } from '@/features/settings/validations/import-preview';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';

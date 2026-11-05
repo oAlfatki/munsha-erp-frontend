@@ -1,7 +1,7 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import { useCustomerEditorController } from '@/features/customers/hooks/useCustomerEditorController';
-import type { CustomerEditorProps } from '@/features/customers/types/CustomerEditorProps';
-import { extras } from '@/features/ledger/public/extensions';
+import type { CustomerEditorProps } from '@/features/customers/types/props/CustomerEditorProps';
+import { extras } from '@/features/ledger/public';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';

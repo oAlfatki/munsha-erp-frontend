@@ -1,5 +1,5 @@
 import { readDeviceSettings } from '@/core/services/device-settings';
-import type { DataTableProps } from '@/core/types/DataTableProps';
+import type { DataTableProps } from '@/core/types/props/DataTableProps';
 import { Empty } from '@/shared/ui/feedback/Empty';
 import { Button } from '@/shared/ui/primitives/button';
 import { useEffect, useState } from 'react';

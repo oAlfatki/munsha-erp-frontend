@@ -1,10 +1,8 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { journalsQuery } from '@/features/ledger/public/journals-query';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { suppliersQuery } from '@/features/parties/public/suppliers-query';
+import { booksQuery, journalsQuery } from '@/features/ledger/public';
+import { branchesQuery, companyQuery } from '@/features/organization/public';
+import { suppliersQuery } from '@/features/parties/public';
 import type { SupplierBalancesReportReadModel } from '@/features/suppliers/types/read-models/SupplierBalancesReportReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
 export function useSupplierBalancesReportQuery() {

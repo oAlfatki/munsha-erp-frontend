@@ -1,5 +1,5 @@
-import type { Filters } from '@/core/types/Filters';
-import type { ReportData } from '@/core/types/ReportData';
+import type { Filters } from '@/core/types/api/Filters';
+import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildSupplierBalancesReportContext } from '@/features/suppliers/types/read-models/BuildSupplierBalancesReportContext';
 export function buildSupplierBalancesReport(

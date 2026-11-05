@@ -1,4 +1,4 @@
-import type { CurrencyWords } from '@/core/types/CurrencyWords';
+import type { CurrencyWords } from '@/core/types/reports/CurrencyWords';
 import { money } from '@/core/utils/money';
 const ONES = ['', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة'];
 const TEENS = [

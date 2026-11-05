@@ -74,7 +74,7 @@ export function inspectArchitecture(root = process.cwd()) {
             owner(f) &&
             owner(target) &&
             owner(f) !== owner(target) &&
-            !dest.startsWith('features/' + owner(target) + '/public/')
+            dest !== 'features/' + owner(target) + '/public/index.ts'
           )
             errors.push(relative + ': private cross-feature import ' + dest);
           if (owner(f) && owner(target) && owner(f) !== owner(target))

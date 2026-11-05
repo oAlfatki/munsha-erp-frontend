@@ -1,5 +1,5 @@
-import type { Entry } from '@/features/ledger/public/types/models/Entry';
-import type { Invoice } from '@/features/trade/public/types/models/Invoice';
+import type { Entry } from '@/features/ledger/public';
+import type { Invoice } from '@/features/trade/types/models/Invoice';
 export interface TradeSummaryContext {
   invoices: Invoice[];
   entries: Entry[];

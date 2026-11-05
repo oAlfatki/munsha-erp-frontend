@@ -1,6 +1,6 @@
 import { useApplication } from '@/core/state/ApplicationProvider';
-import type { CommandContext } from '@/core/types/CommandContext';
-import type { CommandReceipt } from '@/core/types/CommandReceipt';
+import type { CommandContext } from '@/core/types/api/CommandContext';
+import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
 import { useCallback } from 'react';
 import { toast } from 'sonner';
 import { ZodError } from 'zod';

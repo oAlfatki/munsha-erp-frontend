@@ -1,8 +1,8 @@
-import type { Filters } from '@/core/types/Filters';
-import type { ReportData } from '@/core/types/ReportData';
+import type { Filters } from '@/core/types/api/Filters';
+import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildAccountMappingReportContext } from '@/features/financial/types/read-models/BuildAccountMappingReportContext';
-import { allAccounts } from '@/features/ledger/public/extensions';
+import { allAccounts } from '@/features/ledger/public';
 export function buildAccountMappingReport(
   workspace: BuildAccountMappingReportContext,
   branch: string,

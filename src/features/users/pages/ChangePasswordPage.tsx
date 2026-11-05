@@ -1,4 +1,4 @@
-import { AccountPanel } from '@/features/auth/public/AccountPanel';
+import { AccountPanel } from '@/features/auth/public';
 export default function ChangePasswordPage() {
   return <AccountPanel />;
 }

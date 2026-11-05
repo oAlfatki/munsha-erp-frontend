@@ -1,4 +1,4 @@
-import type { CommandContext } from '@/core/types/CommandContext';
+import type { CommandContext } from '@/core/types/api/CommandContext';
 import {
   submitDeleteDraft,
   submitInvoice,
@@ -10,7 +10,7 @@ import {
   mapInvoiceInput,
   mapPartialReturnInput,
   mapReturnInput,
-} from '@/features/trade/mapper/trade-mapper';
+} from '@/features/trade/mappers/trade-mapper';
 export const saveInvoice = async (
   input: unknown,
   context: CommandContext,

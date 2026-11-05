@@ -12,11 +12,11 @@ import {
 } from '@/core/services/device-settings';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import { ThemeToggle } from '@/core/theme/ThemeToggle';
-import { SessionMenu } from '@/features/auth/components/SessionMenu';
-import { isArchived } from '@/features/ledger/public/annual-books';
-import { AutomaticBackups } from '@/features/settings/components/AutomaticBackups';
-import { fetchSearchItems } from '@/features/stock/public/read-api';
-import { userActivityApi } from '@/features/users/public/audit-events';
+import { SessionMenu } from '@/features/auth/public';
+import { isArchived } from '@/features/ledger/public';
+import { AutomaticBackups } from '@/features/settings/public';
+import { fetchSearchItems } from '@/features/stock/public';
+import { userActivityApi } from '@/features/users/public';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';

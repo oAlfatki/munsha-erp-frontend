@@ -16,10 +16,25 @@ it('keeps server runtimes, demo execution and the old Workspace endpoint outside
     expect(code, file).not.toContain("'/workspace'");
   }
 });
-it('all feature folders use the approved layer names, without empty or obsolete folders', () => {
-  for (const feature of readdirSync('src/features'))
-    for (const folder of ['store', 'validations'])
-      expect(existsSync(join('src/features', feature, folder)), feature + '/' + folder).toBe(false);
+it('keeps public entry points declarative and feature directories populated', () => {
+  for (const feature of readdirSync('src/features')) {
+    const entry = join('src/features', feature, 'public/index.ts');
+    if (existsSync(entry)) {
+      const ast = ts.createSourceFile(
+        entry,
+        readFileSync(entry, 'utf8'),
+        ts.ScriptTarget.Latest,
+        true,
+      );
+      expect(ast.statements.every(ts.isExportDeclaration), entry).toBe(true);
+    }
+  }
+  function inspect(dir: string) {
+    const names = readdirSync(dir);
+    expect(names.length, dir).toBeGreaterThan(0);
+    for (const name of names) if (statSync(join(dir, name)).isDirectory()) inspect(join(dir, name));
+  }
+  inspect('src/features');
 });
 it('each independently declared type has a matching individual PascalCase file', () => {
   for (const file of walk('src').filter(

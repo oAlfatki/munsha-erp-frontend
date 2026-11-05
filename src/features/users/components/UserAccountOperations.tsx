@@ -1,14 +1,14 @@
-import { useAuth } from '@/core/auth/AuthProvider';
 import { errorMessage } from '@/core/api/error-message';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { usersApi } from '@/features/users/api/users-api';
-import { resetPasswordSchema } from '@/features/users/validation/user-form-schema';
+import { resetPasswordSchema } from '@/features/users/validations/user-form-schema';
 import { Field } from '@/shared/ui/forms/Field';
-import { Input } from '@/shared/ui/primitives/input';
 import { Button } from '@/shared/ui/primitives/button';
-import { useForm } from 'react-hook-form';
+import { Input } from '@/shared/ui/primitives/input';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
 export function UserAccountOperations({ id, branchId }: { id: number; branchId: number }) {
   const auth = useAuth(),
     client = useQueryClient();

@@ -1,4 +1,4 @@
-import type { ReportDocument } from '@/core/types/ReportDocument';
+import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 export interface ReportOptions {
   title: string;
   summaryColumns?: number[];

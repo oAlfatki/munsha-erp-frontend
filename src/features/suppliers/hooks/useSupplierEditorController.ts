@@ -1,10 +1,10 @@
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { systemSettings } from '@/features/organization/public/system-settings';
-import { usePartyForm } from '@/features/parties/public/usePartyForm';
+import { systemSettings } from '@/features/organization/public';
+import { usePartyForm } from '@/features/parties/public';
 import { useSaveSupplier } from '@/features/suppliers/hooks/useSaveSupplier';
 import { useSupplierEditorControllerQuery } from '@/features/suppliers/queries/useSupplierEditorControllerQuery';
-import type { SupplierEditorProps } from '@/features/suppliers/types/SupplierEditorProps';
-import { supplierInputSchema } from '@/features/suppliers/validation/suppliers-schema';
+import type { SupplierEditorProps } from '@/features/suppliers/types/props/SupplierEditorProps';
+import { supplierInputSchema } from '@/features/suppliers/validations/suppliers-schema';
 export function useSupplierEditorController({ party }: SupplierEditorProps) {
   const { state: s, branchId, busy: isBusy, navigate } = useSupplierEditorControllerQuery();
   const partyMutationRequest = useSaveSupplier();

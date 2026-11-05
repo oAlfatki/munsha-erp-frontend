@@ -4,21 +4,24 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/InventoryBalancesPage')).default,
+      Component: (await import('@/features/inventory/stock-balances/pages/InventoryBalancesPage'))
+        .default,
     }),
     handle: { module: 'inventory', title: '' },
   },
   {
     path: ROUTES.INVENTORY_MOVEMENTS,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/InventoryMovementsPage')).default,
+      Component: (await import('@/features/inventory/stock-balances/pages/InventoryMovementsPage'))
+        .default,
     }),
     handle: { module: 'inventory', title: '' },
   },
   {
     path: ROUTES.INVENTORY_ADJUSTMENT,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/StockAdjustmentPage')).default,
+      Component: (await import('@/features/inventory/stock-documents/pages/StockAdjustmentPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -29,7 +32,9 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_ADJUSTMENTS,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/StockAdjustmentHistoryPage')).default,
+      Component: (
+        await import('@/features/inventory/stock-documents/pages/StockAdjustmentHistoryPage')
+      ).default,
     }),
     handle: {
       module: 'inventory',
@@ -40,7 +45,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_COST,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/InventoryValuationPage')).default,
+      Component: (await import('@/features/inventory/stock-balances/pages/InventoryValuationPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -51,7 +57,7 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_COUNT,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/StockCountPage')).default,
+      Component: (await import('@/features/inventory/stock-balances/pages/StockCountPage')).default,
     }),
     handle: {
       module: 'inventory',
@@ -62,7 +68,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_END_STOCK,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/ClosingStockPage')).default,
+      Component: (await import('@/features/inventory/closing-stock/pages/ClosingStockPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -73,7 +80,7 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_GROUPS,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/ItemGroupListPage')).default,
+      Component: (await import('@/features/inventory/item-groups/pages/ItemGroupListPage')).default,
     }),
     handle: {
       module: 'inventory',
@@ -84,7 +91,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_GROUPS_ADD,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/CreateItemGroupPage')).default,
+      Component: (await import('@/features/inventory/item-groups/pages/CreateItemGroupPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -95,7 +103,9 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_HISTORICAL_COST,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/HistoricalInventoryCostPage')).default,
+      Component: (
+        await import('@/features/inventory/stock-balances/pages/HistoricalInventoryCostPage')
+      ).default,
     }),
     handle: {
       module: 'inventory',
@@ -106,7 +116,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_OPENING_STOCK,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/OpeningStockPage')).default,
+      Component: (await import('@/features/inventory/stock-balances/pages/OpeningStockPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -117,7 +128,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_OPENING_STOCK_REPORT,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/OpeningStockReportPage')).default,
+      Component: (await import('@/features/inventory/reports/pages/OpeningStockReportPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -128,7 +140,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_REORDER,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/ReorderAlertsPage')).default,
+      Component: (await import('@/features/inventory/stock-balances/pages/ReorderAlertsPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -139,7 +152,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_STAGNANT,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/StagnantInventoryPage')).default,
+      Component: (await import('@/features/inventory/stock-balances/pages/StagnantInventoryPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -150,7 +164,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_TRANSFER_DOCUMENT,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/StockTransferPage')).default,
+      Component: (await import('@/features/inventory/stock-documents/pages/StockTransferPage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -161,7 +176,9 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_TRANSFERS,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/StockTransferHistoryPage')).default,
+      Component: (
+        await import('@/features/inventory/stock-documents/pages/StockTransferHistoryPage')
+      ).default,
     }),
     handle: {
       module: 'inventory',
@@ -172,7 +189,7 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_UNITS,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/UnitListPage')).default,
+      Component: (await import('@/features/inventory/units/pages/UnitListPage')).default,
     }),
     handle: {
       module: 'inventory',
@@ -183,7 +200,7 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_UNITS_ADD,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/CreateUnitPage')).default,
+      Component: (await import('@/features/inventory/units/pages/CreateUnitPage')).default,
     }),
     handle: {
       module: 'inventory',
@@ -194,7 +211,7 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_WAREHOUSES,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/WarehouseListPage')).default,
+      Component: (await import('@/features/inventory/warehouses/pages/WarehouseListPage')).default,
     }),
     handle: {
       module: 'inventory',
@@ -205,7 +222,8 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_WAREHOUSES_ADD,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/CreateWarehousePage')).default,
+      Component: (await import('@/features/inventory/warehouses/pages/CreateWarehousePage'))
+        .default,
     }),
     handle: {
       module: 'inventory',
@@ -216,14 +234,14 @@ export const INVENTORY_ROUTES: RouteObject[] = [
   {
     path: ROUTES.INVENTORY_ITEMS,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/ProductListPage')).default,
+      Component: (await import('@/features/inventory/products/pages/ProductListPage')).default,
     }),
     handle: { module: 'inventory', title: '' },
   },
   {
     path: ROUTES.INVENTORY_ITEMS_NEW,
     lazy: async () => ({
-      Component: (await import('@/features/inventory/pages/CreateProductPage')).default,
+      Component: (await import('@/features/inventory/products/pages/CreateProductPage')).default,
     }),
     handle: { module: 'inventory', title: '' },
   },

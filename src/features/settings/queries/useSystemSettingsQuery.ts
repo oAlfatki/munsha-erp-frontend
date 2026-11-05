@@ -1,20 +1,22 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { accountsQuery } from '@/features/ledger/public/accounts-query';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { cashQuery } from '@/features/ledger/public/cash-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { journalsQuery } from '@/features/ledger/public/journals-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { brandingQuery } from '@/features/organization/public/branding-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { systemQuery } from '@/features/organization/public/system-query';
+import {
+  accountsQuery,
+  booksQuery,
+  cashQuery,
+  currenciesQuery,
+  journalsQuery,
+  mapMasterRecords,
+} from '@/features/ledger/public';
+import {
+  branchesQuery,
+  brandingQuery,
+  companyQuery,
+  systemQuery,
+} from '@/features/organization/public';
 import type { SystemSettingsReadModel } from '@/features/settings/types/read-models/SystemSettingsReadModel';
-import { stockDocumentsQuery } from '@/features/stock/public/stock-documents-query';
-import { warehousesQuery } from '@/features/stock/public/warehouses-query';
-import { purchaseInvoicesQuery } from '@/features/trade/public/purchase-invoices-query';
-import { saleInvoicesQuery } from '@/features/trade/public/sale-invoices-query';
+import { stockDocumentsQuery, warehousesQuery } from '@/features/stock/public';
+import { purchaseInvoicesQuery, saleInvoicesQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
 export function useSystemSettingsQuery() {
   const app = useApplication(),

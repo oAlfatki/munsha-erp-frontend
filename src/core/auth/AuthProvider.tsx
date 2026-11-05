@@ -1,9 +1,9 @@
 import { ApiError } from '@/core/api/apiError';
 import { advanceSession, sessionGeneration } from '@/core/api/session-transport';
 import { canPerform } from '@/core/auth/permissions';
-import type { AuthProviderProps } from '@/core/types/AuthProviderProps';
-import type { AuthContextValue } from '@/core/types/AuthContextValue';
-import type { Identity } from '@/core/types/Identity';
+import type { AuthContextValue } from '@/core/types/auth/AuthContextValue';
+import type { Identity } from '@/core/types/auth/Identity';
+import type { AuthProviderProps } from '@/core/types/props/AuthProviderProps';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 const Context = createContext<AuthContextValue>(null!);

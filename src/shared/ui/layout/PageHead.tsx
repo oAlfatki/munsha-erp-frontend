@@ -1,4 +1,4 @@
-import type { PageHeadProps } from '@/core/types/PageHeadProps';
+import type { PageHeadProps } from '@/core/types/props/PageHeadProps';
 import { Button } from '@/shared/ui/primitives/button';
 import { Plus } from 'lucide-react';
 

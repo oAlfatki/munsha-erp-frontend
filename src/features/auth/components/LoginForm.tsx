@@ -1,5 +1,5 @@
-import { loginDestination } from '@/features/auth/services/login-destination';
 import { useLogin } from '@/features/auth/hooks/useLogin';
+import { loginDestination } from '@/features/auth/services/login-destination';
 import { Field } from '@/shared/ui/forms/Field';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';

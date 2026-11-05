@@ -1,6 +1,6 @@
 import { useProfitByCustomerReportQuery } from '@/features/financial/queries/useProfitByCustomerReportQuery';
 import { buildProfitByCustomerReport } from '@/features/financial/services/reports/build-profit-by-customer-report';
-import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { fiscalRange } from '@/features/ledger/public';
 import { useReportFilters } from '@/shared/hooks/useReportFilters';
 import { useReportPresentation } from '@/shared/hooks/useReportPresentation';
 import type { ReportOptions } from '@/shared/types/reporting/ReportOptions';

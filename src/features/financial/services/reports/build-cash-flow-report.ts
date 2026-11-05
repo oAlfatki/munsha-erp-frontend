@@ -1,10 +1,9 @@
-import type { Filters } from '@/core/types/Filters';
-import type { ReportData } from '@/core/types/ReportData';
+import type { Filters } from '@/core/types/api/Filters';
+import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildCashFlowReportContext } from '@/features/financial/types/read-models/BuildCashFlowReportContext';
-import { isCashLine } from '@/features/ledger/public/cash';
-import { allAccounts } from '@/features/ledger/public/extensions';
-import type { Entry } from '@/features/ledger/public/types/models/Entry';
+import type { Entry } from '@/features/ledger/public';
+import { allAccounts, isCashLine } from '@/features/ledger/public';
 export function buildCashFlowReport(
   workspace: BuildCashFlowReportContext,
   branch: string,

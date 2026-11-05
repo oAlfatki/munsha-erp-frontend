@@ -1,5 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import type { MenuItem } from '@/core/types/MenuItem';
+import type { MenuItem } from '@/core/types/api/MenuItem';
 export const MENU_ITEMS: Record<string, MenuItem[]> = {
   dashboard: [],
   access: [

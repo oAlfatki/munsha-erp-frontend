@@ -1,8 +1,7 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import type { ExpensePaymentValidationReadModel } from '@/features/expenses/types/read-models/ExpensePaymentValidationReadModel';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { systemQuery } from '@/features/organization/public/system-query';
+import { booksQuery } from '@/features/ledger/public';
+import { companyQuery, systemQuery } from '@/features/organization/public';
 import { useQueryClient } from '@tanstack/react-query';
 export function useExpensePaymentValidationData() {
   const identity = useQueryIdentity(),

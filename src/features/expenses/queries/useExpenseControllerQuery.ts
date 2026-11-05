@@ -1,24 +1,21 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { ExpenseControllerReadModel } from '@/features/expenses/types/read-models/ExpenseControllerReadModel';
-import { acquisitionsQuery } from '@/features/ledger/public/acquisitions-query';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { cashQuery } from '@/features/ledger/public/cash-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { depreciationQuery } from '@/features/ledger/public/depreciation-query';
-import { expenseDocumentsQuery } from '@/features/ledger/public/expense-documents-query';
-import { mapExpenseReadModel } from '@/features/ledger/public/expense-read-model';
-import { expenseTypesQuery } from '@/features/ledger/public/expense-types-query';
-import { journalsQuery } from '@/features/ledger/public/journals-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { systemQuery } from '@/features/organization/public/system-query';
-import { advancesQuery } from '@/features/personnel/public/advances-query';
-import { payrollQuery } from '@/features/personnel/public/payroll-query';
-import { salaryPaymentsQuery } from '@/features/personnel/public/salary-payments-query';
-import { stockCountsQuery } from '@/features/stock/public/stock-counts-query';
-import { warehousesQuery } from '@/features/stock/public/warehouses-query';
+import {
+  acquisitionsQuery,
+  booksQuery,
+  cashQuery,
+  currenciesQuery,
+  depreciationQuery,
+  expenseDocumentsQuery,
+  expenseTypesQuery,
+  journalsQuery,
+  mapExpenseReadModel,
+  mapMasterRecords,
+} from '@/features/ledger/public';
+import { branchesQuery, companyQuery, systemQuery } from '@/features/organization/public';
+import { advancesQuery, payrollQuery, salaryPaymentsQuery } from '@/features/personnel/public';
+import { stockCountsQuery, warehousesQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
 export function useExpenseControllerQuery() {
   const app = useApplication(),

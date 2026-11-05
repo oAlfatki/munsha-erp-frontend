@@ -3,7 +3,7 @@ import {
   mapAuthResponse,
   mapLoginInput,
   mapSignInResponse,
-} from '@/features/auth/mapper/auth-mapper';
+} from '@/features/auth/mappers/auth-mapper';
 export const getAccount = async (signal?: AbortSignal) =>
   mapAuthResponse(await fetchAccount(signal));
 export const login = async (input: unknown) =>

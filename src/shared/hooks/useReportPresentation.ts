@@ -1,5 +1,5 @@
 import { exportDocument } from '@/core/reporting/service';
-import type { ReportDocument } from '@/core/types/ReportDocument';
+import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 import { amountInWords } from '@/core/utils/amount-in-words';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';

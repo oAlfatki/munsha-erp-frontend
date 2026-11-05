@@ -3,9 +3,9 @@ import { renderToString } from 'react-dom/server';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { afterEach, expect, it, vi } from 'vitest';
 import { AuthProvider, useAuth } from '@/core/auth/AuthProvider';
-import type { AuthContextValue } from '@/core/types/AuthContextValue';
-import type { AuthProviderProps } from '@/core/types/AuthProviderProps';
-import type { Identity } from '@/core/types/Identity';
+import type { AuthContextValue } from "@/core/types/auth/AuthContextValue";
+import type { AuthProviderProps } from "@/core/types/props/AuthProviderProps";
+import type { Identity } from "@/core/types/auth/Identity";
 import { ApiError } from '@/core/api/apiError';
 const clients: QueryClient[] = [];
 afterEach(() => {

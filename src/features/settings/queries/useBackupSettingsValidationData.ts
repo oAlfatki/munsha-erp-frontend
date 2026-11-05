@@ -1,6 +1,6 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { companyQuery } from '@/features/organization/public/company-query';
+import { booksQuery } from '@/features/ledger/public';
+import { companyQuery } from '@/features/organization/public';
 import type { BackupSettingsValidationReadModel } from '@/features/settings/types/read-models/BackupSettingsValidationReadModel';
 import { useQueryClient } from '@tanstack/react-query';
 export function useBackupSettingsValidationData() {

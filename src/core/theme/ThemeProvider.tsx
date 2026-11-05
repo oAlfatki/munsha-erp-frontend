@@ -1,5 +1,5 @@
-import type { Theme } from '@/core/types/Theme';
-import type { ThemeProviderProps } from '@/core/types/ThemeProviderProps';
+import type { Theme } from '@/core/types/api/Theme';
+import type { ThemeProviderProps } from '@/core/types/props/ThemeProviderProps';
 import { createContext, useContext, useEffect, useState } from 'react';
 const Context = createContext<{ theme: Theme; setTheme: (theme: Theme) => void }>({
   theme: 'system',

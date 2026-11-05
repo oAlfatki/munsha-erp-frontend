@@ -1,4 +1,4 @@
-import type { CommandContext } from '@/core/types/CommandContext';
+import type { CommandContext } from '@/core/types/api/CommandContext';
 import { submitMaster } from '@/features/master-data/api/master-api';
 import { mapMasterInput } from '@/features/master-data/mappers/master-mapper';
 export const saveMaster = async (

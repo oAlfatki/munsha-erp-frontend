@@ -1,13 +1,13 @@
+import { ApiError } from '@/core/api/apiError';
 import {
-  sessionGeneration,
+  expireSession,
   hasSessionRefresh,
   refreshSession,
-  expireSession,
+  sessionGeneration,
 } from '@/core/api/session-transport';
-import { ApiError } from '@/core/api/apiError';
-import type { ProblemDetails } from '@/core/types/ProblemDetails';
-import type { Result } from '@/core/types/Result';
-import type { SessionRequestConfig } from '@/core/types/SessionRequestConfig';
+import type { ProblemDetails } from '@/core/types/api/ProblemDetails';
+import type { Result } from '@/core/types/api/Result';
+import type { SessionRequestConfig } from '@/core/types/auth/SessionRequestConfig';
 import axios from 'axios';
 import { API_CONFIG } from './apiConfig';
 export const axiosInstance = axios.create({

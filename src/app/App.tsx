@@ -1,7 +1,7 @@
 import { AppProviders } from '@/app/providers/AppProviders';
 import { AppRouter } from '@/app/router/AppRouter';
 import { ReportPreview } from '@/core/reporting/Preview';
-import type { AppProps } from '@/core/types/AppProps';
+import type { AppProps } from '@/core/types/props/AppProps';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { FieldNavigation } from '@/shared/ui/forms/FieldNavigation';
 import { Suspense } from 'react';

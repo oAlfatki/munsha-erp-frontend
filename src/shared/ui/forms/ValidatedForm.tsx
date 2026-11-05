@@ -1,4 +1,4 @@
-import type { Validatable } from '@/core/types/Validatable';
+import type { Validatable } from '@/core/types/forms/Validatable';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';

@@ -1,7 +1,7 @@
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useEmployeeDeleteValidationData } from '@/features/employees/queries/useEmployeeDeleteValidationData';
 import { saveEmployeeDelete } from '@/features/employees/services/employees-service';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
+import { validatePeriod } from '@/features/ledger/public';
 export function useEmployeeDelete() {
   const loadValidationData = useEmployeeDeleteValidationData();
   return useCommandMutation('employeeDelete', saveEmployeeDelete, async (input) => {

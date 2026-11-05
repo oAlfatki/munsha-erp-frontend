@@ -1,7 +1,7 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { booksQuery } from '@/features/ledger/public/books-query';
+import { booksQuery } from '@/features/ledger/public';
 import type { MasterValidationReadModel } from '@/features/master-data/types/read-models/MasterValidationReadModel';
-import { companyQuery } from '@/features/organization/public/company-query';
+import { companyQuery } from '@/features/organization/public';
 import { useQueryClient } from '@tanstack/react-query';
 export function useMasterValidationData() {
   const identity = useQueryIdentity(),

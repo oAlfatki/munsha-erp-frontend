@@ -1,4 +1,4 @@
-import type { ModalProps } from '@/core/types/ModalProps';
+import type { ModalProps } from '@/core/types/props/ModalProps';
 import {
   Dialog,
   DialogContent,

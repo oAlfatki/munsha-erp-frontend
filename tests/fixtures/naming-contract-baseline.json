@@ -1653,7 +1653,7 @@
     ]
   },
   {
-    "file": "src/features/personnel/public/read-api.ts",
+    "file": "src/features/personnel/api/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -2111,7 +2111,7 @@
     ]
   },
   {
-    "file": "src/features/ledger/public/expense-read-api.ts",
+    "file": "src/features/ledger/api/expense-read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -3009,7 +3009,7 @@
     ]
   },
   {
-    "file": "src/features/stock/public/read-api.ts",
+    "file": "src/features/stock/api/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -4099,7 +4099,7 @@
     ]
   },
   {
-    "file": "src/features/purchases/api/purchases-api.ts",
+    "file": "src/features/purchases/invoices/api/purchases-api.ts",
     "kind": "api",
     "expected": [
       "trade",
@@ -6010,7 +6010,7 @@
     ]
   },
   {
-    "file": "src/features/sales/api/sales-api.ts",
+    "file": "src/features/sales/invoices/api/sales-api.ts",
     "kind": "api",
     "expected": [
       "sales",
@@ -6020,7 +6020,7 @@
     ]
   },
   {
-    "file": "src/features/trade/public/sales-read-api.ts",
+    "file": "src/features/trade/api/sales-read-api.ts",
     "kind": "api",
     "expected": [
       "GET",
@@ -6674,7 +6674,7 @@
     ]
   },
   {
-    "file": "src/features/organization/public/backups.ts",
+    "file": "src/features/organization/services/backups.ts",
     "kind": "api",
     "expected": [
       "/backups",
@@ -6719,7 +6719,7 @@
     ]
   },
   {
-    "file": "src/features/organization/public/read-api.ts",
+    "file": "src/features/organization/api/read-api.ts",
     "kind": "api",
     "expected": [
       "GET",

@@ -1,13 +1,15 @@
-import { useAuth } from '@/core/auth/AuthProvider';
 import type { CompanyData } from '@/app/types/CompanyData';
 import type { CompanyProviderProps } from '@/app/types/CompanyProviderProps';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { backupPolicyQuery } from '@/features/organization/public/backup-policy-query';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { brandingQuery } from '@/features/organization/public/branding-query';
-import { companyQuery } from '@/features/organization/public/company-query';
+import { booksQuery } from '@/features/ledger/public';
+import {
+  backupPolicyQuery,
+  branchesQuery,
+  brandingQuery,
+  companyQuery,
+} from '@/features/organization/public';
 import { useQueries, useQueryClient } from '@tanstack/react-query';
 import { createContext, useContext, useEffect } from 'react';
 const Context = createContext<CompanyData | null>(null);

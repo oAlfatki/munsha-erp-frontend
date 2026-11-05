@@ -1,17 +1,21 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { EmployeeAdvanceScreenReadModel } from '@/features/employees/types/read-models/EmployeeAdvanceScreenReadModel';
-import { acquisitionsQuery } from '@/features/ledger/public/acquisitions-query';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { depreciationQuery } from '@/features/ledger/public/depreciation-query';
-import { expenseDocumentsQuery } from '@/features/ledger/public/expense-documents-query';
-import { mapExpenseReadModel } from '@/features/ledger/public/expense-read-model';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { advancesQuery } from '@/features/personnel/public/advances-query';
-import { employeesQuery } from '@/features/personnel/public/employees-query';
-import { payrollQuery } from '@/features/personnel/public/payroll-query';
-import { salaryPaymentsQuery } from '@/features/personnel/public/salary-payments-query';
-import { stockCountsQuery } from '@/features/stock/public/stock-counts-query';
+import {
+  acquisitionsQuery,
+  booksQuery,
+  depreciationQuery,
+  expenseDocumentsQuery,
+  mapExpenseReadModel,
+} from '@/features/ledger/public';
+import { branchesQuery } from '@/features/organization/public';
+import {
+  advancesQuery,
+  employeesQuery,
+  payrollQuery,
+  salaryPaymentsQuery,
+} from '@/features/personnel/public';
+import { stockCountsQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
 export function useEmployeeAdvanceScreenQuery() {
   const app = useApplication(),

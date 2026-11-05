@@ -1,9 +1,8 @@
-import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import type { CommandContext } from '@/core/types/CommandContext';
-import type { SaveEmployeeDeleteRequest } from '@/features/personnel/public/types/requests/SaveEmployeeDeleteRequest';
-import type { SaveEmployeeRequest } from '@/features/personnel/public/types/requests/SaveEmployeeRequest';
+import type { CommandContext } from '@/core/types/api/CommandContext';
+import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
+import type { SaveEmployeeDeleteRequest, SaveEmployeeRequest } from '@/features/personnel/public';
 export const submitEmployee = async (
   data: SaveEmployeeRequest,
   context: CommandContext,

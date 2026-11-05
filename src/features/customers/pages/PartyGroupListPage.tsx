@@ -1,5 +1,5 @@
-import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
-import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+import type { MasterFormDefinition } from '@/features/master-data/public';
+import { MasterScreen } from '@/features/master-data/public';
 const DEFINITION = {
   title: 'مجموعات العملاء والموردين',
   note: 'تعريف مجموعات وربطها ببطاقات العملاء والموردين، مع تصفية القوائم حسب المجموعة.',

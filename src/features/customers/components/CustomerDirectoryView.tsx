@@ -1,9 +1,8 @@
 import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { CustomerEditor } from '@/features/customers/components/CustomerEditor';
-import type { CustomerDirectoryViewProps } from '@/features/customers/types/CustomerDirectoryViewProps';
-import { balance } from '@/features/ledger/public/account-balances';
-import { extras } from '@/features/ledger/public/extensions';
+import type { CustomerDirectoryViewProps } from '@/features/customers/types/props/CustomerDirectoryViewProps';
+import { balance, extras } from '@/features/ledger/public';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';

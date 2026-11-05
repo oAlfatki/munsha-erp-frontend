@@ -1,9 +1,11 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { automaticBackup } from '@/features/organization/public/backup-files';
-import { backupPolicy } from '@/features/organization/public/backup-policy';
-import { backupPolicyQuery } from '@/features/organization/public/backup-policy-query';
-import { requestExitBackup } from '@/features/organization/public/backups';
-import type { AutomaticBackupsProps } from '@/features/settings/types/AutomaticBackupsProps';
+import {
+  automaticBackup,
+  backupPolicy,
+  backupPolicyQuery,
+  requestExitBackup,
+} from '@/features/organization/public';
+import type { AutomaticBackupsProps } from '@/features/settings/types/props/AutomaticBackupsProps';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { toast } from 'sonner';

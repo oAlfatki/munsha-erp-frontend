@@ -2,7 +2,7 @@ import type { ItemMatch } from '@/features/trade/types/models/ItemMatch';
 import type { InvoiceItemMatchesContext } from '@/features/trade/types/read-models/InvoiceItemMatchesContext';
 
 // Frontend display calculations; backend authority requires independent verification.
-import type { InvoiceLine } from '@/features/trade/public/types/models/InvoiceLine';
+import type { InvoiceLine } from '@/features/trade/types/models/InvoiceLine';
 export function invoiceItemMatches(
   workspace: InvoiceItemMatchesContext,
   query: string,

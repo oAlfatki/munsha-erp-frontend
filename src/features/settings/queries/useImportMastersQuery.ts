@@ -1,11 +1,9 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { customersQuery } from '@/features/parties/public/customers-query';
-import { suppliersQuery } from '@/features/parties/public/suppliers-query';
+import { booksQuery, currenciesQuery } from '@/features/ledger/public';
+import { customersQuery, suppliersQuery } from '@/features/parties/public';
 import type { ImportMastersReadModel } from '@/features/settings/types/read-models/ImportMastersReadModel';
-import { itemsQuery } from '@/features/stock/public/items-query';
+import { itemsQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
 export function useImportMastersQuery() {
   const app = useApplication(),

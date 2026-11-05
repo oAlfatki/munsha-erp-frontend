@@ -1,7 +1,6 @@
-import type { AnnualBooks } from '@/features/ledger/public/types/models/AnnualBooks';
-import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
-import type { PersistedSystemSettings } from '@/features/organization/public/types/models/PersistedSystemSettings';
-import type { Invoice } from '@/features/trade/public/types/models/Invoice';
+import type { AnnualBooks, ExtensionData } from '@/features/ledger/public';
+import type { PersistedSystemSettings } from '@/features/organization/public';
+import type { Invoice } from '@/features/trade/types/models/Invoice';
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */

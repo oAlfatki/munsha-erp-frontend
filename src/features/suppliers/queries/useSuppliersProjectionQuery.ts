@@ -1,7 +1,7 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { suppliersQuery } from '@/features/parties/public/suppliers-query';
+import { booksQuery } from '@/features/ledger/public';
+import { suppliersQuery } from '@/features/parties/public';
 import type { SuppliersProjectionReadModel } from '@/features/suppliers/types/read-models/SuppliersProjectionReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
 export function useSuppliersProjectionQuery() {

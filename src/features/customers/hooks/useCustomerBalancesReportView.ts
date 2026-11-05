@@ -1,6 +1,6 @@
 import { useCustomerBalancesReportQuery } from '@/features/customers/queries/useCustomerBalancesReportQuery';
 import { buildCustomerBalancesReport } from '@/features/customers/services/reports/build-customer-balances-report';
-import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { fiscalRange } from '@/features/ledger/public';
 import { useReportFilters } from '@/shared/hooks/useReportFilters';
 import { useReportPresentation } from '@/shared/hooks/useReportPresentation';
 import type { ReportOptions } from '@/shared/types/reporting/ReportOptions';

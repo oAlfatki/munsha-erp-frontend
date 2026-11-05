@@ -1,5 +1,5 @@
-import type { ReadPagination } from '@/core/types/ReadPagination';
-import type { ReadScope } from '@/core/types/ReadScope';
+import type { ReadPagination } from '@/core/types/api/ReadPagination';
+import type { ReadScope } from '@/core/types/api/ReadScope';
 import type { RecognizedExpensesReportRow } from '@/features/expenses/types/responses/RecognizedExpensesReportRow';
 export type RecognizedExpensesReport = {
   columns: Array<string>;

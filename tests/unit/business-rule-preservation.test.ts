@@ -2,7 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import ts from 'typescript';
 import { it, expect } from 'vitest';
 import baseline from '../fixtures/business-rule-preservation.json';
-import { extras } from '@/features/ledger/public/extensions';
+import { extras } from "@/features/ledger/services/extensions";
 import { extras as originalExtras } from '../reference/domain/extensions';
 import { createSeed } from '../reference/domain/engine';
 // Runtime AST equivalence against the frozen original reference. Type annotations are

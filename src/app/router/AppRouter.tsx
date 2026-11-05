@@ -3,10 +3,10 @@ import { CompanyProvider } from '@/app/providers/CompanyProvider';
 import { PageScope } from '@/app/router/PageScope';
 import { ProtectedRoute } from '@/app/router/ProtectedRoute';
 import { APP_ROUTES } from '@/app/router/routes';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { RouteErrorPage } from '@/core/router/RouteErrorPage';
 import { ApplicationProvider } from '@/core/state/ApplicationProvider';
-import { useAuth } from '@/core/auth/AuthProvider';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 function ApplicationLayout() {

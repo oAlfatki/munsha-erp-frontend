@@ -1,15 +1,15 @@
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import type { GetPurchasesInvoicesByIdRequest } from '@/features/trade/public/types/requests/GetPurchasesInvoicesByIdRequest';
-import type { GetPurchasesInvoicesByIdReturnAvailabilityRequest } from '@/features/trade/public/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest';
-import type { GetPurchasesReturnsByIdRequest } from '@/features/trade/public/types/requests/GetPurchasesReturnsByIdRequest';
-import type { SearchPurchasesInvoicesRequest } from '@/features/trade/public/types/requests/SearchPurchasesInvoicesRequest';
-import type { SearchPurchasesReturnsRequest } from '@/features/trade/public/types/requests/SearchPurchasesReturnsRequest';
-import type { InvoiceListResponse } from '@/features/trade/public/types/responses/InvoiceListResponse';
-import type { InvoiceResponse } from '@/features/trade/public/types/responses/InvoiceResponse';
-import type { InvoiceReturnListResponse } from '@/features/trade/public/types/responses/InvoiceReturnListResponse';
-import type { InvoiceReturnResponse } from '@/features/trade/public/types/responses/InvoiceReturnResponse';
-import type { ReturnAvailabilityResponse } from '@/features/trade/public/types/responses/ReturnAvailabilityResponse';
+import type { GetPurchasesInvoicesByIdRequest } from '@/features/trade/types/requests/GetPurchasesInvoicesByIdRequest';
+import type { GetPurchasesInvoicesByIdReturnAvailabilityRequest } from '@/features/trade/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest';
+import type { GetPurchasesReturnsByIdRequest } from '@/features/trade/types/requests/GetPurchasesReturnsByIdRequest';
+import type { SearchPurchasesInvoicesRequest } from '@/features/trade/types/requests/SearchPurchasesInvoicesRequest';
+import type { SearchPurchasesReturnsRequest } from '@/features/trade/types/requests/SearchPurchasesReturnsRequest';
+import type { InvoiceListResponse } from '@/features/trade/types/responses/InvoiceListResponse';
+import type { InvoiceResponse } from '@/features/trade/types/responses/InvoiceResponse';
+import type { InvoiceReturnListResponse } from '@/features/trade/types/responses/InvoiceReturnListResponse';
+import type { InvoiceReturnResponse } from '@/features/trade/types/responses/InvoiceReturnResponse';
+import type { ReturnAvailabilityResponse } from '@/features/trade/types/responses/ReturnAvailabilityResponse';
 /** List purchases invoices. Existing HTTP contract. */
 export async function fetchPurchasesInvoices(
   params: SearchPurchasesInvoicesRequest = {},

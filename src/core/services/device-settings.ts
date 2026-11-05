@@ -1,4 +1,4 @@
-import type { DeviceSettings } from '@/core/types/DeviceSettings';
+import type { DeviceSettings } from '@/core/types/api/DeviceSettings';
 
 export const DEFAULT_DEVICE_SETTINGS: DeviceSettings = {
   pageSize: 25,

@@ -1,4 +1,4 @@
-import type { DocumentNavigatorProps } from '@/core/types/DocumentNavigatorProps';
+import type { DocumentNavigatorProps } from '@/core/types/props/DocumentNavigatorProps';
 import { Button } from '@/shared/ui/primitives/button';
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, List } from 'lucide-react';
 

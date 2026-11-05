@@ -4,21 +4,23 @@ export const PURCHASES_ROUTES: RouteObject[] = [
   {
     path: ROUTES.PURCHASES,
     lazy: async () => ({
-      Component: (await import('@/features/purchases/pages/PurchaseInvoiceListPage')).default,
+      Component: (await import('@/features/purchases/invoices/pages/PurchaseInvoiceListPage'))
+        .default,
     }),
     handle: { module: 'purchases', title: '' },
   },
   {
     path: ROUTES.PURCHASES_NEW,
     lazy: async () => ({
-      Component: (await import('@/features/purchases/pages/CreatePurchaseInvoicePage')).default,
+      Component: (await import('@/features/purchases/invoices/pages/CreatePurchaseInvoicePage'))
+        .default,
     }),
     handle: { module: 'purchases', title: '' },
   },
   {
     path: ROUTES.PURCHASES_PURCHASE_REPORT,
     lazy: async () => ({
-      Component: (await import('@/features/purchases/pages/PurchaseSummaryPage')).default,
+      Component: (await import('@/features/purchases/invoices/pages/PurchaseSummaryPage')).default,
     }),
     handle: {
       module: 'purchases',
@@ -29,7 +31,7 @@ export const PURCHASES_ROUTES: RouteObject[] = [
   {
     path: ROUTES.PURCHASES_PURCHASE_RETURNS,
     lazy: async () => ({
-      Component: (await import('@/features/purchases/pages/PurchaseReturnsPage')).default,
+      Component: (await import('@/features/purchases/returns/pages/PurchaseReturnsPage')).default,
     }),
     handle: {
       module: 'purchases',

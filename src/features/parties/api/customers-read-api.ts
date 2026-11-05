@@ -1,9 +1,9 @@
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import type { GetCustomersByIdRequest } from '@/features/parties/public/types/requests/GetCustomersByIdRequest';
-import type { SearchCustomersRequest } from '@/features/parties/public/types/requests/SearchCustomersRequest';
-import type { PartyListResponse } from '@/features/parties/public/types/responses/PartyListResponse';
-import type { PartyResponse } from '@/features/parties/public/types/responses/PartyResponse';
+import type { GetCustomersByIdRequest } from '@/features/parties/types/requests/GetCustomersByIdRequest';
+import type { SearchCustomersRequest } from '@/features/parties/types/requests/SearchCustomersRequest';
+import type { PartyListResponse } from '@/features/parties/types/responses/PartyListResponse';
+import type { PartyResponse } from '@/features/parties/types/responses/PartyResponse';
 /** List customers. Existing HTTP contract. */
 export async function fetchCustomers(
   params: SearchCustomersRequest = {},
