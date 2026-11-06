@@ -1,5 +1,7 @@
+import type { MenuItem } from '@/shared/types/navigation/MenuItem';
+
 export interface SectionNavigationProps {
-  module: string;
+  entries: MenuItem[];
   view: string;
   go: (v: string) => void;
 }

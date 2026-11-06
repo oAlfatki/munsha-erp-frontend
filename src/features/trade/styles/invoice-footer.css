@@ -1,9 +1,0 @@
-.invoice-footer > .document-totals {
-  margin: 0;
-}
-.invoice-footer {
-  grid-template-columns: 1fr 1.6fr;
-}
-.invoice-footer .document-totals dl {
-  grid-template-columns: 1fr 1fr;
-}

@@ -1,7 +1,7 @@
 import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
-import { useApplication } from '@/core/state/ApplicationProvider';
+import { useNavigate } from 'react-router-dom';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Button } from '@/shared/ui/primitives/button';
 import { LogOut, UserRound } from 'lucide-react';
@@ -10,7 +10,7 @@ import { useState } from 'react';
 export function SessionMenu({ editing: isEditing }: { editing: boolean }) {
 
   const auth = useAuth(),
-    { navigate } = useApplication();
+    navigate = useNavigate();
   const [isOpen, setOpen] = useState(false),
     [isLeaving, setLeaving] = useState(false),
     [error, setError] = useState('');

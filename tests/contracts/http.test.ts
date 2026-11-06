@@ -18,7 +18,7 @@ describe('HTTP result and Problem Details boundary', () => {
       headers: {},
       config,
     });
-    await expect(transport.get('/customers')).resolves.toEqual({ id: 'customer-1' });
+    await expect(transport.get('/contract-fixture')).resolves.toEqual({ id: 'customer-1' });
   });
   it('supports the current unwrapped compatibility response', async () => {
     vi.stubGlobal('document', { documentElement: { lang: 'ar' } });
@@ -29,7 +29,7 @@ describe('HTTP result and Problem Details boundary', () => {
       headers: {},
       config,
     });
-    await expect(transport.get('/accounting/journals')).resolves.toEqual({ revision: 4 });
+    await expect(transport.get('/contract-fixture')).resolves.toEqual({ revision: 4 });
   });
   it('normalizes ASP.NET validation dictionaries into field errors', () => {
     const error = new ApiError(
@@ -66,6 +66,6 @@ describe('HTTP result and Problem Details boundary', () => {
       headers: {},
       config,
     });
-    await expect(transport.get('/customers')).rejects.toBeInstanceOf(ApiError);
+    await expect(transport.get('/contract-fixture')).rejects.toBeInstanceOf(ApiError);
   });
 });

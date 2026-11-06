@@ -60,12 +60,6 @@
   height: 16px;
   accent-color: #22745f;
 }
-.journal-editor select {
-  min-width: 210px;
-}
-.journal-editor input {
-  min-width: 100px;
-}
 .form-panel h2 {
   margin-bottom: 22px;
 }
@@ -123,9 +117,6 @@
   .screen-page .page-heading h1 {
     font-size: 28px;
   }
-  .screen-page .document-stats {
-    flex-wrap: wrap;
-  }
   .report-context {
     font-size: 14px;
   }
@@ -135,13 +126,6 @@
   .stepper button {
     font-size: 14px;
     padding: 9px 10px;
-  }
-  .backup-hero {
-    gap: 16px;
-    align-items: start;
-  }
-  .backup-hero h2 {
-    font-size: 24px;
   }
   .subnav.expanded {
     max-height: 250px;
@@ -176,73 +160,4 @@
   gap: 8px;
   flex-wrap: wrap;
   align-items: center;
-}
-.document-navigator {
-  display: flex;
-  gap: 7px;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 16px 0 22px;
-  padding: 11px 14px;
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  background: var(--muted);
-}
-.document-navigator > span {
-  font-size: 15px;
-  min-width: 58px;
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-}
-.document-navigator button {
-  font-size: 14px;
-}
-.document-totals {
-  background: var(--muted);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 18px;
-  margin: 18px 0;
-}
-.document-totals dl {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0 24px;
-}
-.document-totals dl > div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 14px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 15px;
-}
-.document-totals dt {
-  color: var(--foreground);
-}
-.document-totals dd {
-  font-weight: 650;
-  white-space: nowrap;
-  direction: ltr;
-  font-variant-numeric: tabular-nums;
-}
-.amount-words {
-  padding: 14px 0 4px;
-  display: flex;
-  gap: 16px;
-  align-items: baseline;
-  font-size: 16px;
-  line-height: 2;
-  border-top: 1px solid var(--border);
-  margin-top: 12px;
-}
-.amount-words > span {
-  white-space: nowrap;
-  color: var(--foreground);
-  font-size: 14px;
-}
-.amount-words > strong {
-  font-weight: 600;
-  color: #dc2626;
 }

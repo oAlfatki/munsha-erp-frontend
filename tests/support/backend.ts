@@ -1,6 +1,4 @@
-import { readResponse } from './read-responses';
 import type { Page } from '@playwright/test';
-import { applyCommand, createSeed } from '../reference/domain/engine';
 
 /** Test-only HTTP boundary. Production contains no seed data, demo identity, or in-browser accounting engine. */
 
@@ -11,9 +9,6 @@ export async function installTestBackend(
 ) {
 
   let signedIn = initialSignedIn;
-  let state = createSeed();
-  let revision = 0;
-  const receipts = new Map<string, { signature: string; revision: number }>();
   const calls: { method: string; path: string; body: unknown }[] = [];
   let users: import('@/features/users/types/UserDetails').UserDetails[] = [];
   let sessions = [
@@ -183,56 +178,32 @@ export async function installTestBackend(
       if (method === 'GET') return raw(row);
       if (method === 'PUT') return problem(409, 'رمز نسخة البيانات غير متوفر');
     }
-    if (path === '/workspace') return problem(410, 'Workspace endpoint must not be called');
-    if (method === 'GET' && !path.startsWith('/backups')) {
-      try {
-        return ok(
-          readResponse(
-            state,
-            path,
-            Object.fromEntries(new URL(request.url()).searchParams),
-            revision,
-          ),
-        );
-      } catch {
-        return problem(404, 'Unknown read resource: ' + path);
-      }
-    }
-    if (path === '/backups' && method === 'GET') return ok({ rows: [] });
-    if (path.startsWith('/backups/'))
-      return ok({ skipped: true, revision, state, createdAt: new Date().toISOString() });
-    if (method === 'POST' && path.includes('/commands/')) {
-      if (!body) return problem(400, 'Missing command');
-      const id = String(body.id);
-      const signature = JSON.stringify({ type: body.type, data: body.data });
-      const old = receipts.get(id);
-      if (old)
-        return old.signature === signature
-          ? ok({ revision: old.revision })
-          : problem(409, 'Request ID reused');
-      if (body.revision !== revision) return problem(409, 'Workspace changed');
-      try {
-        state = applyCommand(state, String(body.type), body.data, {
-          id: String(user.id),
-          name: user.fullName,
-        });
-        revision++;
-        receipts.set(id, { signature, revision });
-        return ok({ revision });
-      } catch (error) {
-        return problem(422, error instanceof Error ? error.message : 'Invalid command');
-      }
-    }
+    if (path === '/dashboard' && method === 'GET')
+      return ok({
+        lowStock: [],
+        recentAudit: [],
+        scope: { bookId: '', branchId: '1', revision: 0 },
+      });
     return problem(404, 'Unimplemented test route: ' + path);
   });
   return {
     calls,
 
-    getState: () => state,
-
-    getRevision: () => revision,
-
     getUsers: () => structuredClone(users),
+
+    seedUsers: (count: number) => {
+
+      users = Array.from({ length: count }, (_, index) => ({
+        id: index + 2,
+        fullName: 'مستخدم ' + (index + 1),
+        username: 'user' + (index + 1),
+        branchId: 1,
+        branchName: 'الفرع الرئيسي',
+        isActive: true,
+        createdAtUtc: '2026-11-01T00:00:00Z',
+        updatedAtUtc: null,
+      }));
+    },
 
     failNext: (path: string, status: number, detail: string) => {
 

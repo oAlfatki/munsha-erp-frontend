@@ -1,0 +1,4399 @@
+{
+  "basis": "931af44",
+  "scope": "AST and full-file inventory; not a claim of manual line-by-line security certification",
+  "features": {
+    "app": {
+      "files": 22,
+      "functions": 51,
+      "http": 0,
+      "schemas": [],
+      "findings": [
+        {
+          "file": "src/app/styles/responsive-and-controls.css",
+          "severity": "review",
+          "kind": "large-module",
+          "detail": "Review cohesive responsibilities; line count alone is not a defect."
+        }
+      ]
+    },
+    "auth": {
+      "files": 22,
+      "functions": 54,
+      "http": 8,
+      "schemas": [
+        {
+          "file": "src/features/auth/mappers/auth-mapper.ts",
+          "name": "safeIdSchema",
+          "line": 11
+        },
+        {
+          "file": "src/features/auth/mappers/auth-mapper.ts",
+          "name": "maskSchema",
+          "line": 12
+        },
+        {
+          "file": "src/features/auth/mappers/auth-mapper.ts",
+          "name": "currentUserSchema",
+          "line": 16
+        },
+        {
+          "file": "src/features/auth/validations/auth-schema.ts",
+          "name": "loginSchema",
+          "line": 4
+        },
+        {
+          "file": "src/features/auth/validations/password-change-schema.ts",
+          "name": "passwordChangeSchema",
+          "line": 3
+        }
+      ],
+      "findings": []
+    },
+    "core": {
+      "files": 32,
+      "functions": 61,
+      "http": 0,
+      "schemas": [],
+      "findings": []
+    },
+    "dashboard": {
+      "files": 9,
+      "functions": 10,
+      "http": 1,
+      "schemas": [],
+      "findings": []
+    },
+    "shared": {
+      "files": 35,
+      "functions": 68,
+      "http": 0,
+      "schemas": [
+        {
+          "file": "src/shared/ui/forms/ValidatedForm.tsx",
+          "name": "formSchema",
+          "line": 60
+        },
+        {
+          "file": "src/shared/ui/forms/control-validation.ts",
+          "name": "controlSchema",
+          "line": 16
+        },
+        {
+          "file": "src/shared/ui/forms/control-validation.ts",
+          "name": "numberSchema",
+          "line": 32
+        }
+      ],
+      "findings": []
+    },
+    "users": {
+      "files": 41,
+      "functions": 106,
+      "http": 13,
+      "schemas": [
+        {
+          "file": "src/features/users/validations/permission-catalog-schema.ts",
+          "name": "decimalSchema",
+          "line": 3
+        },
+        {
+          "file": "src/features/users/validations/permission-catalog-schema.ts",
+          "name": "permissionCatalogSchema",
+          "line": 7
+        },
+        {
+          "file": "src/features/users/validations/user-form-schema.ts",
+          "name": "userFormSchema",
+          "line": 3
+        },
+        {
+          "file": "src/features/users/validations/user-form-schema.ts",
+          "name": "resetPasswordSchema",
+          "line": 40
+        }
+      ],
+      "findings": []
+    }
+  },
+  "files": [
+    {
+      "file": "src/app/App.tsx",
+      "owner": "app",
+      "lines": 21,
+      "sha256": "e9978eb897d5ab53bab181536cd5e2d5206a613e7846b9c696c20a66ae84e48b",
+      "functions": [
+        {
+          "name": "App",
+          "line": 9,
+          "end": 20
+        }
+      ],
+      "imports": [
+        "@/app/providers/AppProviders",
+        "@/app/router/AppRouter",
+        "@/app/types/props/AppProps",
+        "@/shared/ui/feedback/LoadingState",
+        "@/shared/ui/forms/FieldNavigation",
+        "react",
+        "sonner"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/constants/dashboard-navigation.ts",
+      "owner": "app",
+      "lines": 8,
+      "sha256": "f75dd6376577bd2b7b55818bd41785016538fda0f9a627fd5b197de061a3f1b1",
+      "functions": [],
+      "imports": [
+        "lucide-react",
+        "@/core/config/navigation-paths"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/constants/user-navigation.ts",
+      "owner": "app",
+      "lines": 39,
+      "sha256": "6a09be802d4504eb5224d0df6bc9ab0748f556a0a21825d5a3d290aa7126c8ff",
+      "functions": [],
+      "imports": [
+        "@/core/config/navigation-paths",
+        "@/shared/types/navigation/MenuItem"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/hooks/useDashboardLayout.ts",
+      "owner": "app",
+      "lines": 112,
+      "sha256": "9aa8968432ada9f221cd0a95fa0aba45392fedfd94626f6a7f39f139cca4e27b",
+      "functions": [
+        {
+          "name": "useDashboardLayout",
+          "line": 15,
+          "end": 111
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 33
+        },
+        {
+          "name": "(callback)",
+          "line": 29,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 30
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 32
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 45
+        },
+        {
+          "name": "sync",
+          "line": 35,
+          "end": 40
+        },
+        {
+          "name": "(callback)",
+          "line": 44,
+          "end": 44
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 59
+        },
+        {
+          "name": "onKeyDown",
+          "line": 49,
+          "end": 55
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 58,
+          "end": 58
+        },
+        {
+          "name": "(callback)",
+          "line": 61,
+          "end": 61
+        },
+        {
+          "name": "(callback)",
+          "line": 64,
+          "end": 76
+        },
+        {
+          "name": "go",
+          "line": 79,
+          "end": 84
+        },
+        {
+          "name": "refresh",
+          "line": 86,
+          "end": 93
+        }
+      ],
+      "imports": [
+        "@/app/constants/dashboard-navigation",
+        "@/core/auth/AuthProvider",
+        "@/app/constants/user-navigation",
+        "@/core/config/navigation-paths",
+        "@/shared/lib/menu-leaves",
+        "@/core/services/device-settings",
+        "@tanstack/react-query",
+        "react",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/layouts/DashboardLayout.tsx",
+      "owner": "app",
+      "lines": 168,
+      "sha256": "c22813eb6d9fdb5201871e30fc58eefad592180234ad65a431087a6a49c7dd2d",
+      "functions": [
+        {
+          "name": "DashboardLayout",
+          "line": 12,
+          "end": 167
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 34
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 58,
+          "end": 58
+        },
+        {
+          "name": "(callback)",
+          "line": 84,
+          "end": 84
+        },
+        {
+          "name": "(callback)",
+          "line": 96,
+          "end": 96
+        },
+        {
+          "name": "(callback)",
+          "line": 107,
+          "end": 107
+        },
+        {
+          "name": "(callback)",
+          "line": 138,
+          "end": 138
+        },
+        {
+          "name": "(callback)",
+          "line": 144,
+          "end": 144
+        },
+        {
+          "name": "(callback)",
+          "line": 148,
+          "end": 148
+        },
+        {
+          "name": "(callback)",
+          "line": 149,
+          "end": 154
+        },
+        {
+          "name": "(callback)",
+          "line": 150,
+          "end": 150
+        },
+        {
+          "name": "(callback)",
+          "line": 156,
+          "end": 156
+        },
+        {
+          "name": "(callback)",
+          "line": 157,
+          "end": 162
+        },
+        {
+          "name": "(callback)",
+          "line": 158,
+          "end": 158
+        }
+      ],
+      "imports": [
+        "@/app/hooks/useDashboardLayout",
+        "@/core/config/navigation-paths",
+        "@/features/auth/public",
+        "@/shared/ui/actions/ThemeToggle",
+        "@/shared/ui/dialogs/Modal",
+        "@/shared/ui/navigation/SectionNavigation",
+        "@/shared/ui/primitives/button",
+        "@/shared/ui/primitives/input",
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/main.tsx",
+      "owner": "app",
+      "lines": 8,
+      "sha256": "b7319698d27119b0903570988f70cb9bc9771bdc6ca532417673d62545d15958",
+      "functions": [],
+      "imports": [
+        "@/app/App",
+        "@/app/styles.css",
+        "@/core/config/locale",
+        "@/core/config/validation",
+        "react-dom/client"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/providers/AppProviders.tsx",
+      "owner": "app",
+      "lines": 31,
+      "sha256": "fca38f6d50e70a36fdcd94bda67447304cbaf69dec87e997f55e2a0b24bc2898",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 12
+        },
+        {
+          "name": "AppProviders",
+          "line": 14,
+          "end": 30
+        }
+      ],
+      "imports": [
+        "@/app/services/access-service",
+        "@/app/types/props/AppProvidersProps",
+        "@/core/api/queryClient",
+        "@/core/api/session-transport",
+        "@/core/auth/AuthProvider",
+        "@/core/theme/ThemeProvider",
+        "@/features/auth/public",
+        "@tanstack/react-query"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/router/AppRouter.tsx",
+      "owner": "app",
+      "lines": 39,
+      "sha256": "f90fa89b327606dc890151861ac526cc19d525f8d2d903414d85cca31b453a4e",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 12
+        },
+        {
+          "name": "(callback)",
+          "line": 25,
+          "end": 25
+        },
+        {
+          "name": "AppRouter",
+          "line": 35,
+          "end": 38
+        }
+      ],
+      "imports": [
+        "@/app/layouts/DashboardLayout",
+        "@/app/router/PageScope",
+        "@/app/router/ProtectedRoute",
+        "@/app/router/routes",
+        "@/core/config/navigation-paths",
+        "@/shared/ui/feedback/LoadingState",
+        "@/shared/ui/feedback/NotFoundPage",
+        "@/shared/ui/feedback/RouteErrorPage",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/router/PageScope.tsx",
+      "owner": "app",
+      "lines": 18,
+      "sha256": "03884c9939afd84834c5978f395a92addae2fe47b52b4ddcd415e819d95c781d",
+      "functions": [
+        {
+          "name": "PageScope",
+          "line": 6,
+          "end": 17
+        }
+      ],
+      "imports": [
+        "@/core/auth/AuthProvider",
+        "@/shared/ui/feedback/LoadingState",
+        "react",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/router/ProtectedRoute.tsx",
+      "owner": "app",
+      "lines": 23,
+      "sha256": "4414f077e79b53aa1c0865c387b1d95533c9adc724fe0e82540f6abe7cc5e048",
+      "functions": [
+        {
+          "name": "ProtectedRoute",
+          "line": 8,
+          "end": 22
+        }
+      ],
+      "imports": [
+        "@/core/api/apiError",
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/core/config/navigation-paths",
+        "@/shared/ui/feedback/LoadingState",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/router/modules/auth.routes.tsx",
+      "owner": "app",
+      "lines": 15,
+      "sha256": "c8358e474e576d767fca66b155cf3623dbde1791dc50360a8877aaff51766ac5",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 10
+        }
+      ],
+      "imports": [
+        "@/core/config/navigation-paths",
+        "@/shared/ui/feedback/LoadingState",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/router/modules/dashboard.routes.tsx",
+      "owner": "app",
+      "lines": 15,
+      "sha256": "d097b11c7f81989ec094f0382998bf123bbddd394d189c2c514bb6ebaafa8ac5",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 10
+        }
+      ],
+      "imports": [
+        "@/core/config/navigation-paths",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/router/modules/users.routes.tsx",
+      "owner": "app",
+      "lines": 98,
+      "sha256": "4b79178f737181a590fe8d2c79b65a35426ce69053d97b293c7510c1ed5a4208",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 10
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 19
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 28
+        },
+        {
+          "name": "(callback)",
+          "line": 39,
+          "end": 41
+        },
+        {
+          "name": "(callback)",
+          "line": 52,
+          "end": 54
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 67
+        },
+        {
+          "name": "(callback)",
+          "line": 78,
+          "end": 80
+        },
+        {
+          "name": "(callback)",
+          "line": 91,
+          "end": 93
+        }
+      ],
+      "imports": [
+        "@/core/config/navigation-paths",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/router/routes.tsx",
+      "owner": "app",
+      "lines": 7,
+      "sha256": "4813b9dc70ec9f0865dca12417c246922ee99d52fb651c3432def8afcde8b96d",
+      "functions": [],
+      "imports": [
+        "react-router-dom",
+        "./modules/auth.routes",
+        "./modules/dashboard.routes",
+        "./modules/users.routes"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/services/access-service.ts",
+      "owner": "app",
+      "lines": 39,
+      "sha256": "6c1ffda6cb9f214fff2d20a9279b3ebf6ab564a1774c9a909a56226e0a1e4df2",
+      "functions": [
+        {
+          "name": "readAccess",
+          "line": 5,
+          "end": 38
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 14
+        }
+      ],
+      "imports": [
+        "@/core/types/access/AccessSnapshot",
+        "@/core/types/auth/Identity",
+        "@/features/users/public"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/styles/dashboard-shell.css",
+      "owner": "app",
+      "lines": 343,
+      "sha256": "d7d1f6753a2ee446c13a5aa36d211b62367908fa1ed17f5f858984d13e5b2866",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/styles/responsive-and-controls.css",
+      "owner": "app",
+      "lines": 827,
+      "sha256": "5f56da85db4f4178791346ede4a4efb17e50a459e3f13f3373c1e073fba9d49a",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": [
+        {
+          "severity": "review",
+          "kind": "large-module",
+          "detail": "Review cohesive responsibilities; line count alone is not a defect."
+        }
+      ]
+    },
+    {
+      "file": "src/app/styles/theme.css",
+      "owner": "app",
+      "lines": 134,
+      "sha256": "ef3465f1d3ddd1d7df956254a16be81ca9140a4255fff766746d7c0daf82d539",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/styles/workflow-controls.css",
+      "owner": "app",
+      "lines": 164,
+      "sha256": "2ccda4b0b7e6bec11c0ed2e0b4b835081b8850048021237aa9debd4a98526698",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/styles.css",
+      "owner": "app",
+      "lines": 15,
+      "sha256": "02c23443bd5f37af299105f7e5dd97711953e3d835e5e9a0c8c563a2a4f8746d",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/types/props/AppProps.ts",
+      "owner": "app",
+      "lines": 6,
+      "sha256": "89ae530a2599c88eb5f9bd9798a96ce0e8f977aca5780d49c6b8f9b7c60fc839",
+      "functions": [],
+      "imports": [
+        "@/core/types/auth/Identity"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/app/types/props/AppProvidersProps.ts",
+      "owner": "app",
+      "lines": 8,
+      "sha256": "bf0c589b2c12caf80814a602be11d42b151b126360e1a386d75f00387a2f8bc2",
+      "functions": [],
+      "imports": [
+        "@/core/types/auth/Identity",
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/api/apiClient.ts",
+      "owner": "core",
+      "lines": 122,
+      "sha256": "5ed6760d8b96b233ddf96b906086be17320e44516037d92def9112d6dde80ffe",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 80
+        },
+        {
+          "name": "request",
+          "line": 83,
+          "end": 94
+        },
+        {
+          "name": "(callback)",
+          "line": 98,
+          "end": 99
+        },
+        {
+          "name": "(callback)",
+          "line": 101,
+          "end": 105
+        },
+        {
+          "name": "(callback)",
+          "line": 107,
+          "end": 111
+        },
+        {
+          "name": "(callback)",
+          "line": 113,
+          "end": 117
+        },
+        {
+          "name": "(callback)",
+          "line": 119,
+          "end": 120
+        }
+      ],
+      "imports": [
+        "@/core/api/apiError",
+        "@/core/api/session-transport",
+        "@/core/types/api/ProblemDetails",
+        "@/core/types/api/Result",
+        "@/core/types/auth/SessionRequestConfig",
+        "axios",
+        "./apiConfig"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/api/apiConfig.ts",
+      "owner": "core",
+      "lines": 9,
+      "sha256": "c115d23f38db35303423cd04d9248c90d7a641101f40742664d1879fd2dcf4eb",
+      "functions": [],
+      "imports": [
+        "@/core/config/env"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/api/apiError.ts",
+      "owner": "core",
+      "lines": 24,
+      "sha256": "707030d693c3b5883183f618d6ee23b0c668e70e917eae84e92cb699fd632183",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 19,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 20
+        }
+      ],
+      "imports": [
+        "@/core/types/api/ProblemDetails",
+        "@/core/types/api/FieldError"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/api/error-message.ts",
+      "owner": "core",
+      "lines": 21,
+      "sha256": "81d725a37c86cf35493b5026c728384ae5e2a7be655144859872ee95cf000523",
+      "functions": [
+        {
+          "name": "errorMessage",
+          "line": 3,
+          "end": 20
+        }
+      ],
+      "imports": [
+        "./apiError"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/api/path-segment.ts",
+      "owner": "core",
+      "lines": 6,
+      "sha256": "56550528c7509b2ea0cc57b49342cbf95252186ec96822998c379498e8e58820",
+      "functions": [
+        {
+          "name": "pathSegment",
+          "line": 1,
+          "end": 5
+        }
+      ],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/api/queryClient.ts",
+      "owner": "core",
+      "lines": 9,
+      "sha256": "0507c27d40175353fd2150fe712cc7370ec360317762005911c63c6a5de97f5f",
+      "functions": [],
+      "imports": [
+        "@tanstack/react-query"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/api/session-transport.ts",
+      "owner": "core",
+      "lines": 52,
+      "sha256": "401dced5676dafb23ac52b0ca45bb6f15f99a5088c05bac9ac51143d908a825e",
+      "functions": [
+        {
+          "name": "sessionGeneration",
+          "line": 6,
+          "end": 9
+        },
+        {
+          "name": "advanceSession",
+          "line": 11,
+          "end": 16
+        },
+        {
+          "name": "configureSessionRefresh",
+          "line": 18,
+          "end": 22
+        },
+        {
+          "name": "hasSessionRefresh",
+          "line": 24,
+          "end": 27
+        },
+        {
+          "name": "refreshSession",
+          "line": 29,
+          "end": 44
+        },
+        {
+          "name": "(callback)",
+          "line": 35,
+          "end": 35
+        },
+        {
+          "name": "(callback)",
+          "line": 38,
+          "end": 40
+        },
+        {
+          "name": "(callback)",
+          "line": 41,
+          "end": 41
+        },
+        {
+          "name": "expireSession",
+          "line": 46,
+          "end": 51
+        }
+      ],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/auth/AuthProvider.tsx",
+      "owner": "core",
+      "lines": 161,
+      "sha256": "85f364e7a8541785c62debb9e21f11fec1e437e69169fae72460913f6de233db",
+      "functions": [
+        {
+          "name": "AuthProvider",
+          "line": 12,
+          "end": 158
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 30
+        },
+        {
+          "name": "(callback)",
+          "line": 38,
+          "end": 38
+        },
+        {
+          "name": "clearSession",
+          "line": 44,
+          "end": 54
+        },
+        {
+          "name": "(callback)",
+          "line": 49,
+          "end": 51
+        },
+        {
+          "name": "prepareLogin",
+          "line": 56,
+          "end": 60
+        },
+        {
+          "name": "establishSession",
+          "line": 62,
+          "end": 68
+        },
+        {
+          "name": "refreshIdentity",
+          "line": 70,
+          "end": 81
+        },
+        {
+          "name": "logout",
+          "line": 83,
+          "end": 108
+        },
+        {
+          "name": "run",
+          "line": 88,
+          "end": 98
+        },
+        {
+          "name": "(callback)",
+          "line": 103,
+          "end": 105
+        },
+        {
+          "name": "(callback)",
+          "line": 106,
+          "end": 106
+        },
+        {
+          "name": "(callback)",
+          "line": 110,
+          "end": 119
+        },
+        {
+          "name": "(callback)",
+          "line": 120,
+          "end": 128
+        },
+        {
+          "name": "expire",
+          "line": 121,
+          "end": 124
+        },
+        {
+          "name": "(callback)",
+          "line": 127,
+          "end": 127
+        },
+        {
+          "name": "(callback)",
+          "line": 146,
+          "end": 149
+        },
+        {
+          "name": "(callback)",
+          "line": 151,
+          "end": 152
+        },
+        {
+          "name": "useAuth",
+          "line": 160,
+          "end": 160
+        }
+      ],
+      "imports": [
+        "@/core/api/apiError",
+        "@/core/api/session-transport",
+        "@/core/auth/permissions",
+        "@/core/types/auth/AuthContextValue",
+        "@/core/types/auth/Identity",
+        "@/core/types/props/AuthProviderProps",
+        "@tanstack/react-query",
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/auth/permissions.ts",
+      "owner": "core",
+      "lines": 21,
+      "sha256": "07c8b6674aaffa54c29d58806ac6c459214f300104fb096edb76cd3617d0d49c",
+      "functions": [
+        {
+          "name": "canPerform",
+          "line": 3,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 17
+        }
+      ],
+      "imports": [
+        "@/core/types/access/AccessSnapshot"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/config/env.ts",
+      "owner": "core",
+      "lines": 3,
+      "sha256": "807480882a01d0fab1d6f892bb4f3bf1965b298088cdf3d73d96fb46bbd9bd91",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/config/locale.ts",
+      "owner": "core",
+      "lines": 7,
+      "sha256": "f6fa00c04681874e8177ae294cb87ea469108818ddbb84f8d08802763fb909e6",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/config/navigation-paths.ts",
+      "owner": "core",
+      "lines": 14,
+      "sha256": "fc0f8964d6e92b1c139a733ff9c1c6391d7f9eefc4a44a1058848ed297141213",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/config/validation.ts",
+      "owner": "core",
+      "lines": 17,
+      "sha256": "78207ed868770ecea5099bacc081467a326b0eb0d437c08e8461a1d02dc08d78",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 6,
+          "end": 15
+        }
+      ],
+      "imports": [
+        "zod"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/services/device-settings.ts",
+      "owner": "core",
+      "lines": 44,
+      "sha256": "ad0582a7b80df401a9bb51496a44e27c7b5402a2b792ce5afbcc2087cc238dda",
+      "functions": [
+        {
+          "name": "readDeviceSettings",
+          "line": 13,
+          "end": 29
+        },
+        {
+          "name": "saveDeviceSettings",
+          "line": 31,
+          "end": 35
+        },
+        {
+          "name": "applyDeviceSettings",
+          "line": 37,
+          "end": 43
+        }
+      ],
+      "imports": [
+        "@/core/types/preferences/DeviceSettings"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/styles/index.css",
+      "owner": "core",
+      "lines": 125,
+      "sha256": "5047f925d44cd0236c1b7c73d1faacf41f322caddeb5061b0149a03599c14760",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/styles/typography.css",
+      "owner": "core",
+      "lines": 24,
+      "sha256": "d67d4f1a348c94eb0e5cf3db7fa89ca8ff9396046a90f83d57edee15fa105633",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/theme/ThemeProvider.tsx",
+      "owner": "core",
+      "lines": 49,
+      "sha256": "6b8e3f64a1929960019235c09435e504718c5b21b040b2c468c56db530336f7e",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 8
+        },
+        {
+          "name": "ThemeProvider",
+          "line": 11,
+          "end": 46
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 21,
+          "end": 33
+        },
+        {
+          "name": "sync",
+          "line": 24,
+          "end": 28
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 32
+        },
+        {
+          "name": "setTheme",
+          "line": 35,
+          "end": 43
+        },
+        {
+          "name": "useTheme",
+          "line": 48,
+          "end": 48
+        }
+      ],
+      "imports": [
+        "@/core/types/props/ThemeProviderProps",
+        "@/core/types/theme/Theme",
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/access/AccessGrant.ts",
+      "owner": "core",
+      "lines": 7,
+      "sha256": "8c5a23a60e714b44d730dd3afadb33eed5ac1b16f1551b28cc872012895ca6b1",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/access/AccessSnapshot.ts",
+      "owner": "core",
+      "lines": 8,
+      "sha256": "29ee4427e0eb7cc29597a286d6751c27c7b6cdcb60afb602d10257b0e830d716",
+      "functions": [],
+      "imports": [
+        "@/core/types/access/AccessGrant"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/api/FieldError.ts",
+      "owner": "core",
+      "lines": 6,
+      "sha256": "a9f0180e13fc1eda2d4ca93738b854846d9aa8ba6a3b44cc6e4ef478486c1527",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/api/ProblemDetails.ts",
+      "owner": "core",
+      "lines": 13,
+      "sha256": "ed04a909efbb7fc63b172c967a1a290f906c2744ef5d62b8a43924d1dac1b238",
+      "functions": [],
+      "imports": [
+        "@/core/types/api/FieldError"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/api/ReadScope.ts",
+      "owner": "core",
+      "lines": 8,
+      "sha256": "9f9183cce93364c8bb66ae4a2a82c6c6a70ce6b35bb2db76f01414ac67139b58",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/api/Result.ts",
+      "owner": "core",
+      "lines": 6,
+      "sha256": "3e30599ff6f01d69a9672057ee421d0b9d9787ef80e2ef1cb7df785fc17f09f0",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/auth/AuthContextValue.ts",
+      "owner": "core",
+      "lines": 19,
+      "sha256": "e2762fc93b1e244e3cb43f98b6cccd690984370abcff6a79aa2346dacec02095",
+      "functions": [],
+      "imports": [
+        "@/core/types/access/AccessSnapshot",
+        "@/core/types/auth/Identity"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/auth/Identity.ts",
+      "owner": "core",
+      "lines": 11,
+      "sha256": "daf9d0f4780d13d54d3c552758bb09b9c4b9152e7bd8d156e6a19877f55a357a",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/auth/SessionRequestConfig.ts",
+      "owner": "core",
+      "lines": 7,
+      "sha256": "041363d2747215d475b6b6dbeb59229c9288f582beaa1698d947dd5f5342e728",
+      "functions": [],
+      "imports": [
+        "axios"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/preferences/DeviceSettings.ts",
+      "owner": "core",
+      "lines": 9,
+      "sha256": "bab74108574988c8ccc95f3a27b60753cda942181549980702e1b1edc07fedad",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/props/AuthProviderProps.ts",
+      "owner": "core",
+      "lines": 13,
+      "sha256": "48f5406598bcdff421b6ea6eda3dcf9e14930c94422251109c3fa9ae2c384e7e",
+      "functions": [],
+      "imports": [
+        "@/core/types/access/AccessSnapshot",
+        "@/core/types/auth/Identity",
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/props/ThemeProviderProps.ts",
+      "owner": "core",
+      "lines": 6,
+      "sha256": "f3d0899c8c39e19b2c68a116923b4a58f60cf8db9a7d97e386e94b9c89157695",
+      "functions": [],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/types/theme/Theme.ts",
+      "owner": "core",
+      "lines": 2,
+      "sha256": "0a56f1dc49aa21020c95b53063ae2a558f8fdf1979d4e0303cefdba2a35cf185",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/utils/formatters.ts",
+      "owner": "core",
+      "lines": 13,
+      "sha256": "ea0744d4824833c4df49f830ca2770b5b7e555cc75f79130a053d946a3775d15",
+      "functions": [
+        {
+          "name": "fmt",
+          "line": 1,
+          "end": 4
+        },
+        {
+          "name": "today",
+          "line": 6,
+          "end": 12
+        }
+      ],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/core/validation/type-errors.ts",
+      "owner": "core",
+      "lines": 18,
+      "sha256": "9b6d6c91dc4a1baf9ed3433e9ff2a2b22678b1d4946720779550939cb24d06e3",
+      "functions": [
+        {
+          "name": "fieldTypeError",
+          "line": 2,
+          "end": 5
+        },
+        {
+          "name": "(callback)",
+          "line": 4,
+          "end": 4
+        },
+        {
+          "name": "finiteTypeError",
+          "line": 8,
+          "end": 17
+        },
+        {
+          "name": "(callback)",
+          "line": 15,
+          "end": 16
+        }
+      ],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/api/auth-api.ts",
+      "owner": "auth",
+      "lines": 44,
+      "sha256": "72532b17af5cc48b8aa5a7b5d7722f90a8b7fe998dbf844b0120691537ce6dd3",
+      "functions": [
+        {
+          "name": "fetchAccount",
+          "line": 8,
+          "end": 9
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 16
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 25
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 37
+        },
+        {
+          "name": "(callback)",
+          "line": 39,
+          "end": 39
+        },
+        {
+          "name": "(callback)",
+          "line": 41,
+          "end": 42
+        }
+      ],
+      "imports": [
+        "@/core/api/apiClient",
+        "@/features/auth/api/endpoints",
+        "@/features/auth/types/LoginCredentials",
+        "@/features/auth/types/PasswordChangeValues",
+        "@/features/auth/types/SessionsPage",
+        "@/features/auth/types/StatusResponse"
+      ],
+      "http": [
+        {
+          "line": 9,
+          "method": "GET",
+          "target": "ENDPOINTS.fetchAccount"
+        },
+        {
+          "line": 13,
+          "method": "POST",
+          "target": "ENDPOINTS.authLogin"
+        },
+        {
+          "line": 18,
+          "method": "POST",
+          "target": "ENDPOINTS.authLogout"
+        },
+        {
+          "line": 21,
+          "method": "POST",
+          "target": "ENDPOINTS.authRefresh"
+        },
+        {
+          "line": 28,
+          "method": "POST",
+          "target": "ENDPOINTS.authChangePassword"
+        },
+        {
+          "line": 34,
+          "method": "GET",
+          "target": "ENDPOINTS.fetchAuthSessions"
+        },
+        {
+          "line": 39,
+          "method": "DELETE",
+          "target": "ENDPOINTS.authRevokeSession(id)"
+        },
+        {
+          "line": 42,
+          "method": "POST",
+          "target": "ENDPOINTS.authRevokeAllSessions"
+        }
+      ],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/api/endpoints.ts",
+      "owner": "auth",
+      "lines": 15,
+      "sha256": "53e17055bfc4c571af9e1d712a7329f2f695f56dc09e850f83aaf01b1dd6616e",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 10
+        }
+      ],
+      "imports": [
+        "@/core/api/path-segment"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/components/AccountPanel.tsx",
+      "owner": "auth",
+      "lines": 205,
+      "sha256": "242006a238fb16366932e8bf8be47712196086814b19c0ef673358c83316adae",
+      "functions": [
+        {
+          "name": "AccountPanel",
+          "line": 16,
+          "end": 204
+        },
+        {
+          "name": "(callback)",
+          "line": 31,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 40,
+          "end": 45
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 56,
+          "end": 65
+        },
+        {
+          "name": "(callback)",
+          "line": 67,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 87,
+          "end": 87
+        },
+        {
+          "name": "(callback)",
+          "line": 98,
+          "end": 112
+        },
+        {
+          "name": "(callback)",
+          "line": 128,
+          "end": 132
+        },
+        {
+          "name": "(callback)",
+          "line": 140,
+          "end": 140
+        },
+        {
+          "name": "(callback)",
+          "line": 143,
+          "end": 143
+        },
+        {
+          "name": "(callback)",
+          "line": 157,
+          "end": 159
+        },
+        {
+          "name": "(callback)",
+          "line": 163,
+          "end": 181
+        },
+        {
+          "name": "(callback)",
+          "line": 175,
+          "end": 175
+        },
+        {
+          "name": "(callback)",
+          "line": 186,
+          "end": 186
+        },
+        {
+          "name": "(callback)",
+          "line": 186,
+          "end": 186
+        },
+        {
+          "name": "(callback)",
+          "line": 192,
+          "end": 192
+        },
+        {
+          "name": "(callback)",
+          "line": 192,
+          "end": 192
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/features/auth/api/auth-api",
+        "@/features/auth/services/revoke-other-sessions",
+        "@/features/auth/types/PasswordChangeValues",
+        "@/features/auth/validations/password-change-schema",
+        "@/shared/ui/forms/Field",
+        "@/shared/ui/layout/PageHead",
+        "@/shared/ui/primitives/button",
+        "@/shared/ui/primitives/input",
+        "@hookform/resolvers/zod",
+        "@tanstack/react-query",
+        "react",
+        "react-hook-form"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/components/LoginForm.tsx",
+      "owner": "auth",
+      "lines": 71,
+      "sha256": "289c7d74ca72e5a8c3d4b5599905fb28faea2ce92d5db531fd95c4aba909c395",
+      "functions": [
+        {
+          "name": "LoginForm",
+          "line": 9,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 20
+        }
+      ],
+      "imports": [
+        "@/features/auth/hooks/useLogin",
+        "@/features/auth/services/login-destination",
+        "@/shared/ui/forms/Field",
+        "@/shared/ui/primitives/button",
+        "@/shared/ui/primitives/input",
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/components/SessionMenu.tsx",
+      "owner": "auth",
+      "lines": 78,
+      "sha256": "c5997b47f9cf22b474b0498760dfd1ca836fc0e7b468b11fa077ecaf00b180e7",
+      "functions": [
+        {
+          "name": "SessionMenu",
+          "line": 10,
+          "end": 77
+        },
+        {
+          "name": "(callback)",
+          "line": 23,
+          "end": 23
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 27
+        },
+        {
+          "name": "(callback)",
+          "line": 38,
+          "end": 41
+        },
+        {
+          "name": "(callback)",
+          "line": 48,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 57,
+          "end": 68
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/core/config/navigation-paths",
+        "react-router-dom",
+        "@/shared/ui/dialogs/Modal",
+        "@/shared/ui/primitives/button",
+        "lucide-react",
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/hooks/useLogin.ts",
+      "owner": "auth",
+      "lines": 59,
+      "sha256": "6932c2f40247919000d65822a78321add59c2bfddd66c10c6654b32dc73995db",
+      "functions": [
+        {
+          "name": "useLogin",
+          "line": 12,
+          "end": 58
+        },
+        {
+          "name": "(callback)",
+          "line": 24,
+          "end": 30
+        },
+        {
+          "name": "submit",
+          "line": 33,
+          "end": 55
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 55
+        }
+      ],
+      "imports": [
+        "@/core/api/apiError",
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/features/auth/services/auth-service",
+        "@/features/auth/types/LoginCredentials",
+        "@/features/auth/validations/auth-schema",
+        "@hookform/resolvers/zod",
+        "@tanstack/react-query",
+        "react",
+        "react-hook-form"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/layouts/AuthLayout.tsx",
+      "owner": "auth",
+      "lines": 43,
+      "sha256": "1ddb8f966c3fb0c8cc8d57d078982e15b6750d2e70445fbaa3de1f2b3c7faebc",
+      "functions": [
+        {
+          "name": "AuthLayout",
+          "line": 6,
+          "end": 42
+        }
+      ],
+      "imports": [
+        "@/features/auth/types/props/AuthLayoutProps",
+        "@/shared/ui/layout/GuestLayout",
+        "@/shared/ui/actions/ThemeToggle",
+        "lucide-react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/mappers/auth-mapper.ts",
+      "owner": "auth",
+      "lines": 60,
+      "sha256": "7753407d079e76d611ec9c9078eeb22b2a08d633fffef2839c3e2307cd9a68f5",
+      "functions": [
+        {
+          "name": "mapLoginCredentials",
+          "line": 6,
+          "end": 9
+        },
+        {
+          "name": "(callback)",
+          "line": 15,
+          "end": 15
+        },
+        {
+          "name": "mapCurrentUser",
+          "line": 25,
+          "end": 41
+        },
+        {
+          "name": "mapAuthResponse",
+          "line": 43,
+          "end": 46
+        },
+        {
+          "name": "mapSignInResponse",
+          "line": 48,
+          "end": 59
+        }
+      ],
+      "imports": [
+        "@/core/api/apiError",
+        "@/core/types/auth/Identity",
+        "@/features/auth/validations/auth-schema",
+        "zod"
+      ],
+      "http": [],
+      "schemas": [
+        {
+          "name": "safeIdSchema",
+          "line": 11
+        },
+        {
+          "name": "maskSchema",
+          "line": 12
+        },
+        {
+          "name": "currentUserSchema",
+          "line": 16
+        }
+      ],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/pages/LoginPage.tsx",
+      "owner": "auth",
+      "lines": 12,
+      "sha256": "12a7212a5993bcadd235c37416d7842ea5553dfc56838a2c41b7ec5ed8be76c3",
+      "functions": [
+        {
+          "name": "LoginPage",
+          "line": 4,
+          "end": 11
+        }
+      ],
+      "imports": [
+        "@/features/auth/components/LoginForm",
+        "@/features/auth/layouts/AuthLayout"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/public/index.ts",
+      "owner": "auth",
+      "lines": 5,
+      "sha256": "6718a8cbc6cf8bdd6efa8f5267c2fc8dd999799c0e06976c80276fd02919f87a",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/services/auth-service.ts",
+      "owner": "auth",
+      "lines": 13,
+      "sha256": "dae6d6d53d004df70bd3989117e2539a1d525a14f840b5c02104ce0711811919",
+      "functions": [
+        {
+          "name": "getAccount",
+          "line": 8,
+          "end": 9
+        },
+        {
+          "name": "login",
+          "line": 11,
+          "end": 12
+        }
+      ],
+      "imports": [
+        "@/features/auth/api/auth-api",
+        "@/features/auth/mappers/auth-mapper"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/services/login-destination.ts",
+      "owner": "auth",
+      "lines": 27,
+      "sha256": "1f0e7437829adafe70336d5525450fa5462c3738a3abef1d87a807c94c87d8bb",
+      "functions": [
+        {
+          "name": "loginDestination",
+          "line": 5,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 11,
+          "end": 11
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        }
+      ],
+      "imports": [
+        "@/core/config/navigation-paths"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/services/revoke-other-sessions.ts",
+      "owner": "auth",
+      "lines": 58,
+      "sha256": "8ba3f7b014bd936dd245822ae0959354aae4816d94bb83f53eac5ee277e994d0",
+      "functions": [
+        {
+          "name": "revokeOtherSessions",
+          "line": 7,
+          "end": 57
+        },
+        {
+          "name": "check",
+          "line": 14,
+          "end": 18
+        }
+      ],
+      "imports": [
+        "@/core/api/apiError",
+        "@/core/api/session-transport",
+        "@/features/auth/api/auth-api"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/styles/sessions.css",
+      "owner": "auth",
+      "lines": 19,
+      "sha256": "add5681241be11f4efd6f03822e21533fc4ac90c0a92490f36d6f032247a124b",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/types/LoginCredentials.ts",
+      "owner": "auth",
+      "lines": 5,
+      "sha256": "ef1f6fbaa54bd28d5b061edf30bd50734b3036cb01f13c43d32040f291c39632",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/types/PasswordChangeValues.ts",
+      "owner": "auth",
+      "lines": 6,
+      "sha256": "06faf9e50b3d367a82b5e488fb87c24e265ef4ccf711d07380f2822be2b37af3",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/types/SessionSummary.ts",
+      "owner": "auth",
+      "lines": 12,
+      "sha256": "06ede10fefc1475360705f4f713264e5a0dca2a1a81190c9a9f75a7bebb6c423",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/types/SessionsPage.ts",
+      "owner": "auth",
+      "lines": 9,
+      "sha256": "1f6940458ba5dd602cbaac88a45035f71c79a4fa62fface08fb94af049d4a3f1",
+      "functions": [],
+      "imports": [
+        "@/features/auth/types/SessionSummary"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/types/StatusResponse.ts",
+      "owner": "auth",
+      "lines": 5,
+      "sha256": "3c1b7773b774ce117f5c19879db04ce70b86d364a6aecae3cbe665c751465225",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/types/props/AuthLayoutProps.ts",
+      "owner": "auth",
+      "lines": 6,
+      "sha256": "4bbc6346fe6b18ea90fcd131bf2464a9073bb1b2891e2ffb53a495dab55856cb",
+      "functions": [],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/validations/auth-schema.ts",
+      "owner": "auth",
+      "lines": 13,
+      "sha256": "642d63d48e69134507e363695dc94d596e1df962fd63b706861090aff16a91b0",
+      "functions": [],
+      "imports": [
+        "@/core/validation/type-errors",
+        "zod"
+      ],
+      "http": [],
+      "schemas": [
+        {
+          "name": "loginSchema",
+          "line": 4
+        }
+      ],
+      "findings": []
+    },
+    {
+      "file": "src/features/auth/validations/password-change-schema.ts",
+      "owner": "auth",
+      "lines": 13,
+      "sha256": "4e03644916845325c192f466017ab1bc51edf624b155429b29fc2c6f9757aa7f",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 9,
+          "end": 9
+        }
+      ],
+      "imports": [
+        "zod"
+      ],
+      "http": [],
+      "schemas": [
+        {
+          "name": "passwordChangeSchema",
+          "line": 3
+        }
+      ],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/api/endpoints.ts",
+      "owner": "dashboard",
+      "lines": 2,
+      "sha256": "78696a58f247aad8869463c39c26e6dde23b76c6714b59dcc3d0c01e5974198f",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/api/read-api.ts",
+      "owner": "dashboard",
+      "lines": 14,
+      "sha256": "0041d128ccc34e6085fcab743953eb5735378cf19b4da9e1aab05f3d1c516854",
+      "functions": [
+        {
+          "name": "fetchDashboard",
+          "line": 8,
+          "end": 13
+        }
+      ],
+      "imports": [
+        "@/core/api/apiClient",
+        "@/features/dashboard/api/endpoints",
+        "@/features/dashboard/types/requests/GetDashboardRequest",
+        "@/features/dashboard/types/responses/DashboardResponse"
+      ],
+      "http": [
+        {
+          "line": 10,
+          "method": "GET",
+          "target": "ENDPOINTS.fetchDashboard"
+        }
+      ],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/components/Dashboard.tsx",
+      "owner": "dashboard",
+      "lines": 108,
+      "sha256": "3a53b29d41d2255e5071eae557d920a8b9e331db3d21aa656a4ca10eeb447ba8",
+      "functions": [
+        {
+          "name": "Dashboard",
+          "line": 10,
+          "end": 107
+        },
+        {
+          "name": "(callback)",
+          "line": 45,
+          "end": 45
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 47,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 74,
+          "end": 88
+        },
+        {
+          "name": "(callback)",
+          "line": 102,
+          "end": 102
+        }
+      ],
+      "imports": [
+        "@/core/config/navigation-paths",
+        "@/core/utils/formatters",
+        "@/features/dashboard/hooks/useDashboardController",
+        "@/shared/ui/feedback/LoadingState",
+        "@/shared/ui/layout/Panel",
+        "@/shared/ui/primitives/button",
+        "lucide-react",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/hooks/useDashboardController.ts",
+      "owner": "dashboard",
+      "lines": 25,
+      "sha256": "b3e60c6e99ec1a47825a5d512626b3177c67dcc840e457c7720176de5300ffe6",
+      "functions": [
+        {
+          "name": "useDashboardController",
+          "line": 6,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 14
+        }
+      ],
+      "imports": [
+        "@/core/auth/AuthProvider",
+        "@/core/config/locale",
+        "@/features/dashboard/api/read-api",
+        "@tanstack/react-query"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/pages/DashboardPage.tsx",
+      "owner": "dashboard",
+      "lines": 7,
+      "sha256": "a9fba347b7fd7b97271675dcaa172520eb5f5673c6c056b5fbd3abdef8e7aaab",
+      "functions": [
+        {
+          "name": "DashboardPage",
+          "line": 3,
+          "end": 6
+        }
+      ],
+      "imports": [
+        "@/features/dashboard/components/Dashboard"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/styles/overview.css",
+      "owner": "dashboard",
+      "lines": 387,
+      "sha256": "9206f7bfe50d706eed120ec82d011393f24a07bca6cb698f79a3af6730cc726a",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/styles/stock-alerts.css",
+      "owner": "dashboard",
+      "lines": 36,
+      "sha256": "a2fa517f04cebeb61654af84e84759015ff446ead7f1c18402840409962acfea",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/types/requests/GetDashboardRequest.ts",
+      "owner": "dashboard",
+      "lines": 5,
+      "sha256": "5f2da281b82b39e98debe17ea729cca8af7b76945d18c7cfe15ca32b04a98f64",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/dashboard/types/responses/DashboardResponse.ts",
+      "owner": "dashboard",
+      "lines": 15,
+      "sha256": "f832b0b46688fca1f78f691749ab8df632d2501f5602deafb9f7793623136eac",
+      "functions": [],
+      "imports": [
+        "@/core/types/api/ReadScope",
+        "@/features/users/public"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/api/endpoints.ts",
+      "owner": "users",
+      "lines": 4,
+      "sha256": "b0e461c860190d54e8652f1f9d7df9dafc694479f881585a983cdae9abc0aba9",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/api/users-api.ts",
+      "owner": "users",
+      "lines": 79,
+      "sha256": "4eee05c0e133993d2a2aa02f7b28598da333217ca392141fa11b423aa88a00eb",
+      "functions": [
+        {
+          "name": "path",
+          "line": 14,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 21,
+          "end": 25
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 28
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 34
+        },
+        {
+          "name": "(callback)",
+          "line": 36,
+          "end": 44
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 49,
+          "end": 49
+        },
+        {
+          "name": "(callback)",
+          "line": 51,
+          "end": 58
+        },
+        {
+          "name": "(callback)",
+          "line": 60,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 70,
+          "end": 71
+        },
+        {
+          "name": "(callback)",
+          "line": 73,
+          "end": 74
+        },
+        {
+          "name": "(callback)",
+          "line": 76,
+          "end": 77
+        }
+      ],
+      "imports": [
+        "@/core/api/apiClient",
+        "@/features/users/types/AuditFilters",
+        "@/features/users/types/AuditLogsPage",
+        "@/features/users/types/CreateUserRequest",
+        "@/features/users/types/CreateUserResponse",
+        "@/features/users/types/PermissionMask",
+        "@/features/users/types/UpdateUserRequest",
+        "@/features/users/types/UserDetails",
+        "@/features/users/types/UserPermissions",
+        "@/features/users/types/UserSessionsPage",
+        "@/features/users/types/UsersFilters",
+        "@/features/users/types/UsersPage"
+      ],
+      "http": [
+        {
+          "line": 22,
+          "method": "GET",
+          "target": "path(id) + '/sessions'"
+        },
+        {
+          "line": 28,
+          "method": "DELETE",
+          "target": "path(id) + '/sessions/' + encodeURIComponent(sessionId)"
+        },
+        {
+          "line": 31,
+          "method": "POST",
+          "target": "path(id) + '/sessions/revoke-all'"
+        },
+        {
+          "line": 34,
+          "method": "GET",
+          "target": "'/audit-logs'"
+        },
+        {
+          "line": 39,
+          "method": "POST",
+          "target": "'/audit-logs/' + kind"
+        },
+        {
+          "line": 47,
+          "method": "GET",
+          "target": "'/users'"
+        },
+        {
+          "line": 49,
+          "method": "GET",
+          "target": "path(id)"
+        },
+        {
+          "line": 52,
+          "method": "POST",
+          "target": "'/users'"
+        },
+        {
+          "line": 63,
+          "method": "PUT",
+          "target": "path(id)"
+        },
+        {
+          "line": 71,
+          "method": "POST",
+          "target": "path(input.id) + '/reset-password'"
+        },
+        {
+          "line": 74,
+          "method": "GET",
+          "target": "path(id) + '/permissions'"
+        },
+        {
+          "line": 77,
+          "method": "PUT",
+          "target": "path(id) + '/permissions'"
+        }
+      ],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/components/PermissionMatrix.tsx",
+      "owner": "users",
+      "lines": 83,
+      "sha256": "42049d97172e1cf3bd4d730bbf435796459196f534b9e4f75b902ceb978b11df",
+      "functions": [
+        {
+          "name": "PermissionMatrix",
+          "line": 5,
+          "end": 82
+        },
+        {
+          "name": "mask",
+          "line": 19,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 20
+        },
+        {
+          "name": "set",
+          "line": 22,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 24,
+          "end": 24
+        },
+        {
+          "name": "all",
+          "line": 28,
+          "end": 42
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 41
+        },
+        {
+          "name": "(callback)",
+          "line": 47,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 50
+        },
+        {
+          "name": "(callback)",
+          "line": 54,
+          "end": 79
+        },
+        {
+          "name": "(callback)",
+          "line": 57,
+          "end": 77
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 71
+        }
+      ],
+      "imports": [
+        "@/features/users/types/PermissionCatalog",
+        "@/features/users/types/PermissionMask",
+        "@/shared/ui/primitives/button"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/components/UserAccountOperations.tsx",
+      "owner": "users",
+      "lines": 210,
+      "sha256": "e67f5f4b3d192af6436b811ec0a6b2846fd2f9aea56489ec2dcd7a7bc7df8703",
+      "functions": [
+        {
+          "name": "UserAccountOperations",
+          "line": 13,
+          "end": 209
+        },
+        {
+          "name": "can",
+          "line": 21,
+          "end": 21
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 34
+        },
+        {
+          "name": "(callback)",
+          "line": 47,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 57
+        },
+        {
+          "name": "(callback)",
+          "line": 60,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 72,
+          "end": 75
+        },
+        {
+          "name": "(callback)",
+          "line": 90,
+          "end": 96
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 121
+        },
+        {
+          "name": "(callback)",
+          "line": 130,
+          "end": 134
+        },
+        {
+          "name": "(callback)",
+          "line": 161,
+          "end": 178
+        },
+        {
+          "name": "(callback)",
+          "line": 172,
+          "end": 172
+        },
+        {
+          "name": "(callback)",
+          "line": 182,
+          "end": 182
+        },
+        {
+          "name": "(callback)",
+          "line": 182,
+          "end": 182
+        },
+        {
+          "name": "(callback)",
+          "line": 188,
+          "end": 188
+        },
+        {
+          "name": "(callback)",
+          "line": 188,
+          "end": 188
+        },
+        {
+          "name": "(callback)",
+          "line": 197,
+          "end": 199
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/features/users/api/users-api",
+        "@/features/users/validations/user-form-schema",
+        "@/shared/ui/forms/Field",
+        "@/shared/ui/primitives/button",
+        "@/shared/ui/primitives/input",
+        "@hookform/resolvers/zod",
+        "@tanstack/react-query",
+        "react",
+        "react-hook-form"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/components/UserDirectory.tsx",
+      "owner": "users",
+      "lines": 134,
+      "sha256": "4a3ea49526f363b3560e9f14ffbab2fb64c3b39377987ca58c5d7bc27a62609f",
+      "functions": [
+        {
+          "name": "UserDirectory",
+          "line": 14,
+          "end": 133
+        },
+        {
+          "name": "(callback)",
+          "line": 36,
+          "end": 36
+        },
+        {
+          "name": "(callback)",
+          "line": 48,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 57,
+          "end": 60
+        },
+        {
+          "name": "(callback)",
+          "line": 81,
+          "end": 83
+        },
+        {
+          "name": "(callback)",
+          "line": 87,
+          "end": 115
+        },
+        {
+          "name": "(callback)",
+          "line": 94,
+          "end": 94
+        },
+        {
+          "name": "(callback)",
+          "line": 100,
+          "end": 100
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 108
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/core/config/navigation-paths",
+        "@/features/users/queries/users-query",
+        "@/shared/ui/forms/Field",
+        "@/shared/ui/forms/Select",
+        "@/shared/ui/layout/PageHead",
+        "@/shared/ui/navigation/Pagination",
+        "@/shared/ui/primitives/button",
+        "@/shared/ui/primitives/input",
+        "react",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/components/UserEditor.tsx",
+      "owner": "users",
+      "lines": 72,
+      "sha256": "052f65f29d79d326c3ac909e49c537750879abc1c24e33cbcd5e3748ccb321cd",
+      "functions": [
+        {
+          "name": "UserEditor",
+          "line": 11,
+          "end": 71
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 41,
+          "end": 41
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/features/users/hooks/useUserEditor",
+        "@/features/users/services/permission-catalog",
+        "@/features/users/types/UserDetails",
+        "@/shared/ui/primitives/button",
+        "@tanstack/react-query",
+        "./PermissionMatrix",
+        "./UserFormFields"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/components/UserFormFields.tsx",
+      "owner": "users",
+      "lines": 40,
+      "sha256": "c362ee6c84cdb1f3828ca6749e1a80960ad7b5163cfd292aa87c1dd94f7e48f3",
+      "functions": [
+        {
+          "name": "UserFormFields",
+          "line": 6,
+          "end": 39
+        },
+        {
+          "name": "(callback)",
+          "line": 31,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 36
+        }
+      ],
+      "imports": [
+        "@/features/users/types/UserFormValues",
+        "@/shared/ui/forms/Field",
+        "@/shared/ui/primitives/input",
+        "react-hook-form"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/components/reports/UserAuditReport.tsx",
+      "owner": "users",
+      "lines": 171,
+      "sha256": "cc7d3ebb460e5dcf1c81cfae0555f09a167164cb42678a0b6492cb81152a45fc",
+      "functions": [
+        {
+          "name": "UserAuditReport",
+          "line": 13,
+          "end": 170
+        },
+        {
+          "name": "(callback)",
+          "line": 40,
+          "end": 40
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 56
+        },
+        {
+          "name": "(callback)",
+          "line": 59,
+          "end": 61
+        },
+        {
+          "name": "(callback)",
+          "line": 59,
+          "end": 61
+        },
+        {
+          "name": "change",
+          "line": 65,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 110
+        },
+        {
+          "name": "(callback)",
+          "line": 115,
+          "end": 115
+        },
+        {
+          "name": "(callback)",
+          "line": 116,
+          "end": 126
+        },
+        {
+          "name": "(callback)",
+          "line": 141,
+          "end": 141
+        },
+        {
+          "name": "(callback)",
+          "line": 149,
+          "end": 149
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/features/users/api/users-api",
+        "@/features/users/types/AuditFilters",
+        "@/shared/ui/forms/Field",
+        "@/shared/ui/layout/PageHead",
+        "@/shared/ui/navigation/Pagination",
+        "@/shared/ui/primitives/button",
+        "@/shared/ui/primitives/input",
+        "@tanstack/react-query",
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/hooks/useUserEditor.ts",
+      "owner": "users",
+      "lines": 83,
+      "sha256": "9dd0beac10832510cbf5af1c03119421372ad9659aba1dfbf4c162af76025b59",
+      "functions": [
+        {
+          "name": "useUserEditor",
+          "line": 13,
+          "end": 82
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 52
+        },
+        {
+          "name": "(callback)",
+          "line": 54,
+          "end": 59
+        },
+        {
+          "name": "(callback)",
+          "line": 61,
+          "end": 73
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/features/users/api/users-api",
+        "@/features/users/types/UserDetails",
+        "@/features/users/types/UserFormValues",
+        "@/features/users/validations/permission-grants",
+        "@/features/users/validations/user-form-schema",
+        "@hookform/resolvers/zod",
+        "@tanstack/react-query",
+        "react",
+        "react-hook-form"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/pages/ChangePasswordPage.tsx",
+      "owner": "users",
+      "lines": 7,
+      "sha256": "a948f5372069df7c62028b1435e6e173ab24f856d6f2764cef99c438333bdb94",
+      "functions": [
+        {
+          "name": "ChangePasswordPage",
+          "line": 3,
+          "end": 6
+        }
+      ],
+      "imports": [
+        "@/features/auth/public"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/pages/CreateUserPage.tsx",
+      "owner": "users",
+      "lines": 25,
+      "sha256": "042bcd6b2f9c8912b1ab8e856a3a7f768a8b2b39b3866654d71e86fac802c35f",
+      "functions": [
+        {
+          "name": "CreateUserPage",
+          "line": 7,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 16,
+          "end": 16
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 17
+        }
+      ],
+      "imports": [
+        "@/core/auth/AuthProvider",
+        "@/core/config/navigation-paths",
+        "@/features/users/components/UserEditor",
+        "@/shared/ui/layout/PageHead",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/pages/EditUserPage.tsx",
+      "owner": "users",
+      "lines": 33,
+      "sha256": "3a1728044a7b319f3bce6ddc894c50e2b5b151910c94afb75451b0390325a4af",
+      "functions": [
+        {
+          "name": "EditUserPage",
+          "line": 10,
+          "end": 32
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 27
+        },
+        {
+          "name": "(callback)",
+          "line": 28,
+          "end": 28
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/core/config/navigation-paths",
+        "@/features/users/components/UserEditor",
+        "@/features/users/queries/users-query",
+        "@/shared/ui/feedback/NotFoundPage",
+        "@/shared/ui/layout/PageHead",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/pages/UserAuditPage.tsx",
+      "owner": "users",
+      "lines": 13,
+      "sha256": "5bfc22a868373cfb4be50aca4ade9894bc5b7d5068bfbf81faddb2ce9e22af6f",
+      "functions": [
+        {
+          "name": "UserAuditPage",
+          "line": 5,
+          "end": 12
+        }
+      ],
+      "imports": [
+        "@/features/users/components/reports/UserAuditReport"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/pages/UserListPage.tsx",
+      "owner": "users",
+      "lines": 7,
+      "sha256": "ebfcd7224b67acad9fc07d8ecb4189e2531226c81c2d315ce959f8ebd672f2d8",
+      "functions": [
+        {
+          "name": "UserListPage",
+          "line": 3,
+          "end": 6
+        }
+      ],
+      "imports": [
+        "@/features/users/components/UserDirectory"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/pages/UserPermissionsPage.tsx",
+      "owner": "users",
+      "lines": 112,
+      "sha256": "13dde11d13433bb4e2424665e5ea6bd4cc290a2600166ebf03fb64649f7ed501",
+      "functions": [
+        {
+          "name": "UserPermissionsPage",
+          "line": 15,
+          "end": 111
+        },
+        {
+          "name": "(callback)",
+          "line": 25,
+          "end": 25
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 39
+        },
+        {
+          "name": "setDraft",
+          "line": 49,
+          "end": 49
+        },
+        {
+          "name": "(callback)",
+          "line": 52,
+          "end": 64
+        },
+        {
+          "name": "(callback)",
+          "line": 61,
+          "end": 61
+        },
+        {
+          "name": "(callback)",
+          "line": 66,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 102,
+          "end": 102
+        }
+      ],
+      "imports": [
+        "@/core/api/apiError",
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/features/users/api/users-api",
+        "@/features/users/components/PermissionMatrix",
+        "@/features/users/services/permission-catalog",
+        "@/features/users/types/PermissionMask",
+        "@/features/users/validations/permission-grants",
+        "@/shared/ui/layout/PageHead",
+        "@/shared/ui/primitives/button",
+        "@tanstack/react-query",
+        "react",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/pages/UserSessionsPage.tsx",
+      "owner": "users",
+      "lines": 7,
+      "sha256": "1807d8a5fbaa472b65beb6c8be32a21590d41ded3c998a7a4bf9f87bdad4a661",
+      "functions": [
+        {
+          "name": "UserSessionsPage",
+          "line": 3,
+          "end": 6
+        }
+      ],
+      "imports": [
+        "@/features/auth/public"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/pages/ViewUserPage.tsx",
+      "owner": "users",
+      "lines": 38,
+      "sha256": "1f52ad50334ce211b894e49a3c8d0677bb16faec0be4c31e3826380e33e13a3d",
+      "functions": [
+        {
+          "name": "ViewUserPage",
+          "line": 9,
+          "end": 37
+        }
+      ],
+      "imports": [
+        "@/core/api/error-message",
+        "@/core/auth/AuthProvider",
+        "@/features/users/components/UserAccountOperations",
+        "@/features/users/queries/users-query",
+        "@/shared/ui/feedback/NotFoundPage",
+        "@/shared/ui/layout/PageHead",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/public/index.ts",
+      "owner": "users",
+      "lines": 5,
+      "sha256": "30c1ddec8d4208e4f3df50619371fdafaeb77bd627818440f8ea8acc1b5a4eb9",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/queries/users-query.ts",
+      "owner": "users",
+      "lines": 44,
+      "sha256": "0c00bfbabde1dc302988a72f12af837896023438d5cf79b8ac976cab6774aa3a",
+      "functions": [
+        {
+          "name": "useUsersQuery",
+          "line": 7,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 19
+        },
+        {
+          "name": "(callback)",
+          "line": 16,
+          "end": 16
+        },
+        {
+          "name": "useUserQuery",
+          "line": 26,
+          "end": 43
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 38
+        }
+      ],
+      "imports": [
+        "@/core/api/apiError",
+        "@/core/auth/AuthProvider",
+        "@/features/users/api/users-api",
+        "@/features/users/types/UsersFilters",
+        "@tanstack/react-query"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/services/audit-events.ts",
+      "owner": "users",
+      "lines": 2,
+      "sha256": "c15b9a2c11ec6089cda9075a85097783734be504c8ffe88c4334c85818812465",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/services/permission-catalog.ts",
+      "owner": "users",
+      "lines": 11,
+      "sha256": "528cd9d3923c4bcc55142d69ebcc47cb9765240cbe9e0a7d9dbb35fe39fb0c69",
+      "functions": [
+        {
+          "name": "fetchPermissionCatalog",
+          "line": 5,
+          "end": 10
+        }
+      ],
+      "imports": [
+        "@/core/api/apiClient",
+        "@/features/users/api/endpoints",
+        "@/features/users/validations/permission-catalog-schema"
+      ],
+      "http": [
+        {
+          "line": 8,
+          "method": "GET",
+          "target": "ENDPOINTS.fetchPermissionCatalog"
+        }
+      ],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/AuditFilters.ts",
+      "owner": "users",
+      "lines": 12,
+      "sha256": "ff5b43a3db2943fe94a57f5f3474b0c9bd116f1342f164db6467c3e3e0853482",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/AuditLogItem.ts",
+      "owner": "users",
+      "lines": 11,
+      "sha256": "4bd9811f541acc2ff11b8986dd2381275f13ca44084ff3cacd9c6e66044a5f2d",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/AuditLogsPage.ts",
+      "owner": "users",
+      "lines": 9,
+      "sha256": "91c7a7c54798ecc680cd7e64aa5cef6c728ebd1f8066b626a92afa97c116e9ec",
+      "functions": [],
+      "imports": [
+        "@/features/users/types/AuditLogItem"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/CreateUserRequest.ts",
+      "owner": "users",
+      "lines": 10,
+      "sha256": "1a0447d866349a1ce9b37cc64613c0e5445b6e95ccb0403df8075113d1d04ae5",
+      "functions": [],
+      "imports": [
+        "@/features/users/types/PermissionMask"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/CreateUserResponse.ts",
+      "owner": "users",
+      "lines": 7,
+      "sha256": "6c738d0c91e9bd9e7c575ff5480121b69a60c37da82050e282f2f2681d9b72d8",
+      "functions": [],
+      "imports": [
+        "@/features/users/types/UserListItem"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/PermissionCatalog.ts",
+      "owner": "users",
+      "lines": 5,
+      "sha256": "9d96ac01a03b9b1935b9bffb0dffd2c97e09779a55feec0ccf97987df0f910bc",
+      "functions": [],
+      "imports": [
+        "@/features/users/validations/permission-catalog-schema",
+        "zod"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/PermissionMask.ts",
+      "owner": "users",
+      "lines": 5,
+      "sha256": "f1c27128a1ff8f1bc626c796a4fa13eef2a6c6502fb821a9aae47df553e9bc1c",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/UpdateUserRequest.ts",
+      "owner": "users",
+      "lines": 6,
+      "sha256": "2a61a559d11ea32d1f7780ec6510891fd0b448566831270eee297f51e325f21f",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/UserDetails.ts",
+      "owner": "users",
+      "lines": 7,
+      "sha256": "8d6a14876f654924eefb60d13205e5ecf1380b2510c13cda62656896ee208426",
+      "functions": [],
+      "imports": [
+        "@/features/users/types/UserListItem"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/UserFormValues.ts",
+      "owner": "users",
+      "lines": 12,
+      "sha256": "056af922d38d834df963a072e14346cbf8db1310ad736320b398a67c61daf1cd",
+      "functions": [],
+      "imports": [
+        "@/features/users/types/PermissionMask"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/UserListItem.ts",
+      "owner": "users",
+      "lines": 9,
+      "sha256": "ea4fe7dbdc3fd2e157586753146d60fb13c281dd43b026b086d1fb9263509571",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/UserPermissions.ts",
+      "owner": "users",
+      "lines": 9,
+      "sha256": "bc526dd0abd00703eae6ec7e5b0d81f872aa2f4da97b68935ee28df9e38ea3d3",
+      "functions": [],
+      "imports": [
+        "@/features/users/types/PermissionMask"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/UserSessionsPage.ts",
+      "owner": "users",
+      "lines": 15,
+      "sha256": "3526d8519b57ba91d244dc0e5584e6a3c398bb65e2ca7aaa083dfa55da2a0488",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/UsersFilters.ts",
+      "owner": "users",
+      "lines": 8,
+      "sha256": "409a23495b8434aec08799b1884d99ad284e5de9b391cac094fa106f754642c1",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/UsersPage.ts",
+      "owner": "users",
+      "lines": 9,
+      "sha256": "f4a55ebc03d6105a8874e9caa03c7641b4bb33a573fa66420e46bf39027c20d6",
+      "functions": [],
+      "imports": [
+        "@/features/users/types/UserListItem"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/models/Audit.ts",
+      "owner": "users",
+      "lines": 7,
+      "sha256": "642856031d6995cb30acb8c70a5ee91ddf13dc59f72522ac2f0a59085bea1b88",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/types/responses/AuditEventResponse.ts",
+      "owner": "users",
+      "lines": 8,
+      "sha256": "fafedc5e50dc42702e15e5b2b7a6e48baa221b395b0a6861cf991fd666418d14",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/validations/permission-catalog-schema.ts",
+      "owner": "users",
+      "lines": 25,
+      "sha256": "30997ad6de180e41a04d4b955e0e1481e658e9b3f1840a0ef37ec25fe2557468",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 6,
+          "end": 6
+        }
+      ],
+      "imports": [
+        "zod"
+      ],
+      "http": [],
+      "schemas": [
+        {
+          "name": "decimalSchema",
+          "line": 3
+        },
+        {
+          "name": "permissionCatalogSchema",
+          "line": 7
+        }
+      ],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/validations/permission-grants.ts",
+      "owner": "users",
+      "lines": 24,
+      "sha256": "26626456dc8ddce1f95ce885920d3d6b14e760bbf5bbb579a20ac91b156be59c",
+      "functions": [
+        {
+          "name": "assertGrantable",
+          "line": 5,
+          "end": 23
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 19,
+          "end": 19
+        }
+      ],
+      "imports": [
+        "@/features/users/types/PermissionMask"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/features/users/validations/user-form-schema.ts",
+      "owner": "users",
+      "lines": 44,
+      "sha256": "ad3bf89493ca9223ff1bcebc30cc6809ae8f22b1e9e694e49032e666978ace31",
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 23,
+          "end": 39
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 27
+        }
+      ],
+      "imports": [
+        "zod"
+      ],
+      "http": [],
+      "schemas": [
+        {
+          "name": "userFormSchema",
+          "line": 3
+        },
+        {
+          "name": "resetPasswordSchema",
+          "line": 40
+        }
+      ],
+      "findings": []
+    },
+    {
+      "file": "src/shared/lib/classnames.ts",
+      "owner": "shared",
+      "lines": 9,
+      "sha256": "d4338a345edaed14933a1d0464e89f75c3493a67825ea85f169a5e8d4a7abc96",
+      "functions": [
+        {
+          "name": "cn",
+          "line": 5,
+          "end": 8
+        }
+      ],
+      "imports": [
+        "clsx",
+        "clsx",
+        "tailwind-merge"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/lib/menu-leaves.ts",
+      "owner": "shared",
+      "lines": 5,
+      "sha256": "fe48452613956e1007cacdad6541db4b5fff0679f2b3dd2cfde6ad047bb9ab8b",
+      "functions": [
+        {
+          "name": "menuLeaves",
+          "line": 3,
+          "end": 4
+        },
+        {
+          "name": "(callback)",
+          "line": 4,
+          "end": 4
+        }
+      ],
+      "imports": [
+        "@/shared/types/navigation/MenuItem"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/styles/display-and-tables.css",
+      "owner": "shared",
+      "lines": 111,
+      "sha256": "6b3210df95e31b46bdd56301fcb06edce6c8607f1b58a5c90d5850f28dbd279e",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/styles/forms-and-lookup.css",
+      "owner": "shared",
+      "lines": 192,
+      "sha256": "8e85106d6ee186f5c8b95eac52ce313ed62a494ee29e51b97d74b3506a5ab749",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/styles/guest-layout.css",
+      "owner": "shared",
+      "lines": 170,
+      "sha256": "1dad348443858f1dbe00a1063b72dc4df44ee2370e12774bc50936349fcb4d54",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/styles/table-document-overrides.css",
+      "owner": "shared",
+      "lines": 71,
+      "sha256": "50e3529969362b6ad8f71264cf81ef14a1498b7dd11c1da00f37ee638b1ff8af",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/styles/validation.css",
+      "owner": "shared",
+      "lines": 17,
+      "sha256": "13cd1b7220a2bd9fb149facd59934e80fac0942399a3f4617e0c80679bbaf451",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/forms/Validatable.ts",
+      "owner": "shared",
+      "lines": 2,
+      "sha256": "23be5a67f015abadc6d90457aa75ca8e50c4f1c55c9d668da78b55075dedd064",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/navigation/MenuItem.ts",
+      "owner": "shared",
+      "lines": 7,
+      "sha256": "21e4acbb2364bd1ea05574cfa8578b1d6aaffba8636282994fc71c733ee4f317",
+      "functions": [],
+      "imports": [],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/props/EntryProps.ts",
+      "owner": "shared",
+      "lines": 8,
+      "sha256": "95cb833afaf4e215e512f02ef513cfc139dec125b87303df0f704911b8d7eb7c",
+      "functions": [],
+      "imports": [
+        "@/shared/types/navigation/MenuItem"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/props/FieldProps.ts",
+      "owner": "shared",
+      "lines": 8,
+      "sha256": "75d6528505f99b60cdbe34b8483d6b331cb5a1f145261b2dc4ae352ed45b5a2f",
+      "functions": [],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/props/GuestLayoutProps.ts",
+      "owner": "shared",
+      "lines": 7,
+      "sha256": "5b60f97e615c4e960fc29b37ebc4788ec698974b73f0dc7783af0bd83363f6e5",
+      "functions": [],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/props/ModalProps.ts",
+      "owner": "shared",
+      "lines": 11,
+      "sha256": "4f8ceb8e39a7e7fff48424db268027ff9e344ee024cded940edd54cff2450e7d",
+      "functions": [],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/props/PageHeadProps.ts",
+      "owner": "shared",
+      "lines": 10,
+      "sha256": "f48a76f0d24217c9819f3ba41db5c0771d5713ccaf487b03987bb640be868ad0",
+      "functions": [],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/props/PaginationProps.ts",
+      "owner": "shared",
+      "lines": 9,
+      "sha256": "950ffd43e89f98f8cce11035938645c6e6a84a7f10a376a6bfe3ae3600f3020d",
+      "functions": [],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/props/PanelProps.ts",
+      "owner": "shared",
+      "lines": 10,
+      "sha256": "5a062eedd8e797f4be26c4d8aacd70a467c402a706f2a65d140775e3003f1158",
+      "functions": [],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/types/props/SectionNavigationProps.ts",
+      "owner": "shared",
+      "lines": 8,
+      "sha256": "561e77e442460c447756cca21bd0a87572767235de83e9cf78217d7af4bd8408",
+      "functions": [],
+      "imports": [
+        "@/shared/types/navigation/MenuItem"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/actions/ThemeToggle.tsx",
+      "owner": "shared",
+      "lines": 20,
+      "sha256": "4e16a72f8ad5b818f312af4d0a29a01cc5b92864bbc461ef706e2a924f85d3c2",
+      "functions": [
+        {
+          "name": "ThemeToggle",
+          "line": 4,
+          "end": 19
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 14
+        }
+      ],
+      "imports": [
+        "@/core/theme/ThemeProvider",
+        "lucide-react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/dialogs/Modal.tsx",
+      "owner": "shared",
+      "lines": 33,
+      "sha256": "57b0373b54593ed36682a4bf151f358c6034b5da2ee810e2a42e35e05ecfcc36",
+      "functions": [
+        {
+          "name": "Modal",
+          "line": 10,
+          "end": 32
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 20
+        }
+      ],
+      "imports": [
+        "@/shared/types/props/ModalProps",
+        "@/shared/ui/primitives/dialog"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/feedback/LoadingState.tsx",
+      "owner": "shared",
+      "lines": 12,
+      "sha256": "63d51f5e11fe0efe2df448296e84d8f8f35be0ca8254f3829ffdeb5624f82b50",
+      "functions": [
+        {
+          "name": "LoadingState",
+          "line": 3,
+          "end": 11
+        }
+      ],
+      "imports": [
+        "lucide-react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/feedback/NotFoundPage.tsx",
+      "owner": "shared",
+      "lines": 12,
+      "sha256": "e457d9518182d3790d17fa12bf8a42c3d53b46eea04e03580af1c38d5d7f312f",
+      "functions": [
+        {
+          "name": "NotFoundPage",
+          "line": 3,
+          "end": 11
+        }
+      ],
+      "imports": [
+        "@/core/config/navigation-paths"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/feedback/RouteErrorPage.tsx",
+      "owner": "shared",
+      "lines": 15,
+      "sha256": "a7f899535856fe020d3647999ffd9b005c58b90a49450e689c3b15c65641620b",
+      "functions": [
+        {
+          "name": "RouteErrorPage",
+          "line": 4,
+          "end": 14
+        }
+      ],
+      "imports": [
+        "@/core/config/navigation-paths",
+        "react-router-dom"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/forms/Field.tsx",
+      "owner": "shared",
+      "lines": 117,
+      "sha256": "67cd4cb4733bc1ac99a960916e0ebb92c78c6c816ba72840bcc3f7293262fd9b",
+      "functions": [
+        {
+          "name": "Field",
+          "line": 10,
+          "end": 116
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 35,
+          "end": 35
+        },
+        {
+          "name": "(callback)",
+          "line": 48,
+          "end": 52
+        },
+        {
+          "name": "(callback)",
+          "line": 54,
+          "end": 58
+        },
+        {
+          "name": "inspect",
+          "line": 70,
+          "end": 76
+        },
+        {
+          "name": "(callback)",
+          "line": 81,
+          "end": 84
+        },
+        {
+          "name": "(callback)",
+          "line": 85,
+          "end": 89
+        },
+        {
+          "name": "(callback)",
+          "line": 90,
+          "end": 94
+        },
+        {
+          "name": "(callback)",
+          "line": 97,
+          "end": 104
+        }
+      ],
+      "imports": [
+        "@/shared/types/forms/Validatable",
+        "@/shared/types/props/FieldProps",
+        "@/shared/ui/forms/control-validation",
+        "@/shared/ui/forms/Select",
+        "@/shared/ui/forms/ValidatedForm",
+        "@/shared/ui/primitives/input",
+        "react",
+        "react-hook-form"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/forms/FieldNavigation.tsx",
+      "owner": "shared",
+      "lines": 54,
+      "sha256": "d7baae32687ace814a61bcdbca66d8fb393ce1c2c46f9de7f0e91c84bf367ca2",
+      "functions": [
+        {
+          "name": "FieldNavigation",
+          "line": 10,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 51
+        },
+        {
+          "name": "navigate",
+          "line": 13,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 38
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 50
+        }
+      ],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/forms/Select.tsx",
+      "owner": "shared",
+      "lines": 11,
+      "sha256": "1ebd44f6e040dd7c5d7237d82eaf143e2534936326646a4b62edcafc8da06a19",
+      "functions": [
+        {
+          "name": "Select",
+          "line": 3,
+          "end": 10
+        }
+      ],
+      "imports": [
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/forms/ValidatedForm.tsx",
+      "owner": "shared",
+      "lines": 153,
+      "sha256": "772126a2a4c5fa19ad940612bc9c773d53e3171b7b755f73e0c2aee043e8777f",
+      "functions": [
+        {
+          "name": "fieldError",
+          "line": 8,
+          "end": 24
+        },
+        {
+          "name": "validateForm",
+          "line": 26,
+          "end": 49
+        },
+        {
+          "name": "Form",
+          "line": 51,
+          "end": 152
+        },
+        {
+          "name": "(callback)",
+          "line": 60,
+          "end": 92
+        },
+        {
+          "name": "(callback)",
+          "line": 104,
+          "end": 111
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 110
+        },
+        {
+          "name": "(callback)",
+          "line": 112,
+          "end": 115
+        },
+        {
+          "name": "(callback)",
+          "line": 116,
+          "end": 124
+        },
+        {
+          "name": "(callback)",
+          "line": 125,
+          "end": 139
+        },
+        {
+          "name": "(callback)",
+          "line": 130,
+          "end": 130
+        },
+        {
+          "name": "(callback)",
+          "line": 131,
+          "end": 137
+        },
+        {
+          "name": "(callback)",
+          "line": 133,
+          "end": 134
+        },
+        {
+          "name": "(callback)",
+          "line": 144,
+          "end": 146
+        }
+      ],
+      "imports": [
+        "@/shared/types/forms/Validatable",
+        "@hookform/resolvers/zod",
+        "react",
+        "react-hook-form",
+        "zod",
+        "./control-validation"
+      ],
+      "http": [],
+      "schemas": [
+        {
+          "name": "formSchema",
+          "line": 60
+        }
+      ],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/forms/control-validation.ts",
+      "owner": "shared",
+      "lines": 53,
+      "sha256": "1df1df61e0c54df3afb6fe614ed5609b63c8e5185afb067c4f623e390f71a6be",
+      "functions": [
+        {
+          "name": "validateControl",
+          "line": 5,
+          "end": 52
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 36
+        }
+      ],
+      "imports": [
+        "zod"
+      ],
+      "http": [],
+      "schemas": [
+        {
+          "name": "controlSchema",
+          "line": 16
+        },
+        {
+          "name": "numberSchema",
+          "line": 32
+        }
+      ],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/layout/GuestLayout.tsx",
+      "owner": "shared",
+      "lines": 15,
+      "sha256": "f85f2d096112d5da19f0c0e2614c2b404128c288e3018ee7c3f927bd81272fa6",
+      "functions": [
+        {
+          "name": "GuestLayout",
+          "line": 4,
+          "end": 14
+        }
+      ],
+      "imports": [
+        "@/shared/types/props/GuestLayoutProps"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/layout/PageHead.tsx",
+      "owner": "shared",
+      "lines": 34,
+      "sha256": "4ec3cf365115954c4ae5e69f8163faea24d9e707079503bf5d4563c29bdad34a",
+      "functions": [
+        {
+          "name": "PageHead",
+          "line": 5,
+          "end": 33
+        }
+      ],
+      "imports": [
+        "@/shared/types/props/PageHeadProps",
+        "@/shared/ui/primitives/button",
+        "lucide-react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/layout/Panel.tsx",
+      "owner": "shared",
+      "lines": 18,
+      "sha256": "372f54639e80fae4d7ac3b0806cccbcc4e44607ffd1b73b345db141ee9ea977d",
+      "functions": [
+        {
+          "name": "Panel",
+          "line": 3,
+          "end": 17
+        }
+      ],
+      "imports": [
+        "@/shared/types/props/PanelProps"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/navigation/Pagination.tsx",
+      "owner": "shared",
+      "lines": 18,
+      "sha256": "175aa1b2a309319147030da0c9ea518d6731a04d5822ea4bfc008832921af6f8",
+      "functions": [
+        {
+          "name": "Pagination",
+          "line": 4,
+          "end": 17
+        },
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 8
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 12
+        }
+      ],
+      "imports": [
+        "@/shared/types/props/PaginationProps",
+        "@/shared/ui/primitives/button"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/navigation/SectionNavigation.tsx",
+      "owner": "shared",
+      "lines": 61,
+      "sha256": "0cd911483222082be98604a34d90d3292fdb968f01311beecd554c71cf738400",
+      "functions": [
+        {
+          "name": "Entry",
+          "line": 7,
+          "end": 49
+        },
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 10
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 13
+        },
+        {
+          "name": "(callback)",
+          "line": 21,
+          "end": 21
+        },
+        {
+          "name": "(callback)",
+          "line": 28,
+          "end": 30
+        },
+        {
+          "name": "(callback)",
+          "line": 39,
+          "end": 39
+        },
+        {
+          "name": "SectionNavigation",
+          "line": 51,
+          "end": 60
+        },
+        {
+          "name": "(callback)",
+          "line": 55,
+          "end": 57
+        }
+      ],
+      "imports": [
+        "@/shared/lib/menu-leaves",
+        "@/shared/types/props/EntryProps",
+        "@/shared/types/props/SectionNavigationProps",
+        "lucide-react",
+        "react"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/primitives/button.tsx",
+      "owner": "shared",
+      "lines": 65,
+      "sha256": "d180b719c2f35a948a41d9a893d645629ddb00a556e9b814c2771a24a330b799",
+      "functions": [
+        {
+          "name": "Button",
+          "line": 40,
+          "end": 62
+        }
+      ],
+      "imports": [
+        "class-variance-authority",
+        "class-variance-authority",
+        "radix-ui",
+        "react",
+        "@/shared/lib/classnames"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/primitives/dialog.tsx",
+      "owner": "shared",
+      "lines": 153,
+      "sha256": "32298fc49ae4ce95f5cc77af08a5343cb8cc4c2f1187770cd0e64159fd54f6a8",
+      "functions": [
+        {
+          "name": "Dialog",
+          "line": 8,
+          "end": 11
+        },
+        {
+          "name": "DialogTrigger",
+          "line": 13,
+          "end": 16
+        },
+        {
+          "name": "DialogPortal",
+          "line": 18,
+          "end": 21
+        },
+        {
+          "name": "DialogClose",
+          "line": 23,
+          "end": 26
+        },
+        {
+          "name": "DialogOverlay",
+          "line": 28,
+          "end": 43
+        },
+        {
+          "name": "DialogContent",
+          "line": 45,
+          "end": 78
+        },
+        {
+          "name": "DialogHeader",
+          "line": 80,
+          "end": 89
+        },
+        {
+          "name": "DialogFooter",
+          "line": 91,
+          "end": 114
+        },
+        {
+          "name": "DialogTitle",
+          "line": 116,
+          "end": 125
+        },
+        {
+          "name": "DialogDescription",
+          "line": 127,
+          "end": 139
+        }
+      ],
+      "imports": [
+        "lucide-react",
+        "radix-ui",
+        "react",
+        "@/shared/lib/classnames",
+        "@/shared/ui/primitives/button"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    },
+    {
+      "file": "src/shared/ui/primitives/input.tsx",
+      "owner": "shared",
+      "lines": 23,
+      "sha256": "b3b5007894e29a79d91f883ff4a490ff2bd8cdcaecef8735beda6d5dbe07597f",
+      "functions": [
+        {
+          "name": "Input",
+          "line": 5,
+          "end": 20
+        }
+      ],
+      "imports": [
+        "react",
+        "@/shared/lib/classnames"
+      ],
+      "http": [],
+      "schemas": [],
+      "findings": []
+    }
+  ]
+}

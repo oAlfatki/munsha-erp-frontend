@@ -5,6 +5,7 @@ import { useUsersQuery } from '@/features/users/queries/users-query';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Pagination } from '@/shared/ui/navigation/Pagination';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { useState } from 'react';
@@ -116,20 +117,13 @@ export function UserDirectory() {
                 </table>
                 {!query.data?.items.length && <p>لا توجد نتائج.</p>}
               </div>
-              <div className="dialog-actions">
-                <Button disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
-                  السابق
-                </Button>
-                <span>
-                  الصفحة {page} — {query.data?.totalCount || 0} مستخدم
-                </span>
-                <Button
-                  disabled={!query.data || page * query.data.pageSize >= query.data.totalCount}
-                  onClick={() => setPage((p) => p + 1)}
-                >
-                  اللاحق
-                </Button>
-              </div>
+              <Pagination
+                page={page}
+                onPageChange={setPage}
+                hasNext={!!query.data && page * query.data.pageSize < query.data.totalCount}
+              >
+                الصفحة {page} — {query.data?.totalCount || 0} مستخدم
+              </Pagination>
             </>
           )}
         </>

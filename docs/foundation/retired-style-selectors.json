@@ -1,0 +1,282 @@
+[
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-grid"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-panel"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-panel > p"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-panel > h3"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-row"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-row strong"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-row.total"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-row.total strong"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-grid"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".document-stats"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".document-stats > div"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".document-stats span"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".document-stats strong"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".unit-editor"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".unit-number"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".invoice-footer"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".invoice-summary"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".line-table"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".financial-panel"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".document-stats > div:first-child"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".invoice-print-header"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".invoice-print-header h2"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".invoice-print-header p"
+  },
+  {
+    "file": "src/app/styles/responsive-and-controls.css",
+    "selector": ".invoice-print-header h3"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".journal-editor select"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".journal-editor input"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".screen-page .document-stats"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".backup-hero"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".backup-hero h2"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".document-navigator"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".document-navigator > span"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".document-navigator button"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".document-totals"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".document-totals dl"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".document-totals dl > div"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".document-totals dt"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".document-totals dd"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".amount-words"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".amount-words > span"
+  },
+  {
+    "file": "src/app/styles/workflow-controls.css",
+    "selector": ".amount-words > strong"
+  },
+  {
+    "file": "src/app/styles/theme.css",
+    "selector": ".voucher-entry-grid"
+  },
+  {
+    "file": "src/app/styles/theme.css",
+    "selector": ".voucher-entry-grid .field"
+  },
+  {
+    "file": "src/app/styles/theme.css",
+    "selector": ".dark .document-totals"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".unit-editor"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".unit-editor > .form-grid"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".unit-number"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".document-stats"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".document-stats > div"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".document-stats span"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".document-stats strong"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".document-stats small"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-search"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-search > input"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-results"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-results button"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-results button:hover"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-results button > svg"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-results small"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-results b"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".product-results p"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".line-table"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".line-table th:first-child"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".line-table td"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".line-table th:last-child"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".line-table .select"
+  },
+  {
+    "file": "src/shared/styles/forms-and-lookup.css",
+    "selector": ".line-table input"
+  },
+  {
+    "file": "src/shared/styles/table-document-overrides.css",
+    "selector": ".document-totals"
+  },
+  {
+    "file": "src/shared/styles/table-document-overrides.css",
+    "selector": ".document-totals dl > div"
+  },
+  {
+    "file": "src/shared/styles/table-document-overrides.css",
+    "selector": ".document-totals"
+  },
+  {
+    "file": "src/shared/styles/table-document-overrides.css",
+    "selector": ".document-totals dl > div"
+  }
+]

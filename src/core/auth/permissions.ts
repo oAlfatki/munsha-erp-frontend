@@ -18,26 +18,3 @@ export function canPerform(
     )
   );
 }
-
-/** Only verified contract bindings belong here. The v1.5 contract does not
- * specify permissions for legacy ERP commands. Unknown operations fail closed. */
-const COMMAND_PERMISSIONS: Record<string, [string, string]> = {};
-
-export function canRunCommand(
-  access: AccessSnapshot | null | undefined,
-  type: string,
-  data?: unknown,
-  branchId?: string,
-) {
-
-  const permission = Object.hasOwn(COMMAND_PERMISSIONS, type)
-    ? COMMAND_PERMISSIONS[type]
-    : undefined;
-  if (!permission || !canPerform(access, ...permission, branchId)) return false;
-  const input = data && typeof data === 'object' ? (data as Record<string, unknown>) : {};
-  return (
-    input.branchId === undefined ||
-    String(input.branchId) === branchId ||
-    canPerform(access, ...permission, String(input.branchId))
-  );
-}

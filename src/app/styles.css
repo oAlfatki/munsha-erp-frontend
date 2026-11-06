@@ -3,41 +3,12 @@
 @import '../features/dashboard/styles/overview.css';
 @import '../shared/styles/display-and-tables.css';
 @import '../features/dashboard/styles/stock-alerts.css';
-@import '../shared/styles/catalog-controls.css';
 @import '../shared/styles/forms-and-lookup.css';
-@import '../features/trade/styles/invoice-summary.css';
-@import './styles/document-total-overrides.css';
-@import '../features/trade/styles/invoice-header.css';
-@import './styles/document-dialogs-and-reports.css';
-@import '../features/settings/styles/backup.css';
+@import './styles/responsive-and-controls.css';
 @import './styles/workflow-controls.css';
-@import '../features/trade/styles/invoice-footer.css';
-@import './styles/statements.css';
-@import '../features/inventory/styles/stock-entry.css';
-@import './styles/responsive-documents.css';
-@import '../features/trade/styles/invoice-lookup.css';
-@import './styles/trade-summary.css';
-@import '../features/trade/styles/invoice-fields.css';
-@import './styles/document-branding.css';
-
-@import '../features/settings/styles/system-settings.css';
-
-@import '../features/settings/styles/controls.css';
-@import '../shared/styles/report-preview.css';
 @import '../features/auth/styles/sessions.css';
-@import '../features/auth/styles/login.css';
+@import '../shared/styles/guest-layout.css';
 @import '../shared/styles/table-document-overrides.css';
 @import '../core/styles/typography.css';
 @import '../shared/styles/validation.css';
-
-@import '../features/trade/styles/invoice-hint.css';
-
-@import './styles/invoice-line-overrides.css';
-@import '../features/trade/styles/invoice-grid.css';
-@import './styles/grid-search.css';
-@import '../features/trade/styles/invoice-new-row.css';
-@import './styles/invoice-print-overrides.css';
-
-@import '../features/trade/styles/invoice-entry.css';
-
-@import './styles/theme-and-document-overrides.css';
+@import './styles/theme.css';

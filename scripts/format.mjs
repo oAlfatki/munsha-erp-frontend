@@ -38,8 +38,6 @@ async function collect(directory) {
   const files = await Promise.all(
     entries.map((entry) => {
       const file = path.join(directory, entry.name);
-      // This archived oracle is byte-checked; its formatting is intentionally historical.
-      if (file === path.join('tests', 'reference')) return [];
       return entry.isDirectory() ? collect(file) : [file];
     }),
   );

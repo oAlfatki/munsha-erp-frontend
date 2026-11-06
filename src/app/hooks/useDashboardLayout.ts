@@ -1,155 +1,111 @@
-import { useCompanyData } from '@/app/providers/CompanyProvider';
+import { DASHBOARD_NAVIGATION } from '@/app/constants/dashboard-navigation';
 import { useAuth } from '@/core/auth/AuthProvider';
-import { MENU_ITEMS, menuLeaves } from '@/core/config/menu';
+import { MENU_ITEMS } from '@/app/constants/user-navigation';
 import { ROUTES } from '@/core/config/navigation-paths';
-import { setReportIdentity } from '@/core/reporting/formatting';
+import { menuLeaves } from '@/shared/lib/menu-leaves';
 import {
-  applyDeviceSettings,
   DEFAULT_DEVICE_SETTINGS,
+  applyDeviceSettings,
   readDeviceSettings,
 } from '@/core/services/device-settings';
-import { useApplication } from '@/core/state/ApplicationProvider';
-import { fetchSearchItems } from '@/features/stock/public';
-import { userActivityApi } from '@/features/users/public';
-import { useQuery } from '@tanstack/react-query';
+import { useQueryClient } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
-import { useMatches } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export function useDashboardLayout() {
 
-  const { user, can, accessError, isAccessLoading } = useAuth();
-  const session = { user, signInHref: ROUTES.LOGIN, signOutHref: ROUTES.LOGIN };
-  const {
-    state,
-    loading: isLoading,
-    error,
-    refresh,
-    busy: isBusy,
-    view,
-    navigate,
-    branchId,
-    setBranchId,
-    allowed,
-    revision,
-    editingDocument: isEditingDocument,
-  } = { ...useApplication(), ...useCompanyData() };
-  useEffect(() => {
-    if (state)
-      setReportIdentity({
-        name: state.branding?.name || state.organization.name,
-        legalName: state.organization.name,
-        address: state.organization.address,
-        phone: state.organization.phone,
-        email: state.organization.email || '',
-        taxNumber: state.organization.taxNumber || '',
-        registrationNumber: state.organization.registrationNumber || '',
-        logo: state.branding?.logo || '',
-        branch: state.branches.find((branch) => branch.id === branchId)?.name || '',
-        year: state.organization.year,
-        user: session.user?.displayName || 'مستخدم النظام',
-      });
-  }, [state, branchId, session.user?.displayName]);
+  const auth = useAuth();
+  const client = useQueryClient();
+  const navigate = useNavigate();
+  const { pathname: view } = useLocation();
+  const [isMobile, setMobile] = useState(false);
+  const [isCommand, setCommand] = useState(false);
+  const [query, setQuery] = useState('');
   const [device, setDevice] = useState(DEFAULT_DEVICE_SETTINGS);
+  const area = view.startsWith('/users') ? 'access' : 'dashboard';
+  // Retain the authenticated session heartbeat without loading any ERP feature data.
+  useEffect(() => {
+    if (!auth.user) return;
+    const timer = setInterval(() => {
+      void auth.refreshIdentity().catch(() => {});
+    }, 60000);
+    return () => clearInterval(timer);
+  }, [auth.user?.userId, auth.refreshIdentity]);
   useEffect(() => {
     const sync = () => {
 
-      const v = readDeviceSettings();
-      setDevice(v);
-      applyDeviceSettings(v);
+      const settings = readDeviceSettings();
+      setDevice(settings);
+      applyDeviceSettings(settings);
     };
 
     sync();
     window.addEventListener('erp-device-settings', sync);
     return () => window.removeEventListener('erp-device-settings', sync);
   }, []);
-  const [isMobile, setMobile] = useState(false),
-    [isCommand, setCommand] = useState(false),
-    [query, setQuery] = useState(''),
-    [isNotifications, setNotifications] = useState(false);
-  const bookId = state?.annualBooks?.activeId;
-  const productSearch = useQuery({
-    queryKey: ['erp', 'inventory', 'search', user?.userId, 'aspnet', bookId, branchId, query],
-
-    queryFn: () => fetchSearchItems({ q: query, page: 1, pageSize: 10, bookId }),
-
-    enabled: isCommand && !!query.trim(),
-  });
-  const notifications = useQuery({
-    queryKey: ['erp', 'users', 'notifications', user?.userId, 'aspnet', bookId],
-
-    queryFn: () =>
-      userActivityApi.audit({ page: 1, pageSize: 8, branchId: Number(user?.branchId) }),
-
-    enabled: isNotifications && can('USERS', 'USERS_AUDIT_VIEW'),
-  });
-  const matches = useMatches();
-  const routeHandle = matches.findLast((match) => match.handle)?.handle as
-    | { module?: string; navModule?: string }
-    | undefined;
-  const routeModule = routeHandle?.navModule || routeHandle?.module || '';
-  const area =
-    routeModule === 'users' ? 'access' : routeModule === 'accounting' ? 'accounts' : routeModule;
-  const base = view.split('/')[1];
-  const quickLinks = Object.values(MENU_ITEMS).flatMap(menuLeaves);
   useEffect(() => {
-    if (state) {
-      document.title = (state.branding?.name || state.organization.name) + ' | الإدارة والمحاسبة';
-      document.documentElement.style.setProperty(
-        '--brand-primary',
-        state.branding?.color || '#17685b',
-      );
-    }
-  }, [state?.branding, state?.organization.name]);
-  useEffect(() => {
-    const key = (e: KeyboardEvent) => {
+    document.title = 'منشأة | مساحة العمل';
 
-      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault();
-        setCommand((isV) => !isV);
+    const onKeyDown = (event: KeyboardEvent) => {
+
+      if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+        event.preventDefault();
+        setCommand((isOpen) => !isOpen);
       }
     };
 
-    window.addEventListener('keydown', key);
-    return () => window.removeEventListener('keydown', key);
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
+  const navigation = DASHBOARD_NAVIGATION.filter(
+    (item) => item.id === 'dashboard' || auth.can('USERS', 'USERS_VIEW'),
+  );
+  const quickLinks = menuLeaves(MENU_ITEMS.access).filter(
+    (link) =>
+      link.target === ROUTES.USERS_PASSWORD ||
+      link.target === ROUTES.USERS_SESSIONS ||
+      auth.can(
+        'USERS',
+        link.target === ROUTES.USERS_NEW
+          ? 'USERS_CREATE'
+          : link.target === ROUTES.USERS_AUDIT
+            ? 'USERS_AUDIT_VIEW'
+            : link.target === ROUTES.USERS_MATRIX
+              ? 'USERS_PERMISSIONS_VIEW'
+              : 'USERS_VIEW',
+      ),
+  );
 
-  const go = (v: string) => {
+  const go = (path: string) => {
 
-    navigate(v);
+    navigate(path);
     setMobile(false);
     setCommand(false);
   };
 
+  const refresh = async () => {
+
+    await Promise.all([
+      client.invalidateQueries({ queryKey: ['access'] }),
+      client.invalidateQueries({ queryKey: ['users'] }),
+      client.invalidateQueries({ queryKey: ['erp', 'dashboard'] }),
+    ]);
+  };
+
   return {
-    user,
-    accessError,
-    isAccessLoading,
-    session,
-    s: state,
-    isLoading,
-    error,
-    refresh,
-    isBusy,
+    auth,
     view,
-    branchId,
-    setBranchId,
-    allowed,
-    revision,
-    isEditingDocument,
-    device,
+    area,
     isMobile,
     setMobile,
     isCommand,
     setCommand,
     query,
     setQuery,
-    isNotifications,
-    setNotifications,
-    productSearch,
-    notifications,
-    area,
-    base,
+    device,
+    navigation,
     quickLinks,
     go,
+    refresh,
   };
 }

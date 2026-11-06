@@ -39,13 +39,6 @@
   background: var(--muted);
   border-top: 1px solid #9dabb7;
 }
-.document-totals {
-  border-color: #9daebc;
-  background: var(--muted);
-}
-.document-totals dl > div {
-  border-bottom-color: #b5c2cd;
-}
 @media print {
   body {
     font-family: 'Sakkal Majalla', Arabic, Arial, sans-serif;
@@ -73,12 +66,5 @@
   .data-table tfoot th {
     background: var(--muted) !important;
     color: #111 !important;
-  }
-  .document-totals {
-    background: var(--card) !important;
-    border-color: #333;
-  }
-  .document-totals dl > div {
-    border-bottom-color: #aaa;
   }
 }

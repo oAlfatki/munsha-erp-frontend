@@ -1,5 +1,4 @@
 import { readAccess } from '@/app/services/access-service';
-import { prepareLogout } from '@/app/services/prepare-logout';
 import type { AppProvidersProps } from '@/app/types/props/AppProvidersProps';
 import { QUERY_CLIENT } from '@/core/api/queryClient';
 import { configureSessionRefresh } from '@/core/api/session-transport';
@@ -22,7 +21,6 @@ export function AppProviders({ children, initialUser }: AppProvidersProps) {
           readSession={getAccount}
           readAccess={readAccess}
           endSession={authApi.logout}
-          beforeLogout={prepareLogout}
         >
           {children}
         </AuthProvider>

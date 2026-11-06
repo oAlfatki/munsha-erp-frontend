@@ -136,12 +136,12 @@ const features = Object.fromEntries(
   }),
 );
 if (!process.argv.includes('--check')) {
-  fs.mkdirSync('docs/review', { recursive: true });
+  fs.mkdirSync('docs/foundation', { recursive: true });
   fs.writeFileSync(
-    'docs/review/source-inventory.json',
+    'docs/foundation/source-inventory.json',
     JSON.stringify(
       {
-        basis: '5ecc3cb',
+        basis: '931af44',
         scope:
           'AST and full-file inventory; not a claim of manual line-by-line security certification',
         features,
@@ -153,8 +153,8 @@ if (!process.argv.includes('--check')) {
   );
   const ignored = new Set(['.git', 'node_modules', 'dist', 'playwright-report', 'test-results']);
   const generated = new Set([
-    'docs/review/source-inventory.json',
-    'docs/review/project-files.json',
+    'docs/foundation/source-inventory.json',
+    'docs/foundation/project-files.json',
   ]);
 
   function projectFiles(directory = '.') {
@@ -229,7 +229,7 @@ if (!process.argv.includes('--check')) {
     return record;
   });
   fs.writeFileSync(
-    'docs/review/project-files.json',
+    'docs/foundation/project-files.json',
     JSON.stringify(
       {
         scope:

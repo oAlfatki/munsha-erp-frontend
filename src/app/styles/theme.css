@@ -1,0 +1,133 @@
+.grid-first-heading button {
+  flex-shrink: 0;
+}
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 24px 0;
+  max-width: 600px;
+}
+.auth-form > button {
+  min-height: 44px;
+}
+.password-required {
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 25px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.field-error {
+  color: #b91c1c !important;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+:root {
+  --app-background: #f6f7f4;
+  --surface-raised: #ffffff;
+  --table-stripe: #f5f8f4;
+  --success: #246c4e;
+  --warning: #9a6b12;
+  color-scheme: light;
+}
+.dark {
+  --background: #111b19;
+  --app-background: #111b19;
+  --foreground: #e2ece7;
+  --card: #192622;
+  --card-foreground: #e2ece7;
+  --popover: #1c2c27;
+  --popover-foreground: #e2ece7;
+  --primary: var(--brand-primary, #49a38b);
+  --primary-foreground: #ffffff;
+  --secondary: #233a31;
+  --secondary-foreground: #d6ebe1;
+  --muted: #21332c;
+  --muted-foreground: #a9beb3;
+  --accent: #29463b;
+  --accent-foreground: #e1f1e9;
+  --destructive: #f18d85;
+  --border: #3c5148;
+  --input: #4b6257;
+  --ring: #70bba4;
+  --surface-raised: #22372e;
+  --table-stripe: #1d3027;
+  --success: #94d6af;
+  --warning: #f2c46c;
+  color-scheme: dark;
+}
+body {
+  background: var(--app-background);
+  color: var(--foreground);
+}
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  color: var(--foreground);
+}
+.dark .topbar {
+  background: color-mix(in srgb, var(--card) 92%, transparent);
+}
+.dark .nav-item.active,
+.dark .subnav button.active {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+.dark .data-table th {
+  background: var(--muted);
+  color: var(--foreground);
+}
+.dark .data-table tbody tr:nth-child(even) {
+  background: var(--table-stripe);
+}
+.dark .data-table td,
+.dark .data-table th {
+  border-color: var(--border);
+}
+.dark .info-note,
+.dark .annual-period-banner {
+  background: var(--muted);
+  color: var(--foreground);
+  border-color: var(--border);
+}
+.dark .numeric,
+.dark .statement-summary,
+.dark .settings-section-heading {
+  color: var(--foreground);
+}
+.dark .field-error,
+.dark .required-star {
+  color: var(--destructive);
+}
+.dark .login-story {
+  color: #edf6ed;
+}
+@media print {
+  :root,
+  .dark {
+    --background: #fff;
+    --foreground: #111;
+    --card: #fff;
+    --card-foreground: #111;
+    --muted: #f4f6f3;
+    --muted-foreground: #444;
+    --border: #899ba8;
+    --table-stripe: #f4f6f3;
+    color-scheme: light;
+  }
+  .theme-toggle {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: #111;
+  }
+}

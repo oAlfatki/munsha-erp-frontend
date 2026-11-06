@@ -1,27 +1,12 @@
 import { DashboardLayout } from '@/app/layouts/DashboardLayout';
-import { CompanyProvider } from '@/app/providers/CompanyProvider';
 import { PageScope } from '@/app/router/PageScope';
 import { ProtectedRoute } from '@/app/router/ProtectedRoute';
 import { APP_ROUTES } from '@/app/router/routes';
-import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
-import { ApplicationProvider } from '@/core/state/ApplicationProvider';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { NotFoundPage } from '@/shared/ui/feedback/NotFoundPage';
 import { RouteErrorPage } from '@/shared/ui/feedback/RouteErrorPage';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-
-function ApplicationLayout() {
-
-  const auth = useAuth();
-  return (
-    <ApplicationProvider checkSession={auth.refreshIdentity}>
-      <CompanyProvider>
-        <DashboardLayout />
-      </CompanyProvider>
-    </ApplicationProvider>
-  );
-}
 
 export const APP_ROUTER = createBrowserRouter([
   ...APP_ROUTES.filter((route) => route.path === ROUTES.LOGIN),
@@ -31,7 +16,7 @@ export const APP_ROUTER = createBrowserRouter([
     errorElement: <RouteErrorPage />,
     children: [
       {
-        element: <ApplicationLayout />,
+        element: <DashboardLayout />,
         children: [
           {
             element: <PageScope />,

@@ -1,0 +1,4869 @@
+{
+  "scope": "All non-generated project files; dependency/build outputs and local secret files excluded",
+  "files": [
+    {
+      "file": ".env.example",
+      "bytes": 47,
+      "sha256": "1b08f5272d16cdf0000e3d8cc2b82c724981f843b36ef1a93cad722d087c4311",
+      "category": "configuration",
+      "lines": 2
+    },
+    {
+      "file": ".github/workflows/frontend.yml",
+      "bytes": 1199,
+      "sha256": "3f95783a13c5a54e3002e06b30066f6021b150fc66b822f05e62028f2ffb5824",
+      "category": "configuration",
+      "lines": 40
+    },
+    {
+      "file": ".gitignore",
+      "bytes": 93,
+      "sha256": "b5266b28acd37cf8432dcc2f88882b7fd6454ea41485a142eba479bd8b5dfab2",
+      "category": "configuration"
+    },
+    {
+      "file": ".npmrc",
+      "bytes": 23,
+      "sha256": "68069ad4ecabf565f5052da1395bfe2bfea4a81a05807735ddf060ff9efcb6cc",
+      "category": "configuration",
+      "lines": 3
+    },
+    {
+      "file": ".prettierrc.json",
+      "bytes": 73,
+      "sha256": "135de23aefc7f7c3cdeba2cfc590b6f4abe9436ff256299c61d40ff87bea517d",
+      "category": "configuration",
+      "lines": 2
+    },
+    {
+      "file": "README.md",
+      "bytes": 3733,
+      "sha256": "94c7070446c971e123d3dbc8e472067c3a174c18dce72816358a4e3c91aaef6d",
+      "category": "configuration",
+      "lines": 67
+    },
+    {
+      "file": "components.json",
+      "bytes": 456,
+      "sha256": "b3f0c0c50b1173ec14c0be17ea9d308b6254238e633ed56b81b33557474a776b",
+      "category": "configuration",
+      "lines": 22
+    },
+    {
+      "file": "docs/ARCHITECTURE.md",
+      "bytes": 2810,
+      "sha256": "e84263637e1d29a90096267d99601b67277b2a236d158cb96d1bb6648d7e7df9",
+      "category": "documentation",
+      "lines": 24
+    },
+    {
+      "file": "docs/INTEGRATION.md",
+      "bytes": 1709,
+      "sha256": "c9775f6e63e763f6e28c23a8043640f168221a1a8738066b9c332b716b9c17fe",
+      "category": "documentation",
+      "lines": 18
+    },
+    {
+      "file": "docs/ROADMAP.md",
+      "bytes": 2441,
+      "sha256": "349a1b605811c794505faaa304566aa2e423e0a6d3c9132db5229de258c469ff",
+      "category": "documentation",
+      "lines": 26
+    },
+    {
+      "file": "docs/SECURITY.md",
+      "bytes": 1284,
+      "sha256": "af66327e51b1630e75956917b6cc5439b57c9d7cb1a8e80f394c244f3727a557",
+      "category": "documentation",
+      "lines": 10
+    },
+    {
+      "file": "docs/foundation/README.md",
+      "bytes": 2261,
+      "sha256": "fba8804e5e5d9667dafe27d57d8406115cd243f0d64effb5c3d42f860c4be0ae",
+      "category": "documentation",
+      "lines": 24
+    },
+    {
+      "file": "docs/foundation/dependencies.json",
+      "bytes": 328,
+      "sha256": "252d29e77d4257ea9c2ed6f0130ebdceb5ffe762b18b35418f137bb4137f502f",
+      "category": "documentation",
+      "lines": 17
+    },
+    {
+      "file": "docs/foundation/retired-source.json",
+      "bytes": 3390,
+      "sha256": "cdd1ec9b705d9c9e18ba6523f0d3303dfa48abefdf0d75bfc0535a8a7f90992e",
+      "category": "documentation",
+      "lines": 80
+    },
+    {
+      "file": "docs/foundation/retired-style-selectors.json",
+      "bytes": 7175,
+      "sha256": "aeefcb40c4b901ef2ad6d663012ad2431388d43f03e60fc75faf44b8259be106",
+      "category": "documentation",
+      "lines": 283
+    },
+    {
+      "file": "eslint.config.mjs",
+      "bytes": 1115,
+      "sha256": "bbcca3e6aa1b24af4363a5a9dc92dffc4e45ab3345e6ae267944c6483bb7e7f4",
+      "category": "configuration",
+      "lines": 35,
+      "functions": []
+    },
+    {
+      "file": "index.html",
+      "bytes": 306,
+      "sha256": "6ae3cf9602abeee089e46240b2ebdafe13d6f23c5f7c745f225f1ec21a4d2d04",
+      "category": "configuration",
+      "lines": 2
+    },
+    {
+      "file": "package-lock.json",
+      "bytes": 340881,
+      "sha256": "f3425b288cd427e6d7b4b4db923928be58e1af64ec09b9e5633dee7afde419b5",
+      "category": "configuration",
+      "lines": 9264
+    },
+    {
+      "file": "package.json",
+      "bytes": 2047,
+      "sha256": "b2b807a04bc39bf5b97be2e34a76d57f9192b569213c09355b82998b169973b0",
+      "category": "configuration",
+      "lines": 68
+    },
+    {
+      "file": "playwright.config.ts",
+      "bytes": 650,
+      "sha256": "f307e4fdfd3837b9738d28ff4178df5f203419c76d861aaf7630f4880dce0fe6",
+      "category": "configuration",
+      "lines": 27,
+      "functions": []
+    },
+    {
+      "file": "postcss.config.mjs",
+      "bytes": 94,
+      "sha256": "dfac7ac2d86d326a0e5adb024e7943c181393ed17a5fcb8f0315b24c7da6ddde",
+      "category": "configuration",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "public/favicon.svg",
+      "bytes": 245,
+      "sha256": "a5e210e379ad2c2792fc9d1cd00e1eed5e9e9fc4a17c15841f005f5c95ae4b4f",
+      "category": "asset",
+      "lines": 2
+    },
+    {
+      "file": "public/fonts/NotoSansArabic-Bold.ttf",
+      "bytes": 260904,
+      "sha256": "457926cb001ac787dc7415c89e6f5b1c4ce3a0f2c91d0cabc1bc19a05638e7de",
+      "category": "asset"
+    },
+    {
+      "file": "public/fonts/NotoSansArabic-Regular.ttf",
+      "bytes": 250880,
+      "sha256": "d6efa4c9fac8ecefd2de19676acc3a396ba7aee99ba7a2d513950246841b6725",
+      "category": "asset"
+    },
+    {
+      "file": "public/fonts/ReportSans-LICENSE.txt",
+      "bytes": 3859,
+      "sha256": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "category": "asset",
+      "lines": 79
+    },
+    {
+      "file": "public/fonts/ReportSans.ttf",
+      "bytes": 759720,
+      "sha256": "ae7b7855e115a5966d8b1b3f80f254ccc117ec86f9965e202ee2940453837280",
+      "category": "asset"
+    },
+    {
+      "file": "public/fonts/SakkalMajalla-Bold.ttf",
+      "bytes": 294564,
+      "sha256": "39a018898bd1909d3ef8236d0a4042f95a8e3028585e56297ba870e93152ecac",
+      "category": "asset"
+    },
+    {
+      "file": "public/fonts/SakkalMajalla-Regular.ttf",
+      "bytes": 370084,
+      "sha256": "2602b7a98a0f10bf765dea99c43e7cab39d2c98a77733c5acd598ff7c7cf173d",
+      "category": "asset"
+    },
+    {
+      "file": "scripts/check-architecture.mjs",
+      "bytes": 6863,
+      "sha256": "561e3cd3337a66c00c3e6a9e4899e4f4bb105336363a2c947be70b7b31f8dbcc",
+      "category": "tooling",
+      "lines": 201,
+      "functions": [
+        {
+          "name": "walk",
+          "line": 6,
+          "end": 9
+        },
+        {
+          "name": "(callback)",
+          "line": 9,
+          "end": 9
+        },
+        {
+          "name": "inspectArchitecture",
+          "line": 11,
+          "end": 188
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 20
+        },
+        {
+          "name": "owner",
+          "line": 25,
+          "end": 29
+        },
+        {
+          "name": "link",
+          "line": 31,
+          "end": 35
+        },
+        {
+          "name": "visit",
+          "line": 48,
+          "end": 101
+        },
+        {
+          "name": "(callback)",
+          "line": 58,
+          "end": 58
+        },
+        {
+          "name": "cycles",
+          "line": 106,
+          "end": 141
+        },
+        {
+          "name": "visit",
+          "line": 115,
+          "end": 137
+        },
+        {
+          "name": "(callback)",
+          "line": 145,
+          "end": 145
+        },
+        {
+          "name": "(callback)",
+          "line": 174,
+          "end": 174
+        },
+        {
+          "name": "(callback)",
+          "line": 185,
+          "end": 185
+        }
+      ]
+    },
+    {
+      "file": "scripts/check-naming.mjs",
+      "bytes": 7836,
+      "sha256": "f2cdec657f9bdde4688eb6c5c505b684f77adb2ad26fc45ebc08991d5fc4009b",
+      "category": "tooling",
+      "lines": 208,
+      "functions": [
+        {
+          "name": "report",
+          "line": 14,
+          "end": 14
+        },
+        {
+          "name": "getFiles",
+          "line": 16,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 25
+        },
+        {
+          "name": "isBoolean",
+          "line": 38,
+          "end": 50
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 46
+        },
+        {
+          "name": "isCallable",
+          "line": 52,
+          "end": 55
+        },
+        {
+          "name": "isModuleConstant",
+          "line": 57,
+          "end": 66
+        },
+        {
+          "name": "(callback)",
+          "line": 93,
+          "end": 93
+        },
+        {
+          "name": "collectTags",
+          "line": 119,
+          "end": 127
+        },
+        {
+          "name": "visit",
+          "line": 131,
+          "end": 196
+        }
+      ]
+    },
+    {
+      "file": "scripts/check-reachability.mjs",
+      "bytes": 2919,
+      "sha256": "70582ad0f5c0fdca90233add34315a36d2bb824981f710668600343999b2007a",
+      "category": "tooling",
+      "lines": 81,
+      "functions": [
+        {
+          "name": "inspectReachability",
+          "line": 7,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 16,
+          "end": 16
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 17
+        },
+        {
+          "name": "visit",
+          "line": 29,
+          "end": 47
+        },
+        {
+          "name": "reach",
+          "line": 54,
+          "end": 59
+        },
+        {
+          "name": "(callback)",
+          "line": 63,
+          "end": 63
+        },
+        {
+          "name": "(callback)",
+          "line": 66,
+          "end": 66
+        },
+        {
+          "name": "(callback)",
+          "line": 67,
+          "end": 67
+        }
+      ]
+    },
+    {
+      "file": "scripts/eslint/readability.mjs",
+      "bytes": 3487,
+      "sha256": "3510fe377e417ddd7418b843c65a859079cfcf418475ab462d750f6c80160f90",
+      "category": "tooling",
+      "lines": 109,
+      "functions": [
+        {
+          "name": "create",
+          "line": 10,
+          "end": 105
+        },
+        {
+          "name": "gap",
+          "line": 14,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 22,
+          "end": 22
+        },
+        {
+          "name": "body",
+          "line": 26,
+          "end": 34
+        },
+        {
+          "name": "separate",
+          "line": 36,
+          "end": 49
+        },
+        {
+          "name": "Program",
+          "line": 52,
+          "end": 62
+        },
+        {
+          "name": "(callback)",
+          "line": 54,
+          "end": 54
+        },
+        {
+          "name": "FunctionDeclaration",
+          "line": 64,
+          "end": 68
+        },
+        {
+          "name": "FunctionExpression",
+          "line": 70,
+          "end": 76
+        },
+        {
+          "name": "Property",
+          "line": 78,
+          "end": 89
+        },
+        {
+          "name": "VariableDeclaration",
+          "line": 91,
+          "end": 103
+        },
+        {
+          "name": "(callback)",
+          "line": 94,
+          "end": 95
+        }
+      ]
+    },
+    {
+      "file": "scripts/format.mjs",
+      "bytes": 2451,
+      "sha256": "94725e9323ee0f4538d474fb8bd22284660ff4b6d491d8673b316da23ae1b8c1",
+      "category": "tooling",
+      "lines": 74,
+      "functions": [
+        {
+          "name": "formatCode",
+          "line": 25,
+          "end": 33
+        },
+        {
+          "name": "collect",
+          "line": 35,
+          "end": 45
+        },
+        {
+          "name": "(callback)",
+          "line": 39,
+          "end": 42
+        },
+        {
+          "name": "(callback)",
+          "line": 44,
+          "end": 44
+        },
+        {
+          "name": "main",
+          "line": 47,
+          "end": 71
+        }
+      ]
+    },
+    {
+      "file": "scripts/inspect-styles.mjs",
+      "bytes": 1420,
+      "sha256": "889b1209620ff72ba0fd94cf20d5455e8300b47cde8eb70b1964f27bf4820df5",
+      "category": "tooling",
+      "lines": 40,
+      "functions": [
+        {
+          "name": "inspectStyles",
+          "line": 8,
+          "end": 32
+        },
+        {
+          "name": "project",
+          "line": 13,
+          "end": 29
+        },
+        {
+          "name": "styleFingerprint",
+          "line": 34,
+          "end": 39
+        }
+      ]
+    },
+    {
+      "file": "scripts/review-project.mjs",
+      "bytes": 8503,
+      "sha256": "c76e77b464ea8c1f1683e6f75dd98e32a02f7a5a69028f40324377c0489dfa24",
+      "category": "tooling",
+      "lines": 257,
+      "functions": [
+        {
+          "name": "walk",
+          "line": 15,
+          "end": 21
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 20
+        },
+        {
+          "name": "location",
+          "line": 40,
+          "end": 43
+        },
+        {
+          "name": "visit",
+          "line": 45,
+          "end": 107
+        },
+        {
+          "name": "(callback)",
+          "line": 80,
+          "end": 80
+        },
+        {
+          "name": "(callback)",
+          "line": 89,
+          "end": 89
+        },
+        {
+          "name": "(callback)",
+          "line": 99,
+          "end": 99
+        },
+        {
+          "name": "(callback)",
+          "line": 120,
+          "end": 120
+        },
+        {
+          "name": "(callback)",
+          "line": 120,
+          "end": 136
+        },
+        {
+          "name": "(callback)",
+          "line": 121,
+          "end": 121
+        },
+        {
+          "name": "(callback)",
+          "line": 126,
+          "end": 126
+        },
+        {
+          "name": "(callback)",
+          "line": 127,
+          "end": 127
+        },
+        {
+          "name": "(callback)",
+          "line": 128,
+          "end": 129
+        },
+        {
+          "name": "(callback)",
+          "line": 129,
+          "end": 129
+        },
+        {
+          "name": "(callback)",
+          "line": 131,
+          "end": 132
+        },
+        {
+          "name": "(callback)",
+          "line": 132,
+          "end": 132
+        },
+        {
+          "name": "projectFiles",
+          "line": 160,
+          "end": 172
+        },
+        {
+          "name": "(callback)",
+          "line": 162,
+          "end": 171
+        },
+        {
+          "name": "(callback)",
+          "line": 174,
+          "end": 230
+        },
+        {
+          "name": "visit",
+          "line": 206,
+          "end": 225
+        },
+        {
+          "name": "(callback)",
+          "line": 245,
+          "end": 245
+        },
+        {
+          "name": "(callback)",
+          "line": 245,
+          "end": 245
+        },
+        {
+          "name": "(callback)",
+          "line": 249,
+          "end": 252
+        },
+        {
+          "name": "(callback)",
+          "line": 251,
+          "end": 251
+        },
+        {
+          "name": "(callback)",
+          "line": 252,
+          "end": 252
+        }
+      ]
+    },
+    {
+      "file": "src/app/App.tsx",
+      "bytes": 695,
+      "sha256": "e9978eb897d5ab53bab181536cd5e2d5206a613e7846b9c696c20a66ae84e48b",
+      "category": "product-source",
+      "lines": 21,
+      "functions": [
+        {
+          "name": "App",
+          "line": 9,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "file": "src/app/constants/dashboard-navigation.ts",
+      "bytes": 379,
+      "sha256": "f75dd6376577bd2b7b55818bd41785016538fda0f9a627fd5b197de061a3f1b1",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/app/constants/user-navigation.ts",
+      "bytes": 1006,
+      "sha256": "6a09be802d4504eb5224d0df6bc9ab0748f556a0a21825d5a3d290aa7126c8ff",
+      "category": "product-source",
+      "lines": 39,
+      "functions": []
+    },
+    {
+      "file": "src/app/hooks/useDashboardLayout.ts",
+      "bytes": 3270,
+      "sha256": "9aa8968432ada9f221cd0a95fa0aba45392fedfd94626f6a7f39f139cca4e27b",
+      "category": "product-source",
+      "lines": 112,
+      "functions": [
+        {
+          "name": "useDashboardLayout",
+          "line": 15,
+          "end": 111
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 33
+        },
+        {
+          "name": "(callback)",
+          "line": 29,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 30
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 32
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 45
+        },
+        {
+          "name": "sync",
+          "line": 35,
+          "end": 40
+        },
+        {
+          "name": "(callback)",
+          "line": 44,
+          "end": 44
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 59
+        },
+        {
+          "name": "onKeyDown",
+          "line": 49,
+          "end": 55
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 58,
+          "end": 58
+        },
+        {
+          "name": "(callback)",
+          "line": 61,
+          "end": 61
+        },
+        {
+          "name": "(callback)",
+          "line": 64,
+          "end": 76
+        },
+        {
+          "name": "go",
+          "line": 79,
+          "end": 84
+        },
+        {
+          "name": "refresh",
+          "line": 86,
+          "end": 93
+        }
+      ]
+    },
+    {
+      "file": "src/app/layouts/DashboardLayout.tsx",
+      "bytes": 5937,
+      "sha256": "c22813eb6d9fdb5201871e30fc58eefad592180234ad65a431087a6a49c7dd2d",
+      "category": "product-source",
+      "lines": 168,
+      "functions": [
+        {
+          "name": "DashboardLayout",
+          "line": 12,
+          "end": 167
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 34
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 58,
+          "end": 58
+        },
+        {
+          "name": "(callback)",
+          "line": 84,
+          "end": 84
+        },
+        {
+          "name": "(callback)",
+          "line": 96,
+          "end": 96
+        },
+        {
+          "name": "(callback)",
+          "line": 107,
+          "end": 107
+        },
+        {
+          "name": "(callback)",
+          "line": 138,
+          "end": 138
+        },
+        {
+          "name": "(callback)",
+          "line": 144,
+          "end": 144
+        },
+        {
+          "name": "(callback)",
+          "line": 148,
+          "end": 148
+        },
+        {
+          "name": "(callback)",
+          "line": 149,
+          "end": 154
+        },
+        {
+          "name": "(callback)",
+          "line": 150,
+          "end": 150
+        },
+        {
+          "name": "(callback)",
+          "line": 156,
+          "end": 156
+        },
+        {
+          "name": "(callback)",
+          "line": 157,
+          "end": 162
+        },
+        {
+          "name": "(callback)",
+          "line": 158,
+          "end": 158
+        }
+      ]
+    },
+    {
+      "file": "src/app/main.tsx",
+      "bytes": 236,
+      "sha256": "b7319698d27119b0903570988f70cb9bc9771bdc6ca532417673d62545d15958",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/app/providers/AppProviders.tsx",
+      "bytes": 1032,
+      "sha256": "fca38f6d50e70a36fdcd94bda67447304cbaf69dec87e997f55e2a0b24bc2898",
+      "category": "product-source",
+      "lines": 31,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 12
+        },
+        {
+          "name": "AppProviders",
+          "line": 14,
+          "end": 30
+        }
+      ]
+    },
+    {
+      "file": "src/app/router/AppRouter.tsx",
+      "bytes": 1321,
+      "sha256": "f90fa89b327606dc890151861ac526cc19d525f8d2d903414d85cca31b453a4e",
+      "category": "product-source",
+      "lines": 39,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 12
+        },
+        {
+          "name": "(callback)",
+          "line": 25,
+          "end": 25
+        },
+        {
+          "name": "AppRouter",
+          "line": 35,
+          "end": 38
+        }
+      ]
+    },
+    {
+      "file": "src/app/router/PageScope.tsx",
+      "bytes": 461,
+      "sha256": "03884c9939afd84834c5978f395a92addae2fe47b52b4ddcd415e819d95c781d",
+      "category": "product-source",
+      "lines": 18,
+      "functions": [
+        {
+          "name": "PageScope",
+          "line": 6,
+          "end": 17
+        }
+      ]
+    },
+    {
+      "file": "src/app/router/ProtectedRoute.tsx",
+      "bytes": 909,
+      "sha256": "4414f077e79b53aa1c0865c387b1d95533c9adc724fe0e82540f6abe7cc5e048",
+      "category": "product-source",
+      "lines": 23,
+      "functions": [
+        {
+          "name": "ProtectedRoute",
+          "line": 8,
+          "end": 22
+        }
+      ]
+    },
+    {
+      "file": "src/app/router/modules/auth.routes.tsx",
+      "bytes": 446,
+      "sha256": "c8358e474e576d767fca66b155cf3623dbde1791dc50360a8877aaff51766ac5",
+      "category": "product-source",
+      "lines": 15,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 10
+        }
+      ]
+    },
+    {
+      "file": "src/app/router/modules/dashboard.routes.tsx",
+      "bytes": 368,
+      "sha256": "d097b11c7f81989ec094f0382998bf123bbddd394d189c2c514bb6ebaafa8ac5",
+      "category": "product-source",
+      "lines": 15,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 10
+        }
+      ]
+    },
+    {
+      "file": "src/app/router/modules/users.routes.tsx",
+      "bytes": 2273,
+      "sha256": "4b79178f737181a590fe8d2c79b65a35426ce69053d97b293c7510c1ed5a4208",
+      "category": "product-source",
+      "lines": 98,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 10
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 19
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 28
+        },
+        {
+          "name": "(callback)",
+          "line": 39,
+          "end": 41
+        },
+        {
+          "name": "(callback)",
+          "line": 52,
+          "end": 54
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 67
+        },
+        {
+          "name": "(callback)",
+          "line": 78,
+          "end": 80
+        },
+        {
+          "name": "(callback)",
+          "line": 91,
+          "end": 93
+        }
+      ]
+    },
+    {
+      "file": "src/app/router/routes.tsx",
+      "bytes": 322,
+      "sha256": "4813b9dc70ec9f0865dca12417c246922ee99d52fb651c3432def8afcde8b96d",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/app/services/access-service.ts",
+      "bytes": 1539,
+      "sha256": "6c1ffda6cb9f214fff2d20a9279b3ebf6ab564a1774c9a909a56226e0a1e4df2",
+      "category": "product-source",
+      "lines": 39,
+      "functions": [
+        {
+          "name": "readAccess",
+          "line": 5,
+          "end": 38
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 14
+        }
+      ]
+    },
+    {
+      "file": "src/app/styles/dashboard-shell.css",
+      "bytes": 6220,
+      "sha256": "d7d1f6753a2ee446c13a5aa36d211b62367908fa1ed17f5f858984d13e5b2866",
+      "category": "product-source",
+      "lines": 343
+    },
+    {
+      "file": "src/app/styles/responsive-and-controls.css",
+      "bytes": 14050,
+      "sha256": "5f56da85db4f4178791346ede4a4efb17e50a459e3f13f3373c1e073fba9d49a",
+      "category": "product-source",
+      "lines": 827
+    },
+    {
+      "file": "src/app/styles/theme.css",
+      "bytes": 2739,
+      "sha256": "ef3465f1d3ddd1d7df956254a16be81ca9140a4255fff766746d7c0daf82d539",
+      "category": "product-source",
+      "lines": 134
+    },
+    {
+      "file": "src/app/styles/workflow-controls.css",
+      "bytes": 2890,
+      "sha256": "2ccda4b0b7e6bec11c0ed2e0b4b835081b8850048021237aa9debd4a98526698",
+      "category": "product-source",
+      "lines": 164
+    },
+    {
+      "file": "src/app/styles.css",
+      "bytes": 640,
+      "sha256": "02c23443bd5f37af299105f7e5dd97711953e3d835e5e9a0c8c563a2a4f8746d",
+      "category": "product-source",
+      "lines": 15
+    },
+    {
+      "file": "src/app/types/props/AppProps.ts",
+      "bytes": 124,
+      "sha256": "89ae530a2599c88eb5f9bd9798a96ce0e8f977aca5780d49c6b8f9b7c60fc839",
+      "category": "product-source",
+      "lines": 6,
+      "functions": []
+    },
+    {
+      "file": "src/app/types/props/AppProvidersProps.ts",
+      "bytes": 196,
+      "sha256": "bf0c589b2c12caf80814a602be11d42b151b126360e1a386d75f00387a2f8bc2",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/core/api/apiClient.ts",
+      "bytes": 4260,
+      "sha256": "5ed6760d8b96b233ddf96b906086be17320e44516037d92def9112d6dde80ffe",
+      "category": "product-source",
+      "lines": 122,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 80
+        },
+        {
+          "name": "request",
+          "line": 83,
+          "end": 94
+        },
+        {
+          "name": "(callback)",
+          "line": 98,
+          "end": 99
+        },
+        {
+          "name": "(callback)",
+          "line": 101,
+          "end": 105
+        },
+        {
+          "name": "(callback)",
+          "line": 107,
+          "end": 111
+        },
+        {
+          "name": "(callback)",
+          "line": 113,
+          "end": 117
+        },
+        {
+          "name": "(callback)",
+          "line": 119,
+          "end": 120
+        }
+      ]
+    },
+    {
+      "file": "src/core/api/apiConfig.ts",
+      "bytes": 218,
+      "sha256": "c115d23f38db35303423cd04d9248c90d7a641101f40742664d1879fd2dcf4eb",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/core/api/apiError.ts",
+      "bytes": 806,
+      "sha256": "707030d693c3b5883183f618d6ee23b0c668e70e917eae84e92cb699fd632183",
+      "category": "product-source",
+      "lines": 24,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 19,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "file": "src/core/api/error-message.ts",
+      "bytes": 1325,
+      "sha256": "81d725a37c86cf35493b5026c728384ae5e2a7be655144859872ee95cf000523",
+      "category": "product-source",
+      "lines": 21,
+      "functions": [
+        {
+          "name": "errorMessage",
+          "line": 3,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "file": "src/core/api/path-segment.ts",
+      "bytes": 183,
+      "sha256": "56550528c7509b2ea0cc57b49342cbf95252186ec96822998c379498e8e58820",
+      "category": "product-source",
+      "lines": 6,
+      "functions": [
+        {
+          "name": "pathSegment",
+          "line": 1,
+          "end": 5
+        }
+      ]
+    },
+    {
+      "file": "src/core/api/queryClient.ts",
+      "bytes": 236,
+      "sha256": "0507c27d40175353fd2150fe712cc7370ec360317762005911c63c6a5de97f5f",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/core/api/session-transport.ts",
+      "bytes": 1199,
+      "sha256": "401dced5676dafb23ac52b0ca45bb6f15f99a5088c05bac9ac51143d908a825e",
+      "category": "product-source",
+      "lines": 52,
+      "functions": [
+        {
+          "name": "sessionGeneration",
+          "line": 6,
+          "end": 9
+        },
+        {
+          "name": "advanceSession",
+          "line": 11,
+          "end": 16
+        },
+        {
+          "name": "configureSessionRefresh",
+          "line": 18,
+          "end": 22
+        },
+        {
+          "name": "hasSessionRefresh",
+          "line": 24,
+          "end": 27
+        },
+        {
+          "name": "refreshSession",
+          "line": 29,
+          "end": 44
+        },
+        {
+          "name": "(callback)",
+          "line": 35,
+          "end": 35
+        },
+        {
+          "name": "(callback)",
+          "line": 38,
+          "end": 40
+        },
+        {
+          "name": "(callback)",
+          "line": 41,
+          "end": 41
+        },
+        {
+          "name": "expireSession",
+          "line": 46,
+          "end": 51
+        }
+      ]
+    },
+    {
+      "file": "src/core/auth/AuthProvider.tsx",
+      "bytes": 4568,
+      "sha256": "85f364e7a8541785c62debb9e21f11fec1e437e69169fae72460913f6de233db",
+      "category": "product-source",
+      "lines": 161,
+      "functions": [
+        {
+          "name": "AuthProvider",
+          "line": 12,
+          "end": 158
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 30
+        },
+        {
+          "name": "(callback)",
+          "line": 38,
+          "end": 38
+        },
+        {
+          "name": "clearSession",
+          "line": 44,
+          "end": 54
+        },
+        {
+          "name": "(callback)",
+          "line": 49,
+          "end": 51
+        },
+        {
+          "name": "prepareLogin",
+          "line": 56,
+          "end": 60
+        },
+        {
+          "name": "establishSession",
+          "line": 62,
+          "end": 68
+        },
+        {
+          "name": "refreshIdentity",
+          "line": 70,
+          "end": 81
+        },
+        {
+          "name": "logout",
+          "line": 83,
+          "end": 108
+        },
+        {
+          "name": "run",
+          "line": 88,
+          "end": 98
+        },
+        {
+          "name": "(callback)",
+          "line": 103,
+          "end": 105
+        },
+        {
+          "name": "(callback)",
+          "line": 106,
+          "end": 106
+        },
+        {
+          "name": "(callback)",
+          "line": 110,
+          "end": 119
+        },
+        {
+          "name": "(callback)",
+          "line": 120,
+          "end": 128
+        },
+        {
+          "name": "expire",
+          "line": 121,
+          "end": 124
+        },
+        {
+          "name": "(callback)",
+          "line": 127,
+          "end": 127
+        },
+        {
+          "name": "(callback)",
+          "line": 146,
+          "end": 149
+        },
+        {
+          "name": "(callback)",
+          "line": 151,
+          "end": 152
+        },
+        {
+          "name": "useAuth",
+          "line": 160,
+          "end": 160
+        }
+      ]
+    },
+    {
+      "file": "src/core/auth/permissions.ts",
+      "bytes": 476,
+      "sha256": "07c8b6674aaffa54c29d58806ac6c459214f300104fb096edb76cd3617d0d49c",
+      "category": "product-source",
+      "lines": 21,
+      "functions": [
+        {
+          "name": "canPerform",
+          "line": 3,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 17
+        }
+      ]
+    },
+    {
+      "file": "src/core/config/env.ts",
+      "bytes": 130,
+      "sha256": "807480882a01d0fab1d6f892bb4f3bf1965b298088cdf3d73d96fb46bbd9bd91",
+      "category": "product-source",
+      "lines": 3,
+      "functions": []
+    },
+    {
+      "file": "src/core/config/locale.ts",
+      "bytes": 244,
+      "sha256": "f6fa00c04681874e8177ae294cb87ea469108818ddbb84f8d08802763fb909e6",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/core/config/navigation-paths.ts",
+      "bytes": 392,
+      "sha256": "fc0f8964d6e92b1c139a733ff9c1c6391d7f9eefc4a44a1058848ed297141213",
+      "category": "product-source",
+      "lines": 14,
+      "functions": []
+    },
+    {
+      "file": "src/core/config/validation.ts",
+      "bytes": 570,
+      "sha256": "78207ed868770ecea5099bacc081467a326b0eb0d437c08e8461a1d02dc08d78",
+      "category": "product-source",
+      "lines": 17,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 6,
+          "end": 15
+        }
+      ]
+    },
+    {
+      "file": "src/core/services/device-settings.ts",
+      "bytes": 1427,
+      "sha256": "ad0582a7b80df401a9bb51496a44e27c7b5402a2b792ce5afbcc2087cc238dda",
+      "category": "product-source",
+      "lines": 44,
+      "functions": [
+        {
+          "name": "readDeviceSettings",
+          "line": 13,
+          "end": 29
+        },
+        {
+          "name": "saveDeviceSettings",
+          "line": 31,
+          "end": 35
+        },
+        {
+          "name": "applyDeviceSettings",
+          "line": 37,
+          "end": 43
+        }
+      ]
+    },
+    {
+      "file": "src/core/styles/index.css",
+      "bytes": 2717,
+      "sha256": "5047f925d44cd0236c1b7c73d1faacf41f322caddeb5061b0149a03599c14760",
+      "category": "product-source",
+      "lines": 125
+    },
+    {
+      "file": "src/core/styles/typography.css",
+      "bytes": 466,
+      "sha256": "d67d4f1a348c94eb0e5cf3db7fa89ca8ff9396046a90f83d57edee15fa105633",
+      "category": "product-source",
+      "lines": 24
+    },
+    {
+      "file": "src/core/theme/ThemeProvider.tsx",
+      "bytes": 1374,
+      "sha256": "6b8e3f64a1929960019235c09435e504718c5b21b040b2c468c56db530336f7e",
+      "category": "product-source",
+      "lines": 49,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 8
+        },
+        {
+          "name": "ThemeProvider",
+          "line": 11,
+          "end": 46
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 21,
+          "end": 33
+        },
+        {
+          "name": "sync",
+          "line": 24,
+          "end": 28
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 32
+        },
+        {
+          "name": "setTheme",
+          "line": 35,
+          "end": 43
+        },
+        {
+          "name": "useTheme",
+          "line": 48,
+          "end": 48
+        }
+      ]
+    },
+    {
+      "file": "src/core/types/access/AccessGrant.ts",
+      "bytes": 196,
+      "sha256": "8c5a23a60e714b44d730dd3afadb33eed5ac1b16f1551b28cc872012895ca6b1",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/access/AccessSnapshot.ts",
+      "bytes": 184,
+      "sha256": "29ee4427e0eb7cc29597a286d6751c27c7b6cdcb60afb602d10257b0e830d716",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/api/FieldError.ts",
+      "bytes": 86,
+      "sha256": "a9f0180e13fc1eda2d4ca93738b854846d9aa8ba6a3b44cc6e4ef478486c1527",
+      "category": "product-source",
+      "lines": 6,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/api/ProblemDetails.ts",
+      "bytes": 283,
+      "sha256": "ed04a909efbb7fc63b172c967a1a290f906c2744ef5d62b8a43924d1dac1b238",
+      "category": "product-source",
+      "lines": 13,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/api/ReadScope.ts",
+      "bytes": 128,
+      "sha256": "9f9183cce93364c8bb66ae4a2a82c6c6a70ce6b35bb2db76f01414ac67139b58",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/api/Result.ts",
+      "bytes": 123,
+      "sha256": "3e30599ff6f01d69a9672057ee421d0b9d9787ef80e2ef1cb7df785fc17f09f0",
+      "category": "product-source",
+      "lines": 6,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/auth/AuthContextValue.ts",
+      "bytes": 643,
+      "sha256": "e2762fc93b1e244e3cb43f98b6cccd690984370abcff6a79aa2346dacec02095",
+      "category": "product-source",
+      "lines": 19,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/auth/Identity.ts",
+      "bytes": 225,
+      "sha256": "daf9d0f4780d13d54d3c552758bb09b9c4b9152e7bd8d156e6a19877f55a357a",
+      "category": "product-source",
+      "lines": 11,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/auth/SessionRequestConfig.ts",
+      "bytes": 181,
+      "sha256": "041363d2747215d475b6b6dbeb59229c9288f582beaa1698d947dd5f5342e728",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/preferences/DeviceSettings.ts",
+      "bytes": 156,
+      "sha256": "bab74108574988c8ccc95f3a27b60753cda942181549980702e1b1edc07fedad",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/props/AuthProviderProps.ts",
+      "bytes": 542,
+      "sha256": "48f5406598bcdff421b6ea6eda3dcf9e14930c94422251109c3fa9ae2c384e7e",
+      "category": "product-source",
+      "lines": 13,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/props/ThemeProviderProps.ts",
+      "bytes": 104,
+      "sha256": "f3d0899c8c39e19b2c68a116923b4a58f60cf8db9a7d97e386e94b9c89157695",
+      "category": "product-source",
+      "lines": 6,
+      "functions": []
+    },
+    {
+      "file": "src/core/types/theme/Theme.ts",
+      "bytes": 49,
+      "sha256": "0a56f1dc49aa21020c95b53063ae2a558f8fdf1979d4e0303cefdba2a35cf185",
+      "category": "product-source",
+      "lines": 2,
+      "functions": []
+    },
+    {
+      "file": "src/core/utils/formatters.ts",
+      "bytes": 354,
+      "sha256": "ea0744d4824833c4df49f830ca2770b5b7e555cc75f79130a053d946a3775d15",
+      "category": "product-source",
+      "lines": 13,
+      "functions": [
+        {
+          "name": "fmt",
+          "line": 1,
+          "end": 4
+        },
+        {
+          "name": "today",
+          "line": 6,
+          "end": 12
+        }
+      ]
+    },
+    {
+      "file": "src/core/validation/type-errors.ts",
+      "bytes": 652,
+      "sha256": "9b6d6c91dc4a1baf9ed3433e9ff2a2b22678b1d4946720779550939cb24d06e3",
+      "category": "product-source",
+      "lines": 18,
+      "functions": [
+        {
+          "name": "fieldTypeError",
+          "line": 2,
+          "end": 5
+        },
+        {
+          "name": "(callback)",
+          "line": 4,
+          "end": 4
+        },
+        {
+          "name": "finiteTypeError",
+          "line": 8,
+          "end": 17
+        },
+        {
+          "name": "(callback)",
+          "line": 15,
+          "end": 16
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/api/auth-api.ts",
+      "bytes": 1591,
+      "sha256": "72532b17af5cc48b8aa5a7b5d7722f90a8b7fe998dbf844b0120691537ce6dd3",
+      "category": "product-source",
+      "lines": 44,
+      "functions": [
+        {
+          "name": "fetchAccount",
+          "line": 8,
+          "end": 9
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 16
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 25
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 37
+        },
+        {
+          "name": "(callback)",
+          "line": 39,
+          "end": 39
+        },
+        {
+          "name": "(callback)",
+          "line": 41,
+          "end": 42
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/api/endpoints.ts",
+      "bytes": 433,
+      "sha256": "53e17055bfc4c571af9e1d712a7329f2f695f56dc09e850f83aaf01b1dd6616e",
+      "category": "product-source",
+      "lines": 15,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 10
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/components/AccountPanel.tsx",
+      "bytes": 7562,
+      "sha256": "242006a238fb16366932e8bf8be47712196086814b19c0ef673358c83316adae",
+      "category": "product-source",
+      "lines": 205,
+      "functions": [
+        {
+          "name": "AccountPanel",
+          "line": 16,
+          "end": 204
+        },
+        {
+          "name": "(callback)",
+          "line": 31,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 40,
+          "end": 45
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 56,
+          "end": 65
+        },
+        {
+          "name": "(callback)",
+          "line": 67,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 87,
+          "end": 87
+        },
+        {
+          "name": "(callback)",
+          "line": 98,
+          "end": 112
+        },
+        {
+          "name": "(callback)",
+          "line": 128,
+          "end": 132
+        },
+        {
+          "name": "(callback)",
+          "line": 140,
+          "end": 140
+        },
+        {
+          "name": "(callback)",
+          "line": 143,
+          "end": 143
+        },
+        {
+          "name": "(callback)",
+          "line": 157,
+          "end": 159
+        },
+        {
+          "name": "(callback)",
+          "line": 163,
+          "end": 181
+        },
+        {
+          "name": "(callback)",
+          "line": 175,
+          "end": 175
+        },
+        {
+          "name": "(callback)",
+          "line": 186,
+          "end": 186
+        },
+        {
+          "name": "(callback)",
+          "line": 186,
+          "end": 186
+        },
+        {
+          "name": "(callback)",
+          "line": 192,
+          "end": 192
+        },
+        {
+          "name": "(callback)",
+          "line": 192,
+          "end": 192
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/components/LoginForm.tsx",
+      "bytes": 2603,
+      "sha256": "289c7d74ca72e5a8c3d4b5599905fb28faea2ce92d5db531fd95c4aba909c395",
+      "category": "product-source",
+      "lines": 71,
+      "functions": [
+        {
+          "name": "LoginForm",
+          "line": 9,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/components/SessionMenu.tsx",
+      "bytes": 2544,
+      "sha256": "c5997b47f9cf22b474b0498760dfd1ca836fc0e7b468b11fa077ecaf00b180e7",
+      "category": "product-source",
+      "lines": 78,
+      "functions": [
+        {
+          "name": "SessionMenu",
+          "line": 10,
+          "end": 77
+        },
+        {
+          "name": "(callback)",
+          "line": 23,
+          "end": 23
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 27
+        },
+        {
+          "name": "(callback)",
+          "line": 38,
+          "end": 41
+        },
+        {
+          "name": "(callback)",
+          "line": 48,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 57,
+          "end": 68
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/hooks/useLogin.ts",
+      "bytes": 1995,
+      "sha256": "6932c2f40247919000d65822a78321add59c2bfddd66c10c6654b32dc73995db",
+      "category": "product-source",
+      "lines": 59,
+      "functions": [
+        {
+          "name": "useLogin",
+          "line": 12,
+          "end": 58
+        },
+        {
+          "name": "(callback)",
+          "line": 24,
+          "end": 30
+        },
+        {
+          "name": "submit",
+          "line": 33,
+          "end": 55
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 55
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/layouts/AuthLayout.tsx",
+      "bytes": 1548,
+      "sha256": "1ddb8f966c3fb0c8cc8d57d078982e15b6750d2e70445fbaa3de1f2b3c7faebc",
+      "category": "product-source",
+      "lines": 43,
+      "functions": [
+        {
+          "name": "AuthLayout",
+          "line": 6,
+          "end": 42
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/mappers/auth-mapper.ts",
+      "bytes": 1883,
+      "sha256": "7753407d079e76d611ec9c9078eeb22b2a08d633fffef2839c3e2307cd9a68f5",
+      "category": "product-source",
+      "lines": 60,
+      "functions": [
+        {
+          "name": "mapLoginCredentials",
+          "line": 6,
+          "end": 9
+        },
+        {
+          "name": "(callback)",
+          "line": 15,
+          "end": 15
+        },
+        {
+          "name": "mapCurrentUser",
+          "line": 25,
+          "end": 41
+        },
+        {
+          "name": "mapAuthResponse",
+          "line": 43,
+          "end": 46
+        },
+        {
+          "name": "mapSignInResponse",
+          "line": 48,
+          "end": 59
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/pages/LoginPage.tsx",
+      "bytes": 244,
+      "sha256": "12a7212a5993bcadd235c37416d7842ea5553dfc56838a2c41b7ec5ed8be76c3",
+      "category": "product-source",
+      "lines": 12,
+      "functions": [
+        {
+          "name": "LoginPage",
+          "line": 4,
+          "end": 11
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/public/index.ts",
+      "bytes": 266,
+      "sha256": "6718a8cbc6cf8bdd6efa8f5267c2fc8dd999799c0e06976c80276fd02919f87a",
+      "category": "product-source",
+      "lines": 5,
+      "functions": []
+    },
+    {
+      "file": "src/features/auth/services/auth-service.ts",
+      "bytes": 412,
+      "sha256": "dae6d6d53d004df70bd3989117e2539a1d525a14f840b5c02104ce0711811919",
+      "category": "product-source",
+      "lines": 13,
+      "functions": [
+        {
+          "name": "getAccount",
+          "line": 8,
+          "end": 9
+        },
+        {
+          "name": "login",
+          "line": 11,
+          "end": 12
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/services/login-destination.ts",
+      "bytes": 712,
+      "sha256": "1f0e7437829adafe70336d5525450fa5462c3738a3abef1d87a807c94c87d8bb",
+      "category": "product-source",
+      "lines": 27,
+      "functions": [
+        {
+          "name": "loginDestination",
+          "line": 5,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 11,
+          "end": 11
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/services/revoke-other-sessions.ts",
+      "bytes": 2059,
+      "sha256": "8ba3f7b014bd936dd245822ae0959354aae4816d94bb83f53eac5ee277e994d0",
+      "category": "product-source",
+      "lines": 58,
+      "functions": [
+        {
+          "name": "revokeOtherSessions",
+          "line": 7,
+          "end": 57
+        },
+        {
+          "name": "check",
+          "line": 14,
+          "end": 18
+        }
+      ]
+    },
+    {
+      "file": "src/features/auth/styles/sessions.css",
+      "bytes": 333,
+      "sha256": "add5681241be11f4efd6f03822e21533fc4ac90c0a92490f36d6f032247a124b",
+      "category": "product-source",
+      "lines": 19
+    },
+    {
+      "file": "src/features/auth/types/LoginCredentials.ts",
+      "bytes": 78,
+      "sha256": "ef1f6fbaa54bd28d5b061edf30bd50734b3036cb01f13c43d32040f291c39632",
+      "category": "product-source",
+      "lines": 5,
+      "functions": []
+    },
+    {
+      "file": "src/features/auth/types/PasswordChangeValues.ts",
+      "bytes": 111,
+      "sha256": "06faf9e50b3d367a82b5e488fb87c24e265ef4ccf711d07380f2822be2b37af3",
+      "category": "product-source",
+      "lines": 6,
+      "functions": []
+    },
+    {
+      "file": "src/features/auth/types/SessionSummary.ts",
+      "bytes": 274,
+      "sha256": "06ede10fefc1475360705f4f713264e5a0dca2a1a81190c9a9f75a7bebb6c423",
+      "category": "product-source",
+      "lines": 12,
+      "functions": []
+    },
+    {
+      "file": "src/features/auth/types/SessionsPage.ts",
+      "bytes": 196,
+      "sha256": "1f6940458ba5dd602cbaac88a45035f71c79a4fa62fface08fb94af049d4a3f1",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/features/auth/types/StatusResponse.ts",
+      "bytes": 71,
+      "sha256": "3c1b7773b774ce117f5c19879db04ce70b86d364a6aecae3cbe665c751465225",
+      "category": "product-source",
+      "lines": 5,
+      "functions": []
+    },
+    {
+      "file": "src/features/auth/types/props/AuthLayoutProps.ts",
+      "bytes": 101,
+      "sha256": "4bbc6346fe6b18ea90fcd131bf2464a9073bb1b2891e2ffb53a495dab55856cb",
+      "category": "product-source",
+      "lines": 6,
+      "functions": []
+    },
+    {
+      "file": "src/features/auth/validations/auth-schema.ts",
+      "bytes": 454,
+      "sha256": "642d63d48e69134507e363695dc94d596e1df962fd63b706861090aff16a91b0",
+      "category": "product-source",
+      "lines": 13,
+      "functions": []
+    },
+    {
+      "file": "src/features/auth/validations/password-change-schema.ts",
+      "bytes": 486,
+      "sha256": "4e03644916845325c192f466017ab1bc51edf624b155429b29fc2c6f9757aa7f",
+      "category": "product-source",
+      "lines": 13,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 9,
+          "end": 9
+        }
+      ]
+    },
+    {
+      "file": "src/features/dashboard/api/endpoints.ts",
+      "bytes": 68,
+      "sha256": "78696a58f247aad8869463c39c26e6dde23b76c6714b59dcc3d0c01e5974198f",
+      "category": "product-source",
+      "lines": 2,
+      "functions": []
+    },
+    {
+      "file": "src/features/dashboard/api/read-api.ts",
+      "bytes": 643,
+      "sha256": "0041d128ccc34e6085fcab743953eb5735378cf19b4da9e1aab05f3d1c516854",
+      "category": "product-source",
+      "lines": 14,
+      "functions": [
+        {
+          "name": "fetchDashboard",
+          "line": 8,
+          "end": 13
+        }
+      ]
+    },
+    {
+      "file": "src/features/dashboard/components/Dashboard.tsx",
+      "bytes": 3966,
+      "sha256": "3a53b29d41d2255e5071eae557d920a8b9e331db3d21aa656a4ca10eeb447ba8",
+      "category": "product-source",
+      "lines": 108,
+      "functions": [
+        {
+          "name": "Dashboard",
+          "line": 10,
+          "end": 107
+        },
+        {
+          "name": "(callback)",
+          "line": 45,
+          "end": 45
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 47,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 74,
+          "end": 88
+        },
+        {
+          "name": "(callback)",
+          "line": 102,
+          "end": 102
+        }
+      ]
+    },
+    {
+      "file": "src/features/dashboard/hooks/useDashboardController.ts",
+      "bytes": 704,
+      "sha256": "b3e60c6e99ec1a47825a5d512626b3177c67dcc840e457c7720176de5300ffe6",
+      "category": "product-source",
+      "lines": 25,
+      "functions": [
+        {
+          "name": "useDashboardController",
+          "line": 6,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 14
+        }
+      ]
+    },
+    {
+      "file": "src/features/dashboard/pages/DashboardPage.tsx",
+      "bytes": 141,
+      "sha256": "a9fba347b7fd7b97271675dcaa172520eb5f5673c6c056b5fbd3abdef8e7aaab",
+      "category": "product-source",
+      "lines": 7,
+      "functions": [
+        {
+          "name": "DashboardPage",
+          "line": 3,
+          "end": 6
+        }
+      ]
+    },
+    {
+      "file": "src/features/dashboard/styles/overview.css",
+      "bytes": 7060,
+      "sha256": "9206f7bfe50d706eed120ec82d011393f24a07bca6cb698f79a3af6730cc726a",
+      "category": "product-source",
+      "lines": 387
+    },
+    {
+      "file": "src/features/dashboard/styles/stock-alerts.css",
+      "bytes": 573,
+      "sha256": "a2fa517f04cebeb61654af84e84759015ff446ead7f1c18402840409962acfea",
+      "category": "product-source",
+      "lines": 36
+    },
+    {
+      "file": "src/features/dashboard/types/requests/GetDashboardRequest.ts",
+      "bytes": 80,
+      "sha256": "5f2da281b82b39e98debe17ea729cca8af7b76945d18c7cfe15ca32b04a98f64",
+      "category": "product-source",
+      "lines": 5,
+      "functions": []
+    },
+    {
+      "file": "src/features/dashboard/types/responses/DashboardResponse.ts",
+      "bytes": 365,
+      "sha256": "f832b0b46688fca1f78f691749ab8df632d2501f5602deafb9f7793623136eac",
+      "category": "product-source",
+      "lines": 15,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/api/endpoints.ts",
+      "bytes": 89,
+      "sha256": "b0e461c860190d54e8652f1f9d7df9dafc694479f881585a983cdae9abc0aba9",
+      "category": "product-source",
+      "lines": 4,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/api/users-api.ts",
+      "bytes": 3264,
+      "sha256": "4eee05c0e133993d2a2aa02f7b28598da333217ca392141fa11b423aa88a00eb",
+      "category": "product-source",
+      "lines": 79,
+      "functions": [
+        {
+          "name": "path",
+          "line": 14,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 21,
+          "end": 25
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 28
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 34
+        },
+        {
+          "name": "(callback)",
+          "line": 36,
+          "end": 44
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 49,
+          "end": 49
+        },
+        {
+          "name": "(callback)",
+          "line": 51,
+          "end": 58
+        },
+        {
+          "name": "(callback)",
+          "line": 60,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 70,
+          "end": 71
+        },
+        {
+          "name": "(callback)",
+          "line": 73,
+          "end": 74
+        },
+        {
+          "name": "(callback)",
+          "line": 76,
+          "end": 77
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/components/PermissionMatrix.tsx",
+      "bytes": 2829,
+      "sha256": "42049d97172e1cf3bd4d730bbf435796459196f534b9e4f75b902ceb978b11df",
+      "category": "product-source",
+      "lines": 83,
+      "functions": [
+        {
+          "name": "PermissionMatrix",
+          "line": 5,
+          "end": 82
+        },
+        {
+          "name": "mask",
+          "line": 19,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 20
+        },
+        {
+          "name": "set",
+          "line": 22,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 24,
+          "end": 24
+        },
+        {
+          "name": "all",
+          "line": 28,
+          "end": 42
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 41
+        },
+        {
+          "name": "(callback)",
+          "line": 47,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 50
+        },
+        {
+          "name": "(callback)",
+          "line": 54,
+          "end": 79
+        },
+        {
+          "name": "(callback)",
+          "line": 57,
+          "end": 77
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 71
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/components/UserAccountOperations.tsx",
+      "bytes": 7638,
+      "sha256": "e67f5f4b3d192af6436b811ec0a6b2846fd2f9aea56489ec2dcd7a7bc7df8703",
+      "category": "product-source",
+      "lines": 210,
+      "functions": [
+        {
+          "name": "UserAccountOperations",
+          "line": 13,
+          "end": 209
+        },
+        {
+          "name": "can",
+          "line": 21,
+          "end": 21
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 34
+        },
+        {
+          "name": "(callback)",
+          "line": 47,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 57
+        },
+        {
+          "name": "(callback)",
+          "line": 60,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 72,
+          "end": 75
+        },
+        {
+          "name": "(callback)",
+          "line": 90,
+          "end": 96
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 121
+        },
+        {
+          "name": "(callback)",
+          "line": 130,
+          "end": 134
+        },
+        {
+          "name": "(callback)",
+          "line": 161,
+          "end": 178
+        },
+        {
+          "name": "(callback)",
+          "line": 172,
+          "end": 172
+        },
+        {
+          "name": "(callback)",
+          "line": 182,
+          "end": 182
+        },
+        {
+          "name": "(callback)",
+          "line": 182,
+          "end": 182
+        },
+        {
+          "name": "(callback)",
+          "line": 188,
+          "end": 188
+        },
+        {
+          "name": "(callback)",
+          "line": 188,
+          "end": 188
+        },
+        {
+          "name": "(callback)",
+          "line": 197,
+          "end": 199
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/components/UserDirectory.tsx",
+      "bytes": 5054,
+      "sha256": "4a3ea49526f363b3560e9f14ffbab2fb64c3b39377987ca58c5d7bc27a62609f",
+      "category": "product-source",
+      "lines": 134,
+      "functions": [
+        {
+          "name": "UserDirectory",
+          "line": 14,
+          "end": 133
+        },
+        {
+          "name": "(callback)",
+          "line": 36,
+          "end": 36
+        },
+        {
+          "name": "(callback)",
+          "line": 48,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 57,
+          "end": 60
+        },
+        {
+          "name": "(callback)",
+          "line": 81,
+          "end": 83
+        },
+        {
+          "name": "(callback)",
+          "line": 87,
+          "end": 115
+        },
+        {
+          "name": "(callback)",
+          "line": 94,
+          "end": 94
+        },
+        {
+          "name": "(callback)",
+          "line": 100,
+          "end": 100
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 108
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/components/UserEditor.tsx",
+      "bytes": 2369,
+      "sha256": "052f65f29d79d326c3ac909e49c537750879abc1c24e33cbcd5e3748ccb321cd",
+      "category": "product-source",
+      "lines": 72,
+      "functions": [
+        {
+          "name": "UserEditor",
+          "line": 11,
+          "end": 71
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 41,
+          "end": 41
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/components/UserFormFields.tsx",
+      "bytes": 1252,
+      "sha256": "c362ee6c84cdb1f3828ca6749e1a80960ad7b5163cfd292aa87c1dd94f7e48f3",
+      "category": "product-source",
+      "lines": 40,
+      "functions": [
+        {
+          "name": "UserFormFields",
+          "line": 6,
+          "end": 39
+        },
+        {
+          "name": "(callback)",
+          "line": 31,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 36
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/components/reports/UserAuditReport.tsx",
+      "bytes": 6429,
+      "sha256": "cc7d3ebb460e5dcf1c81cfae0555f09a167164cb42678a0b6492cb81152a45fc",
+      "category": "product-source",
+      "lines": 171,
+      "functions": [
+        {
+          "name": "UserAuditReport",
+          "line": 13,
+          "end": 170
+        },
+        {
+          "name": "(callback)",
+          "line": 40,
+          "end": 40
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 56
+        },
+        {
+          "name": "(callback)",
+          "line": 59,
+          "end": 61
+        },
+        {
+          "name": "(callback)",
+          "line": 59,
+          "end": 61
+        },
+        {
+          "name": "change",
+          "line": 65,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 110
+        },
+        {
+          "name": "(callback)",
+          "line": 115,
+          "end": 115
+        },
+        {
+          "name": "(callback)",
+          "line": 116,
+          "end": 126
+        },
+        {
+          "name": "(callback)",
+          "line": 141,
+          "end": 141
+        },
+        {
+          "name": "(callback)",
+          "line": 149,
+          "end": 149
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/hooks/useUserEditor.ts",
+      "bytes": 2688,
+      "sha256": "9dd0beac10832510cbf5af1c03119421372ad9659aba1dfbf4c162af76025b59",
+      "category": "product-source",
+      "lines": 83,
+      "functions": [
+        {
+          "name": "useUserEditor",
+          "line": 13,
+          "end": 82
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 52
+        },
+        {
+          "name": "(callback)",
+          "line": 54,
+          "end": 59
+        },
+        {
+          "name": "(callback)",
+          "line": 61,
+          "end": 73
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/pages/ChangePasswordPage.tsx",
+      "bytes": 133,
+      "sha256": "a948f5372069df7c62028b1435e6e173ab24f856d6f2764cef99c438333bdb94",
+      "category": "product-source",
+      "lines": 7,
+      "functions": [
+        {
+          "name": "ChangePasswordPage",
+          "line": 3,
+          "end": 6
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/pages/CreateUserPage.tsx",
+      "bytes": 845,
+      "sha256": "042bcd6b2f9c8912b1ab8e856a3a7f768a8b2b39b3866654d71e86fac802c35f",
+      "category": "product-source",
+      "lines": 25,
+      "functions": [
+        {
+          "name": "CreateUserPage",
+          "line": 7,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 16,
+          "end": 16
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 17
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/pages/EditUserPage.tsx",
+      "bytes": 1406,
+      "sha256": "3a1728044a7b319f3bce6ddc894c50e2b5b151910c94afb75451b0390325a4af",
+      "category": "product-source",
+      "lines": 33,
+      "functions": [
+        {
+          "name": "EditUserPage",
+          "line": 10,
+          "end": 32
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 27
+        },
+        {
+          "name": "(callback)",
+          "line": 28,
+          "end": 28
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/pages/UserAuditPage.tsx",
+      "bytes": 328,
+      "sha256": "5bfc22a868373cfb4be50aca4ade9894bc5b7d5068bfbf81faddb2ce9e22af6f",
+      "category": "product-source",
+      "lines": 13,
+      "functions": [
+        {
+          "name": "UserAuditPage",
+          "line": 5,
+          "end": 12
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/pages/UserListPage.tsx",
+      "bytes": 148,
+      "sha256": "ebfcd7224b67acad9fc07d8ecb4189e2531226c81c2d315ce959f8ebd672f2d8",
+      "category": "product-source",
+      "lines": 7,
+      "functions": [
+        {
+          "name": "UserListPage",
+          "line": 3,
+          "end": 6
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/pages/UserPermissionsPage.tsx",
+      "bytes": 4412,
+      "sha256": "13dde11d13433bb4e2424665e5ea6bd4cc290a2600166ebf03fb64649f7ed501",
+      "category": "product-source",
+      "lines": 112,
+      "functions": [
+        {
+          "name": "UserPermissionsPage",
+          "line": 15,
+          "end": 111
+        },
+        {
+          "name": "(callback)",
+          "line": 25,
+          "end": 25
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 39
+        },
+        {
+          "name": "setDraft",
+          "line": 49,
+          "end": 49
+        },
+        {
+          "name": "(callback)",
+          "line": 52,
+          "end": 64
+        },
+        {
+          "name": "(callback)",
+          "line": 61,
+          "end": 61
+        },
+        {
+          "name": "(callback)",
+          "line": 66,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 102,
+          "end": 102
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/pages/UserSessionsPage.tsx",
+      "bytes": 147,
+      "sha256": "1807d8a5fbaa472b65beb6c8be32a21590d41ded3c998a7a4bf9f87bdad4a661",
+      "category": "product-source",
+      "lines": 7,
+      "functions": [
+        {
+          "name": "UserSessionsPage",
+          "line": 3,
+          "end": 6
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/pages/ViewUserPage.tsx",
+      "bytes": 1599,
+      "sha256": "1f52ad50334ce211b894e49a3c8d0677bb16faec0be4c31e3826380e33e13a3d",
+      "category": "product-source",
+      "lines": 38,
+      "functions": [
+        {
+          "name": "ViewUserPage",
+          "line": 9,
+          "end": 37
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/public/index.ts",
+      "bytes": 322,
+      "sha256": "30c1ddec8d4208e4f3df50619371fdafaeb77bd627818440f8ea8acc1b5a4eb9",
+      "category": "product-source",
+      "lines": 5,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/queries/users-query.ts",
+      "bytes": 1449,
+      "sha256": "0c00bfbabde1dc302988a72f12af837896023438d5cf79b8ac976cab6774aa3a",
+      "category": "product-source",
+      "lines": 44,
+      "functions": [
+        {
+          "name": "useUsersQuery",
+          "line": 7,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 19
+        },
+        {
+          "name": "(callback)",
+          "line": 16,
+          "end": 16
+        },
+        {
+          "name": "useUserQuery",
+          "line": 26,
+          "end": 43
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 38
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/services/audit-events.ts",
+      "bytes": 78,
+      "sha256": "c15b9a2c11ec6089cda9075a85097783734be504c8ffe88c4334c85818812465",
+      "category": "product-source",
+      "lines": 2,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/services/permission-catalog.ts",
+      "bytes": 406,
+      "sha256": "528cd9d3923c4bcc55142d69ebcc47cb9765240cbe9e0a7d9dbb35fe39fb0c69",
+      "category": "product-source",
+      "lines": 11,
+      "functions": [
+        {
+          "name": "fetchPermissionCatalog",
+          "line": 5,
+          "end": 10
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/types/AuditFilters.ts",
+      "bytes": 228,
+      "sha256": "ff5b43a3db2943fe94a57f5f3474b0c9bd116f1342f164db6467c3e3e0853482",
+      "category": "product-source",
+      "lines": 12,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/AuditLogItem.ts",
+      "bytes": 256,
+      "sha256": "4bd9811f541acc2ff11b8986dd2381275f13ca44084ff3cacd9c6e66044a5f2d",
+      "category": "product-source",
+      "lines": 11,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/AuditLogsPage.ts",
+      "bytes": 192,
+      "sha256": "91c7a7c54798ecc680cd7e64aa5cef6c728ebd1f8066b626a92afa97c116e9ec",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/CreateUserRequest.ts",
+      "bytes": 230,
+      "sha256": "1a0447d866349a1ce9b37cc64613c0e5445b6e95ccb0403df8075113d1d04ae5",
+      "category": "product-source",
+      "lines": 10,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/CreateUserResponse.ts",
+      "bytes": 181,
+      "sha256": "6c738d0c91e9bd9e7c575ff5480121b69a60c37da82050e282f2f2681d9b72d8",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/PermissionCatalog.ts",
+      "bytes": 208,
+      "sha256": "9d96ac01a03b9b1935b9bffb0dffd2c97e09779a55feec0ccf97987df0f910bc",
+      "category": "product-source",
+      "lines": 5,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/PermissionMask.ts",
+      "bytes": 74,
+      "sha256": "f1c27128a1ff8f1bc626c796a4fa13eef2a6c6502fb821a9aae47df553e9bc1c",
+      "category": "product-source",
+      "lines": 5,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/UpdateUserRequest.ts",
+      "bytes": 101,
+      "sha256": "2a61a559d11ea32d1f7780ec6510891fd0b448566831270eee297f51e325f21f",
+      "category": "product-source",
+      "lines": 6,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/UserDetails.ts",
+      "bytes": 183,
+      "sha256": "8d6a14876f654924eefb60d13205e5ecf1380b2510c13cda62656896ee208426",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/UserFormValues.ts",
+      "bytes": 265,
+      "sha256": "056af922d38d834df963a072e14346cbf8db1310ad736320b398a67c61daf1cd",
+      "category": "product-source",
+      "lines": 12,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/UserListItem.ts",
+      "bytes": 151,
+      "sha256": "ea4fe7dbdc3fd2e157586753146d60fb13c281dd43b026b086d1fb9263509571",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/UserPermissions.ts",
+      "bytes": 216,
+      "sha256": "bc526dd0abd00703eae6ec7e5b0d81f872aa2f4da97b68935ee28df9e38ea3d3",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/UserSessionsPage.ts",
+      "bytes": 285,
+      "sha256": "3526d8519b57ba91d244dc0e5584e6a3c398bb65e2ca7aaa083dfa55da2a0488",
+      "category": "product-source",
+      "lines": 15,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/UsersFilters.ts",
+      "bytes": 131,
+      "sha256": "409a23495b8434aec08799b1884d99ad284e5de9b391cac094fa106f754642c1",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/UsersPage.ts",
+      "bytes": 188,
+      "sha256": "f4a55ebc03d6105a8874e9caa03c7641b4bb33a573fa66420e46bf39027c20d6",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/models/Audit.ts",
+      "bytes": 96,
+      "sha256": "642856031d6995cb30acb8c70a5ee91ddf13dc59f72522ac2f0a59085bea1b88",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/types/responses/AuditEventResponse.ts",
+      "bytes": 133,
+      "sha256": "fafedc5e50dc42702e15e5b2b7a6e48baa221b395b0a6861cf991fd666418d14",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/features/users/validations/permission-catalog-schema.ts",
+      "bytes": 570,
+      "sha256": "30997ad6de180e41a04d4b955e0e1481e658e9b3f1840a0ef37ec25fe2557468",
+      "category": "product-source",
+      "lines": 25,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 6,
+          "end": 6
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/validations/permission-grants.ts",
+      "bytes": 1019,
+      "sha256": "26626456dc8ddce1f95ce885920d3d6b14e760bbf5bbb579a20ac91b156be59c",
+      "category": "product-source",
+      "lines": 24,
+      "functions": [
+        {
+          "name": "assertGrantable",
+          "line": 5,
+          "end": 23
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 19,
+          "end": 19
+        }
+      ]
+    },
+    {
+      "file": "src/features/users/validations/user-form-schema.ts",
+      "bytes": 1542,
+      "sha256": "ad3bf89493ca9223ff1bcebc30cc6809ae8f22b1e9e694e49032e666978ace31",
+      "category": "product-source",
+      "lines": 44,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 23,
+          "end": 39
+        },
+        {
+          "name": "(callback)",
+          "line": 27,
+          "end": 27
+        }
+      ]
+    },
+    {
+      "file": "src/shared/lib/classnames.ts",
+      "bytes": 201,
+      "sha256": "d4338a345edaed14933a1d0464e89f75c3493a67825ea85f169a5e8d4a7abc96",
+      "category": "product-source",
+      "lines": 9,
+      "functions": [
+        {
+          "name": "cn",
+          "line": 5,
+          "end": 8
+        }
+      ]
+    },
+    {
+      "file": "src/shared/lib/menu-leaves.ts",
+      "bytes": 219,
+      "sha256": "fe48452613956e1007cacdad6541db4b5fff0679f2b3dd2cfde6ad047bb9ab8b",
+      "category": "product-source",
+      "lines": 5,
+      "functions": [
+        {
+          "name": "menuLeaves",
+          "line": 3,
+          "end": 4
+        },
+        {
+          "name": "(callback)",
+          "line": 4,
+          "end": 4
+        }
+      ]
+    },
+    {
+      "file": "src/shared/styles/display-and-tables.css",
+      "bytes": 2014,
+      "sha256": "6b3210df95e31b46bdd56301fcb06edce6c8607f1b58a5c90d5850f28dbd279e",
+      "category": "product-source",
+      "lines": 111
+    },
+    {
+      "file": "src/shared/styles/forms-and-lookup.css",
+      "bytes": 3690,
+      "sha256": "8e85106d6ee186f5c8b95eac52ce313ed62a494ee29e51b97d74b3506a5ab749",
+      "category": "product-source",
+      "lines": 192
+    },
+    {
+      "file": "src/shared/styles/guest-layout.css",
+      "bytes": 3103,
+      "sha256": "1dad348443858f1dbe00a1063b72dc4df44ee2370e12774bc50936349fcb4d54",
+      "category": "product-source",
+      "lines": 170
+    },
+    {
+      "file": "src/shared/styles/table-document-overrides.css",
+      "bytes": 1717,
+      "sha256": "50e3529969362b6ad8f71264cf81ef14a1498b7dd11c1da00f37ee638b1ff8af",
+      "category": "product-source",
+      "lines": 71
+    },
+    {
+      "file": "src/shared/styles/validation.css",
+      "bytes": 296,
+      "sha256": "13cd1b7220a2bd9fb149facd59934e80fac0942399a3f4617e0c80679bbaf451",
+      "category": "product-source",
+      "lines": 17
+    },
+    {
+      "file": "src/shared/types/forms/Validatable.ts",
+      "bytes": 86,
+      "sha256": "23be5a67f015abadc6d90457aa75ca8e50c4f1c55c9d668da78b55075dedd064",
+      "category": "product-source",
+      "lines": 2,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/navigation/MenuItem.ts",
+      "bytes": 105,
+      "sha256": "21e4acbb2364bd1ea05574cfa8578b1d6aaffba8636282994fc71c733ee4f317",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/props/EntryProps.ts",
+      "bytes": 189,
+      "sha256": "95cb833afaf4e215e512f02ef513cfc139dec125b87303df0f704911b8d7eb7c",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/props/FieldProps.ts",
+      "bytes": 136,
+      "sha256": "75d6528505f99b60cdbe34b8483d6b331cb5a1f145261b2dc4ae352ed45b5a2f",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/props/GuestLayoutProps.ts",
+      "bytes": 122,
+      "sha256": "5b60f97e615c4e960fc29b37ebc4788ec698974b73f0dc7783af0bd83363f6e5",
+      "category": "product-source",
+      "lines": 7,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/props/ModalProps.ts",
+      "bytes": 197,
+      "sha256": "4f8ceb8e39a7e7fff48424db268027ff9e344ee024cded940edd54cff2450e7d",
+      "category": "product-source",
+      "lines": 11,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/props/PageHeadProps.ts",
+      "bytes": 178,
+      "sha256": "f48a76f0d24217c9819f3ba41db5c0771d5713ccaf487b03987bb640be868ad0",
+      "category": "product-source",
+      "lines": 10,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/props/PaginationProps.ts",
+      "bytes": 178,
+      "sha256": "950ffd43e89f98f8cce11035938645c6e6a84a7f10a376a6bfe3ae3600f3020d",
+      "category": "product-source",
+      "lines": 9,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/props/PanelProps.ts",
+      "bytes": 184,
+      "sha256": "5a062eedd8e797f4be26c4d8aacd70a467c402a706f2a65d140775e3003f1158",
+      "category": "product-source",
+      "lines": 10,
+      "functions": []
+    },
+    {
+      "file": "src/shared/types/props/SectionNavigationProps.ts",
+      "bytes": 179,
+      "sha256": "561e77e442460c447756cca21bd0a87572767235de83e9cf78217d7af4bd8408",
+      "category": "product-source",
+      "lines": 8,
+      "functions": []
+    },
+    {
+      "file": "src/shared/ui/actions/ThemeToggle.tsx",
+      "bytes": 561,
+      "sha256": "4e16a72f8ad5b818f312af4d0a29a01cc5b92864bbc461ef706e2a924f85d3c2",
+      "category": "product-source",
+      "lines": 20,
+      "functions": [
+        {
+          "name": "ThemeToggle",
+          "line": 4,
+          "end": 19
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 14
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/dialogs/Modal.tsx",
+      "bytes": 863,
+      "sha256": "57b0373b54593ed36682a4bf151f358c6034b5da2ee810e2a42e35e05ecfcc36",
+      "category": "product-source",
+      "lines": 33,
+      "functions": [
+        {
+          "name": "Modal",
+          "line": 10,
+          "end": 32
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/feedback/LoadingState.tsx",
+      "bytes": 262,
+      "sha256": "63d51f5e11fe0efe2df448296e84d8f8f35be0ca8254f3829ffdeb5624f82b50",
+      "category": "product-source",
+      "lines": 12,
+      "functions": [
+        {
+          "name": "LoadingState",
+          "line": 3,
+          "end": 11
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/feedback/NotFoundPage.tsx",
+      "bytes": 282,
+      "sha256": "e457d9518182d3790d17fa12bf8a42c3d53b46eea04e03580af1c38d5d7f312f",
+      "category": "product-source",
+      "lines": 12,
+      "functions": [
+        {
+          "name": "NotFoundPage",
+          "line": 3,
+          "end": 11
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/feedback/RouteErrorPage.tsx",
+      "bytes": 472,
+      "sha256": "a7f899535856fe020d3647999ffd9b005c58b90a49450e689c3b15c65641620b",
+      "category": "product-source",
+      "lines": 15,
+      "functions": [
+        {
+          "name": "RouteErrorPage",
+          "line": 4,
+          "end": 14
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/forms/Field.tsx",
+      "bytes": 3799,
+      "sha256": "67cd4cb4733bc1ac99a960916e0ebb92c78c6c816ba72840bcc3f7293262fd9b",
+      "category": "product-source",
+      "lines": 117,
+      "functions": [
+        {
+          "name": "Field",
+          "line": 10,
+          "end": 116
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 68
+        },
+        {
+          "name": "(callback)",
+          "line": 35,
+          "end": 35
+        },
+        {
+          "name": "(callback)",
+          "line": 48,
+          "end": 52
+        },
+        {
+          "name": "(callback)",
+          "line": 54,
+          "end": 58
+        },
+        {
+          "name": "inspect",
+          "line": 70,
+          "end": 76
+        },
+        {
+          "name": "(callback)",
+          "line": 81,
+          "end": 84
+        },
+        {
+          "name": "(callback)",
+          "line": 85,
+          "end": 89
+        },
+        {
+          "name": "(callback)",
+          "line": 90,
+          "end": 94
+        },
+        {
+          "name": "(callback)",
+          "line": 97,
+          "end": 104
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/forms/FieldNavigation.tsx",
+      "bytes": 1785,
+      "sha256": "d7baae32687ace814a61bcdbca66d8fb393ce1c2c46f9de7f0e91c84bf367ca2",
+      "category": "product-source",
+      "lines": 54,
+      "functions": [
+        {
+          "name": "FieldNavigation",
+          "line": 10,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 51
+        },
+        {
+          "name": "navigate",
+          "line": 13,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 38
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 50
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/forms/Select.tsx",
+      "bytes": 217,
+      "sha256": "1ebd44f6e040dd7c5d7237d82eaf143e2534936326646a4b62edcafc8da06a19",
+      "category": "product-source",
+      "lines": 11,
+      "functions": [
+        {
+          "name": "Select",
+          "line": 3,
+          "end": 10
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/forms/ValidatedForm.tsx",
+      "bytes": 5362,
+      "sha256": "772126a2a4c5fa19ad940612bc9c773d53e3171b7b755f73e0c2aee043e8777f",
+      "category": "product-source",
+      "lines": 153,
+      "functions": [
+        {
+          "name": "fieldError",
+          "line": 8,
+          "end": 24
+        },
+        {
+          "name": "validateForm",
+          "line": 26,
+          "end": 49
+        },
+        {
+          "name": "Form",
+          "line": 51,
+          "end": 152
+        },
+        {
+          "name": "(callback)",
+          "line": 60,
+          "end": 92
+        },
+        {
+          "name": "(callback)",
+          "line": 104,
+          "end": 111
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 110
+        },
+        {
+          "name": "(callback)",
+          "line": 112,
+          "end": 115
+        },
+        {
+          "name": "(callback)",
+          "line": 116,
+          "end": 124
+        },
+        {
+          "name": "(callback)",
+          "line": 125,
+          "end": 139
+        },
+        {
+          "name": "(callback)",
+          "line": 130,
+          "end": 130
+        },
+        {
+          "name": "(callback)",
+          "line": 131,
+          "end": 137
+        },
+        {
+          "name": "(callback)",
+          "line": 133,
+          "end": 134
+        },
+        {
+          "name": "(callback)",
+          "line": 144,
+          "end": 146
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/forms/control-validation.ts",
+      "bytes": 2114,
+      "sha256": "1df1df61e0c54df3afb6fe614ed5609b63c8e5185afb067c4f623e390f71a6be",
+      "category": "product-source",
+      "lines": 53,
+      "functions": [
+        {
+          "name": "validateControl",
+          "line": 5,
+          "end": 52
+        },
+        {
+          "name": "(callback)",
+          "line": 33,
+          "end": 36
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/layout/GuestLayout.tsx",
+      "bytes": 487,
+      "sha256": "f85f2d096112d5da19f0c0e2614c2b404128c288e3018ee7c3f927bd81272fa6",
+      "category": "product-source",
+      "lines": 15,
+      "functions": [
+        {
+          "name": "GuestLayout",
+          "line": 4,
+          "end": 14
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/layout/PageHead.tsx",
+      "bytes": 764,
+      "sha256": "4ec3cf365115954c4ae5e69f8163faea24d9e707079503bf5d4563c29bdad34a",
+      "category": "product-source",
+      "lines": 34,
+      "functions": [
+        {
+          "name": "PageHead",
+          "line": 5,
+          "end": 33
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/layout/Panel.tsx",
+      "bytes": 432,
+      "sha256": "372f54639e80fae4d7ac3b0806cccbcc4e44607ffd1b73b345db141ee9ea977d",
+      "category": "product-source",
+      "lines": 18,
+      "functions": [
+        {
+          "name": "Panel",
+          "line": 3,
+          "end": 17
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/navigation/Pagination.tsx",
+      "bytes": 608,
+      "sha256": "175aa1b2a309319147030da0c9ea518d6731a04d5822ea4bfc008832921af6f8",
+      "category": "product-source",
+      "lines": 18,
+      "functions": [
+        {
+          "name": "Pagination",
+          "line": 4,
+          "end": 17
+        },
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 8
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 12
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/navigation/SectionNavigation.tsx",
+      "bytes": 1962,
+      "sha256": "0cd911483222082be98604a34d90d3292fdb968f01311beecd554c71cf738400",
+      "category": "product-source",
+      "lines": 61,
+      "functions": [
+        {
+          "name": "Entry",
+          "line": 7,
+          "end": 49
+        },
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 10
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 13
+        },
+        {
+          "name": "(callback)",
+          "line": 21,
+          "end": 21
+        },
+        {
+          "name": "(callback)",
+          "line": 28,
+          "end": 30
+        },
+        {
+          "name": "(callback)",
+          "line": 39,
+          "end": 39
+        },
+        {
+          "name": "SectionNavigation",
+          "line": 51,
+          "end": 60
+        },
+        {
+          "name": "(callback)",
+          "line": 55,
+          "end": 57
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/primitives/button.tsx",
+      "bytes": 2438,
+      "sha256": "d180b719c2f35a948a41d9a893d645629ddb00a556e9b814c2771a24a330b799",
+      "category": "product-source",
+      "lines": 65,
+      "functions": [
+        {
+          "name": "Button",
+          "line": 40,
+          "end": 62
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/primitives/dialog.tsx",
+      "bytes": 4307,
+      "sha256": "32298fc49ae4ce95f5cc77af08a5343cb8cc4c2f1187770cd0e64159fd54f6a8",
+      "category": "product-source",
+      "lines": 153,
+      "functions": [
+        {
+          "name": "Dialog",
+          "line": 8,
+          "end": 11
+        },
+        {
+          "name": "DialogTrigger",
+          "line": 13,
+          "end": 16
+        },
+        {
+          "name": "DialogPortal",
+          "line": 18,
+          "end": 21
+        },
+        {
+          "name": "DialogClose",
+          "line": 23,
+          "end": 26
+        },
+        {
+          "name": "DialogOverlay",
+          "line": 28,
+          "end": 43
+        },
+        {
+          "name": "DialogContent",
+          "line": 45,
+          "end": 78
+        },
+        {
+          "name": "DialogHeader",
+          "line": 80,
+          "end": 89
+        },
+        {
+          "name": "DialogFooter",
+          "line": 91,
+          "end": 114
+        },
+        {
+          "name": "DialogTitle",
+          "line": 116,
+          "end": 125
+        },
+        {
+          "name": "DialogDescription",
+          "line": 127,
+          "end": 139
+        }
+      ]
+    },
+    {
+      "file": "src/shared/ui/primitives/input.tsx",
+      "bytes": 980,
+      "sha256": "b3b5007894e29a79d91f883ff4a490ff2bd8cdcaecef8735beda6d5dbe07597f",
+      "category": "product-source",
+      "lines": 23,
+      "functions": [
+        {
+          "name": "Input",
+          "line": 5,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "file": "tests/README.md",
+      "bytes": 1379,
+      "sha256": "7693bdc021a52b8583a6feb8f50ae0a28e9e63a5c30d8164f28903680d203ae6",
+      "category": "test",
+      "lines": 13
+    },
+    {
+      "file": "tests/architecture/architecture.test.ts",
+      "bytes": 2796,
+      "sha256": "7187d3ef61beabafaaf62e5f9d19b0b90a83e4fa0dfb1859d2568d81125d38b3",
+      "category": "test",
+      "lines": 75,
+      "functions": [
+        {
+          "name": "walk",
+          "line": 6,
+          "end": 10
+        },
+        {
+          "name": "(callback)",
+          "line": 7,
+          "end": 10
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 13,
+          "end": 13
+        },
+        {
+          "name": "(callback)",
+          "line": 21,
+          "end": 43
+        },
+        {
+          "name": "inspect",
+          "line": 35,
+          "end": 40
+        },
+        {
+          "name": "(callback)",
+          "line": 44,
+          "end": 57
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 46
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 50
+        },
+        {
+          "name": "(callback)",
+          "line": 58,
+          "end": 74
+        },
+        {
+          "name": "(callback)",
+          "line": 59,
+          "end": 59
+        },
+        {
+          "name": "visit",
+          "line": 63,
+          "end": 69
+        }
+      ]
+    },
+    {
+      "file": "tests/architecture/foundation.test.ts",
+      "bytes": 1486,
+      "sha256": "86dde760a14ea7110b36385c56dda1c6aadff38da46e441c0195021ff3574c6a",
+      "category": "test",
+      "lines": 28,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 9,
+          "end": 13
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 21
+        },
+        {
+          "name": "(callback)",
+          "line": 15,
+          "end": 15
+        },
+        {
+          "name": "(callback)",
+          "line": 18,
+          "end": 18
+        },
+        {
+          "name": "(callback)",
+          "line": 22,
+          "end": 27
+        }
+      ]
+    },
+    {
+      "file": "tests/contracts/auth-transport.test.ts",
+      "bytes": 3036,
+      "sha256": "add7ad8e6334a56b6126de4df71b3360c90893b3b27e27799756e74e8d2ca965",
+      "category": "test",
+      "lines": 71,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 7,
+          "end": 9
+        },
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 15
+        },
+        {
+          "name": "(callback)",
+          "line": 48,
+          "end": 64
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 59
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 66,
+          "end": 66
+        },
+        {
+          "name": "(callback)",
+          "line": 69,
+          "end": 69
+        }
+      ]
+    },
+    {
+      "file": "tests/contracts/current-system.test.ts",
+      "bytes": 3126,
+      "sha256": "341b82a5274877c9b05064e6d187384d977f542ea68a00ebd06d8dc03e31fef7",
+      "category": "test",
+      "lines": 87,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 9,
+          "end": 11
+        },
+        {
+          "name": "(callback)",
+          "line": 21,
+          "end": 52
+        },
+        {
+          "name": "(callback)",
+          "line": 22,
+          "end": 46
+        },
+        {
+          "name": "(callback)",
+          "line": 55,
+          "end": 57
+        },
+        {
+          "name": "(callback)",
+          "line": 59,
+          "end": 67
+        },
+        {
+          "name": "(callback)",
+          "line": 61,
+          "end": 61
+        },
+        {
+          "name": "(callback)",
+          "line": 62,
+          "end": 65
+        },
+        {
+          "name": "(callback)",
+          "line": 68,
+          "end": 79
+        },
+        {
+          "name": "(callback)",
+          "line": 69,
+          "end": 76
+        },
+        {
+          "name": "(callback)",
+          "line": 78,
+          "end": 78
+        },
+        {
+          "name": "(callback)",
+          "line": 80,
+          "end": 86
+        },
+        {
+          "name": "(callback)",
+          "line": 81,
+          "end": 84
+        }
+      ]
+    },
+    {
+      "file": "tests/contracts/dashboard-contract.test.ts",
+      "bytes": 1553,
+      "sha256": "39722958a2b1032f56b0aa492e3745ada85506d1220ceaa8e91a3807099083d9",
+      "category": "test",
+      "lines": 40,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 7,
+          "end": 9
+        },
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 29
+        },
+        {
+          "name": "(callback)",
+          "line": 17,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 30,
+          "end": 39
+        }
+      ]
+    },
+    {
+      "file": "tests/contracts/http.test.ts",
+      "bytes": 2682,
+      "sha256": "7ff16190b77fe998daa98eacf8a5638a94e7739881edba6b3a4dd691294db917",
+      "category": "test",
+      "lines": 72,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 7,
+          "end": 10
+        },
+        {
+          "name": "(callback)",
+          "line": 11,
+          "end": 71
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 22
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 23,
+          "end": 33
+        },
+        {
+          "name": "(callback)",
+          "line": 25,
+          "end": 31
+        },
+        {
+          "name": "(callback)",
+          "line": 34,
+          "end": 50
+        },
+        {
+          "name": "(callback)",
+          "line": 51,
+          "end": 59
+        },
+        {
+          "name": "(callback)",
+          "line": 60,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 62,
+          "end": 68
+        }
+      ]
+    },
+    {
+      "file": "tests/contracts/login-contract.test.ts",
+      "bytes": 8653,
+      "sha256": "801825c4fb265e8523fa0ecfac99257527b5c872387d48b87e253473dfe39a00",
+      "category": "test",
+      "lines": 233,
+      "functions": [
+        {
+          "name": "success",
+          "line": 25,
+          "end": 31
+        },
+        {
+          "name": "fail",
+          "line": 33,
+          "end": 39
+        },
+        {
+          "name": "(callback)",
+          "line": 41,
+          "end": 46
+        },
+        {
+          "name": "(callback)",
+          "line": 47,
+          "end": 71
+        },
+        {
+          "name": "(callback)",
+          "line": 49,
+          "end": 61
+        },
+        {
+          "name": "(callback)",
+          "line": 72,
+          "end": 77
+        },
+        {
+          "name": "(callback)",
+          "line": 74,
+          "end": 75
+        },
+        {
+          "name": "(callback)",
+          "line": 87,
+          "end": 89
+        },
+        {
+          "name": "(callback)",
+          "line": 90,
+          "end": 92
+        },
+        {
+          "name": "(callback)",
+          "line": 93,
+          "end": 101
+        },
+        {
+          "name": "(callback)",
+          "line": 97,
+          "end": 97
+        },
+        {
+          "name": "(callback)",
+          "line": 102,
+          "end": 116
+        },
+        {
+          "name": "(callback)",
+          "line": 104,
+          "end": 107
+        },
+        {
+          "name": "(callback)",
+          "line": 105,
+          "end": 105
+        },
+        {
+          "name": "(callback)",
+          "line": 109,
+          "end": 110
+        },
+        {
+          "name": "(callback)",
+          "line": 117,
+          "end": 127
+        },
+        {
+          "name": "(callback)",
+          "line": 118,
+          "end": 120
+        },
+        {
+          "name": "(callback)",
+          "line": 123,
+          "end": 123
+        },
+        {
+          "name": "(callback)",
+          "line": 128,
+          "end": 136
+        },
+        {
+          "name": "(callback)",
+          "line": 129,
+          "end": 131
+        },
+        {
+          "name": "(callback)",
+          "line": 133,
+          "end": 133
+        },
+        {
+          "name": "(callback)",
+          "line": 137,
+          "end": 145
+        },
+        {
+          "name": "(callback)",
+          "line": 141,
+          "end": 141
+        },
+        {
+          "name": "(callback)",
+          "line": 146,
+          "end": 161
+        },
+        {
+          "name": "(callback)",
+          "line": 148,
+          "end": 153
+        },
+        {
+          "name": "(callback)",
+          "line": 149,
+          "end": 153
+        },
+        {
+          "name": "(callback)",
+          "line": 150,
+          "end": 152
+        },
+        {
+          "name": "(callback)",
+          "line": 155,
+          "end": 155
+        },
+        {
+          "name": "(callback)",
+          "line": 163,
+          "end": 183
+        },
+        {
+          "name": "(callback)",
+          "line": 166,
+          "end": 180
+        },
+        {
+          "name": "(callback)",
+          "line": 184,
+          "end": 198
+        },
+        {
+          "name": "(callback)",
+          "line": 187,
+          "end": 195
+        },
+        {
+          "name": "(callback)",
+          "line": 199,
+          "end": 217
+        },
+        {
+          "name": "(callback)",
+          "line": 202,
+          "end": 204
+        },
+        {
+          "name": "(callback)",
+          "line": 205,
+          "end": 208
+        },
+        {
+          "name": "(callback)",
+          "line": 209,
+          "end": 209
+        },
+        {
+          "name": "(callback)",
+          "line": 211,
+          "end": 211
+        },
+        {
+          "name": "(callback)",
+          "line": 218,
+          "end": 232
+        },
+        {
+          "name": "(callback)",
+          "line": 220,
+          "end": 222
+        },
+        {
+          "name": "(callback)",
+          "line": 223,
+          "end": 226
+        },
+        {
+          "name": "(callback)",
+          "line": 228,
+          "end": 228
+        }
+      ]
+    },
+    {
+      "file": "tests/contracts/naming-contracts.test.ts",
+      "bytes": 889,
+      "sha256": "7ccfdfd7df962fec712a913b6ceaa4a001ff3bd74a19563b9ab50daa618a92aa",
+      "category": "test",
+      "lines": 31,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 7,
+          "end": 30
+        },
+        {
+          "name": "visit",
+          "line": 17,
+          "end": 25
+        }
+      ]
+    },
+    {
+      "file": "tests/contracts/validation-contract.test.ts",
+      "bytes": 2482,
+      "sha256": "5db0904805976737394d68a570630a6ff0c3563ec5b933243aa3e44491091301",
+      "category": "test",
+      "lines": 70,
+      "functions": [
+        {
+          "name": "restoreNumbers",
+          "line": 21,
+          "end": 34
+        },
+        {
+          "name": "(callback)",
+          "line": 32,
+          "end": 32
+        },
+        {
+          "name": "(callback)",
+          "line": 36,
+          "end": 69
+        },
+        {
+          "name": "(callback)",
+          "line": 38,
+          "end": 67
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 49
+        },
+        {
+          "name": "(callback)",
+          "line": 58,
+          "end": 59
+        },
+        {
+          "name": "(callback)",
+          "line": 59,
+          "end": 59
+        }
+      ]
+    },
+    {
+      "file": "tests/e2e/erp.spec.ts",
+      "bytes": 4584,
+      "sha256": "435bb5ad92e298ba177d5a99c8d89b454371758c2557f97dbc492a356aa0947a",
+      "category": "test",
+      "lines": 75,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 4,
+          "end": 29
+        },
+        {
+          "name": "(callback)",
+          "line": 20,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 26,
+          "end": 26
+        },
+        {
+          "name": "(callback)",
+          "line": 31,
+          "end": 43
+        },
+        {
+          "name": "(callback)",
+          "line": 45,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 50
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 62
+        },
+        {
+          "name": "(callback)",
+          "line": 55,
+          "end": 55
+        },
+        {
+          "name": "(callback)",
+          "line": 64,
+          "end": 74
+        },
+        {
+          "name": "(callback)",
+          "line": 73,
+          "end": 73
+        }
+      ]
+    },
+    {
+      "file": "tests/e2e/foundation.spec.ts",
+      "bytes": 4157,
+      "sha256": "e3a4a458334e79456ce10da7fb6eec246a9dc367e440ea60842c6d051cc7d713",
+      "category": "test",
+      "lines": 88,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 4,
+          "end": 30
+        },
+        {
+          "name": "(callback)",
+          "line": 7,
+          "end": 7
+        },
+        {
+          "name": "(callback)",
+          "line": 23,
+          "end": 24
+        },
+        {
+          "name": "(callback)",
+          "line": 31,
+          "end": 37
+        },
+        {
+          "name": "(callback)",
+          "line": 38,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 46,
+          "end": 46
+        },
+        {
+          "name": "(callback)",
+          "line": 50,
+          "end": 50
+        },
+        {
+          "name": "(callback)",
+          "line": 52,
+          "end": 64
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 87
+        },
+        {
+          "name": "(callback)",
+          "line": 72,
+          "end": 72
+        }
+      ]
+    },
+    {
+      "file": "tests/e2e/login-v15.spec.ts",
+      "bytes": 4465,
+      "sha256": "e62142699ba89aa37181a4fb59219b579fbcba8a6892c4d03763d105f01a9fea",
+      "category": "test",
+      "lines": 114,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 5,
+          "end": 27
+        },
+        {
+          "name": "(callback)",
+          "line": 7,
+          "end": 26
+        },
+        {
+          "name": "prepare",
+          "line": 29,
+          "end": 40
+        },
+        {
+          "name": "(callback)",
+          "line": 31,
+          "end": 38
+        },
+        {
+          "name": "(callback)",
+          "line": 42,
+          "end": 52
+        },
+        {
+          "name": "(callback)",
+          "line": 45,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 63
+        },
+        {
+          "name": "(callback)",
+          "line": 64,
+          "end": 102
+        },
+        {
+          "name": "(callback)",
+          "line": 70,
+          "end": 72
+        },
+        {
+          "name": "(callback)",
+          "line": 73,
+          "end": 94
+        },
+        {
+          "name": "(callback)",
+          "line": 103,
+          "end": 113
+        },
+        {
+          "name": "(callback)",
+          "line": 105,
+          "end": 105
+        }
+      ]
+    },
+    {
+      "file": "tests/fixtures/dto-field-preservation.json",
+      "bytes": 1117,
+      "sha256": "36325e26efb0f009ea5dd0a6e0b830e6ff2691fbc9cfab15318401b1fe23501f",
+      "category": "test",
+      "lines": 55
+    },
+    {
+      "file": "tests/fixtures/validation-contract-baseline.json",
+      "bytes": 13307,
+      "sha256": "e826ee6ad0fe45d2c0c730f484b66c175ace44d568e15418cb9b25ecd9baf67c",
+      "category": "test",
+      "lines": 553
+    },
+    {
+      "file": "tests/integration/session-lifecycle.test.tsx",
+      "bytes": 5839,
+      "sha256": "17f3e76cb65f72928031bed83d4b420f7e0847ab159aee06e816fb4c41faea68",
+      "category": "test",
+      "lines": 175,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 15
+        },
+        {
+          "name": "setup",
+          "line": 26,
+          "end": 63
+        },
+        {
+          "name": "Capture",
+          "line": 41,
+          "end": 45
+        },
+        {
+          "name": "(callback)",
+          "line": 47,
+          "end": 47
+        },
+        {
+          "name": "(callback)",
+          "line": 51,
+          "end": 51
+        },
+        {
+          "name": "(callback)",
+          "line": 53,
+          "end": 53
+        },
+        {
+          "name": "(callback)",
+          "line": 65,
+          "end": 86
+        },
+        {
+          "name": "(callback)",
+          "line": 70,
+          "end": 70
+        },
+        {
+          "name": "(callback)",
+          "line": 87,
+          "end": 107
+        },
+        {
+          "name": "(callback)",
+          "line": 94,
+          "end": 100
+        },
+        {
+          "name": "(callback)",
+          "line": 95,
+          "end": 100
+        },
+        {
+          "name": "(callback)",
+          "line": 96,
+          "end": 99
+        },
+        {
+          "name": "(callback)",
+          "line": 102,
+          "end": 102
+        },
+        {
+          "name": "(callback)",
+          "line": 108,
+          "end": 113
+        },
+        {
+          "name": "(callback)",
+          "line": 114,
+          "end": 129
+        },
+        {
+          "name": "(callback)",
+          "line": 116,
+          "end": 118
+        },
+        {
+          "name": "(callback)",
+          "line": 119,
+          "end": 119
+        },
+        {
+          "name": "(callback)",
+          "line": 130,
+          "end": 140
+        },
+        {
+          "name": "(callback)",
+          "line": 132,
+          "end": 135
+        },
+        {
+          "name": "(callback)",
+          "line": 141,
+          "end": 150
+        },
+        {
+          "name": "(callback)",
+          "line": 142,
+          "end": 144
+        },
+        {
+          "name": "(callback)",
+          "line": 152,
+          "end": 159
+        },
+        {
+          "name": "(callback)",
+          "line": 153,
+          "end": 155
+        },
+        {
+          "name": "(callback)",
+          "line": 160,
+          "end": 164
+        },
+        {
+          "name": "(callback)",
+          "line": 165,
+          "end": 174
+        },
+        {
+          "name": "(callback)",
+          "line": 167,
+          "end": 171
+        }
+      ]
+    },
+    {
+      "file": "tests/support/backend.ts",
+      "bytes": 7897,
+      "sha256": "55fc9649c2c14307755b1de561fb7f17864b4d517dad5076e876a43d1d32bafa",
+      "category": "test",
+      "lines": 214,
+      "functions": [
+        {
+          "name": "installTestBackend",
+          "line": 5,
+          "end": 213
+        },
+        {
+          "name": "(callback)",
+          "line": 49,
+          "end": 188
+        },
+        {
+          "name": "ok",
+          "line": 56,
+          "end": 61
+        },
+        {
+          "name": "problem",
+          "line": 63,
+          "end": 68
+        },
+        {
+          "name": "raw",
+          "line": 76,
+          "end": 77
+        },
+        {
+          "name": "(callback)",
+          "line": 105,
+          "end": 105
+        },
+        {
+          "name": "(callback)",
+          "line": 106,
+          "end": 106
+        },
+        {
+          "name": "(callback)",
+          "line": 116,
+          "end": 121
+        },
+        {
+          "name": "(callback)",
+          "line": 129,
+          "end": 129
+        },
+        {
+          "name": "(callback)",
+          "line": 133,
+          "end": 133
+        },
+        {
+          "name": "(callback)",
+          "line": 153,
+          "end": 155
+        },
+        {
+          "name": "(callback)",
+          "line": 192,
+          "end": 192
+        },
+        {
+          "name": "(callback)",
+          "line": 194,
+          "end": 206
+        },
+        {
+          "name": "(callback)",
+          "line": 196,
+          "end": 205
+        },
+        {
+          "name": "(callback)",
+          "line": 208,
+          "end": 211
+        }
+      ]
+    },
+    {
+      "file": "tests/unit/control-validation.test.ts",
+      "bytes": 1045,
+      "sha256": "d933c6d9b64fffed6da043705c4a7e46a7bd2efea8602f067db032c45ce28ba9",
+      "category": "test",
+      "lines": 18,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 4,
+          "end": 5
+        },
+        {
+          "name": "(callback)",
+          "line": 6,
+          "end": 7
+        },
+        {
+          "name": "(callback)",
+          "line": 8,
+          "end": 9
+        },
+        {
+          "name": "(callback)",
+          "line": 10,
+          "end": 11
+        },
+        {
+          "name": "(callback)",
+          "line": 12,
+          "end": 15
+        },
+        {
+          "name": "(callback)",
+          "line": 16,
+          "end": 17
+        }
+      ]
+    },
+    {
+      "file": "tests/unit/readability.test.ts",
+      "bytes": 1589,
+      "sha256": "02d04718ad42198cf8bf7173912ee8071b0a1a69338cc59f4dabc7e5d8cbda62",
+      "category": "test",
+      "lines": 31,
+      "functions": [
+        {
+          "name": "(callback)",
+          "line": 4,
+          "end": 12
+        },
+        {
+          "name": "(callback)",
+          "line": 14,
+          "end": 20
+        },
+        {
+          "name": "(callback)",
+          "line": 22,
+          "end": 30
+        }
+      ]
+    },
+    {
+      "file": "tsconfig.json",
+      "bytes": 640,
+      "sha256": "38eb13346a93ab836ff4d9884d4f66b10376dc6d77bfc06afbe3734f56c7280a",
+      "category": "configuration",
+      "lines": 40
+    },
+    {
+      "file": "vendor/README.md",
+      "bytes": 571,
+      "sha256": "af3620df18ec47461668c80512b6f55c787237386873b341f0c0bc4384e0a2ff",
+      "category": "asset",
+      "lines": 6
+    },
+    {
+      "file": "vendor/shadcn-tailwind-4.13.0.LICENSE.md",
+      "bytes": 1063,
+      "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
+      "category": "asset",
+      "lines": 22
+    },
+    {
+      "file": "vendor/shadcn-tailwind-4.13.0.css",
+      "bytes": 16041,
+      "sha256": "bc7d83425702955b4cb67cb14ede9d603f9d912376d57a2d81d661094d2a782a",
+      "category": "asset",
+      "lines": 630
+    },
+    {
+      "file": "vite.config.ts",
+      "bytes": 456,
+      "sha256": "c34abeafb78849d9c2b71efcf727d4a6459af606ad866e0a3cadc53d01c06cd9",
+      "category": "configuration",
+      "lines": 18,
+      "functions": []
+    },
+    {
+      "file": "vitest.config.ts",
+      "bytes": 364,
+      "sha256": "6acb5125271aeb1771ec0ee4c9666c48a242cabf62b714dabf6ffa432ebd63c5",
+      "category": "configuration",
+      "lines": 12,
+      "functions": []
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-06",
+  "knownVulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "removedDirectPackages": [
+    "jspdf",
+    "jspdf-autotable"
+  ],
+  "reason": "No local PDF generation in Auth/Users/Dashboard; audit reports remain server-provided."
+}

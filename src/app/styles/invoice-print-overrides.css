@@ -1,6 +1,0 @@
-@media print {
-  .invoice-new-row,
-  .grid-item-results {
-    display: none !important;
-  }
-}

@@ -2,136 +2,106 @@ import { ROUTES } from '@/core/config/navigation-paths';
 import { fmt } from '@/core/utils/formatters';
 import { useDashboardController } from '@/features/dashboard/hooks/useDashboardController';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
-import {
-  ArrowLeft,
-  ArrowUpLeft,
-  Banknote,
-  FilePlus2,
-  Package,
-  ReceiptText,
-  ShoppingCart,
-  TriangleAlert,
-  Truck,
-  Undo2,
-  UserPlus,
-} from 'lucide-react';
+import { Panel } from '@/shared/ui/layout/Panel';
+import { Button } from '@/shared/ui/primitives/button';
+import { Package, TriangleAlert, UserPlus, Users, KeyRound, Monitor } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export function Dashboard() {
 
-  const model = useDashboardController();
-  if (!model) return null;
-  const { navigate, low, isLoading, error } = model;
-  if (isLoading) return <LoadingState />;
-  if (error)
-    return (
-      <p role="alert" className="field-error">
-        {error}
-      </p>
-    );
+  const { can, low, isLoading, error } = useDashboardController();
+  const navigate = useNavigate();
+  const actions = [
+    {
+      label: 'إضافة مستخدم',
+      to: ROUTES.USERS_NEW,
+      icon: UserPlus,
+      visible: can('USERS', 'USERS_CREATE'),
+    },
+    {
+      label: 'قائمة المستخدمين',
+      to: ROUTES.USERS,
+      icon: Users,
+      visible: can('USERS', 'USERS_VIEW'),
+    },
+    { label: 'تغيير كلمة المرور', to: ROUTES.USERS_PASSWORD, icon: KeyRound, visible: true },
+    { label: 'جلساتي', to: ROUTES.USERS_SESSIONS, icon: Monitor, visible: true },
+  ];
   return (
     <>
       <div className="welcome">
         <div>
-          <div className="eyebrow">
-            <span className="live-dot" />
-            مساحة العمل
-          </div>
+          <div className="eyebrow">مساحة العمل</div>
           <h1>
             أهلًا بك <span>☀</span>
           </h1>
-          <p>وصول سريع إلى أعمالك اليومية والتنبيهات التي تحتاج إلى متابعة.</p>
+          <p>إدارة الحساب والجلسات والمستخدمين من مكان واحد.</p>
         </div>
       </div>
       <div className="dashboard-middle">
-        <section className="panel quick-panel">
-          <div className="panel-heading">
-            <div>
-              <h2>ابدأ إجراءً جديدًا</h2>
-              <p>وصول أسرع لأعمالك اليومية</p>
-            </div>
-          </div>
+        <Panel className="quick-panel" title="الوصول السريع" description="الإجراءات المتاحة لحسابك">
           <div className="quick-grid">
-            {[
-              { label: 'فاتورة بيع', icon: FilePlus2, to: ROUTES.SALES_NEW, color: 'teal' },
-              { label: 'فاتورة شراء', icon: ShoppingCart, to: ROUTES.PURCHASES_NEW, color: 'sand' },
-              { label: 'إضافة صنف', icon: Package, to: ROUTES.INVENTORY_ITEMS_NEW, color: 'blue' },
-              { label: 'تسجيل مصروف', icon: ReceiptText, to: ROUTES.EXPENSES_ADD, color: 'purple' },
-              { label: 'إضافة مورد', icon: Truck, to: ROUTES.SUPPLIERS_NEW, color: 'sand' },
-              { label: 'إضافة عميل', icon: UserPlus, to: ROUTES.CUSTOMERS_NEW, color: 'teal' },
-              { label: 'مرتجع مبيعات', icon: Undo2, to: ROUTES.SALES_SALES_RETURNS, color: 'blue' },
-              {
-                label: 'مرتجع مشتريات',
-                icon: Undo2,
-                to: ROUTES.PURCHASES_PURCHASE_RETURNS,
-                color: 'purple',
-              },
-              {
-                label: 'سند قبض',
-                icon: ReceiptText,
-                to: ROUTES.ACCOUNTING_VOUCHERS_RECEIPT_NEW,
-                color: 'teal',
-              },
-              {
-                label: 'سند صرف',
-                icon: Banknote,
-                to: ROUTES.ACCOUNTING_VOUCHERS_PAYMENT_NEW,
-                color: 'sand',
-              },
-            ].map(({ label, icon: Icon, to, color }) => (
-              <button key={to} onClick={() => navigate(to)}>
-                <span className={'stat-icon ' + color}>
-                  <Icon size={23} />
-                </span>
-                <b>{label}</b>
-                <ArrowUpLeft size={14} />
-              </button>
-            ))}
+            {actions
+              .filter((action) => action.visible)
+              .map(({ label, to, icon: Icon }) => (
+                <button key={to} onClick={() => navigate(to)}>
+                  <span className="stat-icon teal">
+                    <Icon size={23} />
+                  </span>
+                  <b>{label}</b>
+                </button>
+              ))}
           </div>
-          <div className="quick-note">
-            <span className="live-dot" />
-            <div>
-              <strong>بياناتك متزامنة</strong>
-              <p>التغييرات تُحفظ مباشرة على السحابة.</p>
+        </Panel>
+        <Panel
+          className="stock-alert"
+          title={
+            <>
+              تنبيهات المخزون <span className="count-badge">{low.length}</span>
+            </>
+          }
+          description="ملخص للقراءة من الخادم"
+          action={<TriangleAlert size={19} />}
+        >
+          {isLoading ? (
+            <LoadingState />
+          ) : error ? (
+            <div role="alert" className="field-error">
+              {error}
             </div>
-          </div>
-        </section>{' '}
-        <section className="panel stock-alert">
-          <div className="panel-heading">
-            <div>
-              <h2>
-                تنبيهات المخزون <span className="count-badge">{low.length}</span>
-              </h2>
-              <p>أصناف تحتاج إلى متابعة</p>
-            </div>
-            <TriangleAlert size={19} className="text-amber-600" />
-          </div>
-          {low.slice(0, 3).map((p) => (
-            <div className="alert-row" key={p.productId}>
-              <span className="product-avatar">{p.name.slice(0, 1)}</span>
-              <div>
-                <strong>{p.name}</strong>
-                <small>
-                  حد الطلب {fmt(p.reorderLevel)} {p.unit}
-                </small>
-              </div>
-              <b>
-                {fmt(p.availableQty)}
-                <small>متاح</small>
-              </b>
-            </div>
-          ))}
-          {!low.length && (
-            <div className="healthy">
-              <Package size={30} />
-              <strong>مخزونك في وضع جيد</strong>
-              <p>لا توجد أصناف دون حد الطلب.</p>
-            </div>
+          ) : (
+            <>
+              {low.slice(0, 3).map((product) => (
+                <div className="alert-row" key={product.productId}>
+                  <span className="product-avatar">{product.name.slice(0, 1)}</span>
+                  <div>
+                    <strong>{product.name}</strong>
+                    <small>
+                      حد الطلب {fmt(product.reorderLevel)} {product.unit}
+                    </small>
+                  </div>
+                  <b>
+                    {fmt(product.availableQty)}
+                    <small>متاح</small>
+                  </b>
+                </div>
+              ))}
+              {!low.length && (
+                <div className="healthy">
+                  <Package size={30} />
+                  <strong>لا توجد تنبيهات مخزون.</strong>
+                </div>
+              )}
+            </>
           )}
-          <button className="stock-link" onClick={() => navigate(ROUTES.INVENTORY)}>
-            مراجعة المخزون <ArrowLeft size={15} />
-          </button>
-        </section>
+        </Panel>
       </div>
+      {!can('USERS', 'USERS_VIEW') && (
+        <Panel title="الحساب والجلسات" description="صلاحياتك يحددها الخادم">
+          <p>تتوفر إدارة الحساب الشخصي دون منح صلاحيات إدارة مستخدمين.</p>
+          <Button onClick={() => navigate(ROUTES.USERS_SESSIONS)}>جلساتي</Button>
+        </Panel>
+      )}
     </>
   );
 }

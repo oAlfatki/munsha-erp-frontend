@@ -3,7 +3,6 @@ import { AppRouter } from '@/app/router/AppRouter';
 import type { AppProps } from '@/app/types/props/AppProps';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { FieldNavigation } from '@/shared/ui/forms/FieldNavigation';
-import { ReportPreview } from '@/shared/ui/reports/ReportPreview';
 import { Suspense } from 'react';
 import { Toaster } from 'sonner';
 
@@ -15,7 +14,6 @@ export function App({ initialUser }: AppProps) {
       <Suspense fallback={<LoadingState />}>
         <AppRouter />
       </Suspense>
-      <ReportPreview />
       <Toaster position="bottom-left" dir="rtl" richColors closeButton />
     </AppProviders>
   );

@@ -1,14 +1,14 @@
-import { useCompanyData } from '@/app/providers/CompanyProvider';
-import { useApplication } from '@/core/state/ApplicationProvider';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 export function PageScope() {
 
-  const { view, branchId, state } = { ...useApplication(), ...useCompanyData() };
+  const { user } = useAuth();
+  const { pathname } = useLocation();
   return (
-    <div key={view + branchId + state?.organization.year}>
+    <div key={pathname + user?.branchId}>
       <Suspense fallback={<LoadingState />}>
         <Outlet />
       </Suspense>

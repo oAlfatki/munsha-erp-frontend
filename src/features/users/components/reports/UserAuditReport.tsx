@@ -4,6 +4,7 @@ import { usersApi } from '@/features/users/api/users-api';
 import type { AuditFilters } from '@/features/users/types/AuditFilters';
 import { Field } from '@/shared/ui/forms/Field';
 import { PageHead } from '@/shared/ui/layout/PageHead';
+import { Pagination } from '@/shared/ui/navigation/Pagination';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { useMutation, useQuery } from '@tanstack/react-query';
@@ -126,16 +127,11 @@ export function UserAuditReport() {
                 </tbody>
               </table>
               {!query.data?.items.length && <p>لا توجد أنشطة مطابقة.</p>}
-              <Button disabled={page === 1} onClick={() => setPage((p) => p - 1)}>
-                السابق
-              </Button>
-              <span>الصفحة {page}</span>
-              <Button
-                disabled={!query.data || page * 20 >= query.data.totalCount}
-                onClick={() => setPage((p) => p + 1)}
-              >
-                اللاحق
-              </Button>
+              <Pagination
+                page={page}
+                onPageChange={setPage}
+                hasNext={!!query.data && page * 20 < query.data.totalCount}
+              />
             </>
           )}
           <div className="dialog-actions">

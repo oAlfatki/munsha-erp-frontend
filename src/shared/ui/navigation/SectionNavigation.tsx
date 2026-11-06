@@ -1,4 +1,4 @@
-import { MENU_ITEMS, menuLeaves as navigationLeaves } from '@/core/config/menu';
+import { menuLeaves as navigationLeaves } from '@/shared/lib/menu-leaves';
 import type { EntryProps } from '@/shared/types/props/EntryProps';
 import type { SectionNavigationProps } from '@/shared/types/props/SectionNavigationProps';
 import { ChevronDown, ChevronLeft, List, Plus } from 'lucide-react';
@@ -48,11 +48,11 @@ function Entry({ entry, view, go }: EntryProps) {
   );
 }
 
-export function SectionNavigation({ module, view, go }: SectionNavigationProps) {
+export function SectionNavigation({ entries, view, go }: SectionNavigationProps) {
 
   return (
     <div className="subnav expanded structured-subnav">
-      {(MENU_ITEMS[module] || []).map((e) => (
+      {entries.map((e) => (
         <Entry key={e.id} entry={e} view={view} go={go} />
       ))}
     </div>

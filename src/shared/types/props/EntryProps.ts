@@ -1,4 +1,4 @@
-import type { MenuItem as NavigationEntry } from '@/core/types/navigation/MenuItem';
+import type { MenuItem as NavigationEntry } from '@/shared/types/navigation/MenuItem';
 
 export interface EntryProps {
   entry: NavigationEntry;
