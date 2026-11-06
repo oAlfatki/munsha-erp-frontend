@@ -218,3 +218,15 @@ test('preserves settings columns and stock document spacing after splitting styl
   await expect(page.locator('.stock-item-search')).toHaveCSS('margin-top', '20px');
   await expect(page.locator('.stock-item-search > input')).toHaveCSS('max-width', '550px');
 });
+
+test('invalid user detail and edit URLs show 404 without requesting an invalid user', async ({
+  page,
+}) => {
+  const backend = await installTestBackend(page);
+  for (const path of ['/users/not-an-id', '/users/0', '/users/not-an-id/edit', '/users/0/edit']) {
+    await page.goto(path);
+    await expect(page.getByRole('heading', { name: 'الصفحة غير موجودة' })).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(path + '$'));
+  }
+  expect(backend.calls.filter((call) => call.path.startsWith('/users/'))).toEqual([]);
+});

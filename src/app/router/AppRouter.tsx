@@ -1,3 +1,4 @@
+import { NotFoundPage } from '@/shared/ui/feedback/NotFoundPage';
 import { DashboardLayout } from '@/app/layouts/DashboardLayout';
 import { CompanyProvider } from '@/app/providers/CompanyProvider';
 import { PageScope } from '@/app/router/PageScope';
@@ -19,14 +20,6 @@ function ApplicationLayout() {
     </ApplicationProvider>
   );
 }
-function NotFound() {
-  return (
-    <main className="empty">
-      <h1>الصفحة غير موجودة</h1>
-      <a href={ROUTES.DASHBOARD}>العودة إلى لوحة المتابعة</a>
-    </main>
-  );
-}
 export const APP_ROUTER = createBrowserRouter([
   ...APP_ROUTES.filter((route) => route.path === ROUTES.LOGIN),
   {
@@ -42,7 +35,7 @@ export const APP_ROUTER = createBrowserRouter([
             children: [
               { index: true, element: <Navigate to={ROUTES.DASHBOARD} replace /> },
               ...APP_ROUTES.filter((route) => route.path !== ROUTES.LOGIN),
-              { path: '*', element: <NotFound /> },
+              { path: '*', element: <NotFoundPage /> },
             ],
           },
         ],

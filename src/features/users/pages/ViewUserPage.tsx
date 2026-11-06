@@ -1,3 +1,4 @@
+import { NotFoundPage } from '@/shared/ui/feedback/NotFoundPage';
 import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { UserAccountOperations } from '@/features/users/components/UserAccountOperations';
@@ -9,8 +10,7 @@ export default function ViewUserPage() {
     { id = '' } = useParams(),
     query = useUserQuery(Number(id));
   if (!auth.can('USERS', 'USERS_VIEW')) return <p role="alert">لا تملك صلاحية العرض.</p>;
-  if (!Number.isSafeInteger(Number(id)) || Number(id) < 1)
-    return <p role="alert">معرّف المستخدم غير صحيح.</p>;
+  if (!Number.isSafeInteger(Number(id)) || Number(id) < 1) return <NotFoundPage />;
   if (query.isPending) return <p role="status">جارٍ تحميل المستخدم…</p>;
   if (query.error) return <p role="alert">{errorMessage(query.error)}</p>;
   const u = query.data!;

@@ -107,7 +107,9 @@ export function AuthProvider({
     <Context.Provider
       value={{
         user: user || null,
-        loading: user === undefined && session.isPending,
+        // Query success precedes the effect that commits the restored identity.
+        // Keep protected routes pending through that render instead of redirecting to login.
+        loading: user === undefined && !session.error,
         error: session.error,
         access: accessQuery.data || null,
         accessError: accessQuery.error,

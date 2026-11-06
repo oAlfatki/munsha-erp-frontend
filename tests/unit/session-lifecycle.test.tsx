@@ -3,9 +3,9 @@ import { renderToString } from 'react-dom/server';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { afterEach, expect, it, vi } from 'vitest';
 import { AuthProvider, useAuth } from '@/core/auth/AuthProvider';
-import type { AuthContextValue } from "@/core/types/auth/AuthContextValue";
-import type { AuthProviderProps } from "@/core/types/props/AuthProviderProps";
-import type { Identity } from "@/core/types/auth/Identity";
+import type { AuthContextValue } from '@/core/types/auth/AuthContextValue';
+import type { AuthProviderProps } from '@/core/types/props/AuthProviderProps';
+import type { Identity } from '@/core/types/auth/Identity';
 import { ApiError } from '@/core/api/apiError';
 const clients: QueryClient[] = [];
 afterEach(() => {
@@ -21,7 +21,10 @@ const user: Identity = {
   branchId: '2',
   permissions: [],
 };
-function setup(overrides: Partial<AuthProviderProps> = {}) {
+function setup(
+  overrides: Partial<AuthProviderProps> = {},
+  primeCache?: (client: QueryClient) => void,
+) {
   const client = new QueryClient({
     defaultOptions: {
       queries: { retry: false, gcTime: Infinity },
@@ -29,6 +32,7 @@ function setup(overrides: Partial<AuthProviderProps> = {}) {
     },
   });
   clients.push(client);
+  primeCache?.(client);
   let auth!: AuthContextValue;
   function Capture() {
     auth = useAuth();
@@ -51,23 +55,21 @@ function setup(overrides: Partial<AuthProviderProps> = {}) {
 it('clears all previous account query and mutation cache before a new login', async () => {
   const { client, auth } = setup();
   client.setQueryData(['erp', 'private', '1'], { private: 'old' });
-  client
-    .getMutationCache()
-    .build(
-      client,
-      { mutationFn: async () => {} },
-      {
-        context: undefined,
-        data: undefined,
-        error: null,
-        failureCount: 0,
-        failureReason: null,
-        isPaused: false,
-        status: 'success',
-        variables: { sensitive: 'old' },
-        submittedAt: 0,
-      },
-    );
+  client.getMutationCache().build(
+    client,
+    { mutationFn: async () => {} },
+    {
+      context: undefined,
+      data: undefined,
+      error: null,
+      failureCount: 0,
+      failureReason: null,
+      isPaused: false,
+      status: 'success',
+      variables: { sensitive: 'old' },
+      submittedAt: 0,
+    },
+  );
   await auth.prepareLogin();
   expect(client.getQueryCache().getAll()).toHaveLength(0);
   expect(client.getMutationCache().getAll()).toHaveLength(0);
@@ -133,4 +135,28 @@ it('does not revoke a session when its required exit backup fails', async () => 
   await expect(auth.logout()).rejects.toThrow('النسخ');
   expect(endSession).not.toHaveBeenCalled();
   expect(client.getQueryData(['private'])).toEqual({ old: true });
+});
+
+it('keeps restoration pending after the session query succeeds until identity is committed', () => {
+  const { auth } = setup({ initialUser: undefined }, (client) => {
+    client.setQueryData(['session'], { user });
+  });
+  // Effects have not run during this render: query success must not expose a signed-out state.
+  expect(auth.user).toBeNull();
+  expect(auth.loading).toBe(true);
+});
+it('does not keep an explicitly signed-out account in restoration', () => {
+  const { auth } = setup({ initialUser: null });
+  expect(auth.user).toBeNull();
+  expect(auth.loading).toBe(false);
+});
+it('exposes failed restoration for retry instead of showing an endless loader', () => {
+  const failure = new ApiError({ detail: 'connection unavailable' }, 503);
+  const { auth } = setup({ initialUser: undefined }, (client) => {
+    client.setQueryDefaults(['session'], { retryOnMount: false });
+    const query = client.getQueryCache().build(client, { queryKey: ['session'] });
+    query.setState({ status: 'error', error: failure, fetchStatus: 'idle' });
+  });
+  expect(auth.loading).toBe(false);
+  expect(auth.error).toBe(failure);
 });
