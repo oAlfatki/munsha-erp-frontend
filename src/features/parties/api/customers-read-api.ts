@@ -1,14 +1,17 @@
 import { apiClient } from '@/core/api/apiClient';
-import { ENDPOINTS } from '@/core/config/endpoints';
+import { ENDPOINTS } from '@/features/parties/api/endpoints';
 import type { GetCustomersByIdRequest } from '@/features/parties/types/requests/GetCustomersByIdRequest';
 import type { SearchCustomersRequest } from '@/features/parties/types/requests/SearchCustomersRequest';
 import type { PartyListResponse } from '@/features/parties/types/responses/PartyListResponse';
 import type { PartyResponse } from '@/features/parties/types/responses/PartyResponse';
+
 /** List customers. Existing HTTP contract. */
+
 export async function fetchCustomers(
   params: SearchCustomersRequest = {},
   signal?: AbortSignal,
 ): Promise<PartyListResponse> {
+
   return await apiClient.get<PartyListResponse>(ENDPOINTS.fetchCustomers, {
     signal,
     params: {
@@ -21,8 +24,11 @@ export async function fetchCustomers(
     },
   });
 }
+
 /** Get customers detail. Existing HTTP contract. */
+
 export async function fetchCustomersById(params: GetCustomersByIdRequest): Promise<PartyResponse> {
+
   return await apiClient.get<PartyResponse>(ENDPOINTS.fetchCustomersById(params.id), {
     params: { bookId: params.bookId },
   });

@@ -4,9 +4,11 @@ import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Input } from '@/shared/ui/primitives/input';
+
 export function StockDocumentHeader({ model, kind }: StockDocumentHeaderProps) {
+
   const {
-    s,
+    s: state,
     selected,
     isReadOnly,
     date,
@@ -77,12 +79,12 @@ export function StockDocumentHeader({ model, kind }: StockDocumentHeaderProps) {
               }}
             >
               <option value="">اختر مخزن الاستلام</option>
-              {s.warehouses
+              {state.warehouses
                 .filter((warehouse) => warehouse.active && warehouse.id !== wh)
                 .map((warehouse) => (
                   <option key={warehouse.id} value={warehouse.id}>
                     {warehouse.name} —{' '}
-                    {s.branches.find((branch) => branch.id === warehouse.branchId)?.name}
+                    {state.branches.find((branch) => branch.id === warehouse.branchId)?.name}
                   </option>
                 ))}
             </Select>
@@ -108,13 +110,13 @@ export function StockDocumentHeader({ model, kind }: StockDocumentHeaderProps) {
             disabled={isReadOnly || kind !== 'opening' || lines.length > 0}
             value={currency}
             onChange={(e) => {
-              const c = s.currencies.find((c) => c.code === e.target.value)!;
+              const c = state.currencies.find((c) => c.code === e.target.value)!;
               setCurrency(c.code);
               setRate(c.rate);
               setDirty(true);
             }}
           >
-            {s.currencies.map((c) => (
+            {state.currencies.map((c) => (
               <option key={c.code} value={c.code}>
                 {c.name} — {c.code}
               </option>
@@ -137,7 +139,7 @@ export function StockDocumentHeader({ model, kind }: StockDocumentHeaderProps) {
         </Field>
         <Field label="الفرع">
           <div className="input-readonly">
-            {s.branches.find((branch) => branch.id === branchId)?.name}
+            {state.branches.find((branch) => branch.id === branchId)?.name}
           </div>
         </Field>
         {kind === 'opening' && (
@@ -151,12 +153,13 @@ export function StockDocumentHeader({ model, kind }: StockDocumentHeaderProps) {
               }}
             >
               <option value="">اختر حسابًا</option>
-              {Object.entries(allAccounts(s))
+              {Object.entries(allAccounts(state))
                 .filter(
                   ([code, a]) =>
                     a.type === 'equity' &&
-                    (!s.extras?.records.accounts?.find((v) => v.code === code) ||
-                      s.extras.records.accounts.find((v) => v.code === code)?.postable === 'yes'),
+                    (!state.extras?.records.accounts?.find((v) => v.code === code) ||
+                      state.extras.records.accounts.find((v) => v.code === code)?.postable ===
+                        'yes'),
                 )
                 .map(([code, a]) => (
                   <option key={code} value={code}>

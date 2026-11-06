@@ -2,7 +2,9 @@ import type { PriceRowsContext } from '@/features/inventory/stock-balances/types
 import type { PriceFilters } from '@/features/stock/public';
 
 // Frontend display calculations; backend authority requires independent verification.
+
 export function priceRows(workspace: PriceRowsContext, f: PriceFilters) {
+
   return workspace.products
     .filter(
       (p) => p.active && (!f.group || p.groupId === f.group) && (!f.product || p.id === f.product),

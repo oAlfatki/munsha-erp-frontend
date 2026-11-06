@@ -1,32 +1,34 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { extras } from '@/features/ledger/public';
 import { salesTargetSchema } from '@/features/sales/invoices/validations/sales-schema';
 import { useSalesTarget } from '@/features/sales/targets/hooks/useSalesTarget';
 import { useSalesTargetsControllerQuery } from '@/features/sales/targets/queries/useSalesTargetsControllerQuery';
 import { tradeSummary } from '@/features/trade/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useState } from 'react';
+
 export function useSalesTargetsController() {
-  const { state: s, branchId, busy: isBusy } = useSalesTargetsControllerQuery();
+
+  const { state, branchId, busy: isBusy } = useSalesTargetsControllerQuery();
   const salesTargetMutationRequest = useSalesTarget(),
     salesTargetForm = useValidatedForm(salesTargetSchema, salesTargetMutationRequest.execute),
     salesTargetMutation = { ...salesTargetMutationRequest, execute: salesTargetForm.submit };
   const [period, setPeriod] = useState(
-      today().startsWith(String(s!.organization.year))
+      today().startsWith(String(state!.organization.year))
         ? today().slice(0, 7)
-        : s!.organization.year + '-01',
+        : state!.organization.year + '-01',
     ),
     [employee, setEmployee] = useState(''),
     [amount, setAmount] = useState(0),
     [note, setNote] = useState('');
-  if (!s) return null;
-  const targets = (extras(s).records.salesTargets || []).filter((t) => t.branchId === branchId);
+  if (!state) return null;
+  const targets = (extras(state).records.salesTargets || []).filter((t) => t.branchId === branchId);
   const rows = targets.map((t) => {
     const from = t.period + '-01',
       end = new Date(Date.UTC(+String(t.period).slice(0, 4), +String(t.period).slice(5), 0))
         .toISOString()
         .slice(0, 10),
-      actual = tradeSummary(s, 'sale', branchId, { from, to: end, warehouse: '' }).total || 0;
+      actual = tradeSummary(state, 'sale', branchId, { from, to: end, warehouse: '' }).total || 0;
     return {
       t,
       actual,
@@ -44,14 +46,14 @@ export function useSalesTargetsController() {
   ];
   const csvRows = rows.map(({ t, actual, remaining, percent }) => [
     String(t.period),
-    s.employees.find((e) => e.id === t.employee)?.name || 'غير محدد',
+    state.employees.find((e) => e.id === t.employee)?.name || 'غير محدد',
     Number(t.amount),
     actual,
     remaining,
     percent,
   ]);
   return {
-    s,
+    s: state,
     branchId,
     isBusy,
     salesTargetMutation,

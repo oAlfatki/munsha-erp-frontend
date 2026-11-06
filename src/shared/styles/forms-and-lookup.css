@@ -1,0 +1,320 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: right;
+  min-width: 0;
+}
+.field > span {
+  font-size: 14px;
+  color: var(--foreground);
+  font-weight: 700;
+}
+.field input:not([type='checkbox']),
+.select {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 7px 11px;
+  font-size: 15px;
+  color: var(--foreground);
+  min-height: 39px;
+  width: 100%;
+  outline: none;
+}
+.field input:focus,
+.select:focus {
+  border-color: #71a279;
+  box-shadow: 0 0 0 2px #86af7d17;
+}
+.select:disabled {
+  background: var(--muted);
+  color: var(--muted-foreground);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 18px;
+}
+.form-grid.four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.input-readonly {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 9px 12px;
+  color: var(--muted-foreground);
+  min-height: 39px;
+  font-size: 15px;
+}
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  min-height: 39px;
+  font-weight: 400;
+  color: var(--foreground);
+}
+.erp-dialog {
+  font-family: Arabic;
+  width: min(850px, calc(100vw - 34px));
+  max-width: 850px !important;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px !important;
+  border: 1px solid #dfe7d7 !important;
+  gap: 23px !important;
+  border-radius: 13px !important;
+  background: var(--card);
+}
+.erp-dialog.wide {
+  width: min(1120px, calc(100vw - 34px));
+  max-width: 1120px !important;
+}
+.erp-dialog [data-slot='dialog-title'] {
+  font-size: 25px;
+  color: var(--foreground);
+}
+.erp-dialog [data-slot='dialog-description'] {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  line-height: 1.9;
+}
+.erp-dialog form {
+  min-width: 0;
+}
+.dialog-actions {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: 21px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+.dialog-actions button {
+  font-size: 14px;
+  min-height: 38px;
+}
+.form-section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  margin-top: 23px;
+}
+.info-note {
+  font-size: 12px;
+  line-height: 2;
+  color: var(--muted-foreground);
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 12px 16px;
+  margin: 18px 0;
+}
+.unit-editor {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 9px;
+  padding: 19px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 15px;
+}
+.unit-editor > .form-grid {
+  flex: 1;
+}
+.unit-number {
+  font-family: Arial;
+  width: 25px;
+  height: 25px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  color: var(--muted-foreground);
+  background: var(--muted);
+  font-size: 12px;
+}
+.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 48px 20px;
+  color: var(--muted-foreground);
+  gap: 9px;
+}
+.empty h3 {
+  font-size: 18px;
+  color: var(--muted-foreground);
+}
+.empty p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+.empty button {
+  margin-top: 8px;
+  font-size: 14px;
+}
+.document-stats {
+  display: flex;
+  gap: 17px;
+  margin-bottom: 23px;
+}
+.document-stats > div {
+  flex: 1;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 18px 22px;
+  border-radius: 9px;
+}
+.document-stats span {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  display: block;
+}
+.document-stats strong {
+  font-family: Arial;
+  font-size: 29px;
+  color: var(--foreground);
+  display: block;
+  margin-top: 8px;
+}
+.document-stats small {
+  font-size: 11px;
+}
+.filter-bar {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  margin: 22px 0;
+  flex-wrap: wrap;
+}
+.filter-bar > .select {
+  width: auto;
+  min-width: 170px;
+}
+.filter-bar > input {
+  max-width: 157px;
+  background: white;
+}
+.filter-bar .field {
+  width: 160px;
+}
+.filter-bar button {
+  font-size: 14px;
+  min-height: 39px;
+}
+.module-tabs {
+  display: flex;
+  gap: 5px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 23px;
+  overflow: auto;
+}
+.module-tabs button {
+  border: 0;
+  background: none;
+  color: var(--muted-foreground);
+  font-size: 14px;
+  padding: 12px 17px;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+}
+.module-tabs button.active {
+  border-color: #5a8957;
+  color: var(--foreground);
+  font-weight: 700;
+}
+.form-panel {
+  padding: 25px;
+  margin-bottom: 21px;
+}
+.form-panel > h2 {
+  margin-bottom: 24px;
+  color: var(--foreground);
+  font-size: 18px;
+}
+.product-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 5px 14px;
+  border-radius: 7px;
+  color: var(--muted-foreground);
+  margin-bottom: 20px;
+}
+.product-search > input {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: none;
+  font-size: 15px;
+}
+.product-results {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background: white;
+  z-index: 15;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px #203b2510;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.product-results button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: right;
+  padding: 12px 18px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: white;
+}
+.product-results button:hover {
+  background: var(--muted);
+}
+.product-results button > svg {
+  margin-right: auto;
+}
+.product-results small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+.product-results b {
+  font-size: 14px;
+}
+.product-results p {
+  padding: 25px;
+  font-size: 14px;
+}
+.line-table {
+  table-layout: fixed;
+  white-space: normal;
+}
+.line-table th:first-child {
+  width: 23%;
+}
+.line-table td {
+  padding: 13px 6px;
+}
+.line-table th:last-child {
+  width: 35px;
+}
+.line-table .select,
+.line-table input {
+  min-width: 50px;
+  width: 100%;
+  font-size: 14px;
+  padding: 5px 7px;
+}

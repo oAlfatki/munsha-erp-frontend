@@ -1,4 +1,5 @@
 import type { ExpenseTreatment } from '@/features/ledger/types/models/ExpenseTreatment';
+
 export interface ExpenseDocument {
   currency?: string;
   rate?: number;

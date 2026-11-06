@@ -4,11 +4,14 @@ import type { ExpenseDocument } from '@/features/ledger/types/models/ExpenseDocu
 import type { OperationRecord } from '@/features/ledger/types/models/OperationRecord';
 import type { ExpenseReadProjection } from '@/features/ledger/types/read-models/ExpenseReadProjection';
 import type { ExpenseDocumentResponse } from '@/features/ledger/types/responses/ExpenseDocumentResponse';
+
 /** Preserve existing legacy expense cards when the documented read DTO's extension fields carry them. */
+
 export function mapExpenseReadModel(
   items: ExpenseDocumentResponse[],
   scope: ReadScope,
 ): ExpenseReadProjection {
+
   const expenses: Expense[] = [],
     operations: OperationRecord[] = [];
   const documents: ExpenseDocument[] = [];

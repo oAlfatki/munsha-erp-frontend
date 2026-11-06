@@ -1,123 +1,65 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { printReport } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
+import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { ProductEditor } from '@/features/inventory/public';
 import { cashOptions } from '@/features/ledger/public';
-import { branchDefaults, operationCashId, systemSettings } from '@/features/organization/public';
-import { usePurchaseInvoiceEditorQuery } from '@/features/purchases/invoices/queries/usePurchaseInvoiceEditorQuery';
+import { systemSettings } from '@/features/organization/public';
+import { usePurchaseInvoiceEditor } from '@/features/purchases/invoices/hooks/usePurchaseInvoiceEditor';
 import type { PurchaseInvoiceEditorProps } from '@/features/purchases/invoices/types/props/PurchaseInvoiceEditorProps';
-import type { Invoice, InvoiceLine } from '@/features/trade/public';
 import {
-  allocateInvoiceDiscount,
+  InvoiceEditorActions,
   InvoiceLineGrid,
   InvoiceLookup,
   invoiceReport,
-  invoiceSchema,
-  invoiceSummary,
   InvoiceTotals,
-  useInvoice,
 } from '@/features/trade/public';
+import { printReport } from '@/shared/services/report-actions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
-import { validateForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { ArrowRight, Save } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { Save } from 'lucide-react';
+
 export function PurchaseInvoiceEditor({
   invoice,
   onClose: close,
   onLoad,
   onNew,
 }: PurchaseInvoiceEditorProps) {
-  const { state: s, branchId, busy: isBusy, setEditingDocument } = usePurchaseInvoiceEditorQuery();
-  const invoiceMutationRequest = useInvoice();
-  const invoiceForm = useValidatedForm(invoiceSchema, invoiceMutationRequest.execute);
-  const invoiceMutation = { ...invoiceMutationRequest, execute: invoiceForm.submit };
-  const validationRoot = useRef<HTMLDivElement>(null);
-  const isReadOnly = invoice?.status === 'final';
-  useEffect(() => {
-    setEditingDocument(!isReadOnly);
-    return () => setEditingDocument(false);
-  }, []);
-  const [d, setD] = useState({
-    id: invoice?.id,
-    kind: 'purchase',
-    date: invoice?.date || today(),
-    branchId: invoice?.branchId || branchId,
-    warehouseId:
-      invoice?.warehouseId ||
-      branchDefaults(s!, branchId).purchaseWarehouseId ||
-      branchDefaults(s!, branchId).warehouseId,
-    partyId: invoice?.partyId || '',
-    taxRate:
-      invoice?.taxRate ??
-      (systemSettings(s!).accounting.taxEnabled ? systemSettings(s!).accounting.taxRate : 0),
-    paid: invoice?.paid || 0,
-    invoiceDiscount: invoice?.invoiceDiscount || 0,
-    currency: invoice?.currency || 'YER',
-    rate: invoice?.rate || 1,
-    payment: invoice?.payment || ('cash' as 'cash' | 'credit' | 'mixed'),
-    cashId: invoice?.cashId || operationCashId(s!, branchId, 'purchase'),
-    supplierNumber: invoice?.supplierNumber || '',
-    priceType:
-      invoice?.priceType || (branchDefaults(s!, branchId).priceType as 'retail' | 'wholesale'),
-    note: invoice?.note || '',
-  });
-  const [isBalanceOpen, setBalanceOpen] = useState(false);
-  const [isAddProduct, setAddProduct] = useState(false);
-  const [isGridPending, setGridPending] = useState(false);
-  const [itemDiscountError, setItemDiscountError] = useState('');
-  const [paidInput, setPaidInput] = useState<number | null>(null);
-  const [lines, setLines] = useState<InvoiceLine[]>(invoice?.lines || []);
-  const [partySearch, setPartySearch] = useState(
-    s?.parties.find((party) => party.id === invoice?.partyId)?.name || '',
-  );
-  if (!s) return null;
-  const handleLoadInvoice = (d: Invoice) => {
-    if (
-      !isReadOnly &&
-      lines.length &&
-      (!invoice || JSON.stringify(lines) !== JSON.stringify(invoice.lines)) &&
-      !window.confirm('تحميل الفاتورة سيستبدل البنود غير المحفوظة. متابعة؟')
-    )
-      return;
-    onLoad(d);
-  };
-  const summary = invoiceSummary(lines, d.payment, d.paid, d.taxRate, d.invoiceDiscount);
-  const party = s.parties.find((party) => party.id === d.partyId);
-  function changeItemDiscount(amount: number) {
-    const gross = summary.gross;
-    if (!Number.isFinite(amount) || amount < 0 || amount > gross) {
-      setItemDiscountError('خصم الأصناف يجب أن يكون بين صفر وإجمالي الأصناف');
-      return;
-    }
-    const next = allocateInvoiceDiscount(
-      lines.map((invoiceLine) => ({ ...invoiceLine, discount: 0 })),
-      amount,
-    ).map((l) => ({
-      ...l,
-      discount: l.qty * l.price ? (l.invoiceDiscount / (l.qty * l.price)) * 100 : 0,
-      invoiceDiscount: 0,
-    }));
-    setItemDiscountError('');
-    setLines(next);
-  }
-  function changePaid(paid: number) {
-    setPaidInput(paid);
-    const payment = paid <= 0 ? 'credit' : paid >= summary.net ? 'cash' : 'mixed';
-    setD({ ...d, paid, payment });
-  }
-  async function save(status: 'draft' | 'final') {
-    if (isGridPending) return;
-    if (validationRoot.current && !validateForm(validationRoot.current)) return;
-    if (await invoiceMutation.execute({ ...d, lines, status })) close();
-  }
+
+  const model = usePurchaseInvoiceEditor({ invoice, onClose: close, onLoad });
+  if (!model) return null;
+  const {
+    s: state,
+    branchId,
+    isBusy,
+    validationRoot,
+    isReadOnly,
+    d,
+    setD,
+    isBalanceOpen,
+    setBalanceOpen,
+    isAddProduct,
+    setAddProduct,
+    isGridPending,
+    setGridPending,
+    itemDiscountError,
+    paidInput,
+    setPaidInput,
+    lines,
+    setLines,
+    partySearch,
+    setPartySearch,
+    handleLoadInvoice,
+    summary,
+    party,
+    changeItemDiscount,
+    changePaid,
+    save,
+  } = model;
   return (
     <div ref={validationRoot}>
       <PageHead
@@ -127,37 +69,25 @@ export function PurchaseInvoiceEditor({
             : 'فاتورة ' + '\u0634\u0631\u0627\u0621' + ' جديدة'
         }
         description="رأس الفاتورة، البنود، ثم ملخص الإجماليات."
-        extra={
-          <div className="flex gap-2">
-            <Button variant="outline" onClick={close}>
-              <ArrowRight />
-              قائمة الفواتير
-            </Button>
-            {isReadOnly && (
-              <Button variant="outline" onClick={onNew}>
-                فاتورة جديدة
-              </Button>
-            )}
-          </div>
-        }
+        extra={<InvoiceEditorActions onClose={close} onNew={onNew} isReadOnly={isReadOnly} />}
       />
       <InvoiceLookup kind={'purchase'} onSelect={handleLoadInvoice} />
       <DocumentNavigator
         index={
           invoice
-            ? s.invoices
+            ? state.invoices
                 .filter((invoice) => invoice.kind === 'purchase' && invoice.branchId === branchId)
                 .findIndex((v) => v.id === invoice.id)
             : -1
         }
         count={
-          s.invoices.filter(
+          state.invoices.filter(
             (invoice) => invoice.kind === 'purchase' && invoice.branchId === branchId,
           ).length
         }
         onChange={(i) =>
           handleLoadInvoice(
-            s.invoices.filter(
+            state.invoices.filter(
               (invoice) => invoice.kind === 'purchase' && invoice.branchId === branchId,
             )[i],
           )
@@ -185,7 +115,7 @@ export function PurchaseInvoiceEditor({
                 placeholder="اختر الطرف…"
                 onChange={(e) => {
                   setPartySearch(e.target.value);
-                  const p = s.parties.find(
+                  const p = state.parties.find(
                     (party) =>
                       party.kind === 'supplier' &&
                       (party.name === e.target.value || party.phone === e.target.value),
@@ -194,7 +124,7 @@ export function PurchaseInvoiceEditor({
                 }}
               />
               <datalist id="invoice-parties">
-                {s.parties
+                {state.parties
                   .filter((party) => party.kind === 'supplier' && party.active)
                   .map((party) => (
                     <option key={party.id} value={party.name}>
@@ -218,7 +148,7 @@ export function PurchaseInvoiceEditor({
             </Field>
             <Field label="الفرع">
               <div className="input-readonly">
-                {s.branches.find((branch) => branch.id === d.branchId)?.name}
+                {state.branches.find((branch) => branch.id === d.branchId)?.name}
               </div>
             </Field>
             <Field label="المخزن *">
@@ -226,7 +156,7 @@ export function PurchaseInvoiceEditor({
                 value={d.warehouseId}
                 onChange={(e) => setD({ ...d, warehouseId: e.target.value })}
               >
-                {s.warehouses
+                {state.warehouses
                   .filter((warehouse) => warehouse.branchId === d.branchId && warehouse.active)
                   .map((warehouse) => (
                     <option key={warehouse.id} value={warehouse.id}>
@@ -251,7 +181,7 @@ export function PurchaseInvoiceEditor({
                 <option value="mixed">جزء نقدي وجزء آجل</option>
               </Select>
             </Field>
-            {systemSettings(s).accounting.taxEnabled && (
+            {systemSettings(state).accounting.taxEnabled && (
               <Field label="نسبة الضريبة %">
                 <Input
                   type="number"
@@ -274,9 +204,8 @@ export function PurchaseInvoiceEditor({
                     lines.map((invoiceLine) => ({
                       ...invoiceLine,
                       price: +(
-                        s.products.find((product) => product.id === invoiceLine.productId)!.units[
-                          invoiceLine.unit
-                        ][priceType] / d.rate
+                        state.products.find((product) => product.id === invoiceLine.productId)!
+                          .units[invoiceLine.unit][priceType] / d.rate
                       ).toFixed(4),
                     })),
                   );
@@ -292,8 +221,8 @@ export function PurchaseInvoiceEditor({
                 disabled={d.payment === 'credit'}
                 onChange={(e) => setD({ ...d, cashId: e.target.value })}
               >
-                {cashOptions(s, branchId)
-                  .filter((c) => c.active && c.currency === s.organization.currency)
+                {cashOptions(state, branchId)
+                  .filter((c) => c.active && c.currency === state.organization.currency)
                   .map((c) => (
                     <option key={c.id} value={c.id}>
                       {c.name} · YER
@@ -314,7 +243,7 @@ export function PurchaseInvoiceEditor({
               <Select
                 value={d.currency}
                 onChange={(e) => {
-                  const c = s.currencies.find((c) => c.code === e.target.value)!;
+                  const c = state.currencies.find((c) => c.code === e.target.value)!;
                   setLines(
                     lines.map((invoiceLine) => ({
                       ...invoiceLine,
@@ -331,7 +260,7 @@ export function PurchaseInvoiceEditor({
                   });
                 }}
               >
-                {s.currencies.map((c) => (
+                {state.currencies.map((c) => (
                   <option key={c.code} value={c.code}>
                     {c.code} — {c.name}
                   </option>
@@ -356,7 +285,7 @@ export function PurchaseInvoiceEditor({
           )}
         </section>
         <InvoiceLineGrid
-          state={s}
+          state={state}
           lines={lines}
           onChange={setLines}
           kind={'purchase'}
@@ -454,7 +383,7 @@ export function PurchaseInvoiceEditor({
           </>
         )}
         {isReadOnly && (
-          <Button variant="outline" onClick={() => printReport(invoiceReport(s, invoice!))}>
+          <Button variant="outline" onClick={() => printReport(invoiceReport(state, invoice!))}>
             طباعة الفاتورة
           </Button>
         )}
@@ -471,7 +400,7 @@ export function PurchaseInvoiceEditor({
         <DataTable
           headers={['العملة', 'مدين', 'دائن', 'الرصيد', 'الحالة']}
           rows={(() => {
-            const ls = s.entries
+            const ls = state.entries
               .filter((entry) => entry.branchId === d.branchId)
               .flatMap((entry) => entry.lines)
               .filter(

@@ -15,7 +15,9 @@ import {
   Undo2,
   UserPlus,
 } from 'lucide-react';
+
 export function Dashboard() {
+
   const model = useDashboardController();
   if (!model) return null;
   const { navigate, low, isLoading, error } = model;

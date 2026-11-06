@@ -6,7 +6,9 @@ import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Button } from '@/shared/ui/primitives/button';
 import { LogOut, UserRound } from 'lucide-react';
 import { useState } from 'react';
+
 export function SessionMenu({ editing: isEditing }: { editing: boolean }) {
+
   const auth = useAuth(),
     { navigate } = useApplication();
   const [isOpen, setOpen] = useState(false),

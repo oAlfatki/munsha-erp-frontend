@@ -5,12 +5,15 @@ import type { ExpenseDocument } from '@/features/ledger/public';
 import { money } from '@/core/utils/money';
 import { extras } from '@/features/ledger/public';
 import { z } from 'zod';
+
 export const TREATMENT_LABELS = {
   current: 'مصروف حالي',
   accrued: 'مصروف مستحق',
   prepaid: 'مصروف مدفوع مقدمًا',
 };
+
 export function expenseViews(workspace: ExpenseViewsContext): ExpenseView[] {
+
   const x = extras(workspace);
   const docs: ExpenseDocument[] = [...(workspace.expenseDocuments || [])];
   const result = docs.map((d) => ({
@@ -76,16 +79,19 @@ export function expenseViews(workspace: ExpenseViewsContext): ExpenseView[] {
     remaining: d.treatment === 'prepaid' ? money(d.paid - d.consumed) : 0,
   }));
 }
+
 export const expenseForeignPaid = (d: ExpenseView) =>
   money(
     d.legacy
       ? d.paid / (d.rate || 1)
       : d.payments.reduce((n, p) => n + (p.foreignAmount ?? p.amount / (d.rate || 1)), 0),
   );
+
 export const expenseForeignDue = (d: ExpenseView) =>
   money((d.foreignAmount ?? d.amount) - expenseForeignPaid(d));
+
 z.string()
   .regex(/^\d{4}-\d{2}-\d{2}$/)
   .refine((v) => !isNaN(Date.parse(v)) && new Date(v).toISOString().slice(0, 10) === v);
 z.string().trim().min(1).max(300);
-z.number().finite().positive();
+z.number().positive();

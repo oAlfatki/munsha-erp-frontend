@@ -1,5 +1,6 @@
 import type { AccessSnapshot } from '@/core/types/access/AccessSnapshot';
 import type { Identity } from '@/core/types/auth/Identity';
+
 export interface AuthContextValue {
   user: Identity | null;
   loading: boolean;

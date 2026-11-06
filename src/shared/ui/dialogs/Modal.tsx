@@ -1,4 +1,4 @@
-import type { ModalProps } from '@/core/types/props/ModalProps';
+import type { ModalProps } from '@/shared/types/props/ModalProps';
 import {
   Dialog,
   DialogContent,
@@ -15,6 +15,7 @@ export function Modal({
   children,
   isWide: isWide = false,
 }: ModalProps) {
+
   return (
     <Dialog open={isOpen} onOpenChange={(isO) => !isO && close()}>
       <DialogContent dir="rtl" className={'erp-dialog ' + (isWide ? 'wide' : '')}>

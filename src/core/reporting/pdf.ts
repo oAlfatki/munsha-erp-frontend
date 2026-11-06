@@ -1,9 +1,12 @@
 import { formatCell } from '@/core/reporting/formatting';
-import type { DeviceSettings } from '@/core/types/api/DeviceSettings';
-import type { ReportIdentity } from '@/core/types/auth/ReportIdentity';
+import type { DeviceSettings } from '@/core/types/preferences/DeviceSettings';
 import type { ReportDocument } from '@/core/types/reports/ReportDocument';
+import type { ReportIdentity } from '@/core/types/reports/ReportIdentity';
+
 let fontPromise: Promise<string> | undefined;
+
 async function fontData() {
+
   return (fontPromise ??= fetch('/fonts/SakkalMajalla-Regular.ttf')
     .then(async (r) => {
       if (!r.ok) throw Error('تعذر تحميل خط التقرير');
@@ -18,11 +21,13 @@ async function fontData() {
       throw e;
     }));
 }
+
 export async function buildReportPdf(
   report: ReportDocument,
   identity: ReportIdentity,
   device: DeviceSettings,
 ): Promise<Blob> {
+
   const [{ jsPDF }, { autoTable }, font] = await Promise.all([
     import('jspdf'),
     import('jspdf-autotable'),
@@ -46,7 +51,9 @@ export async function buildReportPdf(
     margin = 12,
     content = w - margin * 2;
   let y = 52;
+
   const header = () => {
+
     doc.setDrawColor(65);
     doc.setLineWidth(0.3);
     doc.roundedRect(margin, 10, content, 29, 1, 1);
@@ -72,6 +79,7 @@ export async function buildReportPdf(
     doc.setFontSize(15);
     doc.text(report.title, w / 2, 46, { align: 'center' });
   };
+
   header();
   doc.setFontSize(11);
   const meta = [
@@ -126,11 +134,15 @@ export async function buildReportPdf(
       },
       rowPageBreak: 'avoid',
       showHead: 'everyPage',
+
       willDrawCell: ({ cell }) => {
+
         if (!cellTexts.has(cell)) cellTexts.set(cell, [...cell.text]);
         cell.text = [];
       },
+
       didDrawCell: ({ cell, section }) => {
+
         const lines = cellTexts.get(cell) || [];
         const isCenter = section === 'head';
         doc.text(
@@ -140,7 +152,9 @@ export async function buildReportPdf(
           { align: isCenter ? 'center' : 'right', lineHeightFactor: 1.15 },
         );
       },
+
       didDrawPage: () => {
+
         header();
       },
     });

@@ -2,7 +2,9 @@ import { ROUTES } from '@/core/config/navigation-paths';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
+
 export function FiscalYearReopening() {
+
   const { navigate } = useApplication();
   return (
     <>

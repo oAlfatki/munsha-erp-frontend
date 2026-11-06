@@ -1,6 +1,6 @@
 import { apiClient } from '@/core/api/apiClient';
-import { ENDPOINTS } from '@/core/config/endpoints';
 import type { OperationListResponse, OperationResponse } from '@/features/ledger/public';
+import { ENDPOINTS } from '@/features/stock/api/endpoints';
 import type { GetInventoryItemGroupsByIdRequest } from '@/features/stock/types/requests/GetInventoryItemGroupsByIdRequest';
 import type { GetInventoryItemsByIdRequest } from '@/features/stock/types/requests/GetInventoryItemsByIdRequest';
 import type { GetInventoryItemsByIdUnitsRequest } from '@/features/stock/types/requests/GetInventoryItemsByIdUnitsRequest';
@@ -34,11 +34,14 @@ import type { UnitListResponse } from '@/features/stock/types/responses/UnitList
 import type { UnitResponse } from '@/features/stock/types/responses/UnitResponse';
 import type { WarehouseListResponse } from '@/features/stock/types/responses/WarehouseListResponse';
 import type { WarehouseResponse } from '@/features/stock/types/responses/WarehouseResponse';
+
 /** List items. Existing HTTP contract. */
+
 export async function fetchInventoryItems(
   params: SearchInventoryItemsRequest = {},
   signal?: AbortSignal,
 ): Promise<ItemListResponse> {
+
   return await apiClient.get<ItemListResponse>(ENDPOINTS.fetchInventoryItems, {
     signal,
     params: {
@@ -51,19 +54,25 @@ export async function fetchInventoryItems(
     },
   });
 }
+
 /** Get items detail. Existing HTTP contract. */
+
 export async function fetchInventoryItemsById(
   params: GetInventoryItemsByIdRequest,
 ): Promise<ItemResponse> {
+
   return await apiClient.get<ItemResponse>(ENDPOINTS.fetchInventoryItemsById(params.id), {
     params: { bookId: params.bookId },
   });
 }
+
 /** List warehouses. Existing HTTP contract. */
+
 export async function fetchInventoryWarehouses(
   params: SearchInventoryWarehousesRequest = {},
   signal?: AbortSignal,
 ): Promise<WarehouseListResponse> {
+
   return await apiClient.get<WarehouseListResponse>(ENDPOINTS.fetchInventoryWarehouses, {
     signal,
     params: {
@@ -76,19 +85,25 @@ export async function fetchInventoryWarehouses(
     },
   });
 }
+
 /** Get warehouses detail. Existing HTTP contract. */
+
 export async function fetchInventoryWarehousesById(
   params: GetInventoryWarehousesByIdRequest,
 ): Promise<WarehouseResponse> {
+
   return await apiClient.get<WarehouseResponse>(ENDPOINTS.fetchInventoryWarehousesById(params.id), {
     params: { bookId: params.bookId },
   });
 }
+
 /** List units. Existing HTTP contract. */
+
 export async function fetchInventoryUnits(
   params: SearchInventoryUnitsRequest = {},
   signal?: AbortSignal,
 ): Promise<UnitListResponse> {
+
   return await apiClient.get<UnitListResponse>(ENDPOINTS.fetchInventoryUnits, {
     signal,
     params: {
@@ -100,19 +115,25 @@ export async function fetchInventoryUnits(
     },
   });
 }
+
 /** Get units detail. Existing HTTP contract. */
+
 export async function fetchInventoryUnitsById(
   params: GetInventoryUnitsByIdRequest,
 ): Promise<UnitResponse> {
+
   return await apiClient.get<UnitResponse>(ENDPOINTS.fetchInventoryUnitsById(params.id), {
     params: { bookId: params.bookId },
   });
 }
+
 /** List unit categories. Existing HTTP contract. */
+
 export async function fetchInventoryUnitCategories(
   params: SearchInventoryUnitCategoriesRequest = {},
   signal?: AbortSignal,
 ): Promise<UnitCategoryListResponse> {
+
   return await apiClient.get<UnitCategoryListResponse>(ENDPOINTS.fetchInventoryUnitCategories, {
     signal,
     params: {
@@ -124,20 +145,26 @@ export async function fetchInventoryUnitCategories(
     },
   });
 }
+
 /** Get unit categories detail. Existing HTTP contract. */
+
 export async function fetchInventoryUnitCategoriesById(
   params: GetInventoryUnitCategoriesByIdRequest,
 ): Promise<UnitCategoryResponse> {
+
   return await apiClient.get<UnitCategoryResponse>(
     ENDPOINTS.fetchInventoryUnitCategoriesById(params.id),
     { params: { bookId: params.bookId } },
   );
 }
+
 /** List item groups. Existing HTTP contract. */
+
 export async function fetchInventoryItemGroups(
   params: SearchInventoryItemGroupsRequest = {},
   signal?: AbortSignal,
 ): Promise<ItemGroupListResponse> {
+
   return await apiClient.get<ItemGroupListResponse>(ENDPOINTS.fetchInventoryItemGroups, {
     signal,
     params: {
@@ -149,19 +176,25 @@ export async function fetchInventoryItemGroups(
     },
   });
 }
+
 /** Get item groups detail. Existing HTTP contract. */
+
 export async function fetchInventoryItemGroupsById(
   params: GetInventoryItemGroupsByIdRequest,
 ): Promise<ItemGroupResponse> {
+
   return await apiClient.get<ItemGroupResponse>(ENDPOINTS.fetchInventoryItemGroupsById(params.id), {
     params: { bookId: params.bookId },
   });
 }
+
 /** List stock documents. Existing HTTP contract. */
+
 export async function fetchInventoryStockDocuments(
   params: SearchInventoryStockDocumentsRequest = {},
   signal?: AbortSignal,
 ): Promise<StockDocumentListResponse> {
+
   return await apiClient.get<StockDocumentListResponse>(ENDPOINTS.fetchInventoryStockDocuments, {
     signal,
     params: {
@@ -180,20 +213,26 @@ export async function fetchInventoryStockDocuments(
     },
   });
 }
+
 /** Get a stock document. Existing HTTP contract. */
+
 export async function fetchInventoryStockDocumentsById(
   params: GetInventoryStockDocumentsByIdRequest,
 ): Promise<StockDocumentResponse> {
+
   return await apiClient.get<StockDocumentResponse>(
     ENDPOINTS.fetchInventoryStockDocumentsById(params.id),
     { params: { bookId: params.bookId, branchId: params.branchId } },
   );
 }
+
 /** List current stock quantities. Existing HTTP contract. */
+
 export async function fetchInventoryBalances(
   params: SearchInventoryBalancesRequest = {},
   signal?: AbortSignal,
 ): Promise<StockBalanceListResponse> {
+
   return await apiClient.get<StockBalanceListResponse>(ENDPOINTS.fetchInventoryBalances, {
     signal,
     params: {
@@ -206,11 +245,14 @@ export async function fetchInventoryBalances(
     },
   });
 }
+
 /** List item movement history. Existing HTTP contract. */
+
 export async function fetchInventoryMovements(
   params: SearchInventoryMovementsRequest = {},
   signal?: AbortSignal,
 ): Promise<InventoryMovementListResponse> {
+
   return await apiClient.get<InventoryMovementListResponse>(ENDPOINTS.fetchInventoryMovements, {
     signal,
     params: {
@@ -226,19 +268,25 @@ export async function fetchInventoryMovements(
     },
   });
 }
+
 /** Get item units and per-unit prices. Existing HTTP contract. */
+
 export async function fetchInventoryItemsByIdUnits(
   params: GetInventoryItemsByIdUnitsRequest,
 ): Promise<ItemResponse> {
+
   return await apiClient.get<ItemResponse>(ENDPOINTS.fetchInventoryItemsByIdUnits(params.id), {
     params: { bookId: params.bookId },
   });
 }
+
 /** List stock counts. Existing HTTP contract. */
+
 export async function fetchInventoryStockCounts(
   params: SearchInventoryStockCountsRequest = {},
   signal?: AbortSignal,
 ): Promise<OperationListResponse> {
+
   return await apiClient.get<OperationListResponse>(ENDPOINTS.fetchInventoryStockCounts, {
     signal,
     params: {
@@ -254,19 +302,25 @@ export async function fetchInventoryStockCounts(
     },
   });
 }
+
 /** Get stock counts detail. Existing HTTP contract. */
+
 export async function fetchInventoryStockCountsById(
   params: GetInventoryStockCountsByIdRequest,
 ): Promise<OperationResponse> {
+
   return await apiClient.get<OperationResponse>(
     ENDPOINTS.fetchInventoryStockCountsById(params.id),
     { params: { bookId: params.bookId, branchId: params.branchId } },
   );
 }
+
 /** Search item cards for the global palette. Existing HTTP contract. */
+
 export async function fetchSearchItems(
   params: SearchSearchItemsRequest = {},
 ): Promise<SearchHitListResponse> {
+
   return await apiClient.get<SearchHitListResponse>(ENDPOINTS.fetchSearchItems, {
     params: { page: params.page, pageSize: params.pageSize, bookId: params.bookId, q: params.q },
   });

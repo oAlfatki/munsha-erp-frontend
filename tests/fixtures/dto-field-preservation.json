@@ -1213,9 +1213,7 @@
   },
   {
     "file": "src/features/customers/types/request/customers-request.types.ts",
-    "currentFiles": [
-      "src/features/customers/types/requests/SaveCustomerRequest.ts"
-    ],
+    "currentFiles": ["src/features/customers/types/requests/SaveCustomerRequest.ts"],
     "expected": [
       {
         "name": "kind",
@@ -1383,9 +1381,7 @@
   },
   {
     "file": "src/features/dashboard/types/request/read-queries.types.ts",
-    "currentFiles": [
-      "src/features/dashboard/types/requests/GetDashboardRequest.ts"
-    ],
+    "currentFiles": ["src/features/dashboard/types/requests/GetDashboardRequest.ts"],
     "expected": [
       {
         "name": "bookId",
@@ -1399,9 +1395,7 @@
   },
   {
     "file": "src/features/dashboard/types/response/read-contracts.types.ts",
-    "currentFiles": [
-      "src/features/dashboard/types/responses/DashboardResponse.ts"
-    ],
+    "currentFiles": ["src/features/dashboard/types/responses/DashboardResponse.ts"],
     "expected": [
       {
         "name": "lowStock",
@@ -2399,361 +2393,6 @@
       },
       {
         "name": "amount",
-        "isOptional": false
-      }
-    ]
-  },
-  {
-    "file": "src/features/financial/types/request/read-queries.types.ts",
-    "currentFiles": [
-      "src/features/financial/types/requests/SearchReportsFinancialProfitByItemRequest.ts",
-      "src/features/financial/types/requests/SearchReportsFinancialProfitByCustomerRequest.ts",
-      "src/features/financial/types/requests/SearchReportsFinancialCashFlowRequest.ts",
-      "src/features/financial/types/requests/SearchReportsFinancialAccountMappingRequest.ts",
-      "src/features/financial/types/requests/GetFinancialStatementsIncomeRequest.ts",
-      "src/features/financial/types/requests/GetFinancialStatementsPositionRequest.ts"
-    ],
-    "expected": [
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "productId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "asOf",
-        "isOptional": true
-      },
-      {
-        "name": "accountCode",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "asOf",
-        "isOptional": true
-      }
-    ]
-  },
-  {
-    "file": "src/features/financial/types/response/read-contracts.types.ts",
-    "currentFiles": [
-      "src/features/financial/types/responses/ProfitByItemReport.ts",
-      "src/features/financial/types/responses/ProfitByItemReportRow.ts",
-      "src/features/financial/types/responses/ProfitByCustomerReport.ts",
-      "src/features/financial/types/responses/ProfitByCustomerReportRow.ts",
-      "src/features/financial/types/responses/CashFlowReport.ts",
-      "src/features/financial/types/responses/CashFlowReportRow.ts",
-      "src/features/financial/types/responses/AccountMappingReport.ts",
-      "src/features/financial/types/responses/AccountMappingReportRow.ts",
-      "src/features/financial/types/responses/IncomeStatementResponse.ts",
-      "src/features/financial/types/responses/FinancialLineResponse.ts",
-      "src/features/financial/types/responses/FinancialPositionResponse.ts"
-    ],
-    "expected": [
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "lines",
-        "isOptional": false
-      },
-      {
-        "name": "revenue",
-        "isOptional": false
-      },
-      {
-        "name": "costOfSales",
-        "isOptional": false
-      },
-      {
-        "name": "expenses",
-        "isOptional": false
-      },
-      {
-        "name": "netIncome",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "code",
-        "isOptional": false
-      },
-      {
-        "name": "label",
-        "isOptional": false
-      },
-      {
-        "name": "classification",
-        "isOptional": false
-      },
-      {
-        "name": "amount",
-        "isOptional": false
-      },
-      {
-        "name": "lines",
-        "isOptional": false
-      },
-      {
-        "name": "assets",
-        "isOptional": false
-      },
-      {
-        "name": "liabilities",
-        "isOptional": false
-      },
-      {
-        "name": "equity",
-        "isOptional": false
-      },
-      {
-        "name": "difference",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
         "isOptional": false
       }
     ]
@@ -3807,9 +3446,7 @@
   },
   {
     "file": "src/features/parties/types/request/parties-request.types.ts",
-    "currentFiles": [
-      "src/features/parties/types/requests/SavePartyRequest.ts"
-    ],
+    "currentFiles": ["src/features/parties/types/requests/SavePartyRequest.ts"],
     "expected": [
       {
         "name": "id",
@@ -3849,18 +3486,6 @@
       },
       {
         "name": "active",
-        "isOptional": false
-      }
-    ]
-  },
-  {
-    "file": "src/features/purchases/types/request/purchases-request.types.ts",
-    "currentFiles": [
-      "src/features/purchases/invoices/types/requests/SavePurchaseInvoiceRequest.ts"
-    ],
-    "expected": [
-      {
-        "name": "kind",
         "isOptional": false
       }
     ]
@@ -4020,23 +3645,14 @@
       "src/features/stock/types/requests/SearchReportsInventoryTransfersRequest.ts",
       "src/features/stock/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
       "src/features/stock/types/requests/SearchReportsInventoryPricesRequest.ts",
-      "src/features/customers/types/requests/SearchReportsCustomersBalancesRequest.ts",
-      "src/features/suppliers/types/requests/SearchReportsSuppliersBalancesRequest.ts",
       "src/features/personnel/types/requests/SearchReportsEmployeesPayrollRequest.ts",
       "src/features/personnel/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
-      "src/features/expenses/types/requests/SearchReportsExpensesRecognizedRequest.ts",
-      "src/features/sales/reports/types/requests/SearchReportsSalesSummaryRequest.ts",
-      "src/features/purchases/reports/types/requests/SearchReportsPurchasesSummaryRequest.ts",
-      "src/features/sales/reports/types/requests/SearchReportsSalesReturnsRequest.ts",
-      "src/features/purchases/reports/types/requests/SearchReportsPurchasesReturnsRequest.ts",
-      "src/features/sales/reports/types/requests/SearchReportsSalesChartRequest.ts",
       "src/features/ledger/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
       "src/features/ledger/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
       "src/features/ledger/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
       "src/features/ledger/types/requests/SearchReportsAccountingTaxRequest.ts",
       "src/features/ledger/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
       "src/features/ledger/types/requests/SearchReportsAccountingAssetsRequest.ts",
-      "src/features/sales/reports/types/requests/SearchReportsSalesTargetAchievementRequest.ts",
       "src/features/ledger/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
       "src/features/ledger/types/requests/SearchReportsAccountingContactLedgerRequest.ts"
     ],
@@ -4338,62 +3954,6 @@
         "isOptional": false
       },
       {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "asOf",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "asOf",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
         "name": "from",
         "isOptional": true
       },
@@ -4443,214 +4003,6 @@
       },
       {
         "name": "employeeId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "currency",
-        "isOptional": true
-      },
-      {
-        "name": "productId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "currency",
-        "isOptional": true
-      },
-      {
-        "name": "productId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "currency",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "currency",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
         "isOptional": true
       },
       {
@@ -4862,42 +4214,6 @@
         "isOptional": true
       },
       {
-        "name": "employeeId",
-        "isOptional": true
-      },
-      {
-        "name": "period",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
         "name": "accountCode",
         "isOptional": false
       },
@@ -4962,26 +4278,10 @@
       "src/features/stock/types/responses/AdjustmentsReportRow.ts",
       "src/features/stock/types/responses/PricesReport.ts",
       "src/features/stock/types/responses/PricesReportRow.ts",
-      "src/features/customers/types/responses/CustomerBalancesReport.ts",
-      "src/features/customers/types/responses/CustomerBalancesReportRow.ts",
-      "src/features/suppliers/types/responses/SupplierBalancesReport.ts",
-      "src/features/suppliers/types/responses/SupplierBalancesReportRow.ts",
       "src/features/personnel/types/responses/PayrollReport.ts",
       "src/features/personnel/types/responses/PayrollReportRow.ts",
       "src/features/personnel/types/responses/AdvancesReport.ts",
       "src/features/personnel/types/responses/AdvancesReportRow.ts",
-      "src/features/expenses/types/responses/RecognizedExpensesReport.ts",
-      "src/features/expenses/types/responses/RecognizedExpensesReportRow.ts",
-      "src/features/sales/reports/types/responses/SalesSummaryReport.ts",
-      "src/features/sales/reports/types/responses/SalesSummaryReportRow.ts",
-      "src/features/purchases/reports/types/responses/PurchasesSummaryReport.ts",
-      "src/features/purchases/reports/types/responses/PurchasesSummaryReportRow.ts",
-      "src/features/sales/reports/types/responses/SalesReturnsReport.ts",
-      "src/features/sales/reports/types/responses/SalesReturnsReportRow.ts",
-      "src/features/purchases/reports/types/responses/PurchaseReturnsReport.ts",
-      "src/features/purchases/reports/types/responses/PurchaseReturnsReportRow.ts",
-      "src/features/sales/reports/types/responses/SalesChartReport.ts",
-      "src/features/sales/reports/types/responses/SalesChartReportRow.ts",
       "src/features/ledger/types/responses/CashMovementsReport.ts",
       "src/features/ledger/types/responses/CashMovementsReportRow.ts",
       "src/features/ledger/types/responses/OpeningBalancesReport.ts",
@@ -4994,264 +4294,10 @@
       "src/features/ledger/types/responses/ForeignCurrencyReportRow.ts",
       "src/features/ledger/types/responses/AssetsReport.ts",
       "src/features/ledger/types/responses/AssetsReportRow.ts",
-      "src/features/sales/reports/types/responses/TargetAchievementReport.ts",
-      "src/features/sales/reports/types/responses/TargetAchievementReportRow.ts",
       "src/features/ledger/types/responses/AccountStatementResponse.ts",
       "src/features/ledger/types/responses/StatementRow.ts"
     ],
     "expected": [
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
       {
         "name": "columns",
         "isOptional": false
@@ -7577,9 +6623,7 @@
   },
   {
     "file": "src/features/suppliers/types/request/suppliers-request.types.ts",
-    "currentFiles": [
-      "src/features/suppliers/types/requests/SaveSupplierRequest.ts"
-    ],
+    "currentFiles": ["src/features/suppliers/types/requests/SaveSupplierRequest.ts"],
     "expected": [
       {
         "name": "kind",

@@ -10,7 +10,9 @@ import {
 } from '@/features/ledger/public';
 import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCashFlowReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

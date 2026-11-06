@@ -1,7 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf } from '@/core/reporting/service';
 import { fmt, today } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useContactEntry } from '@/features/accounting/contacts/hooks/useContactEntry';
@@ -16,6 +14,8 @@ import {
   extras,
   fiscalRange,
 } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { exportPdf } from '@/shared/services/report-actions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
@@ -27,8 +27,10 @@ import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { useState } from 'react';
+
 export function ContactsLedger() {
-  const { state: s, branchId, busy: isBusy, navigate } = useContactsLedgerQuery();
+
+  const { state, branchId, busy: isBusy, navigate } = useContactsLedgerQuery();
   const contactEntryMutationRequest = useContactEntry(),
     contactEntryForm = useValidatedForm(contactEntrySchema, contactEntryMutationRequest.execute),
     contactEntryMutation = { ...contactEntryMutationRequest, execute: contactEntryForm.submit };
@@ -42,21 +44,23 @@ export function ContactsLedger() {
       execute: contactVoucherForm.submit,
     };
   const [id, setId] = useState(''),
-    [from, setFrom] = useState(fiscalRange(s!).from),
-    [to, setTo] = useState(fiscalRange(s!).to),
+    [from, setFrom] = useState(fiscalRange(state!).from),
+    [to, setTo] = useState(fiscalRange(state!).to),
     [action, setAction] = useState<'entry' | 'voucher' | null>(null),
     [date, setDate] = useState(
-      today().startsWith(String(s!.organization.year)) ? today() : s!.organization.year + '-01-01',
+      today().startsWith(String(state!.organization.year))
+        ? today()
+        : state!.organization.year + '-01-01',
     ),
     [amount, setAmount] = useState(0),
     [counter, setCounter] = useState(''),
     [cashId, setCashId] = useState(defaultCashId(branchId)),
     [note, setNote] = useState('');
-  if (!s) return null;
-  const contacts = extras(s).records.contacts || [],
+  if (!state) return null;
+  const contacts = extras(state).records.contacts || [],
     contact = contacts.find((c) => c.id === id),
-    chart = allAccounts(s);
-  const entries = s.entries
+    chart = allAccounts(state);
+  const entries = state.entries
     .filter(
       (entry) =>
         entry.branchId === branchId &&
@@ -217,7 +221,7 @@ export function ContactsLedger() {
                           '230',
                         ].includes(id) &&
                         !contacts.some((c) => c.account === id) &&
-                        !cashOptions(s, branchId).some((c) => c.account === id),
+                        !cashOptions(state, branchId).some((c) => c.account === id),
                     )
                     .map(([id, a]) => (
                       <option key={id} value={id}>
@@ -229,8 +233,8 @@ export function ContactsLedger() {
             ) : (
               <Field label="الصندوق / البنك YER *">
                 <Select required value={cashId} onChange={(e) => setCashId(e.target.value)}>
-                  {cashOptions(s, branchId)
-                    .filter((c) => c.active && c.currency === s.organization.currency)
+                  {cashOptions(state, branchId)
+                    .filter((c) => c.active && c.currency === state.organization.currency)
                     .map((c) => (
                       <option key={c.id} value={c.id}>
                         {c.name}

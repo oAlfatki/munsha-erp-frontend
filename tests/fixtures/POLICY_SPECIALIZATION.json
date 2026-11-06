@@ -3,103 +3,63 @@
     "command": "invoice",
     "name": "validateInvoiceSettingsPolicy",
     "type": "InvoiceSettingsPolicyContext",
-    "fields": [
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/invoice-policy.ts"
   },
   {
     "command": "deleteDraft",
     "name": "validateDeleteDraftSettingsPolicy",
     "type": "DeleteDraftSettingsPolicyContext",
-    "fields": [
-      "invoices",
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["invoices", "organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/delete-draft-policy.ts"
   },
   {
     "command": "transfer",
     "name": "validateTransferSettingsPolicy",
     "type": "TransferSettingsPolicyContext",
-    "fields": [
-      "warehouses",
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["warehouses", "organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/transfer-policy.ts"
   },
   {
     "command": "stockDocument",
     "name": "validateStockDocumentSettingsPolicy",
     "type": "StockDocumentSettingsPolicyContext",
-    "fields": [
-      "warehouses",
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["warehouses", "organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/stock-document-policy.ts"
   },
   {
     "command": "operation",
     "name": "validateOperationSettingsPolicy",
     "type": "OperationSettingsPolicyContext",
-    "fields": [
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/operation-policy.ts"
   },
   {
     "command": "voucher",
     "name": "validateVoucherSettingsPolicy",
     "type": "VoucherSettingsPolicyContext",
-    "fields": [
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/voucher-policy.ts"
   },
   {
     "command": "contactVoucher",
     "name": "validateContactVoucherSettingsPolicy",
     "type": "ContactVoucherSettingsPolicyContext",
-    "fields": [
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/contact-voucher-policy.ts"
   },
   {
     "command": "expensePayment",
     "name": "validateExpensePaymentSettingsPolicy",
     "type": "ExpensePaymentSettingsPolicyContext",
-    "fields": [
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/expense-payment-policy.ts"
   },
   {
     "command": "expenseSave",
     "name": "validateExpenseSaveSettingsPolicy",
     "type": "ExpenseSaveSettingsPolicyContext",
-    "fields": [
-      "expenseDocuments",
-      "organization",
-      "extras",
-      "systemSettings"
-    ],
+    "fields": ["expenseDocuments", "organization", "extras", "systemSettings"],
     "file": "src/features/settings/validation/expense-save-policy.ts"
   }
 ]

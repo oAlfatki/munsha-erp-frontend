@@ -5,7 +5,9 @@ import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { suppliersQuery } from '@/features/parties/public';
 import type { SupplierBalancesReportReadModel } from '@/features/suppliers/types/read-models/SupplierBalancesReportReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSupplierBalancesReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

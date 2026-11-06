@@ -6,9 +6,12 @@ const FIELDS =
 /** Keep data entry in DOM order (right-to-left in the Arabic forms).
  * At the edges, leave Tab to the browser so actions and dialog controls stay reachable.
  */
+
 export function FieldNavigation() {
+
   useEffect(() => {
     const navigate = (event: KeyboardEvent) => {
+
       if (
         event.key !== 'Tab' ||
         event.defaultPrevented ||
@@ -42,6 +45,7 @@ export function FieldNavigation() {
         next.focus();
       }
     };
+
     document.addEventListener('keydown', navigate);
     return () => document.removeEventListener('keydown', navigate);
   }, []);

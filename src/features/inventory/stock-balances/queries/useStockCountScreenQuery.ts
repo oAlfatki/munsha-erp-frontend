@@ -12,7 +12,9 @@ import { branchesQuery } from '@/features/organization/public';
 import { advancesQuery, payrollQuery, salaryPaymentsQuery } from '@/features/personnel/public';
 import { itemsQuery, stockCountsQuery, warehousesQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useStockCountScreenQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

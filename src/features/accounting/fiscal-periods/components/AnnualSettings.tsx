@@ -10,11 +10,13 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { ArrowLeft, Database, RefreshCw, ShieldCheck, Wifi } from 'lucide-react';
+
 export function AnnualSettings({ isConnection: isConnection = false }: AnnualSettingsProps) {
+
   const model = useAnnualSettingsController();
   if (!model) return null;
   const {
-    s,
+    s: state,
     isBusy,
     revision,
     refresh,
@@ -51,7 +53,7 @@ export function AnnualSettings({ isConnection: isConnection = false }: AnnualSet
         </div>
         <div>
           <span>السنة المالية</span>
-          <strong>{s.organization.year}</strong>
+          <strong>{state.organization.year}</strong>
         </div>
         <div>
           <span>الحالة</span>
@@ -84,10 +86,10 @@ export function AnnualSettings({ isConnection: isConnection = false }: AnnualSet
           className="panel form-panel"
           onSubmit={async (e) => {
             e.preventDefault();
-            await periodCreateMutation.execute({ name, year: s.organization.year + 1 });
+            await periodCreateMutation.execute({ name, year: state.organization.year + 1 });
           }}
         >
-          <h2>إنشاء السنة {s.organization.year + 1}</h2>
+          <h2>إنشاء السنة {state.organization.year + 1}</h2>
           <div className="form-grid">
             <Field label="اسم الفترة الجديدة">
               <Input
@@ -102,7 +104,7 @@ export function AnnualSettings({ isConnection: isConnection = false }: AnnualSet
             </Field>
           </div>
           <Button
-            disabled={isBusy || catalog.books.some((b) => b.year === s.organization.year + 1)}
+            disabled={isBusy || catalog.books.some((b) => b.year === state.organization.year + 1)}
           >
             <Database size={16} />
             إنشاء الفترة الجديدة

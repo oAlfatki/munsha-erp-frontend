@@ -5,7 +5,9 @@ import { customersQuery, suppliersQuery } from '@/features/parties/public';
 import type { ImportMastersReadModel } from '@/features/settings/types/read-models/ImportMastersReadModel';
 import { itemsQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useImportMastersQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

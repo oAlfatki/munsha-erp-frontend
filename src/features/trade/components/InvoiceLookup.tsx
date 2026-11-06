@@ -9,11 +9,12 @@ import { Search } from 'lucide-react';
 import { useState } from 'react';
 
 export function InvoiceLookup({ kind, onSelect }: InvoiceLookupProps) {
-  const { state: s, branchId } = useInvoiceLookupQuery();
+
+  const { state, branchId } = useInvoiceLookupQuery();
   const [searchQuery, setQ] = useState(''),
     [isOpen, setOpen] = useState(false);
-  if (!s) return null;
-  const rows = s.invoices
+  if (!state) return null;
+  const rows = state.invoices
     .filter(
       (invoice) =>
         invoice.kind === kind &&
@@ -23,7 +24,7 @@ export function InvoiceLookup({ kind, onSelect }: InvoiceLookupProps) {
           ' ' +
           invoice.date +
           ' ' +
-          (s.parties.find((party) => party.id === invoice.partyId)?.name || 'نقدي') +
+          (state.parties.find((party) => party.id === invoice.partyId)?.name || 'نقدي') +
           ' ' +
           invoice.note
         )
@@ -62,7 +63,7 @@ export function InvoiceLookup({ kind, onSelect }: InvoiceLookupProps) {
           rows={rows.map((invoice) => [
             invoice.number,
             invoice.date,
-            s.parties.find((party) => party.id === invoice.partyId)?.name || 'نقدي',
+            state.parties.find((party) => party.id === invoice.partyId)?.name || 'نقدي',
             fmt(invoice.total) + ' ' + invoice.currency,
             invoice.status === 'draft' ? 'مسودة' : 'نهائية',
             <Button

@@ -1,5 +1,6 @@
 import type { Entry } from '@/features/ledger/public';
 import type { Invoice } from '@/features/trade/types/models/Invoice';
+
 export interface TradeSummaryContext {
   invoices: Invoice[];
   entries: Entry[];

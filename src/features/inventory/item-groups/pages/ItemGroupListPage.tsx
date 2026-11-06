@@ -1,5 +1,6 @@
 import type { MasterFormDefinition } from '@/features/master-data/public';
 import { MasterScreen } from '@/features/master-data/public';
+
 const DEFINITION = {
   title: 'قائمة المجموعات',
   note: 'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',
@@ -19,8 +20,11 @@ const DEFINITION = {
     },
   ],
 } satisfies MasterFormDefinition;
+
 /** قائمة المجموعات — feature-owned route content. */
+
 export default function ItemGroupListPage() {
+
   return (
     <section className="screen-page">
       <MasterScreen screen={DEFINITION} />

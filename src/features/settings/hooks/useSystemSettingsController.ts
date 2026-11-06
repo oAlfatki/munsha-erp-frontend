@@ -1,4 +1,3 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import {
   DEFAULT_DEVICE_SETTINGS,
   readDeviceSettings,
@@ -18,11 +17,15 @@ import { useSystemSettings } from '@/features/settings/hooks/useSystemSettings';
 import { useSystemSettingsQuery } from '@/features/settings/queries/useSystemSettingsQuery';
 import type { SettingsTab } from '@/features/settings/types/models/SettingsTab';
 import type { SystemSettingsProps } from '@/features/settings/types/props/SystemSettingsProps';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
+
 /** Screen state, commands and derived values; no route-based dispatch. */
+
 export function useSystemSettingsController({ initialTab = 'company' }: SystemSettingsProps) {
-  const { state: s, branchId, busy: isBusy, navigate } = useSystemSettingsQuery();
+
+  const { state, branchId, busy: isBusy, navigate } = useSystemSettingsQuery();
   const organizationMutationRequest = useOrganization(),
     organizationForm = useValidatedForm(organizationSchema, organizationMutationRequest.execute),
     organizationMutation = { ...organizationMutationRequest, execute: organizationForm.submit };
@@ -36,29 +39,31 @@ export function useSystemSettingsController({ initialTab = 'company' }: SystemSe
       execute: systemSettingsForm.submit,
     };
   const [tab, setTab] = useState<SettingsTab>(initialTab),
-    [draft, setDraft] = useState(() => systemSettings(s!)),
+    [draft, setDraft] = useState(() => systemSettings(state!)),
     [branch, setBranch] = useState(branchId),
-    [branchData, setBranchData] = useState(() => branchDefaults(s!, branchId)),
+    [branchData, setBranchData] = useState(() => branchDefaults(state!, branchId)),
     [device, setDevice] = useState(DEFAULT_DEVICE_SETTINGS),
     [isPreview, setPreview] = useState(false);
+
   const companyValue = () => ({
-    name: s!.organization.name,
-    tradeName: s!.branding?.name || s!.organization.name,
-    address: s!.organization.address,
-    phone: s!.organization.phone,
-    email: s!.organization.email || '',
-    activity: s!.organization.activity || '',
-    taxNumber: s!.organization.taxNumber || '',
-    registrationNumber: s!.organization.registrationNumber || '',
-    tagline: s!.branding?.tagline || '',
-    color: s!.branding?.color || '#17685b',
-    logo: s!.branding?.logo || '',
+    name: state!.organization.name,
+    tradeName: state!.branding?.name || state!.organization.name,
+    address: state!.organization.address,
+    phone: state!.organization.phone,
+    email: state!.organization.email || '',
+    activity: state!.organization.activity || '',
+    taxNumber: state!.organization.taxNumber || '',
+    registrationNumber: state!.organization.registrationNumber || '',
+    tagline: state!.branding?.tagline || '',
+    color: state!.branding?.color || '#17685b',
+    logo: state!.branding?.logo || '',
   });
+
   const [company, setCompany] = useState(companyValue);
   useEffect(() => {
     setDevice(readDeviceSettings());
   }, []);
-  if (!s) return null;
+  if (!state) return null;
   const isLocal = tab === 'printing' || tab === 'general',
     label = SETTINGS_TABS.find(([id]) => id === tab)![1],
     scope = isLocal
@@ -66,15 +71,16 @@ export function useSystemSettingsController({ initialTab = 'company' }: SystemSe
       : tab === 'branches'
         ? 'فرع محدد'
         : 'المنشأة كاملة',
-    chart = allAccounts(s),
+    chart = allAccounts(state),
     isDirty = isLocal
       ? JSON.stringify(device) !== JSON.stringify(readDeviceSettings())
       : tab === 'company'
         ? JSON.stringify(company) !== JSON.stringify(companyValue())
         : tab === 'branches'
-          ? JSON.stringify(branchData) !== JSON.stringify(branchDefaults(s, branch))
+          ? JSON.stringify(branchData) !== JSON.stringify(branchDefaults(state, branch))
           : JSON.stringify(draft[tab as keyof typeof draft]) !==
-            JSON.stringify(systemSettings(s)[tab as keyof typeof draft]);
+            JSON.stringify(systemSettings(state)[tab as keyof typeof draft]);
+
   const change = <
     TData extends 'accounting' | 'sales' | 'purchases' | 'inventory' | 'expenses' | 'documents',
   >(
@@ -82,21 +88,27 @@ export function useSystemSettingsController({ initialTab = 'company' }: SystemSe
     key: keyof (typeof draft)[TData],
     value: unknown,
   ) => setDraft({ ...draft, [section]: { ...draft[section], [key]: value } });
+
   const go = (next: SettingsTab) => {
+
     if (isDirty && !window.confirm('توجد تغييرات غير محفوظة. الانتقال دون حفظ؟')) return;
     setTab(next);
-    setDraft(systemSettings(s));
-    setBranchData(branchDefaults(s, branch));
+    setDraft(systemSettings(state));
+    setBranchData(branchDefaults(state, branch));
     setCompany(companyValue());
     setDevice(readDeviceSettings());
   };
+
   const handleReset = () => {
-    setDraft(systemSettings(s));
-    setBranchData(branchDefaults(s, branch));
+
+    setDraft(systemSettings(state));
+    setBranchData(branchDefaults(state, branch));
     setCompany(companyValue());
     setDevice(readDeviceSettings());
   };
+
   const save = async () => {
+
     if (isLocal) {
       try {
         saveDeviceSettings(device);
@@ -121,15 +133,21 @@ export function useSystemSettingsController({ initialTab = 'company' }: SystemSe
       values,
     });
   };
-  const branchName = s.branches.find((branch) => branch.id === branchId)?.name || '',
+
+  const branchName = state.branches.find((branch) => branch.id === branchId)?.name || '',
     defaultNote = (kind: 'sale' | 'purchase' | 'expense' | 'receipt' | 'payment') => {
+
       const currency =
-          kind === 'expense' ? systemSettings(s).expenses.currency : s.organization.currency,
-        id = operationCashId(s, branchId, kind, currency);
+          kind === 'expense'
+            ? systemSettings(state).expenses.currency
+            : state.organization.currency,
+        id = operationCashId(state, branchId, kind, currency);
       return (
-        cashOptions(s, branchId).find((c) => c.id === id)?.name || 'يلزم اختيار صندوق بعملة العملية'
+        cashOptions(state, branchId).find((c) => c.id === id)?.name ||
+        'يلزم اختيار صندوق بعملة العملية'
       );
     };
+
   return {
     branchName,
     defaultNote,
@@ -142,7 +160,7 @@ export function useSystemSettingsController({ initialTab = 'company' }: SystemSe
     save,
     company,
     setCompany,
-    s,
+    s: state,
     draft,
     change,
     chart,

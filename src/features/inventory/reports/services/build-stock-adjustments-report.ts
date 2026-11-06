@@ -2,23 +2,28 @@ import type { Filters } from '@/core/types/api/Filters';
 import type { ReportData } from '@/core/types/reports/ReportData';
 import type { BuildStockAdjustmentsReportContext } from '@/features/inventory/reports/types/read-models/BuildStockAdjustmentsReportContext';
 import { extras } from '@/features/ledger/public';
+
 export function buildStockAdjustmentsReport(
   workspace: BuildStockAdjustmentsReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
+
   const within = (d: string) =>
     (!filters.from || d >= filters.from) && (!filters.to || d <= filters.to);
+
   const operations = extras(workspace).operations.filter(
     (o) => o.branchId === branch && within(o.date),
   );
+
   const names = (id: string) =>
     workspace.parties.find((party) => party.id === id)?.name ||
     workspace.employees.find((employee) => employee.id === id)?.name ||
     extras(workspace).records.assets?.find((a) => a.id === id)?.name ||
     workspace.products.find((product) => product.id === id)?.name ||
     id;
-  let reportData: ReportData = { headers: [], rows: [] };
+
+  let reportData: ReportData;
   {
     const kinds = ['count', 'adjustment'];
     reportData = {

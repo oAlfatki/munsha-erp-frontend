@@ -1,5 +1,6 @@
 import type { MasterFormDefinition } from '@/features/master-data/public';
 import { MasterScreen } from '@/features/master-data/public';
+
 const DEFINITION = {
   title: 'قائمة الوحدات',
   collection: 'units',
@@ -23,8 +24,11 @@ const DEFINITION = {
     },
   ],
 } satisfies MasterFormDefinition;
+
 /** قائمة الوحدات — feature-owned route content. */
+
 export default function UnitListPage() {
+
   return (
     <section className="screen-page">
       <MasterScreen screen={DEFINITION} />

@@ -1,10 +1,13 @@
-import type { PermissionMask } from '@/features/users/type';
+import type { PermissionMask } from '@/features/users/types/PermissionMask';
+
 /** Conservative UI limit; the server still enforces its full delegation policy. */
+
 export function assertGrantable(
   next: PermissionMask[],
   own: PermissionMask[],
   previous: PermissionMask[] = [],
 ) {
+
   const seen = new Set<string>();
   for (const item of next) {
     if (seen.has(item.moduleCode) || !/^(0|[1-9][0-9]*)$/.test(item.mask))

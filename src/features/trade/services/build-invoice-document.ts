@@ -5,7 +5,9 @@ import { cashOptions } from '@/features/ledger/public';
 import { invoiceSummary } from '@/features/trade/services/presentation';
 import type { Invoice } from '@/features/trade/types/models/Invoice';
 import type { InvoiceReportContext } from '@/features/trade/types/read-models/InvoiceReportContext';
+
 export function invoiceReport(workspace: InvoiceReportContext, invoice: Invoice): ReportDocument {
+
   const isReturning = invoice.number.startsWith('RET-'),
     savedReturn = workspace.invoiceReturns?.find((r) => r.number === invoice.number),
     source =

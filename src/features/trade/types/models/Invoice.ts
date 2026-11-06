@@ -1,4 +1,5 @@
 import type { InvoiceLine } from '@/features/trade/types/models/InvoiceLine';
+
 export interface Invoice {
   invoiceDiscount?: number;
   savedById?: string;

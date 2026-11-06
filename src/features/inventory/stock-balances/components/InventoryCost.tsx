@@ -1,10 +1,10 @@
-import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { useInventoryCostQuery } from '@/features/inventory/stock-balances/queries/useInventoryCostQuery';
 import { inventoryCost } from '@/features/inventory/stock-balances/services/models/inventory-cost';
 import { extras, fiscalRange } from '@/features/ledger/public';
 import { systemSettings } from '@/features/organization/public';
 import type { CostFilters } from '@/features/stock/public';
+import { exportPdf, printReport } from '@/shared/services/report-actions';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
@@ -15,21 +15,23 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Download, Eye, Printer, Undo2 } from 'lucide-react';
 import { useState } from 'react';
+
 export function InventoryCost() {
-  const { state: s, branchId } = useInventoryCostQuery();
+
+  const { state, branchId } = useInventoryCostQuery();
   const initial: CostFilters = {
-    ...fiscalRange(s!),
+    ...fiscalRange(state!),
     warehouse: '',
     group: '',
     product: '',
-    excludeZero: s ? !systemSettings(s).inventory.showZero : true,
+    excludeZero: state ? !systemSettings(state).inventory.showZero : true,
     priceType: 'retail',
   };
   const [draft, setDraft] = useState(initial);
   const [filters, setFilters] = useState(initial);
-  if (!s) return null;
-  const report = inventoryCost(s, branchId, filters);
-  const groups = extras(s).records.productGroups || [];
+  if (!state) return null;
+  const report = inventoryCost(state, branchId, filters);
+  const groups = extras(state).records.productGroups || [];
   const headers = [
     'رقم الصنف',
     'اسم الصنف',
@@ -48,9 +50,12 @@ export function InventoryCost() {
     r.price,
     r.saleValue,
   ]);
+
   const handleView = () => {
+
     if (draft.from <= draft.to) setFilters({ ...draft });
   };
+
   return (
     <>
       <PageHead
@@ -117,7 +122,7 @@ export function InventoryCost() {
             onChange={(e) => setDraft({ ...draft, warehouse: e.target.value })}
           >
             <option value="">جميع مخازن الفرع</option>
-            {s.warehouses
+            {state.warehouses
               .filter((warehouse) => warehouse.branchId === branchId)
               .map((warehouse) => (
                 <option key={warehouse.id} value={warehouse.id}>
@@ -145,7 +150,7 @@ export function InventoryCost() {
             onChange={(e) => setDraft({ ...draft, product: e.target.value })}
           >
             <option value="">جميع الأصناف</option>
-            {s.products
+            {state.products
               .filter((product) => !draft.group || product.groupId === draft.group)
               .map((product) => (
                 <option key={product.id} value={product.id}>
@@ -179,7 +184,8 @@ export function InventoryCost() {
       </ValidatedForm>
       <div className="report-context">
         <span>
-          {s.organization.name} · {s.branches.find((branch) => branch.id === branchId)?.name}
+          {state.organization.name} ·{' '}
+          {state.branches.find((branch) => branch.id === branchId)?.name}
         </span>
         <span>
           {filters.from} ← {filters.to}

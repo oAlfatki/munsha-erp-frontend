@@ -4,7 +4,9 @@ import { booksQuery } from '@/features/ledger/public';
 import { suppliersQuery } from '@/features/parties/public';
 import type { SuppliersProjectionReadModel } from '@/features/suppliers/types/read-models/SuppliersProjectionReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSuppliersProjectionQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

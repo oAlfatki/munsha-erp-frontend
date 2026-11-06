@@ -3,6 +3,7 @@ import type { Branch } from '@/features/organization/public';
 import type { Party } from '@/features/parties/public';
 import type { Employee } from '@/features/personnel/public';
 import type { Product, StockDocument } from '@/features/stock/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface StockAdjustmentsReportReadModel {
   parties: Party[];

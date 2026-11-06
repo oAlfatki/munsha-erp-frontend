@@ -2,22 +2,32 @@
 let generation = 0;
 let refresh: ((generation: number) => Promise<void>) | undefined;
 let flight: Promise<void> | null = null;
+
 export function sessionGeneration() {
+
   return generation;
 }
+
 export function advanceSession() {
+
   generation++;
   flight = null;
   return generation;
 }
+
 export function configureSessionRefresh(handler?: (generation: number) => Promise<void>) {
+
   refresh = handler;
   flight = null;
 }
+
 export function hasSessionRefresh() {
+
   return !!refresh;
 }
+
 export function refreshSession() {
+
   if (!refresh) throw Error('عقد تجديد الجلسة غير متاح');
   if (!flight) {
     const run = refresh;
@@ -32,7 +42,9 @@ export function refreshSession() {
   }
   return flight;
 }
+
 export function expireSession(expected: number) {
+
   if (expected !== generation) return;
   advanceSession();
   if (typeof window !== 'undefined') window.dispatchEvent(new Event('auth:unauthorized'));

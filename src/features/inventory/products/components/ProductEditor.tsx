@@ -8,7 +8,9 @@ import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
+
 export function ProductEditor({ product, onClose: close }: ProductEditorProps) {
+
   const model = useProductEditorController({ product, onClose: close });
   if (!model) return null;
   const {

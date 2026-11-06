@@ -3,6 +3,7 @@ import type { Party } from '@/features/parties/public';
 import type { Employee } from '@/features/personnel/public';
 import type { Product } from '@/features/stock/public';
 import type { Invoice } from '@/features/trade/public';
+
 export interface BuildProfitByCustomerReportContext {
   parties: Party[];
   employees: Employee[];

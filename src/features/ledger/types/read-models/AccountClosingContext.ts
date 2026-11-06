@@ -1,5 +1,6 @@
 import type { Entry } from '@/features/ledger/types/models/Entry';
 import type { ExtensionData } from '@/features/ledger/types/models/ExtensionData';
+
 export interface AccountClosingContext {
   entries: Entry[];
   parties: { id: string; name: string }[];

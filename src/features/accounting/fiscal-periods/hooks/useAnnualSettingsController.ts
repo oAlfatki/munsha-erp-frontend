@@ -1,4 +1,3 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { usePeriodActivate } from '@/features/accounting/fiscal-periods/hooks/usePeriodActivate';
 import { usePeriodCreate } from '@/features/accounting/fiscal-periods/hooks/usePeriodCreate';
 import { usePeriodReset } from '@/features/accounting/fiscal-periods/hooks/usePeriodReset';
@@ -13,9 +12,12 @@ import {
   periodResetSchema,
   periodSwitchSchema,
 } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useState } from 'react';
+
 export function useAnnualSettingsController() {
-  const { state: s, busy: isBusy, revision, refresh, navigate } = useAnnualSettingsQuery();
+
+  const { state, busy: isBusy, revision, refresh, navigate } = useAnnualSettingsQuery();
   const periodActivateMutationRequest = usePeriodActivate();
   const periodActivateForm = useValidatedForm(
     periodActivateSchema,
@@ -46,18 +48,18 @@ export function useAnnualSettingsController() {
     periodReset: periodResetMutation.execute,
     periodSwitch: periodSwitchMutation.execute,
   };
-  const [name, setName] = useState('السنة المالية ' + (s!.organization.year + 1));
+  const [name, setName] = useState('السنة المالية ' + (state!.organization.year + 1));
   const [confirmation, setConfirmation] = useState<{
     id: string;
     action: 'periodActivate' | 'periodReset' | 'periodSwitch';
   } | null>(null);
-  if (!s) return null;
-  const catalog = bookCatalog(s);
-  const checks = closingChecks(s);
-  const isBookArchived = isArchived(s);
+  if (!state) return null;
+  const catalog = bookCatalog(state);
+  const checks = closingChecks(state);
+  const isBookArchived = isArchived(state);
   const active = catalog.books.find((b) => b.id === catalog.activeId)!;
   return {
-    s,
+    s: state,
     isBusy,
     revision,
     refresh,

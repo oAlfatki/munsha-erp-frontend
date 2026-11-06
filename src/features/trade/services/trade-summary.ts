@@ -4,14 +4,18 @@ import type { TradeSummaryContext } from '@/features/trade/types/read-models/Tra
 // Frontend display calculations; backend authority requires independent verification.
 import { money } from '@/core/utils/money';
 import { lineTotal } from '@/features/trade/services/line-total';
+
 export function tradeSummary(
   workspace: TradeSummaryContext,
   kind: 'sale' | 'purchase',
   branchId: string,
   f: TradeFilters,
 ) {
+
   const matchesUser = (id?: string) => !f.user || (f.user === 'unrecorded' ? !id : id === f.user);
+
   const within = (date: string) => (!f.from || date >= f.from) && (!f.to || date <= f.to);
+
   let gross = 0,
     returned = 0,
     discount = 0,

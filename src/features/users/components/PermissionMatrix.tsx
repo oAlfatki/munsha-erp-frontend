@@ -1,5 +1,7 @@
-import type { PermissionCatalog, PermissionMask } from '@/features/users/type';
+import type { PermissionCatalog } from '@/features/users/types/PermissionCatalog';
+import type { PermissionMask } from '@/features/users/types/PermissionMask';
 import { Button } from '@/shared/ui/primitives/button';
+
 export function PermissionMatrix({
   catalog,
   value,
@@ -13,13 +15,16 @@ export function PermissionMatrix({
   onChange: (v: PermissionMask[]) => void;
   isReadOnly?: boolean;
 }) {
+
   const mask = (items: PermissionMask[], module: string) =>
     BigInt(items.find((v) => v.moduleCode === module)?.mask || '0');
+
   const set = (module: string, next: bigint) =>
     onChange([
       ...value.filter((v) => v.moduleCode !== module),
       ...(next ? [{ moduleCode: module, mask: String(next) }] : []),
     ]);
+
   const all = (shouldExcludeUsers: boolean) =>
     onChange(
       catalog.modules.flatMap((module) => {
@@ -35,6 +40,7 @@ export function PermissionMatrix({
         return selected ? [{ moduleCode: module.moduleCode, mask: String(selected) }] : [];
       }),
     );
+
   return (
     <section aria-label="صلاحيات المستخدم">
       <div className="dialog-actions">

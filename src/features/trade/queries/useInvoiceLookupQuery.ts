@@ -6,7 +6,9 @@ import { purchaseInvoicesQuery } from '@/features/trade/queries/purchase-invoice
 import { saleInvoicesQuery } from '@/features/trade/queries/sale-invoices-query';
 import type { InvoiceLookupReadModel } from '@/features/trade/types/read-models/InvoiceLookupReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useInvoiceLookupQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

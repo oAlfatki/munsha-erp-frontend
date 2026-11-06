@@ -1,11 +1,13 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { exportPdf } from '@/core/reporting/service';
 import { quantityByUnits } from '@/features/inventory/stock-balances/services/models/inventory-display';
 import type { StockBalanceHeaderProps } from '@/features/inventory/stock-balances/types/props/StockBalanceHeaderProps';
+import { exportPdf } from '@/shared/services/report-actions';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
+
 export function StockBalanceHeader({ model }: StockBalanceHeaderProps) {
-  const { s, navigate, tab, isShowUnits, warehouses, rows, moves } = model;
+
+  const { s: state, navigate, tab, isShowUnits, warehouses, rows, moves } = model;
   return (
     <PageHead
       title="المخزون والمخازن"
@@ -21,8 +23,8 @@ export function StockBalanceHeader({ model }: StockBalanceHeaderProps) {
                   ['اسم المخزن', 'الفرع', 'الأصناف ذات رصيد', 'الحالة'],
                   warehouses.map((warehouse) => [
                     warehouse.name,
-                    s.branches.find((branch) => branch.id === warehouse.branchId)?.name || '',
-                    s.stocks.filter((x) => x.warehouseId === warehouse.id && x.qty > 0).length,
+                    state.branches.find((branch) => branch.id === warehouse.branchId)?.name || '',
+                    state.stocks.filter((x) => x.warehouseId === warehouse.id && x.qty > 0).length,
                     warehouse.active ? 'نشط' : 'غير نشط',
                   ]),
                 )
@@ -41,8 +43,9 @@ export function StockBalanceHeader({ model }: StockBalanceHeaderProps) {
                     moves.map((m) => [
                       m.date,
                       m.reference,
-                      s.products.find((product) => product.id === m.productId)?.name || '',
-                      s.warehouses.find((warehouse) => warehouse.id === m.warehouseId)?.name || '',
+                      state.products.find((product) => product.id === m.productId)?.name || '',
+                      state.warehouses.find((warehouse) => warehouse.id === m.warehouseId)?.name ||
+                        '',
                       m.kind,
                       m.qty,
                       m.value,

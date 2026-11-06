@@ -3,7 +3,9 @@ import { useApplication } from '@/core/state/ApplicationProvider';
 import type { FinancialProjectionReadModel } from '@/features/financial/types/read-models/FinancialProjectionReadModel';
 import { booksQuery, journalsQuery } from '@/features/ledger/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useFinancialProjectionQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

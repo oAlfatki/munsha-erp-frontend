@@ -1,5 +1,5 @@
-import { printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
+import { printReport } from '@/shared/services/report-actions';
 import type { ReportViewerProps } from '@/shared/types/reporting/ReportViewerProps';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
@@ -14,6 +14,7 @@ import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Download, Eye, Printer, Search } from 'lucide-react';
 
 /** Shared report presentation only. Feature modules own calculations, columns and specialized filters/details. */
+
 export function ReportViewer({
   title,
   model,
@@ -25,6 +26,7 @@ export function ReportViewer({
   rowDocument,
   renderVisualization,
 }: ReportViewerProps) {
+
   if (!model) return null;
   const {
     context,

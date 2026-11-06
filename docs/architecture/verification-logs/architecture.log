@@ -1,5 +1,0 @@
-
-> munsha-erp-frontend@1.0.0 check:architecture
-> node scripts/check-architecture.mjs
-
-1368 source files; 0 file cycles; 0 feature cycles; 0 violations

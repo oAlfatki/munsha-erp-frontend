@@ -1,5 +1,6 @@
 import { money } from '@/core/utils/money';
 import type { BalanceContext } from '@/features/ledger/types/read-models/BalanceContext';
+
 export const ACCOUNTS: Record<
   string,
   {
@@ -17,6 +18,7 @@ export const ACCOUNTS: Record<
   '500': { name: 'تكلفة البضاعة المباعة', type: 'expense' },
   '510': { name: 'المصروفات التشغيلية', type: 'expense' },
 };
+
 export const balance = (workspace: BalanceContext, account: string, partyId?: string) =>
   money(
     workspace.entries

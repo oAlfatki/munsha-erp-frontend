@@ -28,6 +28,7 @@ export function InvoiceLineGrid({
   onAddProduct,
   onPendingChange,
 }: InvoiceLineGridProps) {
+
   const root = useRef<HTMLDivElement>(null),
     [editing, setEditing] = useState<number | null>(null),
     [query, setQuery] = useState(''),
@@ -40,6 +41,7 @@ export function InvoiceLineGrid({
       column: string;
       sequence: number;
     } | null>(null);
+
   const isSale = kind === 'sale',
     matches = invoiceItemMatches(workspace, query, kind),
     current = lines[active],
@@ -47,6 +49,7 @@ export function InvoiceLineGrid({
     available = (id: string, unit: number) =>
       (workspace.stocks.find((v) => v.productId === id && v.warehouseId === warehouseId)?.qty ||
         0) / (workspace.products.find((product) => product.id === id)?.units[unit]?.factor || 1);
+
   useLayoutEffect(() => {
     if (!focus) return;
     const input = root.current?.querySelector<HTMLElement>(
@@ -55,7 +58,9 @@ export function InvoiceLineGrid({
     input?.focus();
     if (input instanceof HTMLInputElement) input.select();
   }, [focus, lines.length]);
+
   const move = (row: number, column = 'item') => {
+
     setEditing(null);
     setOpen(false);
     setError('');
@@ -63,7 +68,9 @@ export function InvoiceLineGrid({
     onPendingChange(false);
     setFocus({ row, column, sequence: Date.now() });
   };
+
   const commit = (match: ItemMatch, index: number, next: 'row' | 'column') => {
+
     const line = invoiceEntryLine(match, kind, priceType, rate);
     onChange(
       index === lines.length
@@ -76,7 +83,9 @@ export function InvoiceLineGrid({
       next === 'row' ? 'item' : 'unit',
     );
   };
+
   const choose = (index: number, next: 'row' | 'column') => {
+
     const name = workspace.products.find((product) => product.id === lines[index]?.productId)?.name;
     if (index < lines.length && query.trim() === name) {
       move(
@@ -94,6 +103,7 @@ export function InvoiceLineGrid({
     }
     commit(exact, index, next);
   };
+
   const update = (index: number, key: keyof InvoiceLine, value: number) =>
     onChange(
       lines.map((invoiceLine, i) => {
@@ -113,7 +123,9 @@ export function InvoiceLineGrid({
         return { ...invoiceLine, [key]: value };
       }),
     );
+
   const search = (index: number) => {
+
     const p = workspace.products.find((product) => product.id === lines[index]?.productId),
       isEditing = editing === index;
     return (
@@ -202,6 +214,7 @@ export function InvoiceLineGrid({
       </div>
     );
   };
+
   return (
     <section className="panel form-panel invoice-lines" ref={root}>
       <div className="form-section-title">

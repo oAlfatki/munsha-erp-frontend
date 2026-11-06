@@ -1,5 +1,7 @@
 import { ApiError } from './apiError';
+
 export function errorMessage(error: unknown) {
+
   if (error instanceof ApiError) {
     if (error.code === 'CONCURRENCY_CONFLICT')
       return 'عدّل مستخدم آخر هذه البيانات؛ أعد تحميلها قبل المحاولة مجددًا.';

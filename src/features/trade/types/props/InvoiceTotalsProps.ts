@@ -1,4 +1,5 @@
 import type { InvoiceLine } from '@/features/trade/types/models/InvoiceLine';
+
 export interface InvoiceTotalsProps {
   lines: InvoiceLine[];
   payment: 'cash' | 'credit' | 'mixed';

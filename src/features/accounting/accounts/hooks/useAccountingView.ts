@@ -1,20 +1,22 @@
 import { useAccountingQuery } from '@/features/accounting/accounts/queries/useAccountingQuery';
 import { allAccounts, fiscalRange } from '@/features/ledger/public';
 import { useState } from 'react';
+
 export function useAccountingView(initialTab: string) {
-  const { state: s, branchId, navigate } = useAccountingQuery();
+
+  const { state, branchId, navigate } = useAccountingQuery();
   const [tab, setTab] = useState<string>(initialTab),
     [isVoucher, setVoucher] = useState(false),
-    [from, setFrom] = useState(fiscalRange(s!).from),
-    [to, setTo] = useState(fiscalRange(s!).to);
-  if (!s) return null;
-  const entries = s.entries.filter(
+    [from, setFrom] = useState(fiscalRange(state!).from),
+    [to, setTo] = useState(fiscalRange(state!).to);
+  if (!state) return null;
+  const entries = state.entries.filter(
     (entry) =>
       entry.branchId === branchId && (!from || entry.date >= from) && (!to || entry.date <= to),
   );
-  const chart = allAccounts(s),
+  const chart = allAccounts(state),
     trial = Object.entries(chart).map(([code, a]) => {
-      const value = s.entries
+      const value = state.entries
         .filter((entry) => entry.branchId === branchId && (!to || entry.date <= to))
         .flatMap((entry) => entry.lines)
         .filter((journalLine) => journalLine.account === code)
@@ -56,7 +58,7 @@ export function useAccountingView(initialTab: string) {
             ]);
 
   return {
-    s,
+    s: state,
     navigate,
     tab,
     setTab,

@@ -126,6 +126,10 @@ test('opens the RTL print preview and downloads a real customer PDF on a phone v
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
   await page.getByRole('button', { name: 'طباعة', exact: true }).click();
   const preview = page.getByRole('dialog').filter({ hasText: 'معاينة الطباعة' });
+  await expect(page.locator('iframe[title="معاينة المستند الموحد"]')).toHaveAttribute(
+    'sandbox',
+    'allow-same-origin allow-modals',
+  );
   await expect(preview).toBeVisible();
   await expect(
     page.frameLocator('iframe[title="معاينة المستند الموحد"]').locator('body'),

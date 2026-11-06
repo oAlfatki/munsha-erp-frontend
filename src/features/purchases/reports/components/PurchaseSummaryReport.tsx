@@ -1,6 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { exportDocument, printReport } from '@/core/reporting/service';
 import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 import { amountInWords } from '@/core/utils/amount-in-words';
 import { fmt } from '@/core/utils/formatters';
@@ -8,6 +7,7 @@ import { fiscalRange } from '@/features/ledger/public';
 import { usePurchaseSummaryReportQuery } from '@/features/purchases/reports/queries/usePurchaseSummaryReportQuery';
 import type { TradeFilters } from '@/features/trade/public';
 import { tradeSummary } from '@/features/trade/public';
+import { exportDocument, printReport } from '@/shared/services/report-actions';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
@@ -19,20 +19,25 @@ import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Download, Eye, Printer } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+
 export function PurchaseSummaryReport() {
-  const { state: s, branchId, navigate } = usePurchaseSummaryReportQuery();
-  const initial: TradeFilters = { ...fiscalRange(s!), warehouse: '', user: '' };
+
+  const { state, branchId, navigate } = usePurchaseSummaryReportQuery();
+  const initial: TradeFilters = { ...fiscalRange(state!), warehouse: '', user: '' };
   const [draft, setDraft] = useState(initial);
   const [filters, setFilters] = useState(initial);
-  if (!s) return null;
-  const report = tradeSummary(s, 'purchase', branchId, filters);
+  if (!state) return null;
+  const report = tradeSummary(state, 'purchase', branchId, filters);
+
   const handleApply = () => {
+
     if (draft.from && draft.to && draft.from > draft.to) {
       toast.error('بداية الفترة بعد نهايتها');
       return;
     }
     setFilters({ ...draft });
   };
+
   const printable = (): ReportDocument => ({
     title: '\u062A\u0642\u0631\u064A\u0631 \u0627\u0644\u0645\u0634\u062A\u0631\u064A\u0627\u062A',
     metadata: [
@@ -40,7 +45,7 @@ export function PurchaseSummaryReport() {
       [
         'المخزن',
         filters.warehouse
-          ? s.warehouses.find((w) => w.id === filters.warehouse)?.name || ''
+          ? state.warehouses.find((w) => w.id === filters.warehouse)?.name || ''
           : 'جميع مخازن الفرع',
       ],
       ...[],
@@ -57,6 +62,7 @@ export function PurchaseSummaryReport() {
     words: [amountInWords(report.total, 'YER')],
     notes: [report.note],
   });
+
   return (
     <>
       <PageHead
@@ -108,7 +114,7 @@ export function PurchaseSummaryReport() {
             onChange={(e) => setDraft({ ...draft, warehouse: e.target.value })}
           >
             <option value="">جميع مخازن الفرع</option>
-            {s.warehouses
+            {state.warehouses
               .filter((warehouse) => warehouse.branchId === branchId)
               .map((warehouse) => (
                 <option key={warehouse.id} value={warehouse.id}>
@@ -122,14 +128,15 @@ export function PurchaseSummaryReport() {
       </ValidatedForm>
       <div className="report-context">
         <span>
-          {s.organization.name} · {s.branches.find((branch) => branch.id === branchId)?.name}
+          {state.organization.name} ·{' '}
+          {state.branches.find((branch) => branch.id === branchId)?.name}
         </span>
         <span>
           {filters.from || 'بداية السجلات'} — {filters.to}
         </span>
         <span>
           {filters.warehouse
-            ? s.warehouses.find((w) => w.id === filters.warehouse)?.name
+            ? state.warehouses.find((w) => w.id === filters.warehouse)?.name
             : 'جميع مخازن الفرع'}
         </span>
         {false}

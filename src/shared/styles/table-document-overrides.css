@@ -1,0 +1,84 @@
+/* Clear grid boundaries and alternating reference-style rows. */
+.data-table {
+  border: 1px solid #899ba8;
+}
+.data-table th,
+.data-table td {
+  border: 1px solid #a5b4bd;
+}
+.data-table thead th {
+  background: var(--muted) !important;
+  color: var(--foreground);
+  font-weight: 650;
+  border-color: #899eae;
+}
+.data-table tbody tr:nth-child(odd) > td {
+  background: var(--muted);
+}
+.data-table tbody tr:nth-child(even) > td {
+  background: var(--muted);
+}
+.data-table tbody tr:last-child > td {
+  border-bottom: 1px solid #a5b4bd;
+}
+.data-table tbody tr:hover > td,
+.data-table tbody tr:focus-within > td {
+  background: var(--muted);
+}
+.data-table tbody tr[aria-selected='true'] > td {
+  background: var(--muted);
+  color: #173e69;
+}
+.data-table tfoot td,
+.data-table tfoot th {
+  background: var(--muted);
+  font-weight: 650;
+  border: 1px solid #899eae;
+}
+.table-footer {
+  background: var(--muted);
+  border-top: 1px solid #9dabb7;
+}
+.document-totals {
+  border-color: #9daebc;
+  background: var(--muted);
+}
+.document-totals dl > div {
+  border-bottom-color: #b5c2cd;
+}
+@media print {
+  body {
+    font-family: 'Sakkal Majalla', Arabic, Arial, sans-serif;
+  }
+  .data-table th,
+  .data-table td {
+    border: 1px solid #333 !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .data-table thead th {
+    background: #dedede !important;
+    color: #111 !important;
+  }
+  .data-table tbody tr > td,
+  .data-table tbody tr:nth-child(odd) > td,
+  .data-table tbody tr:nth-child(even) > td,
+  .data-table tbody tr:hover > td,
+  .data-table tbody tr:focus-within > td,
+  .data-table tbody tr[aria-selected='true'] > td {
+    background: var(--card) !important;
+    color: #111 !important;
+  }
+  .data-table tfoot td,
+  .data-table tfoot th {
+    background: var(--muted) !important;
+    color: #111 !important;
+  }
+  .document-totals {
+    background: var(--card) !important;
+    border-color: #333;
+  }
+  .document-totals dl > div {
+    border-bottom-color: #aaa;
+  }
+}

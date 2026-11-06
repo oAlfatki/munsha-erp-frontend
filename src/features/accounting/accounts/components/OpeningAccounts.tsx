@@ -1,7 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useOpeningAccountsQuery } from '@/features/accounting/accounts/queries/useOpeningAccountsQuery';
@@ -12,6 +10,8 @@ import {
   stockDocumentSchema,
   useStockDocument,
 } from '@/features/stock/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { exportDocument, printReport } from '@/shared/services/report-actions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { TotalsFooter } from '@/shared/ui/documents/TotalsFooter';
@@ -24,12 +24,14 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Plus, Trash2 } from 'lucide-react';
 import { useState } from 'react';
+
 export function OpeningAccounts() {
-  const { state: s, branchId, busy: isBusy, navigate } = useOpeningAccountsQuery();
+
+  const { state, branchId, busy: isBusy, navigate } = useOpeningAccountsQuery();
   const stockDocumentMutationRequest = useStockDocument(),
     stockDocumentForm = useValidatedForm(stockDocumentSchema, stockDocumentMutationRequest.execute),
     stockDocumentMutation = { ...stockDocumentMutationRequest, execute: stockDocumentForm.submit };
-  const [date, setDate] = useState(fiscalRange(s!).from),
+  const [date, setDate] = useState(fiscalRange(state!).from),
     [currency, setCurrency] = useState('YER'),
     [rate, setRate] = useState(1),
     [note, setNote] = useState(''),
@@ -39,9 +41,9 @@ export function OpeningAccounts() {
     [selected, setSelected] = useState<StockDocument | null>(null),
     [isConfirm, setConfirm] = useState(false),
     [isList, setList] = useState(false);
-  if (!s) return null;
-  const chart = allAccounts(s),
-    docs = (s.stockDocuments || []).filter(
+  if (!state) return null;
+  const chart = allAccounts(state),
+    docs = (state.stockDocuments || []).filter(
       (d) =>
         d.kind === 'opening' &&
         d.branchId === branchId &&
@@ -50,16 +52,20 @@ export function OpeningAccounts() {
   const isReadOnly = selected?.status === 'final' || (!!selected && selected.lines.length > 0),
     dr = money(lines.reduce((n, l) => n + l.debit * rate, 0)),
     cr = money(lines.reduce((n, l) => n + l.credit * rate, 0));
+
   const handleReset = () => {
+
     setSelected(null);
-    setDate(fiscalRange(s).from);
+    setDate(fiscalRange(state).from);
     setCurrency('YER');
     setRate(1);
     setNote('');
     setLines([{ account: '', partyId: '', debit: 0, credit: 0, description: '' }]);
     setList(false);
   };
+
   const load = (d: StockDocument) => {
+
     setSelected(d);
     setDate(d.date);
     setCurrency(d.currency);
@@ -68,9 +74,12 @@ export function OpeningAccounts() {
     setLines(structuredClone(d.accounts));
     setList(false);
   };
+
   const update = (i: number, patch: Partial<OpeningAccountLine>) =>
     setLines(lines.map((l, j) => (i === j ? { ...l, ...patch } : l)));
+
   const save = async (status: 'draft' | 'final') => {
+
     if (
       await stockDocumentMutation.execute({
         id: selected?.id,
@@ -94,6 +103,7 @@ export function OpeningAccounts() {
       setList(true);
     }
   };
+
   return (
     <>
       <PageHead
@@ -153,10 +163,10 @@ export function OpeningAccounts() {
                   value={currency}
                   onChange={(e) => {
                     setCurrency(e.target.value);
-                    setRate(s.currencies.find((c) => c.code === e.target.value)!.rate);
+                    setRate(state.currencies.find((c) => c.code === e.target.value)!.rate);
                   }}
                 >
-                  {s.currencies.map((c) => (
+                  {state.currencies.map((c) => (
                     <option key={c.code} value={c.code}>
                       {c.name}
                     </option>
@@ -234,7 +244,7 @@ export function OpeningAccounts() {
                             onChange={(e) => update(i, { partyId: e.target.value })}
                           >
                             <option value="">اختر الطرف</option>
-                            {s.parties
+                            {state.parties
                               .filter(
                                 (party) =>
                                   party.active &&
@@ -353,7 +363,7 @@ export function OpeningAccounts() {
                   variant="outline"
                   onClick={() =>
                     printReport(
-                      stockDocumentReport(s, {
+                      stockDocumentReport(state, {
                         ...selected,
                         lines: [],
                         total: dr,
@@ -369,7 +379,7 @@ export function OpeningAccounts() {
                   variant="outline"
                   onClick={() =>
                     exportDocument(
-                      stockDocumentReport(s, {
+                      stockDocumentReport(state, {
                         ...selected,
                         lines: [],
                         total: dr,

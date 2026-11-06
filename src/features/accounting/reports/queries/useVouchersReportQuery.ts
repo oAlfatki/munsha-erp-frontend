@@ -11,7 +11,9 @@ import {
 import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { customersQuery, suppliersQuery } from '@/features/parties/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useVouchersReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

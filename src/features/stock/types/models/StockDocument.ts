@@ -1,5 +1,6 @@
 import type { OpeningAccountLine } from '@/features/stock/types/models/OpeningAccountLine';
 import type { StockDocumentLine } from '@/features/stock/types/models/StockDocumentLine';
+
 export interface StockDocument {
   openingScope?: 'accounts' | 'stock';
   openingOffsetAccount?: string;

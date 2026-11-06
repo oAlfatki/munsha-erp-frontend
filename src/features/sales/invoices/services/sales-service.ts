@@ -5,6 +5,7 @@ import {
   mapSalesInvoiceInput,
   mapSalesTargetInput,
 } from '@/features/sales/invoices/mappers/sales-mapper';
+
 export const saveSalesTarget = async (
   input: unknown,
   context: CommandContext,
@@ -15,5 +16,6 @@ export async function saveSalesInvoice(
   input: unknown,
   context: CommandContext,
 ): Promise<CommandReceipt> {
+
   return await submitSalesInvoice(mapSalesInvoiceInput(input), context);
 }

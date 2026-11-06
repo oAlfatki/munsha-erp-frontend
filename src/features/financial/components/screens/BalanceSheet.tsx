@@ -1,15 +1,18 @@
-import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { useBalanceSheetController } from '@/features/financial/hooks/useBalanceSheetController';
+import { exportPdf } from '@/shared/services/report-actions';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
+
 export function BalanceSheet() {
+
   const model = useBalanceSheetController();
   if (!model) return null;
   const { refresh, to, setTo, list, sum, income, bal } = model;
+
   const group = (type: string) =>
     list
       .filter(([, a]) => a.type === type)
@@ -19,6 +22,7 @@ export function BalanceSheet() {
           <strong dir="ltr">{fmt((type === 'asset' ? 1 : -1) * bal(c))}</strong>
         </div>
       ));
+
   return (
     <>
       <PageHead

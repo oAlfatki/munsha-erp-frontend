@@ -1,7 +1,9 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useCurrencyValidationData } from '@/features/accounting/currencies/queries/useCurrencyValidationData';
 import { saveCurrency, validatePeriod } from '@/features/ledger/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useCurrency() {
+
   const loadValidationData = useCurrencyValidationData();
   return useCommandMutation('currency', saveCurrency, async (input) => {
     const state = await loadValidationData();

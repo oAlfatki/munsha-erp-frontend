@@ -18,7 +18,9 @@ import type { SystemSettingsReadModel } from '@/features/settings/types/read-mod
 import { stockDocumentsQuery, warehousesQuery } from '@/features/stock/public';
 import { purchaseInvoicesQuery, saleInvoicesQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSystemSettingsQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

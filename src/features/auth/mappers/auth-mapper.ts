@@ -2,9 +2,12 @@ import { ApiError } from '@/core/api/apiError';
 import type { Identity } from '@/core/types/auth/Identity';
 import { loginSchema } from '@/features/auth/validations/auth-schema';
 import { z } from 'zod';
-export function mapLoginInput(input: unknown) {
+
+export function mapLoginCredentials(input: unknown) {
+
   return loginSchema.parse(input);
 }
+
 const safeIdSchema = z.number().int().positive().refine(Number.isSafeInteger);
 const maskSchema = z
   .string()
@@ -18,7 +21,9 @@ const currentUserSchema = z.object({
   isActive: z.boolean(),
   permissions: z.array(z.object({ moduleCode: z.string().min(1), mask: maskSchema })),
 });
+
 export function mapCurrentUser(dto: unknown, sessionId?: string): Identity {
+
   const parsed = currentUserSchema.safeParse(dto);
   if (!parsed.success) throw Error('استجابة الحساب لا تطابق عقد تسجيل الدخول المعتمد.');
   const u = parsed.data;
@@ -34,15 +39,19 @@ export function mapCurrentUser(dto: unknown, sessionId?: string): Identity {
     sessionId,
   };
 }
+
 export function mapAuthResponse(dto: unknown) {
+
   return { user: mapCurrentUser(dto) };
 }
+
 export function mapSignInResponse(dto: unknown) {
+
   const parsed = z
     .object({
       user: z.unknown(),
-      session: z.object({ id: z.string().uuid() }),
-      expiresAtUtc: z.string().datetime({ offset: true }),
+      session: z.object({ id: z.string().check(z.guid()) }),
+      expiresAtUtc: z.string().check(z.iso.datetime({ offset: true })),
     })
     .safeParse(dto);
   if (!parsed.success) throw Error('استجابة تسجيل الدخول غير مكتملة.');

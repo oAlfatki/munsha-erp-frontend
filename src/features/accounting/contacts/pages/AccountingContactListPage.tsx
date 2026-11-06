@@ -1,5 +1,6 @@
 import type { MasterFormDefinition } from '@/features/master-data/public';
 import { MasterScreen } from '@/features/master-data/public';
+
 const DEFINITION = {
   title: 'حسابات الدائنين والمدينين المتنوعين',
   note: 'بطاقة طرف متنوع مرتبطة بحساب فرعي للأصول أو الالتزامات. إثبات الذمة والسداد من شاشة حركة الأطراف.',
@@ -47,8 +48,11 @@ const DEFINITION = {
     },
   ],
 } satisfies MasterFormDefinition;
+
 /** حسابات الدائنين والمدينين المتنوعين — feature-owned route content. */
+
 export default function AccountingContactListPage() {
+
   return (
     <section className="screen-page">
       <MasterScreen screen={DEFINITION} />

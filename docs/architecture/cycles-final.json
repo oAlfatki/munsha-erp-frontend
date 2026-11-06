@@ -1,5 +1,0 @@
-{
-  "scope": "Static runtime import declarations only; type-only imports and dynamic lazy route imports excluded.",
-  "files": 958,
-  "cycles": []
-}

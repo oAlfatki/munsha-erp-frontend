@@ -3,7 +3,9 @@ import { useApplication } from '@/core/state/ApplicationProvider';
 import type { CurrencyScreenReadModel } from '@/features/accounting/currencies/types/read-models/CurrencyScreenReadModel';
 import { booksQuery, currenciesQuery } from '@/features/ledger/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCurrencyScreenQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

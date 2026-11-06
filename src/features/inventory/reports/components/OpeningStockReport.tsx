@@ -1,6 +1,8 @@
 import { useOpeningStockReportView } from '@/features/inventory/reports/hooks/useOpeningStockReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
+
 export function OpeningStockReport() {
+
   const model = useOpeningStockReportView({
     title: 'تقرير أصناف بداية المدة',
     summaryColumns: [5],

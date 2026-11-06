@@ -1,4 +1,5 @@
 import type { AnnualBooks } from '@/features/ledger/types/models/AnnualBooks';
+
 export interface IsArchivedContext {
   annualBooks?: AnnualBooks;
   organization: {

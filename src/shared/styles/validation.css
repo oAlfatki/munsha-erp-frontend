@@ -1,0 +1,16 @@
+.required-star {
+  color: #dc2626 !important;
+  font-weight: 700;
+}
+
+.field-error {
+  color: #dc2626 !important;
+  font-size: 1rem;
+  line-height: 1.4;
+  display: block;
+  margin-top: 0.3rem;
+}
+.field [aria-invalid='true'] {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 1px #dc2626;
+}

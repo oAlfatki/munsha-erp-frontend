@@ -1,15 +1,16 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { useProduct } from '@/features/inventory/products/hooks/useProduct';
 import { useProductEditorControllerQuery } from '@/features/inventory/products/queries/useProductEditorControllerQuery';
 import type { ProductEditorProps } from '@/features/inventory/products/types/props/ProductEditorProps';
 import { generalSettings, systemSettings } from '@/features/organization/public';
 import type { Unit } from '@/features/stock/public';
 import { productSchema } from '@/features/stock/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useState } from 'react';
 
 const BLANK: Unit = { name: 'حبة', factor: 1, purchase: 0, retail: 0, wholesale: 0, barcode: '' };
 
 export function useProductEditorController({ product, onClose: close }: ProductEditorProps) {
+
   const { busy: isBusy, state: workspace } = useProductEditorControllerQuery();
   const productMutationRequest = useProduct(),
     productForm = useValidatedForm(productSchema, productMutationRequest.execute),
@@ -33,7 +34,9 @@ export function useProductEditorController({ product, onClose: close }: ProductE
     ),
     [profit, setProfit] = useState(workspace ? generalSettings(workspace).profit : 10),
     [isAuto, setAuto] = useState(true);
+
   function changeCategory(n: 1 | 2 | 3) {
+
     setCategory(n);
     setUnits(
       Array.from({ length: n }, (unusedValue, i) => ({
@@ -43,10 +46,13 @@ export function useProductEditorController({ product, onClose: close }: ProductE
     );
     setRatios(Array.from({ length: n }, (unusedValue, i) => (i === n - 1 ? 1 : 12)));
   }
+
   const factors = units.map((unusedValue, i) =>
     ratios.slice(i, -1).reduce((a, b) => a * (b || 1), 1),
   );
+
   function price(i: number, key: 'purchase' | 'retail' | 'wholesale', value: number) {
+
     const next = units.map((u) => ({ ...u }));
     next[i][key] = value;
     if (isAuto) {
@@ -55,7 +61,9 @@ export function useProductEditorController({ product, onClose: close }: ProductE
     }
     setUnits(next);
   }
+
   async function handleSubmit(e: React.FormEvent) {
+
     e.preventDefault();
     if (
       await productMutation.execute({
@@ -72,6 +80,7 @@ export function useProductEditorController({ product, onClose: close }: ProductE
     )
       close();
   }
+
   return {
     isBusy,
     workspace,

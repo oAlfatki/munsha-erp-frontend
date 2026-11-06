@@ -2,11 +2,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import ts from 'typescript';
 import { pathToFileURL } from 'node:url';
+
 const walk = (d) =>
   fs
     .readdirSync(d, { withFileTypes: true })
     .flatMap((e) => (e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]));
+
 export function inspectArchitecture(root = process.cwd()) {
+
   const src = path.join(root, 'src');
   const cfg = ts.parseJsonConfigFileContent(
     ts.readConfigFile(path.join(root, 'tsconfig.json'), ts.sys.readFile).config,
@@ -18,15 +21,19 @@ export function inspectArchitecture(root = process.cwd()) {
     graph = new Map(),
     domains = new Map(),
     allDomains = new Map();
+
   const owner = (f) =>
     path
       .relative(src, f)
       .replaceAll('\\', '/')
       .match(/^features\/([^/]+)\//)?.[1];
+
   function link(g, a, b) {
+
     if (!g.has(a)) g.set(a, new Set());
     g.get(a).add(b);
   }
+
   for (const f of files) {
     const text = fs.readFileSync(f, 'utf8'),
       sf = ts.createSourceFile(f, text, ts.ScriptTarget.Latest, true);
@@ -37,7 +44,9 @@ export function inspectArchitecture(root = process.cwd()) {
       )
     )
       errors.push(relative + ': forbidden legacy data architecture');
+
     function visit(n) {
+
       let spec,
         runtime = true;
       if ((ts.isImportDeclaration(n) || ts.isExportDeclaration(n)) && n.moduleSpecifier) {
@@ -67,6 +76,8 @@ export function inspectArchitecture(root = process.cwd()) {
         if (target?.startsWith(src + path.sep)) {
           const dest = path.relative(src, target).replaceAll('\\', '/'),
             from = path.relative(src, f).replaceAll('\\', '/');
+          if (from.startsWith('core/') && dest.startsWith('shared/'))
+            errors.push(relative + ': infrastructure imports presentation ' + dest);
           if (/^(core|shared)\//.test(from) && /^(app|features)\//.test(dest))
             errors.push(relative + ': infrastructure imports ' + dest);
           if (owner(f) && dest.startsWith('app/')) errors.push(relative + ': feature imports app');
@@ -88,16 +99,21 @@ export function inspectArchitecture(root = process.cwd()) {
       }
       ts.forEachChild(n, visit);
     }
+
     visit(sf);
   }
+
   function cycles(g) {
+
     let index = 0;
     const stack = [],
       on = new Set(),
       indices = new Map(),
       low = new Map(),
       out = [];
+
     function visit(v) {
+
       indices.set(v, index);
       low.set(v, index++);
       stack.push(v);
@@ -119,9 +135,11 @@ export function inspectArchitecture(root = process.cwd()) {
         if (c.length > 1) out.push(c);
       }
     }
+
     for (const v of g.keys()) if (!indices.has(v)) visit(v);
     return out;
   }
+
   // Vite drops CSS imports after rules even when an isolated PostCSS pass can expand them.
   // Keep one bootstrap stylesheet and legal top-level imports in every owned fragment.
   const cssFiles = walk(src).filter((file) => file.endsWith('.css'));
@@ -168,6 +186,7 @@ export function inspectArchitecture(root = process.cwd()) {
     ),
   };
 }
+
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const result = inspectArchitecture();
   if (process.argv.includes('--json')) console.log(JSON.stringify(result, null, 2));

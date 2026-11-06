@@ -1,6 +1,8 @@
 import { useCurrencyDocumentsReportView } from '@/features/accounting/reports/hooks/useCurrencyDocumentsReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
+
 export function CurrencyDocumentsReport() {
+
   const model = useCurrencyDocumentsReportView({
     title: 'مراجعة أرصدة العملات',
     summaryColumns: [],

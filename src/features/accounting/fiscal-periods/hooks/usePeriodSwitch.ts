@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { usePeriodSwitchValidationData } from '@/features/accounting/fiscal-periods/queries/usePeriodSwitchValidationData';
 import { savePeriodSwitch } from '@/features/accounting/fiscal-periods/services/fiscal-periods-service';
 import { validatePeriod } from '@/features/ledger/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function usePeriodSwitch() {
+
   const loadValidationData = usePeriodSwitchValidationData();
   return useCommandMutation('periodSwitch', savePeriodSwitch, async (input) => {
     const state = await loadValidationData();

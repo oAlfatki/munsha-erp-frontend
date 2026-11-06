@@ -1,6 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { exportDocument, printReport } from '@/core/reporting/service';
 import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 import { amountInWords } from '@/core/utils/amount-in-words';
 import { fmt } from '@/core/utils/formatters';
@@ -8,6 +7,7 @@ import { fiscalRange } from '@/features/ledger/public';
 import { useSalesSummaryReportQuery } from '@/features/sales/reports/queries/useSalesSummaryReportQuery';
 import type { TradeFilters } from '@/features/trade/public';
 import { tradeSummary } from '@/features/trade/public';
+import { exportDocument, printReport } from '@/shared/services/report-actions';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
@@ -19,15 +19,17 @@ import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Download, Eye, Printer } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+
 export function SalesSummaryReport() {
-  const { state: s, branchId, navigate } = useSalesSummaryReportQuery();
-  const initial: TradeFilters = { ...fiscalRange(s!), warehouse: '', user: '' };
+
+  const { state, branchId, navigate } = useSalesSummaryReportQuery();
+  const initial: TradeFilters = { ...fiscalRange(state!), warehouse: '', user: '' };
   const [draft, setDraft] = useState(initial);
   const [filters, setFilters] = useState(initial);
-  if (!s) return null;
+  if (!state) return null;
   const users = [
     ...new Map(
-      s.invoices
+      state.invoices
         .filter((invoice) => invoice.branchId === branchId && invoice.kind === 'sale')
         .flatMap((invoice) => [
           ...(invoice.savedById
@@ -48,14 +50,17 @@ export function SalesSummaryReport() {
     filters.user === 'unrecorded'
       ? 'غير مسجل'
       : users.find(([id]) => id === filters.user)?.[1] || 'جميع المستخدمين';
-  const report = tradeSummary(s, 'sale', branchId, filters);
+  const report = tradeSummary(state, 'sale', branchId, filters);
+
   const handleApply = () => {
+
     if (draft.from && draft.to && draft.from > draft.to) {
       toast.error('بداية الفترة بعد نهايتها');
       return;
     }
     setFilters({ ...draft });
   };
+
   const printable = (): ReportDocument => ({
     title: '\u062A\u0642\u0631\u064A\u0631 \u0627\u0644\u0645\u0628\u064A\u0639\u0627\u062A',
     metadata: [
@@ -63,7 +68,7 @@ export function SalesSummaryReport() {
       [
         'المخزن',
         filters.warehouse
-          ? s.warehouses.find((w) => w.id === filters.warehouse)?.name || ''
+          ? state.warehouses.find((w) => w.id === filters.warehouse)?.name || ''
           : 'جميع مخازن الفرع',
       ],
       ...[['المستخدم', userLabel] as [string, string]],
@@ -77,6 +82,7 @@ export function SalesSummaryReport() {
     words: [amountInWords(report.profit, 'YER')],
     notes: [report.note],
   });
+
   return (
     <>
       <PageHead
@@ -126,7 +132,7 @@ export function SalesSummaryReport() {
             onChange={(e) => setDraft({ ...draft, warehouse: e.target.value })}
           >
             <option value="">جميع مخازن الفرع</option>
-            {s.warehouses
+            {state.warehouses
               .filter((warehouse) => warehouse.branchId === branchId)
               .map((warehouse) => (
                 <option key={warehouse.id} value={warehouse.id}>
@@ -155,14 +161,15 @@ export function SalesSummaryReport() {
       </ValidatedForm>
       <div className="report-context">
         <span>
-          {s.organization.name} · {s.branches.find((branch) => branch.id === branchId)?.name}
+          {state.organization.name} ·{' '}
+          {state.branches.find((branch) => branch.id === branchId)?.name}
         </span>
         <span>
           {filters.from || 'بداية السجلات'} — {filters.to}
         </span>
         <span>
           {filters.warehouse
-            ? s.warehouses.find((w) => w.id === filters.warehouse)?.name
+            ? state.warehouses.find((w) => w.id === filters.warehouse)?.name
             : 'جميع مخازن الفرع'}
         </span>
         {<span>المستخدم: {userLabel}</span>}

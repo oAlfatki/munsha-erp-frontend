@@ -1,4 +1,4 @@
-import type { PageHeadProps } from '@/core/types/props/PageHeadProps';
+import type { PageHeadProps } from '@/shared/types/props/PageHeadProps';
 import { Button } from '@/shared/ui/primitives/button';
 import { Plus } from 'lucide-react';
 
@@ -9,6 +9,7 @@ export function PageHead({
   label = 'إضافة جديد',
   extra,
 }: PageHeadProps) {
+
   return (
     <div className="page-heading">
       <div>

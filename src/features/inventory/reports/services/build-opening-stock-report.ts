@@ -2,11 +2,13 @@ import type { Filters } from '@/core/types/api/Filters';
 import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildOpeningStockReportContext } from '@/features/inventory/reports/types/read-models/BuildOpeningStockReportContext';
+
 export function buildOpeningStockReport(
   workspace: BuildOpeningStockReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
+
   const whs = workspace.warehouses.filter(
     (w) => w.branchId === branch && (!filters.warehouse || w.id === filters.warehouse),
   );
@@ -15,7 +17,7 @@ export function buildOpeningStockReport(
       whs.some((warehouse) => warehouse.id === m.warehouseId) &&
       (!filters.to || m.date <= filters.to),
   );
-  let reportData: ReportData = { headers: [], rows: [] };
+  let reportData: ReportData;
   {
     reportData = {
       headers: [

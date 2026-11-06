@@ -1,8 +1,8 @@
-import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { balance, extras } from '@/features/ledger/public';
 import { SupplierEditor } from '@/features/suppliers/components/SupplierEditor';
 import type { SupplierDirectoryViewProps } from '@/features/suppliers/types/props/SupplierDirectoryViewProps';
+import { exportPdf } from '@/shared/services/report-actions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -10,9 +10,21 @@ import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
+
 export function SupplierDirectoryView({ model }: SupplierDirectoryViewProps) {
+
   if (!model) return null;
-  const { s, closeEditor, searchQuery, setQ, group, setGroup, editing, setEditing, list } = model;
+  const {
+    s: state,
+    closeEditor,
+    searchQuery,
+    setQ,
+    group,
+    setGroup,
+    editing,
+    setEditing,
+    list,
+  } = model;
   return (
     <>
       <PageHead
@@ -44,7 +56,7 @@ export function SupplierDirectoryView({ model }: SupplierDirectoryViewProps) {
           onChange={(e) => setGroup(e.target.value)}
         >
           <option value="">كل المجموعات</option>
-          {(extras(s).records.groups || [])
+          {(extras(state).records.groups || [])
             .filter((g) => g.kind === 'supplier')
             .map((g) => (
               <option key={g.id} value={g.id}>
@@ -72,8 +84,8 @@ export function SupplierDirectoryView({ model }: SupplierDirectoryViewProps) {
           <span dir="ltr">{party.phone}</span>,
           party.currency,
           <span className="numeric">
-            {fmt(Math.abs(balance(s, '210', party.id)))}{' '}
-            <small>{balance(s, '210', party.id) >= 0 ? 'مدين' : 'دائن'}</small>
+            {fmt(Math.abs(balance(state, '210', party.id)))}{' '}
+            <small>{balance(state, '210', party.id) >= 0 ? 'مدين' : 'دائن'}</small>
           </span>,
           <Pill>{party.active ? 'نشط' : 'غير نشط'}</Pill>,
           <ViewButton onClick={() => setEditing(party)} />,

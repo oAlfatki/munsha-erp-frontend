@@ -1,6 +1,6 @@
-import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { useEmployeesController } from '@/features/employees/hooks/useEmployeesController';
+import { exportPdf, printReport } from '@/shared/services/report-actions';
 import type { EditableListOptions } from '@/shared/types/EditableListOptions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
@@ -14,11 +14,13 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
+
 export function Employees({ isInitialCreate = false }: EditableListOptions) {
+
   const model = useEmployeesController(isInitialCreate);
   if (!model) return null;
   const {
-    s,
+    s: state,
     isBusy,
     employeeMutation,
     employeeDeleteMutation,
@@ -83,7 +85,7 @@ export function Employees({ isInitialCreate = false }: EditableListOptions) {
           employee.code || 'سجل سابق',
           employee.name,
           employee.job,
-          s.branches.find((branch) => branch.id === employee.branchId)?.name,
+          state.branches.find((branch) => branch.id === employee.branchId)?.name,
           employee.phone,
           fmt(employee.salary) + ' ' + employee.currency,
           <Pill tone={employee.active ? 'green' : 'gray'}>
@@ -132,7 +134,7 @@ export function Employees({ isInitialCreate = false }: EditableListOptions) {
                   value={edit.branchId}
                   onChange={(e) => setEdit({ ...edit, branchId: e.target.value })}
                 >
-                  {s.branches.map((branch) => (
+                  {state.branches.map((branch) => (
                     <option key={branch.id} value={branch.id}>
                       {branch.name}
                     </option>
@@ -197,7 +199,7 @@ export function Employees({ isInitialCreate = false }: EditableListOptions) {
                       value={edit.currency}
                       onChange={(e) => setEdit({ ...edit, currency: e.target.value })}
                     >
-                      {s.currencies.map((c) => (
+                      {state.currencies.map((c) => (
                         <option key={c.code} value={c.code}>
                           {c.name}
                         </option>

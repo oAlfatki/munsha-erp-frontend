@@ -17,7 +17,9 @@ import {
 } from '@/features/personnel/public';
 import { stockCountsQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useEmployeeAdvanceScreenQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

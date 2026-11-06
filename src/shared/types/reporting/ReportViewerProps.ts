@@ -4,6 +4,7 @@ import type { Filters } from '@/core/types/api/Filters';
 import type { ReportData } from '@/core/types/reports/ReportData';
 import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 import type { ReactNode } from 'react';
+
 export interface ReportViewerProps {
   title: string;
   model: ReportPresentationModel;

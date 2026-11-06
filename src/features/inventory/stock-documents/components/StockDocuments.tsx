@@ -1,4 +1,3 @@
-import { exportDocument, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { StockDocumentHeader } from '@/features/inventory/stock-documents/components/StockDocumentHeader';
 import { StockDocumentLines } from '@/features/inventory/stock-documents/components/StockDocumentLines';
@@ -6,6 +5,7 @@ import { useStockDocumentsController } from '@/features/inventory/stock-document
 import type { StockDocumentsProps } from '@/features/inventory/stock-documents/types/props/StockDocumentsProps';
 import { allAccounts } from '@/features/ledger/public';
 import { stockDocumentReport } from '@/features/stock/public';
+import { exportDocument, printReport } from '@/shared/services/report-actions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
@@ -17,7 +17,9 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Download, List, Plus, Printer, Save, Search } from 'lucide-react';
 import { toast } from 'sonner';
+
 export function StockDocuments({ kind }: StockDocumentsProps) {
+
   const model = useStockDocumentsController({ kind });
   if (!model) return null;
   const {
@@ -35,7 +37,7 @@ export function StockDocuments({ kind }: StockDocumentsProps) {
     docs,
     load,
     setPrintRequested,
-    s,
+    s: state,
     selected,
     handleBrowse,
     isReadOnly,
@@ -178,7 +180,7 @@ export function StockDocuments({ kind }: StockDocumentsProps) {
                 type="button"
                 size="sm"
                 variant="ghost"
-                onClick={() => exportDocument(stockDocumentReport(s, d))}
+                onClick={() => exportDocument(stockDocumentReport(state, d))}
               >
                 <Download size={15} />
               </Button>,
@@ -266,7 +268,7 @@ export function StockDocuments({ kind }: StockDocumentsProps) {
             ['عدد الأصناف', lines.length],
             ['القيمة YER', total],
             ...(kind === 'opening'
-              ? [['الحساب المقابل', allAccounts(s)[offset]?.name || offset] as [string, string]]
+              ? [['الحساب المقابل', allAccounts(state)[offset]?.name || offset] as [string, string]]
               : []),
           ]}
           amount={total}

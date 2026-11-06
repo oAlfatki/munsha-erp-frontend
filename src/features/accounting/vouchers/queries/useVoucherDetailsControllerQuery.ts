@@ -5,7 +5,9 @@ import { booksQuery, cashQuery, mapMasterRecords } from '@/features/ledger/publi
 import { companyQuery } from '@/features/organization/public';
 import { customersQuery, suppliersQuery } from '@/features/parties/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useVoucherDetailsControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

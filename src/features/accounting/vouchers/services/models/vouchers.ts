@@ -1,6 +1,7 @@
 import type { VoucherDueContext } from '@/features/accounting/vouchers/types/read-models/VoucherDueContext';
 // Frontend display calculations; backend authority requires independent verification.
 import { money } from '@/core/utils/money';
+
 export function voucherDue(
   workspace: VoucherDueContext,
   kind: 'receipt' | 'payment',
@@ -8,6 +9,7 @@ export function voucherDue(
   partyId: string,
   date: string,
 ) {
+
   return money(
     workspace.entries
       .filter((entry) => entry.branchId === branchId && entry.date <= date)

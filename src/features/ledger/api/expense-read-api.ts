@@ -1,5 +1,5 @@
 import { apiClient } from '@/core/api/apiClient';
-import { ENDPOINTS } from '@/core/config/endpoints';
+import { ENDPOINTS } from '@/features/ledger/api/endpoints';
 import type { GetExpensesDocumentsByIdRequest } from '@/features/ledger/types/requests/GetExpensesDocumentsByIdRequest';
 import type { GetExpensesTypesByIdRequest } from '@/features/ledger/types/requests/GetExpensesTypesByIdRequest';
 import type { SearchExpensesDocumentsByIdConsumptionsRequest } from '@/features/ledger/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest';
@@ -12,11 +12,14 @@ import type { ExpenseDocumentResponse } from '@/features/ledger/types/responses/
 import type { ExpensePaymentsListResponse } from '@/features/ledger/types/responses/ExpensePaymentsListResponse';
 import type { ExpenseTypeListResponse } from '@/features/ledger/types/responses/ExpenseTypeListResponse';
 import type { ExpenseTypeResponse } from '@/features/ledger/types/responses/ExpenseTypeResponse';
+
 /** List expense types. Existing HTTP contract. */
+
 export async function fetchExpensesTypes(
   params: SearchExpensesTypesRequest = {},
   signal?: AbortSignal,
 ): Promise<ExpenseTypeListResponse> {
+
   return await apiClient.get<ExpenseTypeListResponse>(ENDPOINTS.fetchExpensesTypes, {
     signal,
     params: {
@@ -28,19 +31,25 @@ export async function fetchExpensesTypes(
     },
   });
 }
+
 /** Get expense types detail. Existing HTTP contract. */
+
 export async function fetchExpensesTypesById(
   params: GetExpensesTypesByIdRequest,
 ): Promise<ExpenseTypeResponse> {
+
   return await apiClient.get<ExpenseTypeResponse>(ENDPOINTS.fetchExpensesTypesById(params.id), {
     params: { bookId: params.bookId },
   });
 }
+
 /** List expense documents. Existing HTTP contract. */
+
 export async function fetchExpensesDocuments(
   params: SearchExpensesDocumentsRequest = {},
   signal?: AbortSignal,
 ): Promise<ExpenseDocumentListResponse> {
+
   return await apiClient.get<ExpenseDocumentListResponse>(ENDPOINTS.fetchExpensesDocuments, {
     signal,
     params: {
@@ -55,19 +64,25 @@ export async function fetchExpensesDocuments(
     },
   });
 }
+
 /** Get expense documents detail. Existing HTTP contract. */
+
 export async function fetchExpensesDocumentsById(
   params: GetExpensesDocumentsByIdRequest,
 ): Promise<ExpenseDocumentResponse> {
+
   return await apiClient.get<ExpenseDocumentResponse>(
     ENDPOINTS.fetchExpensesDocumentsById(params.id),
     { params: { bookId: params.bookId } },
   );
 }
+
 /** List expense payments. Existing HTTP contract. */
+
 export async function fetchExpensesDocumentsByIdPayments(
   params: SearchExpensesDocumentsByIdPaymentsRequest,
 ): Promise<ExpensePaymentsListResponse> {
+
   return await apiClient.get<ExpensePaymentsListResponse>(
     ENDPOINTS.fetchExpensesDocumentsByIdPayments(params.id),
     {
@@ -80,10 +95,13 @@ export async function fetchExpensesDocumentsByIdPayments(
     },
   );
 }
+
 /** List expense consumptions. Existing HTTP contract. */
+
 export async function fetchExpensesDocumentsByIdConsumptions(
   params: SearchExpensesDocumentsByIdConsumptionsRequest,
 ): Promise<ExpenseConsumptionsListResponse> {
+
   return await apiClient.get<ExpenseConsumptionsListResponse>(
     ENDPOINTS.fetchExpensesDocumentsByIdConsumptions(params.id),
     {

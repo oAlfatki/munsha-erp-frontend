@@ -3,17 +3,19 @@ import type { Page } from '@playwright/test';
 import { applyCommand, createSeed } from '../reference/domain/engine';
 
 /** Test-only HTTP boundary. Production contains no seed data, demo identity, or in-browser accounting engine. */
+
 export async function installTestBackend(
   page: Page,
   initialSignedIn = true,
   hasUserPermissions = true,
 ) {
+
   let signedIn = initialSignedIn;
   let state = createSeed();
   let revision = 0;
   const receipts = new Map<string, { signature: string; revision: number }>();
   const calls: { method: string; path: string; body: unknown }[] = [];
-  let users: import('@/features/users/type').UserDetails[] = [];
+  let users: import('@/features/users/types/UserDetails').UserDetails[] = [];
   let sessions = [
     {
       id: 'c28739a9-6190-4879-a066-4884ef04a00c',
@@ -55,25 +57,30 @@ export async function installTestBackend(
     const method = request.method();
     const body = request.postDataJSON() as Record<string, unknown> | null;
     calls.push({ method, path, body });
+
     const ok = (data: unknown) =>
       route.fulfill({
         status: 200,
         contentType: 'application/json',
         body: JSON.stringify({ isSuccess: true, data }),
       });
+
     const problem = (status: number, detail: string) =>
       route.fulfill({
         status,
         contentType: 'application/problem+json',
         body: JSON.stringify({ status, title: detail, detail }),
       });
+
     if (nextFailure?.path === path) {
       const failure = nextFailure;
       nextFailure = undefined;
       return problem(failure.status, failure.detail);
     }
+
     const raw = (data: unknown, status = 200) =>
       route.fulfill({ status, contentType: 'application/json', body: JSON.stringify(data) });
+
     if (path === '/auth/sign-in') {
       if (!body?.username || !body.password) return problem(422, 'بيانات الدخول مطلوبة');
       signedIn = true;
@@ -220,10 +227,15 @@ export async function installTestBackend(
   });
   return {
     calls,
+
     getState: () => state,
+
     getRevision: () => revision,
+
     getUsers: () => structuredClone(users),
+
     failNext: (path: string, status: number, detail: string) => {
+
       nextFailure = { path, status, detail };
     },
   };

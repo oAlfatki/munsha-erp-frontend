@@ -4,7 +4,9 @@ import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
+
 export function ProtectedRoute() {
+
   const { user, loading: isLoading, error, retry } = useAuth();
   const location = useLocation();
   if (isLoading) return <LoadingState />;

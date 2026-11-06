@@ -1,6 +1,7 @@
 import type { ExtensionData } from '@/features/ledger/public';
 import type { Branch, PersistedSystemSettings } from '@/features/organization/public';
 import type { Movement, Product, Warehouse } from '@/features/stock/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface ReorderReportReadModel {
   warehouses: Warehouse[];

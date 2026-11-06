@@ -8,11 +8,14 @@ import {
   expenseSaveSchema,
   expenseSchema,
 } from '@/features/expenses/validations/expenses-schema';
-export const mapExpenseInput = (input: unknown): SaveExpenseRequest =>
-  expenseSchema.parse(input) as SaveExpenseRequest;
+
+export const mapExpenseInput = (input: unknown): SaveExpenseRequest => expenseSchema.parse(input);
+
 export const mapExpenseSaveInput = (input: unknown): SaveExpenseSaveRequest =>
-  expenseSaveSchema.parse(input) as SaveExpenseSaveRequest;
+  expenseSaveSchema.parse(input);
+
 export const mapExpensePaymentInput = (input: unknown): SaveExpensePaymentRequest =>
-  expensePaymentSchema.parse(input) as SaveExpensePaymentRequest;
+  expensePaymentSchema.parse(input);
+
 export const mapExpenseConsumeInput = (input: unknown): SaveExpenseConsumeRequest =>
-  expenseConsumeSchema.parse(input) as SaveExpenseConsumeRequest;
+  expenseConsumeSchema.parse(input);

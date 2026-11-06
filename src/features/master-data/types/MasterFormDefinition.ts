@@ -1,4 +1,5 @@
-import type { FieldDef } from '@/core/types/forms/FieldDef';
+import type { FieldDef } from '@/shared/types/forms/FieldDef';
+
 export interface MasterFormDefinition {
   title: string;
   note?: string;

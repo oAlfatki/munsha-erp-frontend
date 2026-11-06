@@ -1,7 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { printReport } from '@/core/reporting/service';
 import { fmt, today } from '@/core/utils/formatters';
 import { InvoiceTotals } from '@/features/trade/components/InvoiceTotals';
 import { useDeleteDraft } from '@/features/trade/hooks/useDeleteDraft';
@@ -11,6 +9,8 @@ import { invoiceReport } from '@/features/trade/services/build-invoice-document'
 import { lineTotal } from '@/features/trade/services/line-total';
 import type { InvoiceDetailsProps } from '@/features/trade/types/props/InvoiceDetailsProps';
 import { deleteDraftSchema, returnSchema } from '@/features/trade/validations/trade-schema';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { printReport } from '@/shared/services/report-actions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
 import { Button } from '@/shared/ui/primitives/button';
@@ -27,14 +27,15 @@ export function InvoiceDetails({
   setConfirm,
   csv,
 }: InvoiceDetailsProps) {
-  const { state: s, navigate, busy: isBusy } = useInvoiceDetailsQuery();
+
+  const { state, navigate, busy: isBusy } = useInvoiceDetailsQuery();
   const deleteDraftMutationRequest = useDeleteDraft(),
     deleteDraftForm = useValidatedForm(deleteDraftSchema, deleteDraftMutationRequest.execute),
     deleteDraftMutation = { ...deleteDraftMutationRequest, execute: deleteDraftForm.submit };
   const returnMutationRequest = useReturn(),
     returnForm = useValidatedForm(returnSchema, returnMutationRequest.execute),
     returnMutation = { ...returnMutationRequest, execute: returnForm.submit };
-  if (!s) return null;
+  if (!state) return null;
   return (
     <Modal
       isOpen
@@ -62,8 +63,8 @@ export function InvoiceDetails({
         onList={() => setDetail(null)}
       />
       <div className="invoice-print-header">
-        <h2>{s.organization.name}</h2>
-        <p>{s.organization.address}</p>
+        <h2>{state.organization.name}</h2>
+        <p>{state.organization.address}</p>
         <h3>
           {current.kind === 'sale' ? 'فاتورة مبيعات' : 'فاتورة مشتريات'} · {current.number}
         </h3>
@@ -73,20 +74,21 @@ export function InvoiceDetails({
           التاريخ <b>{current.date}</b>
         </span>
         <span>
-          الطرف <b>{s.parties.find((party) => party.id === current.partyId)?.name || 'نقدي'}</b>
+          الطرف <b>{state.parties.find((party) => party.id === current.partyId)?.name || 'نقدي'}</b>
         </span>
         <span>
           العملة <b>{current.currency}</b>
         </span>
         <span>
           المخزن{' '}
-          <b>{s.warehouses.find((warehouse) => warehouse.id === current.warehouseId)?.name}</b>
+          <b>{state.warehouses.find((warehouse) => warehouse.id === current.warehouseId)?.name}</b>
         </span>
         <span>
           سعر الصرف <b>{fmt(current.rate)}</b>
         </span>
         <span>
-          هاتف الطرف <b>{s.parties.find((party) => party.id === current.partyId)?.phone || '—'}</b>
+          هاتف الطرف{' '}
+          <b>{state.parties.find((party) => party.id === current.partyId)?.phone || '—'}</b>
         </span>
         <span>
           الدفع{' '}
@@ -110,7 +112,7 @@ export function InvoiceDetails({
           'الصافي',
         ]}
         rows={current.lines.map((invoiceLine) => {
-          const p = s.products.find((product) => product.id === invoiceLine.productId);
+          const p = state.products.find((product) => product.id === invoiceLine.productId);
           return [
             p?.name,
             p?.units[invoiceLine.unit]?.name,
@@ -132,7 +134,7 @@ export function InvoiceDetails({
       {current.note && <p className="info-note">ملاحظات: {current.note}</p>}
       {current.reversedBy && <p className="info-note">مرتجع كامل مرتبط: {current.reversedBy}</p>}
       <div className="dialog-actions no-print">
-        <Button variant="outline" onClick={() => printReport(invoiceReport(s, current))}>
+        <Button variant="outline" onClick={() => printReport(invoiceReport(state, current))}>
           <Printer />
           طباعة
         </Button>

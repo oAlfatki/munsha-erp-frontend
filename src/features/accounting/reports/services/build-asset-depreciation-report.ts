@@ -3,12 +3,14 @@ import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildAssetDepreciationReportContext } from '@/features/accounting/reports/types/read-models/BuildAssetDepreciationReportContext';
 import { extras } from '@/features/ledger/public';
+
 export function buildAssetDepreciationReport(
   workspace: BuildAssetDepreciationReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
-  let reportData: ReportData = { headers: [], rows: [] };
+
+  let reportData: ReportData;
   {
     reportData = {
       headers: [

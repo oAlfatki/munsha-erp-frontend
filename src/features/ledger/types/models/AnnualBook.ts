@@ -1,4 +1,5 @@
 import type { BookState } from '@/features/ledger/types/models/BookState';
+
 export interface AnnualBook {
   id: string;
   name: string;

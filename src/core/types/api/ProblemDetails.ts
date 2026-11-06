@@ -1,4 +1,5 @@
-import type { FieldError } from '@/core/types/forms/FieldError';
+import type { FieldError } from '@/core/types/api/FieldError';
+
 export interface ProblemDetails {
   type?: string;
   title?: string;

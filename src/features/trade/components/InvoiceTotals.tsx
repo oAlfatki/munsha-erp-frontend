@@ -10,6 +10,7 @@ export function InvoiceTotals({
   invoiceDiscount,
   currency,
 }: InvoiceTotalsProps) {
+
   const t = invoiceSummary(lines, payment, paid, taxRate, invoiceDiscount);
   return (
     <TotalsFooter

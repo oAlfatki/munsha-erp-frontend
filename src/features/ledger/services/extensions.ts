@@ -5,7 +5,9 @@ import type { ExtrasContext } from '@/features/ledger/types/read-models/ExtrasCo
 
 // Frontend display calculations; backend authority requires independent verification.
 import { ACCOUNTS } from '@/features/ledger/services/account-balances';
+
 export function extras(workspace: ExtrasContext): ExtensionData {
+
   const defaults: Record<string, MasterRecord[]> = {
     units: [
       ...new Set((workspace.products || []).flatMap((product) => product.units.map((u) => u.name))),
@@ -28,7 +30,9 @@ export function extras(workspace: ExtrasContext): ExtensionData {
     preferences: workspace.extras?.preferences || {},
   };
 }
+
 export function allAccounts(workspace: AllAccountsContext) {
+
   const result: Record<
     string,
     {

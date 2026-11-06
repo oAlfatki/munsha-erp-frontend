@@ -4,7 +4,9 @@ import { booksQuery } from '@/features/ledger/public';
 import { backupPolicyQuery } from '@/features/organization/public';
 import type { BackupsReadModel } from '@/features/settings/types/read-models/BackupsReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useBackupsQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

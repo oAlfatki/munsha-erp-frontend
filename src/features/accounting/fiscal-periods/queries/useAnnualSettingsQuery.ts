@@ -21,7 +21,9 @@ import {
 } from '@/features/stock/public';
 import { purchaseInvoicesQuery, saleInvoicesQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useAnnualSettingsQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

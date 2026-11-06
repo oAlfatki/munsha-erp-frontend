@@ -9,7 +9,9 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 export function UserDirectory() {
+
   const auth = useAuth(),
     navigate = useNavigate();
   const [page, setPage] = useState(1),

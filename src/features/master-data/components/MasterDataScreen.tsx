@@ -1,8 +1,8 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { printReport } from '@/core/reporting/service';
 import { LookupField as DynamicField } from '@/features/master-data/components/LookupField';
 import { useMasterScreenController } from '@/features/master-data/hooks/useMasterScreenController';
 import type { MasterScreenProps } from '@/features/master-data/types/props/MasterScreenProps';
+import { printReport } from '@/shared/services/report-actions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -15,10 +15,11 @@ import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Printer, Save, Undo2 } from 'lucide-react';
 
 export function MasterScreen({ screen }: MasterScreenProps) {
+
   const model = useMasterScreenController({ screen });
   if (!model) return null;
   const {
-    s,
+    s: state,
     isBusy,
     navigate,
     masterMutation,
@@ -83,7 +84,7 @@ export function MasterScreen({ screen }: MasterScreenProps) {
               .slice(0, 4)
               .map((field) =>
                 field.type === 'branch'
-                  ? s.branches.find((branch) => branch.id === r[field.key])?.name || '—'
+                  ? state.branches.find((branch) => branch.id === r[field.key])?.name || '—'
                   : field.options?.find((o) => o[0] === String(r[field.key]))?.[1] ||
                     String(r[field.key] ?? '—'),
               ),

@@ -1,8 +1,8 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { printReport } from '@/core/reporting/service';
 import { branchSchema } from '@/features/organization/public';
 import { useBranch } from '@/features/settings/hooks/useBranch';
 import { useBranchDirectoryQuery } from '@/features/settings/queries/useBranchDirectoryQuery';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { printReport } from '@/shared/services/report-actions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -15,7 +15,9 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Printer, Save } from 'lucide-react';
 import { useState } from 'react';
+
 export function BranchDirectory() {
+
   const screen = {
     id: 'branches',
     module: 'settings',
@@ -24,7 +26,7 @@ export function BranchDirectory() {
     mode: 'locations',
     collection: 'branch',
   };
-  const { state: s, busy: isBusy, branchId } = useBranchDirectoryQuery();
+  const { state, busy: isBusy, branchId } = useBranchDirectoryQuery();
   const branchMutationRequest = useBranch();
   const branchForm = useValidatedForm(branchSchema, branchMutationRequest.execute);
   const branchMutation = { ...branchMutationRequest, execute: branchForm.submit };
@@ -36,8 +38,12 @@ export function BranchDirectory() {
     branchId: string;
     active: boolean;
   } | null>(() => null);
-  if (!s) return null;
-  const list = s.branches.map((branch) => ({ ...branch, branchId: '', address: branch.address }));
+  if (!state) return null;
+  const list = state.branches.map((branch) => ({
+    ...branch,
+    branchId: '',
+    address: branch.address,
+  }));
   return (
     <>
       <PageHead

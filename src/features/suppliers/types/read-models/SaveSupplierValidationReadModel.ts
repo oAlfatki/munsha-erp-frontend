@@ -1,5 +1,6 @@
 import type { AnnualBooks, ExtensionData } from '@/features/ledger/public';
 import type { Party } from '@/features/parties/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */

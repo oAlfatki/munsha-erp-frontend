@@ -1,5 +1,7 @@
 /** Mutation effects follow shared ERP resources, including cross-feature ledger and stock effects. */
+
 export function affectedOwners(type: string): string[] | null {
+
   if (
     [
       'periodCreate',

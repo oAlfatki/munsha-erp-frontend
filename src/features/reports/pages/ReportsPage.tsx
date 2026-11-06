@@ -1,6 +1,7 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Link } from 'react-router-dom';
+
 const REPORT_LINKS = [
   { title: 'تقرير تكلفة المخزون', path: ROUTES.INVENTORY_COST },
   { title: 'أصناف بلغت حد الطلب', path: ROUTES.INVENTORY_REORDER },
@@ -32,7 +33,9 @@ const REPORT_LINKS = [
   { title: 'قائمة المركز المالي', path: ROUTES.FINANCIAL_STATEMENTS_BALANCE_SHEET },
   { title: 'قائمة التدفقات النقدية', path: ROUTES.FINANCIAL_STATEMENTS_CASH_FLOW },
 ];
+
 export default function ReportsPage() {
+
   return (
     <>
       <PageHead title="التقارير" description="قائمة التقارير والقوائم المالية المتاحة" />

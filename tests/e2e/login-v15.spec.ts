@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { readFile } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
+
 test.beforeEach(async ({ page }) => {
   if (process.env.PLAYWRIGHT_OFFLINE_DIST === '1')
     await page.route('http://munsha.test/**', async (route) => {
@@ -24,7 +25,9 @@ test.beforeEach(async ({ page }) => {
       }
     });
 });
+
 async function prepare(page: any) {
+
   await page.route('**/api/v1/**', async (route: any) => {
     const path = new URL(route.request().url()).pathname;
     await route.fulfill({
@@ -35,6 +38,7 @@ async function prepare(page: any) {
   });
   await page.goto('/login');
 }
+
 test('validates empty credentials without an HTTP sign-in', async ({ page }) => {
   await prepare(page);
   let calls = 0;

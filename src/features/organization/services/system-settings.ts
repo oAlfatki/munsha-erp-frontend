@@ -6,7 +6,9 @@ import type { SystemSettingsContext } from '@/features/organization/types/read-m
 
 // Frontend display calculations; backend authority requires independent verification.
 import { cashOptions, defaultCashId, extras } from '@/features/ledger/public';
+
 export function systemSettings(workspace: SystemSettingsContext): SystemSettings {
+
   const p = extras(workspace).preferences,
     v = workspace.systemSettings;
   return {
@@ -61,7 +63,9 @@ export function systemSettings(workspace: SystemSettingsContext): SystemSettings
     branches: v?.branches || {},
   };
 }
+
 export function branchDefaults(workspace: BranchDefaultsContext, id: string): BranchDefaults {
+
   const v: Partial<BranchDefaults> = systemSettings(workspace).branches[id] || {};
   return {
     warehouseId:
@@ -80,12 +84,14 @@ export function branchDefaults(workspace: BranchDefaultsContext, id: string): Br
     ...v,
   };
 }
+
 export function operationCashId(
   workspace: OperationCashIdContext,
   id: string,
   kind: 'sale' | 'purchase' | 'expense' | 'receipt' | 'payment',
   currency = workspace.organization.currency,
 ): string {
+
   const b = branchDefaults(workspace, id),
     key = (
       {

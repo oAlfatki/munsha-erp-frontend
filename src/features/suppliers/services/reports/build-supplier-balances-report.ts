@@ -2,15 +2,17 @@ import type { Filters } from '@/core/types/api/Filters';
 import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildSupplierBalancesReportContext } from '@/features/suppliers/types/read-models/BuildSupplierBalancesReportContext';
+
 export function buildSupplierBalancesReport(
   workspace: BuildSupplierBalancesReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
+
   const at = workspace.entries.filter(
     (entry) => entry.branchId === branch && (!filters.to || entry.date <= filters.to),
   );
-  let reportData: ReportData = { headers: [], rows: [] };
+  let reportData: ReportData;
   {
     reportData = {
       headers: ['اسم الحساب', 'العملة الأساسية', 'مدين', 'دائن', 'الرصيد', 'الحالة'],

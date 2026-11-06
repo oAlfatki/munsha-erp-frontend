@@ -1,4 +1,5 @@
 import type { BranchDefaults } from '@/features/organization/types/models/BranchDefaults';
+
 export interface SystemSettings {
   accounting: {
     multiCurrency: boolean;

@@ -1,10 +1,10 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { printReport } from '@/core/reporting/service';
 import { fmt, today } from '@/core/utils/formatters';
 import { useCurrency } from '@/features/accounting/currencies/hooks/useCurrency';
 import { useCurrencyScreenQuery } from '@/features/accounting/currencies/queries/useCurrencyScreenQuery';
 import type { CurrencyScreenProps } from '@/features/accounting/currencies/types/props/CurrencyScreenProps';
 import { currencySchema, extras } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { printReport } from '@/shared/services/report-actions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Field } from '@/shared/ui/forms/Field';
@@ -17,7 +17,8 @@ import { Save } from 'lucide-react';
 import { useState } from 'react';
 
 export function CurrencyScreen({ screen }: CurrencyScreenProps) {
-  const { state: s, busy: isBusy } = useCurrencyScreenQuery();
+
+  const { state, busy: isBusy } = useCurrencyScreenQuery();
   const currencyMutationRequest = useCurrency(),
     currencyForm = useValidatedForm(currencySchema, currencyMutationRequest.execute),
     currencyMutation = { ...currencyMutationRequest, execute: currencyForm.submit };
@@ -27,7 +28,7 @@ export function CurrencyScreen({ screen }: CurrencyScreenProps) {
     [rate, setRate] = useState(''),
     [source, setSource] = useState(''),
     [selected, setSelected] = useState<string | null>(null);
-  if (!s) return null;
+  if (!state) return null;
   return (
     <>
       <PageHead title={screen.title} description={screen.note!} />
@@ -55,7 +56,7 @@ export function CurrencyScreen({ screen }: CurrencyScreenProps) {
               onChange={(e) => {
                 const v = e.target.value.toUpperCase();
                 setCode(v);
-                const c = s.currencies.find((c) => c.code === v);
+                const c = state.currencies.find((c) => c.code === v);
                 if (c) setName(c.name);
               }}
             />
@@ -91,7 +92,7 @@ export function CurrencyScreen({ screen }: CurrencyScreenProps) {
       <h2 className="section-heading">العملات التشغيلية</h2>
       <DataTable
         headers={['اسم العملة', 'الرمز', 'آخر سعر مرجعي', 'عرض']}
-        rows={s.currencies.map((c) => [
+        rows={state.currencies.map((c) => [
           c.name,
           c.code,
           fmt(c.rate),
@@ -100,7 +101,7 @@ export function CurrencyScreen({ screen }: CurrencyScreenProps) {
       />
       <Modal isOpen={!!selected} title="بطاقة العملة" onClose={() => setSelected(null)}>
         {(() => {
-          const c = s.currencies.find((c) => c.code === selected);
+          const c = state.currencies.find((c) => c.code === selected);
           if (!c) return null;
           return (
             <>
@@ -117,7 +118,7 @@ export function CurrencyScreen({ screen }: CurrencyScreenProps) {
               <h3>الأسعار المؤرخة للعملة</h3>
               <DataTable
                 headers={['التاريخ', 'السعر', 'المصدر']}
-                rows={(extras(s).records.fxRates || [])
+                rows={(extras(state).records.fxRates || [])
                   .filter((r) => r.code === c.code)
                   .map((r) => [String(r.date), fmt(Number(r.rate)), String(r.source)])}
               />
@@ -143,7 +144,7 @@ export function CurrencyScreen({ screen }: CurrencyScreenProps) {
       <h2 className="section-heading">سجل الأسعار المؤرخة</h2>
       <DataTable
         headers={['العملة', 'التاريخ', 'السعر مقابل YER', 'المصدر']}
-        rows={(extras(s).records.fxRates || [])
+        rows={(extras(state).records.fxRates || [])
           .slice()
           .reverse()
           .map((r) => [String(r.code), String(r.date), fmt(Number(r.rate)), String(r.source)])}

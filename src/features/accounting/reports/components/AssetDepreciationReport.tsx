@@ -1,6 +1,8 @@
 import { useAssetDepreciationReportView } from '@/features/accounting/reports/hooks/useAssetDepreciationReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
+
 export function AssetDepreciationReport() {
+
   const model = useAssetDepreciationReportView({
     title: 'تقرير الأصول والإهلاك',
     summaryColumns: [1, 2, 3],

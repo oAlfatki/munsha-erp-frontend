@@ -1,17 +1,19 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { AccountStatement } from '@/features/accounting/accounts/components/Statement';
 import { useAccountingView } from '@/features/accounting/accounts/hooks/useAccountingView';
 import type { AccountingViewProps } from '@/features/accounting/accounts/types/props/AccountingViewProps';
 import { VoucherEditor } from '@/features/accounting/vouchers/components/VoucherEditor';
+import { exportPdf } from '@/shared/services/report-actions';
 import { Field } from '@/shared/ui/forms/Field';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
+
 export function Accounting({ initialTab = 'journal', initialPartyId = '' }: AccountingViewProps) {
+
   const model = useAccountingView(initialTab);
   if (!model) return null;
   const {

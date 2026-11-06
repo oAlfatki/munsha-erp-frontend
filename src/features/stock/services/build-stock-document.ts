@@ -4,10 +4,12 @@ import { money } from '@/core/utils/money';
 import { allAccounts } from '@/features/ledger/public';
 import type { StockDocument } from '@/features/stock/types/models/StockDocument';
 import type { StockDocumentReportContext } from '@/features/stock/types/read-models/StockDocumentReportContext';
+
 export function stockDocumentReport(
   workspace: StockDocumentReportContext,
   d: StockDocument,
 ): ReportDocument {
+
   const chart = allAccounts(workspace),
     stock = d.lines.map((l, index) => {
       const p = workspace.products.find((product) => product.id === l.productId);

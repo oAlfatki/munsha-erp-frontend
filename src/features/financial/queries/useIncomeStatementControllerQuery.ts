@@ -4,7 +4,9 @@ import type { IncomeStatementControllerReadModel } from '@/features/financial/ty
 import { accountsQuery, booksQuery, mapMasterRecords } from '@/features/ledger/public';
 import { companyQuery } from '@/features/organization/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useIncomeStatementControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

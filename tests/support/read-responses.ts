@@ -1,14 +1,17 @@
-import { extras } from "@/features/ledger/services/extensions";
-import { systemSettings } from "@/features/organization/services/system-settings";
-import { bookCatalog } from "@/features/ledger/services/annual-books";
+import { extras } from '@/features/ledger/services/extensions';
+import { systemSettings } from '@/features/organization/services/system-settings';
+import { bookCatalog } from '@/features/ledger/services/annual-books';
 import { expenseViews } from '@/features/expenses/services/models/expenses';
+
 /** Test-only translation of the frozen fixture into the existing granular HTTP DTOs. */
+
 export function readResponse(
   state: ReturnType<typeof import('../reference/domain/engine').createSeed>,
   path: string,
   params: Record<string, unknown> = {},
   revision = 0,
 ): unknown {
+
   const catalog = bookCatalog(state),
     x = extras(state);
   const scope = {
@@ -66,8 +69,10 @@ export function readResponse(
     const key = decodeURIComponent(path.slice('/ui-drafts/'.length));
     return { key, values: key === 'setup' ? x.preferences : x.drafts[key] || {} };
   }
+
   const operation = (...kinds: string[]) =>
     x.operations.filter((item) => kinds.includes(item.kind));
+
   const collections: Record<string, unknown[]> = {
     '/branches': state.branches,
     '/accounting/financial-books': catalog.books,

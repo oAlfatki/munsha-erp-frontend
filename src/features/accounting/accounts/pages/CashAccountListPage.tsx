@@ -1,5 +1,6 @@
 import type { MasterFormDefinition } from '@/features/master-data/public';
 import { MasterScreen } from '@/features/master-data/public';
+
 const DEFINITION = {
   title: 'قائمة الصناديق والبنوك',
   note: 'الصناديق مرتبطة بالفرع والعملة والحساب؛ سند صرف المصروف يستخدم الصندوق المحدد. الفواتير والسندات العامة تستخدم الصندوق الرئيسي في هذه النسخة.',
@@ -58,8 +59,11 @@ const DEFINITION = {
     },
   ],
 } satisfies MasterFormDefinition;
+
 /** قائمة الصناديق والبنوك — feature-owned route content. */
+
 export default function CashAccountListPage() {
+
   return (
     <section className="screen-page">
       <MasterScreen screen={DEFINITION} />

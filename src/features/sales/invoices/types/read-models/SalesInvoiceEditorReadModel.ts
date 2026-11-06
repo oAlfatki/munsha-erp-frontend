@@ -3,6 +3,7 @@ import type { Branch, PersistedSystemSettings } from '@/features/organization/pu
 import type { Party } from '@/features/parties/public';
 import type { Product, Stock, Warehouse } from '@/features/stock/public';
 import type { Invoice } from '@/features/trade/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface SalesInvoiceEditorReadModel {
   parties: Party[];

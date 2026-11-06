@@ -1,11 +1,13 @@
-import { NotFoundPage } from '@/shared/ui/feedback/NotFoundPage';
 import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { UserAccountOperations } from '@/features/users/components/UserAccountOperations';
 import { useUserQuery } from '@/features/users/queries/users-query';
+import { NotFoundPage } from '@/shared/ui/feedback/NotFoundPage';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { useParams } from 'react-router-dom';
+
 export default function ViewUserPage() {
+
   const auth = useAuth(),
     { id = '' } = useParams(),
     query = useUserQuery(Number(id));

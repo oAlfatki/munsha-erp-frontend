@@ -1,6 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { fmt, today } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useExpenseConsume } from '@/features/expenses/hooks/useExpenseConsume';
@@ -22,9 +21,12 @@ import {
 } from '@/features/expenses/validations/expenses-schema';
 import { cashOptions, defaultCashId, extras, fiscalRange } from '@/features/ledger/public';
 import { operationCashId, systemSettings } from '@/features/organization/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useState } from 'react';
+
 export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
-  const { state: s, branchId, busy: isBusy, navigate } = useExpenseControllerQuery();
+
+  const { state, branchId, busy: isBusy, navigate } = useExpenseControllerQuery();
   const expenseSaveMutationRequest = useExpenseSave(),
     expenseSaveForm = useValidatedForm(expenseSaveSchema, expenseSaveMutationRequest.execute),
     expenseSaveMutation = { ...expenseSaveMutationRequest, execute: expenseSaveForm.submit };
@@ -51,18 +53,23 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
     expensePayment: expensePaymentMutation.execute,
     expenseConsume: expenseConsumeMutation.execute,
   };
+
   const send = (type: string, data: unknown) => {
+
     const action = actions[type];
     if (!action) throw Error('Unsupported screen command: ' + type);
     return action(data);
   };
-  const fiscalDate = today().startsWith(String(s!.organization.year))
+
+  const fiscalDate = today().startsWith(String(state!.organization.year))
     ? today()
-    : s!.organization.year + '-01-01';
+    : state!.organization.year + '-01-01';
+
   const blank = (): IExpenseEditorInput => ({
-    currency: systemSettings(s!).expenses.currency,
-    rate: s!.currencies.find((c) => c.code === systemSettings(s!).expenses.currency)?.rate || 1,
-    cashId: operationCashId(s!, branchId, 'expense', systemSettings(s!).expenses.currency),
+    currency: systemSettings(state!).expenses.currency,
+    rate:
+      state!.currencies.find((c) => c.code === systemSettings(state!).expenses.currency)?.rate || 1,
+    cashId: operationCashId(state!, branchId, 'expense', systemSettings(state!).expenses.currency),
     date: fiscalDate,
     typeId: '',
     treatment: 'current',
@@ -73,6 +80,7 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
     paid: 0,
     branchId,
   });
+
   const [edit, setEdit] = useState<IExpenseEditorInput | null>(mode === 'add' ? blank() : null),
     [searchQuery, setQ] = useState(''),
     [treatment, setTreatment] = useState(''),
@@ -85,14 +93,14 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
     [date, setDate] = useState(fiscalDate),
     [period, setPeriod] = useState(fiscalDate.slice(0, 7)),
     [payment, setPayment] = useState('unpaid'),
-    [from, setFrom] = useState(fiscalRange(s!).from),
-    [to, setTo] = useState(fiscalRange(s!).to),
+    [from, setFrom] = useState(fiscalRange(state!).from),
+    [to, setTo] = useState(fiscalRange(state!).to),
     [typeId, setTypeId] = useState(''),
     [reportBranch, setReportBranch] = useState(branchId),
     [paymentCash, setPaymentCash] = useState('');
-  if (!s) return null;
-  const types = extras(s).records.expenseTypes || [],
-    all = expenseViews(s),
+  if (!state) return null;
+  const types = extras(state).records.expenseTypes || [],
+    all = expenseViews(state),
     rows = all.filter(
       (d) =>
         d.branchId === branchId &&
@@ -105,6 +113,7 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
           (types.find((t) => t.id === d.typeId)?.name || d.typeId)
         ).includes(searchQuery),
     );
+
   const typeName = (id: string) =>
       types.find((t) => t.id === id)?.name || (id === 'legacy' ? 'مصروف سابق' : id),
     formOld = edit?.id ? all.find((d) => d.id === edit.id) : undefined,
@@ -114,11 +123,15 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
         !!formOld.carriedFrom ||
         formOld.payments.length > 0 ||
         formOld.settlements.length > 0);
+
   const close = () => {
+
     setEdit(null);
     if (mode === 'add') navigate(ROUTES.EXPENSES_EXPENSE_LIST);
   };
+
   const editRow = (d: ExpenseView) => {
+
     setSelected(null);
     setEdit({
       id: d.id,
@@ -128,7 +141,7 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
       treatment: d.treatment,
       description: d.description,
       amount: d.foreignAmount ?? d.amount,
-      currency: d.currency || s.organization.currency,
+      currency: d.currency || state.organization.currency,
       rate: d.rate || 1,
       cashId: d.cashId || defaultCashId(d.branchId),
       start: d.start,
@@ -137,17 +150,21 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
     });
     setPayment(d.paid >= d.amount ? 'paid' : d.paid > 0 ? 'partial' : 'unpaid');
   };
+
   const openAction = (d: ExpenseView, kind: 'payment' | 'consume') => {
+
     setAction({ id: d.id, kind });
     setDate(fiscalDate);
     setPeriod(fiscalDate.slice(0, 7));
     setAmount(kind === 'payment' ? expenseForeignDue(d) : d.remaining);
     setPaymentCash(d.cashId || defaultCashId(d.branchId));
   };
+
   const cashName = (id: string | undefined, b: string) =>
-    cashOptions(s, b).find((c) => c.id === (id || defaultCashId(b)))?.name || 'صندوق سابق';
+    cashOptions(state, b).find((c) => c.id === (id || defaultCashId(b)))?.name || 'صندوق سابق';
+
   const actionDoc = all.find((d) => d.id === action?.id),
-    actionCurrency = actionDoc?.currency || s.organization.currency;
+    actionCurrency = actionDoc?.currency || state.organization.currency;
   const entries = all.filter(
     (d) =>
       (!reportBranch || d.branchId === reportBranch) &&
@@ -168,7 +185,7 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
         : d.legacy
           ? [d.reference, ...d.settlements.map((p) => p.reference)]
           : [...d.recognitionRefs, ...d.settlements.map((p) => p.reference)];
-    const recognized = s.entries
+    const recognized = state.entries
       .filter(
         (entry) =>
           entry.branchId === d.branchId &&
@@ -191,7 +208,7 @@ export function useExpenseController(mode: 'add' | 'list' | 'report' = 'list') {
     ];
   });
   return {
-    s,
+    s: state,
     branchId,
     send,
     busy: isBusy,

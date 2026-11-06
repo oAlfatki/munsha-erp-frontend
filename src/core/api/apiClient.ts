@@ -10,6 +10,7 @@ import type { Result } from '@/core/types/api/Result';
 import type { SessionRequestConfig } from '@/core/types/auth/SessionRequestConfig';
 import axios from 'axios';
 import { API_CONFIG } from './apiConfig';
+
 export const axiosInstance = axios.create({
   ...API_CONFIG,
 });
@@ -78,7 +79,9 @@ axiosInstance.interceptors.response.use(
     );
   },
 );
+
 async function request<TData>(options: SessionRequestConfig): Promise<TData> {
+
   const { data, status } = await axiosInstance.request<TData | Result<TData> | ProblemDetails>(
     options,
   );
@@ -94,21 +97,25 @@ async function request<TData>(options: SessionRequestConfig): Promise<TData> {
 export const apiClient = {
   get: <TResponse = unknown>(url: string, config?: SessionRequestConfig) =>
     request<TResponse>({ ...config, url, method: 'GET' }),
+
   post: <TResponse = unknown, TBody = unknown>(
     url: string,
     data: TBody,
     config?: SessionRequestConfig,
   ) => request<TResponse>({ ...config, url, data, method: 'POST' }),
+
   put: <TResponse = unknown, TBody = unknown>(
     url: string,
     data: TBody,
     config?: SessionRequestConfig,
   ) => request<TResponse>({ ...config, url, data, method: 'PUT' }),
+
   patch: <TResponse = unknown, TBody = unknown>(
     url: string,
     data: TBody,
     config?: SessionRequestConfig,
   ) => request<TResponse>({ ...config, url, data, method: 'PATCH' }),
+
   delete: <TResponse = unknown>(url: string, config?: SessionRequestConfig) =>
     request<TResponse>({ ...config, url, method: 'DELETE' }),
 };

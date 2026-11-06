@@ -5,7 +5,9 @@ import { companyQuery } from '@/features/organization/public';
 import type { PriceListReadModel } from '@/features/sales/pricing/types/read-models/PriceListReadModel';
 import { itemsQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function usePriceListQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

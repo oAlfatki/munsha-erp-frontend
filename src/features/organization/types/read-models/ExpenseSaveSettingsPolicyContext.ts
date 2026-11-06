@@ -1,5 +1,6 @@
 import type { ExpenseDocument, ExtensionData } from '@/features/ledger/public';
 import type { PersistedSystemSettings } from '@/features/organization/types/models/PersistedSystemSettings';
+
 export interface ExpenseSaveSettingsPolicyContext {
   expenseDocuments?: ExpenseDocument[];
   organization: {

@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { validatePeriod } from '@/features/ledger/public';
 import { useSystemSettingsValidationData } from '@/features/settings/queries/useSystemSettingsValidationData';
 import { saveSystemSettings } from '@/features/settings/services/settings-service';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useSystemSettings() {
+
   const loadValidationData = useSystemSettingsValidationData();
   return useCommandMutation('systemSettings', saveSystemSettings, async (input) => {
     const state = await loadValidationData();

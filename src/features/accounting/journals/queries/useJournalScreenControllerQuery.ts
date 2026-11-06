@@ -3,7 +3,9 @@ import { useApplication } from '@/core/state/ApplicationProvider';
 import type { JournalScreenControllerReadModel } from '@/features/accounting/journals/types/read-models/JournalScreenControllerReadModel';
 import { accountsQuery, booksQuery, mapMasterRecords } from '@/features/ledger/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useJournalScreenControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

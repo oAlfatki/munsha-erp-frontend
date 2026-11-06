@@ -12,9 +12,13 @@ import {
 } from '@/features/organization/public';
 import { useQueries, useQueryClient } from '@tanstack/react-query';
 import { createContext, useContext, useEffect } from 'react';
+
 const Context = createContext<CompanyData | null>(null);
+
 /** Shell metadata only; screens own their data directly through feature queries. */
+
 export function CompanyProvider({ children }: CompanyProviderProps) {
+
   const { user } = useAuth();
   const app = useApplication(),
     scope = useQueryIdentity(),
@@ -57,7 +61,9 @@ export function CompanyProvider({ children }: CompanyProviderProps) {
         revision: Math.max(branches.data?.scope.revision || 0, books.data?.scope.revision || 0),
         loading: !isReady && !error,
         error,
+
         refresh: async () => {
+
           await client.invalidateQueries({ queryKey: ['erp'], refetchType: 'active' });
         },
       }}
@@ -66,7 +72,9 @@ export function CompanyProvider({ children }: CompanyProviderProps) {
     </Context.Provider>
   );
 }
+
 export function useCompanyData() {
+
   const context = useContext(Context);
   if (!context) throw Error('CompanyProvider is required');
   return context;

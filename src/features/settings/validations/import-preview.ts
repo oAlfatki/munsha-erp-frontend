@@ -1,6 +1,8 @@
 import { importMastersSchema } from '@/features/organization/public';
 import type { ValidateImportPreviewContext } from '@/features/settings/types/read-models/ValidateImportPreviewContext';
+
 export function validateImportPreview(state: ValidateImportPreviewContext, input: unknown) {
+
   const valueSchema = importMastersSchema.parse(input);
   const names = new Set<string>();
   for (const row of valueSchema.rows) {

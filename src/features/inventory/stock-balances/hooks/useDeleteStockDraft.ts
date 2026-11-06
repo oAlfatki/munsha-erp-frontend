@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useDeleteStockDraftValidationData } from '@/features/inventory/stock-balances/queries/useDeleteStockDraftValidationData';
 import { validatePeriod } from '@/features/ledger/public';
 import { saveDeleteStockDraft, validateInventoryCommand } from '@/features/stock/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useDeleteStockDraft() {
+
   const loadValidationData = useDeleteStockDraftValidationData();
   return useCommandMutation('deleteStockDraft', saveDeleteStockDraft, async (input) => {
     const state = await loadValidationData();

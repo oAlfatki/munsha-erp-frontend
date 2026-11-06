@@ -7,7 +7,9 @@ import type { SalesInvoicesControllerReadModel } from '@/features/sales/invoices
 import { itemsQuery, warehousesQuery } from '@/features/stock/public';
 import { saleInvoicesQuery, saleReturnsQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSalesInvoicesControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

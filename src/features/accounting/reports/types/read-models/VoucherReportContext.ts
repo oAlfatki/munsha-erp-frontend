@@ -1,5 +1,6 @@
 import type { ExtensionData } from '@/features/ledger/public';
 import type { Party } from '@/features/parties/public';
+
 export interface VoucherReportContext {
   parties: Party[];
   organization: {

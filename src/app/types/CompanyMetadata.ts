@@ -5,6 +5,7 @@ import type {
   BrandingResponse,
   OrganizationResponse,
 } from '@/features/organization/public';
+
 export interface CompanyMetadata {
   organization: OrganizationResponse;
   branding?: BrandingResponse;

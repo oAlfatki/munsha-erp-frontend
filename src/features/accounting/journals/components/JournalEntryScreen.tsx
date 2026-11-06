@@ -12,10 +12,11 @@ import { Input } from '@/shared/ui/primitives/input';
 import { ArrowLeft, Plus, Save, Trash2 } from 'lucide-react';
 
 export function JournalScreen({ screen }: JournalScreenProps) {
+
   const model = useJournalScreenController();
   if (!model) return null;
   const {
-    s,
+    s: state,
     branchId,
     isBusy,
     navigate,
@@ -83,7 +84,7 @@ export function JournalScreen({ screen }: JournalScreenProps) {
                       onChange={(e) => update(i, 'account', e.target.value)}
                     >
                       <option value="">اختر حسابًا غير رقابي</option>
-                      {Object.entries(allAccounts(s))
+                      {Object.entries(allAccounts(state))
                         .filter(
                           ([c]) =>
                             ![

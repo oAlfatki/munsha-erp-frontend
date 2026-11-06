@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { validatePeriod } from '@/features/ledger/public';
 import { useImportMastersValidationData } from '@/features/settings/queries/useImportMastersValidationData';
 import { saveImportMasters } from '@/features/settings/services/settings-service';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useImportMasters() {
+
   const loadValidationData = useImportMastersValidationData();
   return useCommandMutation('importMasters', saveImportMasters, async (input) => {
     const state = await loadValidationData();

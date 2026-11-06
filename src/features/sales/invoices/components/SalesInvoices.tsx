@@ -1,4 +1,3 @@
-import { printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { fiscalRange } from '@/features/ledger/public';
 import { SalesInvoiceEditor } from '@/features/sales/invoices/components/SalesInvoiceEditor';
@@ -9,6 +8,7 @@ import {
   invoiceReport,
   returnRemaining,
 } from '@/features/trade/public';
+import { printReport } from '@/shared/services/report-actions';
 import type { DocumentScreenOptions } from '@/shared/types/DocumentScreenOptions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -20,11 +20,13 @@ import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Download, Printer } from 'lucide-react';
+
 export function SalesInvoices(options: DocumentScreenOptions) {
+
   const model = useSalesInvoicesController(options);
   if (!model) return null;
   const {
-    s,
+    s: state,
     isDeepLink,
     refresh,
     searchQuery,
@@ -106,8 +108,8 @@ export function SalesInvoices(options: DocumentScreenOptions) {
             setQ('');
             setStatus('all');
             setDocumentType('all');
-            setFrom(fiscalRange(s).from);
-            setTo(fiscalRange(s).to);
+            setFrom(fiscalRange(state).from);
+            setTo(fiscalRange(state).to);
           }}
         >
           مسح
@@ -128,7 +130,7 @@ export function SalesInvoices(options: DocumentScreenOptions) {
         rows={list.map((d) => [
           <span className="code strong">{d.number}</span>,
           d.date,
-          s.parties.find((party) => party.id === d.partyId)?.name || 'نقدي',
+          state.parties.find((party) => party.id === d.partyId)?.name || 'نقدي',
           d.payment === 'cash' ? 'نقدي' : d.payment === 'mixed' ? 'جزء نقدي وجزء آجل' : 'آجل',
           <strong className="numeric">
             {fmt(d.total)} <small>{d.currency}</small>
@@ -138,8 +140,8 @@ export function SalesInvoices(options: DocumentScreenOptions) {
               ? 'مستند مرتجع'
               : d.reversedBy
                 ? 'مرتجعة بالكامل'
-                : s.invoiceReturns?.some((r) => r.sourceId === d.id)
-                  ? d.lines.every((invoiceLine, i) => returnRemaining(s, d, i).qty === 0)
+                : state.invoiceReturns?.some((r) => r.sourceId === d.id)
+                  ? d.lines.every((invoiceLine, i) => returnRemaining(state, d, i).qty === 0)
                     ? 'مرتجعة بالكامل'
                     : 'مرتجعة جزئيًا'
                   : d.status === 'final'
@@ -153,7 +155,7 @@ export function SalesInvoices(options: DocumentScreenOptions) {
             size="icon-sm"
             onClick={() => {
               setDetail(d.isReturn ? d.number : d.id);
-              setTimeout(() => printReport(invoiceReport(s, d)), 200);
+              setTimeout(() => printReport(invoiceReport(state, d)), 200);
             }}
           >
             <Printer size={15} />

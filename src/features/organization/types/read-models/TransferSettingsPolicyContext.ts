@@ -1,5 +1,6 @@
 import type { ExtensionData } from '@/features/ledger/public';
 import type { PersistedSystemSettings } from '@/features/organization/types/models/PersistedSystemSettings';
+
 export interface TransferSettingsPolicyContext {
   warehouses: { id: string; branchId: string; active: boolean }[];
   organization: {

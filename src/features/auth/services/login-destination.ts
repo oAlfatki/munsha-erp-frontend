@@ -1,6 +1,9 @@
 import { ROUTES } from '@/core/config/navigation-paths';
+
 /** Only local paths can be restored after authentication. */
+
 export function loginDestination(from: unknown) {
+
   if (
     typeof from !== 'string' ||
     !from.startsWith('/') ||

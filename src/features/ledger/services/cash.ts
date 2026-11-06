@@ -6,8 +6,11 @@ import type { RequireCashContext } from '@/features/ledger/types/read-models/Req
 import { money } from '@/core/utils/money';
 import { allAccounts, extras } from '@/features/ledger/services/extensions';
 import type { JournalLine } from '@/features/ledger/types/models/JournalLine';
+
 export const defaultCashId = (branch: string) => 'default-' + branch;
+
 export function cashOptions(workspace: CashOptionsContext, branchId: string) {
+
   return [
     {
       id: defaultCashId(branchId),
@@ -29,12 +32,14 @@ export function cashOptions(workspace: CashOptionsContext, branchId: string) {
       })),
   ];
 }
+
 export function requireCash(
   workspace: RequireCashContext,
   branchId: string,
   id: string,
   currency: string,
 ) {
+
   const c = cashOptions(workspace, branchId).find((c) => c.id === id && c.active),
     chart = allAccounts(workspace),
     custom = extras(workspace).records.accounts?.find((a) => a.code === c?.account);
@@ -48,6 +53,7 @@ export function requireCash(
     throw Error('اختر صندوقًا نشطًا في الفرع وبعملة البند، مرتبطًا بحساب نقدي قابل للقيد');
   return c;
 }
+
 export const isCashLine = (
   workspace: IsCashLineContext,
   branchId: string,
@@ -56,6 +62,7 @@ export const isCashLine = (
   journalLine.account === '101' ||
   !!journalLine.cashId ||
   cashOptions(workspace, branchId).some((c) => c.account === journalLine.account);
+
 export const cashLedgerBalance = (workspace: CashLedgerBalanceContext, branchId: string) =>
   money(
     workspace.entries

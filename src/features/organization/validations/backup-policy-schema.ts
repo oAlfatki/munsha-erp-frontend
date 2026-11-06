@@ -1,26 +1,25 @@
+import { fieldTypeError } from '@/core/validation/type-errors';
 import { z } from 'zod';
+
 export const backupPolicySchema = z.object({
   mode: z.enum(['off', 'interval', 'daily', 'exit'], {
-    errorMap: () => ({ message: 'اختر قيمة صحيحة في القيمة المدخلة' }),
+    error: () => ({ message: 'اختر قيمة صحيحة في القيمة المدخلة' }),
   }),
   hours: z
     .number({
-      required_error: 'القيمة المدخلة مطلوب',
-      invalid_type_error: 'أدخل قيمة صحيحة في القيمة المدخلة',
+      error: fieldTypeError('القيمة المدخلة مطلوب', 'أدخل قيمة صحيحة في القيمة المدخلة'),
     })
     .int('القيمة المدخلة يجب أن يكون عددًا صحيحًا')
     .min(1, 'القيمة المدخلة يجب ألا يقل عن 1')
     .max(168, 'القيمة المدخلة يجب ألا يزيد عن 168'),
   time: z
     .string({
-      required_error: 'القيمة المدخلة مطلوب',
-      invalid_type_error: 'أدخل قيمة صحيحة في القيمة المدخلة',
+      error: fieldTypeError('القيمة المدخلة مطلوب', 'أدخل قيمة صحيحة في القيمة المدخلة'),
     })
     .regex(/^([01]\d|2[0-3]):[0-5]\d$/, 'صيغة القيمة المدخلة غير صحيحة'),
   folder: z
     .string({
-      required_error: 'القيمة المدخلة مطلوب',
-      invalid_type_error: 'أدخل قيمة صحيحة في القيمة المدخلة',
+      error: fieldTypeError('القيمة المدخلة مطلوب', 'أدخل قيمة صحيحة في القيمة المدخلة'),
     })
     .trim()
     .min(1, 'القيمة المدخلة يجب ألا يقل عن 1')
@@ -28,8 +27,7 @@ export const backupPolicySchema = z.object({
     .regex(/^[\p{L}\p{N}_ -]+$/u, 'اسم المجلد يحتوي حروفًا أو أرقامًا فقط'),
   retention: z
     .number({
-      required_error: 'القيمة المدخلة مطلوب',
-      invalid_type_error: 'أدخل قيمة صحيحة في القيمة المدخلة',
+      error: fieldTypeError('القيمة المدخلة مطلوب', 'أدخل قيمة صحيحة في القيمة المدخلة'),
     })
     .int('القيمة المدخلة يجب أن يكون عددًا صحيحًا')
     .min(5, 'القيمة المدخلة يجب ألا يقل عن 5')

@@ -1,5 +1,6 @@
 import type { MasterFormDefinition } from '@/features/master-data/public';
 import { MasterScreen } from '@/features/master-data/public';
+
 const DEFINITION = {
   title: 'إضافة حساب ودليل الحسابات',
   collection: 'accounts',
@@ -57,8 +58,11 @@ const DEFINITION = {
     },
   ],
 } satisfies MasterFormDefinition;
+
 /** إضافة حساب ودليل الحسابات — feature-owned route content. */
+
 export default function ChartOfAccountsPage() {
+
   return (
     <section className="screen-page">
       <MasterScreen screen={DEFINITION} />

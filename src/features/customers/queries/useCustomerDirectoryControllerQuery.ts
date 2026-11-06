@@ -4,7 +4,9 @@ import type { CustomerDirectoryControllerReadModel } from '@/features/customers/
 import { booksQuery, journalsQuery, mapMasterRecords } from '@/features/ledger/public';
 import { partyGroupsQuery } from '@/features/parties/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCustomerDirectoryControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

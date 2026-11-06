@@ -17,7 +17,9 @@ import { branchesQuery, companyQuery, systemQuery } from '@/features/organizatio
 import { advancesQuery, payrollQuery, salaryPaymentsQuery } from '@/features/personnel/public';
 import { stockCountsQuery, warehousesQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useExpenseControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

@@ -2,6 +2,7 @@ import type { Entry, ExtensionData } from '@/features/ledger/public';
 import type { Branch } from '@/features/organization/public';
 import type { Party } from '@/features/parties/public';
 import type { Product, Stock, StockDocument, Warehouse } from '@/features/stock/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface StockDocumentsReadModel {
   warehouses: Warehouse[];

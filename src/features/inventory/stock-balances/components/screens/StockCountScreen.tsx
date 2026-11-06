@@ -1,8 +1,8 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { fmt, today } from '@/core/utils/formatters';
 import { useOperation } from '@/features/accounting/public';
 import { useStockCountScreenQuery } from '@/features/inventory/stock-balances/queries/useStockCountScreenQuery';
 import { extras, operationSchema } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
@@ -14,7 +14,9 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { CheckCheck, Save, Undo2 } from 'lucide-react';
 import { useState } from 'react';
+
 export function StockCountScreen() {
+
   const screen = {
     id: 'count',
     module: 'inventory',
@@ -24,7 +26,7 @@ export function StockCountScreen() {
     operation: 'count',
     note: 'حفظ العدد لا يغير المخزون. حدّث الجرد إذا حدثت أي حركة في يوم العد أو بعده.',
   };
-  const { state: s, branchId, busy: isBusy } = useStockCountScreenQuery();
+  const { state, branchId, busy: isBusy } = useStockCountScreenQuery();
   const operationMutationRequest = useOperation();
   const operationForm = useValidatedForm(operationSchema, operationMutationRequest.execute);
   const operationMutation = { ...operationMutationRequest, execute: operationForm.submit };
@@ -36,13 +38,13 @@ export function StockCountScreen() {
   const [source, setSource] = useState('');
   const [note, setNote] = useState('');
   const [isConfirm, setConfirm] = useState(false);
-  if (!s) return null;
-  const x = extras(s);
+  if (!state) return null;
+  const x = extras(state);
   const sources = x.operations.filter(
     (o) => o.kind === 'count' && o.branchId === branchId && !o.paid && true,
   );
   const sourceDoc = sources.find((o) => o.id === source);
-  const options = s.products
+  const options = state.products
     .filter((product) => product.active)
     .map((product) => [product.id, product.name]);
   const actualAmount = Number(amount || 0);
@@ -112,7 +114,7 @@ export function StockCountScreen() {
                   onChange={(e) => setWarehouse(e.target.value)}
                 >
                   <option value="">اختر المخزن</option>
-                  {s.warehouses
+                  {state.warehouses
                     .filter((warehouse) => warehouse.branchId === branchId)
                     .map((warehouse) => (
                       <option key={warehouse.id} value={warehouse.id}>
@@ -137,7 +139,7 @@ export function StockCountScreen() {
           {false}
           <Field label="الفرع">
             <div className="input-readonly">
-              {s.branches.find((branch) => branch.id === branchId)?.name}
+              {state.branches.find((branch) => branch.id === branchId)?.name}
             </div>
           </Field>
           <Field label="البيان / سبب العملية *">

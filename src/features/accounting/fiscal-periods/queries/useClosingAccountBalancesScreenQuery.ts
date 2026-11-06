@@ -13,7 +13,9 @@ import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { customersQuery, suppliersQuery } from '@/features/parties/public';
 import { employeesQuery } from '@/features/personnel/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useClosingAccountBalancesScreenQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

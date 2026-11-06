@@ -1,6 +1,8 @@
 // Frontend display calculations; backend authority requires independent verification.
 import type { Unit } from '@/features/stock/public';
+
 export function quantityByUnits(qty: number, units: Unit[]): string {
+
   let remaining = Math.abs(qty);
   const chunks = units.map((u, i) => {
     const n =

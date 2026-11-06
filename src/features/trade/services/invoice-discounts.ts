@@ -1,6 +1,7 @@
 // Frontend display calculations; backend authority requires independent verification.
 import { money } from '@/core/utils/money';
 import type { InvoiceLine } from '@/features/trade/types/models/InvoiceLine';
+
 export function allocateInvoiceDiscount<
   TData extends Pick<InvoiceLine, 'qty' | 'price' | 'discount'>,
 >(
@@ -9,6 +10,7 @@ export function allocateInvoiceDiscount<
 ): (TData & {
   invoiceDiscount: number;
 })[] {
+
   const cents = lines.map((l) => Math.round(money(l.qty * l.price * (1 - l.discount / 100)) * 100)),
     total = cents.reduce((n, v) => n + v, 0),
     target = Math.round(amount * 100);

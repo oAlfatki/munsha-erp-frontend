@@ -1,4 +1,5 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
+import { readCachedQuery } from '@/core/query/read-cached-query';
 import { booksQuery, currenciesQuery, journalsQuery } from '@/features/ledger/public';
 import { companyQuery, systemQuery } from '@/features/organization/public';
 import { customersQuery, suppliersQuery } from '@/features/parties/public';
@@ -7,25 +8,27 @@ import { purchaseInvoicesQuery } from '@/features/trade/queries/purchase-invoice
 import { saleInvoicesQuery } from '@/features/trade/queries/sale-invoices-query';
 import type { InvoiceValidationReadModel } from '@/features/trade/types/read-models/InvoiceValidationReadModel';
 import { useQueryClient } from '@tanstack/react-query';
+
 export function useInvoiceValidationData() {
+
   const identity = useQueryIdentity(),
     client = useQueryClient();
   return async () => {
-    const books = await client.ensureQueryData(booksQuery(identity));
+    const books = await readCachedQuery(client, booksQuery(identity));
     const scope = { ...identity, bookId: books.scope.bookId };
     const [d0, d1, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12] = await Promise.all([
-      client.ensureQueryData(companyQuery(scope)),
-      client.ensureQueryData(warehousesQuery(scope)),
-      client.ensureQueryData(systemQuery(scope)),
-      client.ensureQueryData(currenciesQuery(scope)),
-      client.ensureQueryData(movementsQuery(scope)),
-      client.ensureQueryData(itemsQuery(scope)),
-      client.ensureQueryData(stocksQuery(scope)),
-      client.ensureQueryData(journalsQuery(scope)),
-      client.ensureQueryData(customersQuery(scope)),
-      client.ensureQueryData(suppliersQuery(scope)),
-      client.ensureQueryData(saleInvoicesQuery(scope)),
-      client.ensureQueryData(purchaseInvoicesQuery(scope)),
+      readCachedQuery(client, companyQuery(scope)),
+      readCachedQuery(client, warehousesQuery(scope)),
+      readCachedQuery(client, systemQuery(scope)),
+      readCachedQuery(client, currenciesQuery(scope)),
+      readCachedQuery(client, movementsQuery(scope)),
+      readCachedQuery(client, itemsQuery(scope)),
+      readCachedQuery(client, stocksQuery(scope)),
+      readCachedQuery(client, journalsQuery(scope)),
+      readCachedQuery(client, customersQuery(scope)),
+      readCachedQuery(client, suppliersQuery(scope)),
+      readCachedQuery(client, saleInvoicesQuery(scope)),
+      readCachedQuery(client, purchaseInvoicesQuery(scope)),
     ]);
     const q0 = { data: d0 };
     const q1 = { data: d1 };

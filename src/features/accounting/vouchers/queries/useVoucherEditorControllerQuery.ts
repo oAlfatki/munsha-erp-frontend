@@ -12,7 +12,9 @@ import { branchesQuery, companyQuery, systemQuery } from '@/features/organizatio
 import { customersQuery, suppliersQuery } from '@/features/parties/public';
 import { warehousesQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useVoucherEditorControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

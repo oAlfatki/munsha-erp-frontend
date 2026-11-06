@@ -1,10 +1,10 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { exportCsv } from '@/core/services/export-csv';
 import { importMastersSchema } from '@/features/organization/public';
 import { useImportMasters } from '@/features/settings/hooks/useImportMasters';
 import { useImportMastersQuery } from '@/features/settings/queries/useImportMastersQuery';
 import { parseMasterCsv } from '@/features/settings/services/models/csv';
 import { validateImportPreview } from '@/features/settings/validations/import-preview';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
@@ -14,8 +14,10 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { useState } from 'react';
+
 export function ImportMasters() {
-  const { state: s, busy: isBusy, revision } = useImportMastersQuery();
+
+  const { state, busy: isBusy, revision } = useImportMastersQuery();
   const importMastersMutationRequest = useImportMasters(),
     importMastersForm = useValidatedForm(importMastersSchema, importMastersMutationRequest.execute),
     importMastersMutation = { ...importMastersMutationRequest, execute: importMastersForm.submit };
@@ -25,7 +27,7 @@ export function ImportMasters() {
     [error, setError] = useState(''),
     [valid, setValid] = useState(''),
     [isConfirm, setConfirm] = useState(false);
-  if (!s) return null;
+  if (!state) return null;
   const fields =
     kind === 'product'
       ? [
@@ -56,17 +58,20 @@ export function ImportMasters() {
         ),
       ),
     signature = JSON.stringify({ kind, rows, revision });
+
   const handleCheck = () => {
+
     setError('');
     setValid('');
     try {
       if (mapping.name === undefined || mapping.name === '') throw Error('اربط عمود الاسم');
-      validateImportPreview(s, { kind, rows });
+      validateImportPreview(state, { kind, rows });
       setValid(signature);
     } catch (e) {
       setError(e instanceof Error ? e.message : 'راجع ربط الأعمدة');
     }
   };
+
   return (
     <>
       <PageHead

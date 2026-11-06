@@ -1,7 +1,6 @@
 import { readAllPages } from '@/core/api/readAllPages';
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import type { QueryScope } from '@/core/types/api/QueryScope';
-import type { FieldDef } from '@/core/types/forms/FieldDef';
 import {
   allAccounts,
   booksQuery,
@@ -12,8 +11,11 @@ import {
 import { fetchBranches } from '@/features/organization/public';
 import { fetchEmployees } from '@/features/personnel/public';
 import { fetchInventoryItems, fetchInventoryWarehouses } from '@/features/stock/public';
+import type { FieldDef } from '@/shared/types/forms/FieldDef';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
+
 export function lookupQuery(identity: QueryScope, field: FieldDef) {
+
   const kind = field.key === 'currency' ? 'currency' : field.type || 'local';
   const owner =
     kind === 'product' || kind === 'warehouse'
@@ -35,7 +37,9 @@ export function lookupQuery(identity: QueryScope, field: FieldDef) {
       identity.locale,
       field.options,
     ],
+
     queryFn: async ({ signal }): Promise<[string, string][] | undefined> => {
+
       const params = { bookId: identity.bookId };
       switch (kind) {
         case 'currency': {
@@ -86,11 +90,13 @@ export function lookupQuery(identity: QueryScope, field: FieldDef) {
           return field.options || [];
       }
     },
+
     staleTime: 30000,
   });
 }
 
 export function useLookupOptions(field: FieldDef) {
+
   const identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));
   return useSuspenseQuery(lookupQuery({ ...identity, bookId: books.scope.bookId }, field)).data;

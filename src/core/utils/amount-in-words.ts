@@ -1,5 +1,6 @@
 import type { CurrencyWords } from '@/core/types/reports/CurrencyWords';
 import { money } from '@/core/utils/money';
+
 const ONES = ['', 'واحد', 'اثنان', 'ثلاثة', 'أربعة', 'خمسة', 'ستة', 'سبعة', 'ثمانية', 'تسعة'];
 const TEENS = [
   'عشرة',
@@ -14,12 +15,16 @@ const TEENS = [
   'تسعة عشر',
 ];
 const TENS = ['', '', 'عشرون', 'ثلاثون', 'أربعون', 'خمسون', 'ستون', 'سبعون', 'ثمانون', 'تسعون'];
+
 function below100(n: number): string {
+
   if (n < 10) return ONES[n];
   if (n < 20) return TEENS[n - 10];
   return [ONES[n % 10], TENS[Math.floor(n / 10)]].filter(Boolean).join(' و');
 }
+
 function below1000(n: number): string {
+
   const h = Math.floor(n / 100),
     rest = n % 100;
   const hundreds = [
@@ -36,7 +41,9 @@ function below1000(n: number): string {
   ];
   return [hundreds[h], below100(rest)].filter(Boolean).join(' و');
 }
+
 export function arabicNumber(n: number): string {
+
   if (!Number.isSafeInteger(n) || n < 0 || n >= 1e12) throw Error('القيمة خارج نطاق التفقيط');
   if (n === 0) return 'صفر';
   const scales = [
@@ -93,12 +100,16 @@ const CURRENCIES: Record<string, CurrencyWords> = {
     fractionPlural: 'سنتات',
   },
 };
+
 function counted(n: number, singular: string, dual: string, plural: string) {
+
   if (n === 1) return singular + ' واحد';
   if (n === 2) return dual;
   return arabicNumber(n) + ' ' + (n % 100 >= 3 && n % 100 <= 10 ? plural : singular);
 }
+
 export function amountInWords(amount: number, currency = 'YER'): string {
+
   if (!Number.isFinite(amount) || Math.abs(amount) >= 1e10) return 'المبلغ خارج نطاق التفقيط';
   const cents = Math.round(Math.abs(money(amount)) * 100),
     whole = Math.floor(cents / 100),

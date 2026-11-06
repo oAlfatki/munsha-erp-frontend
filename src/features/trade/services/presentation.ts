@@ -5,6 +5,7 @@ import type { Entry } from '@/features/ledger/public';
 import { allocateInvoiceDiscount } from '@/features/trade/services/invoice-discounts';
 import { lineTotal } from '@/features/trade/services/line-total';
 import type { InvoiceLine } from '@/features/trade/types/models/InvoiceLine';
+
 export function invoiceSummary(
   lines: InvoiceLine[],
   payment: 'cash' | 'credit' | 'mixed',
@@ -12,6 +13,7 @@ export function invoiceSummary(
   taxRate = 0,
   invoiceDiscount?: number,
 ) {
+
   const base = money(
     lines.reduce(
       (n, invoiceLine) =>
@@ -55,6 +57,7 @@ export function invoiceSummary(
     rows: lines.length,
   };
 }
+
 export function statementData(
   workspace: StatementDataContext,
   branchId: string,
@@ -63,12 +66,15 @@ export function statementData(
   to: string,
   query = '',
 ) {
+
   const p = workspace.parties.find((party) => party.id === partyId),
     control = p?.kind === 'customer' ? '130' : '210';
+
   const selected = (entry: Entry) =>
     entry.lines.filter(
       (journalLine) => journalLine.partyId === partyId && journalLine.account === control,
     );
+
   const opening = money(
     workspace.entries
       .filter((entry) => entry.branchId === branchId && from && entry.date < from)

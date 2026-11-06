@@ -1,4 +1,5 @@
 import type { AnnualBooks } from '@/features/ledger/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */

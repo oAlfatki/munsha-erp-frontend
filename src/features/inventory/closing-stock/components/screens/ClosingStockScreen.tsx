@@ -1,7 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { usePeriodTransfer } from '@/features/accounting/public';
@@ -12,6 +10,8 @@ import {
   periodTransferSchema,
   stockClosing,
 } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { exportPdf, printReport } from '@/shared/services/report-actions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
@@ -23,8 +23,10 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Database, Download, Eye, Printer, Save, Undo2 } from 'lucide-react';
 import { useState } from 'react';
+
 export function ClosingStockScreen() {
-  const { state: s, revision, busy: isBusy, navigate } = useClosingStockScreenQuery();
+
+  const { state, revision, busy: isBusy, navigate } = useClosingStockScreenQuery();
   const periodTransferMutationRequest = usePeriodTransfer();
   const periodTransferForm = useValidatedForm(
     periodTransferSchema,
@@ -34,19 +36,24 @@ export function ClosingStockScreen() {
     ...periodTransferMutationRequest,
     execute: periodTransferForm.submit,
   };
-  const initial = { date: s!.organization.year + '-12-31', branch: '', warehouse: '', query: '' };
+  const initial = {
+    date: state!.organization.year + '-12-31',
+    branch: '',
+    warehouse: '',
+    query: '',
+  };
   const [draft, setDraft] = useState(initial);
   const [filters, setFilters] = useState(initial);
   const [viewed, setViewed] = useState<number | null>(null);
   const [isConfirm, setConfirm] = useState(false);
   const [target, setTarget] = useState('');
-  if (!s) return null;
-  const catalog = bookCatalog(s);
+  if (!state) return null;
+  const catalog = bookCatalog(state);
   const targets = catalog.books.filter(
     (b) => b.status === 'preparing' && b.sourceId === catalog.activeId,
   );
-  const inventory = stockClosing(s, filters.date, filters.branch, filters.warehouse).filter((r) =>
-    [r.code, r.name, r.warehouse].join(' ').includes(filters.query),
+  const inventory = stockClosing(state, filters.date, filters.branch, filters.warehouse).filter(
+    (r) => [r.code, r.name, r.warehouse].join(' ').includes(filters.query),
   );
   const headers = [
     'رقم الصنف',
@@ -67,12 +74,18 @@ export function ClosingStockScreen() {
     r.value,
   ]);
   const total = money(inventory.reduce((n, r) => n + r.value, 0));
+
   const handleRefreshView = () => {
-    if (draft.date < s.organization.year + '-01-01' || draft.date > s.organization.year + '-12-31')
+
+    if (
+      draft.date < state.organization.year + '-01-01' ||
+      draft.date > state.organization.year + '-12-31'
+    )
       return;
     setFilters({ ...draft });
     setViewed(revision);
   };
+
   return (
     <>
       <PageHead
@@ -86,7 +99,7 @@ export function ClosingStockScreen() {
               <Eye size={16} />
               عرض
             </Button>
-            <Button disabled={isBusy || isArchived(s)} onClick={() => setConfirm(true)}>
+            <Button disabled={isBusy || isArchived(state)} onClick={() => setConfirm(true)}>
               <Save size={16} />
               حفظ
             </Button>
@@ -126,8 +139,8 @@ export function ClosingStockScreen() {
         <Field label="كما في تاريخ">
           <Input
             type="date"
-            min={s.organization.year + '-01-01'}
-            max={s.organization.year + '-12-31'}
+            min={state.organization.year + '-01-01'}
+            max={state.organization.year + '-12-31'}
             value={draft.date}
             onChange={(e) => setDraft({ ...draft, date: e.target.value })}
           />
@@ -138,7 +151,7 @@ export function ClosingStockScreen() {
             onChange={(e) => setDraft({ ...draft, branch: e.target.value, warehouse: '' })}
           >
             <option value="">جميع الفروع</option>
-            {s.branches.map((branch) => (
+            {state.branches.map((branch) => (
               <option key={branch.id} value={branch.id}>
                 {branch.name}
               </option>
@@ -152,7 +165,7 @@ export function ClosingStockScreen() {
               onChange={(e) => setDraft({ ...draft, warehouse: e.target.value })}
             >
               <option value="">جميع المخازن</option>
-              {s.warehouses
+              {state.warehouses
                 .filter((warehouse) => !draft.branch || warehouse.branchId === draft.branch)
                 .map((warehouse) => (
                   <option key={warehouse.id} value={warehouse.id}>
@@ -171,14 +184,18 @@ export function ClosingStockScreen() {
       </div>
       <div className="report-context">
         <span data-report-meta="الفرع">
-          {filters.branch ? s.branches.find((b) => b.id === filters.branch)?.name : 'جميع الفروع'}
+          {filters.branch
+            ? state.branches.find((b) => b.id === filters.branch)?.name
+            : 'جميع الفروع'}
         </span>
         <span>
-          {s.organization.name} · السنة {s.organization.year}
+          {state.organization.name} · السنة {state.organization.year}
         </span>
         <span data-report-meta="النطاق">
           {filters.date} ·{' '}
-          {filters.branch ? s.branches.find((b) => b.id === filters.branch)?.name : 'جميع الفروع'}
+          {filters.branch
+            ? state.branches.find((b) => b.id === filters.branch)?.name
+            : 'جميع الفروع'}
         </span>
         <Pill tone={viewed === revision ? 'green' : 'amber'}>
           {viewed === revision ? 'تم عرض أحدث البيانات' : 'اضغط عرض قبل الترحيل'}
@@ -256,7 +273,7 @@ export function ClosingStockScreen() {
                   isBusy ||
                   !target ||
                   viewed !== revision ||
-                  filters.date !== s.organization.year + '-12-31' ||
+                  filters.date !== state.organization.year + '-12-31' ||
                   !!filters.branch ||
                   !!filters.warehouse ||
                   !!filters.query
@@ -283,7 +300,8 @@ export function ClosingStockScreen() {
               </Button>
             </div>
             <p>
-              اعرض أحدث الأرصدة دون بحث أو تصفية، بتاريخ {s.organization.year}-12-31 لتفعيل الحفظ.
+              اعرض أحدث الأرصدة دون بحث أو تصفية، بتاريخ {state.organization.year}-12-31 لتفعيل
+              الحفظ.
             </p>
           </>
         )}

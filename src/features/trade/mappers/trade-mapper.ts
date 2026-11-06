@@ -8,11 +8,13 @@ import {
   partialReturnSchema,
   returnSchema,
 } from '@/features/trade/validations/trade-schema';
-export const mapInvoiceInput = (input: unknown): SaveInvoiceRequest =>
-  invoiceSchema.parse(input) as SaveInvoiceRequest;
+
+export const mapInvoiceInput = (input: unknown): SaveInvoiceRequest => invoiceSchema.parse(input);
+
 export const mapDeleteDraftInput = (input: unknown): DeleteDraftRequest =>
-  deleteDraftSchema.parse(input) as DeleteDraftRequest;
-export const mapReturnInput = (input: unknown): SaveReturnRequest =>
-  returnSchema.parse(input) as SaveReturnRequest;
+  deleteDraftSchema.parse(input);
+
+export const mapReturnInput = (input: unknown): SaveReturnRequest => returnSchema.parse(input);
+
 export const mapPartialReturnInput = (input: unknown): SavePartialReturnRequest =>
-  partialReturnSchema.parse(input) as SavePartialReturnRequest;
+  partialReturnSchema.parse(input);

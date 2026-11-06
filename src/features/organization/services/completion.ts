@@ -3,7 +3,9 @@ import type { GeneralSettingsContext } from '@/features/organization/types/read-
 
 // Frontend display calculations; backend authority requires independent verification.
 import { systemSettings } from '@/features/organization/services/system-settings';
+
 export const generalSettings = (workspace: GeneralSettingsContext): GeneralSettings => {
+
   const v = systemSettings(workspace);
   return {
     profit: v.inventory.profit,

@@ -1,7 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { usePeriodTransfer } from '@/features/accounting/fiscal-periods/hooks/usePeriodTransfer';
@@ -12,6 +10,8 @@ import {
   isArchived,
   periodTransferSchema,
 } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { exportPdf, printReport } from '@/shared/services/report-actions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
@@ -23,8 +23,10 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Database, Download, Eye, Printer, Save, Undo2 } from 'lucide-react';
 import { useState } from 'react';
+
 export function ClosingAccountBalancesScreen() {
-  const { state: s, revision, busy: isBusy, navigate } = useClosingAccountBalancesScreenQuery();
+
+  const { state, revision, busy: isBusy, navigate } = useClosingAccountBalancesScreenQuery();
   const periodTransferMutationRequest = usePeriodTransfer();
   const periodTransferForm = useValidatedForm(
     periodTransferSchema,
@@ -34,18 +36,23 @@ export function ClosingAccountBalancesScreen() {
     ...periodTransferMutationRequest,
     execute: periodTransferForm.submit,
   };
-  const initial = { date: s!.organization.year + '-12-31', branch: '', warehouse: '', query: '' };
+  const initial = {
+    date: state!.organization.year + '-12-31',
+    branch: '',
+    warehouse: '',
+    query: '',
+  };
   const [draft, setDraft] = useState(initial);
   const [filters, setFilters] = useState(initial);
   const [viewed, setViewed] = useState<number | null>(null);
   const [isConfirm, setConfirm] = useState(false);
   const [target, setTarget] = useState('');
-  if (!s) return null;
-  const catalog = bookCatalog(s);
+  if (!state) return null;
+  const catalog = bookCatalog(state);
   const targets = catalog.books.filter(
     (b) => b.status === 'preparing' && b.sourceId === catalog.activeId,
   );
-  const accounts = accountClosing(s, filters.date, filters.branch).filter((r) =>
+  const accounts = accountClosing(state, filters.date, filters.branch).filter((r) =>
     [r.account, r.name].join(' ').includes(filters.query),
   );
   const headers = [
@@ -63,10 +70,10 @@ export function ClosingAccountBalancesScreen() {
   const rows: (string | number)[][] = accounts.map((r) => [
     r.account,
     r.name,
-    s.branches.find((branch) => branch.id === r.branchId)?.name || r.branchId,
+    state.branches.find((branch) => branch.id === r.branchId)?.name || r.branchId,
     Math.max(r.amount, 0),
     Math.max(-r.amount, 0),
-    s.organization.currency,
+    state.organization.currency,
     1,
     Math.max(r.amount, 0),
     Math.max(-r.amount, 0),
@@ -75,12 +82,18 @@ export function ClosingAccountBalancesScreen() {
   const debit = money(accounts.reduce((n, r) => n + Math.max(r.amount, 0), 0));
   const credit = money(accounts.reduce((n, r) => n + Math.max(-r.amount, 0), 0));
   const difference = money(debit - credit);
+
   const handleRefreshView = () => {
-    if (draft.date < s.organization.year + '-01-01' || draft.date > s.organization.year + '-12-31')
+
+    if (
+      draft.date < state.organization.year + '-01-01' ||
+      draft.date > state.organization.year + '-12-31'
+    )
       return;
     setFilters({ ...draft });
     setViewed(revision);
   };
+
   return (
     <>
       <PageHead
@@ -94,7 +107,7 @@ export function ClosingAccountBalancesScreen() {
               <Eye size={16} />
               عرض
             </Button>
-            <Button disabled={isBusy || isArchived(s)} onClick={() => setConfirm(true)}>
+            <Button disabled={isBusy || isArchived(state)} onClick={() => setConfirm(true)}>
               <Save size={16} />
               حفظ
             </Button>
@@ -134,8 +147,8 @@ export function ClosingAccountBalancesScreen() {
         <Field label="كما في تاريخ">
           <Input
             type="date"
-            min={s.organization.year + '-01-01'}
-            max={s.organization.year + '-12-31'}
+            min={state.organization.year + '-01-01'}
+            max={state.organization.year + '-12-31'}
             value={draft.date}
             onChange={(e) => setDraft({ ...draft, date: e.target.value })}
           />
@@ -146,7 +159,7 @@ export function ClosingAccountBalancesScreen() {
             onChange={(e) => setDraft({ ...draft, branch: e.target.value, warehouse: '' })}
           >
             <option value="">جميع الفروع</option>
-            {s.branches.map((branch) => (
+            {state.branches.map((branch) => (
               <option key={branch.id} value={branch.id}>
                 {branch.name}
               </option>
@@ -163,14 +176,18 @@ export function ClosingAccountBalancesScreen() {
       </div>
       <div className="report-context">
         <span data-report-meta="الفرع">
-          {filters.branch ? s.branches.find((b) => b.id === filters.branch)?.name : 'جميع الفروع'}
+          {filters.branch
+            ? state.branches.find((b) => b.id === filters.branch)?.name
+            : 'جميع الفروع'}
         </span>
         <span>
-          {s.organization.name} · السنة {s.organization.year}
+          {state.organization.name} · السنة {state.organization.year}
         </span>
         <span data-report-meta="النطاق">
           {filters.date} ·{' '}
-          {filters.branch ? s.branches.find((b) => b.id === filters.branch)?.name : 'جميع الفروع'}
+          {filters.branch
+            ? state.branches.find((b) => b.id === filters.branch)?.name
+            : 'جميع الفروع'}
         </span>
         <Pill tone={viewed === revision ? 'green' : 'amber'}>
           {viewed === revision ? 'تم عرض أحدث البيانات' : 'اضغط عرض قبل الترحيل'}
@@ -274,7 +291,7 @@ export function ClosingAccountBalancesScreen() {
                   isBusy ||
                   !target ||
                   viewed !== revision ||
-                  filters.date !== s.organization.year + '-12-31' ||
+                  filters.date !== state.organization.year + '-12-31' ||
                   !!filters.branch ||
                   !!filters.warehouse ||
                   !!filters.query
@@ -301,7 +318,8 @@ export function ClosingAccountBalancesScreen() {
               </Button>
             </div>
             <p>
-              اعرض أحدث الأرصدة دون بحث أو تصفية، بتاريخ {s.organization.year}-12-31 لتفعيل الحفظ.
+              اعرض أحدث الأرصدة دون بحث أو تصفية، بتاريخ {state.organization.year}-12-31 لتفعيل
+              الحفظ.
             </p>
           </>
         )}

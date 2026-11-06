@@ -1,12 +1,14 @@
 import type { InvoiceEventsContext } from '@/features/trade/types/read-models/InvoiceEventsContext';
 // Frontend display calculations; backend authority requires independent verification.
 import type { Invoice } from '@/features/trade/types/models/Invoice';
+
 export function invoiceEvents(
   workspace: InvoiceEventsContext,
   kind: Invoice['kind'],
   branchId: string,
   filter = 'all',
 ) {
+
   return workspace.invoices
     .filter((invoice) => invoice.kind === kind && invoice.branchId === branchId)
     .flatMap((invoice) => {

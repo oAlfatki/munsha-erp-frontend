@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { usePeriodTransferValidationData } from '@/features/accounting/fiscal-periods/queries/usePeriodTransferValidationData';
 import { savePeriodTransfer } from '@/features/accounting/fiscal-periods/services/fiscal-periods-service';
 import { validatePeriod } from '@/features/ledger/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function usePeriodTransfer() {
+
   const loadValidationData = usePeriodTransferValidationData();
   return useCommandMutation('periodTransfer', savePeriodTransfer, async (input) => {
     const state = await loadValidationData();

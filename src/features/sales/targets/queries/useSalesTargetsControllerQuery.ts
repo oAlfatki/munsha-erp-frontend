@@ -7,7 +7,9 @@ import { salesTargetsQuery } from '@/features/sales/targets/queries/sales-target
 import type { SalesTargetsControllerReadModel } from '@/features/sales/targets/types/read-models/SalesTargetsControllerReadModel';
 import { saleInvoicesQuery, saleReturnsQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSalesTargetsControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

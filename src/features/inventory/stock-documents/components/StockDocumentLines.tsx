@@ -4,9 +4,11 @@ import { Select } from '@/shared/ui/forms/Select';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { Plus, Trash2 } from 'lucide-react';
+
 export function StockDocumentLines({ model, kind }: StockDocumentLinesProps) {
+
   const {
-    s,
+    s: state,
     isReadOnly,
     setDirty,
     lines,
@@ -78,7 +80,7 @@ export function StockDocumentLines({ model, kind }: StockDocumentLinesProps) {
           </thead>
           <tbody>
             {lines.map((l, i) => {
-              const product = s.products.find((product) => product.id === l.productId)!;
+              const product = state.products.find((product) => product.id === l.productId)!;
               const qty = l.qty * product.units[l.unit].factor;
               return (
                 <tr key={product.id}>
@@ -163,8 +165,8 @@ export function StockDocumentLines({ model, kind }: StockDocumentLinesProps) {
               lines.map((l) => ({
                 ...l,
                 expectedQty:
-                  s.stocks.find((v) => v.productId === l.productId && v.warehouseId === wh)?.qty ||
-                  0,
+                  state.stocks.find((v) => v.productId === l.productId && v.warehouseId === wh)
+                    ?.qty || 0,
                 value: undefined,
               })),
             );

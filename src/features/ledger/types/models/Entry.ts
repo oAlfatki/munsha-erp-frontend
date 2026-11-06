@@ -1,4 +1,5 @@
 import type { JournalLine } from '@/features/ledger/types/models/JournalLine';
+
 export interface Entry {
   id: string;
   reference: string;

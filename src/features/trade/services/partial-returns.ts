@@ -8,14 +8,18 @@ import { allocateInvoiceDiscount } from '@/features/trade/services/invoice-disco
 import { lineTotal } from '@/features/trade/services/line-total';
 import type { Invoice } from '@/features/trade/types/models/Invoice';
 import type { InvoiceLine } from '@/features/trade/types/models/InvoiceLine';
+
 const check = (ok: unknown, message: string) => {
+
   if (!ok) throw Error(message);
 };
+
 export function returnRemaining(
   workspace: ReturnRemainingContext,
   invoice: Invoice,
   index: number,
 ) {
+
   const old = (workspace.invoiceReturns || [])
     .flatMap((r) =>
       r.sourceId === invoice.id
@@ -37,6 +41,7 @@ export function returnRemaining(
     ),
   };
 }
+
 export function quoteReturn(
   workspace: QuoteReturnContext,
   source: Invoice,
@@ -44,6 +49,7 @@ export function quoteReturn(
   discountInput?: number,
   paidInput?: number,
 ) {
+
   check(picks.length > 0, 'حدد كمية واحدة على الأقل');
   check(new Set(picks.map((v) => v.index)).size === picks.length, 'بند المرتجع مكرر');
   let isChanged = false;

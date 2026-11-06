@@ -1,14 +1,16 @@
 import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { usersApi } from '@/features/users/api/users-api';
-import type { AuditFilters } from '@/features/users/type';
+import type { AuditFilters } from '@/features/users/types/AuditFilters';
 import { Field } from '@/shared/ui/forms/Field';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
+
 export function UserAuditReport() {
+
   const auth = useAuth();
   const [page, setPage] = useState(1),
     [search, setSearch] = useState(''),
@@ -33,17 +35,22 @@ export function UserAuditReport() {
     (!from || !to || from <= to);
   const query = useQuery({
     queryKey: ['users', auth.user?.userId, 'audit', filters],
+
     queryFn: ({ signal }) => usersApi.audit(filters, signal),
+
     enabled: auth.can('USERS', 'USERS_AUDIT_VIEW') && isValid,
     retry: false,
   });
   const report = useMutation({
     mutationFn: async (kind: 'print' | 'export') => {
+
       if (!auth.can('USERS', kind === 'print' ? 'USERS_AUDIT_PRINT' : 'USERS_AUDIT_EXPORT'))
         throw Error('لا تملك صلاحية هذه العملية.');
       return usersApi.auditReport(kind, filters);
     },
+
     onSuccess: (blob) => {
+
       setFile(URL.createObjectURL(blob));
     },
   });
@@ -53,10 +60,12 @@ export function UserAuditReport() {
     },
     [file],
   );
+
   const change = (setter: (v: string) => void) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setter(e.target.value);
     setPage(1);
   };
+
   return (
     <>
       <PageHead

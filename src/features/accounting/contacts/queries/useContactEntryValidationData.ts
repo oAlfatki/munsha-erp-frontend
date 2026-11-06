@@ -1,15 +1,18 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
+import { readCachedQuery } from '@/core/query/read-cached-query';
 import type { ContactEntryValidationReadModel } from '@/features/accounting/contacts/types/read-models/ContactEntryValidationReadModel';
 import { booksQuery } from '@/features/ledger/public';
 import { companyQuery } from '@/features/organization/public';
 import { useQueryClient } from '@tanstack/react-query';
+
 export function useContactEntryValidationData() {
+
   const identity = useQueryIdentity(),
     client = useQueryClient();
   return async () => {
-    const books = await client.ensureQueryData(booksQuery(identity));
+    const books = await readCachedQuery(client, booksQuery(identity));
     const scope = { ...identity, bookId: books.scope.bookId };
-    const [d0] = await Promise.all([client.ensureQueryData(companyQuery(scope))]);
+    const [d0] = await Promise.all([readCachedQuery(client, companyQuery(scope))]);
     const q0 = { data: d0 };
     const state: ContactEntryValidationReadModel = {
       organization: q0.data,

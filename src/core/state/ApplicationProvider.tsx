@@ -3,34 +3,43 @@ import { useAuth } from '@/core/auth/AuthProvider';
 import { canRunCommand } from '@/core/auth/permissions';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { affectedOwners } from '@/core/query/invalidation';
-import type { ApplicationState } from '@/core/types/api/ApplicationState';
 import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
 import type { ApplicationProviderProps } from '@/core/types/props/ApplicationProviderProps';
+import type { ApplicationState } from '@/core/types/state/ApplicationState';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useBeforeUnload, useBlocker, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+
 const Context = createContext<ApplicationState>(null!);
+
 export function ApplicationProvider({ children, checkSession }: ApplicationProviderProps) {
+
   const routeView = useLocation().pathname;
   const { user, access } = useAuth();
   const cache = useQueryClient();
   const routerNavigate = useNavigate();
   const [branchId, setBranch] = useState(user?.branchId || '');
+
   const setBranchId = (value: string) => {
+
     if (value !== user?.branchId) {
       toast.error('هذا الفرع غير مسموح لهذا الحساب.');
       return;
     }
     setBranch(value);
   };
+
   const [isEditingDocument, setEditing] = useState(false);
   const editingRef = useRef(false);
+
   const setEditingDocument = (isValue: boolean) => {
+
     editingRef.current = isValue;
     setEditing(isValue);
   };
+
   const retry = useRef<{
     signature: string;
     id: string;
@@ -55,12 +64,15 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
       [isEditingDocument],
     ),
   );
+
   const refresh = async () => {
+
     await Promise.all([
       cache.invalidateQueries({ queryKey: ['access'], refetchType: 'active' }),
       cache.invalidateQueries({ queryKey: ['erp'], refetchType: 'active' }),
     ]);
   };
+
   const mutation = useMutation({
     mutationFn: async ({
       data: input,
@@ -80,9 +92,11 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
         },
       ) => Promise<CommandReceipt>;
     }) => {
+
       return action(input, { id, revision: expected });
     },
   });
+
   const runCommand = async <TInput,>(
     type: string,
     input: TInput,
@@ -94,6 +108,7 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
       },
     ) => Promise<CommandReceipt>,
   ) => {
+
     if (lock.current || mutation.isPending) return false;
     if (!user || !canRunCommand(access, type, input, branchId)) {
       toast.error('العملية غير مصرح بها أو لم يُعتمد ربط صلاحيتها بعقد API الحالي.');
@@ -131,6 +146,7 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
         data: input,
         id: retry.current.id,
         revision: retry.current.revision,
+
         action: (data, context) => action(data as TInput, context),
       });
       retry.current = null;
@@ -138,6 +154,7 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
       await cache.invalidateQueries({
         predicate: (query) =>
           query.queryKey[0] === 'erp' && (!owners || owners.includes(String(query.queryKey[1]))),
+
         refetchType: 'active',
       });
       toast.success('حُفظت العملية');
@@ -153,6 +170,7 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
       lock.current = false;
     }
   };
+
   useEffect(() => {
     if (!user) return;
     const timer = setInterval(() => {
@@ -160,13 +178,16 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
     }, 60000);
     return () => clearInterval(timer);
   }, [user?.userId, checkSession]);
+
   const navigate = (view: string) => {
+
     if (editingRef.current) {
       toast.info('احفظ التغييرات أو اختر تراجع قبل الانتقال إلى قسم آخر.');
       return;
     }
     routerNavigate(view);
   };
+
   return (
     <Context.Provider
       value={{
@@ -178,6 +199,7 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
         runCommand,
         navigate,
         view: routeView,
+
         allowed: (view) =>
           !!user &&
           (['dashboard', ROUTES.DASHBOARD, ROUTES.USERS_PASSWORD, ROUTES.USERS_SESSIONS].includes(
@@ -189,6 +211,7 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
                     (grant) => grant.module === 'USERS' && grant.branchIds.includes(user.branchId),
                   )
                 : access.grants.some((grant) => grant.branchIds.includes(user.branchId))))),
+
         editingDocument: isEditingDocument,
         setEditingDocument,
       }}
@@ -197,4 +220,5 @@ export function ApplicationProvider({ children, checkSession }: ApplicationProvi
     </Context.Provider>
   );
 }
+
 export const useApplication = () => useContext(Context);

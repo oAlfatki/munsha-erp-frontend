@@ -1,6 +1,6 @@
-import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { useSalesTargetsController } from '@/features/sales/targets/hooks/useSalesTargetsController';
+import { exportPdf } from '@/shared/services/report-actions';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
@@ -9,11 +9,13 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
+
 export function SalesTargets() {
+
   const model = useSalesTargetsController();
   if (!model) return null;
   const {
-    s,
+    s: state,
     branchId,
     isBusy,
     salesTargetMutation,
@@ -55,7 +57,7 @@ export function SalesTargets() {
           <Field label="المسؤول عن متابعة الهدف">
             <Select value={employee} onChange={(e) => setEmployee(e.target.value)}>
               <option value="">غير محدد</option>
-              {s.employees
+              {state.employees
                 .filter((employee) => employee.active && employee.branchId === branchId)
                 .map((employee) => (
                   <option key={employee.id} value={employee.id}>

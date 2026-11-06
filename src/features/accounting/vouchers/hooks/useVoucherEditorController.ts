@@ -1,4 +1,3 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { newId } from '@/core/utils/id';
 import { money } from '@/core/utils/money';
@@ -9,12 +8,15 @@ import { voucherDue } from '@/features/accounting/vouchers/services/models/vouch
 import type { VoucherEditorProps } from '@/features/accounting/vouchers/types/props/VoucherEditorProps';
 import { cashOptions, voucherSchema } from '@/features/ledger/public';
 import { operationCashId } from '@/features/organization/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useState } from 'react';
+
 export function useVoucherEditorController({
   kind: initialKind,
   partyId = '',
 }: VoucherEditorProps) {
-  const { state: s, branchId, busy: isBusy } = useVoucherEditorControllerQuery();
+
+  const { state, branchId, busy: isBusy } = useVoucherEditorControllerQuery();
   const voucherMutationRequest = useVoucher();
   const voucherForm = useValidatedForm(voucherSchema, voucherMutationRequest.execute);
   const voucherMutation = { ...voucherMutationRequest, execute: voucherForm.submit };
@@ -22,25 +24,29 @@ export function useVoucherEditorController({
   const [party, setParty] = useState(partyId);
   const [date, setDate] = useState(today());
   const [note, setNote] = useState('');
+
   const blank = (): InputLine => ({
     key: newId(),
     amount: '',
-    currency: s!.organization.currency,
+    currency: state!.organization.currency,
     rate: 1,
-    cashId: operationCashId(s!, branchId, kind),
+    cashId: operationCashId(state!, branchId, kind),
   });
+
   const [lines, setLines] = useState<InputLine[]>(() => [blank()]);
-  if (!s) return null;
+  if (!state) return null;
+
   const update = (index: number, patch: Partial<InputLine>) =>
     setLines(lines.map((l, i) => (i === index ? { ...l, ...patch } : l)));
-  const cash = cashOptions(s, branchId);
-  const due = voucherDue(s, kind, branchId, party, date);
+
+  const cash = cashOptions(state, branchId);
+  const due = voucherDue(state, kind, branchId, party, date);
   const total = money(lines.reduce((n, l) => n + money(Number(l.amount || 0) * l.rate), 0));
   const totals = new Map<string, number>();
   for (const l of lines)
     totals.set(l.currency, money((totals.get(l.currency) || 0) + Number(l.amount || 0)));
   return {
-    s,
+    s: state,
     branchId,
     isBusy,
     voucherMutation,

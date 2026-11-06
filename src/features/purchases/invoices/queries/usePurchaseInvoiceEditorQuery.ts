@@ -13,7 +13,9 @@ import type { PurchaseInvoiceEditorReadModel } from '@/features/purchases/invoic
 import { itemsQuery, stocksQuery, warehousesQuery } from '@/features/stock/public';
 import { purchaseInvoicesQuery, purchaseReturnsQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function usePurchaseInvoiceEditorQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

@@ -1,10 +1,10 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { TREATMENT_LABELS } from '@/features/expenses/services/models/expenses';
 import type { ExpenseListProps } from '@/features/expenses/types/props/ExpenseListProps';
 import { LABELS } from '@/features/expenses/utils/treatments';
 import { cashOptions } from '@/features/ledger/public';
+import { exportPdf } from '@/shared/services/report-actions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -17,7 +17,9 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
+
 export function ExpenseList({ controller }: ExpenseListProps) {
+
   const {
     s: workspace,
     branchId,

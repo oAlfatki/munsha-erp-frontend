@@ -1,8 +1,8 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { fmt, today } from '@/core/utils/formatters';
 import { useAssetAcquisitionScreenQuery } from '@/features/accounting/assets/queries/useAssetAcquisitionScreenQuery';
 import { useOperation } from '@/features/accounting/overview/hooks/useOperation';
 import { extras, operationSchema } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
@@ -14,7 +14,9 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { CheckCheck, Save, Undo2 } from 'lucide-react';
 import { useState } from 'react';
+
 export function AssetAcquisitionScreen() {
+
   const screen = {
     id: 'asset-purchase',
     module: 'accounts',
@@ -24,7 +26,7 @@ export function AssetAcquisitionScreen() {
     operation: 'assetPurchase',
     note: 'اقتناء نقدي للأصل بتكلفة البطاقة مرة واحدة؛ يبدأ الإهلاك من الجاهزية.',
   };
-  const { state: s, branchId, busy: isBusy } = useAssetAcquisitionScreenQuery();
+  const { state, branchId, busy: isBusy } = useAssetAcquisitionScreenQuery();
   const operationMutationRequest = useOperation();
   const operationForm = useValidatedForm(operationSchema, operationMutationRequest.execute);
   const operationMutation = { ...operationMutationRequest, execute: operationForm.submit };
@@ -35,8 +37,8 @@ export function AssetAcquisitionScreen() {
   const [source, setSource] = useState('');
   const [note, setNote] = useState('');
   const [isConfirm, setConfirm] = useState(false);
-  if (!s) return null;
-  const x = extras(s);
+  if (!state) return null;
+  const x = extras(state);
   const sources = x.operations.filter(
     (o) => o.kind === 'count' && o.branchId === branchId && !o.paid && true,
   );
@@ -118,7 +120,7 @@ export function AssetAcquisitionScreen() {
           }
           <Field label="الفرع">
             <div className="input-readonly">
-              {s.branches.find((branch) => branch.id === branchId)?.name}
+              {state.branches.find((branch) => branch.id === branchId)?.name}
             </div>
           </Field>
           <Field label="البيان / سبب العملية *">

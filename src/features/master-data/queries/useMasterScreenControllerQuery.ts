@@ -21,7 +21,9 @@ import {
   fetchInventoryUnits,
 } from '@/features/stock/public';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useMasterScreenControllerQuery(collection: string) {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));
@@ -44,6 +46,7 @@ export function useMasterScreenControllerQuery(collection: string) {
 }
 
 export function masterRecordsQuery(identity: QueryScope, collection: string) {
+
   const owner = ['units', 'categories', 'productGroups'].includes(collection)
     ? 'inventory'
     : collection === 'groups'
@@ -62,7 +65,9 @@ export function masterRecordsQuery(identity: QueryScope, collection: string) {
       '',
       identity.locale,
     ],
+
     queryFn: async ({ signal }): Promise<ReadPage<MasterRecord>> => {
+
       const params = { bookId: identity.bookId };
       switch (collection) {
         case 'accounts': {
@@ -125,6 +130,7 @@ export function masterRecordsQuery(identity: QueryScope, collection: string) {
           throw Error('نوع التعريف غير مدعوم: ' + collection);
       }
     },
+
     staleTime: 30000,
   });
 }

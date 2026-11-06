@@ -5,7 +5,9 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { ArrowLeft } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
+
 export function LoginForm() {
+
   const { form, submit, isPending } = useLogin();
   const navigate = useNavigate(),
     location = useLocation();

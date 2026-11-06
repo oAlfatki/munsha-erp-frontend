@@ -1,10 +1,12 @@
 import { validateStockDocumentSettingsPolicy } from '@/features/organization/public';
 
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { validatePeriod } from '@/features/ledger/public';
 import { useStockDocumentValidationData } from '@/features/stock/queries/useStockDocumentValidationData';
 import { saveStockDocument } from '@/features/stock/services/inventory-service';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useStockDocument() {
+
   const loadValidationData = useStockDocumentValidationData();
   return useCommandMutation('stockDocument', saveStockDocument, async (input) => {
     const state = await loadValidationData();

@@ -4,7 +4,9 @@ import type { TaxReportReadModel } from '@/features/accounting/reports/types/rea
 import { booksQuery, journalsQuery } from '@/features/ledger/public';
 import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useTaxReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

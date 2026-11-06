@@ -4,7 +4,9 @@ import type { BalanceSheetControllerReadModel } from '@/features/financial/types
 import { accountsQuery, booksQuery, mapMasterRecords } from '@/features/ledger/public';
 import { companyQuery } from '@/features/organization/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useBalanceSheetControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

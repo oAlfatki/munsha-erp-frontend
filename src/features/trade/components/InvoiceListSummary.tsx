@@ -1,6 +1,8 @@
 import { fmt } from '@/core/utils/formatters';
 import type { InvoiceListSummaryProps } from '@/features/trade/types/props/InvoiceListSummaryProps';
+
 export function InvoiceListSummary({ list }: InvoiceListSummaryProps) {
+
   return (
     <div className="document-stats">
       <div>

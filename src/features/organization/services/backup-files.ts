@@ -1,5 +1,5 @@
-import type { BackupFolder } from '@/features/organization/types/models/BackupFolder';
 import { backupsApi } from '@/features/organization/services/backups';
+import type { BackupFolder } from '@/features/organization/types/models/BackupFolder';
 
 const store = async (
   mode: IDBTransactionMode,
@@ -33,8 +33,11 @@ const store = async (
       };
     };
   });
+
 export const readBackupFolder = () => store('readonly');
+
 export async function chooseBackupFolder() {
+
   const picker = (
     window as unknown as {
       showDirectoryPicker?: (o: { mode: 'readwrite' }) => Promise<BackupFolder>;
@@ -48,8 +51,11 @@ export async function chooseBackupFolder() {
   await store('readwrite', h);
   return h;
 }
+
 export const clearBackupFolder = () => store('readwrite', null);
+
 export async function saveBackupFile(data: unknown, name: string, isAutomatic = false) {
+
   const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
   let folder: BackupFolder | null = null;
   try {
@@ -73,9 +79,12 @@ export async function saveBackupFile(data: unknown, name: string, isAutomatic = 
   setTimeout(() => URL.revokeObjectURL(url), 1000);
   return 'التنزيلات';
 }
+
 export const backupFileName = (revision: number, stamp = new Date().toISOString()) =>
   'ERP-' + stamp.replace(/[:.]/g, '-') + '-r' + revision + '.json';
+
 export async function automaticBackup(event: 'timer' | 'exit') {
+
   const d = await backupsApi.automatic({ event, requestId: crypto.randomUUID() });
   if (d.backupId && !d.duplicate)
     await saveBackupFile(

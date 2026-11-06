@@ -9,7 +9,9 @@ import type { StockClosingContext } from '@/features/ledger/types/read-models/St
 import { money } from '@/core/utils/money';
 import { cashOptions, defaultCashId } from '@/features/ledger/services/cash';
 import { allAccounts, extras } from '@/features/ledger/services/extensions';
+
 export function bookCatalog(workspace: BookCatalogContext): AnnualBooks {
+
   return (
     workspace.annualBooks || {
       activeId: 'main',
@@ -24,15 +26,18 @@ export function bookCatalog(workspace: BookCatalogContext): AnnualBooks {
     }
   );
 }
+
 export const isArchived = (workspace: IsArchivedContext) =>
   bookCatalog(workspace).books.find((b) => b.id === bookCatalog(workspace).activeId)?.status ===
   'closed';
+
 export function stockClosing(
   workspace: StockClosingContext,
   date: string,
   branchId = '',
   warehouseId = '',
 ) {
+
   return workspace.products.flatMap((product) =>
     workspace.warehouses
       .filter(
@@ -65,7 +70,9 @@ export function stockClosing(
       }),
   );
 }
+
 export function accountClosing(workspace: AccountClosingContext, date: string, branchId = '') {
+
   const chart = allAccounts(workspace),
     groups = new Map<
       string,
@@ -125,7 +132,9 @@ export function accountClosing(workspace: AccountClosingContext, date: string, b
     }))
     .filter((v) => v.amount !== 0);
 }
+
 export function closingChecks(workspace: ClosingChecksContext): string[] {
+
   const errors: string[] = [],
     end = workspace.organization.year + '-12-31',
     chart = allAccounts(workspace);

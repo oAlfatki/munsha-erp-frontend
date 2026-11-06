@@ -2,14 +2,17 @@ import type { Filters } from '@/core/types/api/Filters';
 import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildCurrencyDocumentsReportContext } from '@/features/accounting/reports/types/read-models/BuildCurrencyDocumentsReportContext';
+
 export function buildCurrencyDocumentsReport(
   workspace: BuildCurrencyDocumentsReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
+
   const within = (d: string) =>
     (!filters.from || d >= filters.from) && (!filters.to || d <= filters.to);
-  let reportData: ReportData = { headers: [], rows: [] };
+
+  let reportData: ReportData;
   {
     reportData = {
       headers: [

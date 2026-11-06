@@ -5,7 +5,9 @@ import { booksQuery, journalsQuery } from '@/features/ledger/public';
 import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { customersQuery } from '@/features/parties/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCustomerBalancesReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

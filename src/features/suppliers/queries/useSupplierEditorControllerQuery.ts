@@ -5,7 +5,9 @@ import { companyQuery, systemQuery } from '@/features/organization/public';
 import { partyGroupsQuery } from '@/features/parties/public';
 import type { SupplierEditorControllerReadModel } from '@/features/suppliers/types/read-models/SupplierEditorControllerReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSupplierEditorControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

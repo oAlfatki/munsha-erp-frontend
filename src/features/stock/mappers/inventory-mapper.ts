@@ -12,15 +12,20 @@ import {
   transferSchema,
   warehouseSchema,
 } from '@/features/stock/validations/inventory-schema';
-export const mapProductInput = (input: unknown): SaveProductRequest =>
-  productSchema.parse(input) as SaveProductRequest;
+
+export const mapProductInput = (input: unknown): SaveProductRequest => productSchema.parse(input);
+
 export const mapWarehouseInput = (input: unknown): SaveWarehouseRequest =>
-  warehouseSchema.parse(input) as SaveWarehouseRequest;
+  warehouseSchema.parse(input);
+
 export const mapTransferInput = (input: unknown): SaveTransferRequest =>
-  transferSchema.parse(input) as SaveTransferRequest;
+  transferSchema.parse(input);
+
 export const mapStockDocumentInput = (input: unknown): SaveStockDocumentRequest =>
-  stockDocumentSchema.parse(input) as SaveStockDocumentRequest;
+  stockDocumentSchema.parse(input);
+
 export const mapDeleteStockDraftInput = (input: unknown): DeleteStockDraftRequest =>
-  deleteStockDraftSchema.parse(input) as DeleteStockDraftRequest;
+  deleteStockDraftSchema.parse(input);
+
 export const mapPriceListInput = (input: unknown): SavePriceListRequest =>
-  priceListSchema.parse(input) as SavePriceListRequest;
+  priceListSchema.parse(input);

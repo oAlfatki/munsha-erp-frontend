@@ -9,22 +9,30 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
 export function UserAccountOperations({ id, branchId }: { id: number; branchId: number }) {
+
   const auth = useAuth(),
     client = useQueryClient();
   const [page, setPage] = useState(1),
     [message, setMessage] = useState('');
   const lock = useRef(false);
+
   const can = (code: string) => auth.can('USERS', code, String(branchId));
+
   const sessions = useQuery({
     queryKey: ['users', auth.user?.userId, id, 'sessions', page],
+
     queryFn: ({ signal }) => usersApi.sessions(id, page, signal),
+
     enabled: can('USERS_SESSIONS_VIEW'),
     retry: false,
   });
   const permissions = useQuery({
     queryKey: ['users', auth.user?.userId, id, 'granted-permissions'],
+
     queryFn: ({ signal }) => usersApi.permissions(id, signal),
+
     enabled: can('USERS_PERMISSIONS_VIEW'),
     retry: false,
   });
@@ -35,17 +43,22 @@ export function UserAccountOperations({ id, branchId }: { id: number; branchId: 
   });
   const reset = useMutation({
     gcTime: 0,
+
     mutationFn: async (input: { id: number; newPassword: string }) => {
+
       if (!can('USERS_PASSWORD_RESET')) throw Error('لا تملك صلاحية إعادة تعيين كلمة المرور.');
       await usersApi.resetPassword({ id, newPassword: input.newPassword });
     },
+
     onSuccess: async () => {
+
       setMessage('تمت إعادة تعيين كلمة المرور.');
       await client.invalidateQueries({ queryKey: ['users'] });
     },
   });
   const revoke = useMutation({
     mutationFn: async (session: { id: string; isCurrent: boolean } | null) => {
+
       if (!can('USERS_SESSIONS_REVOKE')) throw Error('لا تملك صلاحية إنهاء الجلسات.');
       if (session) {
         await usersApi.revokeSession(id, session.id);
@@ -55,7 +68,9 @@ export function UserAccountOperations({ id, branchId }: { id: number; branchId: 
         if (String(id) === auth.user?.userId) await auth.clearSession();
       }
     },
+
     onSuccess: async () => {
+
       await client.invalidateQueries({ queryKey: ['users'] });
     },
   });

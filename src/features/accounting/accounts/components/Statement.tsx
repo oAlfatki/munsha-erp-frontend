@@ -1,11 +1,11 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { useAccountStatementQuery } from '@/features/accounting/accounts/queries/useAccountStatementQuery';
 import { VoucherEditor } from '@/features/accounting/vouchers/components/VoucherEditor';
 import { fiscalRange } from '@/features/ledger/public';
 import { statementData } from '@/features/trade/public';
+import { exportPdf, printReport } from '@/shared/services/report-actions';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
@@ -30,10 +30,11 @@ import {
 import { useState } from 'react';
 
 export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: string }) {
-  const { state: s, branchId, navigate } = useAccountStatementQuery();
+
+  const { state, branchId, navigate } = useAccountStatementQuery();
   const [draft, setDraft] = useState({
       party: initialPartyId,
-      ...fiscalRange(s!),
+      ...fiscalRange(state!),
       query: '',
     }),
     [filters, setFilters] = useState(draft),
@@ -41,9 +42,16 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
     [voucher, setVoucher] = useState<'receipt' | 'payment' | null>(null),
     [detail, setDetail] = useState<string | null>(null),
     [rangeError, setRangeError] = useState('');
-  if (!s) return null;
-  const data = statementData(s, branchId, filters.party, filters.from, filters.to, filters.query),
-    party = s.parties.find((p) => p.id === filters.party);
+  if (!state) return null;
+  const data = statementData(
+      state,
+      branchId,
+      filters.party,
+      filters.from,
+      filters.to,
+      filters.query,
+    ),
+    party = state.parties.find((p) => p.id === filters.party);
   const headers = [
     'التاريخ',
     'اليوم',
@@ -82,7 +90,9 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
     Math.abs(r.running),
     r.running > 0 ? 'مدين' : r.running < 0 ? 'دائن' : 'متزن',
   ]);
+
   const handleApply = () => {
+
     if (draft.from && draft.to && draft.from > draft.to) {
       setRangeError('تاريخ البداية بعد النهاية');
       return;
@@ -91,6 +101,7 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
     setFilters({ ...draft });
     setDetail(null);
   };
+
   const summaryHeaders = [
     'الحساب',
     'العملة',
@@ -123,6 +134,7 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
     notes: ['البحث يخفي صفوفًا فقط؛ المجاميع والرصيد الجاري للفترة كاملة.'],
   };
   const current = data.rows.find((r) => r.entry.id === detail);
+
   const handleExportCurrent = () =>
     exportPdf(
       'كشف حساب ' + (party?.name || ''),
@@ -130,6 +142,7 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
       isSummary ? summaryRows : rows,
       reportOptions,
     );
+
   return (
     <>
       <PageHead
@@ -176,7 +189,7 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
                 onChange={(e) => setDraft({ ...draft, party: e.target.value })}
               >
                 <option value="">اختر اسم العميل أو المورد</option>
-                {s.parties.map((party) => (
+                {state.parties.map((party) => (
                   <option key={party.id} value={party.id}>
                     {party.name}
                   </option>
@@ -185,7 +198,7 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
             </Field>
             <Field label="رقم الهاتف">
               <div className="input-readonly">
-                {s.parties.find((p) => p.id === draft.party)?.phone || '—'}
+                {state.parties.find((p) => p.id === draft.party)?.phone || '—'}
               </div>
             </Field>
             <Field label="من تاريخ">
@@ -243,7 +256,7 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
         </Button>
         <span>
           {party?.name || 'اختر حسابًا ثم اضغط عرض'} ·{' '}
-          {s.branches.find((branch) => branch.id === branchId)?.name}
+          {state.branches.find((branch) => branch.id === branchId)?.name}
         </span>
       </div>
       {party && (
@@ -253,7 +266,7 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
             <p data-report-meta="الفترة">
               {filters.from || 'بداية السجلات'} — {filters.to}
             </p>
-            <h2>{s.organization.name}</h2>
+            <h2>{state.organization.name}</h2>
             <h3>كشف حساب {party.name}</h3>
             <p>
               {filters.from || 'بداية السجلات'} — {filters.to || 'آخر حركة'} · YER ·{' '}
@@ -333,15 +346,16 @@ export function AccountStatement({ initialPartyId = '' }: { initialPartyId?: str
               <Printer size={16} />
               طباعة
             </Button>
-            {s.invoices.some((invoice) => invoice.number === current.entry.reference) && (
+            {state.invoices.some((invoice) => invoice.number === current.entry.reference) && (
               <Button
                 variant="outline"
                 onClick={() =>
                   navigate(
                     ROUTES.DOCUMENT_PREFIX +
                       encodeURIComponent(
-                        s.invoices.find((invoice) => invoice.number === current.entry.reference)!
-                          .id,
+                        state.invoices.find(
+                          (invoice) => invoice.number === current.entry.reference,
+                        )!.id,
                       ),
                   )
                 }

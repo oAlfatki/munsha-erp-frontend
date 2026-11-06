@@ -1,5 +1,6 @@
 import type { Branch } from '@/features/organization/public';
 import type { Employee } from '@/features/personnel/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface EmployeesControllerReadModel {
   organization: {

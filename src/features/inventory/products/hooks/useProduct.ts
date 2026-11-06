@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useProductValidationData } from '@/features/inventory/products/queries/useProductValidationData';
 import { validatePeriod } from '@/features/ledger/public';
 import { saveProduct, validateInventoryCommand } from '@/features/stock/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useProduct() {
+
   const loadValidationData = useProductValidationData();
   return useCommandMutation('product', saveProduct, async (input) => {
     const state = await loadValidationData();

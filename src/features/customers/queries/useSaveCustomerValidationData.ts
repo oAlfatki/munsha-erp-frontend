@@ -1,20 +1,23 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
+import { readCachedQuery } from '@/core/query/read-cached-query';
 import type { SaveCustomerValidationReadModel } from '@/features/customers/types/read-models/SaveCustomerValidationReadModel';
 import { booksQuery, currenciesQuery, mapMasterRecords } from '@/features/ledger/public';
 import { companyQuery } from '@/features/organization/public';
 import { customersQuery, partyGroupsQuery } from '@/features/parties/public';
 import { useQueryClient } from '@tanstack/react-query';
+
 export function useSaveCustomerValidationData() {
+
   const identity = useQueryIdentity(),
     client = useQueryClient();
   return async () => {
-    const books = await client.ensureQueryData(booksQuery(identity));
+    const books = await readCachedQuery(client, booksQuery(identity));
     const scope = { ...identity, bookId: books.scope.bookId };
     const [d0, d4, d5, d8] = await Promise.all([
-      client.ensureQueryData(companyQuery(scope)),
-      client.ensureQueryData(currenciesQuery(scope)),
-      client.ensureQueryData(customersQuery(scope)),
-      client.ensureQueryData(partyGroupsQuery(scope)),
+      readCachedQuery(client, companyQuery(scope)),
+      readCachedQuery(client, currenciesQuery(scope)),
+      readCachedQuery(client, customersQuery(scope)),
+      readCachedQuery(client, partyGroupsQuery(scope)),
     ]);
     const q0 = { data: d0 };
     const q4 = { data: d4 };

@@ -1,11 +1,13 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { useManualJournal } from '@/features/accounting/journals/hooks/useManualJournal';
 import { useJournalScreenControllerQuery } from '@/features/accounting/journals/queries/useJournalScreenControllerQuery';
 import { manualJournalSchema } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useState } from 'react';
+
 export function useJournalScreenController() {
-  const { state: s, branchId, busy: isBusy, navigate } = useJournalScreenControllerQuery();
+
+  const { state, branchId, busy: isBusy, navigate } = useJournalScreenControllerQuery();
   const manualJournalMutationRequest = useManualJournal();
   const manualJournalForm = useValidatedForm(
     manualJournalSchema,
@@ -21,13 +23,15 @@ export function useJournalScreenController() {
     { account: '', debit: 0, credit: 0 },
     { account: '', debit: 0, credit: 0 },
   ]);
-  if (!s) return null;
+  if (!state) return null;
   const dr = lines.reduce((n, l) => n + l.debit, 0);
   const cr = lines.reduce((n, l) => n + l.credit, 0);
+
   const update = (i: number, k: string, v: string | number) =>
     setLines(lines.map((l, j) => (j === i ? { ...l, [k]: v } : l)));
+
   return {
-    s,
+    s: state,
     branchId,
     isBusy,
     navigate,

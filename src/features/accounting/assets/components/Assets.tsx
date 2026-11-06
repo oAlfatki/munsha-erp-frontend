@@ -1,7 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportPdf, printReport } from '@/core/reporting/service';
 import { fmt, today } from '@/core/utils/formatters';
 import { useAssetsQuery } from '@/features/accounting/assets/queries/useAssetsQuery';
 import { assetValues } from '@/features/accounting/assets/services/models/asset-values';
@@ -9,6 +7,8 @@ import type { AssetsProps } from '@/features/accounting/assets/types/props/Asset
 import type { AssetForm, MasterRecord } from '@/features/ledger/public';
 import { extras } from '@/features/ledger/public';
 import { masterSchema, useMaster } from '@/features/master-data/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { exportPdf, printReport } from '@/shared/services/report-actions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -24,6 +24,7 @@ import { List, Printer, Save } from 'lucide-react';
 import { useState } from 'react';
 
 function form(r: MasterRecord | undefined, branchId: string): AssetForm {
+
   return {
     method: r?.method === 'variable' ? 'variable' : 'straight-line',
     id: r?.id,
@@ -45,19 +46,21 @@ function form(r: MasterRecord | undefined, branchId: string): AssetForm {
 }
 
 export function Assets({ isAdd: isAdd = false }: AssetsProps) {
-  const { state: s, branchId, busy: isBusy, navigate } = useAssetsQuery();
+
+  const { state, branchId, busy: isBusy, navigate } = useAssetsQuery();
   const masterMutationRequest = useMaster(),
     masterForm = useValidatedForm(masterSchema, masterMutationRequest.execute),
     masterMutation = { ...masterMutationRequest, execute: masterForm.submit };
   const [searchQuery, setQ] = useState(''),
     [edit, setEdit] = useState<AssetForm | null>(isAdd ? form(undefined, branchId) : null);
-  if (!s) return null;
-  const all = extras(s).records.assets || [],
+  if (!state) return null;
+  const all = extras(state).records.assets || [],
     rows = all.filter(
       (a) =>
         a.branchId === branchId &&
         (a.name + ' ' + a.code + ' ' + a.serial).toLowerCase().includes(searchQuery.toLowerCase()),
     );
+
   const handleExportRows = () =>
     exportPdf(
       'قائمة الأصول الثابتة',
@@ -70,16 +73,21 @@ export function Assets({ isAdd: isAdd = false }: AssetsProps) {
         a.method === 'variable' ? 'متغير لكل فترة' : assetValues(a).installment,
       ]),
     );
+
   const open = (a: MasterRecord) => setEdit(form(a, branchId));
+
   if (edit) {
     const values = assetValues(edit, edit.installmentPeriod);
-    const isPosted = extras(s).operations.some(
+    const isPosted = extras(state).operations.some(
       (o) => o.kind === 'assetPurchase' && o.subject === edit.id,
     );
+
     const handleBack = () => {
+
       setEdit(null);
       if (isAdd) navigate(ROUTES.ACCOUNTING_ASSETS);
     };
+
     return (
       <>
         <PageHead
@@ -123,7 +131,7 @@ export function Assets({ isAdd: isAdd = false }: AssetsProps) {
                 value={edit.branchId}
                 onChange={(e) => setEdit({ ...edit, branchId: e.target.value })}
               >
-                {s.branches
+                {state.branches
                   .filter((branch) => branch.active || branch.id === edit.branchId)
                   .map((branch) => (
                     <option key={branch.id} value={branch.id}>

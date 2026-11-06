@@ -12,7 +12,9 @@ import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
+
 export function ExpenseEditor({ controller }: ExpenseEditorProps) {
+
   const {
     s: workspace,
     send,

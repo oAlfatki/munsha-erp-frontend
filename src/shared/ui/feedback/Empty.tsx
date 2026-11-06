@@ -1,4 +1,4 @@
-import type { EmptyProps } from '@/core/types/props/EmptyProps';
+import type { EmptyProps } from '@/shared/types/props/EmptyProps';
 import { Button } from '@/shared/ui/primitives/button';
 import { PackageOpen, Plus } from 'lucide-react';
 
@@ -7,6 +7,7 @@ export function Empty({
   description = 'جرّب تغيير البحث أو أضف أول سجل.',
   onAction: action,
 }: EmptyProps) {
+
   return (
     <div className="empty">
       <PackageOpen size={40} />

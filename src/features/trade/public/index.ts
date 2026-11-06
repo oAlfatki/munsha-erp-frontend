@@ -1,9 +1,11 @@
 export { fetchSalesTargets } from '@/features/trade/api/sales-read-api';
 export { InvoiceDetails } from '@/features/trade/components/InvoiceDetails';
+export { InvoiceEditorActions } from '@/features/trade/components/InvoiceEditorActions';
 export { InvoiceLineGrid } from '@/features/trade/components/InvoiceLineGrid';
 export { InvoiceListSummary } from '@/features/trade/components/InvoiceListSummary';
 export { InvoiceLookup } from '@/features/trade/components/InvoiceLookup';
 export { InvoiceTotals } from '@/features/trade/components/InvoiceTotals';
+export { ReturnInvoiceActions } from '@/features/trade/components/ReturnInvoiceActions';
 export { useInvoice } from '@/features/trade/hooks/useInvoice';
 export { usePartialReturn } from '@/features/trade/hooks/usePartialReturn';
 export { purchaseInvoicesQuery } from '@/features/trade/queries/purchase-invoices-query';

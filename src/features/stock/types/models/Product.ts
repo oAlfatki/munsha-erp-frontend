@@ -1,4 +1,5 @@
 import type { Unit } from '@/features/stock/types/models/Unit';
+
 export interface Product {
   id: string;
   code: string;

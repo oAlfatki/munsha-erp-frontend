@@ -1,5 +1,3 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument, printReport } from '@/core/reporting/service';
 import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 import { fmt } from '@/core/utils/formatters';
 import { priceRows, usePriceList } from '@/features/inventory/public';
@@ -7,6 +5,8 @@ import { extras, isArchived } from '@/features/ledger/public';
 import { usePriceListQuery } from '@/features/sales/pricing/queries/usePriceListQuery';
 import type { PriceFilters } from '@/features/stock/public';
 import { priceListSchema } from '@/features/stock/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { exportDocument, printReport } from '@/shared/services/report-actions';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
@@ -16,23 +16,25 @@ import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Download, Eye, Printer, Save, Undo2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
+
 export function PriceList() {
-  const { state: s, busy: isBusy, setEditingDocument } = usePriceListQuery();
+
+  const { state, busy: isBusy, setEditingDocument } = usePriceListQuery();
   const priceListMutationRequest = usePriceList(),
     priceListForm = useValidatedForm(priceListSchema, priceListMutationRequest.execute),
     priceListMutation = { ...priceListMutationRequest, execute: priceListForm.submit };
   const initial: PriceFilters = { group: '', product: '', priceType: 'retail' };
   const [draft, setDraft] = useState(initial),
     [filters, setFilters] = useState(initial),
-    [baseline, setBaseline] = useState(() => priceRows(s!, initial)),
+    [baseline, setBaseline] = useState(() => priceRows(state!, initial)),
     [edits, setEdits] = useState<Record<string, string>>({});
   const isDirty = Object.keys(edits).length > 0;
   useEffect(() => {
     setEditingDocument(isDirty);
     return () => setEditingDocument(false);
   }, [isDirty]);
-  if (!s) return null;
-  const groups = extras(s).records.productGroups || [],
+  if (!state) return null;
+  const groups = extras(state).records.productGroups || [],
     headers = [
       'رقم الصنف',
       'اسم الصنف',
@@ -49,13 +51,14 @@ export function PriceList() {
     edits[r.key] !== undefined ? Number(edits[r.key]) : r.price,
     r.discount,
   ]);
+
   const report = (): ReportDocument => ({
     title: 'تسعيرة الأصناف',
     metadata: [
       ['المجموعة', groups.find((g) => g.id === filters.group)?.name || 'جميع المجموعات'],
-      ['الصنف', s.products.find((p) => p.id === filters.product)?.name || 'جميع الأصناف'],
+      ['الصنف', state.products.find((p) => p.id === filters.product)?.name || 'جميع الأصناف'],
       ['نوع السعر', filters.priceType === 'retail' ? 'تجزئة' : 'جملة'],
-      ['العملة', s.organization.currency],
+      ['العملة', state.organization.currency],
       ['حالة الأسعار', isDirty ? 'معاينة تعديلات غير محفوظة' : 'الأسعار المعروضة عند آخر عرض'],
     ],
     tables: [{ headers, rows }],
@@ -66,12 +69,16 @@ export function PriceList() {
     words: [],
     notes: ['تعديل سعر البيع لا يغير تكلفة المخزون أو الفواتير المحفوظة.'],
   });
+
   const handleView = () => {
+
     setFilters({ ...draft });
-    setBaseline(priceRows(s, draft));
+    setBaseline(priceRows(state, draft));
     setEdits({});
   };
+
   const handleSave = async () => {
+
     const changed = baseline.filter((r) => edits[r.key] !== undefined);
     if (
       changed.some(
@@ -105,6 +112,7 @@ export function PriceList() {
       setEdits({});
     }
   };
+
   return (
     <>
       <PageHead
@@ -120,7 +128,7 @@ export function PriceList() {
               <Printer size={16} />
               طباعة
             </Button>
-            <Button disabled={!isDirty || isBusy || isArchived(s)} onClick={handleSave}>
+            <Button disabled={!isDirty || isBusy || isArchived(state)} onClick={handleSave}>
               <Save size={16} />
               حفظ
             </Button>
@@ -133,7 +141,7 @@ export function PriceList() {
               disabled={!isDirty}
               onClick={() => {
                 setEdits({});
-                setBaseline(priceRows(s, filters));
+                setBaseline(priceRows(state, filters));
               }}
             >
               <Undo2 size={16} />
@@ -166,7 +174,7 @@ export function PriceList() {
             onChange={(e) => setDraft({ ...draft, product: e.target.value })}
           >
             <option value="">جميع الأصناف</option>
-            {s.products
+            {state.products
               .filter(
                 (product) => product.active && (!draft.group || product.groupId === draft.group),
               )
@@ -189,7 +197,7 @@ export function PriceList() {
             <option value="wholesale">جملة</option>
           </Select>
         </Field>
-        <span className="muted">الأسعار بالعملة الأساسية {s.organization.currency}</span>
+        <span className="muted">الأسعار بالعملة الأساسية {state.organization.currency}</span>
       </div>
       {isDirty && (
         <p className="info-note">
@@ -207,7 +215,7 @@ export function PriceList() {
           <Input
             className="price-cell-input"
             aria-label={'سعر بيع ' + r.name + ' — ' + r.unitName}
-            disabled={isBusy || isArchived(s)}
+            disabled={isBusy || isArchived(state)}
             type="number"
             min="0"
             max="1000000000"

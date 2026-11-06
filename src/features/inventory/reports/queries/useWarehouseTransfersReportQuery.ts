@@ -7,7 +7,9 @@ import { customersQuery, suppliersQuery } from '@/features/parties/public';
 import { employeesQuery } from '@/features/personnel/public';
 import { itemsQuery, movementsQuery, warehousesQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useWarehouseTransfersReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

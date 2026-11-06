@@ -1,7 +1,9 @@
 import type { AccessSnapshot } from '@/core/types/access/AccessSnapshot';
 import type { Identity } from '@/core/types/auth/Identity';
 import { fetchPermissionCatalog } from '@/features/users/public';
+
 export async function readAccess(user: Identity, signal?: AbortSignal): Promise<AccessSnapshot> {
+
   const catalog = await fetchPermissionCatalog(signal);
   const grants: AccessSnapshot['grants'] = [];
   const codes = new Set<string>();

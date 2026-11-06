@@ -1,4 +1,5 @@
 import type { ReportTable } from '@/core/types/reports/ReportTable';
+
 export interface ReportDocument {
   title: string;
   metadata: [string, string][];

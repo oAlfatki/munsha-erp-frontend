@@ -20,10 +20,11 @@ export function VoucherEditor({
   partyId = '',
   onClose: close,
 }: VoucherEditorProps) {
+
   const model = useVoucherEditorController({ kind: initialKind, partyId, onClose: close });
   if (!model) return null;
   const {
-    s,
+    s: state,
     branchId,
     isBusy,
     voucherMutation,
@@ -77,7 +78,7 @@ export function VoucherEditor({
           <Field label="اسم الحساب / الطرف *">
             <Select required value={party} onChange={(e) => setParty(e.target.value)}>
               <option value="">اختر الطرف</option>
-              {s.parties
+              {state.parties
                 .filter(
                   (party) =>
                     party.active && party.kind === (kind === 'receipt' ? 'customer' : 'supplier'),
@@ -100,7 +101,7 @@ export function VoucherEditor({
                 setKind(k);
                 setParty('');
                 setLines((v) =>
-                  v.map((l) => ({ ...l, cashId: operationCashId(s, branchId, k, l.currency) })),
+                  v.map((l) => ({ ...l, cashId: operationCashId(state, branchId, k, l.currency) })),
                 );
               }}
             >
@@ -110,7 +111,7 @@ export function VoucherEditor({
           </Field>
           <Field label="البيان">
             <Input
-              required={systemSettings(s).expenses.requireVoucherNote}
+              required={systemSettings(state).expenses.requireVoucherNote}
               value={note}
               maxLength={400}
               onChange={(e) => setNote(e.target.value)}
@@ -135,9 +136,9 @@ export function VoucherEditor({
               <tr>
                 <th>المبلغ</th>
                 <th>العملة</th>
-                <th>سعر الصرف إلى {s.organization.currency}</th>
+                <th>سعر الصرف إلى {state.organization.currency}</th>
                 <th>الصندوق / البنك</th>
-                <th>المقابل {s.organization.currency}</th>
+                <th>المقابل {state.organization.currency}</th>
                 <th>حذف</th>
               </tr>
             </thead>
@@ -164,19 +165,19 @@ export function VoucherEditor({
                         value={l.currency}
                         onChange={(e) => {
                           const currency = e.target.value,
-                            c = s.currencies.find((c) => c.code === currency)!;
+                            c = state.currencies.find((c) => c.code === currency)!;
                           update(i, {
                             currency,
                             rate: c.rate,
-                            cashId: operationCashId(s, branchId, kind, currency),
+                            cashId: operationCashId(state, branchId, kind, currency),
                           });
                         }}
                       >
-                        {s.currencies
+                        {state.currencies
                           .filter(
                             (c) =>
-                              systemSettings(s).accounting.multiCurrency ||
-                              c.code === s.organization.currency,
+                              systemSettings(state).accounting.multiCurrency ||
+                              c.code === state.organization.currency,
                           )
                           .map((c) => (
                             <option key={c.code} value={c.code}>
@@ -193,7 +194,7 @@ export function VoucherEditor({
                         type="number"
                         min=".000001"
                         step="any"
-                        disabled={l.currency === s.organization.currency}
+                        disabled={l.currency === state.organization.currency}
                         value={l.rate}
                         onChange={(e) => update(i, { rate: +e.target.value })}
                       />
@@ -246,13 +247,13 @@ export function VoucherEditor({
         )}
         <TotalsFooter
           rows={[
-            ['رصيد الذمة قبل السند ' + s.organization.currency, Math.max(due, 0)],
+            ['رصيد الذمة قبل السند ' + state.organization.currency, Math.max(due, 0)],
             ...[...totals].map(([c, a]) => ['إجمالي ' + c, a] as [string, number]),
-            ['إجمالي السند ' + s.organization.currency, total],
-            ['متبقي الذمة ' + s.organization.currency, Math.max(0, money(due - total))],
+            ['إجمالي السند ' + state.organization.currency, total],
+            ['متبقي الذمة ' + state.organization.currency, Math.max(0, money(due - total))],
           ]}
           amount={total}
-          currency={s.organization.currency}
+          currency={state.organization.currency}
         />
         <p className="info-note">
           تجمع العملات المختلفة بعد تحويل كل بند بسعره المحفوظ، ولا يجمع المبلغ الأصلي لعملتين في
@@ -270,16 +271,17 @@ export function VoucherEditor({
 }
 
 export function VoucherDetails({ document: d }: VoucherDetailsProps) {
+
   const model = useVoucherDetailsController({ document: d });
   if (!model) return null;
-  const { s, report } = model;
+  const { s: state, report } = model;
   return (
     <>
       <dl className="confirm-grid">
         <dt>رقم السند</dt>
         <dd>{d.reference}</dd>
         <dt>الطرف</dt>
-        <dd>{s.parties.find((party) => party.id === d.partyId)?.name}</dd>
+        <dd>{state.parties.find((party) => party.id === d.partyId)?.name}</dd>
         <dt>التاريخ</dt>
         <dd>{d.date}</dd>
         <dt>البيان</dt>
@@ -292,7 +294,7 @@ export function VoucherDetails({ document: d }: VoucherDetailsProps) {
       <TotalsFooter
         rows={report.totals.map(([k, v]) => [k, Number(v)])}
         amount={d.total}
-        currency={s.organization.currency}
+        currency={state.organization.currency}
       />
     </>
   );

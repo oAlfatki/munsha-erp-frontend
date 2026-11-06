@@ -1,6 +1,8 @@
 import { isArchived } from '@/features/ledger/services/annual-books';
 import type { ValidatePeriodContext } from '@/features/ledger/types/read-models/ValidatePeriodContext';
+
 export function validatePeriod(data: ValidatePeriodContext, type: string, input: unknown) {
+
   if (!type.startsWith('period') && isArchived(data))
     throw Error('الفترة مؤرشفة للعرض فقط؛ افتح الفترة الحالية من الإعدادات');
   if (!input || typeof input !== 'object') return;

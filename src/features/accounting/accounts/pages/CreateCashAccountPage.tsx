@@ -1,5 +1,6 @@
 import type { MasterFormDefinition } from '@/features/master-data/public';
 import { MasterScreen } from '@/features/master-data/public';
+
 const DEFINITION = {
   title: 'إضافة الصناديق والبنوك',
   note: 'الصناديق مرتبطة بالفرع والعملة والحساب؛ سند صرف المصروف يستخدم الصندوق المحدد. الفواتير والسندات العامة تستخدم الصندوق الرئيسي في هذه النسخة.',
@@ -60,8 +61,11 @@ const DEFINITION = {
   initiallyOpen: true,
   showCashListLink: true,
 } satisfies MasterFormDefinition;
+
 /** إضافة الصناديق والبنوك — feature-owned route content. */
+
 export default function CreateCashAccountPage() {
+
   return (
     <section className="screen-page">
       <MasterScreen screen={DEFINITION} />

@@ -4,7 +4,9 @@ import type { CostFilters } from '@/features/stock/public';
 // Frontend display calculations; backend authority requires independent verification.
 import { money } from '@/core/utils/money';
 import { quantityByUnits } from '@/features/inventory/stock-balances/services/models/inventory-display';
+
 export function inventoryCost(workspace: InventoryCostContext, branch: string, f: CostFilters) {
+
   const warehouses = workspace.warehouses.filter(
     (w) => w.branchId === branch && (!f.warehouse || w.id === f.warehouse),
   );

@@ -15,31 +15,37 @@ import {
   mapPeriodTransferInput,
   mapScreenDraftInput,
 } from '@/features/accounting/fiscal-periods/mappers/fiscal-periods-mapper';
+
 export const savePeriodSwitch = async (
   input: unknown,
   context: CommandContext,
 ): Promise<Awaited<ReturnType<typeof submitPeriodSwitch>>> =>
   submitPeriodSwitch(mapPeriodSwitchInput(input), context);
+
 export const savePeriodCreate = async (
   input: unknown,
   context: CommandContext,
 ): Promise<Awaited<ReturnType<typeof submitPeriodCreate>>> =>
   submitPeriodCreate(mapPeriodCreateInput(input), context);
+
 export const savePeriodTransfer = async (
   input: unknown,
   context: CommandContext,
 ): Promise<Awaited<ReturnType<typeof submitPeriodTransfer>>> =>
   submitPeriodTransfer(mapPeriodTransferInput(input), context);
+
 export const savePeriodActivate = async (
   input: unknown,
   context: CommandContext,
 ): Promise<Awaited<ReturnType<typeof submitPeriodActivate>>> =>
   submitPeriodActivate(mapPeriodActivateInput(input), context);
+
 export const savePeriodReset = async (
   input: unknown,
   context: CommandContext,
 ): Promise<Awaited<ReturnType<typeof submitPeriodReset>>> =>
   submitPeriodReset(mapPeriodResetInput(input), context);
+
 export const saveScreenDraft = async (
   input: unknown,
   context: CommandContext,

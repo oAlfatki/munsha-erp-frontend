@@ -3,6 +3,7 @@ import type { PersistedSystemSettings } from '@/features/organization/public';
 import type { Party } from '@/features/parties/public';
 import type { Movement, Product, Stock, Warehouse } from '@/features/stock/public';
 import type { Invoice } from '@/features/trade/types/models/Invoice';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */

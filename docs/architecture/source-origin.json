@@ -1,7 +1,0 @@
-{
-  "source": "Uploaded ZIP extracted at erp-zip-comparison",
-  "originalSourceModified": false,
-  "integrity": "original-integrity.json",
-  "referenceRuntime": "tests/reference only; excluded from src",
-  "comparison": "refactor-diff.json"
-}

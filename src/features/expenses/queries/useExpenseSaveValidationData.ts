@@ -1,18 +1,21 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
+import { readCachedQuery } from '@/core/query/read-cached-query';
 import type { ExpenseSaveValidationReadModel } from '@/features/expenses/types/read-models/ExpenseSaveValidationReadModel';
 import { booksQuery, expenseDocumentsQuery, mapExpenseReadModel } from '@/features/ledger/public';
 import { companyQuery, systemQuery } from '@/features/organization/public';
 import { useQueryClient } from '@tanstack/react-query';
+
 export function useExpenseSaveValidationData() {
+
   const identity = useQueryIdentity(),
     client = useQueryClient();
   return async () => {
-    const books = await client.ensureQueryData(booksQuery(identity));
+    const books = await readCachedQuery(client, booksQuery(identity));
     const scope = { ...identity, bookId: books.scope.bookId };
     const [d0, d2, d3] = await Promise.all([
-      client.ensureQueryData(companyQuery(scope)),
-      client.ensureQueryData(expenseDocumentsQuery(scope)),
-      client.ensureQueryData(systemQuery(scope)),
+      readCachedQuery(client, companyQuery(scope)),
+      readCachedQuery(client, expenseDocumentsQuery(scope)),
+      readCachedQuery(client, systemQuery(scope)),
     ]);
     const q0 = { data: d0 };
     const q2 = { data: d2 };

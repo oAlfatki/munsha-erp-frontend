@@ -3,7 +3,9 @@ import { ROUTES } from '@/core/config/navigation-paths';
 import { UserEditor } from '@/features/users/components/UserEditor';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { useNavigate } from 'react-router-dom';
+
 export default function CreateUserPage() {
+
   const auth = useAuth(),
     navigate = useNavigate();
   return (

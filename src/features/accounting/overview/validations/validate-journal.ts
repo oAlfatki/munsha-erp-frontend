@@ -1,7 +1,9 @@
 import { money } from '@/core/utils/money';
 import type { ValidateJournalContext } from '@/features/accounting/journals/types/read-models/ValidateJournalContext';
 import { allAccounts, extras, manualJournalSchema } from '@/features/ledger/public';
+
 export function validateJournal(data: ValidateJournalContext, input: unknown) {
+
   const p = manualJournalSchema.parse(input),
     chart = allAccounts(data),
     records = extras(data).records;

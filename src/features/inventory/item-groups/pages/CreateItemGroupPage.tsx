@@ -1,5 +1,6 @@
 import type { MasterFormDefinition } from '@/features/master-data/public';
 import { MasterScreen } from '@/features/master-data/public';
+
 const DEFINITION = {
   title: 'إضافة مجموعة',
   note: 'مجموعات لتصنيف الأصناف وإدارة البحث والتقارير.',
@@ -20,8 +21,11 @@ const DEFINITION = {
   ],
   initiallyOpen: true,
 } satisfies MasterFormDefinition;
+
 /** إضافة مجموعة — feature-owned route content. */
+
 export default function CreateItemGroupPage() {
+
   return (
     <section className="screen-page">
       <MasterScreen screen={DEFINITION} />

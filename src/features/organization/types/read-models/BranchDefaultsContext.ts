@@ -1,6 +1,7 @@
 import type { ExtensionData } from '@/features/ledger/public';
 import type { Branch } from '@/features/organization/types/models/Branch';
 import type { PersistedSystemSettings } from '@/features/organization/types/models/PersistedSystemSettings';
+
 export interface BranchDefaultsContext {
   warehouses: { id: string; branchId: string; active: boolean }[];
   branches: Branch[];

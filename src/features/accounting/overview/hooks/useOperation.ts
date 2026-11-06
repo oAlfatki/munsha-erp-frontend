@@ -1,10 +1,12 @@
 import { validateOperationSettingsPolicy } from '@/features/organization/public';
 
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useOperationValidationData } from '@/features/accounting/overview/queries/useOperationValidationData';
 import { saveOperation } from '@/features/accounting/overview/services/overview-service';
 import { validatePeriod } from '@/features/ledger/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useOperation() {
+
   const loadValidationData = useOperationValidationData();
   return useCommandMutation('operation', saveOperation, async (input) => {
     const state = await loadValidationData();

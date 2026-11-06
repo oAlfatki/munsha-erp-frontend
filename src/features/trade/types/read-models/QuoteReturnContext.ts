@@ -1,5 +1,6 @@
 import type { Product } from '@/features/stock/public';
 import type { Invoice } from '@/features/trade/types/models/Invoice';
+
 export interface QuoteReturnContext {
   products: Product[];
   invoiceReturns?: (Invoice & {

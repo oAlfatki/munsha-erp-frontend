@@ -6,9 +6,11 @@ import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
+
 export function WarehouseTransferDialog({ model }: WarehouseTransferDialogProps) {
+
   const {
-    s,
+    s: state,
     isBusy,
     transferMutation,
     isTransfer,
@@ -34,7 +36,7 @@ export function WarehouseTransferDialog({ model }: WarehouseTransferDialogProps)
         <div className="form-grid">
           <Field label="الصنف *">
             <Select value={p} onChange={(e) => setP(e.target.value)}>
-              {s.products.map((product) => (
+              {state.products.map((product) => (
                 <option key={product.id} value={product.id}>
                   {product.name}
                 </option>
@@ -43,7 +45,7 @@ export function WarehouseTransferDialog({ model }: WarehouseTransferDialogProps)
           </Field>
           <Field label="من المخزن *">
             <Select value={from} onChange={(e) => setFrom(e.target.value)}>
-              {s.warehouses.map((warehouse) => (
+              {state.warehouses.map((warehouse) => (
                 <option key={warehouse.id} value={warehouse.id}>
                   {warehouse.name}
                 </option>
@@ -52,7 +54,7 @@ export function WarehouseTransferDialog({ model }: WarehouseTransferDialogProps)
           </Field>
           <Field label="إلى المخزن *">
             <Select value={to} onChange={(e) => setTo(e.target.value)}>
-              {s.warehouses.map((warehouse) => (
+              {state.warehouses.map((warehouse) => (
                 <option key={warehouse.id} value={warehouse.id}>
                   {warehouse.name}
                 </option>
@@ -62,7 +64,7 @@ export function WarehouseTransferDialog({ model }: WarehouseTransferDialogProps)
           <Field
             label={
               'الكمية — ' +
-              (s.products.find((product) => product.id === p)?.units.at(-1)?.name ||
+              (state.products.find((product) => product.id === p)?.units.at(-1)?.name ||
                 'الوحدة الأساسية')
             }
           >

@@ -1,6 +1,7 @@
 import type { Entry, ExtensionData } from '@/features/ledger/public';
 import type { Employee } from '@/features/personnel/public';
 import type { Invoice } from '@/features/trade/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface SalesTargetsControllerReadModel {
   organization: {

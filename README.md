@@ -1,10 +1,10 @@
 # Munsha ERP Frontend
 
-واجهة ERP باللغة العربية فقط، باستخدام React وTypeScript وVite. تسجيل الدخول يعتمد عقد ASP.NET Core، والصلاحيات من Backend حسب Module وAction والفرع؛ لا توجد أدوار ثابتة أو بيانات Demo داخل التطبيق.
+An Arabic, right-to-left ERP frontend built with React, TypeScript, Vite, Axios, TanStack Query, React Hook Form, and Zod. Production uses a real HTTP API. There is no demo login or browser-side ERP engine.
 
-## التشغيل
+## Development
 
-يتطلب Node.js >=22.13.0 وخادم API حقيقي. نفذ:
+Use Node.js 22.13 or newer. Install the versions pinned by the lockfile:
 
 ```sh
 npm ci
@@ -12,48 +12,58 @@ cp .env.example .env.local
 npm run dev
 ```
 
-اضبط `VITE_API_BASE_URL` في `.env.local` على عنوان API شاملاً `/api/v1`. لا تضع أسراراً في متغيرات `VITE_`. يجب السماح بعنوان الواجهة في CORS عند استخدام Cookies وإرسالها مع الطلبات. افتح العنوان الذي يعرضه Vite؛ يبدأ الاستخدام من `/login` بحساب فعلي منشأ في Backend. لا يوجد حساب افتراضي.
+Set `VITE_API_BASE_URL` to the real API root, including `/api/v1`. Every `VITE_` variable is public in the browser bundle; never put credentials or secrets there. Cookie-based cross-origin sessions require appropriate API CORS and cookie settings.
 
-## تنظيم المشروع
+## Integration status
 
-- `src/app`: تركيب التطبيق وProviders وتسجيل جميع Routes.
-- `src/core`: API Client والجلسة والصلاحيات وإعدادات التطبيق.
-- `src/features`: صفحات ومكونات وHooks وعقود وقواعد كل ميزة.
-- `src/shared`: عناصر الواجهة والنماذج والأدوات المشتركة.
-- `tests`: اختبارات فقط؛ HTTP fixtures ليست Backend ولا يتم تضمينها في التطبيق.
-- `docs/openapi/munsha-v1.5.design.openapi.json`: العقد المرفوع للمراجعة؛ وجوده لا يثبت تنفيذ الخادم.
+This repository is a frontend, not a complete deployed ERP. Auth and Users implement the adopted sign-in, session, permission-catalog, and user-management contracts. Their browser tests use HTTP fixtures, not a live backend.
 
-## حالة الربط
+Other ERP features still contain command endpoints whose permission bindings have not been confirmed. Unknown command permissions fail closed. Do not grant invented roles or enable writes merely to make a screen appear functional. Safe user editing also requires the backend to supply a usable `rowVersion` in its detail response.
 
-واجهتا Auth وUsers قيد الانتقال إلى العقد v1.5. ليست كل ميزات ERP قد انتقلت إليه. بعض عمليات الميزات الأخرى تستخدم مسارات `/commands/` التي لا يعرّفها العقد المرفوع؛ لا يمكن اعتبارها جاهزة للربط دون مراجعة عقودها. صلاحيات الميزات غير الموثقة لا تُمنح افتراضياً. تفاصيل Users تتطلب معالجة فجوة `rowVersion` في استجابة GET قبل إتاحة التعديل الآمن. العقد يحدد فرعاً واحداً للمستخدم؛ لم يُفترض دعم عدة فروع. Backend غير موجود في المستودع، ولم يُختبر اتصال فعلي به.
+See [integration readiness](docs/INTEGRATION.md) for the decisions required before connecting each feature. The supplied OpenAPI document is design evidence; it does not override confirmed behavior or prove server implementation.
 
-## التحقق
+## Structure
+
+- `src/app`: application composition, providers, central routes, and dashboard layout.
+- `src/core`: transport, session/access infrastructure, cache coordination, reporting serialization, and global foundations.
+- `src/shared`: reusable presentation components, navigation, forms, hooks, styles, and their props.
+- `src/features`: feature-owned UI, state, queries, API endpoints, mappers, validations, and types. Large features use functional subdomains.
+- `tests`: unit, contract, integration, architecture, and browser suites, plus fixtures and an isolated historical financial oracle.
+- `vendor`: an actively imported, MIT-licensed CSS snapshot; see [vendor notes](vendor/README.md).
+
+The dependency direction and ownership rules are documented in [architecture](docs/ARCHITECTURE.md). Keep `core` and `shared` separate: transport and infrastructure have different responsibilities from reusable UI.
+
+## Checks
 
 ```sh
 npm run typecheck
 npm run lint
 npm run check:architecture
+npm run check:reachability
 npm run check:naming
+npm run check:deprecated
+npm run format:check
 npm test
 npm run build
+npm run audit:security
 ```
 
-اختبارات المتصفح تتطلب خادم Vite وChromium. نفذ `npm run preview -- --host 127.0.0.1 --port 5173` ثم `PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npx playwright test tests/e2e/login-v15.spec.ts`. هذه اختبارات HTTP معزولة ولا تثبت تكامل Backend.
+`npm run format` applies Prettier plus the checked readability spacing policy: a blank line after imports, at the beginning of named function bodies, and between named function declarations. Inline callbacks remain compact. Use this command rather than running Prettier alone.
 
-يحتفظ `tests/reference` بمرجع حسابي مجمّد لاختبارات منع تغير النتائج المالية فقط؛ لا يُشغَّل مع التطبيق ولا يُستورد منه. العقد المرفوع محفوظ كما وصل، ويحتوي بعض تعاريف Legacy المتناقضة مع Auth/Users الجديدة؛ لا تُعتمد تلك التعاريف لتفويض المستخدمين.
+For browser tests:
 
-ترقيم المستندات في إعدادات النظام لا يعرض رقماً تالياً مفترضاً؛ يحتاج عقداً من Backend يعيد الرقم أو يخصصه ذرياً. لا يُستخدم سجل أنشطة المستخدمين الجديد كمصدر بديل لأرقام المستندات.
+```sh
+npx playwright install chromium
+npm run build
+npm run preview -- --host 127.0.0.1 --port 5173
+# In another terminal:
+npm run test:e2e
+```
 
-## التنقل بين الشاشات
+`PLAYWRIGHT_BASE_URL` selects another preview URL; `PLAYWRIGHT_CHROMIUM_EXECUTABLE` selects an existing Chromium installation. Browser tests cover login, permissions, user workflows, Arabic/RTL rendering, all 108 navigation destinations, document preview/export, and layout preservation.
 
-بعد نجاح تسجيل الدخول واستعادة بيانات المنشأة، استخدم قائمة الأقسام ثم روابط كل قسم. جميع المسارات مسجلة مركزياً في `src/app/router`، ومحتوى الشاشات داخل `src/features`.
+## Working on one feature
 
-- `/login`: الدخول بحساب حقيقي؛ لا يوجد دخول تجريبي.
-- `/users`: القائمة والبحث والحالة وPagination من الخادم.
-- `/users/new`: إنشاء حساب بالصلاحيات والفرع وفق العقد الحالي.
-- `/users/:id`: التفاصيل والصلاحيات والجلسات وإعادة تعيين كلمة المرور حسب صلاحيات الحساب.
-- `/users/:id/edit`: التعديل مع توضيح فجوة RowVersion؛ الحفظ متوقف حتى يوفر الخادم رمز النسخة.
-- شاشات الحساب الشخصي: تغيير كلمة المرور وجلساتي من قائمة الحساب.
-- حركات المستخدمين: سجل `/audit-logs` وفلاتره وتقاريره من Backend.
+Start with its `pages`, follow its hooks and queries, then inspect its `api/endpoints.ts`, request/response types, and validations. Import another feature only through its `public/index.ts`. Keep backend paths and wire formats stable unless an API change is explicitly approved.
 
-بقية الميزات التجارية موجودة ولم تُستبدل ببيانات محلية. انتقال جميع عقودها وصلاحياتها إلى v1.5 لم يكتمل؛ نجاح الاختبارات المعزولة لا يعني أنها تعمل مع Backend فعلي. عمليات `/commands/` غير المربوطة بصلاحية موثقة تمنعها الواجهة. فشل جلب دليل الصلاحيات لا يمنح أي صلاحيات افتراضية.
+Separate product changes from test maintenance: first define the intended behavior and why it changes, then update contract expectations deliberately. A refactor must preserve existing behavioral fixtures. See [test guidance](tests/README.md), [security boundaries](docs/SECURITY.md), and the [project review](docs/review/README.md).

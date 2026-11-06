@@ -1,4 +1,5 @@
 import type { InventoryControllerReadModel } from '@/features/inventory/stock-balances/types/read-models/InventoryControllerReadModel';
+
 export function buildStockBalanceView(
   s: InventoryControllerReadModel,
   branchId: string,
@@ -6,6 +7,7 @@ export function buildStockBalanceView(
   wh: string,
   isExcludeZero: boolean,
 ) {
+
   const warehouses = s.warehouses.filter((warehouse) => warehouse.branchId === branchId);
   const rows = s.products
     .filter((product) => product.name.includes(searchQuery))

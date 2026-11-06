@@ -2,7 +2,7 @@ import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { authApi } from '@/features/auth/api/auth-api';
 import { revokeOtherSessions } from '@/features/auth/services/revoke-other-sessions';
-import type { ChangePasswordInput } from '@/features/auth/type';
+import type { PasswordChangeValues } from '@/features/auth/types/PasswordChangeValues';
 import { passwordChangeSchema } from '@/features/auth/validations/password-change-schema';
 import { Field } from '@/shared/ui/forms/Field';
 import { PageHead } from '@/shared/ui/layout/PageHead';
@@ -12,27 +12,33 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
 export function AccountPanel({ mode = 'password' }: { mode?: 'password' | 'sessions' }) {
+
   const auth = useAuth(),
     client = useQueryClient();
   const [page, setPage] = useState(1),
     [message, setMessage] = useState('');
   const lock = useRef(false);
-  const form = useForm<ChangePasswordInput>({
+  const form = useForm<PasswordChangeValues>({
     resolver: zodResolver(passwordChangeSchema),
     defaultValues: { currentPassword: '', newPassword: '', confirm: '' },
     shouldUnregister: true,
   });
   const query = useQuery({
     queryKey: ['auth', 'sessions', auth.user?.userId, page],
+
     queryFn: ({ signal }) => authApi.sessions(page, signal),
+
     enabled: mode === 'sessions' && !!auth.user,
     retry: false,
   });
   const password = useMutation({
     gcTime: 0,
     mutationFn: authApi.changePassword,
+
     onSuccess: async () => {
+
       form.reset();
       setMessage('حُفظت كلمة المرور.');
       await auth.refreshIdentity();
@@ -40,12 +46,15 @@ export function AccountPanel({ mode = 'password' }: { mode?: 'password' | 'sessi
   });
   const others = useMutation({
     mutationFn: revokeOtherSessions,
+
     onSettled: async () => {
+
       await client.invalidateQueries({ queryKey: ['auth', 'sessions'] });
     },
   });
   const revoke = useMutation({
     mutationFn: async (session: { id: string; isCurrent: boolean } | null) => {
+
       if (!session) {
         await authApi.revokeAllSessions();
         await auth.clearSession();
@@ -54,7 +63,9 @@ export function AccountPanel({ mode = 'password' }: { mode?: 'password' | 'sessi
         if (session.isCurrent) await auth.clearSession();
       }
     },
+
     onSuccess: async () => {
+
       await client.invalidateQueries({ queryKey: ['auth', 'sessions'] });
     },
   });

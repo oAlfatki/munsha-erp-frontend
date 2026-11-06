@@ -1,6 +1,5 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
 import { newId } from '@/core/utils/id';
 import { useEmployee } from '@/features/employees/hooks/useEmployee';
@@ -11,8 +10,10 @@ import {
   employeeSchema,
 } from '@/features/employees/validations/employees-schema';
 import type { Employee } from '@/features/personnel/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useState } from 'react';
 import { toast } from 'sonner';
+
 const fileData = (file: File) =>
   new Promise<string>((resolve, reject) => {
     const r = new FileReader();
@@ -20,8 +21,10 @@ const fileData = (file: File) =>
     r.onerror = () => reject(Error('تعذر قراءة الملف'));
     r.readAsDataURL(file);
   });
+
 export function useEmployeesController(isInitialCreate = false) {
-  const { state: s, branchId, busy: isBusy, navigate } = useEmployeesControllerQuery();
+
+  const { state, branchId, busy: isBusy, navigate } = useEmployeesControllerQuery();
   const employeeMutationRequest = useEmployee(),
     employeeForm = useValidatedForm(employeeSchema, employeeMutationRequest.execute),
     employeeMutation = { ...employeeMutationRequest, execute: employeeForm.submit };
@@ -34,6 +37,7 @@ export function useEmployeesController(isInitialCreate = false) {
       ...employeeDeleteMutationRequest,
       execute: employeeDeleteForm.submit,
     };
+
   const blank = (): Employee => ({
     id: '',
     name: '',
@@ -43,7 +47,7 @@ export function useEmployeesController(isInitialCreate = false) {
     job: '',
     branchId,
     salary: 0,
-    currency: s!.organization.currency,
+    currency: state!.organization.currency,
     joined: today(),
     identity: '',
     issuer: '',
@@ -53,21 +57,26 @@ export function useEmployeesController(isInitialCreate = false) {
     photo: '',
     files: [],
   });
+
   const [searchQuery, setQ] = useState(''),
     [edit, setEdit] = useState<Employee | undefined>(() => (isInitialCreate ? blank() : undefined)),
     [tab, setTab] = useState('basic'),
     [isDeleting, setDeleting] = useState(false);
-  if (!s) return null;
-  const list = s.employees.filter(
+  if (!state) return null;
+  const list = state.employees.filter(
     (employee) =>
       employee.branchId === branchId &&
       [employee.name, employee.code, employee.phone, employee.job].join(' ').includes(searchQuery),
   );
+
   const handleClose = () => {
+
     setEdit(undefined);
     if (isInitialCreate) navigate(ROUTES.EMPLOYEES);
   };
+
   const upload = async (file: File | undefined, isPhoto: boolean) => {
+
     if (!file || !edit) return;
     try {
       if (file.size > 80000) throw Error('الحد 80KB للملف في النسخة الأولية');
@@ -98,7 +107,9 @@ export function useEmployeesController(isInitialCreate = false) {
       toast.error(e instanceof Error ? e.message : 'تعذر قراءة الملف');
     }
   };
+
   const download = (f: NonNullable<Employee['files']>[number]) => {
+
     const bytes = Uint8Array.from(atob(f.data), (c) => c.charCodeAt(0)),
       url = URL.createObjectURL(new Blob([bytes], { type: f.type }));
     const a = document.createElement('a');
@@ -107,8 +118,9 @@ export function useEmployeesController(isInitialCreate = false) {
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
+
   return {
-    s,
+    s: state,
     branchId,
     isBusy,
     employeeMutation,

@@ -1,4 +1,5 @@
 import type { Entry, ExtensionData } from '@/features/ledger/public';
+
 export interface BuildVouchersReportContext {
   entries: Entry[];
   organization: {

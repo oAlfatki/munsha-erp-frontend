@@ -7,5 +7,6 @@ export async function saveSupplier(
   input: unknown,
   context: CommandContext,
 ): Promise<CommandReceipt> {
+
   return await submitSupplier(mapSupplierInput(input), context);
 }

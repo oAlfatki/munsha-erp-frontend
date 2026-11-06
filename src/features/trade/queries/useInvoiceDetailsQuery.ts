@@ -10,7 +10,9 @@ import { saleInvoicesQuery } from '@/features/trade/queries/sale-invoices-query'
 import { saleReturnsQuery } from '@/features/trade/queries/sale-returns-query';
 import type { InvoiceDetailsReadModel } from '@/features/trade/types/read-models/InvoiceDetailsReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useInvoiceDetailsQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

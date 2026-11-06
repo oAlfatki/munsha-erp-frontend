@@ -1,13 +1,15 @@
 import { apiClient } from '@/core/api/apiClient';
-import { ENDPOINTS } from '@/core/config/endpoints';
+import { ENDPOINTS } from '@/features/ledger/api/endpoints';
 import type { GetAccountingDepreciationByIdRequest } from '@/features/ledger/types/requests/GetAccountingDepreciationByIdRequest';
 import type { SearchAccountingDepreciationRequest } from '@/features/ledger/types/requests/SearchAccountingDepreciationRequest';
 import type { OperationListResponse } from '@/features/ledger/types/responses/OperationListResponse';
 import type { OperationResponse } from '@/features/ledger/types/responses/OperationResponse';
+
 export async function fetchAccountingDepreciation(
   params: SearchAccountingDepreciationRequest = {},
   signal?: AbortSignal,
 ): Promise<OperationListResponse> {
+
   return await apiClient.get<OperationListResponse>(ENDPOINTS.fetchAccountingDepreciation, {
     signal,
     params: {
@@ -23,9 +25,11 @@ export async function fetchAccountingDepreciation(
     },
   });
 }
+
 export async function fetchAccountingDepreciationById(
   params: GetAccountingDepreciationByIdRequest,
 ): Promise<OperationResponse> {
+
   return await apiClient.get<OperationResponse>(
     ENDPOINTS.fetchAccountingDepreciationById(params.id),
     { params: { bookId: params.bookId, branchId: params.branchId } },

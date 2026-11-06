@@ -1,4 +1,5 @@
 import { CONFIG } from '@/core/config/env';
+
 export const API_CONFIG = {
   baseURL: CONFIG.apiBaseUrl,
   timeout: 30000,

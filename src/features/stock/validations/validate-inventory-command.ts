@@ -4,12 +4,15 @@ import {
   transferSchema,
   warehouseSchema,
 } from '@/features/stock/validations/inventory-schema';
+
 /** Read-only checks, matching the original product/transfer/warehouse business rules. */
+
 export function validateInventoryCommand(
   data: ValidateInventoryCommandContext,
   type: string,
   input: unknown,
 ) {
+
   if (type === 'product') {
     const p = productSchema.parse(input);
     if (p.units.length !== p.category || p.units.at(-1)!.factor !== 1)

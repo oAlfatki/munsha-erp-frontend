@@ -9,10 +9,14 @@ export const DEFAULT_BACKUP_POLICY: BackupPolicy = {
   folder: 'نسخ المنشأة',
   retention: 20,
 };
+
 export function backupPolicy(workspace: BackupPolicyContext): BackupPolicy {
+
   return { ...DEFAULT_BACKUP_POLICY, ...workspace.backupSettings };
 }
+
 export function backupSlot(p: BackupPolicy, now: Date, event: 'timer' | 'exit') {
+
   if (p.mode === 'off' || (p.mode === 'exit') !== (event === 'exit')) return null;
   const ms = now.getTime(),
     local = new Date(ms + 3 * 3600000),

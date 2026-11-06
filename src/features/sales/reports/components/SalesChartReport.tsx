@@ -1,7 +1,9 @@
 import { fmt } from '@/core/utils/formatters';
 import { useSalesChartReportView } from '@/features/sales/reports/hooks/useSalesChartReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
+
 export function SalesChartReport() {
+
   const model = useSalesChartReportView({
     title: 'الرسم البياني لحركة المبيعات',
     summaryColumns: [2],

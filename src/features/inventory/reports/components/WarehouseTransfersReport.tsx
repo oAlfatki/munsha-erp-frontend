@@ -1,6 +1,8 @@
 import { useWarehouseTransfersReportView } from '@/features/inventory/reports/hooks/useWarehouseTransfersReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
+
 export function WarehouseTransfersReport() {
+
   const model = useWarehouseTransfersReportView({
     title: 'فواتير التحويل بين المخازن',
     summaryColumns: [],

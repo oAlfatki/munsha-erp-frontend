@@ -9,11 +9,13 @@ import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
 import { Select } from '@/shared/ui/forms/Select';
 import { DataTable } from '@/shared/ui/tables/DataTable';
+
 export function Inventory({ initialTab = 'balances' }: InventoryViewProps) {
+
   const model = useInventoryController(initialTab);
   if (!model) return null;
   const {
-    s,
+    s: state,
     tab,
     setTab,
     searchQuery,
@@ -91,7 +93,7 @@ export function Inventory({ initialTab = 'balances' }: InventoryViewProps) {
               <strong>
                 {
                   rows.filter(
-                    (x) => systemSettings(s).inventory.alert && x.p.alert && x.qty <= x.p.min,
+                    (x) => systemSettings(state).inventory.alert && x.p.alert && x.qty <= x.p.min,
                   ).length
                 }
               </strong>
@@ -118,12 +120,12 @@ export function Inventory({ initialTab = 'balances' }: InventoryViewProps) {
               fmt(product.min),
               <Pill
                 tone={
-                  systemSettings(s).inventory.alert && product.alert && qty <= product.min
+                  systemSettings(state).inventory.alert && product.alert && qty <= product.min
                     ? 'amber'
                     : 'green'
                 }
               >
-                {systemSettings(s).inventory.alert && product.alert && qty <= product.min
+                {systemSettings(state).inventory.alert && product.alert && qty <= product.min
                   ? 'بلغ حد الطلب'
                   : 'متوفر'}
               </Pill>,
@@ -145,8 +147,8 @@ export function Inventory({ initialTab = 'balances' }: InventoryViewProps) {
           rows={moves.map((m) => [
             m.date,
             <span className="code">{m.reference}</span>,
-            s.products.find((product) => product.id === m.productId)?.name,
-            s.warehouses.find((warehouse) => warehouse.id === m.warehouseId)?.name,
+            state.products.find((product) => product.id === m.productId)?.name,
+            state.warehouses.find((warehouse) => warehouse.id === m.warehouseId)?.name,
             m.kind,
             <span className={m.qty < 0 ? 'negative' : 'positive'} dir="ltr">
               {m.qty > 0 ? '+' : ''}
@@ -161,8 +163,8 @@ export function Inventory({ initialTab = 'balances' }: InventoryViewProps) {
           headers={['اسم المخزن', 'الفرع', 'الأصناف ذات رصيد', 'الحالة']}
           rows={warehouses.map((warehouse) => [
             warehouse.name,
-            s.branches.find((branch) => branch.id === warehouse.branchId)?.name,
-            s.stocks.filter((x) => x.warehouseId === warehouse.id && x.qty > 0).length,
+            state.branches.find((branch) => branch.id === warehouse.branchId)?.name,
+            state.stocks.filter((x) => x.warehouseId === warehouse.id && x.qty > 0).length,
             <Pill>{warehouse.active ? 'نشط' : 'غير نشط'}</Pill>,
           ])}
         />

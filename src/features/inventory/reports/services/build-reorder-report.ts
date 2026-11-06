@@ -3,11 +3,13 @@ import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildReorderReportContext } from '@/features/inventory/reports/types/read-models/BuildReorderReportContext';
 import { systemSettings } from '@/features/organization/public';
+
 export function buildReorderReport(
   workspace: BuildReorderReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
+
   const whs = workspace.warehouses.filter(
     (w) => w.branchId === branch && (!filters.warehouse || w.id === filters.warehouse),
   );
@@ -16,7 +18,7 @@ export function buildReorderReport(
       whs.some((warehouse) => warehouse.id === m.warehouseId) &&
       (!filters.to || m.date <= filters.to),
   );
-  let reportData: ReportData = { headers: [], rows: [] };
+  let reportData: ReportData;
   {
     reportData = {
       headers: [

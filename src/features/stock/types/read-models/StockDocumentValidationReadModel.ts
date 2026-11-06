@@ -1,6 +1,7 @@
 import type { AnnualBooks, ExtensionData } from '@/features/ledger/public';
 import type { PersistedSystemSettings } from '@/features/organization/public';
 import type { Warehouse } from '@/features/stock/types/models/Warehouse';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */

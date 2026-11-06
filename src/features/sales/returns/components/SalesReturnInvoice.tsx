@@ -1,20 +1,10 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument, printReport } from '@/core/reporting/service';
-import { fmt, today } from '@/core/utils/formatters';
+import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { ProductEditor } from '@/features/inventory/public';
-import { balance, isArchived } from '@/features/ledger/public';
-import { useSalesReturnInvoiceQuery } from '@/features/sales/returns/queries/useSalesReturnInvoiceQuery';
-import type { Invoice } from '@/features/trade/public';
-import {
-  invoiceReport,
-  partialReturnSchema,
-  quoteReturn,
-  returnRemaining,
-  usePartialReturn,
-} from '@/features/trade/public';
+import { balance } from '@/features/ledger/public';
+import { useSalesReturnController } from '@/features/sales/returns/hooks/useSalesReturnController';
+import { ReturnInvoiceActions, returnRemaining } from '@/features/trade/public';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { DocumentNavigator } from '@/shared/ui/documents/DocumentNavigator';
@@ -26,154 +16,71 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
-import { Download, Plus, Printer, Save, Search, Undo2 } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { Plus, Search } from 'lucide-react';
+
 export function SalesReturnInvoice() {
-  const root = useRef<HTMLDivElement>(null);
-  const { state: s, branchId, busy: isBusy, navigate } = useSalesReturnInvoiceQuery();
-  const partialReturnMutationRequest = usePartialReturn();
-  const partialReturnForm = useValidatedForm(
-    partialReturnSchema,
-    partialReturnMutationRequest.execute,
-  );
-  const partialReturnMutation = {
-    ...partialReturnMutationRequest,
-    execute: partialReturnForm.submit,
-  };
-  const [search, setSearch] = useState('');
-  const [itemSearch, setItemSearch] = useState('');
-  const [id, setId] = useState('');
-  const [date, setDate] = useState(today());
-  const [note, setNote] = useState('');
-  const [isConfirm, setConfirm] = useState(false);
-  const [quantities, setQuantities] = useState<Record<number, string>>({});
-  const [discounts, setDiscounts] = useState<Record<number, number>>({});
-  const [headerDiscount, setHeaderDiscount] = useState<number | undefined>();
-  const [paid, setPaid] = useState<number | undefined>();
-  const [history, setHistory] = useState('');
-  const [active, setActive] = useState(0);
-  const [isBalanceOpen, setBalanceOpen] = useState(false);
-  const [isAddProduct, setAddProduct] = useState(false);
-  const [inputError, setInputError] = useState('');
-  if (!s) return null;
-  const sources = s.invoices.filter(
-    (invoice) =>
-      invoice.kind === 'sale' && invoice.branchId === branchId && invoice.status === 'final',
-  );
-  const selected = sources.find((invoice) => invoice.id === id);
-  const saved = (s.invoiceReturns || []).filter((r) => r.sourceId === id);
-  const shown =
-    (history === 'latest' ? saved.at(-1) : saved.find((r) => r.id === history)) ||
-    (selected?.reversedBy
-      ? {
-          ...selected,
-          number: selected.reversedBy,
-          date:
-            s.entries.find((entry) => entry.reference === selected.reversedBy)?.date ||
-            selected.date,
-        }
-      : undefined);
-  const matches = sources.filter((invoice) =>
-    (
-      invoice.number +
-      ' ' +
-      (invoice.reversedBy || '') +
-      ' ' +
-      (s.invoiceReturns || [])
-        .filter((r) => r.sourceId === invoice.id)
-        .map((r) => r.number)
-        .join(' ') +
-      ' ' +
-      (s.parties.find((party) => party.id === invoice.partyId)?.name || '')
-    ).includes(search),
-  );
-  const resetAmounts = () => {
-    setQuantities({});
-    setDiscounts({});
-    setHeaderDiscount(undefined);
-    setPaid(undefined);
-    setInputError('');
-  };
-  const choose = (invoice: Invoice) => {
-    setId(invoice.id);
-    resetAmounts();
-    setHistory(
-      (s.invoiceReturns || []).find((r) => r.sourceId === invoice.id && r.number === search.trim())
-        ?.id || '',
-    );
-    setNote('');
-    setDate(invoice.date > today() ? invoice.date : today());
-    setSearch('');
-    setItemSearch('');
-    setActive(0);
-  };
-  const picks = selected
-    ? selected.lines
-        .map((invoiceLine, index) => ({
-          index,
-          qty: Number(quantities[index] ?? returnRemaining(s, selected, index).qty),
-          discount: discounts[index],
-        }))
-        .filter((v) => v.qty > 0)
-    : [];
-  let quote: ReturnType<typeof quoteReturn> | undefined;
-  let quoteError = '';
-  if (selected && !shown && picks.length)
-    try {
-      quote = quoteReturn(s, selected, picks, headerDiscount, paid);
-    } catch (e) {
-      quoteError = (e as Error).message;
-    }
-  const lines = shown?.lines || quote?.lines || [];
-  const subtotal = shown?.subtotal ?? quote?.subtotal ?? 0;
-  const tax = shown?.taxAmount ?? quote?.tax ?? 0;
-  const total = shown?.total ?? quote?.total ?? 0;
-  const refund = shown?.paid ?? quote?.paid ?? 0;
-  const party = s.parties.find((party) => party.id === selected?.partyId);
-  const isLocked = !!shown || !!selected?.reversedBy || isArchived(s);
-  const isAvailable = selected?.lines.some(
-    (invoiceLine, i) => returnRemaining(s, selected, i).qty > 0,
-  );
-  const report = selected
-    ? invoiceReport(s, {
-        ...selected,
-        ...shown,
-        id: selected.id,
-        number: shown?.number || 'RET-' + selected.number + '-مسودة',
-        date: shown?.date || date,
-        lines,
-        note: shown?.note || note,
-        status: shown ? 'final' : 'draft',
-        subtotal,
-        taxAmount: tax,
-        total,
-        paid: refund,
-      })
-    : undefined;
-  const activeLine = selected?.lines[active];
-  const activeProduct = s.products.find((product) => product.id === activeLine?.productId);
-  const stockAvailable = activeLine
-    ? (s.stocks.find(
-        (v) => v.productId === activeLine.productId && v.warehouseId === selected?.warehouseId,
-      )?.qty || 0) / (activeProduct?.units[activeLine.unit]?.factor || 1)
-    : 0;
-  const changeTotalDiscount = (amount: number) => {
-    const gross = money(
-        lines.reduce((n, invoiceLine) => n + invoiceLine.qty * invoiceLine.price, 0),
-      ),
-      percent = gross ? (amount / gross) * 100 : 0;
-    if (
-      !Number.isFinite(amount) ||
-      amount < 0 ||
-      amount > gross ||
-      picks.some((v) => percent < (selected?.lines[v.index].discount || 0))
-    ) {
-      setInputError('خصم الأصناف في المرتجع لا يقل عن خصم الفاتورة الأصلية');
-      return;
-    }
-    setInputError('');
-    setDiscounts(Object.fromEntries(picks.map((v) => [v.index, percent])));
-  };
+
+  const model = useSalesReturnController();
+  if (!model) return null;
+  const {
+    root,
+    s: state,
+    branchId,
+    isBusy,
+    navigate,
+    partialReturnMutation,
+    search,
+    setSearch,
+    itemSearch,
+    setItemSearch,
+    id,
+    setId,
+    date,
+    setDate,
+    note,
+    setNote,
+    isConfirm,
+    setConfirm,
+    quantities,
+    setQuantities,
+    discounts,
+    setDiscounts,
+    headerDiscount,
+    setHeaderDiscount,
+    paid,
+    setPaid,
+    setHistory,
+    setActive,
+    isBalanceOpen,
+    setBalanceOpen,
+    isAddProduct,
+    setAddProduct,
+    inputError,
+    setInputError,
+    sources,
+    selected,
+    saved,
+    shown,
+    matches,
+    resetAmounts,
+    choose,
+    picks,
+    quote,
+    quoteError,
+    lines,
+    subtotal,
+    tax,
+    total,
+    refund,
+    party,
+    isLocked,
+    isAvailable,
+    report,
+    activeLine,
+    activeProduct,
+    stockAvailable,
+    changeTotalDiscount,
+  } = model;
   return (
     <div ref={root}>
       <PageHead
@@ -182,45 +89,20 @@ export function SalesReturnInvoice() {
         }
         description="اختر الفاتورة الأصلية ثم كميات المرتجع وخصوماته والمبلغ المعاد. تُراجع الحدود مقابل الأصل قبل الحفظ."
         extra={
-          <div className="flex flex-wrap gap-2">
-            <Button
-              disabled={isBusy || isLocked || !quote || !!inputError}
-              onClick={() => {
-                if (root.current && validateForm(root.current)) setConfirm(true);
-              }}
-            >
-              <Save size={16} />
-              حفظ المرتجع
-            </Button>
-            <Button
-              variant="outline"
-              disabled={!report || !lines.length}
-              onClick={() => report && printReport(report)}
-            >
-              <Printer size={16} />
-              طباعة
-            </Button>
-            <Button
-              variant="outline"
-              disabled={!report || !lines.length}
-              onClick={() => report && exportDocument(report)}
-            >
-              <Download size={16} />
-              تصدير
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() => {
-                setId('');
-                resetAmounts();
-                setHistory('');
-                setConfirm(false);
-              }}
-            >
-              <Undo2 size={16} />
-              تراجع
-            </Button>
-          </div>
+          <ReturnInvoiceActions
+            report={report}
+            isSaveDisabled={isBusy || isLocked || !quote || !!inputError}
+            isReportDisabled={!report || !lines.length}
+            onSave={() => {
+              if (root.current && validateForm(root.current)) setConfirm(true);
+            }}
+            onReset={() => {
+              setId('');
+              resetAmounts();
+              setHistory('');
+              setConfirm(false);
+            }}
+          />
         }
       />
       <div className="filter-bar">
@@ -248,7 +130,7 @@ export function SalesReturnInvoice() {
             {matches.map((invoice) => (
               <option key={invoice.id} value={invoice.id}>
                 {invoice.number} ·{' '}
-                {s.parties.find((party) => party.id === invoice.partyId)?.name || 'نقدي'}
+                {state.parties.find((party) => party.id === invoice.partyId)?.name || 'نقدي'}
               </option>
             ))}
           </Select>
@@ -317,7 +199,7 @@ export function SalesReturnInvoice() {
               onChange={(e) => {
                 setItemSearch(e.target.value);
                 const i = selected.lines.findIndex((invoiceLine) => {
-                  const p = s.products.find((product) => product.id === invoiceLine.productId);
+                  const p = state.products.find((product) => product.id === invoiceLine.productId);
                   return (p?.name + ' ' + p?.units.map((u) => u.barcode).join(' ')).includes(
                     e.target.value,
                   );
@@ -354,8 +236,8 @@ export function SalesReturnInvoice() {
               rows={
                 shown
                   ? shown.lines.map((invoiceLine) => [
-                      s.products.find((product) => product.id === invoiceLine.productId)?.name,
-                      s.products.find((product) => product.id === invoiceLine.productId)?.units[
+                      state.products.find((product) => product.id === invoiceLine.productId)?.name,
+                      state.products.find((product) => product.id === invoiceLine.productId)?.units[
                         invoiceLine.unit
                       ]?.name,
                       '—',
@@ -365,8 +247,10 @@ export function SalesReturnInvoice() {
                       fmt(invoiceLine.discount),
                     ])
                   : selected.lines.flatMap((invoiceLine, index) => {
-                      const p = s.products.find((product) => product.id === invoiceLine.productId);
-                      const remaining = returnRemaining(s, selected, index);
+                      const p = state.products.find(
+                        (product) => product.id === invoiceLine.productId,
+                      );
+                      const remaining = returnRemaining(state, selected, index);
                       const searchQuery = quantities[index] ?? String(remaining.qty);
                       if (
                         itemSearch &&
@@ -530,8 +414,8 @@ export function SalesReturnInvoice() {
                       Math.abs(
                         balance(
                           {
-                            ...s,
-                            entries: s.entries.filter((entry) => entry.branchId === branchId),
+                            ...state,
+                            entries: state.entries.filter((entry) => entry.branchId === branchId),
                           },
                           '130',
                           party.id,
@@ -539,7 +423,10 @@ export function SalesReturnInvoice() {
                       ),
                     ),
                     balance(
-                      { ...s, entries: s.entries.filter((entry) => entry.branchId === branchId) },
+                      {
+                        ...state,
+                        entries: state.entries.filter((entry) => entry.branchId === branchId),
+                      },
                       '130',
                       party.id,
                     ) >= 0

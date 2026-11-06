@@ -2,8 +2,11 @@ import { readAllPages } from '@/core/api/readAllPages';
 import type { QueryScope } from '@/core/types/api/QueryScope';
 import { fetchCustomers } from '@/features/parties/api/customers-read-api';
 import { queryOptions } from '@tanstack/react-query';
+
 /** Authorized-book collection used by existing multi-branch calculations/export. Server authorizes accessible branches. */
+
 export function customersQuery(scope: QueryScope) {
+
   return queryOptions({
     queryKey: [
       'erp',
@@ -15,12 +18,14 @@ export function customersQuery(scope: QueryScope) {
       '',
       scope.locale,
     ],
+
     queryFn: ({ signal }) =>
       readAllPages(
         (params) => fetchCustomers(params, signal),
         { bookId: scope.bookId || undefined },
         signal,
       ),
+
     staleTime: 30000,
   });
 }

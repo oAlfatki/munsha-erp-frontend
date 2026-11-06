@@ -4,7 +4,9 @@ import { money } from '@/core/utils/money';
 import type { VoucherReportContext } from '@/features/accounting/reports/types/read-models/VoucherReportContext';
 import type { VoucherDocument } from '@/features/ledger/public';
 import { cashOptions } from '@/features/ledger/public';
+
 export function voucherReport(workspace: VoucherReportContext, d: VoucherDocument): ReportDocument {
+
   const totals = new Map<string, number>();
   for (const l of d.lines) totals.set(l.currency, money((totals.get(l.currency) || 0) + l.amount));
   return {

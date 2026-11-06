@@ -1,25 +1,28 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
+import { readCachedQuery } from '@/core/query/read-cached-query';
 import type { DeleteStockDraftValidationReadModel } from '@/features/inventory/stock-balances/types/read-models/DeleteStockDraftValidationReadModel';
 import { booksQuery } from '@/features/ledger/public';
 import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { itemsQuery, movementsQuery, stocksQuery, warehousesQuery } from '@/features/stock/public';
 import { purchaseInvoicesQuery, saleInvoicesQuery } from '@/features/trade/public';
 import { useQueryClient } from '@tanstack/react-query';
+
 export function useDeleteStockDraftValidationData() {
+
   const identity = useQueryIdentity(),
     client = useQueryClient();
   return async () => {
-    const books = await client.ensureQueryData(booksQuery(identity));
+    const books = await readCachedQuery(client, booksQuery(identity));
     const scope = { ...identity, bookId: books.scope.bookId };
     const [d0, d1, d4, d5, d6, d7, d8, d9] = await Promise.all([
-      client.ensureQueryData(companyQuery(scope)),
-      client.ensureQueryData(warehousesQuery(scope)),
-      client.ensureQueryData(itemsQuery(scope)),
-      client.ensureQueryData(movementsQuery(scope)),
-      client.ensureQueryData(stocksQuery(scope)),
-      client.ensureQueryData(branchesQuery(scope)),
-      client.ensureQueryData(saleInvoicesQuery(scope)),
-      client.ensureQueryData(purchaseInvoicesQuery(scope)),
+      readCachedQuery(client, companyQuery(scope)),
+      readCachedQuery(client, warehousesQuery(scope)),
+      readCachedQuery(client, itemsQuery(scope)),
+      readCachedQuery(client, movementsQuery(scope)),
+      readCachedQuery(client, stocksQuery(scope)),
+      readCachedQuery(client, branchesQuery(scope)),
+      readCachedQuery(client, saleInvoicesQuery(scope)),
+      readCachedQuery(client, purchaseInvoicesQuery(scope)),
     ]);
     const q0 = { data: d0 };
     const q1 = { data: d1 };

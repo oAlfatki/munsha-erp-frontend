@@ -4,7 +4,9 @@ import { systemSettings } from '@/features/organization/public';
 import { invoiceSummary } from '@/features/trade/services/presentation';
 import type { ValidateInvoiceContext } from '@/features/trade/types/read-models/ValidateInvoiceContext';
 import { invoiceSchema } from '@/features/trade/validations/trade-schema';
+
 export function validateInvoice(data: ValidateInvoiceContext, input: unknown) {
+
   const p = invoiceSchema.parse(input),
     settings = systemSettings(data);
   if (

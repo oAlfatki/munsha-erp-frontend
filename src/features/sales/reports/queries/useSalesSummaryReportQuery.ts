@@ -6,7 +6,9 @@ import type { SalesSummaryReportReadModel } from '@/features/sales/reports/types
 import { warehousesQuery } from '@/features/stock/public';
 import { saleInvoicesQuery, saleReturnsQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSalesSummaryReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

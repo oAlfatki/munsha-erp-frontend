@@ -1,4 +1,5 @@
 import type { CompanyMetadata } from './CompanyMetadata';
+
 export interface CompanyData {
   state: CompanyMetadata | null;
   bookId: string;

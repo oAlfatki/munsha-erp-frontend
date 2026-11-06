@@ -1,8 +1,11 @@
 import type { QueryScope } from '@/core/types/api/QueryScope';
 import { fetchSettingsSystem } from '@/features/organization/api/read-api';
 import { queryOptions } from '@tanstack/react-query';
+
 /** Authorized-book collection used by existing multi-branch calculations/export. Server authorizes accessible branches. */
+
 export function systemQuery(scope: QueryScope) {
+
   return queryOptions({
     queryKey: [
       'erp',
@@ -14,7 +17,9 @@ export function systemQuery(scope: QueryScope) {
       '',
       scope.locale,
     ],
+
     queryFn: ({ signal }) => fetchSettingsSystem({ bookId: scope.bookId || undefined }, signal),
+
     staleTime: 30000,
   });
 }

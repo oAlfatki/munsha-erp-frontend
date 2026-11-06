@@ -1,5 +1,7 @@
 import { LoaderCircle } from 'lucide-react';
+
 export function LoadingState() {
+
   return (
     <div className="app-loader" role="status">
       <LoaderCircle className="animate-spin" />

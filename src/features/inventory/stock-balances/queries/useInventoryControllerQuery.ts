@@ -5,7 +5,9 @@ import { booksQuery } from '@/features/ledger/public';
 import { branchesQuery, companyQuery, systemQuery } from '@/features/organization/public';
 import { itemsQuery, movementsQuery, stocksQuery, warehousesQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useInventoryControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

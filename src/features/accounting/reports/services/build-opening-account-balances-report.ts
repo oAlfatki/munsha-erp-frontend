@@ -2,15 +2,18 @@ import type { Filters } from '@/core/types/api/Filters';
 import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildOpeningAccountBalancesReportContext } from '@/features/accounting/reports/types/read-models/BuildOpeningAccountBalancesReportContext';
+
 export function buildOpeningAccountBalancesReport(
   workspace: BuildOpeningAccountBalancesReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
+
   const within = (d: string) =>
     (!filters.from || d >= filters.from) && (!filters.to || d <= filters.to);
+
   const es = workspace.entries.filter((entry) => entry.branchId === branch && within(entry.date));
-  let reportData: ReportData = { headers: [], rows: [] };
+  let reportData: ReportData;
   {
     const selected = es.filter(
       (entry) =>

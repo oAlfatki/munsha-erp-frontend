@@ -1,10 +1,12 @@
 import { validateTransferSettingsPolicy } from '@/features/organization/public';
 
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useTransferValidationData } from '@/features/inventory/stock-documents/queries/useTransferValidationData';
 import { validatePeriod } from '@/features/ledger/public';
 import { saveTransfer, validateInventoryCommand } from '@/features/stock/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useTransfer() {
+
   const loadValidationData = useTransferValidationData();
   return useCommandMutation('transfer', saveTransfer, async (input) => {
     const state = await loadValidationData();

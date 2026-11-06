@@ -1,10 +1,12 @@
 import { validateExpensePaymentSettingsPolicy } from '@/features/organization/public';
 
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useExpensePaymentValidationData } from '@/features/expenses/queries/useExpensePaymentValidationData';
 import { saveExpensePayment } from '@/features/expenses/services/expenses-service';
 import { validatePeriod } from '@/features/ledger/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useExpensePayment() {
+
   const loadValidationData = useExpensePaymentValidationData();
   return useCommandMutation('expensePayment', saveExpensePayment, async (input) => {
     const state = await loadValidationData();

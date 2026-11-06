@@ -1,13 +1,15 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { exportPdf } from '@/core/reporting/service';
 import type { ExpenseReportProps } from '@/features/expenses/types/props/ExpenseReportProps';
+import { exportPdf } from '@/shared/services/report-actions';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Input } from '@/shared/ui/primitives/input';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
+
 export function ExpenseReport({ controller }: ExpenseReportProps) {
+
   const {
     s: workspace,
     navigate,

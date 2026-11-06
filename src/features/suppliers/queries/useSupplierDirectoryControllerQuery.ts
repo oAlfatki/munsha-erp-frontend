@@ -4,7 +4,9 @@ import { booksQuery, journalsQuery, mapMasterRecords } from '@/features/ledger/p
 import { partyGroupsQuery } from '@/features/parties/public';
 import type { SupplierDirectoryControllerReadModel } from '@/features/suppliers/types/read-models/SupplierDirectoryControllerReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSupplierDirectoryControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { validatePeriod } from '@/features/ledger/public';
 import { saveSalesTarget } from '@/features/sales/invoices/services/sales-service';
 import { useSalesTargetValidationData } from '@/features/sales/targets/queries/useSalesTargetValidationData';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useSalesTarget() {
+
   const loadValidationData = useSalesTargetValidationData();
   return useCommandMutation('salesTarget', saveSalesTarget, async (input) => {
     const state = await loadValidationData();

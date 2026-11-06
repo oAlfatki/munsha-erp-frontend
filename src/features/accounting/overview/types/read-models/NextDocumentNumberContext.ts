@@ -3,6 +3,7 @@ import type { Branch, PersistedSystemSettings } from '@/features/organization/pu
 import type { StockDocument, Warehouse } from '@/features/stock/public';
 import type { Invoice } from '@/features/trade/public';
 import type { Audit } from '@/features/users/public';
+
 export interface NextDocumentNumberContext {
   organization: {
     name: string;

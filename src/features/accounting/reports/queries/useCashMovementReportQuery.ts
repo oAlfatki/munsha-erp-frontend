@@ -4,7 +4,9 @@ import type { CashMovementReportReadModel } from '@/features/accounting/reports/
 import { booksQuery, cashQuery, journalsQuery, mapMasterRecords } from '@/features/ledger/public';
 import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCashMovementReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

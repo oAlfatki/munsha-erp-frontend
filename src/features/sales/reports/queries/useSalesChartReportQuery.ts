@@ -8,7 +8,9 @@ import type { SalesChartReportReadModel } from '@/features/sales/reports/types/r
 import { itemsQuery } from '@/features/stock/public';
 import { saleInvoicesQuery, saleReturnsQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSalesChartReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

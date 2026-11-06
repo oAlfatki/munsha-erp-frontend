@@ -1,16 +1,22 @@
 import { ApiError } from '@/core/api/apiError';
 import { sessionGeneration } from '@/core/api/session-transport';
 import { authApi } from '@/features/auth/api/auth-api';
+
 /** The contract has individual DELETE operations; this is deliberately non-atomic. */
+
 export async function revokeOtherSessions() {
+
   const expected = sessionGeneration();
   const sessions = new Map<string, boolean>();
   let page = 1,
     total = 0;
+
   const check = () => {
+
     if (expected !== sessionGeneration())
       throw new ApiError({ detail: 'تغيرت الجلسة؛ أُوقفت العملية.' }, 401);
   };
+
   do {
     check();
     const result = await authApi.sessions(page);

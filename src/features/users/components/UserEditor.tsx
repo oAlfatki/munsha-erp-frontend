@@ -2,11 +2,12 @@ import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { useUserEditor } from '@/features/users/hooks/useUserEditor';
 import { fetchPermissionCatalog } from '@/features/users/services/permission-catalog';
-import type { UserDetails } from '@/features/users/type';
+import type { UserDetails } from '@/features/users/types/UserDetails';
 import { Button } from '@/shared/ui/primitives/button';
 import { useQuery } from '@tanstack/react-query';
 import { PermissionMatrix } from './PermissionMatrix';
 import { UserFormFields } from './UserFormFields';
+
 export function UserEditor({
   user,
   onSaved,
@@ -16,11 +17,14 @@ export function UserEditor({
   onSaved: () => void;
   onCancel: () => void;
 }) {
+
   const auth = useAuth(),
     editor = useUserEditor(user, onSaved);
   const catalog = useQuery({
     queryKey: ['permissions', 'catalog', auth.user?.userId],
+
     queryFn: ({ signal }) => fetchPermissionCatalog(signal),
+
     enabled: !user,
     retry: false,
   });

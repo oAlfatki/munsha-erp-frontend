@@ -4,7 +4,9 @@ import type { CatalogControllerReadModel } from '@/features/inventory/products/t
 import { booksQuery } from '@/features/ledger/public';
 import { itemsQuery } from '@/features/stock/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCatalogControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

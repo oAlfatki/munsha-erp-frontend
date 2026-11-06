@@ -1,5 +1,3 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
-import { exportDocument, exportPdf, printReport } from '@/core/reporting/service';
 import { today } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { useDeleteStockDraft } from '@/features/inventory/stock-balances/hooks/useDeleteStockDraft';
@@ -13,11 +11,16 @@ import {
   stockDocumentSchema,
   useStockDocument,
 } from '@/features/stock/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
+import { exportDocument, exportPdf, printReport } from '@/shared/services/report-actions';
 import { useEffect, useState } from 'react';
 import { toast } from 'sonner';
+
 /** Screen state, commands and derived values; no route-based dispatch. */
+
 export function useStockDocumentsController({ kind }: StockDocumentsProps) {
-  const { state: s, branchId, busy: isBusy } = useStockDocumentsQuery();
+
+  const { state, branchId, busy: isBusy } = useStockDocumentsQuery();
   const deleteStockDraftMutationRequest = useDeleteStockDraft();
   const deleteStockDraftForm = useValidatedForm(
     deleteStockDraftSchema,
@@ -38,7 +41,7 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
   };
   const [selected, setSelected] = useState<StockDocument | null>(null);
   const [isListMode, setListMode] = useState(false);
-  const [date, setDate] = useState(kind === 'opening' ? fiscalRange(s!).from : today());
+  const [date, setDate] = useState(kind === 'opening' ? fiscalRange(state!).from : today());
   const [warehouse, setWarehouse] = useState('');
   const [to, setTo] = useState('');
   const [direction, setDirection] = useState<'shortage' | 'excess'>('shortage');
@@ -55,25 +58,27 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
   const [isPrintRequested, setPrintRequested] = useState(false);
   useEffect(() => {
     if (isPrintRequested && !isListMode && selected) {
-      printReport(stockDocumentReport(s!, selected));
+      printReport(stockDocumentReport(state!, selected));
       setPrintRequested(false);
     }
   }, [isPrintRequested, isListMode, selected]);
-  if (!s) return null;
+  if (!state) return null;
   const title =
     kind === 'transfer'
       ? 'فاتورة تحويل مخزني'
       : kind === 'adjustment'
         ? 'فاتورة تسوية المخزون'
         : 'إضافة أصناف بداية المدة';
-  const own = s.warehouses.filter(
+  const own = state.warehouses.filter(
     (warehouse) => warehouse.branchId === branchId && warehouse.active,
   );
   const wh = warehouse || own[0]?.id || '';
   const legacyCombined = new Set(
-    (s.stockDocuments || []).filter((d) => d.lines.length && d.accounts.length).map((d) => d.id),
+    (state.stockDocuments || [])
+      .filter((d) => d.lines.length && d.accounts.length)
+      .map((d) => d.id),
   );
-  const docs = (s.stockDocuments || [])
+  const docs = (state.stockDocuments || [])
     .filter(
       (d) =>
         d.kind === kind &&
@@ -93,9 +98,11 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
     .sort((a, b) => a.createdAt.localeCompare(b.createdAt));
   const isReadOnly =
     selected?.status === 'final' || (!!selected && legacyCombined.has(selected.id));
+
   const stockValue = (l: StockDocumentLine) => {
-    const product = s.products.find((product) => product.id === l.productId),
-      st = s.stocks.find((v) => v.productId === l.productId && v.warehouseId === wh);
+
+    const product = state.products.find((product) => product.id === l.productId),
+      st = state.stocks.find((v) => v.productId === l.productId && v.warehouseId === wh);
     return (
       l.value ??
       (kind === 'opening'
@@ -103,16 +110,19 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
         : money((st?.qty ? st.value / st.qty : 0) * l.qty * (product?.units[l.unit]?.factor || 1)))
     );
   };
+
   const inventory = money(lines.reduce((n, l) => n + stockValue(l), 0));
   const total = inventory;
-  const isFinalizedBranch = s.entries.some(
+  const isFinalizedBranch = state.entries.some(
     (entry) =>
       entry.branchId === branchId &&
-      !(s.stockDocuments || []).some(
+      !(state.stockDocuments || []).some(
         (d) => d.kind === 'opening' && d.reference === entry.reference,
       ),
   );
+
   const load = (d: StockDocument) => {
+
     setSelected(d);
     setOffset(d.openingOffsetAccount || '300');
     setDate(d.date);
@@ -126,9 +136,11 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
     setListMode(false);
     setDirty(false);
   };
+
   const handleReset = () => {
+
     setSelected(null);
-    setDate(kind === 'opening' ? fiscalRange(s).from : today());
+    setDate(kind === 'opening' ? fiscalRange(state).from : today());
     setWarehouse(own[0]?.id || '');
     setTo('');
     setDirection('shortage');
@@ -139,25 +151,31 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
     setDirty(false);
     setListMode(false);
   };
+
   const handleBrowse = (index: number) => {
+
     if (isDirty) {
       toast.info('احفظ المسودة أو اضغط تراجع قبل التنقل.');
       return;
     }
     load(docs[index]);
   };
+
   const update = (i: number, key: string, value: number) => {
+
     setDirty(true);
     setLines(lines.map((l, j) => (i === j ? { ...l, [key]: value, value: undefined } : l)));
   };
+
   const add = (id: string) => {
+
     if (lines.some((l) => l.productId === id)) {
       toast.info('الصنف موجود؛ عدّل كمية السطر الحالي.');
       return;
     }
-    const product = s.products.find((product) => product.id === id)!,
+    const product = state.products.find((product) => product.id === id)!,
       scanned = product.units.findIndex((u) => u.barcode && u.barcode === searchQuery.trim()),
-      st = s.stocks.find((v) => v.productId === id && v.warehouseId === wh);
+      st = state.stocks.find((v) => v.productId === id && v.warehouseId === wh);
     setLines([
       ...lines,
       {
@@ -171,7 +189,8 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
     setQ('');
     setDirty(true);
   };
-  const match = s.products
+
+  const match = state.products
     .filter(
       (product) =>
         product.active &&
@@ -181,7 +200,7 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
     )
     .slice(0, 6);
   const outputRows = lines.map((l) => {
-    const product = s.products.find((product) => product.id === l.productId)!;
+    const product = state.products.find((product) => product.id === l.productId)!;
     return [
       product.name,
       product.units[l.unit]?.name || '',
@@ -190,9 +209,10 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
       money(stockValue(l)),
     ];
   });
+
   const handleExportCurrent = () =>
     !isListMode && selected?.status === 'final'
-      ? exportDocument(stockDocumentReport(s, selected))
+      ? exportDocument(stockDocumentReport(state, selected))
       : isListMode
         ? exportPdf(
             title,
@@ -206,7 +226,9 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
             ]),
           )
         : exportPdf(title, ['الصنف', 'الوحدة', 'الكمية', 'تكلفة الوحدة', 'القيمة YER'], outputRows);
+
   async function save(status: 'draft' | 'final') {
+
     if (
       await stockDocumentMutation.execute({
         id: selected?.id,
@@ -231,6 +253,7 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
       setListMode(true);
     }
   }
+
   return {
     setConfirm,
     title,
@@ -246,7 +269,7 @@ export function useStockDocumentsController({ kind }: StockDocumentsProps) {
     docs,
     load,
     setPrintRequested,
-    s,
+    s: state,
     selected,
     handleBrowse,
     isReadOnly,

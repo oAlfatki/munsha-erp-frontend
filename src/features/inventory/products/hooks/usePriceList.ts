@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { usePriceListValidationData } from '@/features/inventory/products/queries/usePriceListValidationData';
 import { validatePeriod } from '@/features/ledger/public';
 import { savePriceList, validateInventoryCommand } from '@/features/stock/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function usePriceList() {
+
   const loadValidationData = usePriceListValidationData();
   return useCommandMutation('priceList', savePriceList, async (input) => {
     const state = await loadValidationData();

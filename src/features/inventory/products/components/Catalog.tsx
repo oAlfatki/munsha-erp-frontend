@@ -1,8 +1,8 @@
-import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { ProductEditor } from '@/features/inventory/products/components/ProductEditor';
 import { useCatalogController } from '@/features/inventory/products/hooks/useCatalogController';
 import { extras } from '@/features/ledger/public';
+import { exportPdf } from '@/shared/services/report-actions';
 import type { EditableListOptions } from '@/shared/types/EditableListOptions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
@@ -11,10 +11,12 @@ import { PageHead } from '@/shared/ui/layout/PageHead';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { Check, Layers3, Package } from 'lucide-react';
+
 export function Catalog({ isInitialCreate = false }: EditableListOptions) {
+
   const model = useCatalogController(isInitialCreate);
   if (!model) return null;
-  const { s, search, setSearch, editing, setEditing, items, close } = model;
+  const { s: state, search, setSearch, editing, setEditing, items, close } = model;
   return (
     <>
       <PageHead
@@ -31,8 +33,8 @@ export function Catalog({ isInitialCreate = false }: EditableListOptions) {
                 items.map((product) => [
                   product.code,
                   product.name,
-                  extras(s).records.productGroups?.find((g) => g.id === product.groupId)?.name ||
-                    '—',
+                  extras(state).records.productGroups?.find((g) => g.id === product.groupId)
+                    ?.name || '—',
                   product.units.at(-1)!.retail,
                 ]),
               )
@@ -44,13 +46,13 @@ export function Catalog({ isInitialCreate = false }: EditableListOptions) {
         <div>
           <Package />
           <span>
-            إجمالي الأصناف<b>{s.products.length}</b>
+            إجمالي الأصناف<b>{state.products.length}</b>
           </span>
         </div>
         <div>
           <Check />
           <span>
-            الأصناف النشطة<b>{s.products.filter((product) => product.active).length}</b>
+            الأصناف النشطة<b>{state.products.filter((product) => product.active).length}</b>
           </span>
         </div>
         <div>

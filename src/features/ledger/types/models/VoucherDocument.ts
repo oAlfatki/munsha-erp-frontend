@@ -1,4 +1,5 @@
 import type { VoucherLine } from '@/features/ledger/types/models/VoucherLine';
+
 export interface VoucherDocument {
   id: string;
   reference: string;

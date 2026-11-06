@@ -4,9 +4,11 @@ import {
   salesTargetSchema,
 } from '@/features/sales/invoices/validations/sales-schema';
 import type { SaveSalesTargetRequest } from '@/features/sales/targets/types/requests/SaveSalesTargetRequest';
+
 export const mapSalesTargetInput = (input: unknown): SaveSalesTargetRequest =>
-  salesTargetSchema.parse(input) as SaveSalesTargetRequest;
+  salesTargetSchema.parse(input);
 
 export function mapSalesInvoiceInput(input: unknown): SaveSalesInvoiceRequest {
-  return { ...salesInvoiceInputSchema.parse(input), kind: 'sale' } as SaveSalesInvoiceRequest;
+
+  return { ...salesInvoiceInputSchema.parse(input), kind: 'sale' };
 }

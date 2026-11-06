@@ -4,7 +4,9 @@ import type { CustomersProjectionReadModel } from '@/features/customers/types/re
 import { booksQuery } from '@/features/ledger/public';
 import { customersQuery } from '@/features/parties/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCustomersProjectionQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

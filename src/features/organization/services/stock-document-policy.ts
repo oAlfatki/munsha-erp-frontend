@@ -1,10 +1,13 @@
 import { systemSettings } from '@/features/organization/services/system-settings';
 import type { StockDocumentSettingsPolicyContext } from '@/features/organization/types/read-models/StockDocumentSettingsPolicyContext';
+
 /** Exact original policy branches specialized for the fixed command; no policy values or rules changed. */
+
 export function validateStockDocumentSettingsPolicy(
   workspace: StockDocumentSettingsPolicyContext,
   raw: unknown,
 ) {
+
   if (!raw || typeof raw !== 'object') throw Error('طلب غير صحيح');
   const p = raw as Record<string, unknown>,
     v = systemSettings(workspace);

@@ -1,4 +1,5 @@
 import type { ExtensionData } from '@/features/ledger/types/models/ExtensionData';
+
 export interface RequireCashContext {
   organization: {
     name: string;
