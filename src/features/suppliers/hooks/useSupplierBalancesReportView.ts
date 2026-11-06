@@ -1,4 +1,4 @@
-import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { fiscalRange } from '@/features/ledger/public';
 import { useSupplierBalancesReportQuery } from '@/features/suppliers/queries/useSupplierBalancesReportQuery';
 import { buildSupplierBalancesReport } from '@/features/suppliers/services/reports/build-supplier-balances-report';
 import { useReportFilters } from '@/shared/hooks/useReportFilters';

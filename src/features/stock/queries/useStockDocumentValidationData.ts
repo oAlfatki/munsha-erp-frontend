@@ -1,9 +1,8 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { systemQuery } from '@/features/organization/public/system-query';
-import type { StockDocumentValidationReadModel } from '@/features/stock/public/types/read-models/StockDocumentValidationReadModel';
-import { warehousesQuery } from '@/features/stock/public/warehouses-query';
+import { booksQuery } from '@/features/ledger/public';
+import { companyQuery, systemQuery } from '@/features/organization/public';
+import { warehousesQuery } from '@/features/stock/queries/warehouses-query';
+import type { StockDocumentValidationReadModel } from '@/features/stock/types/read-models/StockDocumentValidationReadModel';
 import { useQueryClient } from '@tanstack/react-query';
 export function useStockDocumentValidationData() {
   const identity = useQueryIdentity(),

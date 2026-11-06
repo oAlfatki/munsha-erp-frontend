@@ -1,4 +1,4 @@
-import type { CommandContext } from '@/core/types/CommandContext';
+import type { CommandContext } from '@/core/types/api/CommandContext';
 import {
   submitBackupSettings,
   submitBranch,
@@ -20,7 +20,7 @@ import {
   mapPreferencesInput,
   mapSetupCompleteInput,
   mapSystemSettingsInput,
-} from '@/features/settings/mapper/settings-mapper';
+} from '@/features/settings/mappers/settings-mapper';
 export const saveBackupSettings = async (
   input: unknown,
   context: CommandContext,

@@ -1,4 +1,4 @@
-import type { ReportData } from '@/core/types/ReportData';
+import type { ReportData } from '@/core/types/reports/ReportData';
 import type { useReportFilters } from '@/shared/hooks/useReportFilters';
 import type { ReportOptions } from './ReportOptions';
 export interface ReportPresentationOptions extends ReportOptions {

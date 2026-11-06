@@ -1,14 +1,14 @@
 import { ApiError } from '@/core/api/apiError';
-import { assertGrantable } from '@/features/users/validation/permission-grants';
-import { useAuth } from '@/core/auth/AuthProvider';
 import { errorMessage } from '@/core/api/error-message';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { usersApi } from '@/features/users/api/users-api';
-import { fetchPermissionCatalog } from '@/features/users/public/permission-catalog';
 import { PermissionMatrix } from '@/features/users/components/PermissionMatrix';
+import { fetchPermissionCatalog } from '@/features/users/services/permission-catalog';
 import type { PermissionMask } from '@/features/users/type';
+import { assertGrantable } from '@/features/users/validations/permission-grants';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 export default function UserPermissionsPage() {

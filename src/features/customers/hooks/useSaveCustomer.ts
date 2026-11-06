@@ -1,10 +1,10 @@
-import { mapCustomerInput } from '@/features/customers/mapper/customers-mapper';
+import { mapCustomerInput } from '@/features/customers/mappers/customers-mapper';
 
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useSaveCustomerValidationData } from '@/features/customers/queries/useSaveCustomerValidationData';
 import { saveCustomer } from '@/features/customers/services/customers-service';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
-import { validateParty } from '@/features/parties/public/validate-party';
+import { validatePeriod } from '@/features/ledger/public';
+import { validateParty } from '@/features/parties/public';
 export function useSaveCustomer() {
   const loadValidationData = useSaveCustomerValidationData();
   return useCommandMutation('party', saveCustomer, async (input) => {

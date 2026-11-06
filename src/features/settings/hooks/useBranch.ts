@@ -1,5 +1,5 @@
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
+import { validatePeriod } from '@/features/ledger/public';
 import { useBranchValidationData } from '@/features/settings/queries/useBranchValidationData';
 import { saveBranch } from '@/features/settings/services/settings-service';
 export function useBranch() {

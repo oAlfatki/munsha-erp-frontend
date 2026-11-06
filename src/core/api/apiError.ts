@@ -1,5 +1,5 @@
-import type { FieldError } from '@/core/types/FieldError';
-import type { ProblemDetails } from '@/core/types/ProblemDetails';
+import type { ProblemDetails } from '@/core/types/api/ProblemDetails';
+import type { FieldError } from '@/core/types/forms/FieldError';
 export class ApiError extends Error {
   readonly status: number;
   readonly code?: string;

@@ -1,4 +1,4 @@
-import type { AccessSnapshot } from '@/core/types/AccessSnapshot';
+import type { AccessSnapshot } from '@/core/types/access/AccessSnapshot';
 export function canPerform(
   access: AccessSnapshot | null | undefined,
   module: string,

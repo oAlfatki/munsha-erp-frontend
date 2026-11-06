@@ -1,4 +1,4 @@
-import type { EmptyProps } from '@/core/types/EmptyProps';
+import type { EmptyProps } from '@/core/types/props/EmptyProps';
 import { Button } from '@/shared/ui/primitives/button';
 import { PackageOpen, Plus } from 'lucide-react';
 

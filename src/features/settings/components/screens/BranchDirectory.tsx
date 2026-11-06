@@ -1,6 +1,6 @@
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { printReport } from '@/core/reporting/service';
-import { branchSchema } from '@/features/organization/public/settings-schema';
+import { branchSchema } from '@/features/organization/public';
 import { useBranch } from '@/features/settings/hooks/useBranch';
 import { useBranchDirectoryQuery } from '@/features/settings/queries/useBranchDirectoryQuery';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';

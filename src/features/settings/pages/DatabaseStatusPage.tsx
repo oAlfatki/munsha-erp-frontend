@@ -1,4 +1,4 @@
-import { AnnualSettings } from '@/features/accounting/public/AnnualSettings';
+import { AnnualSettings } from '@/features/accounting/public';
 /** حالة الاتصال بقاعدة البيانات — feature-owned route content. */
 export default function DatabaseStatusPage() {
   return (

@@ -1,12 +1,12 @@
-import { useAuth } from '@/core/auth/AuthProvider';
 import { errorMessage } from '@/core/api/error-message';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { usersApi } from '@/features/users/api/users-api';
 import type { AuditFilters } from '@/features/users/type';
-import { Button } from '@/shared/ui/primitives/button';
-import { Input } from '@/shared/ui/primitives/input';
 import { Field } from '@/shared/ui/forms/Field';
 import { PageHead } from '@/shared/ui/layout/PageHead';
-import { useQuery, useMutation } from '@tanstack/react-query';
+import { Button } from '@/shared/ui/primitives/button';
+import { Input } from '@/shared/ui/primitives/input';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 export function UserAuditReport() {
   const auth = useAuth();

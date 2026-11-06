@@ -1,9 +1,11 @@
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import type { SearchReportsEmployeesAdvancesRequest } from '@/features/personnel/public/types/requests/SearchReportsEmployeesAdvancesRequest';
-import type { SearchReportsEmployeesPayrollRequest } from '@/features/personnel/public/types/requests/SearchReportsEmployeesPayrollRequest';
-import type { AdvancesReport } from '@/features/personnel/public/types/responses/AdvancesReport';
-import type { PayrollReport } from '@/features/personnel/public/types/responses/PayrollReport';
+import type {
+  AdvancesReport,
+  PayrollReport,
+  SearchReportsEmployeesAdvancesRequest,
+  SearchReportsEmployeesPayrollRequest,
+} from '@/features/personnel/public';
 export async function fetchReportsEmployeesPayroll(
   params: SearchReportsEmployeesPayrollRequest,
 ): Promise<PayrollReport> {

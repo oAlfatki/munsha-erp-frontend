@@ -1,8 +1,8 @@
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
 import type {
-  LoginInput,
   ChangePasswordInput,
+  LoginInput,
   SessionsPage,
   StatusResponse,
 } from '@/features/auth/type';

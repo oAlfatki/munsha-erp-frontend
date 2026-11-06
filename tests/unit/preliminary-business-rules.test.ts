@@ -1,9 +1,9 @@
 import { it, expect } from 'vitest';
 import { createSeed } from '../reference/domain/engine';
 import examples from '../fixtures/command-examples.json';
-import { validateInventoryCommand } from '@/features/stock/public/validate-inventory-command';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
-import { validateParty } from '@/features/parties/public/validate-party';
+import { validateInventoryCommand } from "@/features/stock/validations/validate-inventory-command";
+import { validatePeriod } from "@/features/ledger/validations/validate-period";
+import { validateParty } from "@/features/parties/validations/validate-party";
 const seed = () => createSeed();
 it('product checks are read-only and accept the retained product contract', () => {
   const state = seed(),

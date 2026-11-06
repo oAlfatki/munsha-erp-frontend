@@ -1,16 +1,16 @@
 import { apiClient } from '@/core/api/apiClient';
 import type {
-  CreateUserRequest,
-  CreateUserResponse,
-  UpdateUserRequest,
-  UserDetails,
-  UsersPage,
-  UsersFilters,
-  UserPermissions,
-  PermissionMask,
   AuditFilters,
   AuditLogsPage,
+  CreateUserRequest,
+  CreateUserResponse,
+  PermissionMask,
+  UpdateUserRequest,
+  UserDetails,
+  UserPermissions,
   UserSessionsPage,
+  UsersFilters,
+  UsersPage,
 } from '@/features/users/type';
 const path = (id: number) => {
   if (!Number.isSafeInteger(id) || id < 1) throw Error('معرّف المستخدم غير صحيح.');

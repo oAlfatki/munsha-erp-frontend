@@ -1,4 +1,4 @@
-import { AnnualSettings } from '@/features/accounting/public/AnnualSettings';
+import { AnnualSettings } from '@/features/accounting/public';
 /** إنشاء الفترة المالية وترحيل الأرصدة — feature-owned route content. */
 export default function FinancialBooksPage() {
   return (

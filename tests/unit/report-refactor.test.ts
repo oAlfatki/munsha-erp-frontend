@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import baseline from '../fixtures/report-refactor-baseline.json';
 import manifest from '../fixtures/report-module-map.json';
-const modules = import.meta.glob('../../src/features/*/services/reports/*.ts', {
+const modules = import.meta.glob('../../src/features/**/services/**/*.ts', {
   eager: true,
 }) as Record<string, Record<string, Function>>;
 describe('Feature-owned reports preserve existing results', () => {

@@ -1,6 +1,6 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 import { exportPdf } from '@/core/reporting/service';
-import type { ExpenseReportProps } from '@/features/expenses/types/ExpenseReportProps';
+import type { ExpenseReportProps } from '@/features/expenses/types/props/ExpenseReportProps';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';

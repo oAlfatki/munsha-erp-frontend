@@ -1,5 +1,5 @@
-import type { ReadScope } from '@/core/types/ReadScope';
-import type { AuditEventResponse } from '@/features/users/public/types/responses/AuditEventResponse';
+import type { ReadScope } from '@/core/types/api/ReadScope';
+import type { AuditEventResponse } from '@/features/users/public';
 export type DashboardResponse = {
   lowStock: Array<{
     productId: string;

@@ -1,6 +1,6 @@
 import { afterEach, it, expect, vi } from 'vitest';
 import { axiosInstance } from '@/core/api/apiClient';
-import { backupsApi } from '@/features/organization/public/backups';
+import { backupsApi } from "@/features/organization/services/backups";
 const original = axiosInstance.defaults.adapter;
 afterEach(() => {
   axiosInstance.defaults.adapter = original;

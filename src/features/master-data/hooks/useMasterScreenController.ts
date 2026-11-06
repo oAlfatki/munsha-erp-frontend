@@ -1,11 +1,11 @@
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
-import { extras } from '@/features/ledger/public/extensions';
-import type { MasterRecord } from '@/features/ledger/public/types/models/MasterRecord';
-import { masterSchema } from '@/features/master-data/public/master-schema';
-import { useMaster } from '@/features/master-data/public/useMaster';
+import type { MasterRecord } from '@/features/ledger/public';
+import { extras } from '@/features/ledger/public';
+import { useMaster } from '@/features/master-data/hooks/useMaster';
 import { useMasterScreenControllerQuery } from '@/features/master-data/queries/useMasterScreenControllerQuery';
-import type { MasterScreenProps } from '@/features/master-data/types/MasterScreenProps';
+import type { MasterScreenProps } from '@/features/master-data/types/props/MasterScreenProps';
+import { masterSchema } from '@/features/master-data/validations/master-schema';
 import { useState } from 'react';
 
 export function useMasterScreenController({ screen }: MasterScreenProps) {

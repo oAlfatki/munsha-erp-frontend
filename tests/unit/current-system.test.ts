@@ -2,8 +2,8 @@ import { afterEach, expect, it } from 'vitest';
 import { axiosInstance } from '@/core/api/apiClient';
 import { readAccess } from '@/app/services/access-service';
 import { canPerform } from '@/core/auth/permissions';
-import { assertGrantable } from '@/features/users/validation/permission-grants';
-import type { Identity } from '@/core/types/Identity';
+import { assertGrantable } from "@/features/users/validations/permission-grants";
+import type { Identity } from "@/core/types/auth/Identity";
 const original = axiosInstance.defaults.adapter;
 afterEach(() => {
   axiosInstance.defaults.adapter = original;

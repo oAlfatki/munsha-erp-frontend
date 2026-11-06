@@ -1,5 +1,5 @@
-import type { ReportCell } from '@/core/types/ReportCell';
-import type { ReportIdentity } from '@/core/types/ReportIdentity';
+import type { ReportIdentity } from '@/core/types/auth/ReportIdentity';
+import type { ReportCell } from '@/core/types/reports/ReportCell';
 
 export const BLANK_IDENTITY: ReportIdentity = {
   name: '',

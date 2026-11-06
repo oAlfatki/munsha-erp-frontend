@@ -1,8 +1,8 @@
 import { ApiError } from '@/core/api/apiError';
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { booksQuery } from '@/features/ledger/public/books-query';
+import { booksQuery } from '@/features/ledger/public';
 import { fetchPurchasesInvoicesById } from '@/features/trade/api/purchases-read-api';
-import { fetchSalesInvoicesById } from '@/features/trade/public/sales-read-api';
+import { fetchSalesInvoicesById } from '@/features/trade/api/sales-read-api';
 import { useSuspenseQuery } from '@tanstack/react-query';
 /** The existing mixed-document deep link has no generic GET contract. Only a real 404 tries the other owning API. */
 export function useDocumentQuery(id: string) {

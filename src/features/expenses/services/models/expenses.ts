@@ -1,9 +1,9 @@
 import type { ExpenseView } from '@/features/expenses/types/models/ExpenseView';
 import type { ExpenseViewsContext } from '@/features/expenses/types/read-models/ExpenseViewsContext';
-import type { ExpenseDocument } from '@/features/ledger/public/types/models/ExpenseDocument';
+import type { ExpenseDocument } from '@/features/ledger/public';
 // Frontend display calculations; backend authority requires independent verification.
 import { money } from '@/core/utils/money';
-import { extras } from '@/features/ledger/public/extensions';
+import { extras } from '@/features/ledger/public';
 import { z } from 'zod';
 export const TREATMENT_LABELS = {
   current: 'مصروف حالي',

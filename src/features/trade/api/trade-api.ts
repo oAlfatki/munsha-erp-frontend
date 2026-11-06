@@ -1,9 +1,9 @@
-import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import type { CommandContext } from '@/core/types/CommandContext';
-import type { SaveInvoiceRequest } from '@/features/trade/public/types/requests/SaveInvoiceRequest';
+import type { CommandContext } from '@/core/types/api/CommandContext';
+import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
 import type { DeleteDraftRequest } from '@/features/trade/types/requests/DeleteDraftRequest';
+import type { SaveInvoiceRequest } from '@/features/trade/types/requests/SaveInvoiceRequest';
 import type { SavePartialReturnRequest } from '@/features/trade/types/requests/SavePartialReturnRequest';
 import type { SaveReturnRequest } from '@/features/trade/types/requests/SaveReturnRequest';
 export const submitInvoice = async (

@@ -1,4 +1,4 @@
-import type { AmountWordsProps } from '@/core/types/AmountWordsProps';
+import type { AmountWordsProps } from '@/core/types/props/AmountWordsProps';
 import { amountInWords } from '@/core/utils/amount-in-words';
 
 export function AmountWords({ amount, currency = 'YER' }: AmountWordsProps) {

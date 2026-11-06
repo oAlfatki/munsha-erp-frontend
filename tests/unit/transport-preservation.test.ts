@@ -1,5 +1,5 @@
 import { submitParty } from '@/features/parties/api/parties-api';
-import { mapPartyInput } from '@/features/parties/mapper/parties-mapper';
+import { mapPartyInput } from "@/features/parties/mappers/parties-mapper";
 import { it, vi, expect, afterEach } from 'vitest';
 import expected from '../fixtures/baseline-transport.json';
 import { axiosInstance as apiClient } from '@/core/api/apiClient';

@@ -1,5 +1,5 @@
-import type { FieldProps } from '@/core/types/FieldProps';
-import type { Validatable } from '@/core/types/Validatable';
+import type { Validatable } from '@/core/types/forms/Validatable';
+import type { FieldProps } from '@/core/types/props/FieldProps';
 import { validateControl } from '@/shared/ui/forms/control-validation';
 import { Select } from '@/shared/ui/forms/Select';
 import { fieldError } from '@/shared/ui/forms/ValidatedForm';

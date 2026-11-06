@@ -1,6 +1,6 @@
-import { extras } from '@/features/ledger/public/extensions';
-import { systemSettings } from '@/features/organization/public/system-settings';
-import { bookCatalog } from '@/features/ledger/public/annual-books';
+import { extras } from "@/features/ledger/services/extensions";
+import { systemSettings } from "@/features/organization/services/system-settings";
+import { bookCatalog } from "@/features/ledger/services/annual-books";
 import { expenseViews } from '@/features/expenses/services/models/expenses';
 /** Test-only translation of the frozen fixture into the existing granular HTTP DTOs. */
 export function readResponse(

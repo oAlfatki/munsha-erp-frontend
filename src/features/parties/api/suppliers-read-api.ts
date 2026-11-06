@@ -1,9 +1,9 @@
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import type { GetSuppliersByIdRequest } from '@/features/parties/public/types/requests/GetSuppliersByIdRequest';
-import type { SearchSuppliersRequest } from '@/features/parties/public/types/requests/SearchSuppliersRequest';
-import type { PartyListResponse } from '@/features/parties/public/types/responses/PartyListResponse';
-import type { PartyResponse } from '@/features/parties/public/types/responses/PartyResponse';
+import type { GetSuppliersByIdRequest } from '@/features/parties/types/requests/GetSuppliersByIdRequest';
+import type { SearchSuppliersRequest } from '@/features/parties/types/requests/SearchSuppliersRequest';
+import type { PartyListResponse } from '@/features/parties/types/responses/PartyListResponse';
+import type { PartyResponse } from '@/features/parties/types/responses/PartyResponse';
 /** List suppliers. Existing HTTP contract. */
 export async function fetchSuppliers(
   params: SearchSuppliersRequest = {},

@@ -4,11 +4,11 @@ import changes from '../fixtures/ROUTE_CHANGES.json';
 import { APP_ROUTES } from '@/app/router/routes';
 
 import { axiosInstance as apiClient } from '@/core/api/apiClient';
-import type { ApplicationState } from '@/core/types/ApplicationState';
-import type { QueryScope } from '@/core/types/QueryScope';
+import type { ApplicationState } from "@/core/types/api/ApplicationState";
+import type { QueryScope } from "@/core/types/api/QueryScope";
 import { masterRecordsQuery } from '@/features/master-data/queries/useMasterScreenControllerQuery';
 import { lookupQuery } from '@/features/master-data/queries/useLookupOptions';
-import type { FieldDef } from '@/core/types/FieldDef';
+import type { FieldDef } from "@/core/types/forms/FieldDef";
 import { beforeAll, afterAll, describe, it, expect, vi } from 'vitest';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';

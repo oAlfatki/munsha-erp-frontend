@@ -1,10 +1,7 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { partyGroupsQuery } from '@/features/parties/public/party-groups-query';
-import { suppliersQuery } from '@/features/parties/public/suppliers-query';
+import { booksQuery, currenciesQuery, mapMasterRecords } from '@/features/ledger/public';
+import { companyQuery } from '@/features/organization/public';
+import { partyGroupsQuery, suppliersQuery } from '@/features/parties/public';
 import type { SaveSupplierValidationReadModel } from '@/features/suppliers/types/read-models/SaveSupplierValidationReadModel';
 import { useQueryClient } from '@tanstack/react-query';
 export function useSaveSupplierValidationData() {

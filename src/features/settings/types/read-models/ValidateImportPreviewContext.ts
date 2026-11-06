@@ -1,5 +1,5 @@
-import type { Party } from '@/features/parties/public/types/models/Party';
-import type { Product } from '@/features/stock/public/types/models/Product';
+import type { Party } from '@/features/parties/public';
+import type { Product } from '@/features/stock/public';
 export interface ValidateImportPreviewContext {
   products: Product[];
   parties: Party[];

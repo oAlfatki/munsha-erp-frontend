@@ -1,7 +1,7 @@
-import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { apiClient } from '@/core/api/apiClient';
 import { ENDPOINTS } from '@/core/config/endpoints';
-import type { CommandContext } from '@/core/types/CommandContext';
+import type { CommandContext } from '@/core/types/api/CommandContext';
+import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
 import type { DeleteStockDraftRequest } from '@/features/stock/types/requests/DeleteStockDraftRequest';
 import type { SavePriceListRequest } from '@/features/stock/types/requests/SavePriceListRequest';
 import type { SaveProductRequest } from '@/features/stock/types/requests/SaveProductRequest';

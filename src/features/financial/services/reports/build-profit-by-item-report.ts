@@ -1,9 +1,9 @@
-import type { Filters } from '@/core/types/Filters';
-import type { ReportData } from '@/core/types/ReportData';
+import type { Filters } from '@/core/types/api/Filters';
+import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildProfitByItemReportContext } from '@/features/financial/types/read-models/BuildProfitByItemReportContext';
-import { extras } from '@/features/ledger/public/extensions';
-import { lineTotal } from '@/features/trade/public/line-total';
+import { extras } from '@/features/ledger/public';
+import { lineTotal } from '@/features/trade/public';
 export function buildProfitByItemReport(
   workspace: BuildProfitByItemReportContext,
   branch: string,

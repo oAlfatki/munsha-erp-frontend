@@ -1,11 +1,8 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import type { SaveCustomerValidationReadModel } from '@/features/customers/types/read-models/SaveCustomerValidationReadModel';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { customersQuery } from '@/features/parties/public/customers-query';
-import { partyGroupsQuery } from '@/features/parties/public/party-groups-query';
+import { booksQuery, currenciesQuery, mapMasterRecords } from '@/features/ledger/public';
+import { companyQuery } from '@/features/organization/public';
+import { customersQuery, partyGroupsQuery } from '@/features/parties/public';
 import { useQueryClient } from '@tanstack/react-query';
 export function useSaveCustomerValidationData() {
   const identity = useQueryIdentity(),

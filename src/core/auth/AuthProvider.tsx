@@ -1,9 +1,9 @@
 import { ApiError } from '@/core/api/apiError';
 import { advanceSession, sessionGeneration } from '@/core/api/session-transport';
 import { canPerform } from '@/core/auth/permissions';
-import type { AuthProviderProps } from '@/core/types/AuthProviderProps';
-import type { AuthContextValue } from '@/core/types/AuthContextValue';
-import type { Identity } from '@/core/types/Identity';
+import type { AuthContextValue } from '@/core/types/auth/AuthContextValue';
+import type { Identity } from '@/core/types/auth/Identity';
+import type { AuthProviderProps } from '@/core/types/props/AuthProviderProps';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 const Context = createContext<AuthContextValue>(null!);
@@ -107,7 +107,9 @@ export function AuthProvider({
     <Context.Provider
       value={{
         user: user || null,
-        loading: user === undefined && session.isPending,
+        // Query success precedes the effect that commits the restored identity.
+        // Keep protected routes pending through that render instead of redirecting to login.
+        loading: user === undefined && !session.error,
         error: session.error,
         access: accessQuery.data || null,
         accessError: accessQuery.error,

@@ -1,5 +1,5 @@
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
+import { validatePeriod } from '@/features/ledger/public';
 import { useSystemSettingsValidationData } from '@/features/settings/queries/useSystemSettingsValidationData';
 import { saveSystemSettings } from '@/features/settings/services/settings-service';
 export function useSystemSettings() {

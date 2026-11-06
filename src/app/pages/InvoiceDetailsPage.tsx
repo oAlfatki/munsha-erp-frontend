@@ -1,6 +1,6 @@
-import { PurchaseInvoices } from '@/features/purchases/public/PurchaseInvoices';
-import { SalesInvoices } from '@/features/sales/public/SalesInvoices';
-import { useDocumentQuery } from '@/features/trade/queries/useDocumentQuery';
+import { PurchaseInvoices } from '@/features/purchases/public';
+import { SalesInvoices } from '@/features/sales/public';
+import { useDocumentQuery } from '@/features/trade/public';
 import { useParams } from 'react-router-dom';
 export default function InvoiceDetailsPage() {
   const { documentId = '' } = useParams();

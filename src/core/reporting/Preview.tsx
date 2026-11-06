@@ -1,9 +1,9 @@
 import { escapeHtml, formatCell, reportIdentity } from '@/core/reporting/formatting';
 import { exportDocument } from '@/core/reporting/service';
 import { readDeviceSettings } from '@/core/services/device-settings';
-import type { DeviceSettings } from '@/core/types/DeviceSettings';
-import type { ReportDocument } from '@/core/types/ReportDocument';
-import type { ReportIdentity } from '@/core/types/ReportIdentity';
+import type { DeviceSettings } from '@/core/types/api/DeviceSettings';
+import type { ReportIdentity } from '@/core/types/auth/ReportIdentity';
+import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Button } from '@/shared/ui/primitives/button';
 import { Download, Printer } from 'lucide-react';

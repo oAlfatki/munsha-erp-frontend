@@ -1,6 +1,6 @@
-import { useAuth } from '@/core/auth/AuthProvider';
 import { ApiError } from '@/core/api/apiError';
 import { errorMessage } from '@/core/api/error-message';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';

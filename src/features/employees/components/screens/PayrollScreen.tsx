@@ -1,9 +1,8 @@
 import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { fmt, today } from '@/core/utils/formatters';
-import { useOperation } from '@/features/accounting/public/useOperation';
+import { useOperation } from '@/features/accounting/public';
 import { usePayrollScreenQuery } from '@/features/employees/queries/usePayrollScreenQuery';
-import { operationSchema } from '@/features/ledger/public/accounting-schema';
-import { extras } from '@/features/ledger/public/extensions';
+import { extras, operationSchema } from '@/features/ledger/public';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';

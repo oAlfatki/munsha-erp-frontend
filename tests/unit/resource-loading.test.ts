@@ -1,8 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import { readAllPages } from '@/core/api/readAllPages';
-import { customersQuery } from '@/features/parties/public/customers-query';
+import { customersQuery } from "@/features/parties/queries/customers-query";
 import { affectedOwners } from '@/core/query/invalidation';
-import type { ReadPage } from '@/core/types/ReadPage';
+import type { ReadPage } from "@/core/types/api/ReadPage";
 const scope = { bookId: 'main', branchId: '', baseCurrency: 'YER', revision: 7 };
 function page(n: number, items: number[], total = 3): ReadPage<number> {
   return {

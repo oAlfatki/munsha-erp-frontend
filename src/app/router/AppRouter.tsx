@@ -1,12 +1,13 @@
+import { NotFoundPage } from '@/shared/ui/feedback/NotFoundPage';
 import { DashboardLayout } from '@/app/layouts/DashboardLayout';
 import { CompanyProvider } from '@/app/providers/CompanyProvider';
 import { PageScope } from '@/app/router/PageScope';
 import { ProtectedRoute } from '@/app/router/ProtectedRoute';
 import { APP_ROUTES } from '@/app/router/routes';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { RouteErrorPage } from '@/core/router/RouteErrorPage';
 import { ApplicationProvider } from '@/core/state/ApplicationProvider';
-import { useAuth } from '@/core/auth/AuthProvider';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 function ApplicationLayout() {
@@ -17,14 +18,6 @@ function ApplicationLayout() {
         <DashboardLayout />
       </CompanyProvider>
     </ApplicationProvider>
-  );
-}
-function NotFound() {
-  return (
-    <main className="empty">
-      <h1>الصفحة غير موجودة</h1>
-      <a href={ROUTES.DASHBOARD}>العودة إلى لوحة المتابعة</a>
-    </main>
   );
 }
 export const APP_ROUTER = createBrowserRouter([
@@ -42,7 +35,7 @@ export const APP_ROUTER = createBrowserRouter([
             children: [
               { index: true, element: <Navigate to={ROUTES.DASHBOARD} replace /> },
               ...APP_ROUTES.filter((route) => route.path !== ROUTES.LOGIN),
-              { path: '*', element: <NotFound /> },
+              { path: '*', element: <NotFoundPage /> },
             ],
           },
         ],

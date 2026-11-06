@@ -1,8 +1,8 @@
 import { captureReport } from '@/core/reporting/capture';
 import { reportIdentity, safeFilename } from '@/core/reporting/formatting';
 import { readDeviceSettings } from '@/core/services/device-settings';
-import type { ReportCell } from '@/core/types/ReportCell';
-import type { ReportDocument } from '@/core/types/ReportDocument';
+import type { ReportCell } from '@/core/types/reports/ReportCell';
+import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 import { toast } from 'sonner';
 let isExporting = false;
 export async function exportDocument(report: ReportDocument) {

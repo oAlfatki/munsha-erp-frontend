@@ -1,7 +1,7 @@
 import { MENU_ITEMS } from '@/core/config/menu';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import type { ModuleLinksProps } from '@/core/types/ModuleLinksProps';
+import type { ModuleLinksProps } from '@/core/types/props/ModuleLinksProps';
 import { Select } from '@/shared/ui/forms/Select';
 import { Button } from '@/shared/ui/primitives/button';
 

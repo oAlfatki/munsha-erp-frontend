@@ -1,6 +1,6 @@
 import { MENU_ITEMS, menuLeaves as navigationLeaves } from '@/core/config/menu';
-import type { EntryProps } from '@/core/types/EntryProps';
-import type { SectionNavigationProps } from '@/core/types/SectionNavigationProps';
+import type { EntryProps } from '@/core/types/props/EntryProps';
+import type { SectionNavigationProps } from '@/core/types/props/SectionNavigationProps';
 import { ChevronDown, ChevronLeft, List, Plus } from 'lucide-react';
 import { useEffect, useState } from 'react';
 

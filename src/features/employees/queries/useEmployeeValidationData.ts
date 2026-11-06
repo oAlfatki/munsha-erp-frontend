@@ -1,7 +1,7 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import type { EmployeeValidationReadModel } from '@/features/employees/types/read-models/EmployeeValidationReadModel';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { companyQuery } from '@/features/organization/public/company-query';
+import { booksQuery } from '@/features/ledger/public';
+import { companyQuery } from '@/features/organization/public';
 import { useQueryClient } from '@tanstack/react-query';
 export function useEmployeeValidationData() {
   const identity = useQueryIdentity(),

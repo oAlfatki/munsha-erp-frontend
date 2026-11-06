@@ -1,7 +1,7 @@
-import { validateDeleteDraftSettingsPolicy } from '@/features/organization/public/delete-draft-policy';
+import { validateDeleteDraftSettingsPolicy } from '@/features/organization/public';
 
 import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
+import { validatePeriod } from '@/features/ledger/public';
 import { useDeleteDraftValidationData } from '@/features/trade/queries/useDeleteDraftValidationData';
 import { saveDeleteDraft } from '@/features/trade/services/trade-service';
 export function useDeleteDraft() {

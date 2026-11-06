@@ -3,7 +3,7 @@ import { createSeed } from '../reference/domain/engine';
 import { systemSettings, validatePolicy } from '../reference/domain/system-settings';
 import manifest from '../fixtures/POLICY_SPECIALIZATION.json';
 import examples from '../fixtures/command-examples.json';
-const modules = import.meta.glob('../../src/features/organization/public/*-policy.ts', {
+const modules = import.meta.glob('../../src/features/organization/services/*-policy.ts', {
   eager: true,
 }) as Record<string, Record<string, (state: ReturnType<typeof createSeed>, raw: unknown) => void>>;
 function outcome(run: () => void) {

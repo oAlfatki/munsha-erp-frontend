@@ -1,6 +1,6 @@
 import { ROUTES } from '@/core/config/navigation-paths';
 
-import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Party } from '@/features/parties/public';
 import { useSuppliersProjection } from '@/features/suppliers/hooks/useSuppliersProjection';
 import { useSupplierDirectoryControllerQuery } from '@/features/suppliers/queries/useSupplierDirectoryControllerQuery';
 import { useState } from 'react';

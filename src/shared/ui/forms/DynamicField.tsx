@@ -1,4 +1,4 @@
-import type { DynamicFieldProps } from '@/core/types/DynamicFieldProps';
+import type { DynamicFieldProps } from '@/core/types/props/DynamicFieldProps';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Input } from '@/shared/ui/primitives/input';

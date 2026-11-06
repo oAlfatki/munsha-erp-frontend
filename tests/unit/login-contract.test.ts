@@ -8,7 +8,7 @@ import {
   sessionGeneration,
 } from '@/core/api/session-transport';
 import { login, getAccount } from '@/features/auth/services/auth-service';
-import { loginSchema } from '@/features/auth/validation/auth-schema';
+import { loginSchema } from "@/features/auth/validations/auth-schema";
 import { loginDestination } from '@/features/auth/services/login-destination';
 import { ROUTES } from '@/core/config/navigation-paths';
 const original = axiosInstance.defaults.adapter;
