@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
 import { useExpenseConsumeValidationData } from '@/features/expenses/queries/useExpenseConsumeValidationData';
 import { saveExpenseConsume } from '@/features/expenses/services/expenses-service';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
+import { validatePeriod } from '@/features/ledger/public';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useExpenseConsume() {
+
   const loadValidationData = useExpenseConsumeValidationData();
   return useCommandMutation('expenseConsume', saveExpenseConsume, async (input) => {
     const state = await loadValidationData();

@@ -1,7 +1,10 @@
-import type { ReportDocument } from '@/core/types/ReportDocument';
-import type { ReportTable } from '@/core/types/ReportTable';
+import type { ReportDocument } from '@/core/types/reports/ReportDocument';
+import type { ReportTable } from '@/core/types/reports/ReportTable';
+
 const text = (e: Element | null) => e?.textContent?.replace(/\s+/g, ' ').trim() || '';
+
 function cell(e: Element): string {
+
   const copy = e.cloneNode(true) as Element;
   copy.querySelectorAll('button,svg,.no-print').forEach((b) => b.remove());
   const controls = [...e.querySelectorAll('input,select,textarea')] as (
@@ -23,7 +26,9 @@ function cell(e: Element): string {
         .join(' / ')
     : text(copy);
 }
+
 export function captureReport(title?: string): ReportDocument {
+
   const dialogs = [...document.querySelectorAll('[role="dialog"]')].filter(
       (e) => e.getClientRects().length,
     ),

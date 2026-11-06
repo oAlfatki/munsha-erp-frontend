@@ -1,5 +1,7 @@
 // Frontend display calculations; backend authority requires independent verification.
+
 export function parseMasterCsv(input: string): string[][] {
+
   const result: string[][] = [];
   let row: string[] = [],
     cell = '',

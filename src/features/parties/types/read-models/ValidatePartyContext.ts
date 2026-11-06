@@ -1,5 +1,6 @@
-import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
-import type { Party } from '@/features/parties/public/types/models/Party';
+import type { ExtensionData } from '@/features/ledger/public';
+import type { Party } from '@/features/parties/types/models/Party';
+
 export interface ValidatePartyContext {
   currencies: {
     code: string;

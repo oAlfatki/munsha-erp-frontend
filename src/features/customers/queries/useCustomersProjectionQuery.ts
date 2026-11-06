@@ -1,10 +1,12 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { CustomersProjectionReadModel } from '@/features/customers/types/read-models/CustomersProjectionReadModel';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { customersQuery } from '@/features/parties/public/customers-query';
+import { booksQuery } from '@/features/ledger/public';
+import { customersQuery } from '@/features/parties/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCustomersProjectionQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

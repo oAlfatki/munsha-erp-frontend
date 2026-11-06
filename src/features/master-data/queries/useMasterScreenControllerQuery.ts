@@ -1,27 +1,29 @@
 import { readAllPages } from '@/core/api/readAllPages';
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import type { QueryScope } from '@/core/types/QueryScope';
-import type { ReadPage } from '@/core/types/ReadPage';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { fetchExpensesTypes } from '@/features/ledger/public/expense-read-api';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
+import type { QueryScope } from '@/core/types/api/QueryScope';
+import type { ReadPage } from '@/core/types/api/ReadPage';
+import type { MasterRecord } from '@/features/ledger/public';
 import {
+  booksQuery,
   fetchAccountingAccounts,
   fetchAccountingAssets,
   fetchAccountingCashAccounts,
   fetchAccountingContacts,
-} from '@/features/ledger/public/read-api';
-import type { MasterRecord } from '@/features/ledger/public/types/models/MasterRecord';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { fetchPartiesGroups } from '@/features/parties/public/groups-api';
+  fetchExpensesTypes,
+  mapMasterRecords,
+} from '@/features/ledger/public';
+import { branchesQuery } from '@/features/organization/public';
+import { fetchPartiesGroups } from '@/features/parties/public';
 import {
   fetchInventoryItemGroups,
   fetchInventoryUnitCategories,
   fetchInventoryUnits,
-} from '@/features/stock/public/read-api';
+} from '@/features/stock/public';
 import { queryOptions, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useMasterScreenControllerQuery(collection: string) {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));
@@ -44,6 +46,7 @@ export function useMasterScreenControllerQuery(collection: string) {
 }
 
 export function masterRecordsQuery(identity: QueryScope, collection: string) {
+
   const owner = ['units', 'categories', 'productGroups'].includes(collection)
     ? 'inventory'
     : collection === 'groups'
@@ -62,7 +65,9 @@ export function masterRecordsQuery(identity: QueryScope, collection: string) {
       '',
       identity.locale,
     ],
+
     queryFn: async ({ signal }): Promise<ReadPage<MasterRecord>> => {
+
       const params = { bookId: identity.bookId };
       switch (collection) {
         case 'accounts': {
@@ -125,6 +130,7 @@ export function masterRecordsQuery(identity: QueryScope, collection: string) {
           throw Error('نوع التعريف غير مدعوم: ' + collection);
       }
     },
+
     staleTime: 30000,
   });
 }

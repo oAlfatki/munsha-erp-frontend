@@ -9,7 +9,7 @@ test('validates the login form before submitting credentials', async ({ page }) 
   await page.getByRole('button', { name: 'تسجيل الدخول', exact: true }).click();
   await expect(page.getByRole('alert').filter({ hasText: 'اسم المستخدم إجباري' })).toBeVisible();
   await expect(page.getByRole('alert').filter({ hasText: 'كلمة المرور إجبارية' })).toBeVisible();
-  expect(backend.calls.some((call) => call.path === '/auth/login')).toBe(false);
+  expect(backend.calls.some((call) => call.path === '/auth/sign-in')).toBe(false);
   await expect(page.getByText('تجربة النظام', { exact: true })).toHaveCount(0);
 });
 
@@ -34,49 +34,21 @@ test('restores a server session on a direct protected URL and reload', async ({ 
   ).toBe(false);
 });
 
-test('creates a customer through feature services and HTTP and keeps it after reload', async ({
+test('blocks ERP writes whose permission binding is absent from the adopted contract', async ({
   page,
 }) => {
   const backend = await installTestBackend(page);
   await page.goto('/customers/new');
   await page.getByRole('dialog').waitFor();
-  await page.getByRole('textbox', { name: 'اسم العميل', exact: true }).fill('عميل اختبار معماري');
+  await page.getByRole('textbox', { name: 'اسم العميل', exact: true }).fill('عميل غير محفوظ');
   await page.getByRole('button', { name: 'حفظ البيانات', exact: true }).click();
-  await expect(page.getByRole('dialog')).toHaveCount(0);
-  const row = () =>
-    page
-      .locator('.data-table > tbody:not(.print-all-rows)')
-      .getByText('عميل اختبار معماري', { exact: true });
-  await expect(row()).toBeVisible();
-  await page.reload();
-  await expect(row()).toBeVisible();
-  await expect(page).toHaveURL(/\/customers$/);
-  const save = backend.calls.find(
-    (call) => call.method === 'POST' && call.path === '/parties/commands/party',
+  await expect(
+    page.getByText('العملية غير مصرح بها أو لم يُعتمد ربط صلاحيتها بعقد API الحالي.'),
+  ).toBeVisible();
+  expect(backend.calls.some((c) => c.method === 'POST' && c.path.includes('/commands/'))).toBe(
+    false,
   );
-  expect(save?.body).toMatchObject({
-    type: 'party',
-    data: { kind: 'customer', name: 'عميل اختبار معماري' },
-  });
-  expect(backend.getState().parties.some((party) => party.name === 'عميل اختبار معماري')).toBe(
-    true,
-  );
-  expect(
-    backend.calls.some((call) => call.path === '/workspace' || call.path.startsWith('/inventory/')),
-  ).toBe(false);
-});
-
-test('creates a supplier through the same HTTP boundary with supplier rules', async ({ page }) => {
-  const backend = await installTestBackend(page);
-  await page.goto('/suppliers/new');
-  await page.getByRole('dialog').waitFor();
-  await page.getByRole('textbox', { name: 'اسم المورد', exact: true }).fill('مورد اختبار معماري');
-  await page.getByRole('button', { name: 'حفظ البيانات', exact: true }).click();
-  await expect(page.getByRole('dialog')).toHaveCount(0);
-  expect(
-    backend.calls.find((call) => call.method === 'POST' && call.path === '/parties/commands/party')
-      ?.body,
-  ).toMatchObject({ data: { kind: 'supplier', name: 'مورد اختبار معماري' } });
+  expect(backend.getState().parties.some((p) => p.name === 'عميل غير محفوظ')).toBe(false);
 });
 
 test('supports theme changes and remembers the selected theme', async ({ page }) => {
@@ -154,6 +126,10 @@ test('opens the RTL print preview and downloads a real customer PDF on a phone v
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
   await page.getByRole('button', { name: 'طباعة', exact: true }).click();
   const preview = page.getByRole('dialog').filter({ hasText: 'معاينة الطباعة' });
+  await expect(page.locator('iframe[title="معاينة المستند الموحد"]')).toHaveAttribute(
+    'sandbox',
+    'allow-same-origin allow-modals',
+  );
   await expect(preview).toBeVisible();
   await expect(
     page.frameLocator('iframe[title="معاينة المستند الموحد"]').locator('body'),
@@ -173,48 +149,40 @@ test('opens the RTL print preview and downloads a real customer PDF on a phone v
   expect(data.length).toBeGreaterThan(1000);
 });
 
-test('creates, edits and resets a user with observable persisted state', async ({ page }) => {
+test('creates and views a user, blocks unsafe edit, and resets a normal password', async ({
+  page,
+}) => {
   const backend = await installTestBackend(page);
   await page.goto('/users/new');
-  await page.getByRole('button', { name: 'حفظ المستخدم', exact: true }).click();
-  await expect(
-    page.getByRole('alert').filter({ hasText: 'اسم المستخدم الكامل إجباري' }),
-  ).toBeVisible();
-  expect(backend.calls.filter((c) => c.method === 'POST' && c.path === '/users')).toHaveLength(0);
-  await page.getByRole('textbox', { name: 'الاسم الكامل', exact: true }).fill('  مستخدم معماري  ');
-  await page.getByRole('textbox', { name: 'اسم الدخول', exact: true }).fill('architect');
-  await page.getByLabel('كلمة المرور المؤقتة', { exact: true }).fill('password-12345');
+  await page.getByRole('textbox', { name: 'الاسم الكامل', exact: true }).fill('مستخدم معماري');
+  await page.getByRole('textbox', { name: 'اسم المستخدم', exact: true }).fill('architect');
+  await page.getByLabel('كلمة المرور', { exact: true }).fill('password-12345');
+  await page.getByRole('button', { name: 'كل الصلاحيات المسموح بمنحها', exact: true }).click();
   await page.getByRole('button', { name: 'حفظ المستخدم', exact: true }).click();
   await expect(page).toHaveURL(/\/users$/);
-  expect(backend.getUsers()[0].name).toBe('مستخدم معماري');
-  const row = page
-    .locator('.data-table > tbody:not(.print-all-rows) tr')
-    .filter({ hasText: 'architect' });
-  await expect(row).toContainText('مستخدم معماري');
-  await row.getByRole('button', { name: 'عرض وتعديل', exact: true }).click();
-  await expect(page).toHaveURL(/\/users\/user-1\/edit$/);
-  await page.getByRole('textbox', { name: 'الاسم الكامل', exact: true }).fill('مستخدم معدل');
-  await page.getByRole('button', { name: 'حفظ المستخدم', exact: true }).click();
-  await expect(page).toHaveURL(/\/users$/);
-  await expect(row).toContainText('مستخدم معدل');
-  expect(backend.getUsers()[0].name).toBe('مستخدم معدل');
-  await row.getByRole('button', { name: 'إعادة تعيين كلمة المرور', exact: true }).click();
-  await page.getByLabel('كلمة المرور المؤقتة الجديدة', { exact: true }).fill('replacement-12345');
+  expect(backend.getUsers()[0].fullName).toBe('مستخدم معماري');
+  const row = page.locator('tbody tr').filter({ hasText: 'architect' });
+  await row.getByRole('button', { name: 'تعديل', exact: true }).click();
+  await expect(page.getByText('لا يمكن الحفظ الآمن:', { exact: false })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'حفظ المستخدم', exact: true })).toBeDisabled();
+  expect(backend.calls.some((c) => c.method === 'PUT' && c.path === '/users/2')).toBe(false);
+  await page.goto('/users/2');
+  await expect(page.getByRole('heading', { name: 'تفاصيل المستخدم' })).toBeVisible();
+  await page.getByLabel('كلمة المرور الجديدة', { exact: true }).fill('replacement-12345');
   await page.getByRole('button', { name: 'تأكيد إعادة التعيين', exact: true }).click();
-  await expect(page.getByRole('dialog')).toHaveCount(0);
-  expect(
-    backend.calls.find((c) => c.method === 'PUT' && c.path === '/users/user-1/password')?.body,
-  ).toMatchObject({ action: 'resetPassword', id: 'user-1', password: 'replacement-12345' });
-  await page.reload();
-  await expect(row).toContainText('مستخدم معدل');
+  await expect(page.getByText('تمت إعادة تعيين كلمة المرور.')).toBeVisible();
+  expect(backend.calls.find((c) => c.path === '/users/2/reset-password')?.body).toEqual({
+    newPassword: 'replacement-12345',
+  });
 });
 
 test('shows rejected user mutations without navigating or pretending success', async ({ page }) => {
   const backend = await installTestBackend(page);
   await page.goto('/users/new');
   await page.getByRole('textbox', { name: 'الاسم الكامل', exact: true }).fill('مستخدم');
-  await page.getByRole('textbox', { name: 'اسم الدخول', exact: true }).fill('duplicate');
-  await page.getByLabel('كلمة المرور المؤقتة', { exact: true }).fill('password-12345');
+  await page.getByRole('textbox', { name: 'اسم المستخدم', exact: true }).fill('duplicate');
+  await page.getByLabel('كلمة المرور', { exact: true }).fill('password-12345');
+  await page.getByRole('button', { name: 'كل الصلاحيات المسموح بمنحها', exact: true }).click();
   backend.failNext('/users', 409, 'اسم الدخول مستخدم');
   await page.getByRole('button', { name: 'حفظ المستخدم', exact: true }).click();
   await expect(page.getByRole('alert')).toContainText('اسم الدخول مستخدم');
@@ -222,27 +190,23 @@ test('shows rejected user mutations without navigating or pretending success', a
   expect(backend.getUsers()).toHaveLength(0);
 });
 
-test('prevents non-admin user creation before any write request', async ({ page }) => {
-  const backend = await installTestBackend(page, true, 'staff');
+test('prevents user creation without its actual permission', async ({ page }) => {
+  const backend = await installTestBackend(page, true, false);
   await page.goto('/users/new');
-  await expect(
-    page.getByText('إدارة حسابات المستخدمين متاحة لمسؤول النظام.', { exact: true }),
-  ).toBeVisible();
+  await expect(page.getByText('لا تملك صلاحية إضافة المستخدمين.', { exact: true })).toBeVisible();
   await expect(page.getByRole('button', { name: 'حفظ المستخدم', exact: true })).toHaveCount(0);
   expect(backend.calls.filter((c) => c.method === 'POST' && c.path === '/users')).toHaveLength(0);
 });
 
-test('persists language and direction across reloads', async ({ page }) => {
+test('uses Arabic and RTL even when an obsolete language preference exists', async ({ page }) => {
   await installTestBackend(page);
+  await page.addInitScript(() => localStorage.setItem('munsha-language', 'en'));
   await page.goto('/dashboard');
-  await page.getByRole('button', { name: 'تغيير اللغة', exact: true }).click();
-  await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
-  await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-  await page.reload();
-  await expect(page.locator('html')).toHaveAttribute('dir', 'ltr');
-  await expect(page.getByRole('button', { name: 'Customers', exact: true })).toBeVisible();
-  await page.getByRole('button', { name: 'Change language', exact: true }).click();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
+  await expect(page.getByRole('button', { name: 'تغيير اللغة', exact: true })).toHaveCount(0);
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
 });
 
 test('preserves settings columns and stock document spacing after splitting styles', async ({
@@ -257,4 +221,16 @@ test('preserves settings columns and stock document spacing after splitting styl
   await expect(page.locator('.stock-item-search')).toBeVisible();
   await expect(page.locator('.stock-item-search')).toHaveCSS('margin-top', '20px');
   await expect(page.locator('.stock-item-search > input')).toHaveCSS('max-width', '550px');
+});
+
+test('invalid user detail and edit URLs show 404 without requesting an invalid user', async ({
+  page,
+}) => {
+  const backend = await installTestBackend(page);
+  for (const path of ['/users/not-an-id', '/users/0', '/users/not-an-id/edit', '/users/0/edit']) {
+    await page.goto(path);
+    await expect(page.getByRole('heading', { name: 'الصفحة غير موجودة' })).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(path + '$'));
+  }
+  expect(backend.calls.filter((call) => call.path.startsWith('/users/'))).toEqual([]);
 });

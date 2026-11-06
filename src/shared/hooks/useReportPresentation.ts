@@ -1,10 +1,11 @@
-import { exportDocument } from '@/core/reporting/service';
-import type { ReportDocument } from '@/core/types/ReportDocument';
+import type { ReportDocument } from '@/core/types/reports/ReportDocument';
 import { amountInWords } from '@/core/utils/amount-in-words';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
+import { exportDocument } from '@/shared/services/report-actions';
 import type { ReportPresentationOptions } from '@/shared/types/reporting/ReportPresentationOptions';
 import { useState } from 'react';
+
 export function useReportPresentation({
   title,
   data,
@@ -15,11 +16,14 @@ export function useReportPresentation({
   getAmount,
   extraTotals,
 }: ReportPresentationOptions) {
+
   const { initial, draft, setDraft, filters, setFilters, handleApplyFilters } = filterState;
   const [selected, setSelected] = useState<(string | number)[] | null>(null);
   const [isSummary, setSummary] = useState(false);
   const summaryCols = summaryColumns;
+
   const report = (rows = data.rows): ReportDocument => {
+
     const totals: [string, string][] = [
       ['عدد النتائج', String(rows.length)],
       ...summaryCols.map(
@@ -77,8 +81,10 @@ export function useReportPresentation({
       notes: data.note ? [data.note] : [],
     };
   };
+
   const exportRows = (rows: (string | number)[][]) =>
     exportDocument((rows.length === 1 ? rowDocument?.(rows[0]) : undefined) || report(rows));
+
   return {
     context,
     initial,

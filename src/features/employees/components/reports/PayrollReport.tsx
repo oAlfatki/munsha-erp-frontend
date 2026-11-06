@@ -1,6 +1,8 @@
 import { usePayrollReportView } from '@/features/employees/hooks/usePayrollReportView';
 import { ReportViewer } from '@/shared/ui/reports/ReportViewer';
+
 export function PayrollReport() {
+
   const model = usePayrollReportView({ title: 'تقرير رواتب الموظفين', summaryColumns: [] });
 
   return (

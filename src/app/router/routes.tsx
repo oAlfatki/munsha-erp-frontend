@@ -14,6 +14,7 @@ import { SETTINGS_ROUTES } from './modules/settings.routes';
 import { SUPPLIERS_ROUTES } from './modules/suppliers.routes';
 import { TRADE_ROUTES } from './modules/trade.routes';
 import { USERS_ROUTES } from './modules/users.routes';
+
 export const APP_ROUTES: RouteObject[] = [
   ...ACCOUNTING_ROUTES,
   ...AUTH_ROUTES,

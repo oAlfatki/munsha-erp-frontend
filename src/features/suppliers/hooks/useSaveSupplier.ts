@@ -1,11 +1,13 @@
-import { mapSupplierInput } from '@/features/suppliers/mapper/suppliers-mapper';
+import { mapSupplierInput } from '@/features/suppliers/mappers/suppliers-mapper';
 
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
-import { validateParty } from '@/features/parties/public/validate-party';
+import { validatePeriod } from '@/features/ledger/public';
+import { validateParty } from '@/features/parties/public';
 import { useSaveSupplierValidationData } from '@/features/suppliers/queries/useSaveSupplierValidationData';
 import { saveSupplier } from '@/features/suppliers/services/suppliers-service';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useSaveSupplier() {
+
   const loadValidationData = useSaveSupplierValidationData();
   return useCommandMutation('party', saveSupplier, async (input) => {
     const state = await loadValidationData();

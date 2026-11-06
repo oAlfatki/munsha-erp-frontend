@@ -1,11 +1,14 @@
-import type { ReadPage } from '@/core/types/ReadPage';
-import type { ReadParams } from '@/core/types/ReadParams';
+import type { ReadPage } from '@/core/types/api/ReadPage';
+import type { ReadParams } from '@/core/types/api/ReadParams';
+
 /** Complete collection reads are explicit only for existing client calculations and all-row export. */
+
 export async function readAllPages<T>(
   read: (params: ReadParams) => Promise<ReadPage<T>>,
   params: ReadParams,
   signal?: AbortSignal,
 ): Promise<ReadPage<T>> {
+
   let result: ReadPage<T> | undefined;
   const items: T[] = [];
   for (let page = 1; page <= 1000; page++) {

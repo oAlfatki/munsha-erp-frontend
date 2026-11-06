@@ -1,14 +1,13 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { CustomerEditorControllerReadModel } from '@/features/customers/types/read-models/CustomerEditorControllerReadModel';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { systemQuery } from '@/features/organization/public/system-query';
-import { partyGroupsQuery } from '@/features/parties/public/party-groups-query';
+import { booksQuery, currenciesQuery, mapMasterRecords } from '@/features/ledger/public';
+import { companyQuery, systemQuery } from '@/features/organization/public';
+import { partyGroupsQuery } from '@/features/parties/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCustomerEditorControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

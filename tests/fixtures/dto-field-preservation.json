@@ -2,29 +2,20 @@
   {
     "file": "src/features/accounting/types/request/accounting-request.types.ts",
     "currentFiles": [
-      "src/features/ledger/public/types/requests/SavePermissionsRequest.ts",
-      "src/features/ledger/public/types/requests/SaveContactEntryRequest.ts",
-      "src/features/ledger/public/types/requests/SaveContactVoucherRequest.ts",
-      "src/features/ledger/public/types/requests/SavePeriodSwitchRequest.ts",
-      "src/features/ledger/public/types/requests/SavePeriodCreateRequest.ts",
-      "src/features/ledger/public/types/requests/SavePeriodTransferRequest.ts",
-      "src/features/ledger/public/types/requests/SavePeriodActivateRequest.ts",
-      "src/features/ledger/public/types/requests/SavePeriodResetRequest.ts",
-      "src/features/ledger/public/types/requests/SaveScreenDraftRequest.ts",
-      "src/features/ledger/public/types/requests/SaveMasterRequest.ts",
-      "src/features/ledger/public/types/requests/SaveManualJournalRequest.ts",
-      "src/features/ledger/public/types/requests/SaveOperationRequest.ts",
-      "src/features/ledger/public/types/requests/SaveVoucherRequest.ts"
+      "src/features/ledger/types/requests/SaveContactEntryRequest.ts",
+      "src/features/ledger/types/requests/SaveContactVoucherRequest.ts",
+      "src/features/ledger/types/requests/SavePeriodSwitchRequest.ts",
+      "src/features/ledger/types/requests/SavePeriodCreateRequest.ts",
+      "src/features/ledger/types/requests/SavePeriodTransferRequest.ts",
+      "src/features/ledger/types/requests/SavePeriodActivateRequest.ts",
+      "src/features/ledger/types/requests/SavePeriodResetRequest.ts",
+      "src/features/ledger/types/requests/SaveScreenDraftRequest.ts",
+      "src/features/ledger/types/requests/SaveMasterRequest.ts",
+      "src/features/ledger/types/requests/SaveManualJournalRequest.ts",
+      "src/features/ledger/types/requests/SaveOperationRequest.ts",
+      "src/features/ledger/types/requests/SaveVoucherRequest.ts"
     ],
     "expected": [
-      {
-        "name": "role",
-        "isOptional": false
-      },
-      {
-        "name": "permissions",
-        "isOptional": false
-      },
       {
         "name": "contactId",
         "isOptional": false
@@ -312,7 +303,7 @@
       "src/features/ledger/types/requests/GetAccountingAssetAcquisitionsByIdRequest.ts",
       "src/features/ledger/types/requests/SearchAccountingDepreciationRequest.ts",
       "src/features/ledger/types/requests/GetAccountingDepreciationByIdRequest.ts",
-      "src/features/ledger/public/types/requests/SearchAccountingFinancialBooksByIdClosingStockRequest.ts",
+      "src/features/ledger/types/requests/SearchAccountingFinancialBooksByIdClosingStockRequest.ts",
       "src/features/ledger/types/requests/SearchAccountingFinancialBooksByIdClosingAccountsRequest.ts"
     ],
     "expected": [
@@ -1221,131 +1212,8 @@
     ]
   },
   {
-    "file": "src/features/auth/types/request/auth-request.types.ts",
-    "currentFiles": [
-      "src/features/auth/types/requests/LoginRequest.ts"
-    ],
-    "expected": [
-      {
-        "name": "username",
-        "isOptional": false
-      },
-      {
-        "name": "password",
-        "isOptional": false
-      }
-    ],
-    "retiredFiles": [
-      "src/features/auth/types/requests/SaveAuthActionRequest.ts"
-    ],
-    "retirementReason": "Generic auth-action wrapper replaced by explicit authApi functions; original wire requests require HTTP contract tests.",
-    "retiredExpected": [
-      {
-        "name": "action",
-        "isOptional": false
-      }
-    ]
-  },
-  {
-    "file": "src/features/auth/types/response/auth-response.types.ts",
-    "currentFiles": [
-      "src/features/auth/types/responses/AuthResponse.ts",
-      "src/features/auth/types/responses/AuthUser.ts",
-      "src/features/auth/types/responses/AuthSession.ts",
-      "src/features/auth/public/types/responses/AuthActionResponse.ts"
-    ],
-    "expected": [
-      {
-        "name": "user",
-        "isOptional": false
-      },
-      {
-        "name": "users",
-        "isOptional": false
-      },
-      {
-        "name": "sessions",
-        "isOptional": false
-      },
-      {
-        "name": "id",
-        "isOptional": false
-      },
-      {
-        "name": "username",
-        "isOptional": false
-      },
-      {
-        "name": "name",
-        "isOptional": false
-      },
-      {
-        "name": "role",
-        "isOptional": false
-      },
-      {
-        "name": "active",
-        "isOptional": false
-      },
-      {
-        "name": "must_change",
-        "isOptional": false
-      },
-      {
-        "name": "created_at",
-        "isOptional": false
-      },
-      {
-        "name": "id",
-        "isOptional": false
-      },
-      {
-        "name": "user_id",
-        "isOptional": false
-      },
-      {
-        "name": "name",
-        "isOptional": false
-      },
-      {
-        "name": "username",
-        "isOptional": false
-      },
-      {
-        "name": "created_at",
-        "isOptional": false
-      },
-      {
-        "name": "last_seen",
-        "isOptional": false
-      },
-      {
-        "name": "expires_at",
-        "isOptional": false
-      },
-      {
-        "name": "device",
-        "isOptional": false
-      },
-      {
-        "name": "ok",
-        "isOptional": false
-      },
-      {
-        "name": "mustChange",
-        "isOptional": true
-      },
-      {
-        "name": "relogin",
-        "isOptional": true
-      }
-    ]
-  },
-  {
     "file": "src/features/customers/types/request/customers-request.types.ts",
-    "currentFiles": [
-      "src/features/customers/types/requests/SaveCustomerRequest.ts"
-    ],
+    "currentFiles": ["src/features/customers/types/requests/SaveCustomerRequest.ts"],
     "expected": [
       {
         "name": "kind",
@@ -1356,8 +1224,8 @@
   {
     "file": "src/features/customers/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/parties/public/types/requests/SearchCustomersRequest.ts",
-      "src/features/parties/public/types/requests/GetCustomersByIdRequest.ts",
+      "src/features/parties/types/requests/SearchCustomersRequest.ts",
+      "src/features/parties/types/requests/GetCustomersByIdRequest.ts",
       "src/features/parties/types/requests/SearchPartiesGroupsRequest.ts",
       "src/features/parties/types/requests/GetPartiesGroupsByIdRequest.ts"
     ],
@@ -1427,8 +1295,8 @@
   {
     "file": "src/features/customers/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/parties/public/types/responses/PartyListResponse.ts",
-      "src/features/parties/public/types/responses/PartyResponse.ts",
+      "src/features/parties/types/responses/PartyListResponse.ts",
+      "src/features/parties/types/responses/PartyResponse.ts",
       "src/features/parties/types/responses/PartyGroupListResponse.ts",
       "src/features/parties/types/responses/PartyGroupResponse.ts"
     ],
@@ -1513,9 +1381,7 @@
   },
   {
     "file": "src/features/dashboard/types/request/read-queries.types.ts",
-    "currentFiles": [
-      "src/features/dashboard/types/requests/GetDashboardRequest.ts"
-    ],
+    "currentFiles": ["src/features/dashboard/types/requests/GetDashboardRequest.ts"],
     "expected": [
       {
         "name": "bookId",
@@ -1529,9 +1395,7 @@
   },
   {
     "file": "src/features/dashboard/types/response/read-contracts.types.ts",
-    "currentFiles": [
-      "src/features/dashboard/types/responses/DashboardResponse.ts"
-    ],
+    "currentFiles": ["src/features/dashboard/types/responses/DashboardResponse.ts"],
     "expected": [
       {
         "name": "lowStock",
@@ -1570,8 +1434,8 @@
   {
     "file": "src/features/employees/types/request/employees-request.types.ts",
     "currentFiles": [
-      "src/features/personnel/public/types/requests/SaveEmployeeRequest.ts",
-      "src/features/personnel/public/types/requests/SaveEmployeeDeleteRequest.ts"
+      "src/features/personnel/types/requests/SaveEmployeeRequest.ts",
+      "src/features/personnel/types/requests/SaveEmployeeDeleteRequest.ts"
     ],
     "expected": [
       {
@@ -1860,8 +1724,8 @@
     "currentFiles": [
       "src/features/personnel/types/responses/EmployeeListResponse.ts",
       "src/features/personnel/types/responses/EmployeeResponse.ts",
-      "src/features/ledger/public/types/responses/OperationListResponse.ts",
-      "src/features/ledger/public/types/responses/OperationResponse.ts"
+      "src/features/ledger/types/responses/OperationListResponse.ts",
+      "src/features/ledger/types/responses/OperationResponse.ts"
     ],
     "expected": [
       {
@@ -2168,12 +2032,12 @@
   {
     "file": "src/features/expenses/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/ledger/public/types/requests/SearchExpensesTypesRequest.ts",
-      "src/features/ledger/public/types/requests/GetExpensesTypesByIdRequest.ts",
-      "src/features/ledger/public/types/requests/SearchExpensesDocumentsRequest.ts",
-      "src/features/ledger/public/types/requests/GetExpensesDocumentsByIdRequest.ts",
-      "src/features/ledger/public/types/requests/SearchExpensesDocumentsByIdPaymentsRequest.ts",
-      "src/features/ledger/public/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest.ts"
+      "src/features/ledger/types/requests/SearchExpensesTypesRequest.ts",
+      "src/features/ledger/types/requests/GetExpensesTypesByIdRequest.ts",
+      "src/features/ledger/types/requests/SearchExpensesDocumentsRequest.ts",
+      "src/features/ledger/types/requests/GetExpensesDocumentsByIdRequest.ts",
+      "src/features/ledger/types/requests/SearchExpensesDocumentsByIdPaymentsRequest.ts",
+      "src/features/ledger/types/requests/SearchExpensesDocumentsByIdConsumptionsRequest.ts"
     ],
     "expected": [
       {
@@ -2289,14 +2153,14 @@
   {
     "file": "src/features/expenses/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/ledger/public/types/responses/ExpenseTypeListResponse.ts",
-      "src/features/ledger/public/types/responses/ExpenseTypeResponse.ts",
-      "src/features/ledger/public/types/responses/ExpenseDocumentListResponse.ts",
-      "src/features/ledger/public/types/responses/ExpenseDocumentResponse.ts",
-      "src/features/ledger/public/types/responses/ExpensePaymentsListResponse.ts",
-      "src/features/ledger/public/types/responses/ExpensePaymentsResponse.ts",
-      "src/features/ledger/public/types/responses/ExpenseConsumptionsListResponse.ts",
-      "src/features/ledger/public/types/responses/ExpenseConsumptionsResponse.ts"
+      "src/features/ledger/types/responses/ExpenseTypeListResponse.ts",
+      "src/features/ledger/types/responses/ExpenseTypeResponse.ts",
+      "src/features/ledger/types/responses/ExpenseDocumentListResponse.ts",
+      "src/features/ledger/types/responses/ExpenseDocumentResponse.ts",
+      "src/features/ledger/types/responses/ExpensePaymentsListResponse.ts",
+      "src/features/ledger/types/responses/ExpensePaymentsResponse.ts",
+      "src/features/ledger/types/responses/ExpenseConsumptionsListResponse.ts",
+      "src/features/ledger/types/responses/ExpenseConsumptionsResponse.ts"
     ],
     "expected": [
       {
@@ -2529,361 +2393,6 @@
       },
       {
         "name": "amount",
-        "isOptional": false
-      }
-    ]
-  },
-  {
-    "file": "src/features/financial/types/request/read-queries.types.ts",
-    "currentFiles": [
-      "src/features/financial/types/requests/SearchReportsFinancialProfitByItemRequest.ts",
-      "src/features/financial/types/requests/SearchReportsFinancialProfitByCustomerRequest.ts",
-      "src/features/financial/types/requests/SearchReportsFinancialCashFlowRequest.ts",
-      "src/features/financial/types/requests/SearchReportsFinancialAccountMappingRequest.ts",
-      "src/features/financial/types/requests/GetFinancialStatementsIncomeRequest.ts",
-      "src/features/financial/types/requests/GetFinancialStatementsPositionRequest.ts"
-    ],
-    "expected": [
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "productId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "asOf",
-        "isOptional": true
-      },
-      {
-        "name": "accountCode",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "asOf",
-        "isOptional": true
-      }
-    ]
-  },
-  {
-    "file": "src/features/financial/types/response/read-contracts.types.ts",
-    "currentFiles": [
-      "src/features/financial/types/responses/ProfitByItemReport.ts",
-      "src/features/financial/types/responses/ProfitByItemReportRow.ts",
-      "src/features/financial/types/responses/ProfitByCustomerReport.ts",
-      "src/features/financial/types/responses/ProfitByCustomerReportRow.ts",
-      "src/features/financial/types/responses/CashFlowReport.ts",
-      "src/features/financial/types/responses/CashFlowReportRow.ts",
-      "src/features/financial/types/responses/AccountMappingReport.ts",
-      "src/features/financial/types/responses/AccountMappingReportRow.ts",
-      "src/features/financial/types/responses/IncomeStatementResponse.ts",
-      "src/features/financial/types/responses/FinancialLineResponse.ts",
-      "src/features/financial/types/responses/FinancialPositionResponse.ts"
-    ],
-    "expected": [
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "lines",
-        "isOptional": false
-      },
-      {
-        "name": "revenue",
-        "isOptional": false
-      },
-      {
-        "name": "costOfSales",
-        "isOptional": false
-      },
-      {
-        "name": "expenses",
-        "isOptional": false
-      },
-      {
-        "name": "netIncome",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "code",
-        "isOptional": false
-      },
-      {
-        "name": "label",
-        "isOptional": false
-      },
-      {
-        "name": "classification",
-        "isOptional": false
-      },
-      {
-        "name": "amount",
-        "isOptional": false
-      },
-      {
-        "name": "lines",
-        "isOptional": false
-      },
-      {
-        "name": "assets",
-        "isOptional": false
-      },
-      {
-        "name": "liabilities",
-        "isOptional": false
-      },
-      {
-        "name": "equity",
-        "isOptional": false
-      },
-      {
-        "name": "difference",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
         "isOptional": false
       }
     ]
@@ -3937,9 +3446,7 @@
   },
   {
     "file": "src/features/parties/types/request/parties-request.types.ts",
-    "currentFiles": [
-      "src/features/parties/public/types/requests/SavePartyRequest.ts"
-    ],
+    "currentFiles": ["src/features/parties/types/requests/SavePartyRequest.ts"],
     "expected": [
       {
         "name": "id",
@@ -3984,25 +3491,13 @@
     ]
   },
   {
-    "file": "src/features/purchases/types/request/purchases-request.types.ts",
-    "currentFiles": [
-      "src/features/purchases/types/requests/SavePurchaseInvoiceRequest.ts"
-    ],
-    "expected": [
-      {
-        "name": "kind",
-        "isOptional": false
-      }
-    ]
-  },
-  {
     "file": "src/features/purchases/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/trade/public/types/requests/SearchPurchasesInvoicesRequest.ts",
-      "src/features/trade/public/types/requests/GetPurchasesInvoicesByIdRequest.ts",
-      "src/features/trade/public/types/requests/SearchPurchasesReturnsRequest.ts",
-      "src/features/trade/public/types/requests/GetPurchasesReturnsByIdRequest.ts",
-      "src/features/trade/public/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest.ts"
+      "src/features/trade/types/requests/SearchPurchasesInvoicesRequest.ts",
+      "src/features/trade/types/requests/GetPurchasesInvoicesByIdRequest.ts",
+      "src/features/trade/types/requests/SearchPurchasesReturnsRequest.ts",
+      "src/features/trade/types/requests/GetPurchasesReturnsByIdRequest.ts",
+      "src/features/trade/types/requests/GetPurchasesInvoicesByIdReturnAvailabilityRequest.ts"
     ],
     "expected": [
       {
@@ -4142,33 +3637,24 @@
   {
     "file": "src/features/reports/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/stock/public/types/requests/SearchReportsInventoryValuationRequest.ts",
-      "src/features/stock/public/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
-      "src/features/stock/public/types/requests/SearchReportsInventoryReorderRequest.ts",
-      "src/features/stock/public/types/requests/SearchReportsInventoryStagnantRequest.ts",
-      "src/features/stock/public/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
-      "src/features/stock/public/types/requests/SearchReportsInventoryTransfersRequest.ts",
-      "src/features/stock/public/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
-      "src/features/stock/public/types/requests/SearchReportsInventoryPricesRequest.ts",
-      "src/features/customers/types/requests/SearchReportsCustomersBalancesRequest.ts",
-      "src/features/suppliers/types/requests/SearchReportsSuppliersBalancesRequest.ts",
-      "src/features/personnel/public/types/requests/SearchReportsEmployeesPayrollRequest.ts",
-      "src/features/personnel/public/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
-      "src/features/expenses/types/requests/SearchReportsExpensesRecognizedRequest.ts",
-      "src/features/sales/types/requests/SearchReportsSalesSummaryRequest.ts",
-      "src/features/purchases/types/requests/SearchReportsPurchasesSummaryRequest.ts",
-      "src/features/sales/types/requests/SearchReportsSalesReturnsRequest.ts",
-      "src/features/purchases/types/requests/SearchReportsPurchasesReturnsRequest.ts",
-      "src/features/sales/types/requests/SearchReportsSalesChartRequest.ts",
-      "src/features/ledger/public/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
-      "src/features/ledger/public/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
-      "src/features/ledger/public/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
-      "src/features/ledger/public/types/requests/SearchReportsAccountingTaxRequest.ts",
-      "src/features/ledger/public/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
-      "src/features/ledger/public/types/requests/SearchReportsAccountingAssetsRequest.ts",
-      "src/features/sales/types/requests/SearchReportsSalesTargetAchievementRequest.ts",
-      "src/features/ledger/public/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
-      "src/features/ledger/public/types/requests/SearchReportsAccountingContactLedgerRequest.ts"
+      "src/features/stock/types/requests/SearchReportsInventoryValuationRequest.ts",
+      "src/features/stock/types/requests/SearchReportsInventoryOpeningStockRequest.ts",
+      "src/features/stock/types/requests/SearchReportsInventoryReorderRequest.ts",
+      "src/features/stock/types/requests/SearchReportsInventoryStagnantRequest.ts",
+      "src/features/stock/types/requests/SearchReportsInventoryHistoricalCostRequest.ts",
+      "src/features/stock/types/requests/SearchReportsInventoryTransfersRequest.ts",
+      "src/features/stock/types/requests/SearchReportsInventoryAdjustmentsRequest.ts",
+      "src/features/stock/types/requests/SearchReportsInventoryPricesRequest.ts",
+      "src/features/personnel/types/requests/SearchReportsEmployeesPayrollRequest.ts",
+      "src/features/personnel/types/requests/SearchReportsEmployeesAdvancesRequest.ts",
+      "src/features/ledger/types/requests/SearchReportsAccountingCashMovementsRequest.ts",
+      "src/features/ledger/types/requests/SearchReportsAccountingOpeningBalancesRequest.ts",
+      "src/features/ledger/types/requests/SearchReportsAccountingTrialBalanceRequest.ts",
+      "src/features/ledger/types/requests/SearchReportsAccountingTaxRequest.ts",
+      "src/features/ledger/types/requests/SearchReportsAccountingForeignCurrencyRequest.ts",
+      "src/features/ledger/types/requests/SearchReportsAccountingAssetsRequest.ts",
+      "src/features/ledger/types/requests/SearchReportsAccountingAccountStatementRequest.ts",
+      "src/features/ledger/types/requests/SearchReportsAccountingContactLedgerRequest.ts"
     ],
     "expected": [
       {
@@ -4468,62 +3954,6 @@
         "isOptional": false
       },
       {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "asOf",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "asOf",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
         "name": "from",
         "isOptional": true
       },
@@ -4573,214 +4003,6 @@
       },
       {
         "name": "employeeId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "currency",
-        "isOptional": true
-      },
-      {
-        "name": "productId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "currency",
-        "isOptional": true
-      },
-      {
-        "name": "productId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "currency",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "partyId",
-        "isOptional": true
-      },
-      {
-        "name": "currency",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
         "isOptional": true
       },
       {
@@ -4992,42 +4214,6 @@
         "isOptional": true
       },
       {
-        "name": "employeeId",
-        "isOptional": true
-      },
-      {
-        "name": "period",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "branchId",
-        "isOptional": false
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
         "name": "accountCode",
         "isOptional": false
       },
@@ -5076,312 +4262,42 @@
   {
     "file": "src/features/reports/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/stock/public/types/responses/InventoryValuationReport.ts",
+      "src/features/stock/types/responses/InventoryValuationReport.ts",
       "src/features/stock/types/responses/InventoryValuationReportRow.ts",
-      "src/features/stock/public/types/responses/OpeningStockReport.ts",
+      "src/features/stock/types/responses/OpeningStockReport.ts",
       "src/features/stock/types/responses/OpeningStockReportRow.ts",
-      "src/features/stock/public/types/responses/ReorderReport.ts",
+      "src/features/stock/types/responses/ReorderReport.ts",
       "src/features/stock/types/responses/ReorderReportRow.ts",
-      "src/features/stock/public/types/responses/StagnantReport.ts",
+      "src/features/stock/types/responses/StagnantReport.ts",
       "src/features/stock/types/responses/StagnantReportRow.ts",
-      "src/features/stock/public/types/responses/HistoricalCostReport.ts",
+      "src/features/stock/types/responses/HistoricalCostReport.ts",
       "src/features/stock/types/responses/HistoricalCostReportRow.ts",
-      "src/features/stock/public/types/responses/TransfersReport.ts",
+      "src/features/stock/types/responses/TransfersReport.ts",
       "src/features/stock/types/responses/TransfersReportRow.ts",
-      "src/features/stock/public/types/responses/AdjustmentsReport.ts",
+      "src/features/stock/types/responses/AdjustmentsReport.ts",
       "src/features/stock/types/responses/AdjustmentsReportRow.ts",
-      "src/features/stock/public/types/responses/PricesReport.ts",
+      "src/features/stock/types/responses/PricesReport.ts",
       "src/features/stock/types/responses/PricesReportRow.ts",
-      "src/features/customers/types/responses/CustomerBalancesReport.ts",
-      "src/features/customers/types/responses/CustomerBalancesReportRow.ts",
-      "src/features/suppliers/types/responses/SupplierBalancesReport.ts",
-      "src/features/suppliers/types/responses/SupplierBalancesReportRow.ts",
-      "src/features/personnel/public/types/responses/PayrollReport.ts",
+      "src/features/personnel/types/responses/PayrollReport.ts",
       "src/features/personnel/types/responses/PayrollReportRow.ts",
-      "src/features/personnel/public/types/responses/AdvancesReport.ts",
+      "src/features/personnel/types/responses/AdvancesReport.ts",
       "src/features/personnel/types/responses/AdvancesReportRow.ts",
-      "src/features/expenses/types/responses/RecognizedExpensesReport.ts",
-      "src/features/expenses/types/responses/RecognizedExpensesReportRow.ts",
-      "src/features/sales/types/responses/SalesSummaryReport.ts",
-      "src/features/sales/types/responses/SalesSummaryReportRow.ts",
-      "src/features/purchases/types/responses/PurchasesSummaryReport.ts",
-      "src/features/purchases/types/responses/PurchasesSummaryReportRow.ts",
-      "src/features/sales/types/responses/SalesReturnsReport.ts",
-      "src/features/sales/types/responses/SalesReturnsReportRow.ts",
-      "src/features/purchases/types/responses/PurchaseReturnsReport.ts",
-      "src/features/purchases/types/responses/PurchaseReturnsReportRow.ts",
-      "src/features/sales/types/responses/SalesChartReport.ts",
-      "src/features/sales/types/responses/SalesChartReportRow.ts",
-      "src/features/ledger/public/types/responses/CashMovementsReport.ts",
+      "src/features/ledger/types/responses/CashMovementsReport.ts",
       "src/features/ledger/types/responses/CashMovementsReportRow.ts",
-      "src/features/ledger/public/types/responses/OpeningBalancesReport.ts",
+      "src/features/ledger/types/responses/OpeningBalancesReport.ts",
       "src/features/ledger/types/responses/OpeningBalancesReportRow.ts",
-      "src/features/ledger/public/types/responses/TrialBalanceReport.ts",
+      "src/features/ledger/types/responses/TrialBalanceReport.ts",
       "src/features/ledger/types/responses/TrialBalanceReportRow.ts",
-      "src/features/ledger/public/types/responses/TaxReport.ts",
+      "src/features/ledger/types/responses/TaxReport.ts",
       "src/features/ledger/types/responses/TaxReportRow.ts",
-      "src/features/ledger/public/types/responses/ForeignCurrencyReport.ts",
+      "src/features/ledger/types/responses/ForeignCurrencyReport.ts",
       "src/features/ledger/types/responses/ForeignCurrencyReportRow.ts",
-      "src/features/ledger/public/types/responses/AssetsReport.ts",
+      "src/features/ledger/types/responses/AssetsReport.ts",
       "src/features/ledger/types/responses/AssetsReportRow.ts",
-      "src/features/sales/types/responses/TargetAchievementReport.ts",
-      "src/features/sales/types/responses/TargetAchievementReportRow.ts",
-      "src/features/ledger/public/types/responses/AccountStatementResponse.ts",
+      "src/features/ledger/types/responses/AccountStatementResponse.ts",
       "src/features/ledger/types/responses/StatementRow.ts"
     ],
     "expected": [
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
-      {
-        "name": "columns",
-        "isOptional": false
-      },
-      {
-        "name": "rows",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "totals",
-        "isOptional": true
-      },
-      {
-        "name": "baseAmount",
-        "isOptional": true
-      },
-      {
-        "name": "note",
-        "isOptional": false
-      },
       {
         "name": "columns",
         "isOptional": false
@@ -5895,8 +4811,8 @@
   {
     "file": "src/features/sales/types/request/sales-request.types.ts",
     "currentFiles": [
-      "src/features/sales/types/requests/SaveSalesTargetRequest.ts",
-      "src/features/sales/types/requests/SaveSalesInvoiceRequest.ts"
+      "src/features/sales/targets/types/requests/SaveSalesTargetRequest.ts",
+      "src/features/sales/invoices/types/requests/SaveSalesInvoiceRequest.ts"
     ],
     "expected": [
       {
@@ -5928,13 +4844,13 @@
   {
     "file": "src/features/sales/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/trade/public/types/requests/SearchSalesTargetsRequest.ts",
-      "src/features/trade/public/types/requests/GetSalesTargetsByIdRequest.ts",
-      "src/features/trade/public/types/requests/SearchSalesInvoicesRequest.ts",
-      "src/features/trade/public/types/requests/GetSalesInvoicesByIdRequest.ts",
-      "src/features/trade/public/types/requests/SearchSalesReturnsRequest.ts",
-      "src/features/trade/public/types/requests/GetSalesReturnsByIdRequest.ts",
-      "src/features/trade/public/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest.ts"
+      "src/features/trade/types/requests/SearchSalesTargetsRequest.ts",
+      "src/features/trade/types/requests/GetSalesTargetsByIdRequest.ts",
+      "src/features/trade/types/requests/SearchSalesInvoicesRequest.ts",
+      "src/features/trade/types/requests/GetSalesInvoicesByIdRequest.ts",
+      "src/features/trade/types/requests/SearchSalesReturnsRequest.ts",
+      "src/features/trade/types/requests/GetSalesReturnsByIdRequest.ts",
+      "src/features/trade/types/requests/GetSalesInvoicesByIdReturnAvailabilityRequest.ts"
     ],
     "expected": [
       {
@@ -6114,13 +5030,13 @@
   {
     "file": "src/features/sales/types/response/read-contracts.types.ts",
     "currentFiles": [
-      "src/features/trade/public/types/responses/SalesTargetListResponse.ts",
-      "src/features/trade/public/types/responses/SalesTargetResponse.ts",
-      "src/features/trade/public/types/responses/InvoiceListResponse.ts",
-      "src/features/trade/public/types/responses/InvoiceResponse.ts",
-      "src/features/trade/public/types/responses/InvoiceReturnListResponse.ts",
-      "src/features/trade/public/types/responses/InvoiceReturnResponse.ts",
-      "src/features/trade/public/types/responses/ReturnAvailabilityResponse.ts"
+      "src/features/trade/types/responses/SalesTargetListResponse.ts",
+      "src/features/trade/types/responses/SalesTargetResponse.ts",
+      "src/features/trade/types/responses/InvoiceListResponse.ts",
+      "src/features/trade/types/responses/InvoiceResponse.ts",
+      "src/features/trade/types/responses/InvoiceReturnListResponse.ts",
+      "src/features/trade/types/responses/InvoiceReturnResponse.ts",
+      "src/features/trade/types/responses/ReturnAvailabilityResponse.ts"
     ],
     "expected": [
       {
@@ -6552,16 +5468,16 @@
   {
     "file": "src/features/settings/types/request/settings-request.types.ts",
     "currentFiles": [
-      "src/features/organization/public/types/requests/SaveBackupSettingsRequest.ts",
-      "src/features/organization/public/types/requests/SaveBrandingRequest.ts",
-      "src/features/organization/public/types/requests/SaveOrganizationRequest.ts",
-      "src/features/organization/public/types/requests/SaveBranchRequest.ts",
-      "src/features/organization/public/types/requests/SaveGeneralSettingsRequest.ts",
-      "src/features/organization/public/types/requests/SetupCompleteRequest.ts",
-      "src/features/organization/public/types/requests/ImportMastersRequest.ts",
-      "src/features/ledger/public/types/requests/SaveCurrencyRequest.ts",
-      "src/features/organization/public/types/requests/SavePreferencesRequest.ts",
-      "src/features/organization/public/types/requests/SaveSystemSettingsRequest.ts"
+      "src/features/organization/types/requests/SaveBackupSettingsRequest.ts",
+      "src/features/organization/types/requests/SaveBrandingRequest.ts",
+      "src/features/organization/types/requests/SaveOrganizationRequest.ts",
+      "src/features/organization/types/requests/SaveBranchRequest.ts",
+      "src/features/organization/types/requests/SaveGeneralSettingsRequest.ts",
+      "src/features/organization/types/requests/SetupCompleteRequest.ts",
+      "src/features/organization/types/requests/ImportMastersRequest.ts",
+      "src/features/ledger/types/requests/SaveCurrencyRequest.ts",
+      "src/features/organization/types/requests/SavePreferencesRequest.ts",
+      "src/features/organization/types/requests/SaveSystemSettingsRequest.ts"
     ],
     "expected": [
       {
@@ -7707,9 +6623,7 @@
   },
   {
     "file": "src/features/suppliers/types/request/suppliers-request.types.ts",
-    "currentFiles": [
-      "src/features/suppliers/types/requests/SaveSupplierRequest.ts"
-    ],
+    "currentFiles": ["src/features/suppliers/types/requests/SaveSupplierRequest.ts"],
     "expected": [
       {
         "name": "kind",
@@ -7720,8 +6634,8 @@
   {
     "file": "src/features/suppliers/types/request/read-queries.types.ts",
     "currentFiles": [
-      "src/features/parties/public/types/requests/SearchSuppliersRequest.ts",
-      "src/features/parties/public/types/requests/GetSuppliersByIdRequest.ts"
+      "src/features/parties/types/requests/SearchSuppliersRequest.ts",
+      "src/features/parties/types/requests/GetSuppliersByIdRequest.ts"
     ],
     "expected": [
       {
@@ -7761,7 +6675,7 @@
   {
     "file": "src/features/trade/types/request/trade-request.types.ts",
     "currentFiles": [
-      "src/features/trade/public/types/requests/SaveInvoiceRequest.ts",
+      "src/features/trade/types/requests/SaveInvoiceRequest.ts",
       "src/features/trade/types/requests/DeleteDraftRequest.ts",
       "src/features/trade/types/requests/SaveReturnRequest.ts",
       "src/features/trade/types/requests/SavePartialReturnRequest.ts"
@@ -7914,241 +6828,6 @@
       {
         "name": "discount",
         "isOptional": true
-      }
-    ]
-  },
-  {
-    "file": "src/features/users/types/request/read-queries.types.ts",
-    "currentFiles": [
-      "src/features/users/types/requests/SearchUsersRequest.ts",
-      "src/features/users/types/requests/GetUsersByIdRequest.ts",
-      "src/features/users/types/requests/SearchAuthSessionsRequest.ts",
-      "src/features/users/types/requests/SearchUsersByIdSessionsRequest.ts",
-      "src/features/users/types/requests/GetAuthPermissionsRequest.ts",
-      "src/features/users/types/requests/SearchAuditEventsRequest.ts"
-    ],
-    "expected": [
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "active",
-        "isOptional": true
-      },
-      {
-        "name": "role",
-        "isOptional": true
-      },
-      {
-        "name": "id",
-        "isOptional": false
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "id",
-        "isOptional": false
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "page",
-        "isOptional": true
-      },
-      {
-        "name": "pageSize",
-        "isOptional": true
-      },
-      {
-        "name": "bookId",
-        "isOptional": true
-      },
-      {
-        "name": "from",
-        "isOptional": true
-      },
-      {
-        "name": "to",
-        "isOptional": true
-      },
-      {
-        "name": "q",
-        "isOptional": true
-      },
-      {
-        "name": "action",
-        "isOptional": true
-      },
-      {
-        "name": "reference",
-        "isOptional": true
-      }
-    ]
-  },
-  {
-    "file": "src/features/users/types/response/read-contracts.types.ts",
-    "currentFiles": [
-      "src/features/users/types/responses/UserListResponse.ts",
-      "src/features/users/types/responses/UserResponse.ts",
-      "src/features/users/types/responses/SessionListResponse.ts",
-      "src/features/users/types/responses/SessionResponse.ts",
-      "src/features/users/types/responses/PermissionResponse.ts",
-      "src/features/users/types/responses/AuditEventListResponse.ts",
-      "src/features/users/public/types/responses/AuditEventResponse.ts"
-    ],
-    "expected": [
-      {
-        "name": "items",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "id",
-        "isOptional": false
-      },
-      {
-        "name": "username",
-        "isOptional": false
-      },
-      {
-        "name": "name",
-        "isOptional": false
-      },
-      {
-        "name": "role",
-        "isOptional": false
-      },
-      {
-        "name": "active",
-        "isOptional": false
-      },
-      {
-        "name": "must_change",
-        "isOptional": false
-      },
-      {
-        "name": "created_at",
-        "isOptional": false
-      },
-      {
-        "name": "items",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "id",
-        "isOptional": false
-      },
-      {
-        "name": "user_id",
-        "isOptional": false
-      },
-      {
-        "name": "name",
-        "isOptional": false
-      },
-      {
-        "name": "username",
-        "isOptional": false
-      },
-      {
-        "name": "created_at",
-        "isOptional": false
-      },
-      {
-        "name": "last_seen",
-        "isOptional": false
-      },
-      {
-        "name": "expires_at",
-        "isOptional": false
-      },
-      {
-        "name": "device",
-        "isOptional": false
-      },
-      {
-        "name": "role",
-        "isOptional": false
-      },
-      {
-        "name": "modules",
-        "isOptional": false
-      },
-      {
-        "name": "actions",
-        "isOptional": false
-      },
-      {
-        "name": "authoritative",
-        "isOptional": false
-      },
-      {
-        "name": "items",
-        "isOptional": false
-      },
-      {
-        "name": "pagination",
-        "isOptional": false
-      },
-      {
-        "name": "scope",
-        "isOptional": false
-      },
-      {
-        "name": "id",
-        "isOptional": false
-      },
-      {
-        "name": "date",
-        "isOptional": false
-      },
-      {
-        "name": "action",
-        "isOptional": false
-      },
-      {
-        "name": "reference",
-        "isOptional": false
       }
     ]
   }

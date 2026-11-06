@@ -1,4 +1,4 @@
-import type { SearchBoxProps } from '@/core/types/SearchBoxProps';
+import type { SearchBoxProps } from '@/shared/types/props/SearchBoxProps';
 import { Input } from '@/shared/ui/primitives/input';
 import { Search } from 'lucide-react';
 
@@ -7,6 +7,7 @@ export function SearchBox({
   onChange,
   placeholder = 'ابحث بالاسم أو الرمز…',
 }: SearchBoxProps) {
+
   return (
     <div className="search-box">
       <Search size={17} />

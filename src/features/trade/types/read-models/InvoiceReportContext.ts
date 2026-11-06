@@ -1,8 +1,8 @@
-import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
-import type { Party } from '@/features/parties/public/types/models/Party';
-import type { Product } from '@/features/stock/public/types/models/Product';
-import type { Warehouse } from '@/features/stock/public/types/models/Warehouse';
-import type { Invoice } from '@/features/trade/public/types/models/Invoice';
+import type { ExtensionData } from '@/features/ledger/public';
+import type { Party } from '@/features/parties/public';
+import type { Product, Warehouse } from '@/features/stock/public';
+import type { Invoice } from '@/features/trade/types/models/Invoice';
+
 export interface InvoiceReportContext {
   invoiceReturns?: (Invoice & {
     sourceId: string;

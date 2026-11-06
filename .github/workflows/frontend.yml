@@ -12,10 +12,13 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm audit --audit-level=moderate
       - run: npm ls --all
       - run: npm run typecheck
       - run: npm run check:architecture
+      - run: npm run check:reachability
       - run: npm run check:naming
+      - run: npm run check:deprecated
       - run: npm run lint
       - run: npm run format:check
       - run: npm test

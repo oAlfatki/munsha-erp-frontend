@@ -1,28 +1,31 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { accountsQuery } from '@/features/ledger/public/accounts-query';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { cashQuery } from '@/features/ledger/public/cash-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { journalsQuery } from '@/features/ledger/public/journals-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { brandingQuery } from '@/features/organization/public/branding-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { systemQuery } from '@/features/organization/public/system-query';
+import {
+  accountsQuery,
+  booksQuery,
+  cashQuery,
+  currenciesQuery,
+  journalsQuery,
+  mapMasterRecords,
+} from '@/features/ledger/public';
+import {
+  branchesQuery,
+  brandingQuery,
+  companyQuery,
+  systemQuery,
+} from '@/features/organization/public';
 import type { SystemSettingsReadModel } from '@/features/settings/types/read-models/SystemSettingsReadModel';
-import { stockDocumentsQuery } from '@/features/stock/public/stock-documents-query';
-import { warehousesQuery } from '@/features/stock/public/warehouses-query';
-import { purchaseInvoicesQuery } from '@/features/trade/public/purchase-invoices-query';
-import { saleInvoicesQuery } from '@/features/trade/public/sale-invoices-query';
-import { auditQuery } from '@/features/users/public/audit-query';
+import { stockDocumentsQuery, warehousesQuery } from '@/features/stock/public';
+import { purchaseInvoicesQuery, saleInvoicesQuery } from '@/features/trade/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useSystemSettingsQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));
   const scope = { ...identity, bookId: books.scope.bookId };
-  const [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12] = useSuspenseQueries({
+  const [q0, q1, q2, q3, q4, q5, q6, q7, q9, q10, q11, q12] = useSuspenseQueries({
     queries: [
       companyQuery(scope),
       brandingQuery(scope),
@@ -32,7 +35,6 @@ export function useSystemSettingsQuery() {
       systemQuery(scope),
       journalsQuery(scope),
       stockDocumentsQuery(scope),
-      auditQuery(scope),
       saleInvoicesQuery(scope),
       purchaseInvoicesQuery(scope),
       accountsQuery(scope),
@@ -64,7 +66,6 @@ export function useSystemSettingsQuery() {
     entries: q6.data.items,
     invoices: [...q9.data.items, ...q10.data.items],
     stockDocuments: q7.data.items,
-    audit: q8.data.items,
   };
   return {
     ...app,
@@ -81,7 +82,6 @@ export function useSystemSettingsQuery() {
       0,
       q6.data.scope.revision,
       q7.data.scope.revision,
-      q8.data.scope.revision,
       q9.data.scope.revision,
       q10.data.scope.revision,
       q11.data.scope.revision,

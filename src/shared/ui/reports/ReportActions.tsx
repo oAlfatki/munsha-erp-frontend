@@ -1,9 +1,10 @@
-import { printReport } from '@/core/reporting/service';
-import type { ReportActionsProps } from '@/core/types/ReportActionsProps';
+import { printReport } from '@/shared/services/report-actions';
+import type { ReportActionsProps } from '@/shared/types/props/ReportActionsProps';
 import { Button } from '@/shared/ui/primitives/button';
 import { Download, Printer, Search } from 'lucide-react';
 
 export function ReportActions({ onExport, onView }: ReportActionsProps) {
+
   return (
     <div className="flex gap-2 no-print">
       {onView && (

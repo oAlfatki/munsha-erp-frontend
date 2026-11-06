@@ -1,4 +1,4 @@
-import type { Validatable } from '@/core/types/Validatable';
+import type { Validatable } from '@/shared/types/forms/Validatable';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
@@ -6,6 +6,7 @@ import { z } from 'zod';
 import { validateControl } from './control-validation';
 
 export function fieldError(input: Validatable, label: string) {
+
   const name = label.replace(/[*＊]/g, '').trim() || 'هذا الحقل',
     v = input.validity;
   if (v.valueMissing || (input.required && !input.value.trim())) return `${name} إجباري`;
@@ -21,7 +22,9 @@ export function fieldError(input: Validatable, label: string) {
     return `أدخل قيمة متوافقة مع الزيادة ${input.getAttribute('step')} في ${name}`;
   return v.valid ? '' : `راجع ${name}`;
 }
+
 export function validateForm(form: HTMLFormElement | HTMLElement) {
+
   let first: Validatable | undefined;
   for (const control of Array.from(
     form instanceof HTMLFormElement
@@ -44,15 +47,17 @@ export function validateForm(form: HTMLFormElement | HTMLElement) {
   first?.focus();
   return !first;
 }
+
 export function Form({
   onSubmit,
   onSubmitCapture,
   children,
   ...props
 }: React.FormHTMLAttributes<HTMLFormElement>) {
+
   const [errors, setErrors] = React.useState<string[]>([]);
   const formRef = React.useRef<HTMLFormElement>(null);
-  const formSchema = z.record(z.unknown()).superRefine((values, ctx) => {
+  const formSchema = z.record(z.string(), z.unknown()).superRefine((values, ctx) => {
     for (const control of Array.from(formRef.current?.elements || [])) {
       if (
         !(

@@ -1,4 +1,5 @@
-import type { ExpenseTreatment } from '@/features/ledger/public/types/models/ExpenseTreatment';
+import type { ExpenseTreatment } from '@/features/ledger/public';
+
 export type IExpenseEditorInput = {
   currency: string;
   rate: number;

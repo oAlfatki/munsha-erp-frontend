@@ -1,39 +1,43 @@
 import { apiClient } from '@/core/api/apiClient';
-import { ENDPOINTS } from '@/core/config/endpoints';
-import { CONFIG } from '@/core/config/env';
-import type { AuthActionResponse } from '@/features/auth/public/types/responses/AuthActionResponse';
-import type { IChangePasswordInput } from '@/features/auth/types/IChangePasswordInput';
-import type { LoginRequest } from '@/features/auth/types/requests/LoginRequest';
-import type { AuthResponse } from '@/features/auth/types/responses/AuthResponse';
-export const fetchAccount = () => apiClient.get<AuthResponse>(ENDPOINTS.fetchAccount);
-export const submitStatus = () => apiClient.get<unknown>(ENDPOINTS.submitStatus);
+import { ENDPOINTS } from '@/features/auth/api/endpoints';
+import type { LoginCredentials } from '@/features/auth/types/LoginCredentials';
+import type { PasswordChangeValues } from '@/features/auth/types/PasswordChangeValues';
+import type { SessionsPage } from '@/features/auth/types/SessionsPage';
+import type { StatusResponse } from '@/features/auth/types/StatusResponse';
+
+export const fetchAccount = (signal?: AbortSignal) =>
+  apiClient.get<unknown>(ENDPOINTS.fetchAccount, { signal });
+
 export const authApi = {
-  login: (input: LoginRequest) =>
-    apiClient.post<AuthActionResponse>(
-      CONFIG.apiMode === 'site' ? ENDPOINTS.authAction : ENDPOINTS.authLogin,
-      { action: 'login', ...input },
+  login: (input: LoginCredentials) =>
+    apiClient.post<unknown>(ENDPOINTS.authLogin, {
+      username: input.username,
+      password: input.password,
+    }),
+
+  logout: () => apiClient.post<void>(ENDPOINTS.authLogout, {}, { skipSessionRefresh: true }),
+
+  refresh: (generation?: number) =>
+    apiClient.post<unknown>(
+      ENDPOINTS.authRefresh,
+      {},
+      { skipSessionRefresh: true, sessionGeneration: generation },
     ),
-  logout: () =>
-    apiClient.post<AuthActionResponse>(
-      CONFIG.apiMode === 'site' ? ENDPOINTS.authAction : ENDPOINTS.authLogout,
-      { action: 'logout' },
-    ),
-  heartbeat: () =>
-    apiClient.post<AuthActionResponse>(
-      CONFIG.apiMode === 'site' ? ENDPOINTS.authAction : ENDPOINTS.authHeartbeat,
-      { action: 'heartbeat' },
-    ),
-  changePassword: (input: IChangePasswordInput) =>
-    apiClient.post<AuthActionResponse>(
-      CONFIG.apiMode === 'site' ? ENDPOINTS.authAction : ENDPOINTS.authChangePassword,
-      { action: 'changePassword', ...input },
-    ),
-  revokeSession: (id: string) =>
-    CONFIG.apiMode === 'site'
-      ? apiClient.post<AuthActionResponse>(ENDPOINTS.authAction, { action: 'revoke', id })
-      : apiClient.delete<AuthActionResponse>(ENDPOINTS.authRevokeSession(id)),
-  revokeOtherSessions: () =>
-    CONFIG.apiMode === 'site'
-      ? apiClient.post<AuthActionResponse>(ENDPOINTS.authAction, { action: 'revokeOthers' })
-      : apiClient.delete<AuthActionResponse>(ENDPOINTS.authRevokeOtherSessions),
+
+  changePassword: (input: PasswordChangeValues) =>
+    apiClient.post<StatusResponse>(ENDPOINTS.authChangePassword, {
+      currentPassword: input.currentPassword,
+      newPassword: input.newPassword,
+    }),
+
+  sessions: (page = 1, signal?: AbortSignal) =>
+    apiClient.get<SessionsPage>(ENDPOINTS.fetchAuthSessions, {
+      params: { page, pageSize: 20 },
+      signal,
+    }),
+
+  revokeSession: (id: string) => apiClient.delete<void>(ENDPOINTS.authRevokeSession(id)),
+
+  revokeAllSessions: () =>
+    apiClient.post<{ revokedCount: number }>(ENDPOINTS.authRevokeAllSessions, {}),
 };

@@ -1,23 +1,27 @@
-import type { Filters } from '@/core/types/Filters';
-import type { ReportData } from '@/core/types/ReportData';
+import type { Filters } from '@/core/types/api/Filters';
+import type { ReportData } from '@/core/types/reports/ReportData';
 import { money } from '@/core/utils/money';
 import type { BuildProfitByCustomerReportContext } from '@/features/financial/types/read-models/BuildProfitByCustomerReportContext';
-import { extras } from '@/features/ledger/public/extensions';
-import { lineTotal } from '@/features/trade/public/line-total';
+import { extras } from '@/features/ledger/public';
+import { lineTotal } from '@/features/trade/public';
+
 export function buildProfitByCustomerReport(
   workspace: BuildProfitByCustomerReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
+
   const within = (d: string) =>
     (!filters.from || d >= filters.from) && (!filters.to || d <= filters.to);
+
   const names = (id: string) =>
     workspace.parties.find((party) => party.id === id)?.name ||
     workspace.employees.find((employee) => employee.id === id)?.name ||
     extras(workspace).records.assets?.find((a) => a.id === id)?.name ||
     workspace.products.find((product) => product.id === id)?.name ||
     id;
-  let reportData: ReportData = { headers: [], rows: [] };
+
+  let reportData: ReportData;
   {
     const totals = new Map<
       string,

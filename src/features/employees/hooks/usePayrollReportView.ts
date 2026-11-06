@@ -1,10 +1,12 @@
 import { usePayrollReportQuery } from '@/features/employees/queries/usePayrollReportQuery';
 import { buildPayrollReport } from '@/features/employees/services/reports/build-payroll-report';
-import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { fiscalRange } from '@/features/ledger/public';
 import { useReportFilters } from '@/shared/hooks/useReportFilters';
 import { useReportPresentation } from '@/shared/hooks/useReportPresentation';
 import type { ReportOptions } from '@/shared/types/reporting/ReportOptions';
+
 export function usePayrollReportView(options: ReportOptions) {
+
   const { state, branchId } = usePayrollReportQuery();
   const range = fiscalRange(state);
   const filterState = useReportFilters({ ...range, warehouse: '', query: '', voucherKind: '' });

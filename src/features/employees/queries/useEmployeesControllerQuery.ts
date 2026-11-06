@@ -1,13 +1,13 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { EmployeesControllerReadModel } from '@/features/employees/types/read-models/EmployeesControllerReadModel';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { employeesQuery } from '@/features/personnel/public/employees-query';
+import { booksQuery, currenciesQuery } from '@/features/ledger/public';
+import { branchesQuery, companyQuery } from '@/features/organization/public';
+import { employeesQuery } from '@/features/personnel/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useEmployeesControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

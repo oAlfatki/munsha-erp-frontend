@@ -1,12 +1,12 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { BalanceSheetControllerReadModel } from '@/features/financial/types/read-models/BalanceSheetControllerReadModel';
-import { accountsQuery } from '@/features/ledger/public/accounts-query';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { companyQuery } from '@/features/organization/public/company-query';
+import { accountsQuery, booksQuery, mapMasterRecords } from '@/features/ledger/public';
+import { companyQuery } from '@/features/organization/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useBalanceSheetControllerQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

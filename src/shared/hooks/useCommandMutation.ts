@@ -1,0 +1,36 @@
+import { useApplication } from '@/core/state/ApplicationProvider';
+import type { CommandContext } from '@/core/types/api/CommandContext';
+import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
+import { useCallback } from 'react';
+import { toast } from 'sonner';
+import { ZodError } from 'zod';
+
+/** Shared delivery/cache coordination; validation and business ownership stay in the feature service. */
+
+export function useCommandMutation<TInput>(
+  type: string,
+  service: (input: TInput, context: CommandContext) => Promise<CommandReceipt>,
+  validate?: (input: TInput) => void | Promise<void>,
+) {
+
+  const { runCommand, busy: isBusy } = useApplication();
+  const execute = useCallback(
+    async (input: TInput) => {
+      try {
+        await validate?.(input);
+        return await runCommand(type, input, service);
+      } catch (error) {
+        toast.error(
+          error instanceof ZodError
+            ? error.issues.map((issue) => issue.message).join('\n')
+            : error instanceof Error
+              ? error.message
+              : 'راجع بيانات العملية',
+        );
+        return false;
+      }
+    },
+    [runCommand, type, service, validate],
+  );
+  return { execute, isPending: isBusy };
+}

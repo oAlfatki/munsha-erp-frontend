@@ -1,22 +1,26 @@
+import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { UserEditor } from '@/features/users/components/UserEditor';
 import { useUserQuery } from '@/features/users/queries/users-query';
-import { LoadingState } from '@/shared/ui/feedback/LoadingState';
+import { NotFoundPage } from '@/shared/ui/feedback/NotFoundPage';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { useNavigate, useParams } from 'react-router-dom';
+
 export default function EditUserPage() {
+
   const { id = '' } = useParams(),
     navigate = useNavigate(),
-    { user } = useAuth();
-  const query = useUserQuery(id);
-  if (user?.role !== 'admin')
-    return <p role="alert">إدارة حسابات المستخدمين متاحة لمسؤول النظام.</p>;
-  if (query.isPending) return <LoadingState />;
-  if (query.error) return <p role="alert">{query.error.message}</p>;
+    auth = useAuth();
+  const query = useUserQuery(Number(id));
+  if (!auth.can('USERS', 'USERS_UPDATE') || !auth.can('USERS', 'USERS_VIEW'))
+    return <p role="alert">لا تملك صلاحية التعديل.</p>;
+  if (!Number.isSafeInteger(Number(id)) || Number(id) < 1) return <NotFoundPage />;
+  if (query.isPending) return <p role="status">جارٍ تحميل المستخدم…</p>;
+  if (query.error) return <p role="alert">{errorMessage(query.error)}</p>;
   return (
     <>
-      <PageHead title="تعديل المستخدم" description="بطاقة المستخدم وحالة الحساب." />
+      <PageHead title="تعديل المستخدم" description="تعديل الاسم واسم المستخدم دون كلمة المرور." />
       <UserEditor
         key={id}
         user={query.data}

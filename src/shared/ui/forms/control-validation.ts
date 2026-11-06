@@ -1,11 +1,13 @@
 import { z } from 'zod';
 
 /** Constraint-based schemas for shared controls; feature schemas validate the complete request. */
+
 export function validateControl(
   value: unknown,
   attributes: Record<string, unknown>,
   label: string,
 ): true | string {
+
   const name = label.replace(/[*＊]/g, '').trim();
   if (attributes.disabled || attributes.type === 'file' || attributes.type === 'checkbox')
     return true;
@@ -18,7 +20,7 @@ export function validateControl(
   if (attributes.maxLength)
     controlSchema = controlSchema.max(Number(attributes.maxLength), `${name} يتجاوز الحد المسموح`);
   if (attributes.type === 'email')
-    controlSchema = controlSchema.email('أدخل بريدًا إلكترونيًا صحيحًا');
+    controlSchema = controlSchema.check(z.email('أدخل بريدًا إلكترونيًا صحيحًا'));
   if (attributes.pattern)
     controlSchema = controlSchema.regex(
       new RegExp(String(attributes.pattern)),
@@ -27,7 +29,12 @@ export function validateControl(
   const result = controlSchema.safeParse(text);
   if (!result.success) return result.error.issues[0].message;
   if (attributes.type === 'number') {
-    let numberSchema = z.number().finite(`أدخل رقمًا صحيحًا في ${name}`);
+    let numberSchema = z.number({
+      error: (issue) =>
+        issue.input === Infinity || issue.input === -Infinity
+          ? `أدخل رقمًا صحيحًا في ${name}`
+          : undefined,
+    });
     if (attributes.min !== undefined)
       numberSchema = numberSchema.min(
         Number(attributes.min),

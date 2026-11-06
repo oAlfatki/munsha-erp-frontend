@@ -184,15 +184,6 @@
       "active": true
     }
   },
-  "permissions": {
-    "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
-    "revision": 0,
-    "type": "permissions",
-    "data": {
-      "role": "مثال",
-      "permissions": []
-    }
-  },
   "generalSettings": {
     "id": "4e6c2a00-a5b7-4b20-8abc-123456789012",
     "revision": 0,

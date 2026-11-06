@@ -1,0 +1,35 @@
+.stock-alert {
+  display: flex;
+  flex-direction: column;
+}
+.alert-row {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  margin: 0 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.alert-row > div {
+  flex: 1;
+}
+.alert-row strong {
+  font-size: 11px;
+  display: block;
+}
+.alert-row small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted-foreground);
+}
+.alert-row > b {
+  font-family: Arial;
+  font-size: 19px;
+  color: #b2925e;
+  text-align: left;
+}
+.alert-row > b small {
+  font-family: Arabic;
+  font-weight: 400;
+  font-size: 9px;
+}

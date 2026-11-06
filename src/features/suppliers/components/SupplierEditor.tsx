@@ -1,7 +1,7 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import { extras } from '@/features/ledger/public/extensions';
+import { extras } from '@/features/ledger/public';
 import { useSupplierEditorController } from '@/features/suppliers/hooks/useSupplierEditorController';
-import type { SupplierEditorProps } from '@/features/suppliers/types/SupplierEditorProps';
+import type { SupplierEditorProps } from '@/features/suppliers/types/props/SupplierEditorProps';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
@@ -9,9 +9,10 @@ import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
 
 export function SupplierEditor({ party, onClose: close }: SupplierEditorProps) {
+
   const model = useSupplierEditorController({ party, onClose: close });
   if (!model) return null;
-  const { s, isBusy, navigate, partyMutation, form, p, update } = model;
+  const { s: state, isBusy, navigate, partyMutation, form, p, update } = model;
   return (
     <Modal
       isOpen
@@ -36,8 +37,8 @@ export function SupplierEditor({ party, onClose: close }: SupplierEditorProps) {
           <Field label="المجموعة">
             <Select value={p.groupId || ''} onChange={(e) => update('groupId', e.target.value)}>
               <option value="">بدون مجموعة</option>
-              {s &&
-                (extras(s).records.groups || [])
+              {state &&
+                (extras(state).records.groups || [])
                   .filter((g) => g.kind === 'supplier' && (g.active || g.id === p.groupId))
                   .map((g) => (
                     <option key={g.id} value={g.id}>
@@ -54,7 +55,7 @@ export function SupplierEditor({ party, onClose: close }: SupplierEditorProps) {
           </Field>
           <Field label="العملة الأساسية *">
             <Select value={p.currency} onChange={(e) => update('currency', e.target.value)}>
-              {s?.currencies.map((c) => (
+              {state?.currencies.map((c) => (
                 <option key={c.code} value={c.code}>
                   {c.name}
                 </option>

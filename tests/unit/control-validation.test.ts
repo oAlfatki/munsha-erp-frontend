@@ -1,5 +1,6 @@
 import { it, expect } from 'vitest';
 import { validateControl } from '@/shared/ui/forms/control-validation';
+
 it('rejects whitespace in required controls', () =>
   expect(validateControl(' ', { required: true }, 'الاسم')).toBe('الاسم إجباري'));
 it('allows empty optional numeric controls', () =>

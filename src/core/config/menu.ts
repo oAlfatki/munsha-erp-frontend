@@ -1,5 +1,6 @@
 import { ROUTES } from '@/core/config/navigation-paths';
-import type { MenuItem } from '@/core/types/MenuItem';
+import type { MenuItem } from '@/core/types/navigation/MenuItem';
+
 export const MENU_ITEMS: Record<string, MenuItem[]> = {
   dashboard: [],
   access: [
@@ -652,5 +653,6 @@ export const MENU_ITEMS: Record<string, MenuItem[]> = {
     },
   ],
 };
+
 export const menuLeaves = (entries: MenuItem[]): MenuItem[] =>
   entries.flatMap((entry) => (entry.children ? menuLeaves(entry.children) : [entry]));

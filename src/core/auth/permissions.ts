@@ -1,34 +1,43 @@
-import type { PermissionsUserRole } from '@/core/types/PermissionsUserRole';
+import type { AccessSnapshot } from '@/core/types/access/AccessSnapshot';
 
-export function canRunCommand(role: PermissionsUserRole, type: string, data?: unknown) {
-  if (role === 'admin') return true;
-  if (role === 'viewer') return false;
-  const p = data && typeof data === 'object' ? (data as Record<string, unknown>) : {};
-  if (type === 'stockDocument') return p.kind === 'transfer' || p.kind === 'adjustment';
-  if (type === 'master')
-    return ['units', 'productGroups', 'groups', 'expenseTypes', 'assets', 'contacts'].includes(
-      String(p.collection),
-    );
-  return [
-    'product',
-    'party',
-    'invoice',
-    'deleteDraft',
-    'return',
-    'partialReturn',
-    'priceList',
-    'expense',
-    'expenseSave',
-    'expensePayment',
-    'expenseConsume',
-    'voucher',
-    'transfer',
-    'employee',
-    'employeeDelete',
-    'operation',
-    'manualJournal',
-    'salesTarget',
-    'contactEntry',
-    'contactVoucher',
-  ].includes(type);
+export function canPerform(
+  access: AccessSnapshot | null | undefined,
+  module: string,
+  action: string,
+  branchId?: string,
+) {
+
+  return (
+    access?.status === 'ready' &&
+    access.grants.some(
+      (grant) =>
+        grant.module === module &&
+        grant.action === action &&
+        grant.branchIds.length > 0 &&
+        (!branchId || grant.branchIds.includes(branchId)),
+    )
+  );
+}
+
+/** Only verified contract bindings belong here. The v1.5 contract does not
+ * specify permissions for legacy ERP commands. Unknown operations fail closed. */
+const COMMAND_PERMISSIONS: Record<string, [string, string]> = {};
+
+export function canRunCommand(
+  access: AccessSnapshot | null | undefined,
+  type: string,
+  data?: unknown,
+  branchId?: string,
+) {
+
+  const permission = Object.hasOwn(COMMAND_PERMISSIONS, type)
+    ? COMMAND_PERMISSIONS[type]
+    : undefined;
+  if (!permission || !canPerform(access, ...permission, branchId)) return false;
+  const input = data && typeof data === 'object' ? (data as Record<string, unknown>) : {};
+  return (
+    input.branchId === undefined ||
+    String(input.branchId) === branchId ||
+    canPerform(access, ...permission, String(input.branchId))
+  );
 }

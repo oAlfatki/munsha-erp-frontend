@@ -15,16 +15,24 @@
     "test:e2e": "playwright test",
     "check:naming": "node scripts/check-naming.mjs",
     "lint": "eslint src",
-    "format:check": "prettier --check src",
-    "check:architecture": "node scripts/check-architecture.mjs"
+    "format:check": "node scripts/format.mjs --check",
+    "check:architecture": "node scripts/check-architecture.mjs",
+    "format": "node scripts/format.mjs --write",
+    "test:unit": "vitest run tests/unit",
+    "test:contracts": "vitest run tests/contracts",
+    "test:integration": "vitest run tests/integration",
+    "test:architecture": "vitest run tests/architecture",
+    "review:inventory": "node scripts/review-project.mjs",
+    "audit:security": "npm audit --audit-level=moderate",
+    "check:deprecated": "node scripts/review-project.mjs --check",
+    "check:reachability": "node scripts/check-reachability.mjs"
   },
   "dependencies": {
-    "@hookform/resolvers": "5.7.1",
+    "@hookform/resolvers": "7.0.3",
     "@tanstack/react-query": "5.104.5",
     "axios": "1.20.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
-    "i18next": "26.6.0",
     "jspdf": "4.2.1",
     "jspdf-autotable": "5.0.9",
     "lucide-react": "1.31.0",
@@ -32,27 +40,30 @@
     "react": "19.2.6",
     "react-dom": "19.2.6",
     "react-hook-form": "7.85.0",
-    "react-i18next": "17.1.10",
     "react-router-dom": "7.18.4",
     "sonner": "2.0.8",
     "tailwind-merge": "3.6.0",
-    "zod": "3.25.76"
+    "zod": "4.6.7"
   },
   "devDependencies": {
-    "@eslint/js": "9.39.1",
+    "@eslint/js": "10.0.1",
     "@playwright/test": "1.64.1",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "6.0.2",
-    "eslint": "9.39.1",
+    "@vitejs/plugin-react": "6.2.1",
+    "eslint": "10.14.0",
+    "postcss": "8.5.32",
     "prettier": "3.6.2",
     "tailwindcss": "4.2.1",
     "tw-animate-css": "1.4.0",
     "typescript": "5.9.3",
-    "typescript-eslint": "8.46.2",
-    "vite": "8.0.13",
+    "typescript-eslint": "8.72.1",
+    "vite": "8.3.6",
     "vitest": "4.1.12"
+  },
+  "overrides": {
+    "minimatch@>=7.0.0 <11.0.1": "11.0.1"
   }
 }

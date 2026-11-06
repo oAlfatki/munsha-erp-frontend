@@ -1,159 +1,67 @@
-import { useCompanyData } from '@/app/providers/CompanyProvider';
-import { useAuth } from '@/core/auth/AuthProvider';
-import { MENU_ITEMS, menuLeaves } from '@/core/config/menu';
+import { DASHBOARD_NAVIGATION } from '@/app/constants/dashboard-navigation';
+import { useDashboardLayout } from '@/app/hooks/useDashboardLayout';
 import { ROUTES } from '@/core/config/navigation-paths';
-import { LanguageSwitch } from '@/core/i18n/LanguageSwitch';
-import { setReportIdentity } from '@/core/reporting/formatting';
-import { ModuleLinks } from '@/core/router/ModuleLinks';
-import { SectionNavigation } from '@/core/router/SectionNavigation';
-import {
-  applyDeviceSettings,
-  DEFAULT_DEVICE_SETTINGS,
-  readDeviceSettings,
-} from '@/core/services/device-settings';
-import { useApplication } from '@/core/state/ApplicationProvider';
-import { ThemeToggle } from '@/core/theme/ThemeToggle';
-import { SessionMenu } from '@/features/auth/components/SessionMenu';
-import { isArchived } from '@/features/ledger/public/annual-books';
-import { AutomaticBackups } from '@/features/settings/components/AutomaticBackups';
-import { fetchSearchItems } from '@/features/stock/public/read-api';
-import { fetchAuditEvents } from '@/features/users/api/read-api';
+import { SessionMenu } from '@/features/auth/public';
+import { isArchived } from '@/features/ledger/public';
+import { AutomaticBackups } from '@/features/settings/public';
+import { ThemeToggle } from '@/shared/ui/actions/ThemeToggle';
 import { Modal } from '@/shared/ui/dialogs/Modal';
+import { ModuleLinks } from '@/shared/ui/navigation/ModuleLinks';
+import { SectionNavigation } from '@/shared/ui/navigation/SectionNavigation';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
-import { useQuery } from '@tanstack/react-query';
 import {
   ArrowUpLeft,
   Bell,
   Boxes,
   Building2,
-  ChartNoAxesCombined,
   ChevronDown,
   ChevronLeft,
   CloudCheck,
-  ContactRound,
-  Landmark,
-  LayoutDashboard,
   LoaderCircle,
   Menu,
   Package,
-  ReceiptText,
   RefreshCw,
   Search,
-  Settings2,
   ShieldCheck,
-  ShoppingBag,
-  ShoppingCart,
-  Truck,
-  Users,
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Outlet, useMatches } from 'react-router-dom';
-const NAV = [
-  { id: 'dashboard', name: 'لوحة المتابعة', icon: LayoutDashboard },
-  { id: 'access', name: 'المستخدمون والصلاحيات', icon: ShieldCheck },
-  { id: 'settings', name: 'الإعدادات', icon: Settings2 },
-  { id: 'employees', name: 'الموظفون', icon: ContactRound },
-  { id: 'customers', name: 'العملاء', icon: Users },
-  { id: 'suppliers', name: 'الموردون', icon: Truck },
-  { id: 'inventory', name: 'المخازن والأصناف', icon: Boxes },
-  { id: 'expenses', name: 'المصروفات', icon: ReceiptText },
-  { id: 'purchases', name: 'المشتريات', icon: ShoppingCart },
-  { id: 'sales', name: 'المبيعات', icon: ShoppingBag },
-  { id: 'accounts', name: 'الحسابات', icon: Landmark },
-  { id: 'financial', name: 'القوائم المالية', icon: ChartNoAxesCombined },
-];
+import { Outlet } from 'react-router-dom';
+
 export function DashboardLayout() {
-  const { t } = useTranslation();
-  const { user } = useAuth();
-  const session = { user, signInHref: ROUTES.LOGIN, signOutHref: ROUTES.LOGIN };
+
+  const model = useDashboardLayout();
   const {
-    state: s,
-    loading: isLoading,
+    user,
+    accessError,
+    isAccessLoading,
+    session,
+    s: state,
+    isLoading,
     error,
     refresh,
-    busy: isBusy,
+    isBusy,
     view,
-    navigate,
     branchId,
     setBranchId,
     allowed,
     revision,
-    editingDocument: isEditingDocument,
-  } = { ...useApplication(), ...useCompanyData() };
-  useEffect(() => {
-    if (s)
-      setReportIdentity({
-        name: s.branding?.name || s.organization.name,
-        legalName: s.organization.name,
-        address: s.organization.address,
-        phone: s.organization.phone,
-        email: s.organization.email || '',
-        taxNumber: s.organization.taxNumber || '',
-        registrationNumber: s.organization.registrationNumber || '',
-        logo: s.branding?.logo || '',
-        branch: s.branches.find((branch) => branch.id === branchId)?.name || '',
-        year: s.organization.year,
-        user: session.user?.displayName || 'مستخدم النظام',
-      });
-  }, [s, branchId, session.user?.displayName]);
-  const [device, setDevice] = useState(DEFAULT_DEVICE_SETTINGS);
-  useEffect(() => {
-    const sync = () => {
-      const v = readDeviceSettings();
-      setDevice(v);
-      applyDeviceSettings(v);
-    };
-    sync();
-    window.addEventListener('erp-device-settings', sync);
-    return () => window.removeEventListener('erp-device-settings', sync);
-  }, []);
-  const [isMobile, setMobile] = useState(false),
-    [isCommand, setCommand] = useState(false),
-    [query, setQuery] = useState(''),
-    [isNotifications, setNotifications] = useState(false);
-  const bookId = s?.annualBooks?.activeId;
-  const productSearch = useQuery({
-    queryKey: ['erp', 'inventory', 'search', user?.userId, user?.kind, bookId, branchId, query],
-    queryFn: () => fetchSearchItems({ q: query, page: 1, pageSize: 10, bookId }),
-    enabled: isCommand && !!query.trim(),
-  });
-  const notifications = useQuery({
-    queryKey: ['erp', 'users', 'notifications', user?.userId, user?.kind, bookId],
-    queryFn: () => fetchAuditEvents({ page: 1, pageSize: 8, bookId }),
-    enabled: isNotifications,
-  });
-  const matches = useMatches();
-  const routeHandle = matches.findLast((match) => match.handle)?.handle as
-    | { module?: string; navModule?: string }
-    | undefined;
-  const routeModule = routeHandle?.navModule || routeHandle?.module || '';
-  const area =
-    routeModule === 'users' ? 'access' : routeModule === 'accounting' ? 'accounts' : routeModule;
-  const base = view.split('/')[1];
-  const quickLinks = Object.values(MENU_ITEMS).flatMap(menuLeaves);
-  useEffect(() => {
-    if (s) {
-      document.title = (s.branding?.name || s.organization.name) + ' | الإدارة والمحاسبة';
-      document.documentElement.style.setProperty('--brand-primary', s.branding?.color || '#17685b');
-    }
-  }, [s?.branding, s?.organization.name]);
-  useEffect(() => {
-    const key = (e: KeyboardEvent) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault();
-        setCommand((isV) => !isV);
-      }
-    };
-    window.addEventListener('keydown', key);
-    return () => window.removeEventListener('keydown', key);
-  }, []);
-  const go = (v: string) => {
-    navigate(v);
-    setMobile(false);
-    setCommand(false);
-  };
+    isEditingDocument,
+    device,
+    isMobile,
+    setMobile,
+    isCommand,
+    setCommand,
+    query,
+    setQuery,
+    isNotifications,
+    setNotifications,
+    productSearch,
+    notifications,
+    area,
+    base,
+    quickLinks,
+    go,
+  } = model;
   if (isLoading)
     return (
       <div className="app-loader">
@@ -165,7 +73,7 @@ export function DashboardLayout() {
         <p>جارٍ تحميل مساحة العمل…</p>
       </div>
     );
-  if (!s)
+  if (!state)
     return (
       <div className="app-loader">
         <CloudCheck size={45} />
@@ -175,14 +83,15 @@ export function DashboardLayout() {
       </div>
     );
   const activeName =
-    NAV.find((n) => n.id === area)?.name || (base === 'products' ? 'دليل الأصناف' : 'مساحة العمل');
+    DASHBOARD_NAVIGATION.find((n) => n.id === area)?.name ||
+    (base === 'products' ? 'دليل الأصناف' : 'مساحة العمل');
   return (
     <div className="app-shell">
       <aside className={'sidebar ' + (isMobile ? 'open' : '')}>
         <button className="brand" onClick={() => go(ROUTES.DASHBOARD)}>
           <span className="brand-icon">
-            {s.branding?.logo ? (
-              <img src={s.branding.logo} alt="شعار المنصة" />
+            {state.branding?.logo ? (
+              <img src={state.branding.logo} alt="شعار المنصة" />
             ) : (
               <svg width="27" height="29" viewBox="0 0 27 29" fill="none">
                 <path
@@ -199,8 +108,8 @@ export function DashboardLayout() {
             )}
           </span>
           <span>
-            <strong>{s.branding?.name || s.organization.name}</strong>
-            <small>{s.branding?.tagline || 'إدارة أعمالك في مكان واحد'}</small>
+            <strong>{state.branding?.name || state.organization.name}</strong>
+            <small>{state.branding?.tagline || 'إدارة أعمالك في مكان واحد'}</small>
           </span>
           <span className="version-tag">ERP</span>
         </button>
@@ -209,14 +118,14 @@ export function DashboardLayout() {
             <Building2 size={19} />
           </div>
           <div>
-            <b>{s.organization.name}</b>
+            <b>{state.organization.name}</b>
             <small>مساحة العمل</small>
           </div>
           <ChevronDown size={14} />
         </div>
         <div className="nav-label">مساحة العمل</div>
         <nav>
-          {NAV.map((n, i) => {
+          {DASHBOARD_NAVIGATION.map((n, i) => {
             if (
               n.id !== 'access' &&
               !allowed(n.id) &&
@@ -239,7 +148,7 @@ export function DashboardLayout() {
                   }
                 >
                   <n.icon size={19} />
-                  <span>{t('navigation.' + n.id, { defaultValue: n.name })}</span>
+                  <span>{n.name}</span>
                   {n.id === 'dashboard' ? (
                     <span className="nav-badge">نظرة عامة</span>
                   ) : (
@@ -263,16 +172,10 @@ export function DashboardLayout() {
             <span className="live-dot" />
           </div>
           <div className="owner">
-            <span className="avatar">{s.organization.name.slice(0, 2)}</span>
+            <span className="avatar">{state.organization.name.slice(0, 2)}</span>
             <div>
               <strong>{session.user?.displayName}</strong>
-              <small>
-                {session.user?.role === 'admin'
-                  ? 'مسؤول النظام'
-                  : session.user?.role === 'staff'
-                    ? 'مستخدم عمليات'
-                    : 'مشاهدة فقط'}
-              </small>
+              <small>{'صلاحيات الحساب المعتمدة'}</small>
             </div>
             <ShieldCheck size={16} />
           </div>
@@ -317,7 +220,7 @@ export function DashboardLayout() {
                     );
                 }}
               >
-                {s.branches
+                {state.branches
                   .filter((branch) => branch.active)
                   .map((branch) => (
                     <option key={branch.id} value={branch.id}>
@@ -328,9 +231,8 @@ export function DashboardLayout() {
             </div>
           </div>
           <div className="topbar-end">
-            <LanguageSwitch />
             <ThemeToggle />
-            <AutomaticBackups isEnabled={session.user?.role === 'admin'} />
+            <AutomaticBackups isEnabled={!!user} />
             <SessionMenu {...session} editing={isEditingDocument} />
             <button className="global-search" onClick={() => setCommand(true)}>
               <Search size={16} />
@@ -353,15 +255,15 @@ export function DashboardLayout() {
                 year: 'numeric',
               }).format(new Date())}
             </span>
-            <span className="avatar small">{s.organization.name.slice(0, 2)}</span>
+            <span className="avatar small">{state.organization.name.slice(0, 2)}</span>
           </div>
         </header>
         <div className="workspace-content">
           <div className="white-label-print-header">
-            {s.branding?.logo && <img src={s.branding.logo} alt="الشعار" />}
-            <h2>{s.branding?.name || s.organization.name}</h2>
+            {state.branding?.logo && <img src={state.branding.logo} alt="الشعار" />}
+            <h2>{state.branding?.name || state.organization.name}</h2>
             <p>
-              {s.organization.name} · {s.organization.address} · {s.organization.phone}
+              {state.organization.name} · {state.organization.address} · {state.organization.phone}
             </p>
           </div>
           {error && (
@@ -372,12 +274,22 @@ export function DashboardLayout() {
               </Button>
             </div>
           )}
+          {isAccessLoading && <p role="status">جارٍ تحميل صلاحيات الحساب…</p>}
+          {accessError && (
+            <div role="alert">
+              <p>
+                تعذر تحميل صلاحيات الحساب. لم تُمنح صلاحيات افتراضية؛ قد يتطلب عقد دليل الصلاحيات
+                مراجعة مع Backend.
+              </p>
+              <Button onClick={refresh}>إعادة المحاولة</Button>
+            </div>
+          )}
           <ModuleLinks module={area} />
           {
-            <div className={'annual-period-banner ' + (isArchived(s) ? 'archived' : '')}>
+            <div className={'annual-period-banner ' + (isArchived(state) ? 'archived' : '')}>
               <span>
-                السنة المالية {s.organization.year} ·{' '}
-                {isArchived(s) ? 'مؤرشفة — للعرض فقط' : 'مفتوحة'}
+                السنة المالية {state.organization.year} ·{' '}
+                {isArchived(state) ? 'مؤرشفة — للعرض فقط' : 'مفتوحة'}
               </span>
               <button onClick={() => go(ROUTES.SETTINGS_ANNUAL_BOOKS)}>
                 الفترات والترحيل
@@ -385,9 +297,7 @@ export function DashboardLayout() {
               </button>
             </div>
           }
-          {session.user?.role === 'viewer' && (
-            <div className="info-note">حساب مشاهدة فقط — لا يمكنك حفظ العمليات.</div>
-          )}
+
           <Outlet />
           <div className="device-print-footer">{device.footer}</div>
         </div>
@@ -418,7 +328,7 @@ export function DashboardLayout() {
           onChange={(e) => setQuery(e.target.value)}
         />
         <div className="command-results">
-          {NAV.filter((n) => n.name.includes(query)).map((n) => (
+          {DASHBOARD_NAVIGATION.filter((n) => n.name.includes(query)).map((n) => (
             <button
               key={n.id}
               onClick={() =>
@@ -432,7 +342,7 @@ export function DashboardLayout() {
               }
             >
               <n.icon size={17} />
-              <span>{t('navigation.' + n.id, { defaultValue: n.name })}</span>
+              <span>{n.name}</span>
               <ArrowUpLeft size={15} />
             </button>
           ))}
@@ -469,9 +379,10 @@ export function DashboardLayout() {
                 <CloudCheck size={17} />
               </span>
               <div>
-                <strong>{a.action}</strong>
+                <strong>{a.eventCode}</strong>
                 <small>
-                  {a.reference} · {new Date(a.date).toLocaleDateString('ar-YE')}
+                  {a.targetId || 'غير متوفر'} ·{' '}
+                  {new Date(a.occurredAtUtc).toLocaleDateString('ar-YE')}
                 </small>
               </div>
             </div>

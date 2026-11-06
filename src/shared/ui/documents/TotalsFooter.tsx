@@ -1,8 +1,9 @@
-import type { TotalsFooterProps } from '@/core/types/TotalsFooterProps';
 import { fmt } from '@/core/utils/formatters';
+import type { TotalsFooterProps } from '@/shared/types/props/TotalsFooterProps';
 import { AmountWords } from '@/shared/ui/documents/AmountWords';
 
 export function TotalsFooter({ rows, amount, currency = 'YER' }: TotalsFooterProps) {
+
   return (
     <div className="document-totals">
       <dl>

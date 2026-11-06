@@ -1,17 +1,20 @@
 import { useFinancialProjection } from '@/features/financial/hooks/useFinancialProjection';
 import { useIncomeStatementControllerQuery } from '@/features/financial/queries/useIncomeStatementControllerQuery';
-import { allAccounts } from '@/features/ledger/public/extensions';
-import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { allAccounts, fiscalRange } from '@/features/ledger/public';
 import { useState } from 'react';
+
 export function useIncomeStatementController() {
+
   const { data: entries = [] } = useFinancialProjection();
-  const { state: s, branchId, refresh } = useIncomeStatementControllerQuery();
-  const [from, setFrom] = useState(fiscalRange(s!).from),
-    [to, setTo] = useState(fiscalRange(s!).to);
-  if (!s) return null;
-  const chart = allAccounts(s),
+  const { state, branchId, refresh } = useIncomeStatementControllerQuery();
+  const [from, setFrom] = useState(fiscalRange(state!).from),
+    [to, setTo] = useState(fiscalRange(state!).to);
+  if (!state) return null;
+  const chart = allAccounts(state),
     list = Object.entries(chart);
+
   const sum = (type: string, isPeriod = false) => {
+
     const selected = entries.filter(
       (entry) =>
         entry.branchId === branchId &&
@@ -30,11 +33,14 @@ export function useIncomeStatementController() {
         0,
       );
   };
+
   const income = (isPeriod: boolean) => -sum('revenue', isPeriod) - sum('expense', isPeriod);
+
   const periodEntries = entries.filter(
     (entry) =>
       entry.branchId === branchId && (!to || entry.date <= to) && (!from || entry.date >= from),
   );
+
   const bal = (code: string, isPeriod = false) =>
     (isPeriod
       ? periodEntries
@@ -43,6 +49,7 @@ export function useIncomeStatementController() {
       .flatMap((entry) => entry.lines)
       .filter((journalLine) => journalLine.account === code)
       .reduce((n, journalLine) => n + journalLine.debit - journalLine.credit, 0);
+
   const incomeRows = list
     .filter(([, a]) => ['revenue', 'expense'].includes(a.type))
     .map(([c, a]) => [a.name, -bal(c, true)] as [string, number]);

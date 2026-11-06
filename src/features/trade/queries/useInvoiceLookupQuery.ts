@@ -1,13 +1,14 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { customersQuery } from '@/features/parties/public/customers-query';
-import { suppliersQuery } from '@/features/parties/public/suppliers-query';
-import { purchaseInvoicesQuery } from '@/features/trade/public/purchase-invoices-query';
-import { saleInvoicesQuery } from '@/features/trade/public/sale-invoices-query';
+import { booksQuery } from '@/features/ledger/public';
+import { customersQuery, suppliersQuery } from '@/features/parties/public';
+import { purchaseInvoicesQuery } from '@/features/trade/queries/purchase-invoices-query';
+import { saleInvoicesQuery } from '@/features/trade/queries/sale-invoices-query';
 import type { InvoiceLookupReadModel } from '@/features/trade/types/read-models/InvoiceLookupReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useInvoiceLookupQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

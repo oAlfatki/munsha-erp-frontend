@@ -3,29 +3,26 @@ import { CompanyProvider } from '@/app/providers/CompanyProvider';
 import { PageScope } from '@/app/router/PageScope';
 import { ProtectedRoute } from '@/app/router/ProtectedRoute';
 import { APP_ROUTES } from '@/app/router/routes';
+import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
-import { RouteErrorPage } from '@/core/router/RouteErrorPage';
 import { ApplicationProvider } from '@/core/state/ApplicationProvider';
-import { authApi, submitStatus } from '@/features/auth/api/auth-api';
 import { LoadingState } from '@/shared/ui/feedback/LoadingState';
+import { NotFoundPage } from '@/shared/ui/feedback/NotFoundPage';
+import { RouteErrorPage } from '@/shared/ui/feedback/RouteErrorPage';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+
 function ApplicationLayout() {
+
+  const auth = useAuth();
   return (
-    <ApplicationProvider heartbeat={() => authApi.heartbeat()} checkSession={submitStatus}>
+    <ApplicationProvider checkSession={auth.refreshIdentity}>
       <CompanyProvider>
         <DashboardLayout />
       </CompanyProvider>
     </ApplicationProvider>
   );
 }
-function NotFound() {
-  return (
-    <main className="empty">
-      <h1>الصفحة غير موجودة</h1>
-      <a href={ROUTES.DASHBOARD}>العودة إلى لوحة المتابعة</a>
-    </main>
-  );
-}
+
 export const APP_ROUTER = createBrowserRouter([
   ...APP_ROUTES.filter((route) => route.path === ROUTES.LOGIN),
   {
@@ -41,7 +38,7 @@ export const APP_ROUTER = createBrowserRouter([
             children: [
               { index: true, element: <Navigate to={ROUTES.DASHBOARD} replace /> },
               ...APP_ROUTES.filter((route) => route.path !== ROUTES.LOGIN),
-              { path: '*', element: <NotFound /> },
+              { path: '*', element: <NotFoundPage /> },
             ],
           },
         ],
@@ -49,6 +46,8 @@ export const APP_ROUTER = createBrowserRouter([
     ],
   },
 ]);
+
 export function AppRouter() {
+
   return <RouterProvider router={APP_ROUTER} />;
 }

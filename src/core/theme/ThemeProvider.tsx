@@ -1,12 +1,15 @@
-import type { Theme } from '@/core/types/Theme';
-import type { ThemeProviderProps } from '@/core/types/ThemeProviderProps';
+import type { ThemeProviderProps } from '@/core/types/props/ThemeProviderProps';
+import type { Theme } from '@/core/types/theme/Theme';
 import { createContext, useContext, useEffect, useState } from 'react';
+
 const Context = createContext<{ theme: Theme; setTheme: (theme: Theme) => void }>({
   theme: 'system',
+
   setTheme: () => {},
 });
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
+
   const [theme, setValue] = useState<Theme>(() => {
     try {
       const t = localStorage.getItem('munsha-theme');
@@ -17,16 +20,20 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   });
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
+
     const sync = () =>
       document.documentElement.classList.toggle(
         'dark',
         theme === 'dark' || (theme === 'system' && media.matches),
       );
+
     sync();
     media.addEventListener('change', sync);
     return () => media.removeEventListener('change', sync);
   }, [theme]);
+
   const setTheme = (value: Theme) => {
+
     setValue(value);
     try {
       localStorage.setItem('munsha-theme', value);
@@ -34,6 +41,8 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       /* A disabled storage must not prevent changing the theme. */
     }
   };
+
   return <Context.Provider value={{ theme, setTheme }}>{children}</Context.Provider>;
 }
+
 export const useTheme = () => useContext(Context);

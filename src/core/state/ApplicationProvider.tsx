@@ -3,31 +3,43 @@ import { useAuth } from '@/core/auth/AuthProvider';
 import { canRunCommand } from '@/core/auth/permissions';
 import { ROUTES } from '@/core/config/navigation-paths';
 import { affectedOwners } from '@/core/query/invalidation';
-import type { ApplicationProviderProps } from '@/core/types/ApplicationProviderProps';
-import type { ApplicationState } from '@/core/types/ApplicationState';
-import type { CommandReceipt } from '@/core/types/CommandReceipt';
+import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
+import type { ApplicationProviderProps } from '@/core/types/props/ApplicationProviderProps';
+import type { ApplicationState } from '@/core/types/state/ApplicationState';
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useBeforeUnload, useBlocker, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
+
 const Context = createContext<ApplicationState>(null!);
-export function ApplicationProvider({
-  children,
-  heartbeat,
-  checkSession,
-}: ApplicationProviderProps) {
+
+export function ApplicationProvider({ children, checkSession }: ApplicationProviderProps) {
+
   const routeView = useLocation().pathname;
-  const { user } = useAuth();
+  const { user, access } = useAuth();
   const cache = useQueryClient();
   const routerNavigate = useNavigate();
-  const [branchId, setBranchId] = useState('');
+  const [branchId, setBranch] = useState(user?.branchId || '');
+
+  const setBranchId = (value: string) => {
+
+    if (value !== user?.branchId) {
+      toast.error('هذا الفرع غير مسموح لهذا الحساب.');
+      return;
+    }
+    setBranch(value);
+  };
+
   const [isEditingDocument, setEditing] = useState(false);
   const editingRef = useRef(false);
+
   const setEditingDocument = (isValue: boolean) => {
+
     editingRef.current = isValue;
     setEditing(isValue);
   };
+
   const retry = useRef<{
     signature: string;
     id: string;
@@ -52,9 +64,15 @@ export function ApplicationProvider({
       [isEditingDocument],
     ),
   );
+
   const refresh = async () => {
-    await cache.invalidateQueries({ queryKey: ['erp'], refetchType: 'active' });
+
+    await Promise.all([
+      cache.invalidateQueries({ queryKey: ['access'], refetchType: 'active' }),
+      cache.invalidateQueries({ queryKey: ['erp'], refetchType: 'active' }),
+    ]);
   };
+
   const mutation = useMutation({
     mutationFn: async ({
       data: input,
@@ -74,9 +92,11 @@ export function ApplicationProvider({
         },
       ) => Promise<CommandReceipt>;
     }) => {
+
       return action(input, { id, revision: expected });
     },
   });
+
   const runCommand = async <TInput,>(
     type: string,
     input: TInput,
@@ -88,9 +108,10 @@ export function ApplicationProvider({
       },
     ) => Promise<CommandReceipt>,
   ) => {
+
     if (lock.current || mutation.isPending) return false;
-    if (!user || !canRunCommand(user.role, type, input)) {
-      toast.error('ليس لهذا الحساب صلاحية تنفيذ العملية');
+    if (!user || !canRunCommand(access, type, input, branchId)) {
+      toast.error('العملية غير مصرح بها أو لم يُعتمد ربط صلاحيتها بعقد API الحالي.');
       return false;
     }
     lock.current = true;
@@ -104,7 +125,7 @@ export function ApplicationProvider({
           ...cache
             .getQueryCache()
             .findAll({ queryKey: ['erp'], type: 'active' })
-            .filter((query) => query.queryKey[3] === user.userId && query.queryKey[4] === user.kind)
+            .filter((query) => query.queryKey[3] === user.userId && query.queryKey[4] === 'aspnet')
             .map(
               (query) =>
                 (
@@ -125,6 +146,7 @@ export function ApplicationProvider({
         data: input,
         id: retry.current.id,
         revision: retry.current.revision,
+
         action: (data, context) => action(data as TInput, context),
       });
       retry.current = null;
@@ -132,6 +154,7 @@ export function ApplicationProvider({
       await cache.invalidateQueries({
         predicate: (query) =>
           query.queryKey[0] === 'erp' && (!owners || owners.includes(String(query.queryKey[1]))),
+
         refetchType: 'active',
       });
       toast.success('حُفظت العملية');
@@ -147,40 +170,24 @@ export function ApplicationProvider({
       lock.current = false;
     }
   };
+
   useEffect(() => {
-    if (user?.kind !== 'local') return;
-    let last = Date.now();
-    let isPending = false;
-    const activity = async () => {
-      if (isPending || Date.now() - last < 60000) return;
-      isPending = true;
-      last = Date.now();
-      try {
-        await heartbeat();
-      } catch {
-        /* Central client updates the session on 401. */
-      } finally {
-        isPending = false;
-      }
-    };
+    if (!user) return;
     const timer = setInterval(() => {
       void checkSession().catch(() => {});
     }, 60000);
-    window.addEventListener('pointerdown', activity);
-    window.addEventListener('keydown', activity);
-    return () => {
-      clearInterval(timer);
-      window.removeEventListener('pointerdown', activity);
-      window.removeEventListener('keydown', activity);
-    };
-  }, [user?.kind]);
+    return () => clearInterval(timer);
+  }, [user?.userId, checkSession]);
+
   const navigate = (view: string) => {
+
     if (editingRef.current) {
       toast.info('احفظ التغييرات أو اختر تراجع قبل الانتقال إلى قسم آخر.');
       return;
     }
     routerNavigate(view);
   };
+
   return (
     <Context.Provider
       value={{
@@ -192,7 +199,19 @@ export function ApplicationProvider({
         runCommand,
         navigate,
         view: routeView,
-        allowed: (view) => view !== ROUTES.USERS || !!user,
+
+        allowed: (view) =>
+          !!user &&
+          (['dashboard', ROUTES.DASHBOARD, ROUTES.USERS_PASSWORD, ROUTES.USERS_SESSIONS].includes(
+            view,
+          ) ||
+            (access?.status === 'ready' &&
+              (view === 'access' || view.startsWith('/users')
+                ? access.grants.some(
+                    (grant) => grant.module === 'USERS' && grant.branchIds.includes(user.branchId),
+                  )
+                : access.grants.some((grant) => grant.branchIds.includes(user.branchId))))),
+
         editingDocument: isEditingDocument,
         setEditingDocument,
       }}
@@ -201,4 +220,5 @@ export function ApplicationProvider({
     </Context.Provider>
   );
 }
+
 export const useApplication = () => useContext(Context);

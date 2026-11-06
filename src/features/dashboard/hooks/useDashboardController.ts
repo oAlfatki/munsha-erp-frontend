@@ -1,9 +1,11 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import { fetchDashboard } from '@/features/dashboard/api/read-api';
-import { booksQuery } from '@/features/ledger/public/books-query';
+import { booksQuery } from '@/features/ledger/public';
 import { useQuery, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useDashboardController() {
+
   const { branchId, user, navigate } = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));
@@ -14,12 +16,14 @@ export function useDashboardController() {
       'dashboard',
       'summary',
       user?.userId,
-      user?.kind,
+      'aspnet',
       bookId,
       branchId,
       identity.locale,
     ],
+
     queryFn: () => fetchDashboard({ bookId, branchId }),
+
     enabled: !!user,
   });
   return {

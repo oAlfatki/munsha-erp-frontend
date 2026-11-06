@@ -1,0 +1,342 @@
+.app-shell {
+  min-height: 100vh;
+}
+.sidebar {
+  width: 246px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--card);
+  border-left: 1px solid var(--border);
+  padding: 27px 16px 0;
+  z-index: 35;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.brand {
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  width: 100%;
+  padding: 0 9px 29px;
+  text-align: right;
+  background: none;
+  border: 0;
+}
+.brand-icon {
+  width: 45px;
+  height: 45px;
+  background: var(--brand-primary, #17685b);
+  color: white;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+}
+.brand strong {
+  font-size: 36px;
+  line-height: 1.2;
+  display: block;
+  color: var(--brand-primary, #1a443a);
+}
+.brand-dot {
+  color: var(--muted-foreground);
+}
+.brand small {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  display: block;
+  margin-top: 6px;
+}
+.version-tag {
+  font-size: 10px;
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-right: auto;
+  margin-top: -16px;
+}
+.sidebar-workspace {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 8px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.workspace-symbol {
+  width: 32px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  color: var(--foreground);
+  background: var(--muted);
+  border-radius: 6px;
+}
+.sidebar-workspace b {
+  font-size: 12px;
+  display: block;
+}
+.sidebar-workspace small {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  display: block;
+}
+.sidebar-workspace > svg {
+  margin-right: auto;
+  color: var(--muted-foreground);
+}
+.nav-label {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  padding: 0 13px 8px;
+}
+.nav-item {
+  width: 100%;
+  display: flex;
+  gap: 11px;
+  align-items: center;
+  color: var(--muted-foreground);
+  padding: 10px 12px;
+  border-radius: 7px;
+  font-size: 14px;
+  border: 0;
+  background: none;
+  position: relative;
+  min-height: 42px;
+}
+.nav-item svg {
+  stroke-width: 1.6;
+}
+.nav-item:hover {
+  background: var(--muted);
+  color: var(--brand-primary, #17685b);
+}
+.nav-item.active {
+  background: var(--muted);
+  color: var(--brand-primary, #17685b);
+  font-weight: 700;
+}
+.nav-item.active:before {
+  content: '';
+  height: 20px;
+  width: 3px;
+  background: var(--brand-primary, #17685b);
+  border-radius: 3px;
+  position: absolute;
+  right: 0;
+}
+.nav-chevron {
+  margin-right: auto;
+  opacity: 0.45;
+}
+.nav-badge {
+  font-size: 10px;
+  background: #dce9da;
+  color: var(--foreground);
+  padding: 1px 6px;
+  border-radius: 4px;
+  margin-right: auto;
+  font-weight: 400;
+}
+.nav-divider {
+  height: 1px;
+  background: var(--muted);
+  margin: 15px 7px;
+}
+.subnav {
+  border-right: 1px solid var(--border);
+  margin: 7px 21px 7px 8px;
+  padding-right: 16px;
+}
+.subnav button {
+  display: block;
+  background: none;
+  border: 0;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  padding: 7px 0;
+}
+.subnav button.active {
+  color: var(--brand-primary, #17685b);
+  font-weight: 700;
+}
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 25px;
+}
+.cloud-state {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 11px;
+  margin: 0 0 20px;
+}
+.cloud-state > svg {
+  color: var(--foreground);
+}
+.cloud-state b {
+  font-size: 12px;
+  color: var(--foreground);
+  display: block;
+}
+.cloud-state small {
+  font-size: 10px;
+  color: var(--muted-foreground);
+  display: block;
+}
+.cloud-state > .live-dot {
+  margin-right: auto;
+}
+.owner {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding: 17px 2px;
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  background: var(--muted);
+  color: var(--foreground);
+  display: grid;
+  place-items: center;
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #e3e8df;
+  border-radius: 50%;
+  font-size: 15px;
+  font-weight: 700;
+}
+.owner strong {
+  font-size: 12px;
+  display: block;
+}
+.owner small {
+  font-size: 10px;
+  color: var(--muted-foreground);
+  display: block;
+}
+.owner > svg {
+  margin-right: auto;
+  color: var(--muted-foreground);
+}
+.app-main {
+  margin-right: 246px;
+  min-width: 0;
+}
+.topbar {
+  height: 78px;
+  border-bottom: 1px solid var(--border);
+  background: #ffffffd9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  gap: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  backdrop-filter: blur(18px);
+}
+.topbar-start,
+.topbar-end {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.topbar-start {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.topbar-start > svg {
+  color: var(--muted-foreground);
+}
+.desktop-home {
+  color: var(--muted-foreground);
+}
+.topbar-start strong {
+  font-weight: 400;
+}
+.topbar-divider {
+  height: 19px;
+  width: 1px;
+  background: var(--muted);
+}
+.branch-switch {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--foreground);
+}
+.branch-switch select {
+  background: none;
+  border: 0;
+  outline: none;
+  font-size: 12px;
+  max-width: 135px;
+  color: var(--foreground);
+  cursor: pointer;
+}
+.global-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: var(--muted);
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  min-width: 198px;
+}
+.global-search kbd {
+  background: white;
+  border: 1px solid var(--border);
+  font-family: Arial;
+  margin-right: auto;
+  padding: 0 4px;
+  font-size: 11px;
+  border-radius: 3px;
+  color: var(--muted-foreground);
+}
+.notification-button {
+  border: 0;
+  background: none;
+  position: relative;
+  color: var(--muted-foreground);
+  padding: 4px;
+}
+.notification-button i {
+  width: 5px;
+  height: 5px;
+  background: #c9a56b;
+  border-radius: 50%;
+  position: absolute;
+  right: 7px;
+  top: 2px;
+  border: 1px solid white;
+}
+.date-display {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+.avatar.small {
+  width: 31px;
+  height: 31px;
+  font-size: 12px;
+}
+.workspace-content {
+  max-width: 1580px;
+  padding: 28px 34px 30px;
+  margin: auto;
+  min-height: calc(100vh - 120px);
+}

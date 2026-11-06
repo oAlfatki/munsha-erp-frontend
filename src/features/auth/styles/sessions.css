@@ -1,0 +1,18 @@
+.session-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin: 20px 0;
+}
+.session-card p {
+  font-size: 15px;
+  color: var(--muted-foreground);
+  margin-top: 6px;
+}
+.session-icon {
+  color: var(--brand-primary);
+}

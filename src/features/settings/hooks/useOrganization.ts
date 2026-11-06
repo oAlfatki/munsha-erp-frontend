@@ -1,8 +1,10 @@
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
+import { validatePeriod } from '@/features/ledger/public';
 import { useOrganizationValidationData } from '@/features/settings/queries/useOrganizationValidationData';
 import { saveOrganization } from '@/features/settings/services/settings-service';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useOrganization() {
+
   const loadValidationData = useOrganizationValidationData();
   return useCommandMutation('organization', saveOrganization, async (input) => {
     const state = await loadValidationData();

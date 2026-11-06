@@ -1,6 +1,9 @@
-import { AnnualSettings } from '@/features/accounting/public/AnnualSettings';
+import { AnnualSettings } from '@/features/accounting/public';
+
 /** حالة الاتصال بقاعدة البيانات — feature-owned route content. */
+
 export default function DatabaseStatusPage() {
+
   return (
     <section className="screen-page" data-screen="settings~database">
       <AnnualSettings isConnection={true} />

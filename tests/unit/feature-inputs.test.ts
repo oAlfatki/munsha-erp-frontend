@@ -1,6 +1,7 @@
 import { it, expect } from 'vitest';
-import { mapCustomerInput } from '@/features/customers/mapper/customers-mapper';
-import { mapSupplierInput } from '@/features/suppliers/mapper/suppliers-mapper';
+import { mapCustomerInput } from '@/features/customers/mappers/customers-mapper';
+import { mapSupplierInput } from '@/features/suppliers/mappers/suppliers-mapper';
+
 const input = {
   name: 'Example party',
   address: 'Taiz',

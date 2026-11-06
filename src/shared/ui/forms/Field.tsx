@@ -1,5 +1,5 @@
-import type { FieldProps } from '@/core/types/FieldProps';
-import type { Validatable } from '@/core/types/Validatable';
+import type { Validatable } from '@/shared/types/forms/Validatable';
+import type { FieldProps } from '@/shared/types/props/FieldProps';
 import { validateControl } from '@/shared/ui/forms/control-validation';
 import { Select } from '@/shared/ui/forms/Select';
 import { fieldError } from '@/shared/ui/forms/ValidatedForm';
@@ -8,6 +8,7 @@ import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 export function Field({ label, children, isFullWidth: isSpan = false }: FieldProps) {
+
   const [error, setError] = useState(''),
     errorId = React.useId();
   const form = useFormContext<Record<string, unknown>>();
@@ -43,30 +44,37 @@ export function Field({ label, children, isFullWidth: isSpan = false }: FieldPro
       ...(binding
         ? {
             ...binding,
+
             onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+
               originalChange?.(e);
               void binding.onChange(e);
             },
+
             onBlur: (e: React.FocusEvent<HTMLInputElement>) => {
+
               originalBlur?.(e);
               void binding.onBlur(e);
             },
           }
         : {}),
       'aria-label': child.props['aria-label'] || label.replace(/[*＊]/g, '').trim(),
-      'aria-invalid': !!error,
+      'aria-invalid': !!error || child.props['aria-invalid'],
       'aria-describedby':
         [child.props['aria-describedby'], error ? errorId : ''].filter(Boolean).join(' ') ||
         undefined,
       ...(isRequired ? { required: true } : {}),
     });
   });
+
   const inspect = (e: React.SyntheticEvent) => {
+
     const el = e.target as unknown as Validatable;
     if (!el.validity) return;
     const message = fieldError(el, label);
     setError(message);
   };
+
   return (
     <label
       className={'field ' + (isSpan ? 'col-span-full' : '')}

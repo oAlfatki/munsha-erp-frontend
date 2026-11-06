@@ -1,9 +1,8 @@
-import { exportPdf } from '@/core/reporting/service';
 import { fmt } from '@/core/utils/formatters';
 import { CustomerEditor } from '@/features/customers/components/CustomerEditor';
-import type { CustomerDirectoryViewProps } from '@/features/customers/types/CustomerDirectoryViewProps';
-import { balance } from '@/features/ledger/public/account-balances';
-import { extras } from '@/features/ledger/public/extensions';
+import type { CustomerDirectoryViewProps } from '@/features/customers/types/props/CustomerDirectoryViewProps';
+import { balance, extras } from '@/features/ledger/public';
+import { exportPdf } from '@/shared/services/report-actions';
 import { ViewButton } from '@/shared/ui/actions/ViewButton';
 import { Pill } from '@/shared/ui/display/Pill';
 import { SearchBox } from '@/shared/ui/filters/SearchBox';
@@ -11,9 +10,21 @@ import { Select } from '@/shared/ui/forms/Select';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { ReportActions } from '@/shared/ui/reports/ReportActions';
 import { DataTable } from '@/shared/ui/tables/DataTable';
+
 export function CustomerDirectoryView({ model }: CustomerDirectoryViewProps) {
+
   if (!model) return null;
-  const { s, closeEditor, searchQuery, setQ, group, setGroup, editing, setEditing, list } = model;
+  const {
+    s: state,
+    closeEditor,
+    searchQuery,
+    setQ,
+    group,
+    setGroup,
+    editing,
+    setEditing,
+    list,
+  } = model;
   return (
     <>
       <PageHead
@@ -45,7 +56,7 @@ export function CustomerDirectoryView({ model }: CustomerDirectoryViewProps) {
           onChange={(e) => setGroup(e.target.value)}
         >
           <option value="">كل المجموعات</option>
-          {(extras(s).records.groups || [])
+          {(extras(state).records.groups || [])
             .filter((g) => g.kind === 'customer')
             .map((g) => (
               <option key={g.id} value={g.id}>
@@ -73,8 +84,8 @@ export function CustomerDirectoryView({ model }: CustomerDirectoryViewProps) {
           <span dir="ltr">{party.phone}</span>,
           party.currency,
           <span className="numeric">
-            {fmt(Math.abs(balance(s, '130', party.id)))}{' '}
-            <small>{balance(s, '130', party.id) >= 0 ? 'مدين' : 'دائن'}</small>
+            {fmt(Math.abs(balance(state, '130', party.id)))}{' '}
+            <small>{balance(state, '130', party.id) >= 0 ? 'مدين' : 'دائن'}</small>
           </span>,
           <Pill>{party.active ? 'نشط' : 'غير نشط'}</Pill>,
           <ViewButton onClick={() => setEditing(party)} />,

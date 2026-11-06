@@ -1,23 +1,23 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { currenciesQuery } from '@/features/ledger/public/currencies-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { partyGroupsQuery } from '@/features/parties/public/party-groups-query';
-import { suppliersQuery } from '@/features/parties/public/suppliers-query';
+import { readCachedQuery } from '@/core/query/read-cached-query';
+import { booksQuery, currenciesQuery, mapMasterRecords } from '@/features/ledger/public';
+import { companyQuery } from '@/features/organization/public';
+import { partyGroupsQuery, suppliersQuery } from '@/features/parties/public';
 import type { SaveSupplierValidationReadModel } from '@/features/suppliers/types/read-models/SaveSupplierValidationReadModel';
 import { useQueryClient } from '@tanstack/react-query';
+
 export function useSaveSupplierValidationData() {
+
   const identity = useQueryIdentity(),
     client = useQueryClient();
   return async () => {
-    const books = await client.ensureQueryData(booksQuery(identity));
+    const books = await readCachedQuery(client, booksQuery(identity));
     const scope = { ...identity, bookId: books.scope.bookId };
     const [d0, d4, d5, d8] = await Promise.all([
-      client.ensureQueryData(companyQuery(scope)),
-      client.ensureQueryData(currenciesQuery(scope)),
-      client.ensureQueryData(suppliersQuery(scope)),
-      client.ensureQueryData(partyGroupsQuery(scope)),
+      readCachedQuery(client, companyQuery(scope)),
+      readCachedQuery(client, currenciesQuery(scope)),
+      readCachedQuery(client, suppliersQuery(scope)),
+      readCachedQuery(client, partyGroupsQuery(scope)),
     ]);
     const q0 = { data: d0 };
     const q4 = { data: d4 };

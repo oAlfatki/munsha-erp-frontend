@@ -1,5 +1,6 @@
-import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
-import type { PersistedSystemSettings } from '@/features/organization/public/types/models/PersistedSystemSettings';
+import type { ExtensionData } from '@/features/ledger/public';
+import type { PersistedSystemSettings } from '@/features/organization/public';
+
 /** Screen/operation-specific projection; no global ERP data contract. */
 /** Screen/operation-specific projection; no global ERP data contract. */
 export interface SupplierEditorControllerReadModel {

@@ -1,14 +1,17 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { AccountMappingReportReadModel } from '@/features/financial/types/read-models/AccountMappingReportReadModel';
-import { accountsQuery } from '@/features/ledger/public/accounts-query';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { journalsQuery } from '@/features/ledger/public/journals-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { companyQuery } from '@/features/organization/public/company-query';
+import {
+  accountsQuery,
+  booksQuery,
+  journalsQuery,
+  mapMasterRecords,
+} from '@/features/ledger/public';
+import { branchesQuery, companyQuery } from '@/features/organization/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useAccountMappingReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

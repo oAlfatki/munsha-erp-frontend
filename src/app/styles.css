@@ -1,5 +1,10 @@
 @import '../core/styles/index.css';
-@import './styles/shell-and-shared-ui.css';
+@import './styles/dashboard-shell.css';
+@import '../features/dashboard/styles/overview.css';
+@import '../shared/styles/display-and-tables.css';
+@import '../features/dashboard/styles/stock-alerts.css';
+@import '../shared/styles/catalog-controls.css';
+@import '../shared/styles/forms-and-lookup.css';
 @import '../features/trade/styles/invoice-summary.css';
 @import './styles/document-total-overrides.css';
 @import '../features/trade/styles/invoice-header.css';
@@ -17,7 +22,13 @@
 
 @import '../features/settings/styles/system-settings.css';
 
-@import './styles/settings-controls.css';
+@import '../features/settings/styles/controls.css';
+@import '../shared/styles/report-preview.css';
+@import '../features/auth/styles/sessions.css';
+@import '../features/auth/styles/login.css';
+@import '../shared/styles/table-document-overrides.css';
+@import '../core/styles/typography.css';
+@import '../shared/styles/validation.css';
 
 @import '../features/trade/styles/invoice-hint.css';
 
@@ -29,4 +40,4 @@
 
 @import '../features/trade/styles/invoice-entry.css';
 
-@import './styles/voucher-and-document-grid.css';
+@import './styles/theme-and-document-overrides.css';

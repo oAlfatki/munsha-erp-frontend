@@ -1,17 +1,20 @@
 import { useFinancialProjection } from '@/features/financial/hooks/useFinancialProjection';
 import { useBalanceSheetControllerQuery } from '@/features/financial/queries/useBalanceSheetControllerQuery';
-import { allAccounts } from '@/features/ledger/public/extensions';
-import { fiscalRange } from '@/features/ledger/public/fiscal-range';
+import { allAccounts, fiscalRange } from '@/features/ledger/public';
 import { useState } from 'react';
+
 export function useBalanceSheetController() {
+
   const { data: entries = [] } = useFinancialProjection();
-  const { state: s, branchId, refresh } = useBalanceSheetControllerQuery();
-  const [from] = useState(fiscalRange(s!).from);
-  const [to, setTo] = useState(fiscalRange(s!).to);
-  if (!s) return null;
-  const chart = allAccounts(s);
+  const { state, branchId, refresh } = useBalanceSheetControllerQuery();
+  const [from] = useState(fiscalRange(state!).from);
+  const [to, setTo] = useState(fiscalRange(state!).to);
+  if (!state) return null;
+  const chart = allAccounts(state);
   const list = Object.entries(chart);
+
   const sum = (type: string, isPeriod = false) => {
+
     const selected = entries.filter(
       (entry) =>
         entry.branchId === branchId &&
@@ -30,11 +33,14 @@ export function useBalanceSheetController() {
         0,
       );
   };
+
   const income = (isPeriod: boolean) => -sum('revenue', isPeriod) - sum('expense', isPeriod);
+
   const periodEntries = entries.filter(
     (entry) =>
       entry.branchId === branchId && (!to || entry.date <= to) && (!from || entry.date >= from),
   );
+
   const bal = (code: string, isPeriod = false) =>
     (isPeriod
       ? periodEntries
@@ -43,5 +49,6 @@ export function useBalanceSheetController() {
       .flatMap((entry) => entry.lines)
       .filter((journalLine) => journalLine.account === code)
       .reduce((n, journalLine) => n + journalLine.debit - journalLine.credit, 0);
+
   return { refresh, to, setTo, list, sum, income, bal };
 }

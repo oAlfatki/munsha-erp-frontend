@@ -1,4 +1,5 @@
-import type { SavePartyRequest } from '@/features/parties/public/types/requests/SavePartyRequest';
+import type { SavePartyRequest } from '@/features/parties/public';
+
 export type SaveCustomerRequest = Omit<SavePartyRequest, 'kind'> & {
   kind: 'customer';
 };

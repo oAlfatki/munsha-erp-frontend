@@ -1,4 +1,5 @@
-import type { ExpenseDocument } from '@/features/ledger/public/types/models/ExpenseDocument';
+import type { ExpenseDocument } from '@/features/ledger/public';
+
 export interface ExpenseView extends ExpenseDocument {
   legacy?: 'cash' | 'accruedExpense' | 'prepaidExpense';
   paid: number;

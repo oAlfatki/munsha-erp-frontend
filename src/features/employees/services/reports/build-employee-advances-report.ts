@@ -1,24 +1,29 @@
-import type { Filters } from '@/core/types/Filters';
-import type { ReportData } from '@/core/types/ReportData';
+import type { Filters } from '@/core/types/api/Filters';
+import type { ReportData } from '@/core/types/reports/ReportData';
 import type { BuildEmployeeAdvancesReportContext } from '@/features/employees/types/read-models/BuildEmployeeAdvancesReportContext';
-import { extras } from '@/features/ledger/public/extensions';
+import { extras } from '@/features/ledger/public';
+
 export function buildEmployeeAdvancesReport(
   workspace: BuildEmployeeAdvancesReportContext,
   branch: string,
   filters: Filters,
 ): ReportData {
+
   const within = (d: string) =>
     (!filters.from || d >= filters.from) && (!filters.to || d <= filters.to);
+
   const operations = extras(workspace).operations.filter(
     (o) => o.branchId === branch && within(o.date),
   );
+
   const names = (id: string) =>
     workspace.parties.find((party) => party.id === id)?.name ||
     workspace.employees.find((employee) => employee.id === id)?.name ||
     extras(workspace).records.assets?.find((a) => a.id === id)?.name ||
     workspace.products.find((product) => product.id === id)?.name ||
     id;
-  let reportData: ReportData = { headers: [], rows: [] };
+
+  let reportData: ReportData;
   {
     const kinds = ['advance'];
     reportData = {

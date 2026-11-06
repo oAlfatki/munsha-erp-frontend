@@ -1,5 +1,5 @@
-import type { Entry } from '@/features/ledger/public/types/models/Entry';
-import type { ExtensionData } from '@/features/ledger/public/types/models/ExtensionData';
+import type { Entry, ExtensionData } from '@/features/ledger/public';
+
 export interface BuildCashFlowReportContext {
   entries: Entry[];
   organization: {

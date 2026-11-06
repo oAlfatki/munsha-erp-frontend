@@ -1,13 +1,13 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
 import type { CustomerBalancesReportReadModel } from '@/features/customers/types/read-models/CustomerBalancesReportReadModel';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { journalsQuery } from '@/features/ledger/public/journals-query';
-import { branchesQuery } from '@/features/organization/public/branches-query';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { customersQuery } from '@/features/parties/public/customers-query';
+import { booksQuery, journalsQuery } from '@/features/ledger/public';
+import { branchesQuery, companyQuery } from '@/features/organization/public';
+import { customersQuery } from '@/features/parties/public';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useCustomerBalancesReportQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

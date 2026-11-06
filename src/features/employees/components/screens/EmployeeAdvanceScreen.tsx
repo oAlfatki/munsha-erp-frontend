@@ -1,9 +1,8 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { fmt, today } from '@/core/utils/formatters';
-import { useOperation } from '@/features/accounting/public/useOperation';
+import { useOperation } from '@/features/accounting/public';
 import { useEmployeeAdvanceScreenQuery } from '@/features/employees/queries/useEmployeeAdvanceScreenQuery';
-import { operationSchema } from '@/features/ledger/public/accounting-schema';
-import { extras } from '@/features/ledger/public/extensions';
+import { extras, operationSchema } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
@@ -15,7 +14,9 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { CheckCheck, Save, Undo2 } from 'lucide-react';
 import { useState } from 'react';
+
 export function EmployeeAdvanceScreen() {
+
   const screen = {
     id: 'advance',
     module: 'employees',
@@ -25,7 +26,7 @@ export function EmployeeAdvanceScreen() {
     operation: 'advance',
     note: 'يثبت مبلغًا على حساب سلف الموظفين مقابل الصندوق؛ لا يُعد مصروف راتب.',
   };
-  const { state: s, branchId, busy: isBusy } = useEmployeeAdvanceScreenQuery();
+  const { state, branchId, busy: isBusy } = useEmployeeAdvanceScreenQuery();
   const operationMutationRequest = useOperation();
   const operationForm = useValidatedForm(operationSchema, operationMutationRequest.execute);
   const operationMutation = { ...operationMutationRequest, execute: operationForm.submit };
@@ -36,13 +37,13 @@ export function EmployeeAdvanceScreen() {
   const [source, setSource] = useState('');
   const [note, setNote] = useState('');
   const [isConfirm, setConfirm] = useState(false);
-  if (!s) return null;
-  const x = extras(s);
+  if (!state) return null;
+  const x = extras(state);
   const sources = x.operations.filter(
     (o) => o.kind === 'count' && o.branchId === branchId && !o.paid && true,
   );
   const sourceDoc = sources.find((o) => o.id === source);
-  const options = s.employees
+  const options = state.employees
     .filter((employee) => employee.branchId === branchId && employee.active)
     .map((employee) => [employee.id, employee.name]);
   const actualAmount = Number(amount || 0);
@@ -118,7 +119,7 @@ export function EmployeeAdvanceScreen() {
           }
           <Field label="الفرع">
             <div className="input-readonly">
-              {s.branches.find((branch) => branch.id === branchId)?.name}
+              {state.branches.find((branch) => branch.id === branchId)?.name}
             </div>
           </Field>
           <Field label="البيان / سبب العملية *">

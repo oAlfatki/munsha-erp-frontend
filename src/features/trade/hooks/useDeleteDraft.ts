@@ -1,10 +1,12 @@
-import { validateDeleteDraftSettingsPolicy } from '@/features/organization/public/delete-draft-policy';
+import { validateDeleteDraftSettingsPolicy } from '@/features/organization/public';
 
-import { useCommandMutation } from '@/core/hooks/useCommandMutation';
-import { validatePeriod } from '@/features/ledger/public/validate-period';
+import { validatePeriod } from '@/features/ledger/public';
 import { useDeleteDraftValidationData } from '@/features/trade/queries/useDeleteDraftValidationData';
 import { saveDeleteDraft } from '@/features/trade/services/trade-service';
+import { useCommandMutation } from '@/shared/hooks/useCommandMutation';
+
 export function useDeleteDraft() {
+
   const loadValidationData = useDeleteDraftValidationData();
   return useCommandMutation('deleteDraft', saveDeleteDraft, async (input) => {
     const state = await loadValidationData();

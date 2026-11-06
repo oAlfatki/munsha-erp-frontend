@@ -1,5 +1,6 @@
-import type { Entry } from '@/features/ledger/public/types/models/Entry';
-import type { Party } from '@/features/parties/public/types/models/Party';
+import type { Entry } from '@/features/ledger/public';
+import type { Party } from '@/features/parties/public';
+
 export interface BuildSupplierBalancesReportContext {
   entries: Entry[];
   parties: Party[];

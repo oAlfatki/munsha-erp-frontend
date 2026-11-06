@@ -1,14 +1,14 @@
-import type { CommandReceipt } from '@/core/types/CommandReceipt';
 import { apiClient } from '@/core/api/apiClient';
-import { ENDPOINTS } from '@/core/config/endpoints';
-import { requireCommandApi } from '@/core/api/require-api-mode';
-import type { CommandContext } from '@/core/types/CommandContext';
-import type { SaveMasterRequest } from '@/features/ledger/public/types/requests/SaveMasterRequest';
+import type { CommandContext } from '@/core/types/api/CommandContext';
+import type { CommandReceipt } from '@/core/types/api/CommandReceipt';
+import type { SaveMasterRequest } from '@/features/ledger/public';
+import { ENDPOINTS } from '@/features/master-data/api/endpoints';
+
 export const submitMaster = async (
   data: SaveMasterRequest,
   context: CommandContext,
 ): Promise<CommandReceipt> => {
-  requireCommandApi();
+
   return apiClient.post<CommandReceipt>(ENDPOINTS.command('accounting', 'master'), {
     ...context,
     type: 'master',

@@ -2,22 +2,26 @@ import { XIcon } from 'lucide-react';
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import * as React from 'react';
 
-import { cn } from '@/core/lib/utils';
+import { cn } from '@/shared/lib/classnames';
 import { Button } from '@/shared/ui/primitives/button';
 
 function Dialog({ ...props }: React.ComponentProps<typeof DialogPrimitive.Root>) {
+
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
 
 function DialogTrigger({ ...props }: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
+
   return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
 }
 
 function DialogPortal({ ...props }: React.ComponentProps<typeof DialogPrimitive.Portal>) {
+
   return <DialogPrimitive.Portal data-slot="dialog-portal" {...props} />;
 }
 
 function DialogClose({ ...props }: React.ComponentProps<typeof DialogPrimitive.Close>) {
+
   return <DialogPrimitive.Close data-slot="dialog-close" {...props} />;
 }
 
@@ -25,6 +29,7 @@ function DialogOverlay({
   className,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Overlay>) {
+
   return (
     <DialogPrimitive.Overlay
       data-slot="dialog-overlay"
@@ -45,6 +50,7 @@ function DialogContent({
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   showCloseButton?: boolean;
 }) {
+
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
@@ -72,6 +78,7 @@ function DialogContent({
 }
 
 function DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
+
   return (
     <div
       data-slot="dialog-header"
@@ -89,6 +96,7 @@ function DialogFooter({
 }: React.ComponentProps<'div'> & {
   showCloseButton?: boolean;
 }) {
+
   return (
     <div
       data-slot="dialog-footer"
@@ -106,6 +114,7 @@ function DialogFooter({
 }
 
 function DialogTitle({ className, ...props }: React.ComponentProps<typeof DialogPrimitive.Title>) {
+
   return (
     <DialogPrimitive.Title
       data-slot="dialog-title"
@@ -119,6 +128,7 @@ function DialogDescription({
   className,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Description>) {
+
   return (
     <DialogPrimitive.Description
       data-slot="dialog-description"

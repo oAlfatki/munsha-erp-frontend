@@ -1,5 +1,6 @@
-import { MasterScreen } from '@/features/master-data/public/MasterDataScreen';
-import type { MasterFormDefinition } from '@/features/master-data/public/types/MasterFormDefinition';
+import type { MasterFormDefinition } from '@/features/master-data/public';
+import { MasterScreen } from '@/features/master-data/public';
+
 const DEFINITION = {
   title: 'مجموعات العملاء والموردين',
   note: 'تعريف مجموعات وربطها ببطاقات العملاء والموردين، مع تصفية القوائم حسب المجموعة.',
@@ -29,8 +30,11 @@ const DEFINITION = {
     },
   ],
 } satisfies MasterFormDefinition;
+
 /** مجموعات العملاء والموردين — feature-owned route content. */
+
 export default function PartyGroupListPage() {
+
   return (
     <section className="screen-page">
       <MasterScreen screen={DEFINITION} />

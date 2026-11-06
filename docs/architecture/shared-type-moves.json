@@ -1,8 +1,0 @@
-{
-  "src/features/customers/types/responses/PartyResponse.ts": "src/features/parties/types/responses/PartyResponse.ts",
-  "src/features/customers/types/responses/PartyListResponse.ts": "src/features/parties/types/responses/PartyListResponse.ts",
-  "src/features/customers/types/responses/PartyGroupResponse.ts": "src/features/parties/types/responses/PartyGroupResponse.ts",
-  "src/features/customers/types/responses/PartyGroupListResponse.ts": "src/features/parties/types/responses/PartyGroupListResponse.ts",
-  "src/features/customers/types/requests/GetPartiesGroupsByIdRequest.ts": "src/features/parties/types/requests/GetPartiesGroupsByIdRequest.ts",
-  "src/features/customers/types/requests/SearchPartiesGroupsRequest.ts": "src/features/parties/types/requests/SearchPartiesGroupsRequest.ts"
-}

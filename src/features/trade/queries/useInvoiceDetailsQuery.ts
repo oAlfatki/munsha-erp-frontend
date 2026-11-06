@@ -1,20 +1,18 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
 import { useApplication } from '@/core/state/ApplicationProvider';
-import { booksQuery } from '@/features/ledger/public/books-query';
-import { cashQuery } from '@/features/ledger/public/cash-query';
-import { mapMasterRecords } from '@/features/ledger/public/master-records';
-import { companyQuery } from '@/features/organization/public/company-query';
-import { customersQuery } from '@/features/parties/public/customers-query';
-import { suppliersQuery } from '@/features/parties/public/suppliers-query';
-import { itemsQuery } from '@/features/stock/public/items-query';
-import { warehousesQuery } from '@/features/stock/public/warehouses-query';
-import { purchaseInvoicesQuery } from '@/features/trade/public/purchase-invoices-query';
-import { purchaseReturnsQuery } from '@/features/trade/public/purchase-returns-query';
-import { saleInvoicesQuery } from '@/features/trade/public/sale-invoices-query';
-import { saleReturnsQuery } from '@/features/trade/public/sale-returns-query';
+import { booksQuery, cashQuery, mapMasterRecords } from '@/features/ledger/public';
+import { companyQuery } from '@/features/organization/public';
+import { customersQuery, suppliersQuery } from '@/features/parties/public';
+import { itemsQuery, warehousesQuery } from '@/features/stock/public';
+import { purchaseInvoicesQuery } from '@/features/trade/queries/purchase-invoices-query';
+import { purchaseReturnsQuery } from '@/features/trade/queries/purchase-returns-query';
+import { saleInvoicesQuery } from '@/features/trade/queries/sale-invoices-query';
+import { saleReturnsQuery } from '@/features/trade/queries/sale-returns-query';
 import type { InvoiceDetailsReadModel } from '@/features/trade/types/read-models/InvoiceDetailsReadModel';
 import { useSuspenseQueries, useSuspenseQuery } from '@tanstack/react-query';
+
 export function useInvoiceDetailsQuery() {
+
   const app = useApplication(),
     identity = useQueryIdentity();
   const { data: books } = useSuspenseQuery(booksQuery(identity));

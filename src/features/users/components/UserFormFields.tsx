@@ -1,45 +1,39 @@
-import type { UserFormFieldsProps } from '@/features/users/types/UserFormFieldsProps';
+import type { UserFormValues } from '@/features/users/types/UserFormValues';
 import { Field } from '@/shared/ui/forms/Field';
-import { Select } from '@/shared/ui/forms/Select';
 import { Input } from '@/shared/ui/primitives/input';
-export function UserFormFields({ form, isEditing }: UserFormFieldsProps) {
+import type { UseFormReturn } from 'react-hook-form';
+
+export function UserFormFields({
+  form,
+  isEditing,
+}: {
+  form: UseFormReturn<UserFormValues>;
+  isEditing: boolean;
+}) {
+
   return (
     <div className="form-grid">
       <Field label="الاسم الكامل *">
-        <Input {...form.register('name')} />
+        <Input {...form.register('fullName')} />
       </Field>
-      <Field label="اسم الدخول *">
-        <Input dir="ltr" autoComplete="off" readOnly={isEditing} {...form.register('username')} />
-      </Field>
-      <Field label="الصلاحية">
-        <Select {...form.register('role')}>
-          <option value="admin">مسؤول النظام</option>
-          <option value="staff">مستخدم عمليات</option>
-          <option value="viewer">مشاهدة فقط</option>
-        </Select>
+      <Field label="اسم المستخدم *">
+        <Input dir="ltr" autoComplete="off" {...form.register('username')} />
       </Field>
       {!isEditing && (
-        <Field label="كلمة المرور المؤقتة *">
-          <Input
-            type="password"
-            autoComplete="new-password"
-            minLength={10}
-            maxLength={128}
-            {...form.register('password')}
-          />
+        <Field label="كلمة المرور *">
+          <Input type="password" autoComplete="new-password" {...form.register('password')} />
         </Field>
       )}
-      {isEditing && (
-        <label className="check-label">
-          <input type="checkbox" {...form.register('active')} />
-          حساب نشط
-        </label>
-      )}
-      {Object.entries(form.formState.errors).map(([key, error]) => (
-        <p role="alert" className="field-error" key={key}>
-          {error.message}
-        </p>
-      ))}
+      <Field label="الفرع">
+        <Input value={form.getValues('branchId')} readOnly aria-label="الفرع المسموح" />
+      </Field>
+      {Object.entries(form.formState.errors)
+        .filter(([key]) => key !== 'root')
+        .map(([key, e]) => (
+          <p role="alert" key={key}>
+            {e.message || 'راجع البيانات'}
+          </p>
+        ))}
     </div>
   );
 }

@@ -1,14 +1,17 @@
 import { useQueryIdentity } from '@/core/hooks/useQueryIdentity';
-import { automaticBackup } from '@/features/organization/public/backup-files';
-import { backupPolicy } from '@/features/organization/public/backup-policy';
-import { backupPolicyQuery } from '@/features/organization/public/backup-policy-query';
-import { requestExitBackup } from '@/features/organization/public/backups';
-import type { AutomaticBackupsProps } from '@/features/settings/types/AutomaticBackupsProps';
+import {
+  automaticBackup,
+  backupPolicy,
+  backupPolicyQuery,
+  requestExitBackup,
+} from '@/features/organization/public';
+import type { AutomaticBackupsProps } from '@/features/settings/types/props/AutomaticBackupsProps';
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { toast } from 'sonner';
 
 export function AutomaticBackups({ isEnabled: isEnabled }: AutomaticBackupsProps) {
+
   const identity = useQueryIdentity();
   const { data: backupSettings } = useSuspenseQuery(backupPolicyQuery(identity));
   const s = { backupSettings };
@@ -17,7 +20,9 @@ export function AutomaticBackups({ isEnabled: isEnabled }: AutomaticBackupsProps
     if (!isEnabled || mode === 'off') return;
     let isRunning = false,
       lastError = '';
+
     const tick = async () => {
+
       if (isRunning || mode === 'exit') return;
       isRunning = true;
       try {
@@ -37,9 +42,12 @@ export function AutomaticBackups({ isEnabled: isEnabled }: AutomaticBackupsProps
         isRunning = false;
       }
     };
+
     const exit = () => {
+
       if (mode === 'exit') requestExitBackup();
     };
+
     tick();
     const timer = window.setInterval(tick, 60000);
     window.addEventListener('pagehide', exit);

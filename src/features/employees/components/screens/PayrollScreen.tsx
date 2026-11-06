@@ -1,9 +1,8 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { fmt, today } from '@/core/utils/formatters';
-import { useOperation } from '@/features/accounting/public/useOperation';
+import { useOperation } from '@/features/accounting/public';
 import { usePayrollScreenQuery } from '@/features/employees/queries/usePayrollScreenQuery';
-import { operationSchema } from '@/features/ledger/public/accounting-schema';
-import { extras } from '@/features/ledger/public/extensions';
+import { extras, operationSchema } from '@/features/ledger/public';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { Modal } from '@/shared/ui/dialogs/Modal';
 import { Pill } from '@/shared/ui/display/Pill';
 import { Field } from '@/shared/ui/forms/Field';
@@ -15,7 +14,9 @@ import { Input } from '@/shared/ui/primitives/input';
 import { DataTable } from '@/shared/ui/tables/DataTable';
 import { CheckCheck, Save, Undo2 } from 'lucide-react';
 import { useState } from 'react';
+
 export function PayrollScreen() {
+
   const screen = {
     id: 'payroll',
     module: 'employees',
@@ -25,7 +26,7 @@ export function PayrollScreen() {
     operation: 'payroll',
     note: 'إثبات راتب واحد للموظف والفترة بالعملة الأساسية؛ المبلغ الصافي معتمد يدويًا. يمنع الإثبات مرتين.',
   };
-  const { state: s, branchId, busy: isBusy } = usePayrollScreenQuery();
+  const { state, branchId, busy: isBusy } = usePayrollScreenQuery();
   const operationMutationRequest = useOperation();
   const operationForm = useValidatedForm(operationSchema, operationMutationRequest.execute);
   const operationMutation = { ...operationMutationRequest, execute: operationForm.submit };
@@ -37,16 +38,16 @@ export function PayrollScreen() {
   const [source, setSource] = useState('');
   const [note, setNote] = useState('');
   const [isConfirm, setConfirm] = useState(false);
-  if (!s) return null;
-  const x = extras(s);
+  if (!state) return null;
+  const x = extras(state);
   const sources = x.operations.filter(
     (o) => o.kind === 'count' && o.branchId === branchId && !o.paid && true,
   );
   const sourceDoc = sources.find((o) => o.id === source);
-  const options = s.employees
+  const options = state.employees
     .filter((employee) => employee.branchId === branchId && employee.active)
     .map((employee) => [employee.id, employee.name]);
-  const chosenEmployee = s.employees.find((employee) => employee.id === subject);
+  const chosenEmployee = state.employees.find((employee) => employee.id === subject);
   const actualAmount = Number(amount || 0);
   const payload = {
     kind: 'payroll',
@@ -91,7 +92,8 @@ export function PayrollScreen() {
                   setSubject(e.target.value);
                   setAmount(
                     String(
-                      s.employees.find((employee) => employee.id === e.target.value)?.salary || 0,
+                      state.employees.find((employee) => employee.id === e.target.value)?.salary ||
+                        0,
                     ),
                   );
                 }}
@@ -134,7 +136,7 @@ export function PayrollScreen() {
           }
           <Field label="الفرع">
             <div className="input-readonly">
-              {s.branches.find((branch) => branch.id === branchId)?.name}
+              {state.branches.find((branch) => branch.id === branchId)?.name}
             </div>
           </Field>
           <Field label="البيان / سبب العملية *">

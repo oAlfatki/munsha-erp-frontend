@@ -1,16 +1,17 @@
-import { useValidatedForm } from '@/core/hooks/useValidatedForm';
 import { today } from '@/core/utils/formatters';
-import { extras } from '@/features/ledger/public/extensions';
-import type { MasterRecord } from '@/features/ledger/public/types/models/MasterRecord';
-import { masterSchema } from '@/features/master-data/public/master-schema';
-import { useMaster } from '@/features/master-data/public/useMaster';
+import type { MasterRecord } from '@/features/ledger/public';
+import { extras } from '@/features/ledger/public';
+import { useMaster } from '@/features/master-data/hooks/useMaster';
 import { useMasterScreenControllerQuery } from '@/features/master-data/queries/useMasterScreenControllerQuery';
-import type { MasterScreenProps } from '@/features/master-data/types/MasterScreenProps';
+import type { MasterScreenProps } from '@/features/master-data/types/props/MasterScreenProps';
+import { masterSchema } from '@/features/master-data/validations/master-schema';
+import { useValidatedForm } from '@/shared/hooks/useValidatedForm';
 import { useState } from 'react';
 
 export function useMasterScreenController({ screen }: MasterScreenProps) {
+
   const {
-    state: s,
+    state,
     busy: isBusy,
     branchId,
     navigate,
@@ -30,11 +31,13 @@ export function useMasterScreenController({ screen }: MasterScreenProps) {
         : null,
     ),
     [isActive, setActive] = useState(true);
-  if (!s) return null;
-  const list = (extras(s).records[screen.collection!] || []).filter(
+  if (!state) return null;
+  const list = (extras(state).records[screen.collection!] || []).filter(
     (r) => screen.collection !== 'cash' || r.branchId === branchId,
   );
+
   const open = (r?: MasterRecord) => {
+
     setEdit(
       r
         ? Object.fromEntries(Object.entries(r).map(([k, v]) => [k, String(v)]))
@@ -55,9 +58,10 @@ export function useMasterScreenController({ screen }: MasterScreenProps) {
     );
     setActive(r?.active ?? true);
   };
+
   const fields = screen.fields || [];
   return {
-    s,
+    s: state,
     isBusy,
     navigate,
     masterMutation,

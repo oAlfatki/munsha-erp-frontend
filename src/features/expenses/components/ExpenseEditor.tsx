@@ -2,17 +2,19 @@ import { ROUTES } from '@/core/config/navigation-paths';
 import { fmt } from '@/core/utils/formatters';
 import { money } from '@/core/utils/money';
 import { expenseForeignPaid } from '@/features/expenses/services/models/expenses';
-import type { ExpenseEditorProps } from '@/features/expenses/types/ExpenseEditorProps';
+import type { ExpenseEditorProps } from '@/features/expenses/types/props/ExpenseEditorProps';
 import { LABELS } from '@/features/expenses/utils/treatments';
-import { cashOptions } from '@/features/ledger/public/cash';
-import type { ExpenseTreatment } from '@/features/ledger/public/types/models/ExpenseTreatment';
+import type { ExpenseTreatment } from '@/features/ledger/public';
+import { cashOptions } from '@/features/ledger/public';
 import { Field } from '@/shared/ui/forms/Field';
 import { Select } from '@/shared/ui/forms/Select';
 import { Form as ValidatedForm } from '@/shared/ui/forms/ValidatedForm';
 import { PageHead } from '@/shared/ui/layout/PageHead';
 import { Button } from '@/shared/ui/primitives/button';
 import { Input } from '@/shared/ui/primitives/input';
+
 export function ExpenseEditor({ controller }: ExpenseEditorProps) {
+
   const {
     s: workspace,
     send,
