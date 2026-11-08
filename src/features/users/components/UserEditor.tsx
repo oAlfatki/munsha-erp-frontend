@@ -2,24 +2,16 @@ import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { useUserEditor } from '@/features/users/hooks/useUserEditor';
 import { fetchPermissionCatalog } from '@/features/users/services/permission-catalog';
-import type { UserDetails } from '@/features/users/types/UserDetails';
+import type { UserEditorProps } from '@/features/users/types/props/UserEditorProps';
 import { Button } from '@/shared/ui/primitives/button';
 import { useQuery } from '@tanstack/react-query';
-import { PermissionMatrix } from './PermissionMatrix';
+import { PermissionAssignmentEditor } from '@/features/users/components/roles/PermissionAssignmentEditor';
+import type { PermissionAssignmentDraft } from '@/features/users/types/PermissionAssignmentDraft';
 import { UserFormFields } from './UserFormFields';
 
-export function UserEditor({
-  user,
-  onSaved,
-  onCancel,
-}: {
-  user?: UserDetails;
-  onSaved: () => void;
-  onCancel: () => void;
-}) {
+export function UserEditor({ user, onSaved, onCancel }: UserEditorProps) {
 
-  const auth = useAuth(),
-    editor = useUserEditor(user, onSaved);
+  const auth = useAuth();
   const catalog = useQuery({
     queryKey: ['permissions', 'catalog', auth.user?.userId],
 
@@ -28,17 +20,48 @@ export function UserEditor({
     enabled: !user,
     retry: false,
   });
-  const permissions = editor.form.watch('permissions');
+  const editor = useUserEditor(user, onSaved, catalog.data);
+  const values = editor.form.watch();
+  const assignment: PermissionAssignmentDraft =
+    values.assignmentMode === 'role'
+      ? {
+          mode: 'role',
+          role: values.role || null,
+          additionalPermissions: values.additionalPermissions || [],
+          excludedPermissions: values.excludedPermissions || [],
+        }
+      : { mode: 'direct', permissions: values.permissions };
+
+  const changeAssignment = (value: PermissionAssignmentDraft) => {
+
+    editor.form.setValue('assignmentMode', value.mode);
+    if (value.mode === 'direct') editor.form.setValue('permissions', value.permissions);
+    else {
+      editor.form.setValue('role', value.role || undefined);
+      editor.form.setValue('additionalPermissions', value.additionalPermissions);
+      editor.form.setValue('excludedPermissions', value.excludedPermissions);
+    }
+    void editor.form.trigger([
+      'permissions',
+      'role',
+      'assignmentMode',
+      'additionalPermissions',
+      'excludedPermissions',
+    ]);
+  };
+
   return (
     <form onSubmit={editor.submit} noValidate>
       <UserFormFields form={editor.form} isEditing={!!user} />
       {!user &&
         (catalog.data ? (
-          <PermissionMatrix
+          <PermissionAssignmentEditor
             catalog={catalog.data}
-            value={permissions}
+            value={assignment}
             allowed={auth.user?.permissions || []}
-            onChange={(v) => editor.form.setValue('permissions', v, { shouldValidate: true })}
+            onChange={changeAssignment}
+            canAssignRole={auth.canFeature('USERS', 'ROLES', 'USERS_ROLES_ASSIGN')}
+            isReadOnly={editor.isPending || editor.form.formState.isSubmitting}
           />
         ) : (
           <p role={catalog.error ? 'alert' : 'status'}>

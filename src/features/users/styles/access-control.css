@@ -1,0 +1,56 @@
+.access-matrix,
+.access-assignment,
+.access-overrides {
+  display: grid;
+  gap: 16px;
+  margin-block: 20px;
+}
+.access-module {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--card);
+}
+.access-module > legend {
+  padding-inline: 8px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.access-feature {
+  min-width: 0;
+  border: 0;
+  border-inline-start: 3px solid var(--border);
+  padding: 8px 14px;
+  margin-block: 10px;
+}
+.access-feature > legend {
+  font-weight: 600;
+  padding-inline: 6px;
+}
+.access-feature .check-label {
+  display: inline-flex;
+  margin: 6px 0 6px 20px;
+}
+.access-source {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--muted);
+}
+.access-source > legend {
+  padding-inline: 8px;
+  font-weight: 700;
+}
+.access-overrides .access-feature {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 14px;
+}
+.role-editor > .field {
+  max-width: 640px;
+  margin-block: 14px;
+}

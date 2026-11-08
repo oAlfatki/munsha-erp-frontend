@@ -1,15 +1,8 @@
-import type { UserFormValues } from '@/features/users/types/UserFormValues';
+import type { UserFormFieldsProps } from '@/features/users/types/props/UserFormFieldsProps';
 import { Field } from '@/shared/ui/forms/Field';
 import { Input } from '@/shared/ui/primitives/input';
-import type { UseFormReturn } from 'react-hook-form';
 
-export function UserFormFields({
-  form,
-  isEditing,
-}: {
-  form: UseFormReturn<UserFormValues>;
-  isEditing: boolean;
-}) {
+export function UserFormFields({ form, isEditing }: UserFormFieldsProps) {
 
   return (
     <div className="form-grid">

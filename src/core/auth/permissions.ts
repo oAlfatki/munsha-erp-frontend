@@ -5,6 +5,7 @@ export function canPerform(
   module: string,
   action: string,
   branchId?: string,
+  feature?: string,
 ) {
 
   return (
@@ -12,6 +13,7 @@ export function canPerform(
     access.grants.some(
       (grant) =>
         grant.module === module &&
+        (feature === undefined || grant.feature === feature) &&
         grant.action === action &&
         grant.branchIds.length > 0 &&
         (!branchId || grant.branchIds.includes(branchId)),

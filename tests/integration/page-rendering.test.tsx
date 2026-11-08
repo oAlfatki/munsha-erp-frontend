@@ -25,6 +25,9 @@ vi.mock('@/core/auth/AuthProvider', () => ({
 
     can: () => true,
 
+    // This historical screen fixture has no role-capable hierarchical catalog.
+    canFeature: () => false,
+
     logout: async () => {},
 
     refreshIdentity: async () => {},

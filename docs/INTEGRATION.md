@@ -25,3 +25,7 @@ Auth and Users have adopted contracts and fixture-based coverage, including erro
 The rest of ERP contains substantial UI, read projections, validation and calculations, but write-contract/permission adoption is incomplete. It is not accurate to label the entire ERP ready for backend connection or production simply because the frontend build and fixtures pass. Neither a former runtime engine nor legacy test identities should be reintroduced to fill that gap.
 
 Superseded generated documents and old contract snapshots were removed from the active tree. Their history remains in Git. The current documentation describes the current frontend; the historical financial oracle is explicitly isolated under tests.
+
+## Approved Roles extension
+
+The Users feature now implements role management, Module → Feature → Actions catalog metadata and per-user additions/exclusions against a new [frontend contract proposal](access/ROLES_CONTRACT.md). No Roles backend is supplied. The server must explicitly advertise support, implement scoped/concurrency-protected role and user-authorization resources, resolve effective masks and invalidate affected sessions. Existing servers keep their direct-permission payloads and do not receive speculative role requests.

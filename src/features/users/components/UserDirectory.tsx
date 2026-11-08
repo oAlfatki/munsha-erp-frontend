@@ -1,3 +1,4 @@
+import { Pagination } from '@/shared/ui/navigation/Pagination';
 import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { ROUTES } from '@/core/config/navigation-paths';
@@ -31,9 +32,16 @@ export function UserDirectory() {
         title="المستخدمون"
         description="حسابات المستخدمين وصلاحياتها حسب الفرع."
         extra={
-          auth.can('USERS', 'USERS_CREATE') ? (
-            <Button onClick={() => navigate(ROUTES.USERS_NEW)}>إضافة مستخدم</Button>
-          ) : undefined
+          <>
+            {auth.canFeature('USERS', 'ROLES', 'USERS_ROLES_VIEW') && (
+              <Button variant="outline" onClick={() => navigate(ROUTES.USERS_ROLES)}>
+                الأدوار
+              </Button>
+            )}
+            {auth.can('USERS', 'USERS_CREATE') && (
+              <Button onClick={() => navigate(ROUTES.USERS_NEW)}>إضافة مستخدم</Button>
+            )}
+          </>
         }
       />
       {!auth.can('USERS', 'USERS_VIEW') ? (
@@ -116,20 +124,13 @@ export function UserDirectory() {
                 </table>
                 {!query.data?.items.length && <p>لا توجد نتائج.</p>}
               </div>
-              <div className="dialog-actions">
-                <Button disabled={page <= 1} onClick={() => setPage((p) => p - 1)}>
-                  السابق
-                </Button>
-                <span>
-                  الصفحة {page} — {query.data?.totalCount || 0} مستخدم
-                </span>
-                <Button
-                  disabled={!query.data || page * query.data.pageSize >= query.data.totalCount}
-                  onClick={() => setPage((p) => p + 1)}
-                >
-                  اللاحق
-                </Button>
-              </div>
+              <Pagination
+                page={page}
+                onPageChange={setPage}
+                hasNext={!!query.data && page * query.data.pageSize < query.data.totalCount}
+              >
+                الصفحة {page} — {query.data?.totalCount || 0} مستخدم
+              </Pagination>
             </>
           )}
         </>

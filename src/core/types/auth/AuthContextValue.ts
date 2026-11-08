@@ -14,5 +14,6 @@ export interface AuthContextValue {
   logout: () => Promise<void>;
   refreshIdentity: () => Promise<void>;
   retry: () => void;
+  canFeature: (module: string, feature: string, action: string, branchId?: string) => boolean;
   can: (module: string, code: string, branchId?: string) => boolean;
 }

@@ -2,5 +2,6 @@
 export interface AccessGrant {
   module: string;
   action: string;
+  feature?: string;
   branchIds: string[];
 }

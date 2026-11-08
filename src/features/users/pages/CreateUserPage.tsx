@@ -10,7 +10,10 @@ export default function CreateUserPage() {
     navigate = useNavigate();
   return (
     <>
-      <PageHead title="إضافة مستخدم" description="حساب دخول بكلمة مرور عادية وصلاحيات مباشرة." />
+      <PageHead
+        title="إضافة مستخدم"
+        description="حساب دخول بصلاحيات مباشرة أو دور مع إضافات واستثناءات خاصة بالمستخدم."
+      />
       {auth.can('USERS', 'USERS_CREATE') ? (
         <UserEditor
           onSaved={() => navigate(ROUTES.USERS)}

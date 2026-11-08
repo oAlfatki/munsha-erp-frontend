@@ -18,7 +18,7 @@ Set `VITE_API_BASE_URL` to the real API root, including `/api/v1`. Every `VITE_`
 
 This repository is a frontend, not a complete deployed ERP. Auth and Users implement the adopted sign-in, session, permission-catalog, and user-management contracts. Their browser tests use HTTP fixtures, not a live backend.
 
-Other ERP features still contain command endpoints whose permission bindings have not been confirmed. Unknown command permissions fail closed. Do not grant invented roles or enable writes merely to make a screen appear functional. Safe user editing also requires the backend to supply a usable `rowVersion` in its detail response.
+Other ERP features still contain command endpoints whose permission bindings have not been confirmed. Unknown command permissions fail closed. Do not grant implicit access or enable writes merely to make a screen appear functional. Custom roles, hierarchical permission metadata and per-user overrides follow the new [Roles contract](docs/access/ROLES_CONTRACT.md); backend capability negotiation keeps older servers on direct permissions. Safe user editing also requires the backend to supply a usable `rowVersion` in its detail response.
 
 See [integration readiness](docs/INTEGRATION.md) for the decisions required before connecting each feature. The supplied OpenAPI document is design evidence; it does not override confirmed behavior or prove server implementation.
 
@@ -67,3 +67,5 @@ npm run test:e2e
 Start with its `pages`, follow its hooks and queries, then inspect its `api/endpoints.ts`, request/response types, and validations. Import another feature only through its `public/index.ts`. Keep backend paths and wire formats stable unless an API change is explicitly approved.
 
 Separate product changes from test maintenance: first define the intended behavior and why it changes, then update contract expectations deliberately. A refactor must preserve existing behavioral fixtures. See [test guidance](tests/README.md), [security boundaries](docs/SECURITY.md), and the [project review](docs/review/README.md).
+
+The [incremental Erpify migration sequence](docs/INCREMENTAL_MIGRATION.md) records the order for transferring the verified source features in reviewable batches.

@@ -1,3 +1,5 @@
+import { permissionMasksSchema } from '@/features/users/validations/permission-mask-schema';
+import { permissionAssignmentSchema, roleSchema } from '@/features/users/validations/roles-schema';
 import { z } from 'zod';
 
 export const userFormSchema = z
@@ -15,16 +17,42 @@ export const userFormSchema = z
       .max(100, 'اسم المستخدم يتجاوز 100 حرف'),
     password: z.string(),
     branchId: z.number().int().positive('اختر الفرع'),
-    permissions: z.array(
-      z.object({ moduleCode: z.string().min(1), mask: z.string().regex(/^(0|[1-9][0-9]*)$/) }),
-    ),
+    permissions: permissionMasksSchema,
+    assignmentMode: z.enum(['direct', 'role']).optional(),
+    role: roleSchema.optional(),
+    additionalPermissions: permissionMasksSchema.optional(),
+    excludedPermissions: permissionMasksSchema.optional(),
     rowVersion: z.string().optional(),
   })
   .superRefine((v, ctx) => {
     if (!v.id) {
       if (!v.password)
         ctx.addIssue({ code: 'custom', path: ['password'], message: 'كلمة المرور مطلوبة' });
-      if (!v.permissions.some((p) => BigInt(p.mask) > 0n))
+      if (v.assignmentMode === 'role') {
+        const assignment = permissionAssignmentSchema.safeParse({
+          mode: 'role',
+          role: v.role,
+          additionalPermissions: v.additionalPermissions || [],
+          excludedPermissions: v.excludedPermissions || [],
+        });
+        if (!assignment.success)
+          ctx.addIssue({
+            code: 'custom',
+            path: ['role'],
+            message: 'اختر دورًا صحيحًا وراجع الاستثناءات.',
+          });
+        if (v.role && v.role.branchId !== v.branchId)
+          ctx.addIssue({
+            code: 'custom',
+            path: ['role'],
+            message: 'الدور خارج نطاق الفرع المسموح.',
+          });
+      }
+      if (
+        v.assignmentMode !== 'role' &&
+        permissionMasksSchema.safeParse(v.permissions).success &&
+        !v.permissions.some((p) => BigInt(p.mask) > 0n)
+      )
         ctx.addIssue({
           code: 'custom',
           path: ['permissions'],

@@ -3,6 +3,34 @@ import type { RouteObject } from 'react-router-dom';
 
 export const USERS_ROUTES: RouteObject[] = [
   {
+    path: ROUTES.USERS_ROLES,
+
+    lazy: async () => ({
+      Component: (await import('@/features/users/pages/RoleListPage')).default,
+    }),
+
+    handle: { module: 'users', title: 'الأدوار', navModule: 'access' },
+  },
+  {
+    path: ROUTES.USERS_ROLES_NEW,
+
+    lazy: async () => ({
+      Component: (await import('@/features/users/pages/CreateRolePage')).default,
+    }),
+
+    handle: { module: 'users', title: 'إضافة دور', navModule: 'access' },
+  },
+  {
+    path: ROUTES.USERS_ROLES_ID_EDIT,
+
+    lazy: async () => ({
+      Component: (await import('@/features/users/pages/EditRolePage')).default,
+    }),
+
+    handle: { module: 'users', title: 'تعديل الدور', navModule: 'access' },
+  },
+
+  {
     path: ROUTES.USERS_ID,
 
     lazy: async () => ({

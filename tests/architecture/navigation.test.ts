@@ -11,17 +11,20 @@ describe('central routes preserve original destinations', () => {
       ...new Set(previous.routes.map((route) => aliases[route.path] || route.path)),
       '/users/:id/edit',
       '/users/:id',
+      '/users/roles',
+      '/users/roles/new',
+      '/users/roles/:id/edit',
     ].sort();
     expect(APP_ROUTES.map((route) => route.path).sort()).toEqual(expected);
     for (const alias of Object.keys(aliases))
       expect(APP_ROUTES.some((route) => route.path === alias)).toBe(false);
   });
-  it('preserves all 111 menu links and 108 destinations', () => {
+  it('preserves original menu links and adds the two approved role destinations', () => {
     const paths = Object.values(MENU_ITEMS)
       .flatMap(menuLeaves)
       .map((item) => item.target!);
-    expect(paths).toHaveLength(111);
-    expect(new Set(paths).size).toBe(108);
+    expect(paths).toHaveLength(113);
+    expect(new Set(paths).size).toBe(110);
     for (const path of paths)
       expect(
         APP_ROUTES.some((route) => route.path === path),

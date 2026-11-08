@@ -1,5 +1,8 @@
 /** Canonical UI paths; no aliases, screen dispatch or API URLs. */
 export const ROUTES = {
+  USERS_ROLES: '/users/roles',
+  USERS_ROLES_NEW: '/users/roles/new',
+  USERS_ROLES_ID_EDIT: '/users/roles/:id/edit',
   USERS_ID: '/users/:id',
   ACCOUNTING: '/accounting',
   ACCOUNTING_VOUCHERS_PAYMENT_NEW: '/accounting/vouchers/payment/new',

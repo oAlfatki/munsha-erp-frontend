@@ -45,10 +45,14 @@ The vendored shadcn CSS is active source, not an unused package. Keep its MIT li
 
 Use `npm run format`, followed by `npm run format:check` and ESLint. The formatter combines Prettier layout with checked blank lines after imports, inside named function bodies, and around named function declarations. Inline callbacks remain compact. Semantic lint directives are preserved. The archived financial oracle is intentionally byte-frozen and is the only historical source excluded from reformatting.
 
-Global providers, feature runtime code, and historical test fixtures have distinct responsibilities. Never restore legacy roles, runtime demo data, or a workspace-wide ERP engine merely to satisfy an old fixture.
+Global providers, feature runtime code, and historical test fixtures have distinct responsibilities. Custom role entities now follow the approved hierarchical permission model and the new Roles contract. Never restore retired hardcoded role enums, runtime demo data, or a workspace-wide ERP engine merely to satisfy an old fixture.
 
 ## Retired surface and test authority
 
 Static reachability includes imports, literal lazy route imports, type references and public exports. Ninety-two private files with no production path were retired, including parallel report implementations, unused API adapters/DTOs and unbound filter schemas. `check:reachability` prevents orphan implementation files from returning. Public exports can still represent an intentional public surface; reachability is not a claim that every export is used.
 
 Tests no longer call the unused generic party adapter to simulate coverage: they exercise the real customer service. Report contracts now cover 126 branch/filter scenarios across all 21 live three-argument report builders, captured from the pre-review source. Unreachable report implementations and their expectations were removed together; surviving DTO field expectations were retained unchanged.
+
+## Role-based user authorization
+
+Users owns role records, role queries and forms, direct/role assignment, overrides and the hierarchical catalog adapter. Auth infrastructure consumes only server-resolved effective masks. Stable operation-code checks remain compatible; feature-specific checks can require the exact catalog feature. The new [contract proposal](access/ROLES_CONTRACT.md) distinguishes supported-server behavior from legacy direct-only compatibility and pending backend implementation.

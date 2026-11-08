@@ -1,3 +1,4 @@
+import { Pagination } from '@/shared/ui/navigation/Pagination';
 import { errorMessage } from '@/core/api/error-message';
 import { useAuth } from '@/core/auth/AuthProvider';
 import { usersApi } from '@/features/users/api/users-api';
@@ -126,16 +127,11 @@ export function UserAuditReport() {
                 </tbody>
               </table>
               {!query.data?.items.length && <p>لا توجد أنشطة مطابقة.</p>}
-              <Button disabled={page === 1} onClick={() => setPage((p) => p - 1)}>
-                السابق
-              </Button>
-              <span>الصفحة {page}</span>
-              <Button
-                disabled={!query.data || page * 20 >= query.data.totalCount}
-                onClick={() => setPage((p) => p + 1)}
-              >
-                اللاحق
-              </Button>
+              <Pagination
+                page={page}
+                onPageChange={setPage}
+                hasNext={!!query.data && page * 20 < query.data.totalCount}
+              />
             </>
           )}
           <div className="dialog-actions">

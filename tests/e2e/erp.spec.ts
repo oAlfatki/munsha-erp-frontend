@@ -62,7 +62,7 @@ test('supports theme changes and remembers the selected theme', async ({ page })
   await expect(page.locator('html')).toHaveClass(/dark/);
 });
 
-test('all 108 navigation destinations load without runtime exceptions', async ({ page }) => {
+test('all 110 navigation destinations load without runtime exceptions', async ({ page }) => {
   test.setTimeout(240000);
   await installTestBackend(page);
   const errors: string[] = [];
@@ -87,7 +87,7 @@ test('all 108 navigation destinations load without runtime exceptions', async ({
       ),
     ),
   ];
-  expect(targets).toHaveLength(108);
+  expect(targets).toHaveLength(110);
   for (const target of targets) {
     await page.goto(target);
     await expect(page.locator('.app-shell'), target).toBeVisible();

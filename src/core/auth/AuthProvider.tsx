@@ -148,6 +148,9 @@ export function AuthProvider({
           void session.refetch();
         },
 
+        canFeature: (module, feature, code, branchId) =>
+          !!user && canPerform(accessQuery.data, module, code, branchId ?? user.branchId, feature),
+
         can: (module, code, branchId) =>
           !!user && canPerform(accessQuery.data, module, code, branchId ?? user.branchId),
       }}

@@ -1,3 +1,13 @@
+import { ApiError } from '@/core/api/apiError';
+import type { CreateRoleUserRequest } from '@/features/users/types/CreateRoleUserRequest';
+import type { SaveUserAuthorizationRequest } from '@/features/users/types/SaveUserAuthorizationRequest';
+import type { UserAuthorization } from '@/features/users/types/UserAuthorization';
+import {
+  createRoleUserSchema,
+  saveUserAuthorizationSchema,
+  userAuthorizationSchema,
+  roleUserResponseSchema,
+} from '@/features/users/validations/roles-schema';
 import { apiClient } from '@/core/api/apiClient';
 import type { AuditFilters } from '@/features/users/types/AuditFilters';
 import type { AuditLogsPage } from '@/features/users/types/AuditLogsPage';
@@ -18,6 +28,42 @@ const path = (id: number) => {
 };
 
 export const usersApi = {
+  createWithRole: async (input: CreateRoleUserRequest): Promise<CreateUserResponse> => {
+
+    const response = roleUserResponseSchema.parse(
+      await apiClient.post<unknown>('/users', createRoleUserSchema.parse(input)),
+    );
+    if (response.branchId !== input.branchId)
+      throw new ApiError({ detail: 'استجابة المستخدم خارج نطاق الفرع المسموح.' }, 403);
+    return response;
+  },
+
+  authorization: async (id: number, signal?: AbortSignal): Promise<UserAuthorization> => {
+
+    const response = userAuthorizationSchema.parse(
+      await apiClient.get<unknown>(path(id) + '/authorization', { signal }),
+    );
+    if (response.userId !== id)
+      throw new ApiError({ detail: 'استجابة صلاحيات المستخدم غير متسقة.' }, 403);
+    return response;
+  },
+
+  saveAuthorization: async (
+    id: number,
+    input: SaveUserAuthorizationRequest,
+  ): Promise<UserAuthorization> => {
+
+    const response = userAuthorizationSchema.parse(
+      await apiClient.put<unknown>(
+        path(id) + '/authorization',
+        saveUserAuthorizationSchema.parse(input),
+      ),
+    );
+    if (response.userId !== id)
+      throw new ApiError({ detail: 'استجابة صلاحيات المستخدم غير متسقة.' }, 403);
+    return response;
+  },
+
   sessions: (id: number, page: number, signal?: AbortSignal) =>
     apiClient.get<UserSessionsPage>(path(id) + '/sessions', {
       params: { page, pageSize: 20 },

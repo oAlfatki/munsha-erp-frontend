@@ -23,3 +23,7 @@ The server must enforce authentication, branch/action authorization, CSRF or tru
 The frontend cannot manufacture these controls or prove them through intercepted HTTP tests. The current repository contains neither the production backend nor a verified deployment configuration. A dependency audit and source-pattern review are not a penetration-test certificate.
 
 Keep backup files and exported reports under the deployment's data-handling policy; they may contain financial and personal data. Never add real customer records or credentials to fixtures.
+
+## Role delegation and overrides
+
+Role names never grant access. Server-resolved effective masks remain authoritative, and explicit user exclusions override inherited role bits. New role and assignment controls require real catalog grants; missing capability/permission data fails closed. UI delegation guards reject cross-branch roles, unknown bits, unsigned overflow and permission escalation. The backend must enforce the same constraints atomically, protect user/role versions and revoke or refresh affected session permission stamps. See the [Roles contract](access/ROLES_CONTRACT.md); browser fixtures do not establish backend security.

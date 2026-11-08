@@ -30,6 +30,7 @@ export async function readAccess(user: Identity, signal?: AbortSignal): Promise<
         grants.push({
           module: module.moduleCode,
           action: definition.code,
+          feature: definition.featureCode,
           branchIds: [user.branchId],
         });
     }

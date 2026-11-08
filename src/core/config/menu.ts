@@ -4,6 +4,8 @@ import type { MenuItem } from '@/core/types/navigation/MenuItem';
 export const MENU_ITEMS: Record<string, MenuItem[]> = {
   dashboard: [],
   access: [
+    { id: ROUTES.USERS_ROLES, label: 'الأدوار', target: ROUTES.USERS_ROLES },
+    { id: ROUTES.USERS_ROLES_NEW, label: 'إضافة دور', target: ROUTES.USERS_ROLES_NEW },
     {
       id: ROUTES.USERS_NEW,
       label: 'إضافة مستخدم',
